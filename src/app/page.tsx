@@ -1,232 +1,325 @@
 'use client'
-import { useEffect, useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
-// 타이핑 애니메이션 훅
-function useTypewriter(words: string[], speed = 80, pause = 1800) {
-  const [display, setDisplay] = useState('')
-  const [wordIdx, setWordIdx] = useState(0)
-  const [isDeleting, setIsDeleting] = useState(false)
+/* ── Ticker ── */
+const TICKER_ITEMS = [
+  { text: '이번 달 진단 완료 247건 — 가장 많이 발견된 문제는 모바일 미대응', href: '/renewal' },
+  { text: '보안 점검에서 평균 23개 취약점 발견 — 당신의 사이트는 안전한가요?', href: '/security' },
+  { text: 'AI, 대기업만의 이야기가 아닙니다 — 직원 30명 제조사 도입 사례', href: '/ai-solution' },
+  { text: '리뉴얼 후 문의량 평균 3.2배 증가 — 고객사 Before/After', href: '/blog' },
+  { text: '개발사가 사라졌나요? 유지보수 인수 · 2시간 내 대응 시작', href: '/maintenance' },
+]
 
-  useEffect(() => {
-    const word = words[wordIdx % words.length]
-    let timeout: ReturnType<typeof setTimeout>
-
-    if (!isDeleting) {
-      if (display.length < word.length) {
-        timeout = setTimeout(() => setDisplay(word.slice(0, display.length + 1)), speed)
-      } else {
-        timeout = setTimeout(() => setIsDeleting(true), pause)
-      }
-    } else {
-      if (display.length > 0) {
-        timeout = setTimeout(() => setDisplay(word.slice(0, display.length - 1)), speed / 2)
-      } else {
-        setIsDeleting(false)
-        setWordIdx(i => i + 1)
-      }
-    }
-    return () => clearTimeout(timeout)
-  }, [display, isDeleting, wordIdx, words, speed, pause])
-
-  return display
+function Ticker() {
+  const items = [...TICKER_ITEMS, ...TICKER_ITEMS]
+  return (
+    <div className="bg-brand text-white text-xs font-medium overflow-hidden py-2.5">
+      <div className="flex animate-ticker whitespace-nowrap" style={{ width: 'max-content' }}>
+        {items.map((item, i) => (
+          <Link key={i} href={item.href}
+            className="inline-flex items-center gap-6 px-8 hover:underline shrink-0">
+            <span className="w-1.5 h-1.5 rounded-full bg-white/60 inline-block" />
+            {item.text}
+          </Link>
+        ))}
+      </div>
+    </div>
+  )
 }
 
-// 카운터 애니메이션
-function Counter({ target, suffix = '' }: { target: number; suffix?: string }) {
-  const [count, setCount] = useState(0)
-  const ref = useRef<HTMLDivElement>(null)
-  const started = useRef(false)
+/* ── Hero URL Input ── */
+function HeroInput() {
+  const [url, setUrl] = useState('')
+  const router = useRouter()
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!url) return
+    router.push(`/renewal?url=${encodeURIComponent(url)}`)
+  }
+
+  return (
+    <form onSubmit={handleSubmit}
+      className="flex flex-col sm:flex-row gap-3 max-w-2xl mx-auto mt-10">
+      <input
+        type="url"
+        value={url}
+        onChange={e => setUrl(e.target.value)}
+        placeholder="https://your-site.com"
+        className="flex-1 bg-neutral-900 border border-neutral-700 rounded-xl px-5 py-4 text-white placeholder-neutral-600 focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand/30 text-sm transition-all"
+      />
+      <button type="submit"
+        className="btn-red px-7 py-4 text-base font-bold shrink-0 justify-center">
+        무료 진단 시작하기 →
+      </button>
+    </form>
+  )
+}
+
+/* ── Counter ── */
+function Counter({ to, suffix = '' }: { to: number; suffix?: string }) {
+  const [n, setN] = useState(0)
+  const ref = useRef<HTMLSpanElement>(null)
+  const done = useRef(false)
   useEffect(() => {
     const obs = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting && !started.current) {
-        started.current = true
-        const step = target / 40
-        let cur = 0
-        const timer = setInterval(() => {
-          cur += step
-          if (cur >= target) { setCount(target); clearInterval(timer) }
-          else setCount(Math.floor(cur))
-        }, 40)
+      if (e.isIntersecting && !done.current) {
+        done.current = true
+        let start = 0
+        const step = to / 50
+        const t = setInterval(() => {
+          start += step
+          if (start >= to) { setN(to); clearInterval(t) }
+          else setN(Math.floor(start))
+        }, 35)
       }
-    }, { threshold: 0.5 })
+    }, { threshold: 0.6 })
     if (ref.current) obs.observe(ref.current)
     return () => obs.disconnect()
-  }, [target])
-
-  return <div ref={ref} className="text-3xl font-black text-[#C8001F]">{count}{suffix}</div>
+  }, [to])
+  return <span ref={ref}>{n}{suffix}</span>
 }
 
+/* ── Problems ── */
+const PROBLEMS = [
+  {
+    num: '53%',
+    title: '방문자의 53%가 3초 안에 떠납니다',
+    desc: '모바일에서 레이아웃이 깨지고, 로딩에 4초 이상 걸리는 사이트는 광고비를 쓸수록 돈이 새는 구조입니다. 5년 넘은 홈페이지 10곳 중 7곳이 이 상태입니다.',
+  },
+  {
+    num: '62%',
+    title: '개발사가 사라졌습니다',
+    desc: '"이전 업체랑 연락이 안 돼요." 우리가 상담한 기업의 62%가 같은 말을 합니다. 소스코드 접근 불가, 보안 패치 중단 — 방치된 사이트는 해킹의 첫 번째 타깃입니다.',
+  },
+  {
+    num: '8/10',
+    title: 'AI 도입, 어디서부터 시작해야 할지 모릅니다',
+    desc: '중소기업 대표 10명 중 8명이 AI에 관심은 있지만 "우리 회사에 어떻게 적용하는지"를 모른다고 답합니다. ChatGPT 구독만으로는 업무 자동화가 되지 않습니다.',
+  },
+]
+
+/* ── Services ── */
 const SERVICES = [
   {
-    icon: '🔄', title: '웹 리뉴얼', badge: '가장 인기',
-    desc: 'URL 입력 → AI 전수 분석 → 견적서+리뉴얼 계획서 이메일 발송. 48시간 내 결과 보장.',
-    href: '/renewal', span: 'lg:col-span-2 lg:row-span-1',
+    icon: '🔄', title: '웹사이트 리뉴얼', href: '/renewal',
+    stats: [['67%', '로딩 속도 개선'], ['2.4배', '모바일 전환율 증가']],
+    desc: 'URL만 입력하면 웹기술·디자인·프로그램·DB 구조를 자동 분석합니다. 평균 진단 소요 48시간. 리뉴얼 전 결과를 먼저 확인하고 결정하세요.',
   },
   {
-    icon: '🛡️', title: '보안 진단',
-    desc: 'OWASP 기준 취약점 분석. 위험도별 리포트 즉시 발송.',
-    href: '/security', span: '',
+    icon: '🆕', title: '웹사이트 신규 제작', href: '/new-website',
+    stats: [['4~6주', '평균 제작 기간'], ['반응형', '다국어 기본 포함']],
+    desc: '기획부터 디자인·개발·SEO 세팅까지 원스톱. 관리자 페이지 제공으로 콘텐츠 수정에 개발자가 필요 없습니다.',
   },
   {
-    icon: '📱', title: '앱 개발',
-    desc: '기존 시스템 연계 iOS·Android 하이브리드 앱.',
-    href: '/app-dev', span: '',
+    icon: '🛡️', title: '보안 점검', href: '/security',
+    stats: [['23개', '평균 취약점 발견'], ['OWASP', 'Top 10 기준 전수 점검']],
+    desc: '화이트해커가 직접 사이트와 앱을 진단합니다. SQL 인젝션·XSS·인증 우회 등 전수 점검. 조치 가이드와 견적을 PDF로 제공합니다.',
   },
   {
-    icon: '🆕', title: '신규 제작',
-    desc: '기획→디자인→개발→배포 원스톱. 최속 1주.',
-    href: '/new-website', span: '',
+    icon: '🔧', title: '유지보수', href: '/maintenance',
+    stats: [['2시간', '평균 장애 대응'], ['월정액', '보안패치·백업·수정 포함']],
+    desc: '개발사가 사라져도 걱정 없습니다. 보안 패치·SSL 갱신·백업·콘텐츠 수정까지 월정액으로 관리합니다.',
   },
   {
-    icon: '🔧', title: '유지보수',
-    desc: '월정액 관리. 장애 대응·업데이트·SEO.',
-    href: '/maintenance', span: '',
+    icon: '📱', title: '앱 개발', href: '/app-dev',
+    stats: [['원스톱', '기획→출시→유지보수'], ['iOS+Android', '크로스플랫폼']],
+    desc: '네이티브·하이브리드·크로스플랫폼 — 비즈니스에 맞는 방식을 제안합니다. 한 팀이 기획부터 출시까지 끝까지 책임집니다.',
   },
   {
-    icon: '🤖', title: 'AI 솔루션', badge: 'NEW',
-    desc: 'ERP·KMS·Excel 연계 중소기업 전용 AI 구축. 하드웨어~교육 원스톱.',
-    href: '/ai-solution', span: 'lg:col-span-2',
+    icon: '🤖', title: 'AI 솔루션', href: '/ai-solution',
+    stats: [['41%', '반복업무 처리시간 단축'], ['온프레미스', '사내 서버 구축']],
+    desc: 'ERP·KMS·Excel 데이터와 연결되는 자체 AI 시스템을 사내 서버에 구축합니다. 하드웨어 선정부터 소프트웨어 개발까지 풀 패키지.',
   },
 ]
 
+/* ── Process ── */
 const PROCESS = [
-  { n: '01', t: 'URL 입력', d: '분석 대상 주소와 이메일 입력' },
-  { n: '02', t: 'AI 분석', d: 'AI 에이전트 팀이 기술·디자인·보안 전수 분석' },
-  { n: '03', t: '리포트 생성', d: '견적서 + 상세 분석 PDF 자동 생성' },
-  { n: '04', t: '즉시 발송', d: '검토 후 입력 이메일로 즉시 전송' },
+  { n: '1', t: 'URL 입력', d: '분석 대상 주소와 이메일 입력' },
+  { n: '2', t: '자동 분석', d: 'AI 에이전트가 기술·디자인·보안 전수 분석' },
+  { n: '3', t: '보고서 생성', d: '견적서 + 상세 분석 PDF 자동 생성' },
+  { n: '4', t: '담당자 확인', d: '내부 검토 후 발송 여부 결정' },
+  { n: '5', t: 'PDF 이메일 발송', d: '입력하신 이메일로 즉시 전송' },
 ]
 
-const BLOG = [
-  { tag: '웹 리뉴얼', title: 'PHP 쇼핑몰 → Next.js 전환 후 전환율 2.3배', date: '2025.04' },
-  { tag: '보안', title: 'SQL Injection 위기, 48시간 내 패치 완료 사례', date: '2025.03' },
-  { tag: 'AI 솔루션', title: 'ERP에 AI 붙여 재고 예측 정확도 87% 달성', date: '2025.03' },
+/* ── Testimonials ── */
+const TESTIMONIALS = [
+  {
+    quote: '리뉴얼 전에는 홈페이지 문의가 월 3건이었습니다. URL만 넣었는데 이틀 만에 분석 리포트가 왔고, 우리가 몰랐던 보안 취약점 11개도 같이 잡아줬습니다. 리뉴얼 3개월 후 월 문의가 27건으로 늘었습니다.',
+    name: '이정호',
+    role: '○○테크 대표이사',
+    detail: '제조업 · 직원 45명',
+  },
+  {
+    quote: 'AI 도입이라고 하면 수억 원짜리 프로젝트인 줄 알았습니다. 비젼솔루션은 우리 기존 ERP 데이터를 연결해서 재고 예측 AI를 사내 서버에 올려줬어요. 구축 기간 6주, 비용은 예상의 3분의 1. 지금은 발주 실수가 거의 없어졌습니다.',
+    name: '박수연',
+    role: '○○유통 IT기획팀장',
+    detail: '유통업 · 직원 120명',
+  },
 ]
 
 export default function HomePage() {
-  const typed = useTypewriter(['웹 리뉴얼', '보안 진단', '앱 개발', 'AI 솔루션'])
-
   return (
-    <div className="min-h-screen">
+    <div className="bg-black text-white">
+      {/* Ticker */}
+      <Ticker />
 
-      {/* ── HERO ── */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-[68px]">
-        {/* Grid BG */}
-        <div className="absolute inset-0 grid-bg" />
-        {/* Glow orbs */}
-        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-[#C8001F] rounded-full blur-[120px] opacity-[0.12] pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-[#C8001F] rounded-full blur-[100px] opacity-[0.08] pointer-events-none" />
+      {/* ── Hero ── */}
+      <section className="relative min-h-[92vh] flex flex-col justify-center pt-10 pb-20 overflow-hidden">
+        {/* Subtle grid */}
+        <div className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage: 'linear-gradient(rgba(200,0,31,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(200,0,31,0.04) 1px, transparent 1px)',
+            backgroundSize: '72px 72px',
+          }} />
+        {/* Glow */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-brand/10 blur-[100px] rounded-full pointer-events-none" />
 
-        <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs text-gray-400 mb-8 border border-[#C8001F]/30 bg-[#C8001F]/5">
-            <span className="w-2 h-2 rounded-full bg-[#C8001F] animate-pulse-slow" />
-            AI 에이전트가 분석부터 납품까지
+        <div className="container-base relative text-center">
+          <div className="inline-flex items-center gap-2 text-xs font-semibold text-neutral-400 border border-neutral-800 rounded-full px-4 py-2 mb-8">
+            <span className="w-2 h-2 rounded-full bg-brand animate-pulse-dot" />
+            URL 하나로 무료 사이트 진단 — 비용 0원, 계약 의무 없음
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-black leading-[1.1] mb-6 tracking-tight">
-            <span className="text-gray-200">비즈니스의</span><br />
-            <span className="text-[#C8001F] glow-text">
-              {typed || ' '}
-            </span>
-            <span className="text-[#C8001F] animate-pulse-slow">|</span>
-            <br />
-            <span className="text-white">AI가 완성합니다</span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[1.08] tracking-tight mb-6">
+            홈페이지, 그냥 두면<br />
+            <span className="text-brand">매일 고객을 잃습니다.</span>
           </h1>
 
-          <p className="text-gray-400 text-lg md:text-xl mb-10 max-w-xl mx-auto leading-relaxed">
-            사이트 URL 하나만 입력하세요.<br />
-            AI 에이전트가 분석하고, 견적 내고,<br />
-            리포트를 이메일로 보내드립니다.
+          <p className="text-neutral-400 text-base sm:text-lg md:text-xl leading-relaxed max-w-xl mx-auto mb-2">
+            URL 하나만 입력하세요.<br />
+            웹기술·디자인·보안·DB까지 <strong className="text-white">72시간 안에 전수 분석</strong>해서<br />
+            견적과 개선안을 PDF로 보내드립니다.
           </p>
+          <p className="text-brand font-bold text-sm mb-8">개선안 비용은 0원.</p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <Link href="/renewal" className="btn-primary text-base">
-              무료 분석 시작하기 →
-            </Link>
-            <Link href="/contact" className="btn-ghost text-base">
-              전문가 상담 신청
-            </Link>
-          </div>
+          <HeroInput />
 
-          {/* Stats */}
-          <div className="flex justify-center gap-12">
+          <p className="text-neutral-600 text-xs mt-5">
+            ✔ 상담 전화 없음 &nbsp;·&nbsp; ✔ 48시간 내 리포트 발송 &nbsp;·&nbsp; ✔ 진단 비용 0원 · 계약 의무 없음
+          </p>
+        </div>
+      </section>
+
+      {/* ── Stats Bar ── */}
+      <section className="border-y border-neutral-900 bg-neutral-950 py-10">
+        <div className="container-base">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { target: 120, suffix: '+', label: '완료 프로젝트' },
-              { target: 48, suffix: 'h', label: '평균 리포트 납기' },
-              { target: 97, suffix: '%', label: '고객 재의뢰율' },
-            ].map(s => (
-              <div key={s.label} className="text-center">
-                <Counter target={s.target} suffix={s.suffix} />
-                <div className="text-xs text-gray-600 mt-1">{s.label}</div>
+              { n: 247, s: '건+', l: '이번 달 진단 완료' },
+              { n: 23, s: '개', l: '평균 취약점 발견' },
+              { n: 48, s: 'h', l: '분석 리포트 납기' },
+              { n: 97, s: '%', l: '고객 재의뢰율' },
+            ].map(({ n, s, l }) => (
+              <div key={l}>
+                <div className="stat-num"><Counter to={n} suffix={s} /></div>
+                <p className="text-neutral-500 text-xs mt-1">{l}</p>
               </div>
             ))}
           </div>
         </div>
-
-        {/* Scroll hint */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-600 text-[10px] tracking-widest animate-bounce-y">
-          <span>SCROLL</span>
-          <div className="w-px h-6 bg-gradient-to-b from-gray-600 to-transparent" />
-        </div>
       </section>
 
-      {/* ── SERVICES BENTO ── */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
-        <div className="text-center mb-14">
-          <span className="section-label">SERVICES</span>
-          <h2 className="text-3xl md:text-5xl font-black text-white">AI 에이전트 전문 서비스</h2>
-          <p className="text-gray-500 mt-3 text-sm">분석부터 납품까지, AI 팀이 담당합니다</p>
-        </div>
+      {/* ── Problems ── */}
+      <section className="section border-b border-neutral-900">
+        <div className="container-base">
+          <span className="label">PROBLEM</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-3">
+            지금 이 순간에도<br />벌어지고 있는 일
+          </h2>
+          <p className="text-neutral-500 text-sm mb-12 max-w-lg">방치된 홈페이지는 매일 비용을 발생시킵니다.</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {SERVICES.map(s => (
-            <Link key={s.href} href={s.href}
-              className={`group glass rounded-2xl p-7 card-hover relative overflow-hidden ${s.span}`}>
-              {/* hover glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#C8001F]/0 to-[#C8001F]/0 group-hover:from-[#C8001F]/8 group-hover:to-transparent transition-all duration-300 rounded-2xl" />
-              <div className="relative">
-                {s.badge && (
-                  <span className="tag bg-[#C8001F]/20 text-[#C8001F] border border-[#C8001F]/30 mb-4">
-                    {s.badge}
-                  </span>
-                )}
-                <div className="text-4xl mb-4">{s.icon}</div>
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#C8001F] transition-colors">{s.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
-                <div className="mt-5 flex items-center gap-1 text-[#C8001F] text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity translate-x-0 group-hover:translate-x-1 duration-200">
-                  자세히 보기
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7"/>
-                  </svg>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {PROBLEMS.map((p, i) => (
+              <div key={i} className="card">
+                <div className="text-5xl font-black text-brand mb-4 tabular-nums">{p.num}</div>
+                <h3 className="text-white font-bold text-base mb-3 leading-snug">{p.title}</h3>
+                <p className="text-neutral-500 text-sm leading-relaxed">{p.desc}</p>
               </div>
-            </Link>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ── PROCESS ── */}
-      <section className="py-24 px-6 bg-[#060606] relative overflow-hidden">
-        <div className="absolute inset-0 grid-bg opacity-30" />
-        <div className="max-w-7xl mx-auto relative">
-          <div className="text-center mb-14">
-            <span className="section-label">HOW IT WORKS</span>
-            <h2 className="text-3xl md:text-5xl font-black text-white">4단계로 완성</h2>
+      {/* ── Services ── */}
+      <section className="section border-b border-neutral-900">
+        <div className="container-base">
+          <span className="label">SERVICES</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-3">
+            비젼솔루션이<br />해결하는 방법
+          </h2>
+          <p className="text-neutral-500 text-sm mb-12">URL 입력 → 자동 분석 → 견적서 + PDF 이메일 발송</p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {SERVICES.map(s => (
+              <Link key={s.href} href={s.href}
+                className="card group flex flex-col hover:border-brand/40">
+                <div className="text-3xl mb-4">{s.icon}</div>
+                <h3 className="text-white font-bold text-lg mb-3 group-hover:text-brand transition-colors">{s.title}</h3>
+                <p className="text-neutral-500 text-sm leading-relaxed mb-5 flex-1">{s.desc}</p>
+                <div className="grid grid-cols-2 gap-3 pt-4 border-t border-neutral-800">
+                  {s.stats.map(([val, label]) => (
+                    <div key={label}>
+                      <div className="text-brand font-black text-xl">{val}</div>
+                      <div className="text-neutral-600 text-xs mt-0.5">{label}</div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-4 text-brand text-xs font-semibold flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                  자세히 보기 <span>→</span>
+                </div>
+              </Link>
+            ))}
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        </div>
+      </section>
+
+      {/* ── Process ── */}
+      <section className="section border-b border-neutral-900 bg-neutral-950">
+        <div className="container-base">
+          <span className="label">PROCESS</span>
+          <h2 className="text-3xl sm:text-4xl font-black mb-12">공통 프로세스</h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-5 gap-4">
             {PROCESS.map((p, i) => (
-              <div key={p.n} className="relative">
-                {i < 3 && (
-                  <div className="hidden lg:block absolute top-8 left-[calc(100%+10px)] w-[calc(100%-20px)] h-px bg-gradient-to-r from-[#C8001F]/40 to-transparent z-10" />
+              <div key={p.n} className="relative flex flex-col items-start sm:items-center text-left sm:text-center">
+                {i < PROCESS.length - 1 && (
+                  <div className="hidden sm:block absolute top-5 left-[calc(50%+28px)] right-0 h-px bg-neutral-800 z-0" />
                 )}
-                <div className="glass rounded-2xl p-6 h-full card-hover">
-                  <div className="w-10 h-10 rounded-xl bg-[#C8001F]/15 border border-[#C8001F]/30 flex items-center justify-center text-[#C8001F] font-black text-sm mb-4">
-                    {p.n}
-                  </div>
-                  <h3 className="text-white font-bold mb-2">{p.t}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{p.d}</p>
+                <div className="w-10 h-10 rounded-full bg-neutral-900 border border-neutral-700 flex items-center justify-center text-brand font-black text-sm mb-4 relative z-10">
+                  {p.n}
+                </div>
+                <p className="text-white font-bold text-sm mb-1">{p.t}</p>
+                <p className="text-neutral-600 text-xs leading-relaxed">{p.d}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 p-5 border border-brand/20 bg-brand/5 rounded-2xl text-center">
+            <p className="text-neutral-300 text-sm">
+              <strong className="text-white">복잡한 상담 절차 없이,</strong> 결과물을 먼저 확인하고 결정하세요.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Testimonials ── */}
+      <section className="section border-b border-neutral-900">
+        <div className="container-base">
+          <span className="label">TESTIMONIALS</span>
+          <h2 className="text-3xl sm:text-4xl font-black mb-12">고객사 후기</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {TESTIMONIALS.map(t => (
+              <div key={t.name} className="card flex flex-col gap-5">
+                <div className="text-brand text-4xl leading-none font-black">&ldquo;</div>
+                <p className="text-neutral-300 text-sm leading-[1.85] flex-1">{t.quote}</p>
+                <div className="pt-4 border-t border-neutral-800">
+                  <p className="text-white font-bold text-sm">{t.name}</p>
+                  <p className="text-neutral-500 text-xs mt-0.5">{t.role}</p>
+                  <p className="text-neutral-700 text-xs">{t.detail}</p>
                 </div>
               </div>
             ))}
@@ -234,56 +327,29 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── BLOG PREVIEW ── */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
-        <div className="flex justify-between items-end mb-10">
-          <div>
-            <span className="section-label">BLOG</span>
-            <h2 className="text-3xl md:text-4xl font-black text-white">최근 프로젝트 & 인사이트</h2>
-          </div>
-          <Link href="/blog" className="text-[#C8001F] text-sm font-semibold hover:underline hidden md:flex items-center gap-1">
-            전체 보기
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
-            </svg>
-          </Link>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {BLOG.map(post => (
-            <Link key={post.title} href="/blog"
-              className="glass rounded-2xl p-6 card-hover block">
-              <span className="tag bg-[#C8001F]/15 text-[#C8001F] mb-4">{post.tag}</span>
-              <h3 className="text-white font-bold leading-snug text-sm mb-3 group-hover:text-[#C8001F]">{post.title}</h3>
-              <p className="text-gray-600 text-xs">{post.date}</p>
-            </Link>
-          ))}
-        </div>
-      </section>
+      {/* ── Final CTA ── */}
+      <section className="section">
+        <div className="container-base text-center">
+          <span className="label">GET STARTED</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-4">
+            지금 URL을 입력하면,<br />
+            <span className="text-brand">48시간 안에 답이 옵니다.</span>
+          </h2>
+          <p className="text-neutral-500 text-sm mb-2 max-w-md mx-auto leading-relaxed">
+            사이트 진단부터 견적까지 완전 무료.<br />
+            분석 결과가 마음에 들 때만 진행하면 됩니다.
+          </p>
+          <p className="text-white font-semibold text-sm mb-10">부담 없이 시작하세요.</p>
 
-      {/* ── CTA ── */}
-      <section className="py-16 px-6 pb-24">
-        <div className="max-w-4xl mx-auto relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#C8001F]/20 to-[#9A0015]/10 rounded-3xl blur-2xl" />
-          <div className="relative glass rounded-3xl p-10 md:p-16 text-center border border-[#C8001F]/25">
-            <span className="section-label">GET STARTED</span>
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-              지금 바로 무료 분석 받아보세요
-            </h2>
-            <p className="text-gray-400 mb-8 max-w-md mx-auto text-sm leading-relaxed">
-              URL만 입력하면 AI가 48시간 내 분석 결과를 이메일로 보내드립니다.<br />비용은 전혀 없습니다.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/renewal" className="btn-primary text-base">
-                웹 리뉴얼 무료 분석 →
-              </Link>
-              <Link href="/security" className="btn-ghost text-base">
-                보안 진단 신청
-              </Link>
-            </div>
+          <HeroInput />
+
+          <div className="flex flex-col sm:flex-row justify-center gap-6 mt-8 text-sm text-neutral-500">
+            <span>✔ 상담 전화 없음 — URL 입력만으로 시작</span>
+            <span>✔ 48시간 내 분석 리포트 발송</span>
+            <span>✔ 진단 비용 0원, 계약 의무 없음</span>
           </div>
         </div>
       </section>
-
     </div>
   )
 }
