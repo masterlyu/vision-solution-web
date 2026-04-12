@@ -32,7 +32,7 @@ export function Navigation() {
         <div className={`flex items-center justify-between transition-all duration-500 px-6 lg:px-8 ${isScrolled ? 'h-14' : 'h-20'}`}>
           <Link href="/" className="flex items-center gap-2 group">
             <span className={`font-bold tracking-tight transition-all duration-500 ${isScrolled ? 'text-xl text-foreground' : 'text-2xl text-white'}`}>
-              VISION<span className="text-primary">.</span>
+              VISIONC
             </span>
           </Link>
 

@@ -28,7 +28,7 @@ export function FooterSection() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-12">
           <div className="col-span-2">
             <Link href="/" className="inline-flex items-center gap-2 mb-6">
-              <span className="text-2xl font-black text-foreground">VISION<span className="text-primary">.</span></span>
+              <span className="text-2xl font-black text-foreground">VISIONC</span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6 max-w-xs">
               URL 하나로 홈페이지 문제를 AI가 진단합니다.<br />
