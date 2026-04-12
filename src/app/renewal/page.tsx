@@ -1,45 +1,76 @@
-import UrlAnalysisForm from '@/components/UrlAnalysisForm'
-import { Cpu, Paintbrush2, ShieldCheck, BarChart3, Calculator, FileText } from 'lucide-react'
+import Link from 'next/link'
+import { Zap, BarChart2, Smartphone, Search, ArrowRight, CheckCircle } from 'lucide-react'
 
-const items = [
-  { icon: Cpu,          title: '기술 스택',     desc: 'PHP·JSP·ASP·WordPress 등 언어·프레임워크·DB 탐지' },
-  { icon: Paintbrush2,  title: '디자인 현황',   desc: 'UI 구조, 반응형 여부, 접근성, 브랜드 일관성 분석' },
-  { icon: ShieldCheck,  title: '보안 기초 점검', desc: 'SSL·보안헤더·기본 취약점 노출 여부 확인' },
-  { icon: BarChart3,    title: '성능 지표',      desc: 'PageSpeed, Core Web Vitals, 모바일 최적화 점수' },
-  { icon: Calculator,   title: '견적 산출',      desc: '분석 결과 기반 리뉴얼 예상 비용 및 일정' },
-  { icon: FileText,     title: 'PDF 리포트',     desc: '전체 분석 내용 + 리뉴얼 제안서 PDF 이메일 발송' },
+const features = [
+  { icon: Zap,         title: '속도 최적화',      desc: 'Core Web Vitals 기준 LCP 2.5초 이내, CLS 0.1 이하 달성' },
+  { icon: BarChart2,   title: '전환율 설계',       desc: '방문자가 자연스럽게 문의·구매로 이어지는 UX 흐름 재설계' },
+  { icon: Smartphone,  title: '모바일 퍼스트',     desc: '모바일 트래픽 기준 완벽한 반응형. iOS/Android 교차 검증' },
+  { icon: Search,      title: 'SEO 구조 개편',     desc: '시맨틱 마크업, 메타 최적화, sitemap 자동 생성으로 검색 노출 개선' },
+]
+
+const process = [
+  { step: '01', title: '현황 진단',     desc: '현재 사이트 속도·SEO·UX 분석 리포트 제공' },
+  { step: '02', title: '기획·설계',     desc: '사이트맵, 와이어프레임, 디자인 시안 3종 제시' },
+  { step: '03', title: '개발·이전',     desc: '데이터 손실 없이 기존 콘텐츠 마이그레이션' },
+  { step: '04', title: '검수·배포',     desc: '크로스 브라우저 QA 후 도메인 무중단 전환' },
 ]
 
 export default function RenewalPage() {
   return (
-    <div className="section min-h-screen pt-28 bg-[#09090B]">
-      <div className="container-base">
-        <div className="text-center mb-16">
-          <span className="label">WEB RENEWAL</span>
-          <h1 className="section-title">URL 하나로<br />전수 분석</h1>
-          <p className="section-sub max-w-2xl mx-auto">
-            오래된 사이트, AI가 먼저 진단합니다.<br />
-            견적서 + 리뉴얼 계획서를 48시간 내 이메일로 받아보세요.
+    <div className="min-h-screen pt-28 pb-24 bg-background">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+
+        <div className="mb-16">
+          <p className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-4">WEBSITE RENEWAL</p>
+          <h1 className="text-4xl md:text-5xl font-black text-foreground mb-4">홈페이지 리뉴얼</h1>
+          <p className="text-muted-foreground text-lg leading-relaxed">
+            낡은 사이트가 기회를 막고 있습니다.<br />
+            속도·디자인·SEO를 한 번에 바꿔 문의량을 끌어올립니다.
           </p>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <div>
-            <h2 className="text-xl font-bold text-white mb-6">AI가 분석하는 항목</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {items.map(item => (
-                <div key={item.title} className="card group">
-                  <div className="icon-box"><item.icon className="w-5 h-5 text-brand" strokeWidth={1.5} /></div>
-                  <h3 className="text-white font-bold mb-1">{item.title}</h3>
-                  <p className="text-neutral-300 text-sm leading-relaxed">{item.desc}</p>
+
+        {/* Features */}
+        <div className="mb-16">
+          <h2 className="text-xl font-bold text-foreground mb-6">개선 항목</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {features.map(f => (
+              <div key={f.title} className="bg-card border border-border rounded-xl p-6 hover:border-primary/40 transition-all duration-200 group">
+                <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/20 group-hover:border-primary/40 transition-all">
+                  <f.icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
                 </div>
-              ))}
-            </div>
-          </div>
-          <div className="lg:sticky lg:top-24">
-            <UrlAnalysisForm serviceType="renewal" title="무료 리뉴얼 분석 신청"
-              notice="분석 결과는 PDF로 정리되어 입력하신 이메일로 발송됩니다. 영업일 기준 1~2일 내 발송됩니다." />
+                <h3 className="text-foreground font-bold mb-1">{f.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{f.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
+
+        {/* Process */}
+        <div className="mb-16">
+          <h2 className="text-xl font-bold text-foreground mb-6">진행 프로세스</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {process.map(p => (
+              <div key={p.step} className="bg-card border border-border rounded-xl p-6 hover:border-primary/40 transition-all duration-200">
+                <span className="text-primary text-xs font-bold tracking-widest">{p.step}</span>
+                <h3 className="text-foreground font-bold mt-2 mb-1">{p.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="bg-card border border-border rounded-2xl p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <h3 className="text-foreground text-2xl font-bold mb-2">지금 사이트를 진단해보세요</h3>
+            <p className="text-muted-foreground text-sm">현재 사이트의 문제점을 무료로 분석해 드립니다.</p>
+          </div>
+          <Link href="/contact"
+            className="shrink-0 inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-200 text-sm">
+            무료 상담 신청 <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+
       </div>
     </div>
   )
