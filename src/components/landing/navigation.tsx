@@ -24,9 +24,19 @@ export function Navigation() {
     return () => window.removeEventListener('scroll', fn)
   }, [])
 
+  // anchor links (/#...) are NEVER shown as active
   const isActive = (href: string) => {
-    if (href.startsWith('/#')) return pathname === '/'
+    if (href.startsWith('/#')) return false
     return pathname === href
+  }
+
+  // force full navigation for anchor links — works from any sub-page
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('/#')) {
+      e.preventDefault()
+      window.location.href = href
+    }
+    setIsMobileMenuOpen(false)
   }
 
   const linkCls = (href: string) => {
@@ -62,7 +72,7 @@ export function Navigation() {
 
           <div className="hidden md:flex items-center gap-10">
             {navLinks.map(link => (
-              <Link key={link.name} href={link.href} className={linkCls(link.href)}>
+              <Link key={link.name} href={link.href} onClick={(e) => handleClick(e, link.href)} className={linkCls(link.href)}>
                 {link.name}
                 <span className={underlineCls(link.href)} />
               </Link>
@@ -87,7 +97,7 @@ export function Navigation() {
         <div className="flex flex-col h-full px-8 pt-28 pb-8">
           <div className="flex-1 flex flex-col justify-center gap-6">
             {navLinks.map((link, i) => (
-              <Link key={link.name} href={link.href} onClick={() => setIsMobileMenuOpen(false)}
+              <Link key={link.name} href={link.href} onClick={(e) => handleClick(e, link.href)}
                 className={`text-4xl font-black transition-all duration-500 ${
                   isActive(link.href) ? 'text-primary' : 'text-foreground hover:text-muted-foreground'
                 } ${isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}

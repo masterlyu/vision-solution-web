@@ -13,7 +13,7 @@ const items = [
 export default function SecurityPage() {
   return (
     <div className="min-h-screen pt-28 pb-24 bg-background">
-      <div className="max-w-[1100px] mx-auto px-5 sm:px-8">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div className="mb-16">
           <p className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-4">SECURITY AUDIT</p>
           <h1 className="text-4xl md:text-5xl font-black text-foreground mb-4">웹 보안 진단</h1>

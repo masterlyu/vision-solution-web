@@ -10,7 +10,7 @@ const posts = [
 export default function BlogPage() {
   return (
     <div className="min-h-screen pt-28 pb-24 bg-background">
-      <div className="max-w-[1100px] mx-auto px-5 sm:px-8">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div className="mb-16">
           <p className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-4">BLOG</p>
           <h1 className="text-4xl md:text-5xl font-black text-foreground mb-4">인사이트 & 사례</h1>
