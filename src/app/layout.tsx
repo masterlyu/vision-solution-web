@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { Navigation } from '@/components/landing/navigation'
+import { FooterSection } from '@/components/landing/footer-section'
 
 export const metadata: Metadata = {
   title: 'Vision Solution — 홈페이지 리뉴얼 전문',
-  description: 'URL 하나로 홈페이지 문제를 AI가 48시간 안에 진단합니다. 리뉴얼·보안·유지보수·AI 솔루션.',
+  description: 'URL 하나로 홈페이지 문제를 AI가 48시간 안에 진단합니다.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -15,7 +17,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
       </head>
       <body>
+        <Navigation />
         <main>{children}</main>
+        <FooterSection />
       </body>
     </html>
   )

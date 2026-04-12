@@ -12,12 +12,12 @@ const items = [
 
 export default function SecurityPage() {
   return (
-    <div className="section min-h-screen pt-28 bg-[#09090B]">
-      <div className="container-base">
+    <div className="min-h-screen pt-28 pb-24 bg-background">
+      <div className="max-w-[1100px] mx-auto px-5 sm:px-8">
         <div className="text-center mb-16">
-          <span className="label">SECURITY AUDIT</span>
-          <h1 className="section-title">웹 보안 진단</h1>
-          <p className="section-sub max-w-2xl mx-auto">
+          <p className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-4">SECURITY AUDIT</p>
+          <h1 className="text-4xl md:text-5xl font-black text-foreground mb-4">웹 보안 진단</h1>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
             해킹보다 먼저 발견합니다.<br />비침투적 방식으로 취약점을 찾고 해결책을 제시합니다.
           </p>
           <div className="mt-5 inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 text-amber-400 text-sm px-4 py-2 rounded-full">
@@ -26,13 +26,15 @@ export default function SecurityPage() {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
-            <h2 className="text-xl font-bold text-white mb-6">진단 항목</h2>
+            <h2 className="text-xl font-bold text-foreground mb-6">진단 항목</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {items.map(item => (
-                <div key={item.title} className="card group">
-                  <div className="icon-box"><item.icon className="w-5 h-5 text-brand" strokeWidth={1.5} /></div>
-                  <h3 className="text-white font-bold mb-1">{item.title}</h3>
-                  <p className="text-neutral-300 text-sm leading-relaxed">{item.desc}</p>
+                <div key={item.title} className="bg-card border border-border rounded-xl p-6 hover:border-primary/40 transition-all duration-200 group">
+                  <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/20 group-hover:border-primary/40 transition-all">
+                    <item.icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-foreground font-bold mb-1">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>

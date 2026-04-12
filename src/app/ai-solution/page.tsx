@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import { Bot, BarChart3, PenLine, Mail, Brain, TrendingUp } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { ArrowRight } from 'lucide-react'
 
 const solutions = [
   { icon: Bot,        title: 'AI 챗봇 구축',        desc: '고객 응대·FAQ 자동화. GPT 기반 맞춤 학습 챗봇' },
@@ -17,48 +19,55 @@ const cases = [
 
 export default function AiSolutionPage() {
   return (
-    <div className="section min-h-screen pt-28 bg-[#09090B]">
-      <div className="container-base">
+    <div className="min-h-screen pt-28 pb-24 bg-background">
+      <div className="max-w-[1100px] mx-auto px-5 sm:px-8">
         <div className="text-center mb-16">
-          <span className="label">AI SOLUTION</span>
-          <h1 className="section-title">AI 솔루션</h1>
-          <p className="section-sub max-w-2xl mx-auto">
+          <p className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-4">AI SOLUTION</p>
+          <h1 className="text-4xl md:text-5xl font-black text-foreground mb-4">AI 솔루션</h1>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
             AI, 대기업만의 이야기가 아닙니다.<br />중소기업에 맞는 실용적인 AI를 도입하세요.
           </p>
         </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-20">
           {solutions.map(s => (
-            <div key={s.title} className="card group">
-              <div className="icon-box"><s.icon className="w-5 h-5 text-brand" strokeWidth={1.5} /></div>
-              <h3 className="text-white font-bold mb-2">{s.title}</h3>
-              <p className="text-neutral-300 text-sm leading-relaxed">{s.desc}</p>
+            <div key={s.title} className="bg-card border border-border rounded-xl p-6 hover:border-primary/40 transition-all duration-200 group">
+              <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/20 group-hover:border-primary/40 transition-all">
+                <s.icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-foreground font-bold mb-2">{s.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
             </div>
           ))}
         </div>
+
         <div className="mb-16">
-          <h2 className="text-xl font-bold text-white mb-8 text-center">도입 사례</h2>
+          <h2 className="text-xl font-bold text-foreground mb-8 text-center">도입 사례</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {cases.map(c => (
-              <div key={c.company} className="card">
-                <div className="text-brand text-sm font-bold mb-4">{c.company}</div>
+              <div key={c.company} className="bg-card border border-border rounded-xl p-6 hover:border-primary/40 transition-all duration-200">
+                <div className="text-primary text-sm font-bold mb-4">{c.company}</div>
                 <div className="space-y-3">
-                  <div className="bg-neutral-800/60 rounded-xl p-4">
-                    <div className="text-neutral-400 text-xs font-bold mb-1">BEFORE</div>
-                    <p className="text-neutral-200 text-sm">{c.before}</p>
+                  <div className="bg-secondary/50 rounded-xl p-4">
+                    <div className="text-muted-foreground text-xs font-bold mb-1">BEFORE</div>
+                    <p className="text-foreground text-sm">{c.before}</p>
                   </div>
-                  <div className="bg-brand/10 border border-brand/20 rounded-xl p-4">
-                    <div className="text-brand text-xs font-bold mb-1">AFTER</div>
-                    <p className="text-white text-sm">{c.after}</p>
+                  <div className="bg-primary/10 border border-primary/20 rounded-xl p-4">
+                    <div className="text-primary text-xs font-bold mb-1">AFTER</div>
+                    <p className="text-foreground text-sm">{c.after}</p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
-        <div className="card-highlight text-center py-12">
-          <h2 className="text-xl font-bold text-white mb-3">어떤 업무를 자동화할 수 있을까요?</h2>
-          <p className="text-neutral-300 mb-6 text-sm">현재 업무 프로세스를 공유해 주시면 AI 도입 가능 영역을 무료로 분석해 드립니다.</p>
-          <Link href="/contact" className="btn-primary">무료 AI 도입 분석 신청</Link>
+
+        <div className="bg-card border border-primary/20 rounded-2xl text-center py-14 px-8">
+          <h2 className="text-xl font-bold text-foreground mb-3">어떤 업무를 자동화할 수 있을까요?</h2>
+          <p className="text-muted-foreground mb-6">현재 업무 프로세스를 공유해 주시면 AI 도입 가능 영역을 무료로 분석해 드립니다.</p>
+          <Button asChild className="rounded-full bg-primary hover:bg-primary/90 text-white px-8 gap-2">
+            <Link href="/contact">무료 AI 도입 분석 신청 <ArrowRight className="w-4 h-4" /></Link>
+          </Button>
         </div>
       </div>
     </div>
