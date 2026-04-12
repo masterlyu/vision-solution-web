@@ -14,10 +14,10 @@ export default function SecurityPage() {
   return (
     <div className="min-h-screen pt-28 pb-24 bg-background">
       <div className="max-w-[1100px] mx-auto px-5 sm:px-8">
-        <div className="text-center mb-16">
+        <div className="mb-16">
           <p className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-4">SECURITY AUDIT</p>
           <h1 className="text-4xl md:text-5xl font-black text-foreground mb-4">웹 보안 진단</h1>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-muted-foreground text-lg leading-relaxed">
             해킹보다 먼저 발견합니다.<br />비침투적 방식으로 취약점을 찾고 해결책을 제시합니다.
           </p>
           <div className="mt-5 inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 text-amber-400 text-sm px-4 py-2 rounded-full">
@@ -41,7 +41,7 @@ export default function SecurityPage() {
           </div>
           <div className="lg:sticky lg:top-24">
             <UrlAnalysisForm serviceType="security" title="보안 진단 신청"
-              notice="진단 결과는 위험도 HIGH/MEDIUM/LOW로 분류되어 PDF로 발송됩니다. 실제 침투 테스트가 아닌 비침투적 분석입니다." />
+              notice="진단 결과는 위험도 HIGH/MEDIUM/LOW로 분류되어 PDF로 발송됩니다." />
           </div>
         </div>
       </div>
