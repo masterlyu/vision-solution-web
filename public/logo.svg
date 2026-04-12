@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" fill="none">
+  <path d="M40 4 L76 4 L84 14 L84 46 C84 62 60 76 60 76 C60 76 36 62 36 46 L36 14 Z" fill="#C8001F"/>
+  <text x="60" y="32" text-anchor="middle" fill="white" font-family="Arial Black,sans-serif" font-size="14" font-weight="900" letter-spacing="1">V</text>
+  <text x="60" y="62" text-anchor="middle" fill="white" font-family="Arial Black,sans-serif" font-size="14" font-weight="900" letter-spacing="1">S</text>
+  <text x="96" y="38" fill="#C8001F" font-family="Arial,sans-serif" font-size="17" font-weight="900" font-style="italic">VISION</text>
+  <text x="96" y="58" fill="#C8001F" font-family="Arial,sans-serif" font-size="14" font-weight="400" letter-spacing="2">SOLUTION</text>
+</svg>

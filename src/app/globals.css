@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+:root {
+  --red: #C8001F;
+  --red-glow: rgba(200,0,31,0.4);
+  --dark: #0A0A0A;
+  --card: #141414;
+  --card2: #1A1A1A;
+  --border: #2A2A2A;
+  --text: #FFFFFF;
+  --muted: #888888;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--dark);
+  color: var(--text);
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+  overflow-x: hidden;
+}
+
+.glow-red { box-shadow: 0 0 30px var(--red-glow); }
+.glow-text { text-shadow: 0 0 20px var(--red-glow); }
+
+.glass {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(200,0,31,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,0,31,0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes scan-line {
+  0% { top: 0%; }
+  100% { top: 100%; }
+}
+
+.animate-float { animation: float 4s ease-in-out infinite; }
