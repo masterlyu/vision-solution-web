@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import { useState } from 'react'
 import { Mail, Globe, Clock, Loader2 } from 'lucide-react'
 
@@ -10,7 +10,13 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
-    await new Promise(r => setTimeout(r, 1800))
+    try {
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+    } catch {}
     setLoading(false)
     setDone(true)
   }
@@ -29,9 +35,9 @@ export default function ContactPage() {
   )
 
   const info = [
-    { icon: Mail,  title: '이메일', val: 'biztalktome@gmail.com', href: 'mailto:biztalktome@gmail.com' },
-    { icon: Globe, title: '웹사이트', val: 'visionc.co.kr', href: null },
-    { icon: Clock, title: '응답 시간', val: '영업일 기준 48시간 내', href: null },
+    { icon: Mail,  title: '이메일',    val: 'biztalktome@gmail.com', href: 'mailto:biztalktome@gmail.com' },
+    { icon: Globe, title: '웹사이트',  val: 'visionc.co.kr',         href: null },
+    { icon: Clock, title: '응답 시간', val: '영업일 기준 48시간 내',  href: null },
   ]
 
   return (

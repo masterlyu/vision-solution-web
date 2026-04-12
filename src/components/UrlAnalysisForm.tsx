@@ -19,7 +19,13 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
-    await new Promise(r => setTimeout(r, 1800))
+    try {
+      await fetch('/api/notify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ serviceType, url, email, company }),
+      })
+    } catch {}
     setLoading(false)
     setDone(true)
   }
