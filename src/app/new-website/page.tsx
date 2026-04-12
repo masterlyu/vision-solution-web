@@ -1,89 +1,68 @@
 import Link from 'next/link'
 
-const steps = [
-  { n: '01', t: '기획 상담', d: '목적·타겟·예산·일정 협의 + 사이트맵 작성', days: '1~2일' },
-  { n: '02', t: 'UI/UX 설계', d: 'AI 디자이너 와이어프레임 + 시안 3종 제안', days: '2~3일' },
-  { n: '03', t: '개발', d: 'Next.js 반응형 웹 개발 + 관리자 CMS', days: '5~10일' },
-  { n: '04', t: '검수 & 배포', d: '테스트 → 속도 최적화 → 도메인 연결', days: '1~2일' },
-]
-
 const features = [
-  'Next.js 15 + TypeScript', 'AI 맞춤 디자인', '반응형 (모바일·태블릿·PC)',
-  '관리자 CMS 포함', 'SEO 기본 최적화', 'SSL 보안 설정',
-  'PageSpeed 90+ 보장', 'Google Analytics 연동',
+  { icon: '🎨', title: '맞춤 UI/UX 설계', desc: '업종·브랜드에 최적화된 독자적 디자인' },
+  { icon: '📱', title: '풀 반응형', desc: '모바일·태블릿·PC 모든 화면에서 완벽 작동' },
+  { icon: '⚡', title: '고속 최적화', desc: 'Core Web Vitals 90점+ 목표, 빠른 초기 로딩' },
+  { icon: '🔒', title: '보안 기본 탑재', desc: 'SSL, 보안 헤더, XSS/SQL 인젝션 방어 기본 적용' },
+  { icon: '📊', title: 'SEO 최적화', desc: '메타태그·구조화 데이터·사이트맵 자동 생성' },
+  { icon: '🔧', title: 'CMS 연동', desc: '비개발자도 직접 편집 가능한 관리 화면 구축' },
 ]
 
-const packages = [
-  { name: 'STARTER', price: '150만원~', desc: '소개 페이지 5장 이내', tag: '' },
-  { name: 'BUSINESS', price: '300만원~', desc: '회사소개·서비스·포트폴리오·문의 풀구성', tag: '인기', highlight: true },
-  { name: 'CUSTOM', price: '협의', desc: '쇼핑몰·예약·회원 기능 포함 복합 구성', tag: '' },
+const steps = [
+  { step: '01', title: '요구사항 분석', desc: '업종·목표 고객·경쟁사 분석' },
+  { step: '02', title: '기획·와이어프레임', desc: '사이트맵·화면 구성·정보 구조 설계' },
+  { step: '03', title: 'UI 디자인', desc: '브랜드 컬러·서체·레이아웃 시안 제시' },
+  { step: '04', title: '개발·구축', desc: '프론트엔드+백엔드 개발·CMS 세팅' },
+  { step: '05', title: '검수·론칭', desc: '크로스 브라우저·성능·보안 최종 검수 후 오픈' },
 ]
 
 export default function NewWebsitePage() {
   return (
-    <div className="min-h-screen pt-24 pb-20">
-      <div className="max-w-7xl mx-auto px-6">
-
+    <div className="section min-h-screen pt-24">
+      <div className="container-base">
         <div className="text-center mb-16">
-          <span className="section-label">NEW WEBSITE</span>
-          <h1 className="text-4xl md:text-6xl font-black text-white mb-4">처음부터 제대로</h1>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            AI 에이전트 팀이 기획부터 배포까지.<br />
-            <strong className="text-white">빠르면 1주, 보통 2주</strong> 안에 납품합니다.
+          <span className="label">NEW WEBSITE</span>
+          <h1 className="text-4xl md:text-6xl font-black text-white mb-4">신규 웹사이트 구축</h1>
+          <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
+            처음부터 제대로 만들겠습니다.<br />
+            기획·디자인·개발·론칭까지 원스톱으로 진행합니다.
           </p>
+          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/contact" className="btn-red">프로젝트 상담 신청 →</Link>
+          </div>
         </div>
 
-        {/* Process */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-20">
+          {features.map(f => (
+            <div key={f.title} className="card hover:border-brand/40">
+              <div className="text-3xl mb-4">{f.icon}</div>
+              <h3 className="text-white font-bold mb-2">{f.title}</h3>
+              <p className="text-neutral-500 text-sm leading-relaxed">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+
         <div className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-8 text-center">제작 프로세스</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {steps.map((s) => (
-              <div key={s.n} className="glass rounded-2xl p-6 card-hover">
-                <div className="w-9 h-9 rounded-lg bg-[#C8001F]/15 border border-[#C8001F]/30 flex items-center justify-center text-[#C8001F] font-black text-xs mb-3">
-                  {s.n}
-                </div>
-                <div className="text-[10px] text-gray-600 font-mono mb-2 tracking-wider">{s.days}</div>
-                <h3 className="text-white font-bold mb-1 text-sm">{s.t}</h3>
-                <p className="text-gray-500 text-xs leading-relaxed">{s.d}</p>
-              </div>
-            ))}
-          </div>
-          <p className="text-center text-gray-600 text-xs mt-4">* 총 제작 기간: 약 9~17일 (규모·복잡도에 따라 변동)</p>
-        </div>
-
-        {/* Packages */}
-        <div className="mb-16">
-          <h2 className="text-2xl font-bold text-white mb-8 text-center">패키지 요금</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {packages.map(pkg => (
-              <div key={pkg.name}
-                className={`glass rounded-2xl p-7 card-hover ${pkg.highlight ? 'border-[#C8001F]/40 bg-[#C8001F]/5' : ''}`}>
-                {pkg.highlight && <span className="tag bg-[#C8001F]/20 text-[#C8001F] mb-4">인기</span>}
-                <div className="text-white font-black text-lg mb-1">{pkg.name}</div>
-                <div className="text-[#C8001F] text-3xl font-black mb-2">{pkg.price}</div>
-                <p className="text-gray-500 text-sm">{pkg.desc}</p>
-              </div>
-            ))}
-          </div>
-          <p className="text-center text-gray-600 text-xs mt-4">부가세 별도 · 유지보수 별도 · 상세 견적은 무료 상담 후 확정</p>
-        </div>
-
-        {/* Features */}
-        <div className="glass rounded-2xl p-8 mb-12">
-          <h2 className="text-lg font-bold text-white mb-5">기본 포함 사항</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-3 gap-x-4">
-            {features.map(f => (
-              <div key={f} className="flex items-center gap-2 text-sm text-gray-400">
-                <span className="text-[#C8001F] font-bold flex-shrink-0">✓</span> {f}
+          <h2 className="text-2xl font-bold text-white mb-8 text-center">진행 프로세스</h2>
+          <div className="flex flex-col md:flex-row gap-4">
+            {steps.map((s, i) => (
+              <div key={s.step} className="flex-1 card text-center relative">
+                {i < steps.length - 1 && (
+                  <div className="hidden md:block absolute -right-2 top-1/2 -translate-y-1/2 text-brand z-10">›</div>
+                )}
+                <div className="text-brand font-black text-2xl mb-2">{s.step}</div>
+                <h3 className="text-white font-bold text-sm mb-1">{s.title}</h3>
+                <p className="text-neutral-500 text-xs">{s.desc}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="text-center">
-          <Link href="/contact" className="btn-primary text-base">
-            무료 상담 신청 →
-          </Link>
+        <div className="card border-brand/20 bg-brand/5 text-center py-12">
+          <h2 className="text-2xl font-bold text-white mb-3">예산이 고민되시나요?</h2>
+          <p className="text-neutral-400 mb-6">규모·기능에 따라 300만원~부터 가능합니다. 먼저 무료 상담을 받아보세요.</p>
+          <Link href="/contact" className="btn-red">무료 견적 문의</Link>
         </div>
       </div>
     </div>

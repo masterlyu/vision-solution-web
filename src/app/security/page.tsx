@@ -11,36 +11,31 @@ const checkItems = [
 
 export default function SecurityPage() {
   return (
-    <div className="min-h-screen pt-24 pb-20">
-      <div className="max-w-7xl mx-auto px-6">
+    <div className="section min-h-screen pt-24">
+      <div className="container-base">
         <div className="text-center mb-16">
-          <p className="text-[#C8001F] text-sm font-medium mb-3 tracking-widest">SECURITY AUDIT</p>
-          <h1 className="text-4xl md:text-6xl font-black text-white mb-4">
-            웹 보안 진단
-          </h1>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            해킹보다 먼저 발견합니다.<br />
-            비침투적 방식으로 취약점을 찾고 해결책을 제시합니다.
+          <span className="label">SECURITY AUDIT</span>
+          <h1 className="text-4xl md:text-6xl font-black text-white mb-4">웹 보안 진단</h1>
+          <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
+            해킹보다 먼저 발견합니다.<br />비침투적 방식으로 취약점을 찾고 해결책을 제시합니다.
           </p>
           <div className="mt-4 inline-flex items-center gap-2 bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 text-xs px-4 py-2 rounded-full">
             ⚠️ 본인 소유 또는 허가된 사이트에만 신청 가능합니다
           </div>
         </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
             <h2 className="text-2xl font-bold text-white mb-6">진단 항목</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {checkItems.map(item => (
-                <div key={item.title} className="glass rounded-xl p-5 hover:border-[#C8001F]/40 transition-all">
+                <div key={item.title} className="card hover:border-brand/40">
                   <div className="text-2xl mb-3">{item.icon}</div>
                   <h3 className="text-white font-bold mb-1 text-sm">{item.title}</h3>
-                  <p className="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
+                  <p className="text-neutral-500 text-xs leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
           </div>
-
           <div className="lg:sticky lg:top-24">
             <UrlAnalysisForm
               serviceType="security"

@@ -1,65 +1,59 @@
-const posts = [
-  { tag: '웹 리뉴얼', title: '10년 된 PHP 쇼핑몰 → Next.js 전환, 전환율 2.3배 상승', date: '2025.04.10', read: '5분', emoji: '🔄' },
-  { tag: '보안', title: 'SQL Injection 취약점 발견·48시간 내 패치 완료 사례', date: '2025.04.05', read: '4분', emoji: '🛡️' },
-  { tag: 'AI 솔루션', title: '제조업체 ERP에 AI 붙여 재고 예측 정확도 87% 달성', date: '2025.03.28', read: '6분', emoji: '🤖' },
-  { tag: '앱 개발', title: '기존 쇼핑몰 → 하이브리드 앱 전환, 앱 매출 40% 돌파', date: '2025.03.20', read: '5분', emoji: '📱' },
-  { tag: '유지보수', title: '서버 다운 2시간으로 매출 손실 380만원... 예방 가능했던 이유', date: '2025.03.15', read: '3분', emoji: '🔧' },
-  { tag: '웹 리뉴얼', title: 'WordPress PageSpeed 34→92, 방문자 이탈률 28% 감소', date: '2025.03.08', read: '4분', emoji: '⚡' },
-]
+import Link from 'next/link'
 
-const tagStyle: Record<string, string> = {
-  '웹 리뉴얼': 'bg-blue-500/15 text-blue-400 border-blue-500/20',
-  '보안': 'bg-red-500/15 text-red-400 border-red-500/20',
-  'AI 솔루션': 'bg-purple-500/15 text-purple-400 border-purple-500/20',
-  '앱 개발': 'bg-green-500/15 text-green-400 border-green-500/20',
-  '유지보수': 'bg-yellow-500/15 text-yellow-400 border-yellow-500/20',
-}
+const posts = [
+  {
+    tag: '리뉴얼 사례',
+    title: '리뉴얼 후 문의량 3.2배 — ○○유통 Before/After',
+    date: '2026-04-05',
+    summary: '10년 된 PHP 사이트를 Next.js로 교체한 결과 PageSpeed 38→91점, 이탈률 72%→41%로 개선됐습니다.',
+    href: '#',
+  },
+  {
+    tag: '보안 경고',
+    title: '중소기업 사이트 10곳 중 8곳, 기본 보안 헤더 없음',
+    date: '2026-03-28',
+    summary: '무작위 100개 중소기업 사이트 점검 결과, 83%가 X-Content-Type-Options 미설정. 실제 공격 시나리오와 대응법.',
+    href: '#',
+  },
+  {
+    tag: 'AI 활용',
+    title: '직원 3명 쇼핑몰이 AI 챗봇으로 CS 80% 절감한 방법',
+    date: '2026-03-15',
+    summary: '하루 50건 문의 중 40건을 AI가 자동 처리. 도입 비용과 ROI 계산서를 공개합니다.',
+    href: '#',
+  },
+  {
+    tag: '개발 팁',
+    title: 'Core Web Vitals 60점대 → 94점으로 올린 5가지 방법',
+    date: '2026-03-08',
+    summary: '이미지 최적화, 폰트 로딩 전략, 코드 스플리팅... 실제 적용한 방법을 코드와 함께 설명합니다.',
+    href: '#',
+  },
+]
 
 export default function BlogPage() {
   return (
-    <div className="min-h-screen pt-24 pb-20">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-14">
-          <span className="section-label">BLOG & PORTFOLIO</span>
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-4">프로젝트 & 인사이트</h1>
-          <p className="text-gray-500 text-sm">
-            고객사 정보(로고·상호)는 모두 익명·블러 처리됩니다
-          </p>
+    <div className="section min-h-screen pt-24">
+      <div className="container-base">
+        <div className="text-center mb-16">
+          <span className="label">BLOG</span>
+          <h1 className="text-4xl md:text-5xl font-black text-white mb-4">인사이트 & 사례</h1>
+          <p className="text-neutral-400 text-lg">실전에서 검증된 웹 전략과 AI 활용법을 공유합니다.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {posts.map(post => (
-            <article key={post.title}
-              className="glass rounded-2xl overflow-hidden card-hover cursor-pointer">
-              {/* 썸네일 */}
-              <div className="w-full h-36 bg-[#111] relative flex items-center justify-center">
-                <div className="text-5xl opacity-20">{post.emoji}</div>
-                {/* 블러 클라이언트 로고 효과 */}
-                <div className="absolute inset-0 flex items-center justify-start px-6 gap-3">
-                  <div className="w-20 h-7 bg-[#2A2A2A] rounded-md filter blur-sm" />
-                  <div className="w-14 h-5 bg-[#222] rounded filter blur-sm" />
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#111] to-transparent" />
-                <div className="absolute top-3 right-3 px-2 py-0.5 bg-black/50 rounded text-[9px] text-gray-500 font-mono">CLIENT CONFIDENTIAL</div>
+            <Link key={post.title} href={post.href}
+              className="card hover:border-brand/40 group block">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-xs text-brand font-bold bg-brand/10 px-2 py-0.5 rounded-full">{post.tag}</span>
+                <span className="text-neutral-600 text-xs">{post.date}</span>
               </div>
-              <div className="p-5">
-                <span className={`tag border text-xs mb-3 ${tagStyle[post.tag] || 'bg-gray-500/15 text-gray-400 border-gray-500/20'}`}>
-                  {post.tag}
-                </span>
-                <h2 className="text-white font-bold text-sm leading-snug mb-3 hover:text-[#C8001F] transition-colors">
-                  {post.title}
-                </h2>
-                <div className="flex items-center justify-between text-gray-600 text-xs">
-                  <span>{post.date}</span>
-                  <span>읽기 {post.read}</span>
-                </div>
-              </div>
-            </article>
+              <h2 className="text-white font-bold text-lg mb-3 group-hover:text-brand transition-colors leading-snug">{post.title}</h2>
+              <p className="text-neutral-500 text-sm leading-relaxed">{post.summary}</p>
+              <div className="mt-4 text-brand text-sm font-medium">읽기 →</div>
+            </Link>
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <p className="text-gray-600 text-sm">더 많은 프로젝트 사례는 문의 시 NDA 체결 후 공유 가능합니다.</p>
         </div>
       </div>
     </div>

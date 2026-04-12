@@ -1,66 +1,56 @@
 import Link from 'next/link'
 
-const techs = [
-  { name: 'React Native', desc: 'iOS + Android 동시 개발' },
-  { name: 'Capacitor', desc: '기존 웹앱을 앱으로 변환' },
-  { name: 'PWA', desc: '설치 없는 웹앱 경험' },
-  { name: 'REST API', desc: '기존 웹서버 연동' },
-  { name: 'Push 알림', desc: 'FCM 기반 실시간 알림' },
-  { name: 'App Store', desc: 'iOS/Android 스토어 출시' },
+const types = [
+  { icon: '📱', title: '모바일 앱 (iOS/Android)', desc: '네이티브 또는 크로스플랫폼(React Native/Flutter) 개발' },
+  { icon: '🌐', title: '웹 앱 (SPA/PWA)', desc: 'React·Next.js 기반 고성능 웹 애플리케이션' },
+  { icon: '🏢', title: '사내 업무 시스템', desc: 'ERP·CRM·재고관리·결재 시스템 맞춤 구축' },
+  { icon: '🛒', title: '커머스/예약 플랫폼', desc: '결제·배송·예약·회원 관리 통합 구축' },
+  { icon: '🔗', title: 'API/백엔드 개발', desc: 'REST·GraphQL API, 외부 서비스 연동' },
+  { icon: '☁️', title: '클라우드 인프라', desc: 'AWS·GCP·Vercel 배포, CI/CD 자동화 구성' },
 ]
 
 export default function AppDevPage() {
   return (
-    <div className="min-h-screen pt-24 pb-20">
-      <div className="max-w-7xl mx-auto px-6">
+    <div className="section min-h-screen pt-24">
+      <div className="container-base">
         <div className="text-center mb-16">
-          <p className="text-[#C8001F] text-sm font-medium mb-3 tracking-widest">APP DEVELOPMENT</p>
-          <h1 className="text-4xl md:text-6xl font-black text-white mb-4">앱 개발</h1>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            기존 웹사이트·시스템과 연계되는<br />
-            iOS · Android 하이브리드 앱 개발.
+          <span className="label">APP DEVELOPMENT</span>
+          <h1 className="text-4xl md:text-6xl font-black text-white mb-4">앱·시스템 개발</h1>
+          <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
+            아이디어를 실제로 만들어 드립니다.<br />
+            모바일 앱부터 엔터프라이즈 시스템까지 풀스택으로 구축합니다.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          <div className="glass rounded-2xl p-8">
-            <h2 className="text-xl font-bold text-white mb-6">왜 하이브리드 앱인가?</h2>
-            <div className="space-y-4">
-              {[
-                ['비용 절감', '네이티브 앱 대비 개발비 40~60% 절감'],
-                ['빠른 출시', '단일 코드베이스로 iOS·Android 동시 배포'],
-                ['기존 연동', '현재 운영 중인 웹/DB와 바로 연결'],
-                ['유지보수', '웹과 동일한 기술로 관리 부담 최소화'],
-              ].map(([t, d]) => (
-                <div key={t} className="flex gap-3">
-                  <span className="text-[#C8001F] font-bold mt-0.5">✓</span>
-                  <div>
-                    <div className="text-white font-medium text-sm">{t}</div>
-                    <div className="text-gray-500 text-xs">{d}</div>
-                  </div>
-                </div>
-              ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-20">
+          {types.map(t => (
+            <div key={t.title} className="card hover:border-brand/40">
+              <div className="text-3xl mb-4">{t.icon}</div>
+              <h3 className="text-white font-bold mb-2">{t.title}</h3>
+              <p className="text-neutral-500 text-sm leading-relaxed">{t.desc}</p>
             </div>
-          </div>
+          ))}
+        </div>
 
-          <div>
-            <h2 className="text-xl font-bold text-white mb-6">활용 기술</h2>
-            <div className="grid grid-cols-2 gap-3">
-              {techs.map(t => (
-                <div key={t.name} className="glass rounded-xl p-4 hover:border-[#C8001F]/40 transition-all">
-                  <div className="text-white font-bold text-sm mb-1">{t.name}</div>
-                  <div className="text-gray-500 text-xs">{t.desc}</div>
-                </div>
-              ))}
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <div className="card border-brand/20 bg-brand/5">
+            <div className="stat-num mb-2">3년+</div>
+            <div className="text-neutral-400 text-sm">평균 개발 경력</div>
+          </div>
+          <div className="card border-brand/20 bg-brand/5">
+            <div className="stat-num mb-2">120건+</div>
+            <div className="text-neutral-400 text-sm">앱/시스템 납품</div>
+          </div>
+          <div className="card border-brand/20 bg-brand/5">
+            <div className="stat-num mb-2">NDA</div>
+            <div className="text-neutral-400 text-sm">기밀 보호 계약 기본 제공</div>
           </div>
         </div>
 
-        <div className="text-center">
-          <Link href="/contact"
-            className="inline-block px-10 py-4 bg-[#C8001F] text-white font-bold rounded-xl hover:bg-[#E0001F] transition-all glow-red">
-            앱 개발 상담 →
-          </Link>
+        <div className="card border-brand/20 bg-brand/5 text-center py-12">
+          <h2 className="text-2xl font-bold text-white mb-3">개발 비용이 궁금하세요?</h2>
+          <p className="text-neutral-400 mb-6">기능 명세를 공유해 주시면 2일 내 상세 견적을 드립니다.</p>
+          <Link href="/contact" className="btn-red">개발 문의하기</Link>
         </div>
       </div>
     </div>

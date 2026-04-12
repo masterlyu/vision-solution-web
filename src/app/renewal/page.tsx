@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import UrlAnalysisForm from '@/components/UrlAnalysisForm'
 
 const analyzeItems = [
@@ -12,36 +11,29 @@ const analyzeItems = [
 
 export default function RenewalPage() {
   return (
-    <div className="min-h-screen pt-24 pb-20">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Hero */}
+    <div className="section min-h-screen pt-24">
+      <div className="container-base">
         <div className="text-center mb-16">
-          <p className="text-[#C8001F] text-sm font-medium mb-3 tracking-widest">WEB RENEWAL</p>
-          <h1 className="text-4xl md:text-6xl font-black text-white mb-4">
-            URL 하나로<br />전수 분석
-          </h1>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <span className="label">WEB RENEWAL</span>
+          <h1 className="text-4xl md:text-6xl font-black text-white mb-4">URL 하나로<br />전수 분석</h1>
+          <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
             오래된 사이트, AI가 먼저 진단합니다.<br />
             견적서 + 리뉴얼 계획서를 48시간 내 이메일로 받아보세요.
           </p>
         </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Analysis scope */}
           <div>
             <h2 className="text-2xl font-bold text-white mb-6">AI가 분석하는 항목</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {analyzeItems.map(item => (
-                <div key={item.title} className="glass rounded-xl p-5 hover:border-[#C8001F]/40 transition-all">
+                <div key={item.title} className="card hover:border-brand/40">
                   <div className="text-2xl mb-3">{item.icon}</div>
                   <h3 className="text-white font-bold mb-1 text-sm">{item.title}</h3>
-                  <p className="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
+                  <p className="text-neutral-500 text-xs leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
           </div>
-
-          {/* Form */}
           <div className="lg:sticky lg:top-24">
             <UrlAnalysisForm
               serviceType="renewal"

@@ -1,60 +1,67 @@
 import Link from 'next/link'
 
 const solutions = [
-  { icon: '🏭', title: 'ERP 연계 AI', desc: 'SAP·더존·영림원 ERP에 AI 분석·예측 레이어 추가. 재고 최적화, 수요 예측 자동화.' },
-  { icon: '📚', title: 'KMS 지식관리', desc: '사내 문서·매뉴얼을 RAG로 구축. 직원이 자연어로 질문하면 AI가 즉시 답변.' },
-  { icon: '📊', title: 'Excel 자동화', desc: '반복 Excel 작업을 AI 워크플로우로 대체. 데이터 수집·정제·보고서 자동 생성.' },
-  { icon: '🤖', title: '챗봇 / 상담봇', desc: '고객 응대 자동화. 홈페이지·카카오·슬랙 연동. 24시간 자동 응답.' },
-  { icon: '🖥️', title: '하드웨어 포함', desc: 'AI 서버 선정부터 설치·구성까지. 클라우드 또는 온프레미스 구축 모두 지원.' },
-  { icon: '🎓', title: '직원 교육', desc: 'AI 도입 후 실무 활용 교육. 부서별 맞춤 워크숍 제공.' },
+  { icon: '🤖', title: 'AI 챗봇 구축', desc: '고객 응대·FAQ 자동화. GPT 기반 맞춤 학습 챗봇' },
+  { icon: '📊', title: '데이터 분석 대시보드', desc: '매출·재고·고객 데이터 자동 집계·시각화' },
+  { icon: '✍️', title: 'AI 콘텐츠 생성', desc: '블로그·SNS·상품 설명 AI 자동 작성 시스템' },
+  { icon: '🔍', title: '자동화 리포트', desc: '정기 보고서 AI 생성·이메일 자동 발송' },
+  { icon: '🧠', title: 'LLM 비즈니스 통합', desc: '사내 문서 검색·업무 자동화 AI 에이전트 구축' },
+  { icon: '📈', title: '예측 모델링', desc: '수요 예측·이탈 예측·추천 시스템 구축' },
+]
+
+const cases = [
+  { company: '○○ 제조사 (직원 30명)', before: '고객 문의 응대에 하루 2시간 소요', after: 'AI 챗봇 도입 후 85% 자동 처리, 담당자 응대 15%만 남음' },
+  { company: '○○ 온라인몰', before: '상품 설명 1개 작성에 30분', after: 'AI 자동 생성으로 1분 이내, 월 300건 처리' },
 ]
 
 export default function AiSolutionPage() {
   return (
-    <div className="min-h-screen pt-24 pb-20">
-      <div className="max-w-7xl mx-auto px-6">
+    <div className="section min-h-screen pt-24">
+      <div className="container-base">
         <div className="text-center mb-16">
-          <p className="text-[#C8001F] text-sm font-medium mb-3 tracking-widest">AI SOLUTION</p>
-          <h1 className="text-4xl md:text-6xl font-black text-white mb-4">
-            중소기업 AI 도입,<br />처음부터 끝까지
-          </h1>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            ERP·KMS·Excel과 연계되는 맞춤형 AI 시스템.<br />
-            하드웨어 선정부터 직원 교육까지 원스톱 지원.
+          <span className="label">AI SOLUTION</span>
+          <h1 className="text-4xl md:text-6xl font-black text-white mb-4">AI 솔루션</h1>
+          <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
+            AI, 대기업만의 이야기가 아닙니다.<br />
+            중소기업에 맞는 실용적인 AI를 도입하세요.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-20">
           {solutions.map(s => (
-            <div key={s.title} className="glass rounded-2xl p-6 hover:border-[#C8001F]/40 transition-all group">
-              <div className="text-4xl mb-4">{s.icon}</div>
-              <h3 className="text-white font-bold mb-2 group-hover:text-[#C8001F] transition-colors">{s.title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
+            <div key={s.title} className="card hover:border-brand/40">
+              <div className="text-3xl mb-4">{s.icon}</div>
+              <h3 className="text-white font-bold mb-2">{s.title}</h3>
+              <p className="text-neutral-500 text-sm leading-relaxed">{s.desc}</p>
             </div>
           ))}
         </div>
 
-        {/* Process */}
-        <div className="glass rounded-2xl p-8 mb-12">
-          <h2 className="text-xl font-bold text-white mb-6 text-center">도입 프로세스</h2>
-          <div className="flex flex-col md:flex-row gap-4 justify-between">
-            {['현황 진단', 'AI 설계', '구축·연동', '교육·운영'].map((step, i) => (
-              <div key={step} className="flex items-center gap-3 flex-1">
-                <div className="w-8 h-8 rounded-full bg-[#C8001F]/20 border border-[#C8001F]/50 flex items-center justify-center text-[#C8001F] font-bold text-sm flex-shrink-0">
-                  {i + 1}
+        <div className="mb-16">
+          <h2 className="text-2xl font-bold text-white mb-8 text-center">도입 사례</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {cases.map(c => (
+              <div key={c.company} className="card">
+                <div className="text-brand text-xs font-bold mb-4 tracking-wider">{c.company}</div>
+                <div className="flex flex-col gap-3">
+                  <div className="bg-neutral-800 rounded-xl p-4">
+                    <div className="text-neutral-500 text-xs mb-1">BEFORE</div>
+                    <p className="text-neutral-300 text-sm">{c.before}</p>
+                  </div>
+                  <div className="bg-brand/10 border border-brand/20 rounded-xl p-4">
+                    <div className="text-brand text-xs mb-1">AFTER</div>
+                    <p className="text-white text-sm">{c.after}</p>
+                  </div>
                 </div>
-                <span className="text-white text-sm font-medium">{step}</span>
-                {i < 3 && <div className="hidden md:block flex-1 h-px bg-[#2A2A2A]" />}
               </div>
             ))}
           </div>
         </div>
 
-        <div className="text-center">
-          <Link href="/contact"
-            className="inline-block px-10 py-4 bg-[#C8001F] text-white font-bold rounded-xl hover:bg-[#E0001F] transition-all glow-red">
-            AI 도입 상담 →
-          </Link>
+        <div className="card border-brand/20 bg-brand/5 text-center py-12">
+          <h2 className="text-2xl font-bold text-white mb-3">어떤 업무를 자동화할 수 있을까요?</h2>
+          <p className="text-neutral-400 mb-6">현재 업무 프로세스를 공유해 주시면 AI 도입 가능 영역을 무료로 분석해 드립니다.</p>
+          <Link href="/contact" className="btn-red">무료 AI 도입 분석 신청</Link>
         </div>
       </div>
     </div>
