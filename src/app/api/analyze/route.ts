@@ -64,3 +64,12 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: e.message }, { status: 500 })
   }
 }
+
+// Temp debug endpoint
+export async function GET() {
+  return Response.json({
+    GMAIL_USER: process.env.GMAIL_USER ? '✓ set' : '✗ missing',
+    GMAIL_APP_PASSWORD: process.env.GMAIL_APP_PASSWORD ? '✓ set' : '✗ missing',
+    TELEGRAM_BOT_TOKEN: process.env.TELEGRAM_BOT_TOKEN ? '✓ set' : '✗ missing',
+  })
+}
