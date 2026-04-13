@@ -3,13 +3,15 @@ import { analyzeUrl } from '@/lib/siteAnalyzer'
 import { generatePdfBuffer } from '@/lib/pdfReport'
 import { Redis } from '@upstash/redis'
 import { randomUUID } from 'crypto'
+import { checkRateLimit, getClientId } from '@/lib/rateLimit'
+import { env } from '@/lib/env'
 
-const TOKEN   = process.env.TELEGRAM_BOT_TOKEN!
-const CHAT_ID = process.env.TELEGRAM_CHAT_ID!
+const TOKEN   = env.TELEGRAM_BOT_TOKEN
+const CHAT_ID = env.TELEGRAM_CHAT_ID
 
 const redis = new Redis({
-  url:   process.env.UPSTASH_REDIS_REST_URL!,
-  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+  url:   env.UPSTASH_REDIS_REST_URL,
+  token: env.UPSTASH_REDIS_REST_TOKEN,
 })
 
 export const maxDuration = 60
@@ -26,6 +28,20 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
+  const rl = await checkRateLimit('analyze', getClientId(req), { limit: 3, windowSec: 60 })
+  if (!rl.success) {
+    return NextResponse.json(
+      { error: '요청이 너무 많습니다. 잠시 후 다시 시도해주세요.' },
+      {
+        status: 429,
+        headers: {
+          'Retry-After': String(rl.resetAt - Math.floor(Date.now() / 1000)),
+          'X-RateLimit-Remaining': '0',
+        },
+      }
+    )
+  }
+
   const { url, email, company } = await req.json()
   if (!url || !email) return NextResponse.json({ error: 'URL과 이메일이 필요합니다.' }, { status: 400 })
 

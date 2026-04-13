@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { checkRateLimit, getClientId } from '@/lib/rateLimit'
+import { env } from '@/lib/env'
 
-const TOKEN = process.env.TELEGRAM_BOT_TOKEN!
-const CHAT_ID = process.env.TELEGRAM_CHAT_ID!
+const TOKEN = env.TELEGRAM_BOT_TOKEN
+const CHAT_ID = env.TELEGRAM_CHAT_ID
 
 async function sendTelegram(text: string) {
   await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
@@ -12,6 +14,20 @@ async function sendTelegram(text: string) {
 }
 
 export async function POST(req: NextRequest) {
+  const rl = await checkRateLimit('notify', getClientId(req), { limit: 5, windowSec: 60 })
+  if (!rl.success) {
+    return NextResponse.json(
+      { error: '요청이 너무 많습니다. 잠시 후 다시 시도해주세요.' },
+      {
+        status: 429,
+        headers: {
+          'Retry-After': String(rl.resetAt - Math.floor(Date.now() / 1000)),
+          'X-RateLimit-Remaining': '0',
+        },
+      }
+    )
+  }
+
   const { serviceType, url, email, company } = await req.json()
 
   const serviceLabel: Record<string, string> = {
