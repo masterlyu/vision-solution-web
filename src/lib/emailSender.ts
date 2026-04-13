@@ -1,5 +1,6 @@
 import nodemailer from 'nodemailer'
 import type { AnalysisResult } from './siteAnalyzer'
+import { env } from './env'
 
 function gradeColor(g: string) {
   return { A: '#22C55E', B: '#84cc16', C: '#F59E0B', D: '#f97316', F: '#EF4444' }[g] ?? '#6B7280'
@@ -180,13 +181,13 @@ export async function sendReportEmail(
   company?: string
 ) {
   // Strip spaces from app password (Google shows them as 4-char groups)
-  const appPass = (process.env.GMAIL_APP_PASSWORD ?? '').replace(/\s+/g, '')
+  const appPass = env.GMAIL_APP_PASSWORD.replace(/\s+/g, '')
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
     secure: true,
     auth: {
-      user: process.env.GMAIL_USER,
+      user: env.GMAIL_USER,
       pass: appPass,
     },
   })
@@ -195,7 +196,7 @@ export async function sendReportEmail(
   const html = buildEmailHtml(result, email, company)
 
   await transporter.sendMail({
-    from: `VISIONC 진단팀 <${process.env.GMAIL_USER}>`,
+    from: `VISIONC 진단팀 <${env.GMAIL_USER}>`,
     to: email,
     subject: `[VISIONC] ${domain} 보안 진단 리포트 (등급 ${result.score.grade} / ${result.score.total}점)`,
     html,

@@ -19,11 +19,11 @@ export const maxDuration = 60
 // Temp debug
 export async function GET() {
   return Response.json({
-    GMAIL_USER:              process.env.GMAIL_USER              ? '✓ set' : '✗ missing',
-    GMAIL_APP_PASSWORD:      process.env.GMAIL_APP_PASSWORD      ? '✓ set' : '✗ missing',
-    TELEGRAM_BOT_TOKEN:      process.env.TELEGRAM_BOT_TOKEN      ? '✓ set' : '✗ missing',
-    UPSTASH_REDIS_REST_URL:  process.env.UPSTASH_REDIS_REST_URL  ? '✓ set' : '✗ missing',
-    UPSTASH_REDIS_REST_TOKEN:process.env.UPSTASH_REDIS_REST_TOKEN? '✓ set' : '✗ missing',
+    GMAIL_USER:               env.GMAIL_USER               ? '✓ set' : '✗ missing',
+    GMAIL_APP_PASSWORD:       env.GMAIL_APP_PASSWORD        ? '✓ set' : '✗ missing',
+    TELEGRAM_BOT_TOKEN:       env.TELEGRAM_BOT_TOKEN        ? '✓ set' : '✗ missing',
+    UPSTASH_REDIS_REST_URL:   env.UPSTASH_REDIS_REST_URL    ? '✓ set' : '✗ missing',
+    UPSTASH_REDIS_REST_TOKEN: env.UPSTASH_REDIS_REST_TOKEN  ? '✓ set' : '✗ missing',
   })
 }
 

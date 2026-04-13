@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import type { AnalysisResult } from '@/lib/siteAnalyzer'
+import { env } from '@/lib/env'
 
-const TOKEN = process.env.TELEGRAM_BOT_TOKEN!
-const CHAT_ID = process.env.TELEGRAM_CHAT_ID!
+const TOKEN = env.TELEGRAM_BOT_TOKEN
+const CHAT_ID = env.TELEGRAM_CHAT_ID
 
 export async function POST(req: NextRequest) {
   const { result, email, company } = await req.json() as { result: AnalysisResult; email: string; company?: string }

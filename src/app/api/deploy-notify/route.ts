@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { env } from '@/lib/env'
 
-const TOKEN = process.env.TELEGRAM_BOT_TOKEN!
-const CHAT_ID = process.env.TELEGRAM_CHAT_ID!
+const TOKEN = env.TELEGRAM_BOT_TOKEN
+const CHAT_ID = env.TELEGRAM_CHAT_ID
 
 async function sendTelegram(text: string) {
   await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
@@ -30,8 +31,7 @@ export async function POST(req: NextRequest) {
         '',
         '🌐 <a href=https://www.visionc.co.kr>www.visionc.co.kr</a>',
         `⏰ ${new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })}`,
-      ].filter(Boolean).join('
-')
+      ].filter(Boolean).join('\n')
 
       await sendTelegram(lines)
     }

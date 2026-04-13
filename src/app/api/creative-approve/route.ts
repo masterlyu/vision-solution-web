@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { env } from '@/lib/env'
 
-const TOKEN = process.env.TELEGRAM_BOT_TOKEN!
-const CHAT_ID = process.env.TELEGRAM_CHAT_ID!
+const TOKEN = env.TELEGRAM_BOT_TOKEN
+const CHAT_ID = env.TELEGRAM_CHAT_ID
 
 // 창의적 산출물 승인 요청 API
 // 에이전트가 호출: POST /api/creative-approve
@@ -10,7 +11,7 @@ const CHAT_ID = process.env.TELEGRAM_CHAT_ID!
 export async function POST(req: NextRequest) {
   const { issueTitle, previewUrl, description, agentName, screenshotUrl } = await req.json()
 
-  const callbackBase = `${process.env.NEXT_PUBLIC_BASE_URL || 'https://www.visionc.co.kr'}/api/creative-callback`
+  const callbackBase = `${env.NEXT_PUBLIC_BASE_URL}/api/creative-callback`
 
   const msg = [
     `🎨 <b>창작물 검수 요청</b>`,
