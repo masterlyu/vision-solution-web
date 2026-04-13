@@ -1,22 +1,15 @@
 name: Deploy Notify
-
 on:
   push:
     branches: [main]
-
 jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
-      - name: Vercel 배포 대기 (90초)
+      - name: Vercel 배포 대기
         run: sleep 90
-
-      - name: 텔레그램 알림 발송
+      - name: 텔레그램 알림
         run: |
           curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
             -H "Content-Type: application/json" \
-            -d '{
-              "chat_id": "${{ secrets.TELEGRAM_CHAT_ID }}",
-              "text": "✅ 사이트 배포 완료\n\n브랜치: main\n커밋: ${{ github.sha }}\n내용: ${{ github.event.head_commit.message }}\n\n🌐 https://www.visionc.co.kr",
-              "parse_mode": "HTML"
-            }'
+            -d "{\"chat_id\":\"${{ secrets.TELEGRAM_CHAT_ID }}\",\"text\":\"✅ 사이트 배포 완료\n${{ github.event.head_commit.message }}\n🌐 https://www.visionc.co.kr\"}"
