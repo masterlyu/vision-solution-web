@@ -179,11 +179,15 @@ export async function sendReportEmail(
   email: string,
   company?: string
 ) {
+  // Strip spaces from app password (Google shows them as 4-char groups)
+  const appPass = (process.env.GMAIL_APP_PASSWORD ?? '').replace(/\s+/g, '')
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
       user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_APP_PASSWORD,
+      pass: appPass,
     },
   })
 
