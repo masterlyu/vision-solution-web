@@ -1,0 +1,43 @@
+import { NextRequest, NextResponse } from 'next/server'
+
+const TOKEN = process.env.TELEGRAM_BOT_TOKEN!
+const CHAT_ID = process.env.TELEGRAM_CHAT_ID!
+
+async function sendTelegram(text: string) {
+  await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: 'HTML' }),
+  })
+}
+
+export async function POST(req: NextRequest) {
+  try {
+    const body = await req.json()
+    const { type, name, state, meta } = body
+
+    if (state === 'READY' || type === 'deployment.succeeded') {
+      const commitMsg = meta?.githubCommitMessage || name || '업데이트'
+      const branch = meta?.githubCommitRef || 'main'
+      const sha = (meta?.githubCommitSha || '').slice(0, 7)
+
+      const lines = [
+        '✅ <b>사이트 배포 완료</b>',
+        '',
+        `브랜치: <code>${branch}</code>`,
+        sha ? `커밋: <code>${sha}</code>` : '',
+        `내용: ${commitMsg}`,
+        '',
+        '🌐 <a href=https://www.visionc.co.kr>www.visionc.co.kr</a>',
+        `⏰ ${new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })}`,
+      ].filter(Boolean).join('
+')
+
+      await sendTelegram(lines)
+    }
+
+    return NextResponse.json({ ok: true })
+  } catch {
+    return NextResponse.json({ ok: false }, { status: 500 })
+  }
+}
