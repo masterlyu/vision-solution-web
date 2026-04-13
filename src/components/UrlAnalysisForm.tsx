@@ -31,8 +31,19 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
 
   const inputCls = "w-full bg-background border border-border rounded-xl px-4 py-3 text-foreground text-sm placeholder-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/30 transition-all"
 
+  // Normalize URL: add https:// if no protocol given
+  const normalizeUrl = (raw: string) => {
+    const trimmed = raw.trim()
+    if (!trimmed) return ''
+    if (/^https?:\/\//i.test(trimmed)) return trimmed
+    return `https://${trimmed}`
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    const normalizedUrl = normalizeUrl(url)
+    if (!normalizedUrl) return
+    setUrl(normalizedUrl)
     setStep('analyzing')
     setProgress(0)
 
@@ -48,7 +59,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
       const res = await fetch('/api/analyze', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ url }),
+        body: JSON.stringify({ url: normalizedUrl }),
       })
       const data: AnalysisResult = await res.json()
       clearInterval(timer)
@@ -129,7 +140,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
       <h3 className="text-foreground font-bold text-lg">{title}</h3>
       <div>
         <label className="text-muted-foreground text-sm font-medium mb-1.5 block">분석할 사이트 URL <span className="text-primary">*</span></label>
-        <input type="url" value={url} onChange={e => setUrl(e.target.value)} placeholder="https://example.com" required className={inputCls} />
+        <input type="text" value={url} onChange={e => setUrl(e.target.value)} placeholder="example.com 또는 https://example.com" required className={inputCls} />
       </div>
       <div>
         <label className="text-muted-foreground text-sm font-medium mb-1.5 block">이메일 <span className="text-primary">*</span></label>
