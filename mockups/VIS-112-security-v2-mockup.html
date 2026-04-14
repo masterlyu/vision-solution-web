@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VIS-112 Mockup — /security v2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <script src="https://cdn.jsdelivr.net/npm/@dotlottie/player-component@2/dist/dotlottie-player.mjs" type="module"></script>
+  <style>
+    :root {
+      --primary: oklch(0.65 0.22 27);      /* red-ish primary */
+      --background: oklch(0.12 0.01 240);
+      --foreground: oklch(0.95 0 0);
+      --muted: oklch(0.55 0.01 240);
+      --card: oklch(0.17 0.01 240);
+      --border: oklch(0.25 0.01 240);
+    }
+    body {
+      background: oklch(0.12 0.01 240);
+      color: oklch(0.95 0 0);
+      font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+    }
+    .lottie-ph {
+      background: oklch(0.20 0.01 240);
+      border: 1.5px dashed oklch(0.35 0.01 240);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: oklch(0.50 0.01 240);
+      font-size: 11px;
+      font-family: monospace;
+    }
+    .lottie-ph span.icon { font-size: 28px; }
+  </style>
+</head>
+<body class="min-h-screen">
+
+<!-- ──────────────────────────────────────────────
+     HERO
+     현재 10줄 → 목표 4줄 (-60%)
+     변경: 배지 4개 제거, Lottie 위로 이동, CTA 버튼 1개
+────────────────────────────────────────────────── -->
+<section style="
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% -10%, rgba(220,38,38,0.18) 0%, transparent 65%);
+">
+
+  <!-- Lottie: shield.json (기존) — 크게 올려서 Hero 중심 시각 -->
+  <div class="lottie-ph" style="width:240px;height:240px;margin-bottom:28px;">
+    <span class="icon">🛡️</span>
+    <span>/lottie/shield.json</span>
+    <span style="font-size:10px;opacity:0.6;">240×240</span>
+  </div>
+
+  <!-- ① 얼럿 배지 (유지) -->
+  <div style="
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);
+    color:#f87171;font-size:12px;font-weight:700;
+    padding:6px 16px;border-radius:999px;margin-bottom:20px;
+  ">
+    <span style="width:6px;height:6px;border-radius:50%;background:#f87171;display:inline-block;"></span>
+    지금 이 순간도 해킹 시도 중
+  </div>
+
+  <!-- ② H1: 3줄→2줄 -->
+  <h1 style="
+    font-size: clamp(2.8rem, 8vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  ">
+    지금 내 사이트,<br />
+    <span style="color:#f87171;">털리고 있지 않나요?</span>
+  </h1>
+
+  <!-- ③ P: 1줄 (압축) -->
+  <p style="color:oklch(0.55 0.01 240);font-size:1.1rem;margin-bottom:32px;">
+    국내 중소기업 73%가 지금 해킹에 노출되어 있습니다.
+  </p>
+
+  <!-- ④ CTA 버튼 1개 (배지 4개 대체) -->
+  <a href="#cta-form" style="
+    display:inline-block;
+    background:oklch(0.65 0.22 27);
+    color:#fff;
+    font-size:1rem;font-weight:700;
+    padding:14px 36px;border-radius:12px;
+    text-decoration:none;
+    transition:opacity 0.2s;
+  " onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+    무료로 내 사이트 확인하기 →
+  </a>
+
+</section>
+
+
+<!-- ──────────────────────────────────────────────
+     STATS
+     현재 8줄 → 목표 4줄 (-50%)
+     변경: desc 2줄→1줄, RadialGauge 유지
+────────────────────────────────────────────────── -->
+<section style="
+  padding: 64px 24px;
+  background: rgba(255,255,255,0.02);
+  border-top: 1px solid oklch(0.25 0.01 240);
+  border-bottom: 1px solid oklch(0.25 0.01 240);
+">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center;">
+
+      <!-- Stat 1 -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+        <div class="lottie-ph" style="width:60px;height:36px;">
+          <span style="font-size:10px;font-family:monospace;">gauge</span>
+        </div>
+        <div style="font-size:3.2rem;font-weight:900;color:#f87171;">73%</div>
+        <p style="color:oklch(0.55 0.01 240);font-size:0.8rem;line-height:1.4;">중소기업 기본 보안 미설정</p>
+      </div>
+
+      <!-- Stat 2 -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+        <div class="lottie-ph" style="width:60px;height:36px;">
+          <span style="font-size:10px;font-family:monospace;">gauge</span>
+        </div>
+        <div style="font-size:3.2rem;font-weight:900;color:#fb923c;">43초</div>
+        <p style="color:oklch(0.55 0.01 240);font-size:0.8rem;line-height:1.4;">글로벌 해킹 공격 주기</p>
+      </div>
+
+      <!-- Stat 3 -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+        <div class="lottie-ph" style="width:60px;height:36px;">
+          <span style="font-size:10px;font-family:monospace;">gauge</span>
+        </div>
+        <div style="font-size:3.2rem;font-weight:900;color:#fbbf24;">3천만원</div>
+        <p style="color:oklch(0.55 0.01 240);font-size:0.8rem;line-height:1.4;">개인정보 유출 최대 과태료</p>
+      </div>
+
+      <!-- Stat 4 -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+        <div class="lottie-ph" style="width:60px;height:36px;">
+          <span style="font-size:10px;font-family:monospace;">gauge</span>
+        </div>
+        <div style="font-size:3.2rem;font-weight:900;color:#f87171;">95%</div>
+        <p style="color:oklch(0.55 0.01 240);font-size:0.8rem;line-height:1.4;">구글 위험 경고 시 즉시 이탈</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────
+     DANGER CASES
+     현재 16줄 → 목표 10줄 (-37%)
+     변경: 섹션 헤더 p 삭제, h2 1줄, desc 삭제
+────────────────────────────────────────────────── -->
+<section style="padding:64px 24px;">
+  <div style="max-width:1100px;margin:0 auto;">
+
+    <!-- Header: p 삭제 → h2만 -->
+    <h2 style="
+      font-size:clamp(1.6rem,4vw,2.4rem);
+      font-weight:900;
+      text-align:center;
+      margin-bottom:40px;
+      line-height:1.25;
+    ">
+      &ldquo;우리 같은 작은 회사는 괜찮아&rdquo;<br />
+      <span style="color:#f87171;">— 이 생각이 가장 위험합니다</span>
+    </h2>
+
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;">
+
+      <!-- Danger 1 -->
+      <div style="
+        border:1px solid rgba(239,68,68,0.3);
+        background:rgba(239,68,68,0.05);
+        border-radius:16px;padding:24px;
+        display:flex;flex-direction:column;align-items:center;gap:12px;
+      ">
+        <div class="lottie-ph" style="width:100px;height:100px;">
+          <span class="icon">💳</span>
+          <span>/lottie/hacker.json</span>
+        </div>
+        <h3 style="font-weight:700;font-size:1rem;text-align:center;">고객 카드정보가 통째로 빠져나갑니다</h3>
+        <!-- desc 삭제 -->
+        <div style="
+          background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);
+          border-radius:10px;padding:8px 14px;font-size:11px;color:#f87171;text-align:center;
+        ">
+          📌 국내 쇼핑몰 2,300명 카드 유출 → 3개월 만에 폐업.
+        </div>
+      </div>
+
+      <!-- Danger 2 -->
+      <div style="
+        border:1px solid rgba(251,146,60,0.3);
+        background:rgba(251,146,60,0.05);
+        border-radius:16px;padding:24px;
+        display:flex;flex-direction:column;align-items:center;gap:12px;
+      ">
+        <div class="lottie-ph" style="width:100px;height:100px;">
+          <span class="icon">💀</span>
+          <span>/lottie/warning.json</span>
+        </div>
+        <h3 style="font-weight:700;font-size:1rem;text-align:center;">내 사이트가 범죄 도구로 쓰입니다</h3>
+        <div style="
+          background:rgba(251,146,60,0.1);border:1px solid rgba(251,146,60,0.2);
+          border-radius:10px;padding:8px 14px;font-size:11px;color:#fb923c;text-align:center;
+        ">
+          📌 소규모 병원 홈페이지 악성코드 유포지 → 구글 완전 차단.
+        </div>
+      </div>
+
+      <!-- Danger 3 -->
+      <div style="
+        border:1px solid rgba(251,191,36,0.3);
+        background:rgba(251,191,36,0.05);
+        border-radius:16px;padding:24px;
+        display:flex;flex-direction:column;align-items:center;gap:12px;
+      ">
+        <div class="lottie-ph" style="width:100px;height:100px;">
+          <span class="icon">📋</span>
+          <span>/lottie/alert.json</span>
+        </div>
+        <h3 style="font-weight:700;font-size:1rem;text-align:center;">고객 DB가 경쟁사 손에 들어갑니다</h3>
+        <div style="
+          background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.2);
+          border-radius:10px;padding:8px 14px;font-size:11px;color:#fbbf24;text-align:center;
+        ">
+          📌 인테리어 업체 견적 DB 전체 유출 → 경쟁사에 넘어감.
+        </div>
+      </div>
+
+      <!-- Danger 4 -->
+      <div style="
+        border:1px solid rgba(96,165,250,0.3);
+        background:rgba(96,165,250,0.05);
+        border-radius:16px;padding:24px;
+        display:flex;flex-direction:column;align-items:center;gap:12px;
+      ">
+        <div class="lottie-ph" style="width:100px;height:100px;">
+          <span class="icon">🔍</span>
+          <span>/lottie/scan.json</span>
+        </div>
+        <h3 style="font-weight:700;font-size:1rem;text-align:center;">구글에서 영원히 사라집니다</h3>
+        <div style="
+          background:rgba(96,165,250,0.1);border:1px solid rgba(96,165,250,0.2);
+          border-radius:10px;padding:8px 14px;font-size:11px;color:#60a5fa;text-align:center;
+        ">
+          📌 여행사 블로그 월 5천 방문자 → 해킹 후 → 방문자 0명.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────
+     CHECKLIST
+     현재 27줄 → 목표 7줄 (-74%) ← 최대 압축
+     변경: 이모지+title만, simple/warn 삭제
+           Lottie placeholder 추가 (위험도 시각화)
+────────────────────────────────────────────────── -->
+<section style="
+  padding:64px 24px;
+  background:rgba(255,255,255,0.02);
+  border-top:1px solid oklch(0.25 0.01 240);
+  border-bottom:1px solid oklch(0.25 0.01 240);
+">
+  <div style="max-width:1100px;margin:0 auto;">
+
+    <!-- Header: h2만 -->
+    <h2 style="
+      font-size:clamp(1.6rem,4vw,2.2rem);
+      font-weight:900;text-align:center;margin-bottom:40px;
+    ">무엇을 점검하나요?</h2>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+
+      <!-- Check 1: SSL -->
+      <div style="
+        background:oklch(0.17 0.01 240);
+        border:1px solid oklch(0.25 0.01 240);
+        border-radius:16px;padding:20px;
+        display:flex;flex-direction:column;align-items:center;gap:10px;
+        text-align:center;
+      ">
+        <!-- Lottie placeholder: lock security animated -->
+        <div class="lottie-ph" style="width:72px;height:72px;">
+          <span class="icon">🔒</span>
+          <span>lock.json</span>
+        </div>
+        <p style="color:oklch(0.65 0.22 27);font-size:11px;font-weight:700;">SSL/HTTPS</p>
+        <h3 style="font-weight:700;font-size:0.875rem;line-height:1.3;">자물쇠가 잠겼나요?</h3>
+      </div>
+
+      <!-- Check 2: 보안 헤더 -->
+      <div style="
+        background:oklch(0.17 0.01 240);
+        border:1px solid oklch(0.25 0.01 240);
+        border-radius:16px;padding:20px;
+        display:flex;flex-direction:column;align-items:center;gap:10px;
+        text-align:center;
+      ">
+        <div class="lottie-ph" style="width:72px;height:72px;">
+          <span class="icon">🪟</span>
+          <span>window.json</span>
+        </div>
+        <p style="color:oklch(0.65 0.22 27);font-size:11px;font-weight:700;">보안 헤더 6가지</p>
+        <h3 style="font-weight:700;font-size:0.875rem;line-height:1.3;">창문이 열려 있나요?</h3>
+      </div>
+
+      <!-- Check 3: 정보 노출 -->
+      <div style="
+        background:oklch(0.17 0.01 240);
+        border:1px solid oklch(0.25 0.01 240);
+        border-radius:16px;padding:20px;
+        display:flex;flex-direction:column;align-items:center;gap:10px;
+        text-align:center;
+      ">
+        <!-- Lottie: shield protect -->
+        <div class="lottie-ph" style="width:72px;height:72px;">
+          <span class="icon">🕵️</span>
+          <span>shield.json</span>
+        </div>
+        <p style="color:oklch(0.65 0.22 27);font-size:11px;font-weight:700;">정보 노출 점검</p>
+        <h3 style="font-weight:700;font-size:0.875rem;line-height:1.3;">해커가 정찰 중인가요?</h3>
+      </div>
+
+      <!-- Check 4: 관리자 -->
+      <div style="
+        background:oklch(0.17 0.01 240);
+        border:1px solid oklch(0.25 0.01 240);
+        border-radius:16px;padding:20px;
+        display:flex;flex-direction:column;align-items:center;gap:10px;
+        text-align:center;
+      ">
+        <div class="lottie-ph" style="width:72px;height:72px;">
+          <span class="icon">🚪</span>
+          <span>door.json</span>
+        </div>
+        <p style="color:oklch(0.65 0.22 27);font-size:11px;font-weight:700;">관리자 접근 보안</p>
+        <h3 style="font-weight:700;font-size:0.875rem;line-height:1.3;">뒷문이 열려 있나요?</h3>
+      </div>
+
+      <!-- Check 5: SEO -->
+      <div style="
+        background:oklch(0.17 0.01 240);
+        border:1px solid oklch(0.25 0.01 240);
+        border-radius:16px;padding:20px;
+        display:flex;flex-direction:column;align-items:center;gap:10px;
+        text-align:center;
+      ">
+        <div class="lottie-ph" style="width:72px;height:72px;">
+          <span class="icon">🚨</span>
+          <span>alert.json</span>
+        </div>
+        <p style="color:oklch(0.65 0.22 27);font-size:11px;font-weight:700;">SEO·신뢰도</p>
+        <h3 style="font-weight:700;font-size:0.875rem;line-height:1.3;">구글이 경고하나요?</h3>
+      </div>
+
+      <!-- Check 6: 속도 -->
+      <div style="
+        background:oklch(0.17 0.01 240);
+        border:1px solid oklch(0.25 0.01 240);
+        border-radius:16px;padding:20px;
+        display:flex;flex-direction:column;align-items:center;gap:10px;
+        text-align:center;
+      ">
+        <div class="lottie-ph" style="width:72px;height:72px;">
+          <span class="icon">🐌</span>
+          <span>speed.json</span>
+        </div>
+        <p style="color:oklch(0.65 0.22 27);font-size:11px;font-weight:700;">속도·성능</p>
+        <h3 style="font-weight:700;font-size:0.875rem;line-height:1.3;">3초 안에 열리나요?</h3>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────
+     중간 CTA (신규 추가)
+     전환율 원칙: CTA 최소 3곳 (Hero + 여기 + 하단)
+────────────────────────────────────────────────── -->
+<section style="
+  padding:48px 24px;
+  text-align:center;
+  background: radial-gradient(ellipse at 50% 50%, rgba(220,38,38,0.08) 0%, transparent 70%);
+">
+  <p style="color:#f87171;font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:16px;">
+    지금 바로 확인
+  </p>
+  <h2 style="font-size:1.8rem;font-weight:900;margin-bottom:24px;">
+    내 사이트는 안전한가요?
+  </h2>
+  <a href="#cta-form" style="
+    display:inline-block;
+    background:oklch(0.65 0.22 27);
+    color:#fff;font-size:1rem;font-weight:700;
+    padding:14px 36px;border-radius:12px;
+    text-decoration:none;
+  ">
+    무료 진단 신청하기 →
+  </a>
+</section>
+
+
+<!-- ──────────────────────────────────────────────
+     PROCESS STEPPER
+     현재 15줄 → 목표 7줄 (-53%)
+     변경: desc 삭제, title 5단어 이내 동사형
+────────────────────────────────────────────────── -->
+<section style="padding:64px 24px;">
+  <div style="max-width:1100px;margin:0 auto;">
+
+    <!-- Header: h2만 -->
+    <h2 style="
+      font-size:clamp(1.6rem,4vw,2.2rem);
+      font-weight:900;text-align:center;margin-bottom:48px;
+    ">신청부터 완료까지</h2>
+
+    <!-- Desktop stepper -->
+    <div style="
+      display:flex;align-items:flex-start;justify-content:space-between;
+      position:relative;gap:8px;
+    ">
+      <!-- Connector line -->
+      <div style="
+        position:absolute;top:24px;
+        left:calc(8.33% + 20px);right:calc(8.33% + 20px);
+        height:2px;background:rgba(255,255,255,0.08);
+      "></div>
+
+      <!-- Step 1 -->
+      <div style="display:flex;flex-direction:column;align-items:center;text-align:center;width:15%;gap:10px;position:relative;">
+        <div style="
+          width:48px;height:48px;border-radius:50%;
+          background:oklch(0.65 0.22 27);color:#fff;
+          font-weight:900;font-size:13px;
+          display:flex;align-items:center;justify-content:center;
+          z-index:10;box-shadow:0 4px 16px rgba(220,38,38,0.3);
+        ">01</div>
+        <h3 style="font-weight:700;font-size:0.8rem;line-height:1.3;">URL 입력</h3>
+      </div>
+
+      <!-- Step 2 -->
+      <div style="display:flex;flex-direction:column;align-items:center;text-align:center;width:15%;gap:10px;position:relative;">
+        <div style="
+          width:48px;height:48px;border-radius:50%;
+          background:oklch(0.65 0.22 27);color:#fff;
+          font-weight:900;font-size:13px;
+          display:flex;align-items:center;justify-content:center;
+          z-index:10;box-shadow:0 4px 16px rgba(220,38,38,0.3);
+        ">02</div>
+        <h3 style="font-weight:700;font-size:0.8rem;line-height:1.3;">자동 정밀 스캔</h3>
+      </div>
+
+      <!-- Step 3 -->
+      <div style="display:flex;flex-direction:column;align-items:center;text-align:center;width:15%;gap:10px;position:relative;">
+        <div style="
+          width:48px;height:48px;border-radius:50%;
+          background:oklch(0.65 0.22 27);color:#fff;
+          font-weight:900;font-size:13px;
+          display:flex;align-items:center;justify-content:center;
+          z-index:10;box-shadow:0 4px 16px rgba(220,38,38,0.3);
+        ">03</div>
+        <h3 style="font-weight:700;font-size:0.8rem;line-height:1.3;">전문가 검토</h3>
+      </div>
+
+      <!-- Step 4 -->
+      <div style="display:flex;flex-direction:column;align-items:center;text-align:center;width:15%;gap:10px;position:relative;">
+        <div style="
+          width:48px;height:48px;border-radius:50%;
+          background:oklch(0.65 0.22 27);color:#fff;
+          font-weight:900;font-size:13px;
+          display:flex;align-items:center;justify-content:center;
+          z-index:10;box-shadow:0 4px 16px rgba(220,38,38,0.3);
+        ">04</div>
+        <h3 style="font-weight:700;font-size:0.8rem;line-height:1.3;">쉬운 리포트 발송</h3>
+      </div>
+
+      <!-- Step 5 -->
+      <div style="display:flex;flex-direction:column;align-items:center;text-align:center;width:15%;gap:10px;position:relative;">
+        <div style="
+          width:48px;height:48px;border-radius:50%;
+          background:oklch(0.65 0.22 27);color:#fff;
+          font-weight:900;font-size:13px;
+          display:flex;align-items:center;justify-content:center;
+          z-index:10;box-shadow:0 4px 16px rgba(220,38,38,0.3);
+        ">05</div>
+        <h3 style="font-weight:700;font-size:0.8rem;line-height:1.3;">맞춤 견적 제안</h3>
+      </div>
+
+      <!-- Step 6 -->
+      <div style="display:flex;flex-direction:column;align-items:center;text-align:center;width:15%;gap:10px;position:relative;">
+        <div style="
+          width:48px;height:48px;border-radius:50%;
+          background:oklch(0.65 0.22 27);color:#fff;
+          font-weight:900;font-size:13px;
+          display:flex;align-items:center;justify-content:center;
+          z-index:10;box-shadow:0 4px 16px rgba(220,38,38,0.3);
+        ">06</div>
+        <h3 style="font-weight:700;font-size:0.8rem;line-height:1.3;">개선 + 재진단</h3>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────
+     SITE TYPES
+     현재 15줄 → 목표 8줄 (-47%)
+     변경: 헤더 p 삭제, 카드 note 삭제, 이모지+라벨+O/△/X만
+────────────────────────────────────────────────── -->
+<section style="
+  padding:64px 24px;
+  background:rgba(255,255,255,0.02);
+  border-top:1px solid oklch(0.25 0.01 240);
+  border-bottom:1px solid oklch(0.25 0.01 240);
+">
+  <div style="max-width:700px;margin:0 auto;text-align:center;">
+
+    <h2 style="
+      font-size:clamp(1.6rem,4vw,2.2rem);
+      font-weight:900;margin-bottom:40px;
+    ">어떤 사이트에 가능한가요?</h2>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
+
+      <!-- 워드프레스 ✓ -->
+      <div style="
+        background:oklch(0.17 0.01 240);
+        border:1px solid rgba(74,222,128,0.3);
+        border-radius:14px;padding:18px 12px;
+        display:flex;flex-direction:column;align-items:center;gap:6px;
+      ">
+        <span style="font-size:2rem;">🌐</span>
+        <span style="font-weight:700;font-size:0.875rem;">워드프레스</span>
+        <span style="color:#4ade80;font-size:1.2rem;">✓</span>
+      </div>
+
+      <!-- 일반 홈페이지 ✓ -->
+      <div style="
+        background:oklch(0.17 0.01 240);
+        border:1px solid rgba(74,222,128,0.3);
+        border-radius:14px;padding:18px 12px;
+        display:flex;flex-direction:column;align-items:center;gap:6px;
+      ">
+        <span style="font-size:2rem;">🏠</span>
+        <span style="font-weight:700;font-size:0.875rem;">일반 홈페이지</span>
+        <span style="color:#4ade80;font-size:1.2rem;">✓</span>
+      </div>
+
+      <!-- 쇼핑몰 ✓ -->
+      <div style="
+        background:oklch(0.17 0.01 240);
+        border:1px solid rgba(74,222,128,0.3);
+        border-radius:14px;padding:18px 12px;
+        display:flex;flex-direction:column;align-items:center;gap:6px;
+      ">
+        <span style="font-size:2rem;">🛒</span>
+        <span style="font-weight:700;font-size:0.875rem;">쇼핑몰</span>
+        <span style="color:#4ade80;font-size:1.2rem;">✓</span>
+      </div>
+
+      <!-- 커스텀 서버 ✓ -->
+      <div style="
+        background:oklch(0.17 0.01 240);
+        border:1px solid rgba(74,222,128,0.3);
+        border-radius:14px;padding:18px 12px;
+        display:flex;flex-direction:column;align-items:center;gap:6px;
+      ">
+        <span style="font-size:2rem;">🖥️</span>
+        <span style="font-weight:700;font-size:0.875rem;">커스텀 서버</span>
+        <span style="color:#4ade80;font-size:1.2rem;">✓</span>
+      </div>
+
+      <!-- 카페24 △ -->
+      <div style="
+        background:oklch(0.17 0.01 240);
+        border:1px solid rgba(251,191,36,0.3);
+        border-radius:14px;padding:18px 12px;
+        display:flex;flex-direction:column;align-items:center;gap:6px;
+      ">
+        <span style="font-size:2rem;">🏪</span>
+        <span style="font-weight:700;font-size:0.875rem;">카페24 / 아임웹</span>
+        <span style="color:#fbbf24;font-size:1.2rem;">△</span>
+      </div>
+
+      <!-- 스마트스토어 ✗ -->
+      <div style="
+        background:oklch(0.17 0.01 240);
+        border:1px solid rgba(239,68,68,0.2);
+        border-radius:14px;padding:18px 12px;
+        display:flex;flex-direction:column;align-items:center;gap:6px;
+        opacity:0.55;
+      ">
+        <span style="font-size:2rem;">🏬</span>
+        <span style="font-weight:700;font-size:0.875rem;">스마트스토어</span>
+        <span style="color:#f87171;font-size:1.2rem;">✗</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────
+     CTA + FORM (하단)
+     현재 11줄 → 목표 6줄 (-45%)
+     변경: overline 삭제, 혜택 4개 이모지+title만
+           CTA form 위치/디자인 변경 금지
+────────────────────────────────────────────────── -->
+<section id="cta-form" style="padding:64px 24px;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
+
+      <!-- 왼쪽: 혜택 + Lottie -->
+      <div>
+        <h2 style="
+          font-size:clamp(1.6rem,3.5vw,2.2rem);
+          font-weight:900;margin-bottom:24px;line-height:1.2;
+        ">
+          지금 바로 확인하세요.<br />
+          <span style="color:oklch(0.65 0.22 27);">무료입니다.</span>
+        </h2>
+
+        <!-- 혜택 4개: 이모지+title만 (desc 삭제) -->
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
+
+          <div style="
+            display:flex;align-items:center;gap:14px;
+            background:oklch(0.17 0.01 240);border:1px solid oklch(0.25 0.01 240);
+            border-radius:12px;padding:14px 16px;
+          ">
+            <span style="font-size:1.4rem;">💰</span>
+            <span style="font-weight:700;font-size:0.9rem;">비용 없음</span>
+          </div>
+
+          <div style="
+            display:flex;align-items:center;gap:14px;
+            background:oklch(0.17 0.01 240);border:1px solid oklch(0.25 0.01 240);
+            border-radius:12px;padding:14px 16px;
+          ">
+            <span style="font-size:1.4rem;">⏱️</span>
+            <span style="font-weight:700;font-size:0.9rem;">시간 없음</span>
+          </div>
+
+          <div style="
+            display:flex;align-items:center;gap:14px;
+            background:oklch(0.17 0.01 240);border:1px solid oklch(0.25 0.01 240);
+            border-radius:12px;padding:14px 16px;
+          ">
+            <span style="font-size:1.4rem;">🧠</span>
+            <span style="font-weight:700;font-size:0.9rem;">지식 없음</span>
+          </div>
+
+          <div style="
+            display:flex;align-items:center;gap:14px;
+            background:oklch(0.17 0.01 240);border:1px solid oklch(0.25 0.01 240);
+            border-radius:12px;padding:14px 16px;
+          ">
+            <span style="font-size:1.4rem;">😌</span>
+            <span style="font-weight:700;font-size:0.9rem;">부담 없음</span>
+          </div>
+
+        </div>
+
+        <!-- Lottie: check.json (기존) -->
+        <div class="lottie-ph" style="width:100px;height:100px;">
+          <span class="icon">✅</span>
+          <span>/lottie/check.json</span>
+        </div>
+      </div>
+
+      <!-- 오른쪽: Form (위치/디자인 변경 금지) -->
+      <div style="
+        background:oklch(0.17 0.01 240);
+        border:1px solid oklch(0.25 0.01 240);
+        border-radius:20px;padding:32px;
+      ">
+        <h3 style="font-weight:900;font-size:1.2rem;margin-bottom:4px;">무료 보안 진단 신청</h3>
+        <p style="color:oklch(0.55 0.01 240);font-size:0.8rem;margin-bottom:24px;">
+          분석 완료 후 전문가 검토를 거쳐 이메일로 리포트를 발송합니다.
+        </p>
+
+        <!-- Form fields (placeholder) -->
+        <div style="display:flex;flex-direction:column;gap:12px;">
+
+          <div>
+            <label style="display:block;font-size:12px;font-weight:600;margin-bottom:6px;color:oklch(0.65 0.01 240);">사이트 URL</label>
+            <input type="text" placeholder="https://example.com" style="
+              width:100%;padding:11px 14px;
+              background:oklch(0.12 0.01 240);
+              border:1px solid oklch(0.25 0.01 240);
+              border-radius:10px;color:#fff;font-size:14px;
+              box-sizing:border-box;
+            " />
+          </div>
+
+          <div>
+            <label style="display:block;font-size:12px;font-weight:600;margin-bottom:6px;color:oklch(0.65 0.01 240);">이름</label>
+            <input type="text" placeholder="홍길동" style="
+              width:100%;padding:11px 14px;
+              background:oklch(0.12 0.01 240);
+              border:1px solid oklch(0.25 0.01 240);
+              border-radius:10px;color:#fff;font-size:14px;
+              box-sizing:border-box;
+            " />
+          </div>
+
+          <div>
+            <label style="display:block;font-size:12px;font-weight:600;margin-bottom:6px;color:oklch(0.65 0.01 240);">이메일</label>
+            <input type="email" placeholder="email@company.com" style="
+              width:100%;padding:11px 14px;
+              background:oklch(0.12 0.01 240);
+              border:1px solid oklch(0.25 0.01 240);
+              border-radius:10px;color:#fff;font-size:14px;
+              box-sizing:border-box;
+            " />
+          </div>
+
+          <div>
+            <label style="display:block;font-size:12px;font-weight:600;margin-bottom:6px;color:oklch(0.65 0.01 240);">연락처</label>
+            <input type="tel" placeholder="010-0000-0000" style="
+              width:100%;padding:11px 14px;
+              background:oklch(0.12 0.01 240);
+              border:1px solid oklch(0.25 0.01 240);
+              border-radius:10px;color:#fff;font-size:14px;
+              box-sizing:border-box;
+            " />
+          </div>
+
+          <button style="
+            width:100%;padding:14px;
+            background:oklch(0.65 0.22 27);
+            color:#fff;font-size:1rem;font-weight:700;
+            border:none;border-radius:10px;
+            cursor:pointer;margin-top:8px;
+          ">
+            무료 진단 신청하기
+          </button>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ──────────────────────────────────────────────
+     MOCKUP NOTES (디렉터 메모 — 실제 구현 시 제거)
+────────────────────────────────────────────────── -->
+<div style="
+  background:#1a1a00;border-top:2px solid #fbbf24;
+  padding:32px 24px;font-size:13px;font-family:monospace;
+  color:#fbbf24;
+">
+  <h4 style="font-size:16px;margin-bottom:12px;">📋 디렉터 메모 (Phase 2 퍼블리셔 참조)</h4>
+  <ul style="line-height:2;margin-left:16px;">
+    <li>Lottie placeholders: shield.json(기존), hacker.json(기존), warning.json(기존), alert.json(기존), scan.json(기존), check.json(기존) + 신규 3개 필요 (lock, shield-protect, timeline)</li>
+    <li>RadialGauge SVG: 기존 컴포넌트 그대로 사용</li>
+    <li>중간 CTA 섹션 신규 추가 — href="#cta-form" 앵커 이동</li>
+    <li>텍스트 감축: 현재 102줄 → mockup 기준 약 46줄 (-55%)</li>
+    <li>CTA 위치: Hero(↑) + Checklist 후 중간(신규) + 하단 Form = 3곳 ✓</li>
+    <li>form 컴포넌트: UrlAnalysisForm serviceType="security" 그대로 유지</li>
+    <li>framer-motion: Phase 2에서 최소 사용 (CSP 사고 학습 — useEffect 내 동작 확인)</li>
+  </ul>
+</div>
+
+</body>
+</html>
