@@ -1,0 +1,74 @@
+name: Smoke Test
+
+on:
+  workflow_run:
+    workflows: ['Deploy Notify']
+    types: [completed]
+
+jobs:
+  smoke:
+    name: Post-deploy rendering smoke test
+    runs-on: ubuntu-latest
+    if: github.event.workflow_run.conclusion == 'success'
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - run: npx playwright install --with-deps chromium
+
+      - name: Run smoke tests
+        id: smoke
+        continue-on-error: true
+        run: npx playwright test --config=playwright.smoke.config.ts
+        env:
+          BASE_URL: https://www.visionc.co.kr
+
+      - name: Upload failure screenshots
+        if: steps.smoke.outcome == 'failure'
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-screenshots
+          path: test-results/
+          retention-days: 7
+
+      - name: Telegram — smoke pass
+        if: steps.smoke.outcome == 'success'
+        env:
+          TG_BOT: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TG_CHAT: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          TEXT="🧪 스모크 테스트 PASS
+          모든 페이지 정상 렌더링 확인
+          🌐 https://www.visionc.co.kr"
+          curl -s -X POST "https://api.telegram.org/bot${TG_BOT}/sendMessage" \
+            --data-urlencode "chat_id=${TG_CHAT}" \
+            --data-urlencode "text=${TEXT}"
+
+      - name: Telegram — smoke fail
+        if: steps.smoke.outcome == 'failure'
+        env:
+          TG_BOT: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TG_CHAT: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SHA: ${{ github.event.workflow_run.head_sha }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          SHORT_SHA=$(echo "$SHA" | cut -c1-7)
+          TEXT="🚨 스모크 테스트 FAIL — 렌더링 이상 감지
+          커밋: ${SHORT_SHA}
+          페이지가 빈 화면이거나 CSP/hydration 오류 발생
+          📋 로그: ${RUN_URL}
+          ⚠ 즉시 확인 필요"
+          curl -s -X POST "https://api.telegram.org/bot${TG_BOT}/sendMessage" \
+            --data-urlencode "chat_id=${TG_CHAT}" \
+            --data-urlencode "text=${TEXT}"
+
+      - name: Fail the job if smoke failed
+        if: steps.smoke.outcome == 'failure'
+        run: exit 1
