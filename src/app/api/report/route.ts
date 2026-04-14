@@ -1,11 +1,26 @@
 import { NextRequest, NextResponse } from 'next/server'
 import type { AnalysisResult } from '@/lib/siteAnalyzer'
 import { env } from '@/lib/env'
+import { checkRateLimit, getClientId } from '@/lib/rateLimit'
 
 const TOKEN = env.TELEGRAM_BOT_TOKEN
 const CHAT_ID = env.TELEGRAM_CHAT_ID
 
 export async function POST(req: NextRequest) {
+  const rl = await checkRateLimit('report', getClientId(req), { limit: 3, windowSec: 60 })
+  if (!rl.success) {
+    return NextResponse.json(
+      { error: '요청이 너무 많습니다. 잠시 후 다시 시도해주세요.' },
+      {
+        status: 429,
+        headers: {
+          'Retry-After': String(rl.resetAt - Math.floor(Date.now() / 1000)),
+          'X-RateLimit-Remaining': '0',
+        },
+      }
+    )
+  }
+
   const { result, email, company } = await req.json() as { result: AnalysisResult; email: string; company?: string }
 
   const gradeEmoji: Record<string, string> = { A: '🟢', B: '🟡', C: '🟠', D: '🔴', F: '⛔' }

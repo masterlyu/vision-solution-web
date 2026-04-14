@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { env } from '@/lib/env'
+import { checkRateLimit, getClientId } from '@/lib/rateLimit'
 
 const TOKEN = env.TELEGRAM_BOT_TOKEN
 const CHAT_ID = env.TELEGRAM_CHAT_ID
@@ -9,6 +10,20 @@ const CHAT_ID = env.TELEGRAM_CHAT_ID
 // body: { issueTitle, previewUrl, description, agentName, screenshotUrl? }
 
 export async function POST(req: NextRequest) {
+  const rl = await checkRateLimit('creative-approve', getClientId(req), { limit: 5, windowSec: 60 })
+  if (!rl.success) {
+    return NextResponse.json(
+      { error: '요청이 너무 많습니다. 잠시 후 다시 시도해주세요.' },
+      {
+        status: 429,
+        headers: {
+          'Retry-After': String(rl.resetAt - Math.floor(Date.now() / 1000)),
+          'X-RateLimit-Remaining': '0',
+        },
+      }
+    )
+  }
+
   const { issueTitle, previewUrl, description, agentName, screenshotUrl } = await req.json()
 
   const callbackBase = `${env.NEXT_PUBLIC_BASE_URL}/api/creative-callback`
