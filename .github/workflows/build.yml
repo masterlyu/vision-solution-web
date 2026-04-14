@@ -1,0 +1,52 @@
+name: Build Gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Next.js Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      SKIP_ENV_VALIDATION: '1'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check untracked imports
+        run: |
+          missing=0
+          while IFS= read -r file; do
+            grep -oE "from '@/lib/[a-zA-Z0-9_/]+'" "$file" 2>/dev/null | \
+              sed -E "s|from '@/lib/([^']+)'|\1|" | while read -r mod; do
+                if ! ls src/lib/${mod}.ts src/lib/${mod}.tsx 2>/dev/null | head -1 > /dev/null; then
+                  echo "::error file=$file::Missing module: src/lib/$mod"
+                  missing=1
+                fi
+              done
+          done < <(git ls-files 'src/**/*.ts' 'src/**/*.tsx')
+          exit $missing
+
+      - name: Next.js build
+        run: npm run build
+
+      - name: Report failure
+        if: failure()
+        run: |
+          echo "❌ Build failed on commit ${{ github.sha }}"
+          echo "Check the logs above for the exact error."
