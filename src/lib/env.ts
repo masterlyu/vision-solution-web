@@ -27,7 +27,13 @@ const envSchema = z.object({
   ZAP_API_KEY: z.string().optional().default('changeme'),
 })
 
+const skipValidation = process.env.SKIP_ENV_VALIDATION === '1'
+
 function validateEnv() {
+  if (skipValidation) {
+    return process.env as unknown as z.infer<typeof envSchema>
+  }
+
   const result = envSchema.safeParse(process.env)
 
   if (!result.success) {
