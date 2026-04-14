@@ -18,6 +18,10 @@ const envSchema = z.object({
 
   // 공개 환경변수 — 창작물 승인 콜백 URL 생성에 사용 (기본값 있음)
   NEXT_PUBLIC_BASE_URL: z.string().optional().default('https://www.visionc.co.kr'),
+
+  // OWASP ZAP — 자동화 스캔 데몬 (Phase 2, 선택)
+  ZAP_API_URL: z.string().optional().default('http://localhost:8080'),
+  ZAP_API_KEY: z.string().optional().default('changeme'),
 })
 
 function validateEnv() {

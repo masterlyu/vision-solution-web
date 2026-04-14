@@ -1,0 +1,12 @@
+# ZAP 스캔 규칙 예외 설정
+# 형식: <rule-id>  <action>  <parameter>  <comment>
+# action: IGNORE=무시, WARN=경고, FAIL=실패
+
+# 10015 - 유효하지 않은 SSL 인증서 (자체 서명 인증서 허용)
+10015	IGNORE	(기타)	Vercel 자체 서명 인증서 허용
+
+# 10029 - 쿠키가 HttpOnly 플래그 없음 (Next.js 세션 쿠키)
+10029	WARN	(기타)	Next.js 쿠키 HttpOnly 경고만
+
+# 10054 - 쿠키 SameSite 속성 없음
+10054	WARN	(기타)	SameSite 경고만

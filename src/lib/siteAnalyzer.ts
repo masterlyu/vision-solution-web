@@ -1,3 +1,25 @@
+import { inferZapAlertsFromHeaders, type ZapAlert } from './zapScanner'
+
+export { type ZapAlert }
+
+export interface ZapInlineResult {
+  alerts: ZapAlert[]
+  summary: { high: number; medium: number; low: number; informational: number; total: number }
+  zapScore: number
+  source: 'inferred' | 'daemon'
+}
+
+function calcZapSummary(alerts: ZapAlert[]) {
+  const s = { high: 0, medium: 0, low: 0, informational: 0, total: alerts.length }
+  for (const a of alerts) {
+    if (a.riskdesc === 'High') s.high++
+    else if (a.riskdesc === 'Medium') s.medium++
+    else if (a.riskdesc === 'Low') s.low++
+    else s.informational++
+  }
+  return { summary: s, zapScore: Math.max(0, 100 - s.high * 25 - s.medium * 10 - s.low * 3) }
+}
+
 export interface SecurityHeaderCheck {
   key: string
   label: string
@@ -34,6 +56,7 @@ export interface AnalysisResult {
   performance: PerfResult
   score: { security: number; seo: number; performance: number; total: number; grade: 'A' | 'B' | 'C' | 'D' | 'F' }
   estimate: { items: Array<{ name: string; priceRange: string; reason: string }> }
+  zap?: ZapInlineResult
   error?: string
 }
 
@@ -98,7 +121,16 @@ export async function analyzeUrl(rawUrl: string): Promise<AnalysisResult> {
     return Math.round((got / max) * 100)
   })()
 
-  // --- 3. SEO ---
+  // --- 3. ZAP 경량 추론 (헤더 기반) ---
+  const rawHeaderMap: Record<string, string | null> = {}
+  for (const h of HEADER_DEFS) rawHeaderMap[h.key] = response.headers.get(h.key)
+  // 추가 정보 노출 헤더도 확인
+  for (const extra of ['server', 'x-powered-by']) rawHeaderMap[extra] = response.headers.get(extra)
+  const zapAlerts = inferZapAlertsFromHeaders(rawHeaderMap)
+  const { summary: zapSummary, zapScore } = calcZapSummary(zapAlerts)
+  const zap: ZapInlineResult = { alerts: zapAlerts, summary: zapSummary, zapScore, source: 'inferred' }
+
+  // --- 4. SEO ---
   const title = (html.match(/<title[^>]*>([^<]+)<\/title>/i)?.[1] ?? '').trim()
   const description = (
     html.match(/<meta[^>]+name=["']description["'][^>]+content=["']([^"']+)/i)?.[1] ??
@@ -120,7 +152,7 @@ export async function analyzeUrl(rawUrl: string): Promise<AnalysisResult> {
   const seoScore = Math.max(0, 100 - seoIssues.length * 18)
   const seo: SeoResult = { title, description, hasH1, hasCanonical, score: seoScore, issues: seoIssues }
 
-  // --- 4. PageSpeed (Google API, parallel with above) ---
+  // --- 5. PageSpeed (Google API, parallel with above) ---
   let performance: PerfResult = { available: false, score: 50 }
   try {
     const psRes = await fetch(
@@ -140,11 +172,11 @@ export async function analyzeUrl(rawUrl: string): Promise<AnalysisResult> {
     }
   } catch {}
 
-  // --- 5. Total score ---
+  // --- 6. Total score ---
   const perfScore = performance.available ? performance.score : 50
   const total = Math.round(secScore * 0.5 + seoScore * 0.2 + perfScore * 0.3)
 
-  // --- 6. Estimate ---
+  // --- 7. Estimate ---
   const highMissing = headers.filter(h => !h.present && h.severity === 'HIGH').length
   const medMissing  = headers.filter(h => !h.present && h.severity === 'MEDIUM').length
   const items: Array<{ name: string; priceRange: string; reason: string }> = []
@@ -166,5 +198,6 @@ export async function analyzeUrl(rawUrl: string): Promise<AnalysisResult> {
     url, analyzedAt, ssl, headers, seo, performance,
     score: { security: secScore, seo: seoScore, performance: perfScore, total, grade: toGrade(total) },
     estimate: { items },
+    zap,
   }
 }

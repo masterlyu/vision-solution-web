@@ -199,6 +199,54 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
         </View>
       </View>
 
+      {/* ZAP Scan Results */}
+      {r.zap && r.zap.alerts.length > 0 && (
+        <View style={s.section}>
+          <Text style={s.sectionTitle}>OWASP ZAP 취약점 스캔 결과</Text>
+          {/* Summary cards */}
+          <View style={[s.row, { marginBottom: 10 }]}>
+            {[
+              { label: 'ZAP 점수',     val: `${r.zap.zapScore}점`, color: r.zap.zapScore >= 80 ? C.green : r.zap.zapScore >= 60 ? C.amber : C.red },
+              { label: 'High 위험',    val: String(r.zap.summary.high),    color: r.zap.summary.high    > 0 ? C.red   : C.green },
+              { label: 'Medium 위험',  val: String(r.zap.summary.medium),  color: r.zap.summary.medium  > 0 ? C.amber : C.green },
+              { label: 'Low 위험',     val: String(r.zap.summary.low),     color: r.zap.summary.low     > 0 ? C.blue  : C.green },
+            ].map(card => (
+              <View key={card.label} style={s.scoreCard}>
+                <Text style={s.scoreLbl}>{card.label}</Text>
+                <Text style={[{ fontSize: 16, fontWeight: 700 }, { color: card.color }]}>{card.val}</Text>
+              </View>
+            ))}
+          </View>
+          {/* Alert list (최대 8개) */}
+          <View style={s.tableHeader}>
+            <Text style={[{ flex: 2, fontWeight: 700, fontSize: 8 }]}>항목</Text>
+            <Text style={[{ flex: 1, fontWeight: 700, fontSize: 8 }]}>위험도</Text>
+            <Text style={[{ flex: 3, fontWeight: 700, fontSize: 8 }]}>설명</Text>
+          </View>
+          {r.zap.alerts.slice(0, 8).map((alert, i) => (
+            <View key={i} style={s.tableRow}>
+              <Text style={{ flex: 2, fontSize: 8, fontWeight: 700 }}>{alert.name}</Text>
+              <Text style={{ flex: 1, fontSize: 8, color: severityColor(alert.riskdesc), fontWeight: 700 }}>
+                {alert.riskdesc}
+              </Text>
+              <Text style={{ flex: 3, fontSize: 7, color: C.muted, lineHeight: 1.4 }}>
+                {alert.description.slice(0, 120)}{alert.description.length > 120 ? '…' : ''}
+              </Text>
+            </View>
+          ))}
+          {r.zap.alerts.length > 8 && (
+            <Text style={{ fontSize: 7, color: C.muted, marginTop: 4 }}>
+              외 {r.zap.alerts.length - 8}개 항목 — 전문가 상담 시 전체 리포트 제공
+            </Text>
+          )}
+          <View style={{ backgroundColor: '#fef9f0', border: `1px solid ${C.amber}30`, borderRadius: 4, padding: '5 8', marginTop: 6 }}>
+            <Text style={{ fontSize: 7, color: C.muted }}>
+              ※ 헤더 기반 자동 추론 결과입니다. 정밀 진단(Full OWASP ZAP 스캔)은 심화 진단 서비스에서 제공합니다.
+            </Text>
+          </View>
+        </View>
+      )}
+
       {/* Footer */}
       <View style={s.footer}>
         <Text style={s.footerTxt}>VISIONC — visionc.co.kr</Text>

@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  zap:
+    image: ghcr.io/zaproxy/zaproxy:stable
+    container_name: visionc-zap
+    restart: unless-stopped
+    command: zap.sh -daemon -host 0.0.0.0 -port 8080 -config api.addrs.addr.name=.* -config api.addrs.addr.regex=true -config api.key=${ZAP_API_KEY:-changeme}
+    ports:
+      - '8080:8080'
+    volumes:
+      - zap-reports:/zap/reports
+      - ./zap-scripts:/zap/scripts:ro
+    environment:
+      - ZAP_API_KEY=${ZAP_API_KEY:-changeme}
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:8080/JSON/core/view/version/?apikey=${ZAP_API_KEY:-changeme}']
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  zap-report-cleanup:
+    image: alpine:3.19
+    container_name: visionc-zap-cleanup
+    restart: unless-stopped
+    volumes:
+      - zap-reports:/reports
+    # 7일 이상된 리포트 자동 삭제 (매일 02:00 KST)
+    command: >
+      sh -c "while true; do
+        find /reports -name '*.html' -mtime +7 -delete;
+        find /reports -name '*.json' -mtime +7 -delete;
+        sleep 86400;
+      done"
+
+volumes:
+  zap-reports:
+    driver: local
