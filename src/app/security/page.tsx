@@ -53,8 +53,7 @@ function RadialGauge({ percent, color, size = 80 }: {
   const r = 36
   const cx = 50
   const cy = 50
-  // Semi-circle: left to right across bottom (180 degrees)
-  const circumference = Math.PI * r  // half circle arc length
+  const circumference = Math.PI * r
   const strokeDasharray = circumference
   const strokeDashoffset = useMotionValue(circumference)
   const spring = useSpring(strokeDashoffset, { duration: 1500, bounce: 0 })
@@ -74,7 +73,6 @@ function RadialGauge({ percent, color, size = 80 }: {
 
   return (
     <svg viewBox="0 0 100 60" width={size} height={size * 0.6} className="overflow-visible">
-      {/* Track */}
       <path
         d={`M ${cx - r},${cy} A ${r},${r} 0 0 1 ${cx + r},${cy}`}
         fill="none"
@@ -83,7 +81,6 @@ function RadialGauge({ percent, color, size = 80 }: {
         className="text-white/10"
         strokeLinecap="round"
       />
-      {/* Fill */}
       <motion.path
         ref={ref}
         d={`M ${cx - r},${cy} A ${r},${r} 0 0 1 ${cx + r},${cy}`}
@@ -116,42 +113,34 @@ const staggerSlow: Variants = {
 
 // ── Data ───────────────────────────────────────────────────────────────────
 const stats = [
-  { value: 73, suffix: '%', gaugePercent: 0.73, color: 'red', desc: '국내 중소기업 사이트가\n기본 보안조차 미설정' },
-  { value: 43, suffix: '초', gaugePercent: 0.43, color: 'orange', desc: '해킹 공격 43초마다\n전 세계 발생' },
-  { value: 3000, suffix: '만원', gaugePercent: 0.6, color: 'amber', desc: '개인정보 유출 시\n과태료 최대 금액' },
-  { value: 95, suffix: '%', gaugePercent: 0.95, color: 'red', desc: '구글 위험 경고 뜨면\n방문자 이탈 비율' },
+  { value: 73,   suffix: '%',   gaugePercent: 0.73, color: 'red',    desc: '중소기업 기본 보안 미설정' },
+  { value: 43,   suffix: '초',  gaugePercent: 0.43, color: 'orange', desc: '글로벌 해킹 공격 주기' },
+  { value: 3000, suffix: '만원', gaugePercent: 0.6,  color: 'amber',  desc: '개인정보 유출 최대 과태료' },
+  { value: 95,   suffix: '%',   gaugePercent: 0.95, color: 'red',    desc: '구글 위험 경고 시 즉시 이탈' },
 ]
 
 const dangers = [
   {
     lottie: '/lottie/hacker.json',
-    emoji: '💳',
     title: '고객 카드정보가 통째로 빠져나갑니다',
-    desc: '결제할 때 입력한 카드번호와 비밀번호가 해커에게 그대로 전송됩니다.',
     case: '국내 쇼핑몰 2,300명 카드 유출 → 3개월 만에 폐업.',
     color: 'red',
   },
   {
     lottie: '/lottie/warning.json',
-    emoji: '💀',
     title: '내 사이트가 범죄 도구로 쓰입니다',
-    desc: '모르는 사이에 내 사이트가 다른 사람을 공격하는 범죄 도구가 됩니다.',
-    case: '소규모 병원 홈페이지 악성코드 유포지로 악용 → 구글 완전 차단.',
+    case: '소규모 병원 홈페이지 악성코드 유포지 → 구글 완전 차단.',
     color: 'orange',
   },
   {
     lottie: '/lottie/alert.json',
-    emoji: '📋',
     title: '고객 DB가 경쟁사 손에 들어갑니다',
-    desc: '회원 정보와 상담 내역이 유출되면 과태료 최대 3,000만원입니다.',
     case: '인테리어 업체 견적 DB 전체 유출 → 경쟁사에 넘어감.',
     color: 'amber',
   },
   {
     lottie: '/lottie/scan.json',
-    emoji: '🔍',
     title: '구글에서 영원히 사라집니다',
-    desc: '악성코드 발견 즉시 구글 검색에서 삭제, 복구까지 수개월 걸립니다.',
     case: '여행사 블로그 월 5천 방문자 → 해킹 후 → 방문자 0명.',
     color: 'blue',
   },
@@ -171,30 +160,30 @@ const dangerCaseBg: Record<string, string> = {
 }
 
 const checks = [
-  { emoji: '🔒', title: '자물쇠가 제대로 잠겼나요?', sub: 'SSL/HTTPS', simple: '주소창 자물쇠가 없으면 고객 정보가 암호화 없이 전송됩니다.', warn: 'HTTPS 없으면 공공 와이파이에서 누구나 데이터를 훔쳐볼 수 있습니다.' },
-  { emoji: '🪟', title: '창문이 열려 있지는 않나요?', sub: '보안 헤더 6가지', simple: '보안 헤더는 해커가 침입할 수 있는 창문·뒷문을 모두 잠그는 역할입니다.', warn: '보안 헤더 1개 미설정 = 해킹 성공률 40% 상승.' },
-  { emoji: '🕵️', title: '해커가 내 사이트를 정찰 중입니다', sub: '정보 노출 점검', simple: '프로그램 버전이 노출되면 그 약점을 노린 맞춤 공격을 받습니다.', warn: '워드프레스 버전 노출 → 해킹봇 자동 공격 즉시 시작.' },
-  { emoji: '🚪', title: '뒷문이 열려 있지는 않나요?', sub: '관리자 접근 보안', simple: '관리자 페이지가 무방비 상태면 하루 수만 번 비밀번호 무작위 대입 공격을 받습니다.', warn: '관리자 무방비 = 하루 수만 번 공격 → 계정 탈취.' },
-  { emoji: '🚨', title: '구글이 위험하다고 경고하나요?', sub: 'SEO·신뢰도', simple: '보안 문제가 있으면 구글이 \'위험한 사이트\' 경고를 띄워 고객이 도망갑니다.', warn: '구글 위험 경고 = 방문자 95% 즉시 이탈.' },
-  { emoji: '🐌', title: '3초 안에 안 열리면 고객이 떠납니다', sub: '속도·성능', simple: '로딩 3초 초과 시 방문자 53%가 이탈하고 구글 검색 순위도 하락합니다.', warn: '로딩 1초 지연 = 구매 전환율 7% 하락 (아마존 실측).' },
+  { lottie: '/lottie/lock.json',    sub: 'SSL/HTTPS',      title: '자물쇠가 잠겼나요?' },
+  { lottie: '/lottie/shield.json',  sub: '보안 헤더 6가지',  title: '창문이 열려 있나요?' },
+  { lottie: '/lottie/scan.json',    sub: '정보 노출 점검',   title: '해커가 정찰 중인가요?' },
+  { lottie: '/lottie/hacker.json',  sub: '관리자 접근 보안', title: '뒷문이 열려 있나요?' },
+  { lottie: '/lottie/alert.json',   sub: 'SEO·신뢰도',      title: '구글이 경고하나요?' },
+  { lottie: '/lottie/check.json',   sub: '속도·성능',        title: '3초 안에 열리나요?' },
 ]
 
 const steps = [
-  { step: '01', title: 'URL 입력 (30초)', desc: 'URL 입력만. 회원가입 없음, IT 지식 불필요.' },
-  { step: '02', title: '자동 정밀 분석', desc: '전문가 도구로 사이트 전체 자동 스캔.' },
-  { step: '03', title: '전문가 직접 검토', desc: '전문가가 결과 확인, 오탐 제거 후 리포트 완성.' },
-  { step: '04', title: '쉬운 언어 리포트 발송', desc: 'IT 몰라도 이해하는 리포트 — 사례 + 해결책 포함.' },
-  { step: '05', title: '맞춤 견적 제안', desc: '발견된 문제만 기준으로 꼭 필요한 항목만 견적.' },
-  { step: '06', title: '개선 완료 + 재진단', desc: '개선 완료 후 재진단으로 효과 검증까지.' },
+  { step: '01', title: 'URL 입력' },
+  { step: '02', title: '자동 정밀 스캔' },
+  { step: '03', title: '전문가 검토' },
+  { step: '04', title: '쉬운 리포트 발송' },
+  { step: '05', title: '맞춤 견적 제안' },
+  { step: '06', title: '개선 + 재진단' },
 ]
 
 const siteTypes = [
-  { emoji: '🌐', label: '워드프레스', ok: true,  note: '가장 빠르고 효과적' },
-  { emoji: '🏠', label: '일반 홈페이지', ok: true,  note: 'HTML/PHP/ASP 모두 가능' },
-  { emoji: '🛒', label: '쇼핑몰 (자사몰)', ok: true,  note: '결제 보안 집중 점검' },
-  { emoji: '🖥️', label: '커스텀 서버', ok: true,  note: 'SSH 접근 시 가능' },
-  { emoji: '🏪', label: '카페24 / 아임웹', ok: null, note: '진단 가능, 일부 개선 제한' },
-  { emoji: '🏬', label: '네이버 스마트스토어', ok: false, note: '플랫폼 정책상 개선 불가' },
+  { emoji: '🌐', label: '워드프레스',      ok: true  },
+  { emoji: '🏠', label: '일반 홈페이지',   ok: true  },
+  { emoji: '🛒', label: '쇼핑몰',          ok: true  },
+  { emoji: '🖥️', label: '커스텀 서버',     ok: true  },
+  { emoji: '🏪', label: '카페24 / 아임웹', ok: null  },
+  { emoji: '🏬', label: '스마트스토어',    ok: false },
 ]
 
 // ── Page ───────────────────────────────────────────────────────────────────
@@ -206,7 +195,7 @@ export default function SecurityPage() {
       <section
         className="min-h-screen flex flex-col items-center justify-center px-6 lg:px-12 text-center relative overflow-hidden"
         style={{
-          background: 'radial-gradient(ellipse at 50% 0%, color-mix(in oklch, var(--destructive) 15%, transparent) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse at 50% -10%, color-mix(in oklch, var(--destructive) 18%, transparent) 0%, transparent 65%)',
         }}
       >
         <motion.div
@@ -215,53 +204,62 @@ export default function SecurityPage() {
           initial="hidden"
           animate="visible"
         >
+          {/* Lottie 최상단 — 240px */}
           <motion.div variants={fadeInUp}>
-            <span className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-bold px-4 py-2 rounded-full animate-pulse">
-              <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse" />
+            <LottiePlayer src="/lottie/shield.json" width={240} height={240} />
+          </motion.div>
+
+          {/* 얼럿 배지 */}
+          <motion.div variants={fadeInUp}>
+            <span className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-bold px-4 py-1.5 rounded-full">
+              <span className="w-1.5 h-1.5 rounded-full bg-red-400 inline-block" />
               지금 이 순간도 해킹 시도 중
             </span>
           </motion.div>
 
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl lg:text-8xl font-black text-foreground leading-tight">
-            지금 이 순간,<br />
-            <span className="text-red-400">내 사이트 털리고<br />있지 않나요?</span>
+          {/* H1: 2줄 */}
+          <motion.h1
+            variants={fadeInUp}
+            className="text-5xl md:text-7xl lg:text-8xl font-black text-foreground leading-tight"
+          >
+            지금 내 사이트,<br />
+            <span className="text-red-400">털리고 있지 않나요?</span>
           </motion.h1>
 
-          <motion.p variants={fadeInUp} className="text-muted-foreground text-lg md:text-xl max-w-xl leading-relaxed">
-            국내 중소기업 73%가 기본 보안조차 없습니다.<br />URL 1개, 10분이면 확인됩니다.
+          {/* P: 1줄 */}
+          <motion.p variants={fadeInUp} className="text-muted-foreground text-lg">
+            국내 중소기업 73%가 지금 해킹에 노출되어 있습니다.
           </motion.p>
 
-          <motion.div variants={fadeInUp} className="flex flex-wrap gap-3 justify-center">
-            {['✓ 완전 무료', '✓ IT 지식 불필요', '✓ 사이트 영향 없음', '✓ 쉬운 리포트'].map(t => (
-              <span key={t} className="bg-primary/10 border border-primary/20 text-primary text-sm px-4 py-2 rounded-full">
-                {t}
-              </span>
-            ))}
-          </motion.div>
-
+          {/* CTA 버튼 1개 */}
           <motion.div variants={fadeInUp}>
-            <LottiePlayer src="/lottie/shield.json" width={280} height={280} />
+            <a
+              href="#cta-form"
+              className="inline-block bg-primary text-primary-foreground text-base font-bold px-9 py-3.5 rounded-xl hover:opacity-85 transition-opacity"
+            >
+              무료로 내 사이트 확인하기 →
+            </a>
           </motion.div>
         </motion.div>
       </section>
 
       {/* ── Stats ── */}
-      <section className="py-20 px-6 lg:px-12 bg-primary/5 border-y border-primary/10">
-        <div className="max-w-[1400px] mx-auto">
+      <section className="py-16 px-6 lg:px-12 border-y border-border" style={{ background: 'rgba(255,255,255,0.02)' }}>
+        <div className="max-w-[1100px] mx-auto">
           <motion.div
-            className="grid grid-cols-2 lg:grid-cols-4 gap-8"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center"
             variants={stagger}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
           >
             {stats.map(s => (
-              <motion.div key={s.desc} variants={fadeInUp} className="flex flex-col items-center gap-3">
+              <motion.div key={s.desc} variants={fadeInUp} className="flex flex-col items-center gap-2">
                 <RadialGauge percent={s.gaugePercent} color={s.color} size={80} />
-                <div className="text-5xl md:text-6xl font-black text-primary tabular-nums">
+                <div className="text-5xl font-black text-primary tabular-nums">
                   <CountUpNumber value={s.value} suffix={s.suffix} duration={1.5} />
                 </div>
-                <p className="text-muted-foreground text-sm leading-relaxed text-center whitespace-pre-line">{s.desc}</p>
+                <p className="text-muted-foreground text-sm">{s.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -270,24 +268,20 @@ export default function SecurityPage() {
 
       {/* ── Danger Cases ── */}
       <section className="py-16 px-6 lg:px-12">
-        <div className="max-w-[1400px] mx-auto">
-          <motion.div
-            className="text-center mb-12"
+        <div className="max-w-[1100px] mx-auto">
+          <motion.h2
+            className="text-3xl md:text-4xl font-black text-foreground text-center mb-10 leading-snug"
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
           >
-            <p className="text-red-400 text-xs font-bold tracking-[0.2em] uppercase mb-3">실제 피해 사례</p>
-            <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
-              &ldquo;우리 같은 작은 회사는 해킹 안 당해&rdquo;<br />
-              <span className="text-red-400">— 이 생각이 가장 위험합니다</span>
-            </h2>
-            <p className="text-muted-foreground">오히려 작은 회사가 더 쉬운 표적입니다.</p>
-          </motion.div>
+            &ldquo;우리 같은 작은 회사는 괜찮아&rdquo;<br />
+            <span className="text-red-400">— 이 생각이 가장 위험합니다</span>
+          </motion.h2>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 gap-5"
             variants={stagger}
             initial="hidden"
             whileInView="visible"
@@ -297,15 +291,11 @@ export default function SecurityPage() {
               <motion.div
                 key={d.title}
                 variants={fadeInUp}
-                className={`border rounded-2xl p-6 flex flex-col gap-4 hover:scale-[1.01] transition-transform ${dangerColorMap[d.color]}`}
+                className={`border rounded-2xl p-6 flex flex-col items-center gap-3 ${dangerColorMap[d.color]}`}
               >
-                <div className="flex flex-col items-center gap-3">
-                  <LottiePlayer src={d.lottie} width={120} height={120} />
-                  <div className="text-3xl">{d.emoji}</div>
-                  <h3 className="text-foreground font-bold text-lg text-center">{d.title}</h3>
-                  <p className="text-muted-foreground text-sm text-center leading-relaxed">{d.desc}</p>
-                </div>
-                <div className={`border rounded-xl px-4 py-2.5 text-xs font-medium text-center ${dangerCaseBg[d.color]}`}>
+                <LottiePlayer src={d.lottie} width={100} height={100} />
+                <h3 className="text-foreground font-bold text-base text-center">{d.title}</h3>
+                <div className={`border rounded-xl px-4 py-2 text-xs text-center w-full ${dangerCaseBg[d.color]}`}>
                   📌 {d.case}
                 </div>
               </motion.div>
@@ -315,19 +305,17 @@ export default function SecurityPage() {
       </section>
 
       {/* ── Checklist ── */}
-      <section className="py-16 px-6 lg:px-12 bg-card/40 border-y border-border">
-        <div className="max-w-[1400px] mx-auto">
-          <motion.div
-            className="text-center mb-12"
+      <section className="py-16 px-6 lg:px-12 border-y border-border" style={{ background: 'rgba(255,255,255,0.02)' }}>
+        <div className="max-w-[1100px] mx-auto">
+          <motion.h2
+            className="text-3xl md:text-4xl font-black text-foreground text-center mb-10"
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
           >
-            <p className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-3">진단 항목</p>
-            <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">무엇을 어떻게 점검하나요?</h2>
-            <p className="text-muted-foreground text-lg">전문 용어 없이 설명합니다.</p>
-          </motion.div>
+            무엇을 점검하나요?
+          </motion.h2>
 
           <motion.div
             className="grid grid-cols-2 md:grid-cols-3 gap-4"
@@ -340,38 +328,44 @@ export default function SecurityPage() {
               <motion.div
                 key={c.title}
                 variants={fadeInUp}
-                className="bg-background border border-border rounded-2xl p-5 hover:border-primary/40 transition-colors flex flex-col gap-3"
+                className="bg-card border border-border rounded-2xl p-5 flex flex-col items-center gap-2.5 text-center hover:border-primary/40 transition-colors"
               >
-                <span className="text-5xl">{c.emoji}</span>
-                <div>
-                  <p className="text-primary text-xs font-bold mb-1">{c.sub}</p>
-                  <h3 className="text-foreground font-bold text-sm leading-snug">{c.title}</h3>
-                </div>
-                <p className="text-muted-foreground text-xs leading-relaxed flex-1">{c.simple}</p>
-                <div className="bg-amber-500/5 border border-amber-500/20 rounded-xl px-3 py-2">
-                  <p className="text-amber-400 text-xs">⚠ {c.warn}</p>
-                </div>
+                <LottiePlayer src={c.lottie} width={72} height={72} />
+                <p className="text-primary text-xs font-bold">{c.sub}</p>
+                <h3 className="text-foreground font-bold text-sm leading-snug">{c.title}</h3>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
+      {/* ── Middle CTA (신규) ── */}
+      <section
+        className="py-12 px-6 text-center"
+        style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(220,38,38,0.08) 0%, transparent 70%)' }}
+      >
+        <p className="text-red-400 text-xs font-bold tracking-[0.15em] uppercase mb-4">지금 바로 확인</p>
+        <h2 className="text-3xl font-black text-foreground mb-6">내 사이트는 안전한가요?</h2>
+        <a
+          href="#cta-form"
+          className="inline-block bg-primary text-primary-foreground text-base font-bold px-9 py-3.5 rounded-xl hover:opacity-85 transition-opacity"
+        >
+          무료 진단 신청하기 →
+        </a>
+      </section>
+
       {/* ── Process Stepper ── */}
       <section className="py-16 px-6 lg:px-12">
-        <div className="max-w-[1400px] mx-auto">
-          <motion.div
-            className="text-center mb-12"
+        <div className="max-w-[1100px] mx-auto">
+          <motion.h2
+            className="text-3xl md:text-4xl font-black text-foreground text-center mb-12"
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
           >
-            <p className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-3">진행 과정</p>
-            <h2 className="text-3xl md:text-4xl font-black text-foreground">
-              신청부터 완료까지<br />이렇게 진행됩니다
-            </h2>
-          </motion.div>
+            신청부터 완료까지
+          </motion.h2>
 
           {/* Desktop stepper */}
           <motion.div
@@ -381,16 +375,13 @@ export default function SecurityPage() {
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
           >
-            {/* Connector line */}
-            <div className="absolute top-6 left-[calc(8.33%+24px)] right-[calc(8.33%+24px)] h-0.5 bg-primary/20" />
-
-            {steps.map((s, i) => (
-              <motion.div key={s.step} variants={fadeInUp} className="flex flex-col items-center text-center w-[15%] gap-3 relative">
-                <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground font-black text-sm flex items-center justify-center z-10 shadow-lg shadow-primary/20">
+            <div className="absolute top-6 left-[calc(8.33%+20px)] right-[calc(8.33%+20px)] h-0.5 bg-white/8" />
+            {steps.map(s => (
+              <motion.div key={s.step} variants={fadeInUp} className="flex flex-col items-center text-center w-[15%] gap-2.5 relative">
+                <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground font-black text-sm flex items-center justify-center z-10 shadow-lg shadow-primary/30">
                   {s.step}
                 </div>
                 <h3 className="text-foreground font-bold text-sm leading-snug">{s.title}</h3>
-                <p className="text-muted-foreground text-xs leading-relaxed">{s.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -414,8 +405,7 @@ export default function SecurityPage() {
                   )}
                 </div>
                 <div className="pt-2 pb-6">
-                  <h3 className="text-foreground font-bold text-sm mb-1">{s.title}</h3>
-                  <p className="text-muted-foreground text-xs leading-relaxed">{s.desc}</p>
+                  <h3 className="text-foreground font-bold text-sm">{s.title}</h3>
                 </div>
               </motion.div>
             ))}
@@ -424,22 +414,20 @@ export default function SecurityPage() {
       </section>
 
       {/* ── Site Types ── */}
-      <section className="py-16 px-6 lg:px-12 bg-card/40 border-y border-border">
-        <div className="max-w-[1400px] mx-auto">
-          <motion.div
-            className="mb-12 text-center"
+      <section className="py-16 px-6 lg:px-12 border-y border-border" style={{ background: 'rgba(255,255,255,0.02)' }}>
+        <div className="max-w-[700px] mx-auto text-center">
+          <motion.h2
+            className="text-3xl md:text-4xl font-black text-foreground mb-10"
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
           >
-            <p className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-3">적용 범위</p>
-            <h2 className="text-3xl font-black text-foreground mb-4">어떤 사이트에 적용 가능한가요?</h2>
-            <p className="text-muted-foreground">진단은 모든 사이트 가능합니다. 개선은 아래 기준을 확인하세요.</p>
-          </motion.div>
+            어떤 사이트에 가능한가요?
+          </motion.h2>
 
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-2xl mx-auto"
+            className="grid grid-cols-3 gap-3.5"
             variants={stagger}
             initial="hidden"
             whileInView="visible"
@@ -449,22 +437,17 @@ export default function SecurityPage() {
               <motion.div
                 key={s.label}
                 variants={fadeInUp}
-                className={`bg-background border rounded-2xl p-5 text-center ${
+                className={`bg-card border rounded-2xl py-4 px-3 flex flex-col items-center gap-1.5 ${
                   s.ok === true  ? 'border-green-500/30' :
                   s.ok === null  ? 'border-amber-500/30' :
-                  'border-red-500/20 opacity-60'
+                  'border-red-500/20 opacity-55'
                 }`}
               >
-                <div className="text-3xl mb-2">{s.emoji}</div>
-                <div className="flex items-center justify-center gap-1 mb-1">
-                  {s.ok === true  && <CheckCircle className="w-4 h-4 text-green-400" />}
-                  {s.ok === null  && <AlertTriangle className="w-4 h-4 text-amber-400" />}
-                  {s.ok === false && <XCircle className="w-4 h-4 text-red-400" />}
-                  <span className="text-foreground font-bold text-sm">{s.label}</span>
-                </div>
-                <p className={`text-xs ${s.ok === true ? 'text-green-400' : s.ok === null ? 'text-amber-400' : 'text-red-400'}`}>
-                  {s.note}
-                </p>
+                <span className="text-3xl">{s.emoji}</span>
+                <span className="text-foreground font-bold text-sm">{s.label}</span>
+                <span className={`text-xl font-bold ${s.ok === true ? 'text-green-400' : s.ok === null ? 'text-amber-400' : 'text-red-400'}`}>
+                  {s.ok === true ? '✓' : s.ok === null ? '△' : '✗'}
+                </span>
               </motion.div>
             ))}
           </motion.div>
@@ -472,8 +455,8 @@ export default function SecurityPage() {
       </section>
 
       {/* ── CTA + Form ── */}
-      <section className="py-16 px-6 lg:px-12">
-        <div className="max-w-[1400px] mx-auto">
+      <section id="cta-form" className="py-16 px-6 lg:px-12">
+        <div className="max-w-[1100px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <motion.div
               variants={staggerSlow}
@@ -481,29 +464,25 @@ export default function SecurityPage() {
               whileInView="visible"
               viewport={{ once: true, margin: '-100px' }}
             >
-              <motion.p variants={fadeInUp} className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-4">무료 보안 진단</motion.p>
-              <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-black text-foreground mb-6">
+              <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-black text-foreground mb-6 leading-snug">
                 지금 바로 확인하세요.<br />
                 <span className="text-primary">무료입니다.</span>
               </motion.h2>
-              <motion.div variants={stagger} className="space-y-3 mb-8">
+              <motion.div variants={stagger} className="space-y-2.5 mb-7">
                 {[
-                  ['💰', '비용 없음', '진단 자체는 완전 무료'],
-                  ['⏱️', '시간 없음', 'URL 하나 입력이 전부'],
-                  ['🧠', '지식 없음', 'IT 몰라도 리포트 이해 가능'],
-                  ['😌', '부담 없음', '진단 후 개선은 선택사항'],
-                ].map(([e, t, d]) => (
-                  <motion.div key={t} variants={fadeInUp} className="flex items-center gap-4 bg-card border border-border rounded-xl p-4">
+                  ['💰', '비용 없음'],
+                  ['⏱️', '시간 없음'],
+                  ['🧠', '지식 없음'],
+                  ['😌', '부담 없음'],
+                ].map(([e, t]) => (
+                  <motion.div key={t} variants={fadeInUp} className="flex items-center gap-3.5 bg-card border border-border rounded-xl px-4 py-3.5">
                     <span className="text-2xl">{e}</span>
-                    <div>
-                      <p className="text-foreground font-bold text-sm">{t}</p>
-                      <p className="text-muted-foreground text-xs">{d}</p>
-                    </div>
+                    <span className="text-foreground font-bold text-sm">{t}</span>
                   </motion.div>
                 ))}
               </motion.div>
               <motion.div variants={fadeInUp} className="flex justify-center">
-                <LottiePlayer src="/lottie/check.json" width={120} height={120} loop={false} />
+                <LottiePlayer src="/lottie/check.json" width={100} height={100} loop={false} />
               </motion.div>
             </motion.div>
 
