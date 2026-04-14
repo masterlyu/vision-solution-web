@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { Redis } from '@upstash/redis'
 import { randomUUID } from 'crypto'
 import { env } from '@/lib/env'
+import { checkRateLimit, getClientId } from '@/lib/rateLimit'
 
 const TOKEN   = env.TELEGRAM_BOT_TOKEN
 const CHAT_ID = env.TELEGRAM_CHAT_ID
@@ -31,6 +32,20 @@ export interface QuoteData {
 // body: QuoteData
 // 견적서를 사령관님께 텔레그램으로 전송하고 승인/반려 버튼을 추가합니다.
 export async function POST(req: NextRequest) {
+  const rl = await checkRateLimit('quote-approve', getClientId(req), { limit: 5, windowSec: 60 })
+  if (!rl.success) {
+    return NextResponse.json(
+      { error: '요청이 너무 많습니다. 잠시 후 다시 시도해주세요.' },
+      {
+        status: 429,
+        headers: {
+          'Retry-After': String(rl.resetAt - Math.floor(Date.now() / 1000)),
+          'X-RateLimit-Remaining': '0',
+        },
+      }
+    )
+  }
+
   const data: QuoteData = await req.json()
 
   if (!data.clientUrl || !data.clientEmail || !data.services?.length) {
