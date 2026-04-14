@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { headers } from 'next/headers'
 import './globals.css'
 import { Navigation } from '@/components/landing/navigation'
 import { FooterSection } from '@/components/landing/footer-section'
@@ -8,7 +9,9 @@ export const metadata: Metadata = {
   description: 'URL 하나로 홈페이지 문제를 AI가 48시간 안에 진단합니다.',
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const nonce = (await headers()).get('x-nonce') ?? ''
+
   return (
     <html lang="ko" className="dark">
       <head>

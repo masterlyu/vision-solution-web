@@ -10,7 +10,7 @@ import { NextRequest, NextResponse } from 'next/server'
 function buildSecurityHeaders(nonce: string): Record<string, string> {
   const csp = [
     "default-src 'self'",
-    `script-src 'self' 'unsafe-inline'`,
+    `script-src 'self' 'nonce-${nonce}'`,
     `style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net`,
     "font-src 'self' https://cdn.jsdelivr.net",
     "img-src 'self' data: blob: https:",
