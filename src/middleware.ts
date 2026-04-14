@@ -27,6 +27,7 @@ function buildSecurityHeaders(nonce: string): Record<string, string> {
     'X-Content-Type-Options': 'nosniff',
     'Referrer-Policy': 'strict-origin-when-cross-origin',
     'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), payment=()',
+    'Cross-Origin-Resource-Policy': 'same-origin',
   }
 }
 
