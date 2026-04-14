@@ -1,8 +1,23 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { createHmac, timingSafeEqual } from 'crypto'
 import { env } from '@/lib/env'
 
 const TOKEN = env.TELEGRAM_BOT_TOKEN
 const CHAT_ID = env.TELEGRAM_CHAT_ID
+
+function verifySignature(req: NextRequest, rawBody: string): boolean {
+  const secret = env.DEPLOY_WEBHOOK_SECRET
+  if (!secret) {
+    return process.env.NODE_ENV !== 'production'
+  }
+
+  const signature = req.headers.get('x-vercel-signature') ?? ''
+  if (!signature) return false
+
+  const expected = createHmac('sha1', secret).update(rawBody).digest('hex')
+  if (signature.length !== expected.length) return false
+  return timingSafeEqual(Buffer.from(signature), Buffer.from(expected))
+}
 
 async function sendTelegram(text: string) {
   await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
@@ -14,7 +29,13 @@ async function sendTelegram(text: string) {
 
 export async function POST(req: NextRequest) {
   try {
-    const body = await req.json()
+    const rawBody = await req.text()
+
+    if (!verifySignature(req, rawBody)) {
+      return NextResponse.json({ error: 'invalid signature' }, { status: 403 })
+    }
+
+    const body = JSON.parse(rawBody)
     const { type, name, state, meta } = body
 
     if (state === 'READY' || type === 'deployment.succeeded') {

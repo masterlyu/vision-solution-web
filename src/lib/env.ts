@@ -16,6 +16,9 @@ const envSchema = z.object({
   // Telegram 웹훅 보안 — setWebhook() 호출 시 secret_token과 동일한 값으로 설정 (권장)
   TELEGRAM_WEBHOOK_SECRET: z.string().optional(),
 
+  // Vercel Deploy 웹훅 서명 검증 — Vercel Integration Settings에서 확인
+  DEPLOY_WEBHOOK_SECRET: z.string().optional(),
+
   // 공개 환경변수 — 창작물 승인 콜백 URL 생성에 사용 (기본값 있음)
   NEXT_PUBLIC_BASE_URL: z.string().optional().default('https://www.visionc.co.kr'),
 
