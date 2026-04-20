@@ -12,6 +12,8 @@ const links = {
     { name: 'AI 솔루션', href: '/ai-solution' },
   ],
   '회사': [
+    { name: '소개', href: '/about' },
+    { name: '포트폴리오', href: '/portfolio' },
     { name: '블로그', href: '/blog' },
     { name: '문의하기', href: '/contact' },
   ],
