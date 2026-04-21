@@ -26,7 +26,7 @@ for (const pg of pages) {
       const response = await page.goto(pg.path, { waitUntil: "networkidle" });
       expect(response?.status()).toBe(200);
 
-      await expect(page.getByText(pg.keyword).first()).toBeVisible({
+      await expect(page.locator('main').getByText(pg.keyword).first()).toBeVisible({
         timeout: 10_000,
       });
 
