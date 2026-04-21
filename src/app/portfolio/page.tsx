@@ -11,9 +11,14 @@ function LottiePlayer({ src, width = 120, height = 120, loop = true }: {
   src: string; width?: number; height?: number; loop?: boolean
 }) {
   const [data, setData] = useState<object | null>(null)
+  const [mounted, setMounted] = useState(false)
+
   useEffect(() => {
+    setMounted(true)
     fetch(src).then(r => r.json()).then(setData).catch(() => {})
   }, [src])
+
+  if (!mounted) return <div style={{ width, height }} />
   if (!data) return <div style={{ width, height }} />
   return <Lottie animationData={data} loop={loop} autoplay style={{ width, height }} />
 }
