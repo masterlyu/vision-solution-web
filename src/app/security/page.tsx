@@ -12,9 +12,14 @@ function LottiePlayer({ src, width = 200, height = 200, loop = true, className =
   src: string; width?: number; height?: number; loop?: boolean; className?: string
 }) {
   const [data, setData] = useState<object | null>(null)
+  const [mounted, setMounted] = useState(false)
+
   useEffect(() => {
+    setMounted(true)
     fetch(src).then(r => r.json()).then(setData).catch(() => {})
   }, [src])
+
+  if (!mounted) return <div style={{ width, height }} />
   if (!data) return <div style={{ width, height }} />
   return (
     <Lottie
