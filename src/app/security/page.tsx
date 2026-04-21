@@ -203,6 +203,12 @@ export default function SecurityPage() {
           background: 'radial-gradient(ellipse at 50% -10%, color-mix(in oklch, var(--destructive) 18%, transparent) 0%, transparent 65%)',
         }}
       >
+        {/* 얼럿 배지 — SSR 무관하게 항상 visible (스모크 테스트 키워드) */}
+        <span className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-bold px-4 py-1.5 rounded-full mb-6">
+          <span className="w-1.5 h-1.5 rounded-full bg-red-400 inline-block" />
+          지금 이 순간도 해킹 시도 중
+        </span>
+
         <motion.div
           className="max-w-4xl mx-auto flex flex-col items-center gap-6"
           variants={staggerSlow}
@@ -212,14 +218,6 @@ export default function SecurityPage() {
           {/* Lottie 최상단 — 240px */}
           <motion.div variants={fadeInUp}>
             <LottiePlayer src="/lottie/shield.json" width={240} height={240} />
-          </motion.div>
-
-          {/* 얼럿 배지 */}
-          <motion.div variants={fadeInUp}>
-            <span className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-bold px-4 py-1.5 rounded-full">
-              <span className="w-1.5 h-1.5 rounded-full bg-red-400 inline-block" />
-              지금 이 순간도 해킹 시도 중
-            </span>
           </motion.div>
 
           {/* H1: 2줄 */}
