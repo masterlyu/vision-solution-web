@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIS-421 — 홈페이지 신뢰 섹션 레이아웃 시안</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --background: oklch(0.08 0.01 270);
+    --foreground: oklch(0.98 0 0);
+    --card: oklch(0.11 0.01 270);
+    --primary: oklch(0.55 0.22 290);
+    --secondary: oklch(0.13 0.01 270);
+    --muted-foreground: oklch(0.65 0.01 270);
+    --border: oklch(0.22 0.01 270);
+  }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: -apple-system, 'Pretendard Variable', sans-serif;
+  }
+
+  /* ── Marquee 애니메이션 ── */
+  @keyframes marquee-left {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes marquee-right {
+    0%   { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+  .marquee-track-left  { animation: marquee-left  28s linear infinite; }
+  .marquee-track-right { animation: marquee-right 22s linear infinite; }
+  .marquee-track-left:hover,
+  .marquee-track-right:hover { animation-play-state: paused; }
+
+  /* fade edge masks */
+  .marquee-fade {
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image:         linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  }
+
+  /* ── Trust badge pill ── */
+  .trust-pill {
+    background: var(--secondary);
+    border: 1px solid var(--border);
+    border-radius: 9999px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    transition: border-color 0.2s;
+  }
+  .trust-pill:hover { border-color: var(--primary); }
+
+  /* logo chip */
+  .logo-chip {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted-foreground);
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── 전체 섹션 ─────────────────────────────────── -->
+<section style="background: var(--secondary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);" class="py-14">
+
+  <!-- 상단 레이블 + 수치 한 줄 -->
+  <div class="max-w-[1400px] mx-auto px-6 mb-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p style="color: var(--muted-foreground); font-size: 12px; letter-spacing: 0.18em; font-weight: 700; text-transform: uppercase;">
+      TRUSTED BY CLIENTS
+    </p>
+    <p style="color: var(--muted-foreground); font-size: 13px;">
+      누적 <span style="color: var(--primary); font-weight: 800;">247건+</span> 프로젝트 완료 &nbsp;·&nbsp;
+      고객 재의뢰율 <span style="color: var(--primary); font-weight: 800;">97%</span>
+    </p>
+  </div>
+
+  <!-- ── 로고 마퀴 Row 1 (왼쪽 → 오른쪽) ── -->
+  <div class="marquee-fade overflow-hidden mb-3">
+    <div class="flex marquee-track-left" style="width: max-content; gap: 12px;">
+      <!-- 28개 = 14 × 2 (seamless loop) -->
+      <div class="logo-chip">○○테크</div>
+      <div class="logo-chip">△△유통</div>
+      <div class="logo-chip">□□쇼핑몰</div>
+      <div class="logo-chip">○○건설</div>
+      <div class="logo-chip">△△병원</div>
+      <div class="logo-chip">□□학원</div>
+      <div class="logo-chip">○○물류</div>
+      <div class="logo-chip">△△인테리어</div>
+      <div class="logo-chip">□□법무사</div>
+      <div class="logo-chip">○○식품</div>
+      <div class="logo-chip">△△컨설팅</div>
+      <div class="logo-chip">□□미디어</div>
+      <div class="logo-chip">○○부동산</div>
+      <div class="logo-chip">△△제조</div>
+      <!-- 복제 (seamless) -->
+      <div class="logo-chip">○○테크</div>
+      <div class="logo-chip">△△유통</div>
+      <div class="logo-chip">□□쇼핑몰</div>
+      <div class="logo-chip">○○건설</div>
+      <div class="logo-chip">△△병원</div>
+      <div class="logo-chip">□□학원</div>
+      <div class="logo-chip">○○물류</div>
+      <div class="logo-chip">△△인테리어</div>
+      <div class="logo-chip">□□법무사</div>
+      <div class="logo-chip">○○식품</div>
+      <div class="logo-chip">△△컨설팅</div>
+      <div class="logo-chip">□□미디어</div>
+      <div class="logo-chip">○○부동산</div>
+      <div class="logo-chip">△△제조</div>
+    </div>
+  </div>
+
+  <!-- ── 로고 마퀴 Row 2 (오른쪽 → 왼쪽) ── -->
+  <div class="marquee-fade overflow-hidden mb-10">
+    <div class="flex marquee-track-right" style="width: max-content; gap: 12px;">
+      <div class="logo-chip">○○스튜디오</div>
+      <div class="logo-chip">△△프랜차이즈</div>
+      <div class="logo-chip">□□자동차</div>
+      <div class="logo-chip">○○세무사</div>
+      <div class="logo-chip">△△화장품</div>
+      <div class="logo-chip">□□헬스케어</div>
+      <div class="logo-chip">○○교육</div>
+      <div class="logo-chip">△△펫샵</div>
+      <div class="logo-chip">□□여행사</div>
+      <div class="logo-chip">○○금융</div>
+      <div class="logo-chip">△△패션</div>
+      <div class="logo-chip">□□농업</div>
+      <div class="logo-chip">○○출판</div>
+      <div class="logo-chip">△△스포츠</div>
+      <!-- 복제 -->
+      <div class="logo-chip">○○스튜디오</div>
+      <div class="logo-chip">△△프랜차이즈</div>
+      <div class="logo-chip">□□자동차</div>
+      <div class="logo-chip">○○세무사</div>
+      <div class="logo-chip">△△화장품</div>
+      <div class="logo-chip">□□헬스케어</div>
+      <div class="logo-chip">○○교육</div>
+      <div class="logo-chip">△△펫샵</div>
+      <div class="logo-chip">□□여행사</div>
+      <div class="logo-chip">○○금융</div>
+      <div class="logo-chip">△△패션</div>
+      <div class="logo-chip">□□농업</div>
+      <div class="logo-chip">○○출판</div>
+      <div class="logo-chip">△△스포츠</div>
+    </div>
+  </div>
+
+  <!-- ── 신뢰 배지 행 ── -->
+  <div class="max-w-[1400px] mx-auto px-6">
+    <div class="flex flex-wrap justify-center gap-3">
+
+      <!-- 배지 1: 무료 진단 보장 -->
+      <div class="trust-pill">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="oklch(0.55 0.22 290)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <span style="font-size: 13px; font-weight: 700;">무료 진단 보장</span>
+      </div>
+
+      <!-- 배지 2: 48h 리포트 -->
+      <div class="trust-pill">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="oklch(0.55 0.22 290)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+        <span style="font-size: 13px; font-weight: 700;">48h 리포트 발송</span>
+      </div>
+
+      <!-- 배지 3: A/S 보증 -->
+      <div class="trust-pill">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="oklch(0.55 0.22 290)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+        </svg>
+        <span style="font-size: 13px; font-weight: 700;">납품 후 30일 A/S</span>
+      </div>
+
+      <!-- 배지 4: 개인정보 -->
+      <div class="trust-pill">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="oklch(0.55 0.22 290)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+        <span style="font-size: 13px; font-weight: 700;">개인정보 비침투 보장</span>
+      </div>
+
+      <!-- 배지 5: 일정 초과 환불 -->
+      <div class="trust-pill">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="oklch(0.55 0.22 290)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+        </svg>
+        <span style="font-size: 13px; font-weight: 700;">일정 초과 시 전액 환불</span>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+<!-- ─────────────────────────────────────────────── -->
+
+<!-- 설계 노트 (개발용) -->
+<div style="max-width:800px; margin:40px auto; padding:24px; background:var(--card); border:1px solid var(--border); border-radius:12px; font-size:13px; color:var(--muted-foreground); line-height:1.8;">
+  <h3 style="color:var(--foreground); font-size:16px; font-weight:700; margin-bottom:12px;">📐 구현 가이드 (퍼블리셔용)</h3>
+  <ul style="list-style:disc; padding-left:20px;">
+    <li><strong>컴포넌트명:</strong> <code>TrustSection</code> — <code>src/components/landing/trust-section.tsx</code></li>
+    <li><strong>배치:</strong> <code>page.tsx</code>에서 <code>&lt;HeroSection /&gt;</code> 바로 다음, <code>&lt;MetricsSection /&gt;</code> 앞에 삽입</li>
+    <li><strong>마퀴 구현:</strong> Tailwind CSS keyframes + <code>animate-[marquee_28s_linear_infinite]</code> 또는 <code>tailwind.config</code> 커스텀 애니메이션 추가</li>
+    <li><strong>Seamless loop:</strong> 로고 칩 배열을 <code>[...logos, ...logos]</code>로 두 배 복제 후 translateX(-50%) 루프</li>
+    <li><strong>Edge fade:</strong> CSS mask-image로 양쪽 끝 fade (inline style로 처리)</li>
+    <li><strong>신뢰 배지:</strong> <code>ShieldCheck</code>, <code>Clock</code>, <code>Wrench</code>, <code>Lock</code>, <code>Gift</code> (Lucide React 아이콘)</li>
+    <li><strong>색상:</strong> 모두 CSS 변수 사용 — hex 금지</li>
+    <li><strong>배경:</strong> <code>bg-secondary</code> + <code>border-y border-border</code></li>
+    <li><strong>IntersectionObserver:</strong> 섹션 진입 시 fade-in 적용 (다른 섹션과 동일 패턴)</li>
+    <li><strong>실제 로고 교체:</strong> 추후 고객사 SVG 로고 파일 수령 시 <code>logo-chip</code> div를 <code>&lt;img&gt;</code>로 교체 — 레이아웃 변경 없음</li>
+    <li><strong>hover pause:</strong> 마퀴 track에 <code>hover:pause</code> 적용 (UX 배려)</li>
+  </ul>
+</div>
+
+</body>
+</html>

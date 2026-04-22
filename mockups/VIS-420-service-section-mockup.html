@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VIS-420 — 서비스 섹션 리뉴얼 Mockup</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --background: oklch(0.08 0.01 270);
+    --foreground: oklch(0.98 0 0);
+    --card: oklch(0.11 0.01 270);
+    --card-foreground: oklch(0.98 0 0);
+    --primary: oklch(0.55 0.22 290);
+    --primary-foreground: oklch(0.98 0 0);
+    --secondary: oklch(0.18 0.01 270);
+    --muted-foreground: oklch(0.65 0.01 270);
+    --border: oklch(0.22 0.01 270);
+    --accent: oklch(0.55 0.22 290);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: 'Pretendard Variable', 'Pretendard', -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Section */
+  .services-section {
+    padding: 96px 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* Section header */
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    color: var(--foreground);
+    margin-bottom: 12px;
+  }
+  .section-sub {
+    color: var(--muted-foreground);
+    font-size: 1.1rem;
+    max-width: 480px;
+    margin-bottom: 56px;
+  }
+
+  /* Grid */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+  }
+
+  @media (max-width: 1024px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .cards-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Card */
+  .service-card {
+    background: var(--card);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: background 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+  }
+  .service-card:hover { background: oklch(0.14 0.01 270); }
+
+  /* Card top row: number + icon */
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .card-number {
+    font-size: 12px;
+    font-family: ui-monospace, 'SF Mono', monospace;
+    color: var(--muted-foreground);
+    opacity: 0.4;
+  }
+  .card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: oklch(0.55 0.22 290 / 0.1);
+    border: 1px solid oklch(0.55 0.22 290 / 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+  }
+  .service-card:hover .card-icon {
+    background: oklch(0.55 0.22 290 / 0.2);
+  }
+  .card-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--primary);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* Stat row */
+  .card-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .stat-value {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--primary);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 11px;
+    color: var(--muted-foreground);
+  }
+
+  /* Title */
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--foreground);
+  }
+
+  /* Price badge — NEW */
+  .price-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: oklch(0.55 0.22 290 / 0.08);
+    border: 1px solid oklch(0.55 0.22 290 / 0.2);
+    border-radius: 9999px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary);
+    width: fit-content;
+  }
+  .price-badge .price-from {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--muted-foreground);
+    margin-right: 2px;
+  }
+
+  /* Short desc (1-2 lines max) */
+  .card-desc {
+    font-size: 13px;
+    color: var(--muted-foreground);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* CTA row */
+  .card-cta {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: auto;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  .service-card:hover .card-cta {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .card-cta svg {
+    width: 14px;
+    height: 14px;
+    stroke: var(--primary);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* Divider annotation */
+  .annotation {
+    margin-top: 48px;
+    padding: 16px 24px;
+    background: oklch(0.14 0.01 270);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 12px;
+    color: var(--muted-foreground);
+    line-height: 1.7;
+  }
+  .annotation strong { color: var(--foreground); }
+</style>
+</head>
+<body>
+<div style="background:var(--background); min-height:100vh;">
+  <div class="services-section">
+
+    <!-- Section header -->
+    <p class="section-label">SERVICES</p>
+    <h2 class="section-title">필요한 것만, 정확하게</h2>
+    <p class="section-sub">작은 유지보수부터 AI 도입까지 단일 파트너로 해결합니다.</p>
+
+    <!-- Cards grid -->
+    <div class="cards-grid">
+
+      <!-- 01 홈페이지 리뉴얼 -->
+      <a class="service-card" href="/renewal">
+        <div class="card-top">
+          <span class="card-number">01</span>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4v5h.582M20 20v-5h-.581M4.582 9a8 8 0 0 1 15.418 0M19.418 15A8 8 0 0 1 4 15"/></svg>
+          </div>
+        </div>
+        <div class="card-stat">
+          <span class="stat-value">67%</span>
+          <span class="stat-label">평균 로딩 개선</span>
+        </div>
+        <div>
+          <div class="card-title">홈페이지 리뉴얼</div>
+        </div>
+        <div class="price-badge">
+          <span class="price-from">시작가</span>
+          80만원~
+        </div>
+        <p class="card-desc">오래된 사이트를 속도·디자인·SEO 전부 새로 만듭니다.</p>
+        <div class="card-cta">
+          자세히 보기
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- 02 신규 사이트 구축 -->
+      <a class="service-card" href="/new-website">
+        <div class="card-top">
+          <span class="card-number">02</span>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+        </div>
+        <div class="card-stat">
+          <span class="stat-value">2.4배</span>
+          <span class="stat-label">전환율 향상</span>
+        </div>
+        <div>
+          <div class="card-title">신규 사이트 구축</div>
+        </div>
+        <div class="price-badge">
+          <span class="price-from">시작가</span>
+          150만원~
+        </div>
+        <p class="card-desc">기획·디자인·개발·배포를 원스톱으로 진행합니다.</p>
+        <div class="card-cta">
+          자세히 보기
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- 03 유지보수 -->
+      <a class="service-card" href="/maintenance">
+        <div class="card-top">
+          <span class="card-number">03</span>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+        </div>
+        <div class="card-stat">
+          <span class="stat-value">4h</span>
+          <span class="stat-label">장애 대응</span>
+        </div>
+        <div>
+          <div class="card-title">유지보수</div>
+        </div>
+        <div class="price-badge">
+          <span class="price-from">월</span>
+          15만원~
+        </div>
+        <p class="card-desc">콘텐츠 업데이트, 보안 패치, 장애 대응을 책임집니다.</p>
+        <div class="card-cta">
+          자세히 보기
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- 04 보안 진단 -->
+      <a class="service-card" href="/security">
+        <div class="card-top">
+          <span class="card-number">04</span>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+        </div>
+        <div class="card-stat">
+          <span class="stat-value">23개</span>
+          <span class="stat-label">평균 취약점 발견</span>
+        </div>
+        <div>
+          <div class="card-title">보안 진단</div>
+        </div>
+        <div class="price-badge">
+          <span class="price-from">시작가</span>
+          30만원~
+        </div>
+        <p class="card-desc">SSL·보안헤더·취약점을 진단하고 조치 가이드를 제공합니다.</p>
+        <div class="card-cta">
+          자세히 보기
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- 05 앱·시스템 개발 -->
+      <a class="service-card" href="/app-dev">
+        <div class="card-top">
+          <span class="card-number">05</span>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+        </div>
+        <div class="card-stat">
+          <span class="stat-value">120건+</span>
+          <span class="stat-label">납품 실적</span>
+        </div>
+        <div>
+          <div class="card-title">앱·시스템 개발</div>
+        </div>
+        <div class="price-badge">
+          <span class="price-from">시작가</span>
+          300만원~
+        </div>
+        <p class="card-desc">모바일 앱부터 사내 업무 시스템까지 풀스택으로 구축합니다.</p>
+        <div class="card-cta">
+          자세히 보기
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- 06 AI 솔루션 -->
+      <a class="service-card" href="/ai-solution">
+        <div class="card-top">
+          <span class="card-number">06</span>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/></svg>
+          </div>
+        </div>
+        <div class="card-stat">
+          <span class="stat-value">85%</span>
+          <span class="stat-label">업무 자동화</span>
+        </div>
+        <div>
+          <div class="card-title">AI 솔루션</div>
+        </div>
+        <div class="price-badge">
+          <span class="price-from">시작가</span>
+          200만원~
+        </div>
+        <p class="card-desc">AI 챗봇·자동화·데이터 분석을 중소기업 규모에 맞게 도입합니다.</p>
+        <div class="card-cta">
+          자세히 보기
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+    </div><!-- /cards-grid -->
+
+    <!-- Design annotation for reviewer -->
+    <div class="annotation">
+      <strong>디자인 결정 노트 (VIS-420)</strong><br/>
+      ① <strong>가격 배지</strong> — pill 형태, primary oklch tint (8% 불투명), border 0.2 opacity. 읽기 쉽고 가격 심리 부담 낮춤.<br/>
+      ② <strong>CTA</strong> — hover 시 reveal (opacity 0→1, translateX). 클린한 상태 유지, 관심 유도.<br/>
+      ③ <strong>설명 2줄 clamp</strong> — 긴 설명 제거, 시각 밀도 통일.<br/>
+      ④ <strong>카드 레이아웃 순서</strong>: number → icon → stat → title → price → desc → CTA (스캔 경로: 수치 → 이름 → 가격 → 더보기).
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

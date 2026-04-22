@@ -4,12 +4,12 @@ import Link from 'next/link'
 import { RefreshCw, Globe, Wrench, ShieldCheck, Code2, Sparkles, ArrowRight } from 'lucide-react'
 
 const services = [
-  { number: '01', icon: RefreshCw,   href: '/renewal',     title: '홈페이지 리뉴얼', stat: { value: '67%', label: '평균 로딩 개선' }, desc: '오래된 사이트를 속도·디자인·SEO 전부 새로 만듭니다. URL 하나로 현재 상태를 무료 진단합니다.' },
-  { number: '02', icon: Globe,       href: '/new-website', title: '신규 사이트 구축', stat: { value: '2.4배', label: '전환율 향상' }, desc: '기획·디자인·개발·배포를 원스톱으로 진행합니다. 처음부터 제대로 만들겠습니다.' },
-  { number: '03', icon: Wrench,      href: '/maintenance', title: '유지보수', stat: { value: '4h', label: '장애 대응' }, desc: '월 정기 계약으로 콘텐츠 업데이트, 보안 패치, 장애 대응을 책임집니다.' },
-  { number: '04', icon: ShieldCheck, href: '/security',    title: '보안 진단', stat: { value: '23개', label: '평균 취약점 발견' }, desc: '비침투적 방식으로 SSL·보안헤더·취약점을 진단하고 조치 가이드를 제공합니다.' },
-  { number: '05', icon: Code2,       href: '/app-dev',     title: '앱·시스템 개발', stat: { value: '120건+', label: '납품 실적' }, desc: '모바일 앱부터 사내 업무 시스템까지 풀스택으로 구축합니다.' },
-  { number: '06', icon: Sparkles,    href: '/ai-solution', title: 'AI 솔루션', stat: { value: '85%', label: '업무 자동화' }, desc: 'AI 챗봇·자동화·데이터 분석을 중소기업 규모에 맞게 도입합니다.' },
+  { number: '01', icon: RefreshCw,   href: '/renewal',     title: '홈페이지 리뉴얼', stat: { value: '67%', label: '평균 로딩 개선' }, price: { prefix: '시작가', value: '80만원~' }, desc: '오래된 사이트를 속도·디자인·SEO 전부 새로 만듭니다.' },
+  { number: '02', icon: Globe,       href: '/new-website', title: '신규 사이트 구축', stat: { value: '2.4배', label: '전환율 향상' }, price: { prefix: '시작가', value: '150만원~' }, desc: '기획·디자인·개발·배포를 원스톱으로 진행합니다.' },
+  { number: '03', icon: Wrench,      href: '/maintenance', title: '유지보수', stat: { value: '4h', label: '장애 대응' }, price: { prefix: '월', value: '15만원~' }, desc: '콘텐츠 업데이트, 보안 패치, 장애 대응을 책임집니다.' },
+  { number: '04', icon: ShieldCheck, href: '/security',    title: '보안 진단', stat: { value: '23개', label: '평균 취약점 발견' }, price: { prefix: '시작가', value: '30만원~' }, desc: 'SSL·보안헤더·취약점을 진단하고 조치 가이드를 제공합니다.' },
+  { number: '05', icon: Code2,       href: '/app-dev',     title: '앱·시스템 개발', stat: { value: '120건+', label: '납품 실적' }, price: { prefix: '시작가', value: '300만원~' }, desc: '모바일 앱부터 사내 업무 시스템까지 풀스택으로 구축합니다.' },
+  { number: '06', icon: Sparkles,    href: '/ai-solution', title: 'AI 솔루션', stat: { value: '85%', label: '업무 자동화' }, price: { prefix: '시작가', value: '200만원~' }, desc: 'AI 챗봇·자동화·데이터 분석을 중소기업 규모에 맞게 도입합니다.' },
 ]
 
 function ParticleViz() {
@@ -108,10 +108,12 @@ export function FeaturesSection() {
                 <div className="text-3xl font-black text-primary mb-1">{s.stat.value}</div>
                 <div className="text-muted-foreground text-xs">{s.stat.label}</div>
               </div>
-              <div>
-                <h3 className="text-foreground font-bold text-lg mb-2">{s.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
+              <h3 className="text-foreground font-bold text-lg">{s.title}</h3>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary/[0.08] border border-primary/20 rounded-full text-sm font-semibold text-primary w-fit">
+                <span className="text-[10px] font-medium text-muted-foreground">{s.price.prefix}</span>
+                {s.price.value}
               </div>
+              <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">{s.desc}</p>
               <div className="flex items-center gap-1 text-primary text-sm font-semibold mt-auto opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0">
                 자세히 <ArrowRight className="w-4 h-4" />
               </div>
