@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 import { useState, useEffect, useRef } from 'react'
 import { motion, useMotionValue, useSpring, useTransform, useInView, type Variants } from 'framer-motion'
 import UrlAnalysisForm from '@/components/UrlAnalysisForm'
-import { CheckCircle, XCircle, AlertTriangle } from 'lucide-react'
+import { CheckCircle, XCircle, AlertTriangle, CheckSquare, ChevronDown, ChevronUp } from 'lucide-react'
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 
@@ -191,8 +191,38 @@ const siteTypes = [
   { emoji: '🏬', label: '스마트스토어',    ok: false },
 ]
 
+// ── Security-specific data ─────────────────────────────────────────────────
+const empathyItems = [
+  { emoji: '🔒', text: '주소창에 자물쇠(🔒) 표시가 없다' },
+  { emoji: '⏰', text: '마지막으로 보안 점검을 한 게 언제인지 모른다' },
+  { emoji: '📞', text: '홈페이지를 만든 업체와 연락이 끊겼다' },
+  { emoji: '❓', text: '고객이 "이 사이트 안전한가요?"라고 물어본 적 있다' },
+  { emoji: '🔑', text: '비밀번호를 한 번도 바꾼 적 없는 관리자 계정이 있다' },
+  { emoji: '🔌', text: '워드프레스나 플러그인 업데이트를 오래 안 했다' },
+  { emoji: '🚨', text: '어느 날 갑자기 사이트가 이상한 페이지로 바뀐 적 있다' },
+]
+
+const securityFaqs = [
+  { q: '진단이 진짜 무료인가요? 나중에 비용이 청구되지 않나요?', a: '보안 진단 리포트는 완전 무료입니다. 리포트를 받은 후 취약점 개선 작업을 의뢰하실지는 전적으로 선택이며, 강요하지 않습니다.' },
+  { q: 'URL만 입력하면 되나요? 관리자 계정이나 서버 접근이 필요한가요?', a: '외부에서 접근 가능한 공개 보안 요소만 분석합니다. 관리자 계정, FTP, 서버 접근 정보는 전혀 필요하지 않습니다.' },
+  { q: '진단 중에 사이트가 느려지거나 오류가 생기지 않나요?', a: '비파괴적(Non-intrusive) 방식으로 분석하므로 사이트 운영에 전혀 영향을 주지 않습니다.' },
+  { q: '리포트에는 어떤 내용이 담기나요?', a: '① SSL/HTTPS 상태 ② 보안 헤더 6가지 ③ 민감 정보 노출 여부 ④ 관리자 접근 보안 ⑤ SEO 신뢰도 영향 ⑥ 페이지 속도 — 이 6가지 항목에 대한 등급과 개선 방법이 포함됩니다.' },
+  { q: '리포트를 받고 나서 어떻게 해야 하나요?', a: '리포트에 항목별 우선순위와 직접 조치 방법이 함께 제공됩니다. 직접 수정이 어렵다면 개선 작업을 의뢰할 수 있으며, 별도 견적을 드립니다.' },
+  { q: 'WordPress가 아닌 사이트도 진단되나요?', a: '네. WordPress, Cafe24, 자체 개발 사이트 등 플랫폼에 관계없이 URL 기반으로 분석합니다.' },
+  { q: '이미 보안이 잘 되어 있는 사이트도 진단하면 의미가 있나요?', a: '네. 진단 결과 "이상 없음"이 나오면 그것 자체가 증거입니다. 리포트를 고객 신뢰 자료로 활용하는 분들도 있습니다.' },
+  { q: '진단 후 영업 연락이 오나요?', a: '원하지 않으시면 연락드리지 않습니다. 이메일 주소를 입력하시면 리포트만 발송됩니다. 추가 연락 여부는 선택 사항입니다.' },
+]
+
+const securityPricing = [
+  { name: '기본 보안 설정', price: '30만원~', items: ['SSL/HTTPS 적용', '보안 헤더 6가지 설정', '관리자 URL 변경'], highlight: false },
+  { name: '표준 취약점 개선', price: '80만원~', items: ['기본 설정 전체 포함', '플러그인 업데이트', '권한·계정 설정 강화'], highlight: true },
+  { name: '심층 보안 강화', price: '200만원~', items: ['전체 코드 취약점 스캔', 'WAF 설치', '24시간 모니터링 설정'], highlight: false },
+]
+
 // ── Page ───────────────────────────────────────────────────────────────────
 export default function SecurityPage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null)
+
   return (
     <div className="min-h-screen bg-background">
 
@@ -244,6 +274,47 @@ export default function SecurityPage() {
             </a>
           </motion.div>
         </motion.div>
+      </section>
+
+      {/* ── 공감 체크리스트 (신규) ── */}
+      <section className="py-16 px-6 lg:px-12 bg-[#F8F9FA]">
+        <div className="max-w-[1100px] mx-auto">
+          <motion.h2
+            className="text-3xl md:text-4xl font-black text-gray-900 text-center mb-10"
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+          >
+            혹시 이런 상황이세요?
+          </motion.h2>
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8"
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+          >
+            {empathyItems.map((item, i) => (
+              <motion.div key={i} variants={fadeInUp} className="bg-white rounded-xl shadow-sm p-5 flex items-start gap-3">
+                <span className="text-xl shrink-0">{item.emoji}</span>
+                <span className="text-gray-800 font-medium text-sm">{item.text}</span>
+              </motion.div>
+            ))}
+          </motion.div>
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+            className="border-l-4 border-destructive bg-red-50 px-6 py-4 rounded-r-xl flex items-center justify-between gap-4 flex-wrap"
+          >
+            <p className="text-gray-800 font-semibold">하나라도 해당된다면, 지금 당장 무료 진단을 받으세요.</p>
+            <a href="#cta-form" className="inline-flex items-center gap-2 bg-destructive text-white font-bold px-5 py-2.5 rounded-lg text-sm shrink-0">
+              지금 무료 보안 진단 받기 →
+            </a>
+          </motion.div>
+        </div>
       </section>
 
       {/* ── Stats ── */}
@@ -454,6 +525,74 @@ export default function SecurityPage() {
               </motion.div>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      {/* ── FAQ (신규) ── */}
+      <section className="py-16 px-6 lg:px-12 bg-[#F8F9FA]">
+        <div className="max-w-[800px] mx-auto">
+          <motion.h2
+            className="text-3xl font-black text-gray-900 text-center mb-10"
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+          >
+            보안 진단 FAQ
+          </motion.h2>
+          <div className="space-y-2">
+            {securityFaqs.map((faq, i) => (
+              <div key={i} className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+                <button
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  className="w-full flex items-center justify-between p-5 text-left font-semibold text-gray-900">
+                  {faq.q}
+                  {openFaq === i ? <ChevronUp className="w-5 h-5 text-primary shrink-0" /> : <ChevronDown className="w-5 h-5 text-gray-400 shrink-0" />}
+                </button>
+                {openFaq === i && (
+                  <div className="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">{faq.a}</div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 가격 안내 (신규) ── */}
+      <section className="py-16 px-6 lg:px-12 bg-white">
+        <div className="max-w-[1100px] mx-auto">
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+          >
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">취약점 발견 시 개선 비용은?</h2>
+            <p className="text-gray-500 mb-10">진단은 무료. 개선 작업은 범위에 따라 별도 견적입니다.</p>
+          </motion.div>
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+          >
+            {securityPricing.map((p, i) => (
+              <motion.div key={i} variants={fadeInUp} className={`rounded-2xl p-8 border-2 relative ${p.highlight ? 'border-primary bg-primary/5' : 'border-gray-200'}`}>
+                {p.highlight && <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">추천</span>}
+                <h3 className="text-lg font-bold text-gray-900 mb-1">{p.name}</h3>
+                <p className={`text-2xl font-black mb-6 ${p.highlight ? 'text-primary' : 'text-gray-700'}`}>{p.price}</p>
+                <ul className="space-y-2">
+                  {p.items.map((item, j) => (
+                    <li key={j} className="flex items-center gap-2 text-sm text-gray-700">
+                      <span className="text-primary font-bold">✓</span> {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </motion.div>
+          <p className="text-gray-500 text-sm text-center mt-6">진단 리포트 기준으로 정확한 견적을 제공합니다.</p>
         </div>
       </section>
 

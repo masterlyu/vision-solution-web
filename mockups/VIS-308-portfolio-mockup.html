@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VIS-308 — /portfolio 레이아웃 Mockup</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
+<style>
+  :root {
+    --background: oklch(0.08 0.01 270);
+    --foreground: oklch(0.98 0 0);
+    --card: oklch(0.11 0.01 270);
+    --primary: oklch(0.55 0.22 290);
+    --secondary: oklch(0.18 0.01 270);
+    --muted-fg: oklch(0.65 0.01 270);
+    --border: oklch(0.22 0.01 270);
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: 'Pretendard Variable', 'Pretendard', -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+  }
+  /* --- util --- */
+  .text-muted { color: var(--muted-fg); }
+  .text-primary { color: oklch(0.75 0.22 290); }
+  .bg-card { background: var(--card); }
+  .border-subtle { border: 1px solid var(--border); }
+  .badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 999px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+  .badge-primary { background: oklch(0.55 0.22 290 / 0.2); color: oklch(0.75 0.22 290); border: 1px solid oklch(0.55 0.22 290 / 0.4); }
+  .badge-green { background: oklch(0.55 0.22 145 / 0.2); color: oklch(0.75 0.22 145); border: 1px solid oklch(0.55 0.22 145 / 0.4); }
+  .badge-amber { background: oklch(0.75 0.18 80 / 0.15); color: oklch(0.85 0.18 80); border: 1px solid oklch(0.75 0.18 80 / 0.4); }
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: oklch(0.55 0.22 290); color: #fff;
+    padding: 14px 32px; border-radius: 8px;
+    font-size: 1rem; font-weight: 700; cursor: pointer;
+    border: none; transition: opacity 0.2s;
+  }
+  .cta-btn:hover { opacity: 0.88; }
+  .cta-btn-outline {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent; color: oklch(0.75 0.22 290);
+    padding: 14px 32px; border-radius: 8px;
+    font-size: 1rem; font-weight: 700; cursor: pointer;
+    border: 1.5px solid oklch(0.55 0.22 290 / 0.6);
+    transition: background 0.2s;
+  }
+  .cta-btn-outline:hover { background: oklch(0.55 0.22 290 / 0.1); }
+
+  /* --- filter tabs --- */
+  .filter-tab { padding: 8px 20px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.15s; border: 1.5px solid transparent; }
+  .filter-tab.active { background: oklch(0.55 0.22 290 / 0.2); border-color: oklch(0.55 0.22 290 / 0.5); color: oklch(0.82 0.22 290); }
+  .filter-tab:not(.active) { color: var(--muted-fg); border-color: var(--border); }
+  .filter-tab:not(.active):hover { border-color: oklch(0.55 0.22 290 / 0.3); color: #fff; }
+
+  /* --- before/after slider --- */
+  .ba-container { position: relative; overflow: hidden; border-radius: 10px; aspect-ratio: 16/9; background: #111; }
+  .ba-before, .ba-after {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 700;
+  }
+  .ba-before { background: oklch(0.14 0.01 270); color: var(--muted-fg); }
+  .ba-after { background: oklch(0.12 0.03 290); color: oklch(0.82 0.22 290); clip-path: inset(0 50% 0 0); }
+  .ba-divider { position: absolute; top: 0; left: 50%; width: 2px; height: 100%; background: oklch(0.55 0.22 290); transform: translateX(-50%); z-index: 10; }
+  .ba-handle { position: absolute; top: 50%; left: 50%; width: 36px; height: 36px; background: oklch(0.55 0.22 290); border-radius: 50%; transform: translate(-50%, -50%); z-index: 11; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 0.9rem; }
+  .ba-label { position: absolute; bottom: 10px; padding: 3px 10px; border-radius: 999px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; }
+  .ba-label-before { left: 12px; background: rgba(255,255,255,0.08); color: var(--muted-fg); }
+  .ba-label-after { right: 12px; background: oklch(0.55 0.22 290 / 0.8); color: #fff; }
+
+  /* --- stat ring (simple SVG) --- */
+  .stat-ring { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .count-up { font-size: 2.5rem; font-weight: 900; letter-spacing: -0.03em; }
+
+  /* --- lottie placeholder --- */
+  .lottie-ph { display: flex; align-items: center; justify-content: center; border-radius: 8px; background: oklch(0.14 0.02 290); color: oklch(0.55 0.22 290); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; border: 1px dashed oklch(0.55 0.22 290 / 0.4); }
+
+  section { padding: 80px 24px; max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: oklch(0.75 0.22 290); margin-bottom: 12px; }
+  h2.section-title { font-size: clamp(1.6rem, 4vw, 2.5rem); font-weight: 900; line-height: 1.2; margin: 0 0 16px; }
+  .section-sub { color: var(--muted-fg); font-size: 1rem; margin-bottom: 40px; line-height: 1.6; }
+
+  /* separator */
+  hr.sep { border: none; border-top: 1px solid var(--border); margin: 0; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!--  NAV (간단 참조용)                                           -->
+<!-- ============================================================ -->
+<nav style="position:sticky;top:0;z-index:50;background:oklch(0.08 0.01 270 / 0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px;">
+  <div style="max-width:1100px;margin:0 auto;height:60px;display:flex;align-items:center;justify-content:space-between;">
+    <span style="font-weight:900;font-size:1.1rem;letter-spacing:-0.02em;">Vision<span style="color:oklch(0.75 0.22 290);">C</span></span>
+    <button class="cta-btn" style="padding:8px 20px;font-size:0.85rem;">무료 견적 받기</button>
+  </div>
+</nav>
+
+
+<!-- ============================================================ -->
+<!--  SECTION 1 — HERO                                           -->
+<!--  목적: 감성 공감 → 3초 내 "포트폴리오 맞다" 인식             -->
+<!-- ============================================================ -->
+<div style="padding:80px 24px 60px;text-align:center;background:radial-gradient(ellipse 80% 40% at 50% 0%, oklch(0.55 0.22 290 / 0.12), transparent);">
+  <div style="max-width:760px;margin:0 auto;">
+
+    <!-- Lottie placeholder: 빌딩+스파클 일러스트 -->
+    <div class="lottie-ph" style="width:140px;height:140px;margin:0 auto 28px;">
+      [Lottie: portfolio-showcase.json<br/>빌딩+화살표↑ 스파클]
+    </div>
+
+    <!-- Section badge -->
+    <div style="margin-bottom:16px;">
+      <span class="badge badge-primary">Portfolio</span>
+    </div>
+
+    <!-- H1 -->
+    <h1 style="font-size:clamp(2rem,6vw,3.2rem);font-weight:900;line-height:1.15;letter-spacing:-0.03em;margin:0 0 20px;">
+      "홈페이지 바꿨더니<br/>
+      <span style="color:oklch(0.75 0.22 290);">문의가 3배 늘었어요"</span>
+    </h1>
+
+    <!-- Sub -->
+    <p style="font-size:1.05rem;color:var(--muted-fg);margin:0 0 36px;line-height:1.6;">
+      실제 의뢰인 사이트. 실제 수치. 직접 확인하세요.
+    </p>
+
+    <!-- CTA #1 -->
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <button class="cta-btn">포트폴리오 보기 <span>↓</span></button>
+      <button class="cta-btn-outline">무료 진단 받기 →</button>
+    </div>
+
+  </div>
+</div>
+
+<hr class="sep"/>
+
+
+<!-- ============================================================ -->
+<!--  SECTION 2 — STATS 인포그래픽                               -->
+<!--  목적: 신뢰 수치로 즉각 신뢰 형성 (CountUp)                 -->
+<!-- ============================================================ -->
+<section style="padding:60px 24px;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:32px;text-align:center;">
+
+      <!-- stat 1 -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+        <div class="count-up text-primary">127<span style="font-size:1.4rem;">+</span></div>
+        <div style="font-size:0.85rem;font-weight:700;">완료 프로젝트</div>
+        <div style="font-size:0.75rem;" class="text-muted">2021년 창업 이후</div>
+      </div>
+
+      <!-- stat 2 -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+        <div class="count-up text-primary">3.2<span style="font-size:1.4rem;">×</span></div>
+        <div style="font-size:0.85rem;font-weight:700;">평균 문의 증가</div>
+        <div style="font-size:0.75rem;" class="text-muted">리뉴얼 3개월 후 기준</div>
+      </div>
+
+      <!-- stat 3 -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+        <div class="count-up text-primary">98<span style="font-size:1.4rem;">%</span></div>
+        <div style="font-size:0.85rem;font-weight:700;">고객 만족도</div>
+        <div style="font-size:0.75rem;" class="text-muted">납품 후 설문 기준</div>
+      </div>
+
+      <!-- stat 4 -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+        <div class="count-up text-primary">3<span style="font-size:1.4rem;">주</span></div>
+        <div style="font-size:0.85rem;font-weight:700;">평균 납품 기간</div>
+        <div style="font-size:0.75rem;" class="text-muted">계약 후 착수 기준</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="sep"/>
+
+
+<!-- ============================================================ -->
+<!--  SECTION 3 — FILTER                                         -->
+<!--  목적: 업종/서비스 필터로 "내 케이스"를 쉽게 탐색           -->
+<!-- ============================================================ -->
+<section style="padding:48px 24px 24px;">
+  <div style="max-width:1100px;margin:0 auto;">
+
+    <div style="margin-bottom:16px;">
+      <p class="section-label">사례 필터</p>
+      <h2 class="section-title" style="font-size:1.5rem;margin-bottom:8px;">
+        우리 업종 사례만 골라 보세요
+      </h2>
+    </div>
+
+    <!-- Row 1: 업종 필터 -->
+    <div style="margin-bottom:12px;">
+      <span style="font-size:0.72rem;font-weight:700;color:var(--muted-fg);letter-spacing:0.1em;text-transform:uppercase;margin-right:12px;">업종</span>
+      <div style="display:inline-flex;flex-wrap:wrap;gap:8px;">
+        <button class="filter-tab active">전체</button>
+        <button class="filter-tab">음식점/카페</button>
+        <button class="filter-tab">병원/의원</button>
+        <button class="filter-tab">쇼핑몰</button>
+        <button class="filter-tab">제조/B2B</button>
+        <button class="filter-tab">서비스업</button>
+        <button class="filter-tab">교육/학원</button>
+      </div>
+    </div>
+
+    <!-- Row 2: 서비스 필터 -->
+    <div>
+      <span style="font-size:0.72rem;font-weight:700;color:var(--muted-fg);letter-spacing:0.1em;text-transform:uppercase;margin-right:12px;">서비스</span>
+      <div style="display:inline-flex;flex-wrap:wrap;gap:8px;">
+        <button class="filter-tab active">전체</button>
+        <button class="filter-tab">홈페이지 신규 제작</button>
+        <button class="filter-tab">사이트 리뉴얼</button>
+        <button class="filter-tab">앱 개발</button>
+        <button class="filter-tab">AI 솔루션</button>
+        <button class="filter-tab">보안 강화</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!--  SECTION 4 — CASE CARDS (Before/After)                     -->
+<!--  목적: 실제 변화 시각화 → 공감 → 신뢰 → 행동 유도          -->
+<!-- ============================================================ -->
+<section style="padding:40px 24px 80px;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px;">
+
+      <!-- ── Case Card 1 ── -->
+      <div class="bg-card border-subtle" style="border-radius:14px;overflow:hidden;">
+        <!-- B/A Slider Preview -->
+        <div class="ba-container">
+          <div class="ba-before">
+            <span style="text-align:center;padding:20px;">
+              [BEFORE 스크린샷<br/>또는 Lottie placeholder]<br/>
+              <small style="opacity:0.5;">before.png</small>
+            </span>
+          </div>
+          <div class="ba-after">
+            <span style="text-align:center;padding:20px;">
+              [AFTER 스크린샷<br/>또는 Lottie placeholder]<br/>
+              <small style="opacity:0.6;">after.png</small>
+            </span>
+          </div>
+          <div class="ba-divider"></div>
+          <div class="ba-handle">⇄</div>
+          <span class="ba-label ba-label-before">Before</span>
+          <span class="ba-label ba-label-after">After</span>
+        </div>
+
+        <!-- Card body -->
+        <div style="padding:20px 20px 24px;">
+          <!-- badges row -->
+          <div style="display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap;">
+            <span class="badge badge-amber">음식점</span>
+            <span class="badge badge-primary">리뉴얼</span>
+          </div>
+          <!-- title -->
+          <div style="font-size:1rem;font-weight:800;margin-bottom:4px;">OO 한정식 레스토랑</div>
+          <div style="font-size:0.8rem;color:var(--muted-fg);margin-bottom:16px;">서울 강남 — 2025.11 납품</div>
+
+          <!-- Key result infographic -->
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px;">
+            <div style="background:oklch(0.55 0.22 145 / 0.1);border:1px solid oklch(0.55 0.22 145 / 0.3);border-radius:8px;padding:10px 8px;text-align:center;">
+              <div style="font-size:1.4rem;font-weight:900;color:oklch(0.75 0.22 145);">+240%</div>
+              <div style="font-size:0.65rem;color:var(--muted-fg);line-height:1.3;">예약 문의</div>
+            </div>
+            <div style="background:oklch(0.55 0.22 290 / 0.1);border:1px solid oklch(0.55 0.22 290 / 0.3);border-radius:8px;padding:10px 8px;text-align:center;">
+              <div style="font-size:1.4rem;font-weight:900;color:oklch(0.75 0.22 290);">3주</div>
+              <div style="font-size:0.65rem;color:var(--muted-fg);line-height:1.3;">납품 기간</div>
+            </div>
+            <div style="background:oklch(0.75 0.18 80 / 0.1);border:1px solid oklch(0.75 0.18 80 / 0.3);border-radius:8px;padding:10px 8px;text-align:center;">
+              <div style="font-size:1.4rem;font-weight:900;color:oklch(0.85 0.18 80);">★ 4.9</div>
+              <div style="font-size:0.65rem;color:var(--muted-fg);line-height:1.3;">고객 평점</div>
+            </div>
+          </div>
+
+          <!-- quote -->
+          <div style="padding:12px;background:oklch(0.14 0.01 270);border-radius:8px;font-size:0.8rem;color:var(--muted-fg);font-style:italic;line-height:1.5;">
+            "리뉴얼 후 한 달 만에 예약 전화가 2배 이상 늘었어요."<br/>
+            <span style="font-style:normal;font-weight:700;color:#fff;font-size:0.75rem;">— 대표 김○○</span>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ── Case Card 2 ── -->
+      <div class="bg-card border-subtle" style="border-radius:14px;overflow:hidden;">
+        <div class="ba-container">
+          <div class="ba-before">
+            <span style="text-align:center;padding:20px;color:var(--muted-fg);">
+              [BEFORE placeholder]<br/><small style="opacity:0.5;">before.png</small>
+            </span>
+          </div>
+          <div class="ba-after">
+            <span style="text-align:center;padding:20px;">
+              [AFTER placeholder]<br/><small style="opacity:0.6;">after.png</small>
+            </span>
+          </div>
+          <div class="ba-divider"></div>
+          <div class="ba-handle">⇄</div>
+          <span class="ba-label ba-label-before">Before</span>
+          <span class="ba-label ba-label-after">After</span>
+        </div>
+        <div style="padding:20px 20px 24px;">
+          <div style="display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap;">
+            <span class="badge badge-green">병원/의원</span>
+            <span class="badge badge-primary">신규 제작</span>
+          </div>
+          <div style="font-size:1rem;font-weight:800;margin-bottom:4px;">OO 피부과 의원</div>
+          <div style="font-size:0.8rem;color:var(--muted-fg);margin-bottom:16px;">경기 성남 — 2025.09 납품</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px;">
+            <div style="background:oklch(0.55 0.22 145 / 0.1);border:1px solid oklch(0.55 0.22 145 / 0.3);border-radius:8px;padding:10px 8px;text-align:center;">
+              <div style="font-size:1.4rem;font-weight:900;color:oklch(0.75 0.22 145);">+180%</div>
+              <div style="font-size:0.65rem;color:var(--muted-fg);line-height:1.3;">신규 상담</div>
+            </div>
+            <div style="background:oklch(0.55 0.22 290 / 0.1);border:1px solid oklch(0.55 0.22 290 / 0.3);border-radius:8px;padding:10px 8px;text-align:center;">
+              <div style="font-size:1.4rem;font-weight:900;color:oklch(0.75 0.22 290);">4주</div>
+              <div style="font-size:0.65rem;color:var(--muted-fg);line-height:1.3;">납품 기간</div>
+            </div>
+            <div style="background:oklch(0.75 0.18 80 / 0.1);border:1px solid oklch(0.75 0.18 80 / 0.3);border-radius:8px;padding:10px 8px;text-align:center;">
+              <div style="font-size:1.4rem;font-weight:900;color:oklch(0.85 0.18 80);">★ 5.0</div>
+              <div style="font-size:0.65rem;color:var(--muted-fg);line-height:1.3;">고객 평점</div>
+            </div>
+          </div>
+          <div style="padding:12px;background:oklch(0.14 0.01 270);border-radius:8px;font-size:0.8rem;color:var(--muted-fg);font-style:italic;line-height:1.5;">
+            "개원하면서 만든 사이트인데, 기대 이상으로 완성도가 높았어요."<br/>
+            <span style="font-style:normal;font-weight:700;color:#fff;font-size:0.75rem;">— 원장 이○○</span>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ── Case Card 3 ── -->
+      <div class="bg-card border-subtle" style="border-radius:14px;overflow:hidden;">
+        <div class="ba-container">
+          <div class="ba-before">
+            <span style="text-align:center;padding:20px;color:var(--muted-fg);">
+              [BEFORE placeholder]<br/><small style="opacity:0.5;">before.png</small>
+            </span>
+          </div>
+          <div class="ba-after">
+            <span style="text-align:center;padding:20px;">
+              [AFTER placeholder]<br/><small style="opacity:0.6;">after.png</small>
+            </span>
+          </div>
+          <div class="ba-divider"></div>
+          <div class="ba-handle">⇄</div>
+          <span class="ba-label ba-label-before">Before</span>
+          <span class="ba-label ba-label-after">After</span>
+        </div>
+        <div style="padding:20px 20px 24px;">
+          <div style="display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap;">
+            <span class="badge" style="background:oklch(0.55 0.18 200 / 0.2);color:oklch(0.78 0.18 200);border:1px solid oklch(0.55 0.18 200 / 0.4);">쇼핑몰</span>
+            <span class="badge badge-primary">AI 솔루션</span>
+          </div>
+          <div style="font-size:1rem;font-weight:800;margin-bottom:4px;">OO 수제 제과점</div>
+          <div style="font-size:0.8rem;color:var(--muted-fg);margin-bottom:16px;">부산 해운대 — 2025.12 납품</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px;">
+            <div style="background:oklch(0.55 0.22 145 / 0.1);border:1px solid oklch(0.55 0.22 145 / 0.3);border-radius:8px;padding:10px 8px;text-align:center;">
+              <div style="font-size:1.4rem;font-weight:900;color:oklch(0.75 0.22 145);">+320%</div>
+              <div style="font-size:0.65rem;color:var(--muted-fg);line-height:1.3;">온라인 주문</div>
+            </div>
+            <div style="background:oklch(0.55 0.22 290 / 0.1);border:1px solid oklch(0.55 0.22 290 / 0.3);border-radius:8px;padding:10px 8px;text-align:center;">
+              <div style="font-size:1.4rem;font-weight:900;color:oklch(0.75 0.22 290);">2주</div>
+              <div style="font-size:0.65rem;color:var(--muted-fg);line-height:1.3;">납품 기간</div>
+            </div>
+            <div style="background:oklch(0.75 0.18 80 / 0.1);border:1px solid oklch(0.75 0.18 80 / 0.3);border-radius:8px;padding:10px 8px;text-align:center;">
+              <div style="font-size:1.4rem;font-weight:900;color:oklch(0.85 0.18 80);">★ 5.0</div>
+              <div style="font-size:0.65rem;color:var(--muted-fg);line-height:1.3;">고객 평점</div>
+            </div>
+          </div>
+          <div style="padding:12px;background:oklch(0.14 0.01 270);border-radius:8px;font-size:0.8rem;color:var(--muted-fg);font-style:italic;line-height:1.5;">
+            "AI 챗봇 추가 후 밤새 주문을 놓치지 않게 됐어요. 매출이 확 늘었습니다."<br/>
+            <span style="font-style:normal;font-weight:700;color:#fff;font-size:0.75rem;">— 대표 박○○</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /grid -->
+
+    <!-- "더 보기" 버튼 -->
+    <div style="text-align:center;margin-top:36px;">
+      <button class="cta-btn-outline" style="font-size:0.9rem;padding:12px 28px;">
+        더 많은 사례 보기 (127건) →
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<hr class="sep"/>
+
+
+<!-- ============================================================ -->
+<!--  SECTION 5 — MID CTA #2                                    -->
+<!--  목적: 케이스 열람 후 감정 고점에서 행동 유도               -->
+<!-- ============================================================ -->
+<div style="padding:64px 24px;text-align:center;background:radial-gradient(ellipse 60% 80% at 50% 50%, oklch(0.55 0.22 290 / 0.1), transparent);">
+  <div style="max-width:600px;margin:0 auto;">
+    <!-- Lottie placeholder -->
+    <div class="lottie-ph" style="width:80px;height:80px;margin:0 auto 20px;">
+      [Lottie: sparkle-check.json]
+    </div>
+    <div style="font-size:clamp(1.4rem,4vw,2rem);font-weight:900;line-height:1.25;margin-bottom:16px;">
+      내 사이트도 이렇게<br/>
+      <span style="color:oklch(0.75 0.22 290);">바뀔 수 있을까요?</span>
+    </div>
+    <p style="font-size:0.95rem;color:var(--muted-fg);margin-bottom:28px;line-height:1.6;">
+      URL 하나만 입력하세요. 48시간 내 무료 진단 리포트를 드립니다.
+    </p>
+    <button class="cta-btn" style="font-size:1rem;padding:16px 40px;">
+      무료 진단 시작하기 →
+    </button>
+    <p style="font-size:0.75rem;color:var(--muted-fg);margin-top:12px;">비용 없음 · 부담 없음 · 전문가가 직접 분석</p>
+  </div>
+</div>
+
+<hr class="sep"/>
+
+
+<!-- ============================================================ -->
+<!--  SECTION 6 — HOW WE WORK (프로세스 스텝퍼)                 -->
+<!--  목적: 안심 → "진짜 절차가 있구나" 신뢰                     -->
+<!-- ============================================================ -->
+<section>
+  <p class="section-label">프로세스</p>
+  <h2 class="section-title">의뢰부터 납품까지, 5단계</h2>
+  <p class="section-sub" style="max-width:500px;">처음 의뢰하는 분들도 쉽게 이해할 수 있도록 단계별로 정리했습니다.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:20px;">
+
+    <!-- Step 1 -->
+    <div class="bg-card border-subtle" style="border-radius:12px;padding:24px 20px;position:relative;">
+      <div style="width:32px;height:32px;border-radius:8px;background:oklch(0.55 0.22 290 / 0.2);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:900;color:oklch(0.75 0.22 290);margin-bottom:14px;">01</div>
+      <div class="lottie-ph" style="width:56px;height:56px;margin-bottom:12px;">[Lottie: url-scan.json]</div>
+      <div style="font-weight:800;font-size:0.9rem;margin-bottom:4px;">URL 무료 진단</div>
+      <div style="font-size:0.75rem;color:var(--muted-fg);line-height:1.5;">48시간 내 리포트 발송</div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="bg-card border-subtle" style="border-radius:12px;padding:24px 20px;">
+      <div style="width:32px;height:32px;border-radius:8px;background:oklch(0.55 0.22 290 / 0.2);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:900;color:oklch(0.75 0.22 290);margin-bottom:14px;">02</div>
+      <div class="lottie-ph" style="width:56px;height:56px;margin-bottom:12px;">[Lottie: meeting.json]</div>
+      <div style="font-weight:800;font-size:0.9rem;margin-bottom:4px;">요구사항 미팅</div>
+      <div style="font-size:0.75rem;color:var(--muted-fg);line-height:1.5;">30분 화상/전화 상담</div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="bg-card border-subtle" style="border-radius:12px;padding:24px 20px;">
+      <div style="width:32px;height:32px;border-radius:8px;background:oklch(0.55 0.22 290 / 0.2);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:900;color:oklch(0.75 0.22 290);margin-bottom:14px;">03</div>
+      <div class="lottie-ph" style="width:56px;height:56px;margin-bottom:12px;">[Lottie: design.json]</div>
+      <div style="font-weight:800;font-size:0.9rem;margin-bottom:4px;">디자인 시안</div>
+      <div style="font-size:0.75rem;color:var(--muted-fg);line-height:1.5;">3~5일 내 초안 공유</div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="bg-card border-subtle" style="border-radius:12px;padding:24px 20px;">
+      <div style="width:32px;height:32px;border-radius:8px;background:oklch(0.55 0.22 290 / 0.2);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:900;color:oklch(0.75 0.22 290);margin-bottom:14px;">04</div>
+      <div class="lottie-ph" style="width:56px;height:56px;margin-bottom:12px;">[Lottie: coding.json]</div>
+      <div style="font-weight:800;font-size:0.9rem;margin-bottom:4px;">개발 & 배포</div>
+      <div style="font-size:0.75rem;color:var(--muted-fg);line-height:1.5;">평균 2~3주 내 완료</div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="bg-card border-subtle" style="border-radius:12px;padding:24px 20px;">
+      <div style="width:32px;height:32px;border-radius:8px;background:oklch(0.55 0.22 145 / 0.2);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:900;color:oklch(0.75 0.22 145);margin-bottom:14px;">05</div>
+      <div class="lottie-ph" style="width:56px;height:56px;margin-bottom:12px;">[Lottie: trophy.json]</div>
+      <div style="font-weight:800;font-size:0.9rem;margin-bottom:4px;">납품 + 사후 관리</div>
+      <div style="font-size:0.75rem;color:var(--muted-fg);line-height:1.5;">3개월 무상 유지보수</div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="sep"/>
+
+
+<!-- ============================================================ -->
+<!--  SECTION 7 — FINAL CTA #3 + FORM                          -->
+<!--  목적: 최종 행동 유도 — UrlAnalysisForm 컴포넌트 그대로 사용 -->
+<!-- ============================================================ -->
+<section style="padding:80px 24px;text-align:center;">
+  <div style="max-width:680px;margin:0 auto;">
+    <p class="section-label">무료 진단</p>
+    <h2 class="section-title" style="font-size:clamp(1.8rem,5vw,2.8rem);">
+      지금 URL만 넣어보세요<br/>
+      <span style="color:oklch(0.75 0.22 290);">48시간 내 리포트 발송</span>
+    </h2>
+    <p class="section-sub" style="max-width:460px;margin:0 auto 36px;">
+      비용 없음 · 부담 없음 · IT 지식 불필요<br/>전문가가 직접 분석해 드립니다.
+    </p>
+
+    <!-- Benefit badges (4개) -->
+    <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:32px;">
+      <span class="badge badge-green">💰 완전 무료</span>
+      <span class="badge badge-green">⏱ 48시간 내</span>
+      <span class="badge badge-green">🔒 개인정보 보호</span>
+      <span class="badge badge-green">📋 20항목 체크리스트</span>
+    </div>
+
+    <!-- Form placeholder (실제 구현 시 UrlAnalysisForm 컴포넌트로 교체) -->
+    <div class="bg-card border-subtle" style="border-radius:14px;padding:32px;max-width:520px;margin:0 auto;">
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <input
+          type="text"
+          placeholder="홈페이지 주소를 입력하세요  (예: www.myshop.co.kr)"
+          style="flex:1;min-width:200px;padding:14px 16px;border-radius:8px;border:1.5px solid var(--border);background:oklch(0.14 0.01 270);color:#fff;font-size:0.9rem;font-family:inherit;outline:none;"
+        />
+        <button class="cta-btn" style="white-space:nowrap;">무료 진단 받기 →</button>
+      </div>
+      <p style="font-size:0.75rem;color:var(--muted-fg);margin-top:12px;">
+        ※ 실제 구현 시 <code style="background:oklch(0.14 0.01 270);padding:2px 6px;border-radius:4px;font-size:0.7rem;">UrlAnalysisForm</code> 컴포넌트로 교체
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================ -->
+<!--  FOOTER 참조                                                 -->
+<!-- ============================================================ -->
+<div style="border-top:1px solid var(--border);padding:32px 24px;text-align:center;">
+  <p style="font-size:0.75rem;color:var(--muted-fg);margin:0;">
+    Vision Solution · 서울특별시 · 사업자등록번호 xxx-xx-xxxxx<br/>
+    © 2026 Vision Solution. All rights reserved.
+  </p>
+</div>
+
+
+<!-- ============================================================ -->
+<!--  DESIGN NOTE (Mockup 전용)                                  -->
+<!-- ============================================================ -->
+<div style="position:fixed;bottom:20px;right:20px;background:oklch(0.55 0.22 290);color:#fff;border-radius:10px;padding:12px 16px;font-size:0.72rem;font-weight:700;max-width:220px;line-height:1.5;box-shadow:0 8px 24px oklch(0 0 0 / 0.4);">
+  VIS-308 Mockup v1<br/>
+  <span style="font-weight:400;opacity:0.8;">CEO 게이트 #2 대기 중<br/>사령관님 직접 확인 필요</span>
+</div>
+
+</body>
+</html>
