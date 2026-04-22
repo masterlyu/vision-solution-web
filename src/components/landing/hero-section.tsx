@@ -5,7 +5,17 @@ import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { AsciiScene } from '@/components/landing/ascii-scene'
 
-const words = ['진단', '분석', '개편', '성장']
+// Primary A/B 후보 (현재 적용): 고객 이탈 고통 → 공감 즉시
+const words = ['이탈하고', '포기하고', '외면하고', '떠나고']
+
+// A/B 후보 B: 광고비 낭비 고통
+// const words = ['광고비가', '기회가', '고객이', '매출이']
+// H1: "매달 [광고비가/기회가/고객이/매출이] 사라지는 이유"
+// Sub: "홈페이지가 광고비를 낭비하는지, AI가 48시간 안에 알려드립니다."
+
+// A/B 후보 C: 3초 법칙 고통
+// H1: "당신 홈페이지, / 3초 안에 / 고객을 잡나요?"
+// Sub: "3초 안에 잡지 못하는 사이트는 광고비를 낭비합니다. 지금 URL 입력으로 확인하세요."
 
 function BlurWord({ word, trigger }: { word: string; trigger: number }) {
   const letters = word.split('')
@@ -72,31 +82,32 @@ export function HeroSection() {
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 text-center">
         <div className="inline-flex items-center gap-2 border border-primary/30 bg-primary/10 text-primary text-sm px-4 py-1.5 rounded-full mb-8">
           <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-          AI 기반 웹 솔루션 · 48시간 무료 진단
+          무료 AI 진단 · 48시간 내 리포트 발송
         </div>
 
+        {/* Hero Headline — 고객 고통 우선 (VISIONC_PRINCIPLES 준수) */}
         <h1 className="text-5xl md:text-7xl lg:text-[88px] font-black tracking-tight text-white leading-[1.05] mb-6">
-          홈페이지를<br />
-          <BlurWord word={words[wordIdx]} trigger={trigger} />
-          합니다
+          고객이 지금도<br />
+          <BlurWord word={words[wordIdx]} trigger={trigger} /><br />
+          있습니다
         </h1>
 
         <p className="text-lg md:text-xl text-white/60 mb-12 max-w-2xl mx-auto leading-relaxed">
-          URL 하나로 현재 사이트의 문제를 AI가 진단합니다.<br />
-          리뉴얼·보안·AI 도입까지 원스톱으로 해결합니다.
+          홈페이지가 문제인지 모르는 것이 더 큰 문제입니다.<br />
+          URL 하나로 지금 바로 무료 진단합니다 — 48시간 내 리포트 발송.
         </p>
 
         <form onSubmit={e => { e.preventDefault(); if (url) router.push(`/renewal?url=${encodeURIComponent(url)}`) }}
           className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
           <input type="url" value={url} onChange={e => setUrl(e.target.value)}
-            placeholder="https://your-website.com"
+            placeholder="지금 사이트 URL을 입력하세요"
             className="flex-1 h-14 px-5 rounded-full bg-white/10 border border-white/20 text-white placeholder-white/40 text-base focus:outline-none focus:border-primary focus:bg-white/15 transition-all" />
           <Button type="submit" size="lg"
             className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-white font-bold text-base gap-2">
-            무료 진단 <ArrowRight className="w-4 h-4" />
+            지금 무료 진단받기 <ArrowRight className="w-4 h-4" />
           </Button>
         </form>
-        <p className="text-white/30 text-sm mt-4">신용카드 불필요 · 48시간 내 이메일 수신</p>
+        <p className="text-white/30 text-sm mt-4">신용카드 불필요 · 48시간 내 이메일 수신 · 결과 받은 후 결정하세요</p>
       </div>
 
       {/* Scroll indicator */}
