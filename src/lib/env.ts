@@ -6,12 +6,14 @@ const envSchema = z.object({
   TELEGRAM_CHAT_ID: z.string().min(1),
 
   // Upstash Redis — 보고서 승인 대기 데이터 임시 저장 (24h TTL)
-  UPSTASH_REDIS_REST_URL: z.string().min(1),
-  UPSTASH_REDIS_REST_TOKEN: z.string().min(1),
+  // 빌드 시에는 불필요 (기본값 빈 문자열), 런타임 API 호출 시 필수
+  UPSTASH_REDIS_REST_URL: z.string().default(''),
+  UPSTASH_REDIS_REST_TOKEN: z.string().default(''),
 
   // Gmail — 고객에게 PDF 리포트 이메일 발송
-  GMAIL_USER: z.string().min(1),
-  GMAIL_APP_PASSWORD: z.string().min(1),
+  // 빌드 시에는 불필요 (기본값 빈 문자열), 런타임 API 호출 시 필수
+  GMAIL_USER: z.string().default(''),
+  GMAIL_APP_PASSWORD: z.string().default(''),
 
   // Telegram 웹훅 보안 — setWebhook() 호출 시 secret_token과 동일한 값으로 설정 (권장)
   TELEGRAM_WEBHOOK_SECRET: z.string().optional(),
