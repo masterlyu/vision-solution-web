@@ -1,4 +1,10 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: '홈페이지·보안·AI 인사이트 블로그',
+  description: '중소기업 사장님을 위한 홈페이지·보안·AI 실전 가이드. 실제 사례와 수치를 공개합니다.',
+}
 
 const posts = [
   { tag: '리뉴얼 사례', title: '리뉴얼 후 문의량 3.2배 — ○○유통 Before/After',   date: '2026-04-13', summary: '10년 된 PHP 사이트를 Next.js로 교체한 결과 PageSpeed 38→91점, 이탈률 72%→41%로 개선됐습니다.', href: '#' },

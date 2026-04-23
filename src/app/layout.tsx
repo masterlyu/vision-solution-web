@@ -5,8 +5,12 @@ import { Navigation } from '@/components/landing/navigation'
 import { FooterSection } from '@/components/landing/footer-section'
 
 export const metadata: Metadata = {
-  title: 'Vision Solution — 홈페이지 리뉴얼 전문',
-  description: 'URL 하나로 홈페이지 문제를 AI가 48시간 안에 진단합니다.',
+  metadataBase: new URL('https://visionc.co.kr'),
+  title: {
+    default: '홈페이지 무료 AI 진단 | Vision Solution',
+    template: '%s | Vision Solution',
+  },
+  description: '고객이 지금도 떠나고 있습니까? URL 하나로 48시간 내 AI 진단. 무료 리포트를 지금 신청하세요.',
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
