@@ -34,6 +34,33 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
     return /^https?:\/\//i.test(t) ? t : `https://${t}`
   }
 
+  const extractUrlDomain = (raw: string): string => {
+    try {
+      const normalized = normalizeUrl(raw)
+      if (!normalized) return ''
+      const hostname = new URL(normalized).hostname
+      return hostname.replace(/^www\./i, '')
+    } catch {
+      return ''
+    }
+  }
+
+  const extractEmailDomain = (emailVal: string): string => {
+    const atIdx = emailVal.indexOf('@')
+    if (atIdx < 0) return ''
+    return emailVal.slice(atIdx + 1).toLowerCase()
+  }
+
+  const urlDomain = extractUrlDomain(url)
+  const emailDomain = extractEmailDomain(email)
+  const domainMismatch =
+    serviceType === 'security' &&
+    url.trim() !== '' &&
+    email.trim() !== '' &&
+    urlDomain !== '' &&
+    emailDomain !== '' &&
+    urlDomain !== emailDomain
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     const normalized = normalizeUrl(url)
@@ -176,7 +203,17 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
           <span className="text-muted-foreground/60 font-normal ml-2">— 진단 리포트 PDF 발송</span>
         </label>
         <input type="email" value={email} onChange={e => setEmail(e.target.value)}
-          placeholder="report@example.com" required className={inputCls} />
+          placeholder="report@example.com" required
+          className={`${inputCls} ${domainMismatch ? 'border-red-500 focus:border-red-500 focus:ring-red-500/30' : ''}`} />
+        {domainMismatch && (
+          <div className="mt-2 space-y-0.5">
+            <p className="text-red-500 text-xs font-medium">이메일 도메인이 일치하지 않습니다</p>
+            <p className="text-red-400 text-xs">
+              진단 신청은 <strong>{urlDomain}</strong> 이메일로만 가능합니다.
+              해당 사이트의 담당자 이메일을 입력해 주세요. (예: 담당자@{urlDomain})
+            </p>
+          </div>
+        )}
       </div>
       <div>
         <label className="text-muted-foreground text-sm font-medium mb-1.5 block">
@@ -198,7 +235,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
       {notice && (
         <p className="text-muted-foreground text-sm bg-border/20 rounded-xl p-4 leading-relaxed">{notice}</p>
       )}
-      <Button type="submit" disabled={serviceType === 'security' && !agreed}
+      <Button type="submit" disabled={(serviceType === 'security' && !agreed) || domainMismatch}
         className="w-full rounded-xl bg-primary hover:bg-primary/90 text-white disabled:opacity-40">
         무료 진단 후 리포트 받기 →
       </Button>

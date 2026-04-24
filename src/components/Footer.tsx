@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import LegalModals from '@/components/LegalModals'
 
 const SERVICES = [
   ['웹사이트 리뉴얼', '/renewal'],
@@ -50,7 +51,9 @@ export default function Footer() {
         </div>
         <div className="border-t border-neutral-900 mt-10 pt-6 flex flex-col sm:flex-row justify-between gap-3 text-neutral-700 text-xs">
           <span>© 2025 비젼솔루션. All rights reserved.</span>
-          <span>비젼솔루션 — 웹·앱·보안·AI</span>
+          <div className="flex items-center gap-3">
+            <LegalModals />
+          </div>
         </div>
       </div>
     </footer>
