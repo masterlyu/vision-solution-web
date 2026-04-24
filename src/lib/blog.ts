@@ -6,6 +6,8 @@ export interface BlogPost {
   title: string
   date: string
   tag: string
+  tags: string[]
+  image: string
   summary: string
   content: string
 }
@@ -39,11 +41,15 @@ export function getAllPosts(): Omit<BlogPost, 'content'>[] {
       const slug = file.replace(/\.(mdx?|md)$/, '')
       const raw = fs.readFileSync(path.join(BLOG_DIR, file), 'utf-8')
       const { data } = parseFrontmatter(raw)
+      const tag = data.tag ?? ''
+      const tags = data.tags ? data.tags.split(',').map(t => t.trim()).filter(Boolean) : (tag ? [tag] : [])
       return {
         slug,
         title: data.title ?? slug,
         date: data.date ?? '',
-        tag: data.tag ?? '',
+        tag,
+        tags,
+        image: data.image ?? '',
         summary: data.summary ?? '',
       }
     })
@@ -57,11 +63,15 @@ export function getPostBySlug(slug: string): BlogPost | null {
     if (fs.existsSync(filePath)) {
       const raw = fs.readFileSync(filePath, 'utf-8')
       const { data, content } = parseFrontmatter(raw)
+      const tag = data.tag ?? ''
+      const tags = data.tags ? data.tags.split(',').map(t => t.trim()).filter(Boolean) : (tag ? [tag] : [])
       return {
         slug,
         title: data.title ?? slug,
         date: data.date ?? '',
-        tag: data.tag ?? '',
+        tag,
+        tags,
+        image: data.image ?? '',
         summary: data.summary ?? '',
         content,
       }

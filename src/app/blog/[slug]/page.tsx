@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { getAllPosts, getPostBySlug } from '@/lib/blog'
 import { markdownToHtml } from '@/lib/markdownToHtml'
@@ -25,6 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: post.summary,
       type: 'article',
       publishedTime: post.date,
+      images: post.image ? [{ url: post.image }] : [],
     },
   }
 }
@@ -62,6 +64,21 @@ export default async function BlogPostPage({ params }: PageProps) {
           <span className={`px-2.5 py-0.5 rounded-full text-xs font-bold ${tagClass(post.tag)}`}>{post.tag}</span>
         </nav>
 
+        {/* Hero Image */}
+        {post.image && (
+          <div className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden mb-10 bg-muted">
+            <Image
+              src={post.image}
+              alt={post.title}
+              fill
+              unoptimized={post.image.endsWith('.svg')}
+              className="object-cover"
+              sizes="(max-width: 800px) 100vw, 800px"
+              priority
+            />
+          </div>
+        )}
+
         {/* Post Header */}
         <header className="mb-10">
           <h1 className="text-3xl md:text-4xl font-black text-foreground leading-tight mb-4">
@@ -72,6 +89,20 @@ export default async function BlogPostPage({ params }: PageProps) {
             <span>·</span>
             <span>비전솔루션</span>
           </div>
+          {/* Tags */}
+          {post.tags && post.tags.length > 0 && (
+            <div className="flex flex-wrap gap-2 mt-3">
+              {post.tags.map(t => (
+                <Link
+                  key={t}
+                  href={`/blog?tag=${encodeURIComponent(post.tag)}`}
+                  className="text-xs px-2.5 py-1 rounded-full bg-muted text-muted-foreground hover:bg-primary/10 hover:text-primary transition-colors"
+                >
+                  #{t}
+                </Link>
+              ))}
+            </div>
+          )}
           <p className="mt-4 text-lg text-muted-foreground leading-relaxed border-l-4 border-primary pl-4">
             {post.summary}
           </p>

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { getAllPosts, getAllTags } from '@/lib/blog'
 
 export const metadata: Metadata = {
@@ -77,19 +78,44 @@ export default async function BlogPage({ searchParams }: PageProps) {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="bg-card border border-border rounded-xl p-6 hover:border-primary/40 transition-all duration-200 group block"
+                className="bg-card border border-border rounded-xl overflow-hidden hover:border-primary/40 transition-all duration-200 group block"
               >
-                <div className="flex items-center gap-2 mb-4">
-                  <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${tagClass(post.tag)}`}>
-                    {post.tag}
-                  </span>
-                  <span className="text-muted-foreground text-sm">{post.date}</span>
+                {/* Cover Image */}
+                {post.image && (
+                  <div className="relative w-full h-44 overflow-hidden bg-muted">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      unoptimized={post.image.endsWith('.svg')}
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                )}
+                <div className="p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${tagClass(post.tag)}`}>
+                      {post.tag}
+                    </span>
+                    <span className="text-muted-foreground text-sm">{post.date}</span>
+                  </div>
+                  <h2 className="text-foreground font-bold text-base mb-3 group-hover:text-primary transition-colors leading-snug">
+                    {post.title}
+                  </h2>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{post.summary}</p>
+                  {/* Tags */}
+                  {post.tags && post.tags.length > 1 && (
+                    <div className="flex flex-wrap gap-1.5 mt-3">
+                      {post.tags.slice(1).map(t => (
+                        <span key={t} className="text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground">
+                          #{t}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                  <div className="mt-4 text-primary text-sm font-semibold">읽기 →</div>
                 </div>
-                <h2 className="text-foreground font-bold text-base mb-3 group-hover:text-primary transition-colors leading-snug">
-                  {post.title}
-                </h2>
-                <p className="text-muted-foreground text-sm leading-relaxed">{post.summary}</p>
-                <div className="mt-5 text-primary text-sm font-semibold">읽기 →</div>
               </Link>
             ))}
           </div>
