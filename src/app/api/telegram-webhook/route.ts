@@ -22,6 +22,13 @@ const CHAT_ID = env.TELEGRAM_CHAT_ID
  * - 프로덕션 환경: 403 반환 (보안 강제)
  */
 function verifyTelegramSecret(req: NextRequest): boolean {
+  // 로컬 디렉터 서비스에서 포워딩된 요청 허용 (내부 토큰 검증)
+  const internalToken = process.env.VISIONC_INTERNAL_TOKEN
+  if (internalToken) {
+    const forwarded = req.headers.get('x-internal-token') ?? ''
+    if (forwarded === internalToken) return true
+  }
+
   const secret = env.TELEGRAM_WEBHOOK_SECRET
   if (!secret) {
     return process.env.NODE_ENV !== 'production'
