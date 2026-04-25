@@ -82,7 +82,7 @@ export function HeroSection() {
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 text-center">
         <div className="inline-flex items-center gap-2 border border-primary/30 bg-primary/10 text-primary text-sm px-4 py-1.5 rounded-full mb-8">
           <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-          무료 AI 진단 · 48시간 내 리포트 발송
+          무료 AI 진단 · 48시간 안에 결과 이메일
         </div>
 
         {/* Hero Headline — 고객 고통 우선 (VISIONC_PRINCIPLES 준수) */}
