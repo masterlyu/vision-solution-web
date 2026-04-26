@@ -23,6 +23,10 @@ const reviews = [
     quote: <>학원 운영하면서 홈페이지는 거의 방치하고 블로그만 했는데, Vision Solution이 커리큘럼·후기·상담 신청을 한 곳에 정리해주니까 <strong className="font-bold text-primary">신규 상담 신청이 2배 넘게</strong> 늘었어요. '어떻게 알고 오셨냐'고 물으면 요즘은 절반 이상이 '홈페이지 보고'라고 해요.</>,
     name: '최은영', role: '원장 · 영재사고력수학학원', stars: 5,
   },
+  {
+    quote: <>자사몰 구축 전에는 외부 플랫폼 수수료만 매달 수백만 원이었어요. Vision Solution이 만든 쇼핑몰로 이전 후 <strong className="font-bold text-primary">수수료 비용이 90% 절감</strong>됐고, 고객 데이터를 직접 관리하게 되면서 재구매율도 <strong className="font-bold text-primary">40% 올랐습니다</strong>.</>,
+    name: '강현우', role: '대표 · 로컬푸드 온라인몰', stars: 5,
+  },
 ]
 
 export function TestimonialsSection() {

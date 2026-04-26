@@ -24,6 +24,7 @@
   --ring: oklch(0.55 0.22 290);
   --radius: 0.75rem;
   --brand: oklch(0.55 0.22 290);
+  --primary-rgb: 139, 92, 246;
 }
 
 @theme inline {

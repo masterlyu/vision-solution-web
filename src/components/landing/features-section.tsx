@@ -22,6 +22,7 @@ function ParticleViz() {
     if (!canvas) return
     const ctx = canvas.getContext('2d')
     if (!ctx) return
+    const primaryRgb = getComputedStyle(document.documentElement).getPropertyValue('--primary-rgb').trim() || '139,92,246'
     const resize = () => {
       const rect = canvas.getBoundingClientRect()
       const dpr = Math.min(window.devicePixelRatio || 1, 2)
@@ -52,7 +53,7 @@ function ParticleViz() {
         const alpha = Math.max(0, 1 - dist / 300)
         ctx.beginPath()
         ctx.arc(d.x * w, d.y * h, d.r, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(139,92,246,${0.3 + alpha * 0.5})`
+        ctx.fillStyle = `rgba(${primaryRgb},${0.3 + alpha * 0.5})`
         ctx.fill()
       })
       dots.forEach((a, i) => dots.slice(i + 1).forEach(b => {
@@ -61,7 +62,7 @@ function ParticleViz() {
         if (dist < 120) {
           ctx.beginPath(); ctx.moveTo(a.x * canvas.offsetWidth, a.y * canvas.offsetHeight)
           ctx.lineTo(b.x * canvas.offsetWidth, b.y * canvas.offsetHeight)
-          ctx.strokeStyle = `rgba(139,92,246,${0.1 * (1 - dist / 120)})`
+          ctx.strokeStyle = `rgba(${primaryRgb},${0.1 * (1 - dist / 120)})`
           ctx.lineWidth = 0.5; ctx.stroke()
         }
       }))
