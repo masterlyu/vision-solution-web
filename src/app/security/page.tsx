@@ -277,7 +277,7 @@ export default function SecurityPage() {
       </section>
 
       {/* ── 공감 체크리스트 (신규) ── */}
-      <section className="py-16 px-6 lg:px-12 bg-[#F8F9FA]">
+      <section className="py-16 px-6 lg:px-12 bg-secondary">
         <div className="max-w-[1100px] mx-auto">
           <motion.h2
             className="text-3xl md:text-4xl font-black text-gray-900 text-center mb-10"
@@ -529,7 +529,7 @@ export default function SecurityPage() {
       </section>
 
       {/* ── FAQ (신규) ── */}
-      <section className="py-16 px-6 lg:px-12 bg-[#F8F9FA]">
+      <section className="py-16 px-6 lg:px-12 bg-secondary">
         <div className="max-w-[800px] mx-auto">
           <motion.h2
             className="text-3xl font-black text-gray-900 text-center mb-10"
