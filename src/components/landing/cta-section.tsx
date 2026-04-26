@@ -9,12 +9,14 @@ export function CtaSection() {
   const [visible, setVisible] = useState(false)
   const [mouse, setMouse] = useState({ x: 50, y: 50 })
   const [url, setUrl] = useState('')
+  const [primaryRgb, setPrimaryRgb] = useState('139,92,246')
   const ref = useRef<HTMLDivElement>(null)
   const router = useRouter()
 
   useEffect(() => {
     const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true) }, { threshold: 0.2 })
     if (ref.current) obs.observe(ref.current)
+    setPrimaryRgb(getComputedStyle(document.documentElement).getPropertyValue('--primary-rgb').trim() || '139,92,246')
     return () => obs.disconnect()
   }, [])
 
@@ -24,7 +26,7 @@ export function CtaSection() {
         <div className={`relative border border-foreground/20 rounded-2xl overflow-hidden transition-all duration-1000 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           onMouseMove={e => { const r = e.currentTarget.getBoundingClientRect(); setMouse({ x: ((e.clientX - r.left) / r.width) * 100, y: ((e.clientY - r.top) / r.height) * 100 }) }}>
           <div className="absolute inset-0 opacity-20 pointer-events-none"
-            style={{ background: `radial-gradient(600px circle at ${mouse.x}% ${mouse.y}%, rgba(139,92,246,0.3), transparent 50%)` }} />
+            style={{ background: `radial-gradient(600px circle at ${mouse.x}% ${mouse.y}%, rgba(${primaryRgb},0.3), transparent 50%)` }} />
           <div className="relative z-10 px-8 lg:px-16 py-16 lg:py-24 text-center">
             <p className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-6">지금 시작하세요</p>
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-6 leading-[1.05]">
