@@ -54,7 +54,7 @@ export default function RenewalPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="pt-28 pb-20 px-6 bg-gradient-to-br from-[#0a0a1a] via-[#0d0d22] to-[#0f0f2e]">
+      <section className="pt-28 pb-20 px-6 bg-background">
         <div className="max-w-6xl mx-auto">
           <span className="inline-block bg-primary/20 border border-primary/40 text-primary text-xs font-bold px-3 py-1 rounded-full mb-6">홈페이지 리뉴얼</span>
           <h1 className="text-4xl md:text-5xl font-black text-white leading-tight mb-6 max-w-2xl">
@@ -62,7 +62,7 @@ export default function RenewalPage() {
             고객이 당신 사이트에서{' '}
             <span className="text-destructive">떠나고</span> 있습니다
           </h1>
-          <p className="text-[#b0b8d0] text-lg leading-relaxed mb-8 max-w-xl">
+          <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-xl">
             홈페이지가 낡았다는 걸 알지만 어디서부터 시작해야 할지 모르겠다면,<br />
             URL 하나만 입력하세요. 48시간 내에 무료 진단 리포트를 보내드립니다.
           </p>
@@ -74,7 +74,7 @@ export default function RenewalPage() {
       </section>
 
       {/* Checklist */}
-      <section className="py-20 px-6 bg-[#F8F9FA]">
+      <section className="py-20 px-6 bg-secondary">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-10">혹시 이런 상황이세요?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
@@ -107,7 +107,7 @@ export default function RenewalPage() {
       </section>
 
       {/* Solution */}
-      <section className="py-20 px-6 bg-[#1a1a2e]">
+      <section className="py-20 px-6 bg-card">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-white mb-10">리뉴얼 후 이렇게 달라집니다</h2>
           <div className="space-y-4">
@@ -127,7 +127,7 @@ export default function RenewalPage() {
       </section>
 
       {/* Process */}
-      <section className="py-20 px-6 bg-[#F8F9FA]">
+      <section className="py-20 px-6 bg-secondary">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-gray-900 mb-10">진행 프로세스</h2>
           <div className="space-y-4">
@@ -181,7 +181,7 @@ export default function RenewalPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 px-6 bg-[#F8F9FA]">
+      <section className="py-20 px-6 bg-secondary">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-gray-900 text-center mb-10">자주 묻는 질문</h2>
           <div className="space-y-2">
@@ -203,10 +203,10 @@ export default function RenewalPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-24 px-6 bg-[#1a1a2e] text-center">
+      <section className="py-24 px-6 bg-card text-center">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-4">지금 URL 하나만 주세요</h2>
-          <p className="text-[#b0b8d0] text-lg mb-8">48시간 내에 무료 진단 리포트를 드립니다.</p>
+          <p className="text-muted-foreground text-lg mb-8">48시간 내에 무료 진단 리포트를 드립니다.</p>
           <Link href="/contact" className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-primary font-bold px-10 py-4 rounded-xl transition-all text-lg">
             무료 진단 신청하기 <ArrowRight className="w-5 h-5" />
           </Link>

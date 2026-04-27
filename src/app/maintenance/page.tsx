@@ -69,14 +69,14 @@ export default function MaintenancePage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="pt-28 pb-20 px-6 bg-[#0F0F1A]" style={{ background: 'radial-gradient(ellipse at bottom right, rgba(220,38,38,0.15) 0%, #0F0F1A 60%)' }}>
+      <section className="pt-28 pb-20 px-6 bg-background" style={{ background: 'radial-gradient(ellipse at bottom right, rgba(220,38,38,0.15) 0%, var(--background) 60%)' }}>
         <div className="max-w-6xl mx-auto">
           <span className="inline-block border border-destructive/50 text-red-400 text-xs font-bold px-3 py-1 rounded-full mb-6">홈페이지 유지보수</span>
           <h1 className="text-4xl md:text-5xl font-black text-white leading-tight mb-6 max-w-2xl">
             홈페이지 만들고 방치하다<br />
             <span className="text-destructive">해킹당한</span> 사장님이 생각보다 많습니다
           </h1>
-          <p className="text-[#b0b8d0] text-lg leading-relaxed mb-8 max-w-xl">
+          <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-xl">
             월 99,000원으로 보안·수정·장애 대응을<br />
             한 파트너에게 맡기세요.
           </p>
@@ -88,7 +88,7 @@ export default function MaintenancePage() {
       </section>
 
       {/* Checklist */}
-      <section className="py-20 px-6 bg-[#F8F9FA]">
+      <section className="py-20 px-6 bg-secondary">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-10">혹시 이런 상황이세요?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
@@ -106,7 +106,7 @@ export default function MaintenancePage() {
       </section>
 
       {/* Stats */}
-      <section className="py-20 px-6 bg-[#0F0F1A]">
+      <section className="py-20 px-6 bg-background">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((s, i) => (
@@ -140,7 +140,7 @@ export default function MaintenancePage() {
       </section>
 
       {/* Pricing Plans */}
-      <section className="py-20 px-6 bg-[#F8F9FA]">
+      <section className="py-20 px-6 bg-secondary">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-gray-900 text-center mb-10">내 사이트에 맞는 플랜을 선택하세요</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
@@ -192,7 +192,7 @@ export default function MaintenancePage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 px-6 bg-[#F8F9FA]">
+      <section className="py-20 px-6 bg-secondary">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-gray-900 text-center mb-10">자주 묻는 질문</h2>
           <div className="space-y-2">
@@ -214,10 +214,10 @@ export default function MaintenancePage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-24 px-6 bg-[#0F0F1A] text-center">
+      <section className="py-24 px-6 bg-background text-center">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-4">지금 사이트 상태가 걱정된다면</h2>
-          <p className="text-[#b0b8d0] text-lg mb-8">현재 보안 상태를 무료로 점검해드립니다.</p>
+          <p className="text-muted-foreground text-lg mb-8">현재 보안 상태를 무료로 점검해드립니다.</p>
           <Link href="/contact" className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold px-10 py-4 rounded-xl transition-all text-lg">
             무료 보안 점검 신청하기 <ArrowRight className="w-5 h-5" />
           </Link>

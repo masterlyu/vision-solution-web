@@ -30,11 +30,11 @@ function LottiePlaceholder({ label, width = 56, height = 56 }: {
   return (
     <div style={{
       width, height, flexShrink: 0,
-      background: 'oklch(0.14 0.02 290)',
-      border: '1px dashed oklch(0.55 0.22 290 / 0.4)',
+      background: 'var(--card)',
+      border: '1px dashed color-mix(in oklch, var(--primary) 40%, transparent)',
       borderRadius: 8,
       display: 'flex', alignItems: 'center', justifyContent: 'center',
-      color: 'oklch(0.55 0.22 290)',
+      color: 'var(--primary)',
       fontSize: '0.55rem', fontWeight: 700,
       textTransform: 'uppercase', letterSpacing: '0.06em',
       textAlign: 'center', padding: 4, lineHeight: 1.3,
@@ -86,21 +86,21 @@ function BeforeAfterSlider() {
     >
       {/* Before */}
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-1"
-        style={{ background: 'oklch(0.14 0.01 270)' }}>
+        style={{ background: 'var(--card)' }}>
         <span className="text-xs font-black uppercase tracking-widest text-muted-foreground">Before</span>
         <span className="text-xs text-muted-foreground/40">스크린샷 준비 중</span>
       </div>
       {/* After */}
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-1"
-        style={{ clipPath: `inset(0 ${100 - pos}% 0 0)`, background: 'oklch(0.10 0.04 290)' }}>
-        <span className="text-xs font-black uppercase tracking-widest" style={{ color: 'oklch(0.82 0.22 290)' }}>After</span>
+        style={{ clipPath: `inset(0 ${100 - pos}% 0 0)`, background: 'var(--card-deep)' }}>
+        <span className="text-xs font-black uppercase tracking-widest" style={{ color: 'var(--primary-bright)' }}>After</span>
         <span className="text-xs" style={{ color: 'oklch(0.65 0.15 290)' }}>스크린샷 준비 중</span>
       </div>
       {/* Divider + Handle */}
       <div className="absolute top-0 bottom-0 w-0.5 z-10"
         style={{ left: `${pos}%`, background: 'var(--primary)', transform: 'translateX(-50%)' }}>
         <div className="absolute top-1/2 left-1/2 w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold"
-          style={{ background: 'var(--primary)', transform: 'translate(-50%, -50%)', boxShadow: '0 2px 12px oklch(0.55 0.22 290 / 0.5)' }}>
+          style={{ background: 'var(--primary)', transform: 'translate(-50%, -50%)', boxShadow: '0 2px 12px color-mix(in oklch, var(--primary) 50%, transparent)' }}>
           ⇄
         </div>
       </div>
@@ -117,9 +117,9 @@ function FilterTab({ label, active, onClick }: { label: string; active: boolean;
   return (
     <button onClick={onClick} className="px-4 py-2 rounded-lg text-sm font-semibold transition-all border"
       style={{
-        background: active ? 'oklch(0.55 0.22 290 / 0.2)' : 'transparent',
-        borderColor: active ? 'oklch(0.55 0.22 290 / 0.5)' : 'var(--border)',
-        color: active ? 'oklch(0.82 0.22 290)' : 'var(--muted-foreground)',
+        background: active ? 'color-mix(in oklch, var(--primary) 20%, transparent)' : 'transparent',
+        borderColor: active ? 'color-mix(in oklch, var(--primary) 50%, transparent)' : 'var(--border)',
+        color: active ? 'var(--primary-bright)' : 'var(--muted-foreground)',
       }}>
       {label}
     </button>
@@ -178,7 +178,7 @@ const cases: CaseItem[] = [
     service: '사이트 리뉴얼',
     metrics: [
       { value: '+240%', label: '예약 문의', bg: 'oklch(0.55 0.22 145 / 0.1)', border: 'oklch(0.55 0.22 145 / 0.3)', text: 'oklch(0.75 0.22 145)' },
-      { value: '3주',   label: '납품 기간', bg: 'oklch(0.55 0.22 290 / 0.1)', border: 'oklch(0.55 0.22 290 / 0.3)', text: 'oklch(0.75 0.22 290)' },
+      { value: '3주',   label: '납품 기간', bg: 'color-mix(in oklch, var(--primary) 10%, transparent)', border: 'color-mix(in oklch, var(--primary) 30%, transparent)', text: 'var(--primary-light)' },
       { value: '★ 4.9', label: '고객 평점', bg: 'oklch(0.75 0.18 80 / 0.1)',  border: 'oklch(0.75 0.18 80 / 0.3)',  text: 'oklch(0.85 0.18 80)'  },
     ],
     quote: '리뉴얼 후 한 달 만에 예약 전화가 2배 이상 늘었어요.',
@@ -193,7 +193,7 @@ const cases: CaseItem[] = [
     service: '홈페이지 신규 제작',
     metrics: [
       { value: '+180%', label: '신규 상담', bg: 'oklch(0.55 0.22 145 / 0.1)', border: 'oklch(0.55 0.22 145 / 0.3)', text: 'oklch(0.75 0.22 145)' },
-      { value: '4주',   label: '납품 기간', bg: 'oklch(0.55 0.22 290 / 0.1)', border: 'oklch(0.55 0.22 290 / 0.3)', text: 'oklch(0.75 0.22 290)' },
+      { value: '4주',   label: '납품 기간', bg: 'color-mix(in oklch, var(--primary) 10%, transparent)', border: 'color-mix(in oklch, var(--primary) 30%, transparent)', text: 'var(--primary-light)' },
       { value: '★ 5.0', label: '고객 평점', bg: 'oklch(0.75 0.18 80 / 0.1)',  border: 'oklch(0.75 0.18 80 / 0.3)',  text: 'oklch(0.85 0.18 80)'  },
     ],
     quote: '개원하면서 만든 사이트인데, 기대 이상으로 완성도가 높았어요.',
@@ -208,7 +208,7 @@ const cases: CaseItem[] = [
     service: 'AI 솔루션',
     metrics: [
       { value: '+320%', label: '온라인 주문', bg: 'oklch(0.55 0.22 145 / 0.1)', border: 'oklch(0.55 0.22 145 / 0.3)', text: 'oklch(0.75 0.22 145)' },
-      { value: '2주',   label: '납품 기간', bg: 'oklch(0.55 0.22 290 / 0.1)', border: 'oklch(0.55 0.22 290 / 0.3)', text: 'oklch(0.75 0.22 290)' },
+      { value: '2주',   label: '납품 기간', bg: 'color-mix(in oklch, var(--primary) 10%, transparent)', border: 'color-mix(in oklch, var(--primary) 30%, transparent)', text: 'var(--primary-light)' },
       { value: '★ 5.0', label: '고객 평점', bg: 'oklch(0.75 0.18 80 / 0.1)',  border: 'oklch(0.75 0.18 80 / 0.3)',  text: 'oklch(0.85 0.18 80)'  },
     ],
     quote: 'AI 챗봇 추가 후 밤새 주문을 놓치지 않게 됐어요. 매출이 확 늘었습니다.',
@@ -244,7 +244,7 @@ export default function PortfolioPage() {
       {/* ── Section 1 — Hero ── */}
       <section
         className="pt-24 pb-16 px-6 text-center relative overflow-hidden"
-        style={{ background: 'radial-gradient(ellipse 80% 40% at 50% 0%, oklch(0.55 0.22 290 / 0.12), transparent)' }}
+        style={{ background: 'radial-gradient(ellipse 80% 40% at 50% 0%, color-mix(in oklch, var(--primary) 12%, transparent), transparent)' }}
       >
         <motion.div
           className="max-w-3xl mx-auto flex flex-col items-center gap-5"
@@ -259,7 +259,7 @@ export default function PortfolioPage() {
 
           <motion.div variants={fadeInUp}>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest"
-              style={{ background: 'oklch(0.55 0.22 290 / 0.2)', color: 'oklch(0.82 0.22 290)', border: '1px solid oklch(0.55 0.22 290 / 0.4)' }}>
+              style={{ background: 'color-mix(in oklch, var(--primary) 20%, transparent)', color: 'var(--primary-bright)', border: '1px solid color-mix(in oklch, var(--primary) 40%, transparent)' }}>
               Portfolio
             </span>
           </motion.div>
@@ -269,7 +269,7 @@ export default function PortfolioPage() {
             className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight"
           >
             &ldquo;홈페이지 바꿨더니<br />
-            <span style={{ color: 'oklch(0.75 0.22 290)' }}>문의가 3배 늘었어요&rdquo;</span>
+            <span style={{ color: 'var(--primary-light)' }}>문의가 3배 늘었어요&rdquo;</span>
           </motion.h1>
 
           <motion.p variants={fadeInUp} className="text-muted-foreground text-lg">
@@ -287,8 +287,8 @@ export default function PortfolioPage() {
               className="inline-flex items-center gap-2 font-bold px-8 py-3.5 rounded-xl transition-all"
               style={{
                 background: 'transparent',
-                color: 'oklch(0.75 0.22 290)',
-                border: '1.5px solid oklch(0.55 0.22 290 / 0.6)',
+                color: 'var(--primary-light)',
+                border: '1.5px solid color-mix(in oklch, var(--primary) 60%, transparent)',
               }}>
               무료 진단 받기 →
             </a>
@@ -310,7 +310,7 @@ export default function PortfolioPage() {
           >
             {stats.map(s => (
               <motion.div key={s.label} variants={fadeInUp} className="flex flex-col items-center gap-1.5">
-                <div className="text-5xl font-black tabular-nums" style={{ color: 'oklch(0.75 0.22 290)' }}>
+                <div className="text-5xl font-black tabular-nums" style={{ color: 'var(--primary-light)' }}>
                   <CountUpNumber value={s.value} suffix={s.suffix} decimals={s.decimals} />
                 </div>
                 <div className="text-sm font-bold text-foreground">{s.label}</div>
@@ -332,7 +332,7 @@ export default function PortfolioPage() {
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
           >
-            <p className="text-xs font-black uppercase tracking-[0.15em] mb-2" style={{ color: 'oklch(0.75 0.22 290)' }}>
+            <p className="text-xs font-black uppercase tracking-[0.15em] mb-2" style={{ color: 'var(--primary-light)' }}>
               사례 필터
             </p>
             <h2 className="text-2xl font-black text-foreground mb-6">우리 업종 사례만 골라 보세요</h2>
@@ -397,7 +397,7 @@ export default function PortfolioPage() {
                         {c.industry}
                       </span>
                       <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-black uppercase tracking-wider"
-                        style={{ background: 'oklch(0.55 0.22 290 / 0.2)', border: '1px solid oklch(0.55 0.22 290 / 0.4)', color: 'oklch(0.75 0.22 290)' }}>
+                        style={{ background: 'color-mix(in oklch, var(--primary) 20%, transparent)', border: '1px solid color-mix(in oklch, var(--primary) 40%, transparent)', color: 'var(--primary-light)' }}>
                         {c.service}
                       </span>
                     </div>
@@ -422,7 +422,7 @@ export default function PortfolioPage() {
 
                     {/* Quote */}
                     <div className="rounded-xl p-3.5 text-sm leading-relaxed"
-                      style={{ background: 'oklch(0.14 0.01 270)' }}>
+                      style={{ background: 'var(--card)' }}>
                       <p className="text-muted-foreground italic">&ldquo;{c.quote}&rdquo;</p>
                       <p className="text-foreground font-bold text-xs mt-1.5">— {c.author}</p>
                     </div>
@@ -440,8 +440,8 @@ export default function PortfolioPage() {
                 className="inline-flex items-center gap-2 font-bold px-7 py-3 rounded-xl transition-all text-sm"
                 style={{
                   background: 'transparent',
-                  color: 'oklch(0.75 0.22 290)',
-                  border: '1.5px solid oklch(0.55 0.22 290 / 0.6)',
+                  color: 'var(--primary-light)',
+                  border: '1.5px solid color-mix(in oklch, var(--primary) 60%, transparent)',
                 }}>
                 더 많은 사례 보기 ({filteredCases.length}건) →
               </button>
@@ -455,8 +455,8 @@ export default function PortfolioPage() {
                 className="inline-flex items-center gap-2 font-bold px-7 py-3 rounded-xl transition-all text-sm"
                 style={{
                   background: 'transparent',
-                  color: 'oklch(0.75 0.22 290)',
-                  border: '1.5px solid oklch(0.55 0.22 290 / 0.6)',
+                  color: 'var(--primary-light)',
+                  border: '1.5px solid color-mix(in oklch, var(--primary) 60%, transparent)',
                 }}>
                 전체 사례 보기 (127건) →
               </button>
@@ -470,14 +470,14 @@ export default function PortfolioPage() {
       {/* ── Section 5 — Mid CTA #2 ── */}
       <section
         className="py-16 px-6 text-center"
-        style={{ background: 'radial-gradient(ellipse 60% 80% at 50% 50%, oklch(0.55 0.22 290 / 0.1), transparent)' }}
+        style={{ background: 'radial-gradient(ellipse 60% 80% at 50% 50%, color-mix(in oklch, var(--primary) 10%, transparent), transparent)' }}
       >
         <div className="max-w-lg mx-auto flex flex-col items-center gap-4">
           <LottiePlayer src="/lottie/check.json" width={80} height={80} loop={false} />
 
           <h2 className="text-3xl md:text-4xl font-black text-foreground leading-snug">
             내 사이트도 이렇게<br />
-            <span style={{ color: 'oklch(0.75 0.22 290)' }}>바뀔 수 있을까요?</span>
+            <span style={{ color: 'var(--primary-light)' }}>바뀔 수 있을까요?</span>
           </h2>
           <p className="text-muted-foreground">
             URL 하나만 입력하세요. 48시간 내 무료 진단 리포트를 드립니다.
@@ -503,7 +503,7 @@ export default function PortfolioPage() {
             viewport={{ once: true, margin: '-100px' }}
             className="mb-10"
           >
-            <p className="text-xs font-black uppercase tracking-[0.15em] mb-2" style={{ color: 'oklch(0.75 0.22 290)' }}>
+            <p className="text-xs font-black uppercase tracking-[0.15em] mb-2" style={{ color: 'var(--primary-light)' }}>
               프로세스
             </p>
             <h2 className="text-3xl md:text-4xl font-black text-foreground mb-2">의뢰부터 납품까지, 5단계</h2>
@@ -525,8 +525,8 @@ export default function PortfolioPage() {
               >
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-black"
                   style={{
-                    background: s.highlight ? 'oklch(0.55 0.22 145 / 0.2)' : 'oklch(0.55 0.22 290 / 0.2)',
-                    color: s.highlight ? 'oklch(0.75 0.22 145)' : 'oklch(0.75 0.22 290)',
+                    background: s.highlight ? 'oklch(0.55 0.22 145 / 0.2)' : 'color-mix(in oklch, var(--primary) 20%, transparent)',
+                    color: s.highlight ? 'oklch(0.75 0.22 145)' : 'var(--primary-light)',
                   }}>
                   {s.num}
                 </div>
@@ -562,12 +562,12 @@ export default function PortfolioPage() {
               className="flex flex-col gap-5"
             >
               <motion.div variants={fadeInUp}>
-                <p className="text-xs font-black uppercase tracking-[0.15em] mb-2" style={{ color: 'oklch(0.75 0.22 290)' }}>
+                <p className="text-xs font-black uppercase tracking-[0.15em] mb-2" style={{ color: 'var(--primary-light)' }}>
                   무료 진단
                 </p>
                 <h2 className="text-3xl md:text-4xl font-black text-foreground leading-snug">
                   지금 URL만 넣어보세요<br />
-                  <span style={{ color: 'oklch(0.75 0.22 290)' }}>48시간 내 리포트 발송</span>
+                  <span style={{ color: 'var(--primary-light)' }}>48시간 내 리포트 발송</span>
                 </h2>
                 <p className="text-muted-foreground mt-3">
                   비용 없음 · 부담 없음 · IT 지식 불필요<br />전문가가 직접 분석해 드립니다.

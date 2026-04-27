@@ -75,7 +75,7 @@ export default function AppDevPage() {
       </section>
 
       {/* Checklist */}
-      <section className="py-20 px-6 bg-[#F8F9FA]">
+      <section className="py-20 px-6 bg-secondary">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-10">혹시 이런 상황이세요?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
@@ -93,7 +93,7 @@ export default function AppDevPage() {
       </section>
 
       {/* Stats */}
-      <section className="py-20 px-6 bg-[#1A1A2E]">
+      <section className="py-20 px-6 bg-card">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((s, i) => (
@@ -123,7 +123,7 @@ export default function AppDevPage() {
       </section>
 
       {/* Process */}
-      <section className="py-20 px-6 bg-[#F8F9FA]">
+      <section className="py-20 px-6 bg-secondary">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-gray-900 mb-10">개발 프로세스</h2>
           <div className="space-y-4">
@@ -174,7 +174,7 @@ export default function AppDevPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 px-6 bg-[#F8F9FA]">
+      <section className="py-20 px-6 bg-secondary">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-gray-900 text-center mb-10">자주 묻는 질문</h2>
           <div className="space-y-2">
@@ -196,7 +196,7 @@ export default function AppDevPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-24 px-6 text-center" style={{ background: 'linear-gradient(135deg, oklch(0.55 0.22 290), oklch(0.45 0.22 260))' }}>
+      <section className="py-24 px-6 text-center" style={{ background: 'linear-gradient(135deg, var(--primary), color-mix(in oklch, var(--primary) 80%, black))' }}>
         <div className="max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-4">어떤 시스템이 필요한지, 지금 말씀해주세요</h2>
           <p className="text-white/80 text-lg mb-2">아이디어 단계부터 기술 검토를 함께 합니다.</p>

@@ -80,7 +80,7 @@ export default function NewWebsitePage() {
       </section>
 
       {/* Checklist */}
-      <section className="py-20 px-6 bg-[#F8F9FA]">
+      <section className="py-20 px-6 bg-secondary">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-10">혹시 이런 상황이세요?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
@@ -98,7 +98,7 @@ export default function NewWebsitePage() {
       </section>
 
       {/* Stats */}
-      <section className="py-20 px-6 bg-[#1a1a2e]">
+      <section className="py-20 px-6 bg-card">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((s, i) => (
@@ -132,7 +132,7 @@ export default function NewWebsitePage() {
       </section>
 
       {/* Site Types */}
-      <section className="py-20 px-6 bg-[#F8F9FA]">
+      <section className="py-20 px-6 bg-secondary">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-gray-900 text-center mb-10">어떤 사이트가 필요하신가요?</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -171,7 +171,7 @@ export default function NewWebsitePage() {
       </section>
 
       {/* Pricing */}
-      <section className="py-20 px-6 bg-[#F8F9FA]">
+      <section className="py-20 px-6 bg-secondary">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-gray-900 mb-2">기본형 200만원대부터 시작합니다</h2>
           <p className="text-gray-500 mb-10">정확한 견적은 무료 상담 후 제공됩니다.</p>
@@ -222,7 +222,7 @@ export default function NewWebsitePage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-24 px-6 text-center" style={{ background: 'linear-gradient(135deg, oklch(0.55 0.22 290), oklch(0.45 0.22 260))' }}>
+      <section className="py-24 px-6 text-center" style={{ background: 'linear-gradient(135deg, var(--primary), color-mix(in oklch, var(--primary) 80%, black))' }}>
         <div className="max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-4">지금 어떤 사이트가 필요한지 말씀해주세요</h2>
           <p className="text-white/80 text-lg mb-8">요구사항 정리부터 함께 도와드립니다.</p>

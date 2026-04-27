@@ -56,14 +56,14 @@ export default function AiSolutionPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="pt-28 pb-20 px-6 bg-[#0D1117]" style={{ background: 'radial-gradient(ellipse at top right, rgba(99,102,241,0.2) 0%, #0D1117 60%)' }}>
+      <section className="pt-28 pb-20 px-6 bg-background" style={{ background: 'radial-gradient(ellipse at top right, rgba(99,102,241,0.2) 0%, var(--background) 60%)' }}>
         <div className="max-w-6xl mx-auto">
           <span className="inline-block bg-primary/20 border border-primary/40 text-primary text-xs font-bold px-3 py-1 rounded-full mb-6">중소기업 AI 솔루션</span>
           <h1 className="text-4xl md:text-5xl font-black text-white leading-tight mb-6 max-w-2xl">
             직원이 하루 2시간씩 반복 업무를 하고 있다면,<br />
             <span className="text-primary">AI가 대신할 수 있습니다</span>
           </h1>
-          <p className="text-[#b0b8d0] text-lg leading-relaxed mb-8 max-w-xl">
+          <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-xl">
             고객 문의 자동 응답, 주문 집계, 보고서 작성—<br />
             지금 당장 없애도 되는 반복 업무가 있다면, 100만원대부터 시작합니다.
           </p>
@@ -75,7 +75,7 @@ export default function AiSolutionPage() {
       </section>
 
       {/* Checklist */}
-      <section className="py-20 px-6 bg-[#F8F9FA]">
+      <section className="py-20 px-6 bg-secondary">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-10">혹시 이런 상황이세요?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
@@ -93,7 +93,7 @@ export default function AiSolutionPage() {
       </section>
 
       {/* Case Studies */}
-      <section className="py-20 px-6 bg-[#0D1117]">
+      <section className="py-20 px-6 bg-background">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-white mb-10">실제 도입 사례</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -130,7 +130,7 @@ export default function AiSolutionPage() {
       </section>
 
       {/* Process */}
-      <section className="py-20 px-6 bg-[#F8F9FA]">
+      <section className="py-20 px-6 bg-secondary">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-gray-900 mb-10">진행 프로세스</h2>
           <div className="space-y-4">
@@ -181,7 +181,7 @@ export default function AiSolutionPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 px-6 bg-[#F8F9FA]">
+      <section className="py-20 px-6 bg-secondary">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-gray-900 text-center mb-10">자주 묻는 질문</h2>
           <div className="space-y-2">
@@ -203,10 +203,10 @@ export default function AiSolutionPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-24 px-6 bg-[#0D1117] text-center" style={{ background: 'radial-gradient(ellipse at center, rgba(99,102,241,0.15) 0%, #0D1117 70%)' }}>
+      <section className="py-24 px-6 bg-background text-center" style={{ background: 'radial-gradient(ellipse at center, rgba(99,102,241,0.15) 0%, var(--background) 70%)' }}>
         <div className="max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-4">어떤 업무를 자동화할 수 있을지 지금 알아보세요</h2>
-          <p className="text-[#b0b8d0] text-lg mb-8">도입 안 해도 분석 결과는 드립니다.</p>
+          <p className="text-muted-foreground text-lg mb-8">도입 안 해도 분석 결과는 드립니다.</p>
           <Link href="/contact" className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold px-10 py-4 rounded-xl transition-all text-lg">
             무료 AI 도입 분석 신청하기 <ArrowRight className="w-5 h-5" />
           </Link>
