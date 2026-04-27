@@ -139,7 +139,7 @@ export default function AboutPage() {
             <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 24 }}>
               <Link href="/contact" style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8,
-                background: 'var(--primary)', color: '#fff',
+                background: 'var(--primary)', color: 'var(--primary-foreground)',
                 padding: '15px 36px', borderRadius: 10,
                 fontSize: '1rem', fontWeight: 700, textDecoration: 'none',
               }}>
@@ -302,7 +302,7 @@ export default function AboutPage() {
               <div style={{ marginTop: 28 }}>
                 <Link href="/#services" style={{
                   display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-                  background: 'var(--primary)', color: '#fff',
+                  background: 'var(--primary)', color: 'var(--primary-foreground)',
                   padding: '15px 36px', borderRadius: 10,
                   fontSize: '1rem', fontWeight: 700, textDecoration: 'none', width: '100%',
                 }}>
@@ -632,7 +632,7 @@ export default function AboutPage() {
             <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 28 }}>
               <Link href="/contact" style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8,
-                background: 'var(--primary)', color: '#fff',
+                background: 'var(--primary)', color: 'var(--primary-foreground)',
                 padding: '16px 40px', borderRadius: 10,
                 fontSize: '1.05rem', fontWeight: 700, textDecoration: 'none',
               }}>

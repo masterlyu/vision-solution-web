@@ -107,7 +107,7 @@ function BeforeAfterSlider() {
       <span className="absolute bottom-2.5 left-3 z-10 text-xs font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full"
         style={{ background: 'rgba(255,255,255,0.08)', color: 'var(--muted-foreground)' }}>Before</span>
       <span className="absolute bottom-2.5 right-3 z-10 text-xs font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full"
-        style={{ background: 'var(--primary)', color: '#fff' }}>After</span>
+        style={{ background: 'var(--primary)', color: 'var(--primary-foreground)' }}>After</span>
     </div>
   )
 }
