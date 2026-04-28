@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1b4b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4c1d95;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg1)" />
+  <circle cx="720" cy="-30" r="220" fill="white" opacity="0.04"/>
+  <circle cx="-40" cy="420" r="180" fill="white" opacity="0.04"/>
+  <!-- Tag badge -->
+  <rect x="40" y="40" width="80" height="28" rx="14" fill="#7c3aed" opacity="0.7"/>
+  <text x="80" y="59" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="white">AI 활용</text>
+  <!-- Right: Chat bubbles illustration -->
+  <rect x="490" y="55" width="270" height="310" rx="20" fill="white" opacity="0.06" stroke="white" stroke-opacity="0.12" stroke-width="1"/>
+  <!-- Chat bubble 1 (customer) -->
+  <rect x="510" y="90" width="160" height="40" rx="12" fill="#7c3aed" opacity="0.5"/>
+  <text x="590" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">"영업시간이 어떻게 되나요?"</text>
+  <!-- Chat bubble 2 (bot) -->
+  <rect x="530" y="145" width="200" height="40" rx="12" fill="white" opacity="0.15"/>
+  <text x="630" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">🤖 평일 09:00~18:00입니다!</text>
+  <text x="630" y="179" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white" opacity="0.7">즉시 자동 답변</text>
+  <!-- Chat bubble 3 -->
+  <rect x="510" y="200" width="130" height="36" rx="12" fill="#7c3aed" opacity="0.5"/>
+  <text x="575" y="223" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">"가격이 얼마예요?"</text>
+  <!-- Chat bubble 4 (bot) -->
+  <rect x="530" y="250" width="190" height="40" rx="12" fill="white" opacity="0.15"/>
+  <text x="625" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">🤖 기본형 100만원대~</text>
+  <text x="625" y="284" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white" opacity="0.7">24시간 응대</text>
+  <!-- 24h badge -->
+  <rect x="530" y="308" width="200" height="32" rx="8" fill="#10b981" opacity="0.3"/>
+  <text x="630" y="329" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#6ee7b7">24시간 · 365일 자동 응대</text>
+  <!-- Main text -->
+  <text x="40" y="128" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.7">IT 몰라도 3분이면 이해 완료</text>
+  <text x="40" y="178" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">AI 챗봇이란</text>
+  <text x="40" y="222" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">무엇인가요?</text>
+  <text x="40" y="268" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.7">사장님을 위한 완전 정복 가이드</text>
+  <rect x="40" y="308" width="55" height="4" rx="2" fill="#a78bfa" opacity="0.8"/>
+  <text x="40" y="348" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.55">VISIONC</text>
+</svg>

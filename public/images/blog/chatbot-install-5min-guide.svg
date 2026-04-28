@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0c4a6e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg2)" />
+  <circle cx="700" cy="-20" r="200" fill="white" opacity="0.04"/>
+  <circle cx="-30" cy="440" r="170" fill="white" opacity="0.04"/>
+  <!-- Tag badge -->
+  <rect x="40" y="40" width="90" height="28" rx="14" fill="#1d4ed8" opacity="0.8"/>
+  <text x="85" y="59" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="white">AI 솔루션</text>
+  <!-- Right: Code block illustration -->
+  <rect x="480" y="55" width="285" height="310" rx="16" fill="#0f172a" opacity="0.8" stroke="#334155" stroke-width="1"/>
+  <!-- Code block header -->
+  <rect x="480" y="55" width="285" height="32" rx="16" fill="#1e293b"/>
+  <rect x="480" y="71" width="285" height="16" fill="#1e293b"/>
+  <circle cx="504" cy="71" r="6" fill="#ef4444" opacity="0.8"/>
+  <circle cx="524" cy="71" r="6" fill="#f59e0b" opacity="0.8"/>
+  <circle cx="544" cy="71" r="6" fill="#10b981" opacity="0.8"/>
+  <!-- Code lines -->
+  <text x="500" y="110" font-family="monospace" font-size="11" fill="#94a3b8">&lt;script&gt;</text>
+  <text x="510" y="130" font-family="monospace" font-size="11" fill="#6ee7b7">window.difyChatbotConfig</text>
+  <text x="510" y="148" font-family="monospace" font-size="11" fill="#94a3b8">  = &#123;</text>
+  <text x="520" y="167" font-family="monospace" font-size="11" fill="#fbbf24">token</text>
+  <text x="560" y="167" font-family="monospace" font-size="11" fill="#94a3b8">:</text>
+  <text x="570" y="167" font-family="monospace" font-size="11" fill="#7dd3fc">'귀사 전용'</text>
+  <text x="500" y="187" font-family="monospace" font-size="11" fill="#94a3b8">&lt;/script&gt;</text>
+  <text x="500" y="210" font-family="monospace" font-size="10" fill="#6ee7b7">&lt;script src=</text>
+  <text x="500" y="226" font-family="monospace" font-size="9.5" fill="#7dd3fc">  "chatbot.visionc.co.kr/</text>
+  <text x="500" y="242" font-family="monospace" font-size="9.5" fill="#7dd3fc">   embed.min.js"</text>
+  <text x="500" y="258" font-family="monospace" font-size="10" fill="#6ee7b7">  defer&gt;&lt;/script&gt;</text>
+  <!-- Arrow and result -->
+  <text x="623" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="28">⬇</text>
+  <rect x="502" y="310" width="240" height="36" rx="10" fill="#10b981" opacity="0.25" stroke="#6ee7b7" stroke-opacity="0.4" stroke-width="1"/>
+  <text x="622" y="333" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#6ee7b7">🤖 챗봇 live!</text>
+  <!-- Main text -->
+  <text x="40" y="128" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.7">IT 몰라도 따라하는</text>
+  <text x="40" y="178" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">5분 설치</text>
+  <text x="40" y="222" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">완전 가이드</text>
+  <text x="40" y="268" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.7">워드프레스·카페24·아임웹 포함</text>
+  <!-- Step indicators -->
+  <rect x="40" y="290" width="380" height="1" fill="white" opacity="0.1"/>
+  <text x="40" y="318" font-family="Arial, sans-serif" font-size="12" fill="#60a5fa">STEP 1</text>
+  <text x="110" y="318" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.6">코드 수신</text>
+  <text x="200" y="318" font-family="Arial, sans-serif" font-size="12" fill="#60a5fa">STEP 2</text>
+  <text x="270" y="318" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.6">붙여넣기</text>
+  <text x="360" y="318" font-family="Arial, sans-serif" font-size="12" fill="#6ee7b7" font-weight="700">완료!</text>
+  <rect x="40" y="348" width="55" height="4" rx="2" fill="#60a5fa" opacity="0.8"/>
+  <text x="40" y="382" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.55">VISIONC</text>
+</svg>
