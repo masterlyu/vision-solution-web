@@ -63,3 +63,8 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }
+
+/* VISIONC 챗봇 버튼 — 브랜드 색상 */
+#dify-chatbot-bubble-button {
+  --dify-chatbot-bubble-button-bg-color: #8B5CF6 !important;
+}

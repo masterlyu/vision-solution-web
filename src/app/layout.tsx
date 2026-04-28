@@ -28,6 +28,13 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <Navigation />
         <main>{children}</main>
         <FooterSection />
+        {/* VISIONC 챗봇 — 표준 embed (2줄) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.difyChatbotConfig={token:'PCt1VlRbyvKH4dX3',baseUrl:'https://chatbot.visionc.co.kr'}`
+          }}
+        />
+        <script src="https://chatbot.visionc.co.kr/embed.min.js" defer />
       </body>
     </html>
   )
