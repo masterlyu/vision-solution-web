@@ -10,11 +10,12 @@ import { NextRequest, NextResponse } from 'next/server'
 function buildSecurityHeaders(nonce: string): Record<string, string> {
   const csp = [
     "default-src 'self'",
-    `script-src 'self' 'nonce-${nonce}'`,
+    `script-src 'self' 'nonce-${nonce}' https://chatbot.visionc.co.kr`,
     `style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net`,
     "font-src 'self' https://cdn.jsdelivr.net",
     "img-src 'self' data: blob: https:",
     "connect-src 'self' https:",
+    "frame-src https://chatbot.visionc.co.kr",
     "frame-ancestors 'none'",
     "base-uri 'self'",
     "form-action 'self'",
