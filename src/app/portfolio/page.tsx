@@ -94,7 +94,7 @@ function BeforeAfterSlider() {
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-1"
         style={{ clipPath: `inset(0 ${100 - pos}% 0 0)`, background: 'var(--card-deep)' }}>
         <span className="text-xs font-black uppercase tracking-widest" style={{ color: 'var(--primary-bright)' }}>After</span>
-        <span className="text-xs" style={{ color: 'oklch(0.65 0.15 290)' }}>스크린샷 준비 중</span>
+        <span className="text-xs" style={{ color: 'var(--muted-foreground)' }}>스크린샷 준비 중</span>
       </div>
       {/* Divider + Handle */}
       <div className="absolute top-0 bottom-0 w-0.5 z-10"

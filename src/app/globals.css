@@ -27,6 +27,7 @@
   --primary-rgb: 139, 92, 246;
   --primary-light: oklch(0.75 0.22 290);
   --primary-bright: oklch(0.82 0.22 290);
+  --primary-alt: oklch(0.65 0.22 320);
   --background-deep: oklch(0.06 0.01 270);
   --card-deep: oklch(0.10 0.04 290);
 }

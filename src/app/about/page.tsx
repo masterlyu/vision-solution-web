@@ -194,7 +194,7 @@ export default function AboutPage() {
                 borderRadius: 16, padding: '36px 24px', textAlign: 'center', flex: 1, minWidth: 220,
                 position: 'relative', overflow: 'hidden',
               }}>
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--primary), oklch(0.65 0.22 320))' }} />
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--primary), var(--primary-alt))' }} />
                 <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}>
                   <LottiePlayer src="/lottie/ring.json" width={80} height={80} />
                 </div>
@@ -349,7 +349,7 @@ export default function AboutPage() {
                   background: 'var(--card)', border: '1px solid var(--border)',
                   borderRadius: 14, padding: '28px 24px', position: 'relative', overflow: 'hidden', height: '100%',
                 }}>
-                  <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--primary), oklch(0.65 0.22 320))' }} />
+                  <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--primary), var(--primary-alt))' }} />
                   <div style={{ fontSize: '2rem', marginBottom: 14 }}>{item.icon}</div>
                   <div style={{ fontSize: '1.05rem', fontWeight: 800, marginBottom: 6 }}>{item.title}</div>
                   <div style={{ fontSize: '0.82rem', color: 'var(--primary-light)', fontWeight: 700, marginBottom: 10 }}>{item.tagline}</div>
@@ -443,7 +443,7 @@ export default function AboutPage() {
                   }}>{item.year}</div>
                   <div style={{
                     width: 14, height: 14, borderRadius: '50%',
-                    background: item.accent ? 'linear-gradient(135deg, var(--primary), oklch(0.65 0.22 320))' : 'var(--primary)',
+                    background: item.accent ? 'linear-gradient(135deg, var(--primary), var(--primary-alt))' : 'var(--primary)',
                     border: '2px solid var(--background)',
                     flexShrink: 0, marginTop: 3, position: 'relative', zIndex: 1,
                   }} />
