@@ -64,7 +64,17 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* VISIONC 챗봇 버튼 — 브랜드 색상 */
+/* VISIONC 챗봇 — 브랜드 색상 */
 #dify-chatbot-bubble-button {
   --dify-chatbot-bubble-button-bg-color: #8B5CF6 !important;
+}
+
+/* Dify embed.min.js preload iframe 버그 수정:
+   preloaded iframe이 document.body에 position:absolute로 추가되어
+   스크롤 시 채팅창이 따라오지 않는 문제. fixed로 강제 고정. */
+#dify-chatbot-bubble-window {
+  position: fixed !important;
+  bottom: 1rem !important;
+  right: 1rem !important;
+  z-index: 2147483640 !important;
 }
