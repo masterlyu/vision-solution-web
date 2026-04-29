@@ -32,13 +32,10 @@ const TRIGGER_LABEL: Record<string, string> = {
 }
 
 function ScoreRing({ score }: { score: number }) {
-  const color = score >= 80 ? '#22C55E' : score >= 60 ? '#F59E0B' : '#EF4444'
+  const colorClass = score >= 80 ? 'border-green-500 text-green-500' : score >= 60 ? 'border-amber-500 text-amber-500' : 'border-red-500 text-red-500'
   return (
     <div className="flex flex-col items-center">
-      <div
-        className="w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold border-4"
-        style={{ borderColor: color, color }}
-      >
+      <div className={`w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold border-4 ${colorClass}`}>
         {score}
       </div>
       <span className="text-xs text-gray-400 mt-1">ZAP 점수</span>
@@ -46,10 +43,10 @@ function ScoreRing({ score }: { score: number }) {
   )
 }
 
-function AlertBadge({ count, label, color }: { count: number; label: string; color: string }) {
+function AlertBadge({ count, label, colorClass }: { count: number; label: string; colorClass: string }) {
   return (
     <div className="flex flex-col items-center px-3">
-      <span className="text-lg font-bold" style={{ color: count > 0 ? color : '#6B7280' }}>{count}</span>
+      <span className={`text-lg font-bold ${count > 0 ? colorClass : 'text-muted-foreground'}`}>{count}</span>
       <span className="text-xs text-gray-400">{label}</span>
     </div>
   )
@@ -68,13 +65,13 @@ function TrendChart({ records }: { records: ScanRecord[] }) {
       <div className="flex items-end gap-1 h-20">
         {recent.map((r, i) => {
           const h = Math.round((r.zapScore / maxScore) * 80)
-          const color = r.zapScore >= 80 ? '#22C55E' : r.zapScore >= 60 ? '#F59E0B' : '#EF4444'
+          const barClass = r.zapScore >= 80 ? 'bg-green-500' : r.zapScore >= 60 ? 'bg-amber-500' : 'bg-red-500'
           return (
             <div key={i} className="flex flex-col items-center gap-1 flex-1">
               <span className="text-xs text-gray-400">{r.zapScore}</span>
               <div
-                className="w-full rounded-t"
-                style={{ height: `${h}px`, backgroundColor: color, opacity: 0.85 }}
+                className={`w-full rounded-t opacity-85 ${barClass}`}
+                style={{ height: `${h}px` }}
               />
             </div>
           )
@@ -169,13 +166,13 @@ export default function ScanHistoryPage() {
               </div>
 
               <div className="flex items-center gap-1 mt-4 border-t border-gray-800 pt-4">
-                <AlertBadge count={rec.summary.high}   label="High"   color="#EF4444" />
+                <AlertBadge count={rec.summary.high}   label="High"   colorClass="text-red-500" />
                 <div className="w-px h-8 bg-gray-800" />
-                <AlertBadge count={rec.summary.medium} label="Medium" color="#F59E0B" />
+                <AlertBadge count={rec.summary.medium} label="Medium" colorClass="text-amber-500" />
                 <div className="w-px h-8 bg-gray-800" />
-                <AlertBadge count={rec.summary.low}    label="Low"    color="#3B82F6" />
+                <AlertBadge count={rec.summary.low}    label="Low"    colorClass="text-blue-500" />
                 <div className="w-px h-8 bg-gray-800" />
-                <AlertBadge count={rec.summary.informational} label="정보" color="#6B7280" />
+                <AlertBadge count={rec.summary.informational} label="정보" colorClass="text-muted-foreground" />
 
                 {rec.reportUrl && (
                   <a
