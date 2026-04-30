@@ -77,7 +77,7 @@ export default function AiSolutionPage() {
       {/* Checklist */}
       <section className="py-20 px-6 bg-secondary">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-10">혹시 이런 상황이세요?</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">혹시 이런 상황이세요?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
             {checklistItems.map((item, i) => (
               <div key={i} className="bg-white rounded-xl shadow-sm p-5 flex items-start gap-3">
@@ -86,7 +86,7 @@ export default function AiSolutionPage() {
               </div>
             ))}
           </div>
-          <div className="border-l-4 border-primary bg-blue-50 px-6 py-4 rounded-r-xl">
+          <div className="border-l-4 border-primary bg-card px-6 py-4 rounded-r-xl">
             <p className="text-gray-800 font-semibold">2개 이상 해당된다면, AI가 실질적으로 도움이 될 수 있습니다.</p>
           </div>
         </div>
@@ -132,7 +132,7 @@ export default function AiSolutionPage() {
       {/* Process */}
       <section className="py-20 px-6 bg-secondary">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 mb-10">진행 프로세스</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-10">진행 프로세스</h2>
           <div className="space-y-4">
             {steps.map((s, i) => (
               <div key={i} className="flex gap-6 items-start">
@@ -183,7 +183,7 @@ export default function AiSolutionPage() {
       {/* FAQ */}
       <section className="py-20 px-6 bg-secondary">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 text-center mb-10">자주 묻는 질문</h2>
+          <h2 className="text-2xl font-bold text-foreground text-center mb-10">자주 묻는 질문</h2>
           <div className="space-y-2">
             {faqs.map((faq, i) => (
               <div key={i} className="bg-white rounded-xl border border-gray-200 overflow-hidden">
