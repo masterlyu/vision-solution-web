@@ -82,7 +82,7 @@ export default function NewWebsitePage() {
       {/* Checklist */}
       <section className="py-20 px-6 bg-secondary">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-10">혹시 이런 상황이세요?</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">혹시 이런 상황이세요?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
             {checklistItems.map((item, i) => (
               <div key={i} className="bg-white rounded-xl shadow-sm p-5 flex items-start gap-3">
@@ -91,7 +91,7 @@ export default function NewWebsitePage() {
               </div>
             ))}
           </div>
-          <div className="border-l-4 border-primary bg-blue-50 px-6 py-4 rounded-r-xl">
+          <div className="border-l-4 border-primary bg-card px-6 py-4 rounded-r-xl">
             <p className="text-gray-800 font-semibold">하나라도 해당된다면, 사이트 구조부터 다시 생각해야 합니다.</p>
           </div>
         </div>
@@ -134,7 +134,7 @@ export default function NewWebsitePage() {
       {/* Site Types */}
       <section className="py-20 px-6 bg-secondary">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 text-center mb-10">어떤 사이트가 필요하신가요?</h2>
+          <h2 className="text-2xl font-bold text-foreground text-center mb-10">어떤 사이트가 필요하신가요?</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {siteTypes.map((t, i) => (
               <div key={i} className="bg-white rounded-xl p-6 text-center shadow-sm hover:border-primary border-2 border-transparent transition-all cursor-pointer">
@@ -173,7 +173,7 @@ export default function NewWebsitePage() {
       {/* Pricing */}
       <section className="py-20 px-6 bg-secondary">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">기본형 200만원대부터 시작합니다</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-2">기본형 200만원대부터 시작합니다</h2>
           <p className="text-gray-500 mb-10">정확한 견적은 무료 상담 후 제공됩니다.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {plans.map((p, i) => (

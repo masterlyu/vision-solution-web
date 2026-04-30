@@ -280,7 +280,7 @@ export default function SecurityPage() {
       <section className="py-16 px-6 lg:px-12 bg-secondary">
         <div className="max-w-[1100px] mx-auto">
           <motion.h2
-            className="text-3xl md:text-4xl font-black text-gray-900 text-center mb-10"
+            className="text-3xl md:text-4xl font-black text-foreground text-center mb-10"
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
@@ -532,7 +532,7 @@ export default function SecurityPage() {
       <section className="py-16 px-6 lg:px-12 bg-secondary">
         <div className="max-w-[800px] mx-auto">
           <motion.h2
-            className="text-3xl font-black text-gray-900 text-center mb-10"
+            className="text-3xl font-black text-foreground text-center mb-10"
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"

@@ -90,7 +90,7 @@ export default function MaintenancePage() {
       {/* Checklist */}
       <section className="py-20 px-6 bg-secondary">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-10">혹시 이런 상황이세요?</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">혹시 이런 상황이세요?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
             {checklistItems.map((item, i) => (
               <div key={i} className="bg-white rounded-xl shadow-sm p-5 flex items-start gap-3 border-l-2 border-transparent hover:border-destructive transition-all">
@@ -142,7 +142,7 @@ export default function MaintenancePage() {
       {/* Pricing Plans */}
       <section className="py-20 px-6 bg-secondary">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 text-center mb-10">내 사이트에 맞는 플랜을 선택하세요</h2>
+          <h2 className="text-2xl font-bold text-foreground text-center mb-10">내 사이트에 맞는 플랜을 선택하세요</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {plans.map((p, i) => (
               <div key={i} className={`rounded-2xl p-8 border-2 relative ${p.highlight ? 'border-primary bg-primary/5' : 'border-gray-200 bg-white'}`}>
@@ -194,7 +194,7 @@ export default function MaintenancePage() {
       {/* FAQ */}
       <section className="py-20 px-6 bg-secondary">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 text-center mb-10">자주 묻는 질문</h2>
+          <h2 className="text-2xl font-bold text-foreground text-center mb-10">자주 묻는 질문</h2>
           <div className="space-y-2">
             {faqs.map((faq, i) => (
               <div key={i} className="bg-white rounded-xl border border-gray-200 overflow-hidden">
