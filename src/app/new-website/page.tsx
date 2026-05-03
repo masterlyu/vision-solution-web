@@ -177,7 +177,7 @@ export default function NewWebsitePage() {
           <p className="text-muted-foreground mb-10">정확한 견적은 무료 상담 후 제공됩니다.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {plans.map((p, i) => (
-              <div key={i} className={`rounded-2xl p-8 border-2 relative ${p.highlight ? 'border-primary bg-primary/5' : 'border-gray-200 bg-white'}`}>
+              <div key={i} className={`rounded-2xl p-8 border-2 relative bg-white ${p.highlight ? 'border-primary' : 'border-gray-200'}`}>
                 {p.highlight && <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">추천</span>}
                 <h3 className="text-xl font-bold text-gray-900 mb-1">{p.name}</h3>
                 <p className={`text-2xl font-black mb-6 ${p.highlight ? 'text-primary' : 'text-gray-700'}`}>{p.price}</p>

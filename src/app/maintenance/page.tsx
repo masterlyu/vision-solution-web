@@ -145,7 +145,7 @@ export default function MaintenancePage() {
           <h2 className="text-2xl font-bold text-foreground text-center mb-10">내 사이트에 맞는 플랜을 선택하세요</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {plans.map((p, i) => (
-              <div key={i} className={`rounded-2xl p-8 border-2 relative ${p.highlight ? 'border-primary bg-primary/5' : 'border-gray-200 bg-white'}`}>
+              <div key={i} className={`rounded-2xl p-8 border-2 relative bg-white ${p.highlight ? 'border-primary' : 'border-gray-200'}`}>
                 {p.highlight && <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">★ 추천</span>}
                 <h3 className="text-xl font-bold text-gray-900 mb-1">{p.name}</h3>
                 <p className={`text-2xl font-black mb-6 ${p.highlight ? 'text-primary' : 'text-gray-700'}`}>{p.price}</p>
