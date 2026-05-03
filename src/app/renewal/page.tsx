@@ -99,7 +99,7 @@ export default function RenewalPage() {
             {stats.map((s, i) => (
               <div key={i} className="text-center p-6 bg-card rounded-2xl">
                 <div className="text-4xl font-black text-primary mb-2">{s.value}</div>
-                <div className="text-gray-600 text-sm leading-snug">{s.label}</div>
+                <div className="text-muted-foreground text-sm leading-snug">{s.label}</div>
               </div>
             ))}
           </div>

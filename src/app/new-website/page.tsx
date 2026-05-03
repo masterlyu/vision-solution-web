@@ -174,7 +174,7 @@ export default function NewWebsitePage() {
       <section className="py-20 px-6 bg-secondary">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-foreground mb-2">기본형 200만원대부터 시작합니다</h2>
-          <p className="text-gray-500 mb-10">정확한 견적은 무료 상담 후 제공됩니다.</p>
+          <p className="text-muted-foreground mb-10">정확한 견적은 무료 상담 후 제공됩니다.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {plans.map((p, i) => (
               <div key={i} className={`rounded-2xl p-8 border-2 relative ${p.highlight ? 'border-primary bg-primary/5' : 'border-gray-200 bg-white'}`}>
