@@ -174,12 +174,12 @@ const cases: CaseItem[] = [
     name: 'OO 한정식 레스토랑',
     location: '서울 강남', date: '2025.11',
     industry: '음식점/카페',
-    industryBg: 'oklch(0.75 0.18 80 / 0.15)', industryBorder: 'oklch(0.75 0.18 80 / 0.4)', industryText: 'oklch(0.85 0.18 80)',
+    industryBg: 'color-mix(in oklch, var(--accent-amber-dark) 15%, transparent)', industryBorder: 'color-mix(in oklch, var(--accent-amber-dark) 40%, transparent)', industryText: 'var(--accent-amber)',
     service: '사이트 리뉴얼',
     metrics: [
-      { value: '+240%', label: '예약 문의', bg: 'oklch(0.55 0.22 145 / 0.1)', border: 'oklch(0.55 0.22 145 / 0.3)', text: 'oklch(0.75 0.22 145)' },
+      { value: '+240%', label: '예약 문의', bg: 'color-mix(in oklch, var(--accent-green-dark) 10%, transparent)', border: 'color-mix(in oklch, var(--accent-green-dark) 30%, transparent)', text: 'var(--accent-green-text)' },
       { value: '3주',   label: '납품 기간', bg: 'color-mix(in oklch, var(--primary) 10%, transparent)', border: 'color-mix(in oklch, var(--primary) 30%, transparent)', text: 'var(--primary-light)' },
-      { value: '★ 4.9', label: '고객 평점', bg: 'oklch(0.75 0.18 80 / 0.1)',  border: 'oklch(0.75 0.18 80 / 0.3)',  text: 'oklch(0.85 0.18 80)'  },
+      { value: '★ 4.9', label: '고객 평점', bg: 'color-mix(in oklch, var(--accent-amber-dark) 10%, transparent)',  border: 'color-mix(in oklch, var(--accent-amber-dark) 30%, transparent)',  text: 'var(--accent-amber)'  },
     ],
     quote: '리뉴얼 후 한 달 만에 예약 전화가 2배 이상 늘었어요.',
     author: '대표 김○○',
@@ -189,12 +189,12 @@ const cases: CaseItem[] = [
     name: 'OO 피부과 의원',
     location: '경기 성남', date: '2025.09',
     industry: '병원/의원',
-    industryBg: 'oklch(0.55 0.22 145 / 0.2)', industryBorder: 'oklch(0.55 0.22 145 / 0.4)', industryText: 'oklch(0.75 0.22 145)',
+    industryBg: 'color-mix(in oklch, var(--accent-green-dark) 20%, transparent)', industryBorder: 'color-mix(in oklch, var(--accent-green-dark) 40%, transparent)', industryText: 'var(--accent-green-text)',
     service: '홈페이지 신규 제작',
     metrics: [
-      { value: '+180%', label: '신규 상담', bg: 'oklch(0.55 0.22 145 / 0.1)', border: 'oklch(0.55 0.22 145 / 0.3)', text: 'oklch(0.75 0.22 145)' },
+      { value: '+180%', label: '신규 상담', bg: 'color-mix(in oklch, var(--accent-green-dark) 10%, transparent)', border: 'color-mix(in oklch, var(--accent-green-dark) 30%, transparent)', text: 'var(--accent-green-text)' },
       { value: '4주',   label: '납품 기간', bg: 'color-mix(in oklch, var(--primary) 10%, transparent)', border: 'color-mix(in oklch, var(--primary) 30%, transparent)', text: 'var(--primary-light)' },
-      { value: '★ 5.0', label: '고객 평점', bg: 'oklch(0.75 0.18 80 / 0.1)',  border: 'oklch(0.75 0.18 80 / 0.3)',  text: 'oklch(0.85 0.18 80)'  },
+      { value: '★ 5.0', label: '고객 평점', bg: 'color-mix(in oklch, var(--accent-amber-dark) 10%, transparent)',  border: 'color-mix(in oklch, var(--accent-amber-dark) 30%, transparent)',  text: 'var(--accent-amber)'  },
     ],
     quote: '개원하면서 만든 사이트인데, 기대 이상으로 완성도가 높았어요.',
     author: '원장 이○○',
@@ -204,12 +204,12 @@ const cases: CaseItem[] = [
     name: 'OO 수제 제과점',
     location: '부산 해운대', date: '2025.12',
     industry: '쇼핑몰',
-    industryBg: 'oklch(0.55 0.18 200 / 0.2)', industryBorder: 'oklch(0.55 0.18 200 / 0.4)', industryText: 'oklch(0.78 0.18 200)',
+    industryBg: 'color-mix(in oklch, var(--accent-cyan) 20%, transparent)', industryBorder: 'color-mix(in oklch, var(--accent-cyan) 40%, transparent)', industryText: 'var(--accent-cyan-text)',
     service: 'AI 솔루션',
     metrics: [
-      { value: '+320%', label: '온라인 주문', bg: 'oklch(0.55 0.22 145 / 0.1)', border: 'oklch(0.55 0.22 145 / 0.3)', text: 'oklch(0.75 0.22 145)' },
+      { value: '+320%', label: '온라인 주문', bg: 'color-mix(in oklch, var(--accent-green-dark) 10%, transparent)', border: 'color-mix(in oklch, var(--accent-green-dark) 30%, transparent)', text: 'var(--accent-green-text)' },
       { value: '2주',   label: '납품 기간', bg: 'color-mix(in oklch, var(--primary) 10%, transparent)', border: 'color-mix(in oklch, var(--primary) 30%, transparent)', text: 'var(--primary-light)' },
-      { value: '★ 5.0', label: '고객 평점', bg: 'oklch(0.75 0.18 80 / 0.1)',  border: 'oklch(0.75 0.18 80 / 0.3)',  text: 'oklch(0.85 0.18 80)'  },
+      { value: '★ 5.0', label: '고객 평점', bg: 'color-mix(in oklch, var(--accent-amber-dark) 10%, transparent)',  border: 'color-mix(in oklch, var(--accent-amber-dark) 30%, transparent)',  text: 'var(--accent-amber)'  },
     ],
     quote: 'AI 챗봇 추가 후 밤새 주문을 놓치지 않게 됐어요. 매출이 확 늘었습니다.',
     author: '대표 박○○',
@@ -525,8 +525,8 @@ export default function PortfolioPage() {
               >
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-black"
                   style={{
-                    background: s.highlight ? 'oklch(0.55 0.22 145 / 0.2)' : 'color-mix(in oklch, var(--primary) 20%, transparent)',
-                    color: s.highlight ? 'oklch(0.75 0.22 145)' : 'var(--primary-light)',
+                    background: s.highlight ? 'color-mix(in oklch, var(--accent-green-dark) 20%, transparent)' : 'color-mix(in oklch, var(--primary) 20%, transparent)',
+                    color: s.highlight ? 'var(--accent-green-text)' : 'var(--primary-light)',
                   }}>
                   {s.num}
                 </div>
@@ -586,7 +586,7 @@ export default function PortfolioPage() {
                     key={b.label}
                     variants={fadeInUp}
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-black"
-                    style={{ background: 'oklch(0.55 0.22 145 / 0.2)', border: '1px solid oklch(0.55 0.22 145 / 0.4)', color: 'oklch(0.75 0.22 145)' }}
+                    style={{ background: 'color-mix(in oklch, var(--accent-green-dark) 20%, transparent)', border: '1px solid color-mix(in oklch, var(--accent-green-dark) 40%, transparent)', color: 'var(--accent-green-text)' }}
                   >
                     {b.icon} {b.label}
                   </motion.span>

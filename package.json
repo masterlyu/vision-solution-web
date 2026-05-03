@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "smoke": "playwright test tests/smoke --config=playwright.smoke.config.ts"
+    "smoke": "playwright test tests/smoke --config=playwright.smoke.config.ts",
+    "smoke:docker": "bash scripts/smoke-docker.sh"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

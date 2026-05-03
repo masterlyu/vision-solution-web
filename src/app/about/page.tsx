@@ -213,11 +213,11 @@ export default function AboutPage() {
                 borderRadius: 16, padding: '36px 24px', textAlign: 'center', flex: 1, minWidth: 220,
                 position: 'relative', overflow: 'hidden',
               }}>
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, oklch(0.70 0.22 145), oklch(0.70 0.22 160))' }} />
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--accent-green), var(--accent-green-alt))' }} />
                 <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}>
                   <LottiePlayer src="/lottie/ring.json" width={80} height={80} />
                 </div>
-                <div style={{ fontSize: 'clamp(2.8rem, 6vw, 4rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'oklch(0.70 0.22 145)', lineHeight: 1 }}>
+                <div style={{ fontSize: 'clamp(2.8rem, 6vw, 4rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--accent-green)', lineHeight: 1 }}>
                   <CountUpNumber value={98} suffix="%" />
                 </div>
                 <div style={{ fontSize: '1rem', fontWeight: 700, margin: '8px 0 6px' }}>납기 준수율</div>
@@ -232,11 +232,11 @@ export default function AboutPage() {
                 borderRadius: 16, padding: '36px 24px', textAlign: 'center', flex: 1, minWidth: 220,
                 position: 'relative', overflow: 'hidden',
               }}>
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, oklch(0.85 0.18 80), oklch(0.85 0.18 60))' }} />
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--accent-amber), var(--accent-amber-alt))' }} />
                 <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}>
                   <LottiePlayer src="/lottie/star.json" width={80} height={80} />
                 </div>
-                <div style={{ fontSize: 'clamp(2.8rem, 6vw, 4rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'oklch(0.85 0.18 80)', lineHeight: 1 }}>
+                <div style={{ fontSize: 'clamp(2.8rem, 6vw, 4rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--accent-amber)', lineHeight: 1 }}>
                   <CountUpNumber value={4.9} suffix="" decimals={1} />
                 </div>
                 <div style={{ fontSize: '1rem', fontWeight: 700, margin: '8px 0 6px' }}>고객 만족도</div>
@@ -340,9 +340,9 @@ export default function AboutPage() {
               { icon: '🎯', title: '전략기획', tagline: '"왜 만드는가"를 먼저 묻습니다', desc: '고객 동선 설계 → 전환율 목표 설정 → 페이지 구조 설계' },
               { icon: '🎨', title: 'UI/UX 디자인', tagline: '보기 좋은 것보다 쓰기 쉬운 것', desc: '모바일 우선 설계 → 고객 눈에 3초 안에 들어오는 레이아웃' },
               { icon: '⚡', title: '풀스택 개발', tagline: '최신 기술 스택, 빠른 속도', desc: 'Google Core Web Vitals 기준 통과 납품' },
-              { icon: '🤖', title: 'AI 솔루션', tagline: '챗봇부터 자동화까지', desc: <>고객사 상황에 맞는 AI 도입으로 운영 비용 <strong style={{ color: 'oklch(0.70 0.22 145)' }}>30% 절감</strong> 사례</> },
-              { icon: '🔒', title: '보안 전문', tagline: '아무도 신경 안 쓰는 것을 우리가 챙깁니다', desc: <>납품 전 <strong style={{ color: 'oklch(0.70 0.22 145)' }}>20개 보안 항목</strong> 필수 통과</> },
-              { icon: '🤝', title: '사후 관리', tagline: '납품 후가 진짜 시작입니다', desc: <><strong style={{ color: 'oklch(0.70 0.22 145)' }}>6개월 무상 유지보수</strong> + 월 관리 플랜 운영</> },
+              { icon: '🤖', title: 'AI 솔루션', tagline: '챗봇부터 자동화까지', desc: <>고객사 상황에 맞는 AI 도입으로 운영 비용 <strong style={{ color: 'var(--accent-green)' }}>30% 절감</strong> 사례</> },
+              { icon: '🔒', title: '보안 전문', tagline: '아무도 신경 안 쓰는 것을 우리가 챙깁니다', desc: <>납품 전 <strong style={{ color: 'var(--accent-green)' }}>20개 보안 항목</strong> 필수 통과</> },
+              { icon: '🤝', title: '사후 관리', tagline: '납품 후가 진짜 시작입니다', desc: <><strong style={{ color: 'var(--accent-green)' }}>6개월 무상 유지보수</strong> + 월 관리 플랜 운영</> },
             ].map((item, i) => (
               <FadeInSection key={item.title} delay={i * 0.05}>
                 <div style={{
@@ -379,15 +379,15 @@ export default function AboutPage() {
             {[
               {
                 num: '01', title: '납기 준수 약속',
-                desc: <>약속한 날짜에 못 납품하면, <span style={{ color: 'oklch(0.70 0.22 145)', fontWeight: 700 }}>지연된 일수만큼 비용 환불</span>.<br /><br />"3주 완성"이라고 하면 진짜 3주입니다.</>
+                desc: <>약속한 날짜에 못 납품하면, <span style={{ color: 'var(--accent-green)', fontWeight: 700 }}>지연된 일수만큼 비용 환불</span>.<br /><br />"3주 완성"이라고 하면 진짜 3주입니다.</>
               },
               {
                 num: '02', title: '가격 투명 공개',
-                desc: <>"상담 후 안내"라고만 쓰인 견적서는 드리지 않습니다.<br /><br /><span style={{ color: 'oklch(0.70 0.22 145)', fontWeight: 700 }}>기본형 100만원대부터</span>, 범위를 먼저 안내드립니다.</>
+                desc: <>"상담 후 안내"라고만 쓰인 견적서는 드리지 않습니다.<br /><br /><span style={{ color: 'var(--accent-green)', fontWeight: 700 }}>기본형 100만원대부터</span>, 범위를 먼저 안내드립니다.</>
               },
               {
                 num: '03', title: '납품 후 6개월 무상 A/S',
-                desc: <>납품 완료 후 <span style={{ color: 'oklch(0.70 0.22 145)', fontWeight: 700 }}>6개월은 추가 비용 없이</span> 수정 가능합니다.<br /><br />연락 두절? 저희는 다음날도 전화 받습니다.</>
+                desc: <>납품 완료 후 <span style={{ color: 'var(--accent-green)', fontWeight: 700 }}>6개월은 추가 비용 없이</span> 수정 가능합니다.<br /><br />연락 두절? 저희는 다음날도 전화 받습니다.</>
               },
             ].map((item, i) => (
               <FadeInSection key={item.num} delay={i * 0.07}>
