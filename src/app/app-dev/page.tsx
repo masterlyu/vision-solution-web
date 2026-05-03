@@ -87,7 +87,7 @@ export default function AppDevPage() {
             ))}
           </div>
           <div className="border-l-4 border-primary bg-card px-6 py-4 rounded-r-xl">
-            <p className="text-gray-800 font-semibold">2개 이상 해당된다면, 맞춤 개발이 장기적으로 더 저렴합니다.</p>
+            <p className="text-foreground font-semibold">2개 이상 해당된다면, 맞춤 개발이 장기적으로 더 저렴합니다.</p>
           </div>
         </div>
       </section>

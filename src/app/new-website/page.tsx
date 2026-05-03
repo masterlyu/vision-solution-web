@@ -92,7 +92,7 @@ export default function NewWebsitePage() {
             ))}
           </div>
           <div className="border-l-4 border-primary bg-card px-6 py-4 rounded-r-xl">
-            <p className="text-gray-800 font-semibold">하나라도 해당된다면, 사이트 구조부터 다시 생각해야 합니다.</p>
+            <p className="text-foreground font-semibold">하나라도 해당된다면, 사이트 구조부터 다시 생각해야 합니다.</p>
           </div>
         </div>
       </section>
