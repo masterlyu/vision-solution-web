@@ -252,7 +252,7 @@ export default function AboutPage() {
       {/* ── SECTION 3: 미션/비전 + 창업 스토리 ───────────────────────────── */}
       <section style={{ padding: '88px 24px', background: 'var(--card)' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 60, alignItems: 'center' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: 60, alignItems: 'center' }}>
             {/* 창업 스토리 */}
             <FadeInSection>
               <p style={{
@@ -335,7 +335,7 @@ export default function AboutPage() {
             </div>
           </FadeInSection>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 18 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 18 }}>
             {[
               { icon: '🎯', title: '전략기획', tagline: '"왜 만드는가"를 먼저 묻습니다', desc: '고객 동선 설계 → 전환율 목표 설정 → 페이지 구조 설계' },
               { icon: '🎨', title: 'UI/UX 디자인', tagline: '보기 좋은 것보다 쓰기 쉬운 것', desc: '모바일 우선 설계 → 고객 눈에 3초 안에 들어오는 레이아웃' },
@@ -375,7 +375,7 @@ export default function AboutPage() {
             </div>
           </FadeInSection>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 20 }}>
             {[
               {
                 num: '01', title: '납기 준수 약속',
@@ -474,7 +474,7 @@ export default function AboutPage() {
           </FadeInSection>
 
           {/* Trust badges */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 14, marginBottom: 52, maxWidth: 700, marginLeft: 'auto', marginRight: 'auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 14, marginBottom: 52, maxWidth: 700, marginLeft: 'auto', marginRight: 'auto' }}>
             {[
               { icon: '🏆', title: '중소기업 IT 서비스 우수업체', sub: '대한민국 중소기업부 선정 (2023)' },
               { icon: '✅', title: '정보보호관리체계 구축 전문기업', sub: '보안 기준 인증 보유' },
