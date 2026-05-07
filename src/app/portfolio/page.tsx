@@ -23,27 +23,6 @@ function LottiePlayer({ src, width = 120, height = 120, loop = true }: {
   return <Lottie animationData={data} loop={loop} autoplay style={{ width, height }} />
 }
 
-// ── LottiePlaceholder (신규 Lottie 5개 — 파일 미완성) ─────────────────────
-function LottiePlaceholder({ label, width = 56, height = 56 }: {
-  label: string; width?: number; height?: number
-}) {
-  return (
-    <div style={{
-      width, height, flexShrink: 0,
-      background: 'var(--card)',
-      border: '1px dashed color-mix(in oklch, var(--primary) 40%, transparent)',
-      borderRadius: 8,
-      display: 'flex', alignItems: 'center', justifyContent: 'center',
-      color: 'var(--primary)',
-      fontSize: '0.55rem', fontWeight: 700,
-      textTransform: 'uppercase', letterSpacing: '0.06em',
-      textAlign: 'center', padding: 4, lineHeight: 1.3,
-    }}>
-      {label}
-    </div>
-  )
-}
-
 // ── CountUpNumber ─────────────────────────────────────────────────────────
 function CountUpNumber({ value, suffix = '', decimals = 0, duration = 1.5 }: {
   value: number; suffix?: string; decimals?: number; duration?: number
@@ -217,11 +196,11 @@ const cases: CaseItem[] = [
 ]
 
 const processSteps = [
-  { num: '01', title: 'URL 무료 진단',  sub: '48시간 내 리포트 발송', lottie: '/lottie/scan.json', isNew: false, highlight: false },
-  { num: '02', title: '요구사항 미팅',  sub: '30분 화상/전화 상담',   lottie: null,               isNew: true,  highlight: false },
-  { num: '03', title: '디자인 시안',    sub: '3~5일 내 초안 공유',    lottie: null,               isNew: true,  highlight: false },
-  { num: '04', title: '개발 & 배포',    sub: '평균 2~3주 내 완료',    lottie: null,               isNew: true,  highlight: false },
-  { num: '05', title: '납품 + 사후 관리', sub: '3개월 무상 유지보수', lottie: null,               isNew: true,  highlight: true  },
+  { num: '01', title: 'URL 무료 진단',    sub: '48시간 내 리포트 발송', lottie: '/lottie/scan.json',   highlight: false },
+  { num: '02', title: '요구사항 미팅',    sub: '30분 화상/전화 상담',   lottie: '/lottie/email.json',  highlight: false },
+  { num: '03', title: '디자인 시안',      sub: '3~5일 내 초안 공유',    lottie: '/lottie/ring.json',   highlight: false },
+  { num: '04', title: '개발 & 배포',      sub: '평균 2~3주 내 완료',    lottie: '/lottie/shield.json', highlight: false },
+  { num: '05', title: '납품 + 사후 관리', sub: '3개월 무상 유지보수',   lottie: '/lottie/check.json',  highlight: true  },
 ]
 
 // ── Page ──────────────────────────────────────────────────────────────────
@@ -252,9 +231,8 @@ export default function PortfolioPage() {
           initial="hidden"
           animate="visible"
         >
-          {/* Lottie placeholder — portfolio-showcase.json */}
           <motion.div variants={fadeInUp}>
-            <LottiePlaceholder label="portfolio-showcase.json" width={140} height={140} />
+            <LottiePlayer src="/lottie/star.json" width={140} height={140} />
           </motion.div>
 
           <motion.div variants={fadeInUp}>
@@ -531,10 +509,7 @@ export default function PortfolioPage() {
                   {s.num}
                 </div>
 
-                {s.lottie && !s.isNew
-                  ? <LottiePlayer src={s.lottie} width={56} height={56} />
-                  : <LottiePlaceholder label={`step-${s.num}.json`} width={56} height={56} />
-                }
+                <LottiePlayer src={s.lottie} width={56} height={56} />
 
                 <div>
                   <div className="font-black text-foreground text-sm">{s.title}</div>

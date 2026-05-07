@@ -24,27 +24,6 @@ function LottiePlayer({ src, width = 120, height = 120, loop = true }: {
   return <Lottie animationData={data} loop={loop} autoplay style={{ width, height }} />
 }
 
-// ── LottiePlaceholder ──────────────────────────────────────────────────────
-function LottiePlaceholder({ label, width = 80, height = 80, round = false }: {
-  label: string; width?: number; height?: number; round?: boolean
-}) {
-  return (
-    <div style={{
-      width, height, flexShrink: 0,
-      background: 'var(--card)',
-      border: '1px dashed color-mix(in oklch, var(--primary) 40%, transparent)',
-      borderRadius: round ? '50%' : 8,
-      display: 'flex', alignItems: 'center', justifyContent: 'center',
-      color: 'var(--primary)',
-      fontSize: '0.6rem', fontWeight: 700,
-      textTransform: 'uppercase', letterSpacing: '0.06em',
-      textAlign: 'center', padding: 4, lineHeight: 1.3,
-    }}>
-      {label}
-    </div>
-  )
-}
-
 // ── CountUpNumber ──────────────────────────────────────────────────────────
 function CountUpNumber({ value, suffix = '', prefix = '', decimals = 0, duration = 1.5 }: {
   value: number; suffix?: string; prefix?: string; decimals?: number; duration?: number
