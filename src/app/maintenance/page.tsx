@@ -93,14 +93,14 @@ export default function MaintenancePage() {
           <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">혹시 이런 상황이세요?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
             {checklistItems.map((item, i) => (
-              <div key={i} className="bg-white rounded-xl shadow-sm p-5 flex items-start gap-3 border-l-2 border-transparent hover:border-destructive transition-all">
+              <div key={i} className="bg-card rounded-xl shadow-sm p-5 flex items-start gap-3 border-l-2 border-transparent hover:border-destructive transition-all">
                 <CheckSquare className="w-5 h-5 text-red-300 mt-0.5 shrink-0" />
-                <span className="text-gray-800 font-medium text-sm">{item}</span>
+                <span className="text-foreground font-medium text-sm">{item}</span>
               </div>
             ))}
           </div>
-          <div className="border-l-4 border-destructive bg-red-50 px-6 py-4 rounded-r-xl">
-            <p className="text-gray-800 font-semibold">하나라도 해당된다면, 지금 당장 유지보수가 필요합니다.</p>
+          <div className="border-l-4 border-destructive bg-destructive/10 px-6 py-4 rounded-r-xl">
+            <p className="text-foreground font-semibold">하나라도 해당된다면, 지금 당장 유지보수가 필요합니다.</p>
           </div>
         </div>
       </section>
@@ -112,7 +112,7 @@ export default function MaintenancePage() {
             {stats.map((s, i) => (
               <div key={i} className="text-center p-6">
                 <div className="text-4xl font-black text-destructive mb-2">{s.value}</div>
-                <div className="text-gray-400 text-sm leading-snug">{s.label}</div>
+                <div className="text-muted-foreground text-sm leading-snug">{s.label}</div>
               </div>
             ))}
           </div>
@@ -120,18 +120,18 @@ export default function MaintenancePage() {
       </section>
 
       {/* Solution */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 bg-background">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 mb-10">유지보수 후 이렇게 달라집니다</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-10">유지보수 후 이렇게 달라집니다</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {solutions.map((s, i) => (
-              <div key={i} className="flex items-start gap-4 bg-gray-50 rounded-xl p-6">
+              <div key={i} className="flex items-start gap-4 bg-card rounded-xl p-6">
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                   <s.icon className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="font-bold text-gray-900 mb-1">{s.title}</p>
-                  <p className="text-gray-600 text-sm">{s.desc}</p>
+                  <p className="font-bold text-foreground mb-1">{s.title}</p>
+                  <p className="text-muted-foreground text-sm">{s.desc}</p>
                 </div>
               </div>
             ))}
@@ -145,18 +145,18 @@ export default function MaintenancePage() {
           <h2 className="text-2xl font-bold text-foreground text-center mb-10">내 사이트에 맞는 플랜을 선택하세요</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {plans.map((p, i) => (
-              <div key={i} className={`rounded-2xl p-8 border-2 relative bg-white ${p.highlight ? 'border-primary' : 'border-gray-200'}`}>
+              <div key={i} className={`rounded-2xl p-8 border-2 relative bg-card ${p.highlight ? 'border-primary' : 'border-border'}`}>
                 {p.highlight && <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">★ 추천</span>}
-                <h3 className="text-xl font-bold text-gray-900 mb-1">{p.name}</h3>
-                <p className={`text-2xl font-black mb-6 ${p.highlight ? 'text-primary' : 'text-gray-700'}`}>{p.price}</p>
+                <h3 className="text-xl font-bold text-foreground mb-1">{p.name}</h3>
+                <p className={`text-2xl font-black mb-6 ${p.highlight ? 'text-primary' : 'text-muted-foreground'}`}>{p.price}</p>
                 <ul className="space-y-2 mb-4">
                   {p.items.map((item, j) => (
-                    <li key={j} className="flex items-center gap-2 text-sm text-gray-700">
+                    <li key={j} className="flex items-center gap-2 text-sm text-muted-foreground">
                       <span className="text-primary font-bold">✓</span> {item}
                     </li>
                   ))}
                   {p.excluded.map((item, j) => (
-                    <li key={j} className="flex items-center gap-2 text-sm text-gray-400">
+                    <li key={j} className="flex items-center gap-2 text-sm text-muted-foreground">
                       <span>—</span> {item}
                     </li>
                   ))}
@@ -173,18 +173,18 @@ export default function MaintenancePage() {
       </section>
 
       {/* Process */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 bg-background">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 mb-10">진행 방식</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-10">진행 방식</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {steps.map((s, i) => (
-              <div key={i} className="bg-gray-50 rounded-xl p-6">
+              <div key={i} className="bg-card rounded-xl p-6">
                 <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white text-sm font-black mb-4">{s.num}</div>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="font-bold text-gray-900">{s.title}</span>
+                  <span className="font-bold text-foreground">{s.title}</span>
                   <span className="bg-primary/10 text-primary text-xs px-2 py-0.5 rounded-full font-medium">{s.duration}</span>
                 </div>
-                <p className="text-gray-600 text-sm">{s.desc}</p>
+                <p className="text-muted-foreground text-sm">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -197,15 +197,15 @@ export default function MaintenancePage() {
           <h2 className="text-2xl font-bold text-foreground text-center mb-10">자주 묻는 질문</h2>
           <div className="space-y-2">
             {faqs.map((faq, i) => (
-              <div key={i} className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+              <div key={i} className="bg-card rounded-xl border border-border overflow-hidden">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full flex items-center justify-between p-5 text-left font-semibold text-gray-900">
+                  className="w-full flex items-center justify-between p-5 text-left font-semibold text-foreground">
                   {faq.q}
-                  {openFaq === i ? <ChevronUp className="w-5 h-5 text-primary shrink-0" /> : <ChevronDown className="w-5 h-5 text-gray-400 shrink-0" />}
+                  {openFaq === i ? <ChevronUp className="w-5 h-5 text-primary shrink-0" /> : <ChevronDown className="w-5 h-5 text-muted-foreground shrink-0" />}
                 </button>
                 {openFaq === i && (
-                  <div className="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">{faq.a}</div>
+                  <div className="px-5 pb-5 text-muted-foreground text-sm leading-relaxed border-t border-border pt-4">{faq.a}</div>
                 )}
               </div>
             ))}

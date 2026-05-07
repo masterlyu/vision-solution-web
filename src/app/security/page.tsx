@@ -296,9 +296,9 @@ export default function SecurityPage() {
             viewport={{ once: true, margin: '-100px' }}
           >
             {empathyItems.map((item, i) => (
-              <motion.div key={i} variants={fadeInUp} className="bg-white rounded-xl shadow-sm p-5 flex items-start gap-3">
+              <motion.div key={i} variants={fadeInUp} className="bg-card rounded-xl shadow-sm p-5 flex items-start gap-3">
                 <span className="text-xl shrink-0">{item.emoji}</span>
-                <span className="text-gray-800 font-medium text-sm">{item.text}</span>
+                <span className="text-foreground font-medium text-sm">{item.text}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -307,9 +307,9 @@ export default function SecurityPage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
-            className="border-l-4 border-destructive bg-red-50 px-6 py-4 rounded-r-xl flex items-center justify-between gap-4 flex-wrap"
+            className="border-l-4 border-destructive bg-destructive/10 px-6 py-4 rounded-r-xl flex items-center justify-between gap-4 flex-wrap"
           >
-            <p className="text-gray-800 font-semibold">하나라도 해당된다면, 지금 당장 무료 진단을 받으세요.</p>
+            <p className="text-foreground font-semibold">하나라도 해당된다면, 지금 당장 무료 진단을 받으세요.</p>
             <a href="#cta-form" className="inline-flex items-center gap-2 bg-destructive text-white font-bold px-5 py-2.5 rounded-lg text-sm shrink-0">
               지금 무료 보안 진단 받기 →
             </a>
@@ -542,15 +542,15 @@ export default function SecurityPage() {
           </motion.h2>
           <div className="space-y-2">
             {securityFaqs.map((faq, i) => (
-              <div key={i} className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+              <div key={i} className="bg-card rounded-xl border border-border overflow-hidden">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full flex items-center justify-between p-5 text-left font-semibold text-gray-900">
+                  className="w-full flex items-center justify-between p-5 text-left font-semibold text-foreground">
                   {faq.q}
-                  {openFaq === i ? <ChevronUp className="w-5 h-5 text-primary shrink-0" /> : <ChevronDown className="w-5 h-5 text-gray-400 shrink-0" />}
+                  {openFaq === i ? <ChevronUp className="w-5 h-5 text-primary shrink-0" /> : <ChevronDown className="w-5 h-5 text-muted-foreground shrink-0" />}
                 </button>
                 {openFaq === i && (
-                  <div className="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">{faq.a}</div>
+                  <div className="px-5 pb-5 text-muted-foreground text-sm leading-relaxed border-t border-border pt-4">{faq.a}</div>
                 )}
               </div>
             ))}
@@ -559,7 +559,7 @@ export default function SecurityPage() {
       </section>
 
       {/* ── 가격 안내 (신규) ── */}
-      <section className="py-16 px-6 lg:px-12 bg-white">
+      <section className="py-16 px-6 lg:px-12 bg-background">
         <div className="max-w-[1100px] mx-auto">
           <motion.div
             variants={fadeInUp}
@@ -567,8 +567,8 @@ export default function SecurityPage() {
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
           >
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">취약점 발견 시 개선 비용은?</h2>
-            <p className="text-gray-500 mb-10">진단은 무료. 개선 작업은 범위에 따라 별도 견적입니다.</p>
+            <h2 className="text-2xl font-bold text-foreground mb-2">취약점 발견 시 개선 비용은?</h2>
+            <p className="text-muted-foreground mb-10">진단은 무료. 개선 작업은 범위에 따라 별도 견적입니다.</p>
           </motion.div>
           <motion.div
             className="grid grid-cols-1 md:grid-cols-3 gap-6"
@@ -578,13 +578,13 @@ export default function SecurityPage() {
             viewport={{ once: true, margin: '-100px' }}
           >
             {securityPricing.map((p, i) => (
-              <motion.div key={i} variants={fadeInUp} className={`rounded-2xl p-8 border-2 relative ${p.highlight ? 'border-primary bg-primary/5' : 'border-gray-200'}`}>
+              <motion.div key={i} variants={fadeInUp} className={`rounded-2xl p-8 border-2 relative ${p.highlight ? 'border-primary bg-primary/5' : 'border-border'}`}>
                 {p.highlight && <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">추천</span>}
-                <h3 className="text-lg font-bold text-gray-900 mb-1">{p.name}</h3>
-                <p className={`text-2xl font-black mb-6 ${p.highlight ? 'text-primary' : 'text-gray-700'}`}>{p.price}</p>
+                <h3 className="text-lg font-bold text-foreground mb-1">{p.name}</h3>
+                <p className={`text-2xl font-black mb-6 ${p.highlight ? 'text-primary' : 'text-muted-foreground'}`}>{p.price}</p>
                 <ul className="space-y-2">
                   {p.items.map((item, j) => (
-                    <li key={j} className="flex items-center gap-2 text-sm text-gray-700">
+                    <li key={j} className="flex items-center gap-2 text-sm text-muted-foreground">
                       <span className="text-primary font-bold">✓</span> {item}
                     </li>
                   ))}
@@ -592,7 +592,7 @@ export default function SecurityPage() {
               </motion.div>
             ))}
           </motion.div>
-          <p className="text-gray-500 text-sm text-center mt-6">진단 결과서 기준으로 정확한 견적을 제공합니다.</p>
+          <p className="text-muted-foreground text-sm text-center mt-6">진단 결과서 기준으로 정확한 견적을 제공합니다.</p>
         </div>
       </section>
 

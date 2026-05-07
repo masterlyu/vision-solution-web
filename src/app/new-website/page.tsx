@@ -61,14 +61,14 @@ export default function NewWebsitePage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="pt-28 pb-20 px-6 bg-gradient-to-br from-white via-white to-blue-50">
+      <section className="pt-28 pb-20 px-6 bg-background">
         <div className="max-w-6xl mx-auto">
           <span className="inline-block border border-primary/40 text-primary text-xs font-bold px-3 py-1 rounded-full mb-6">신규 홈페이지 구축</span>
-          <h1 className="text-4xl md:text-5xl font-black text-gray-900 leading-tight mb-6 max-w-2xl">
+          <h1 className="text-4xl md:text-5xl font-black text-foreground leading-tight mb-6 max-w-2xl">
             홈페이지를 만들었는데<br />
             왜 <span className="text-primary">문의가 없을까요?</span>
           </h1>
-          <p className="text-gray-600 text-lg leading-relaxed mb-8 max-w-xl">
+          <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-xl">
             처음부터 전환율 중심으로 설계하면,<br />
             사이트가 24시간 영업사원이 됩니다.
           </p>
@@ -85,9 +85,9 @@ export default function NewWebsitePage() {
           <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">혹시 이런 상황이세요?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
             {checklistItems.map((item, i) => (
-              <div key={i} className="bg-white rounded-xl shadow-sm p-5 flex items-start gap-3">
-                <CheckSquare className="w-5 h-5 text-gray-300 mt-0.5 shrink-0" />
-                <span className="text-gray-800 font-medium text-sm">{item}</span>
+              <div key={i} className="bg-card rounded-xl shadow-sm p-5 flex items-start gap-3">
+                <CheckSquare className="w-5 h-5 text-muted-foreground mt-0.5 shrink-0" />
+                <span className="text-foreground font-medium text-sm">{item}</span>
               </div>
             ))}
           </div>
@@ -104,7 +104,7 @@ export default function NewWebsitePage() {
             {stats.map((s, i) => (
               <div key={i} className="text-center p-6">
                 <div className="text-4xl font-black text-primary mb-2">{s.value}</div>
-                <div className="text-gray-400 text-sm leading-snug">{s.label}</div>
+                <div className="text-muted-foreground text-sm leading-snug">{s.label}</div>
               </div>
             ))}
           </div>
@@ -112,18 +112,18 @@ export default function NewWebsitePage() {
       </section>
 
       {/* Solution */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 bg-background">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 mb-10">구축 후 이렇게 달라집니다</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-10">구축 후 이렇게 달라집니다</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {solutions.map((s, i) => (
-              <div key={i} className="flex items-start gap-4 bg-gray-50 rounded-xl p-6">
+              <div key={i} className="flex items-start gap-4 bg-card rounded-xl p-6">
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                   <s.icon className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="font-bold text-gray-900 mb-1">{s.title}</p>
-                  <p className="text-gray-600 text-sm">{s.desc}</p>
+                  <p className="font-bold text-foreground mb-1">{s.title}</p>
+                  <p className="text-muted-foreground text-sm">{s.desc}</p>
                 </div>
               </div>
             ))}
@@ -137,11 +137,11 @@ export default function NewWebsitePage() {
           <h2 className="text-2xl font-bold text-foreground text-center mb-10">어떤 사이트가 필요하신가요?</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {siteTypes.map((t, i) => (
-              <div key={i} className="bg-white rounded-xl p-6 text-center shadow-sm hover:border-primary border-2 border-transparent transition-all cursor-pointer">
+              <div key={i} className="bg-card rounded-xl p-6 text-center shadow-sm hover:border-primary border-2 border-transparent transition-all cursor-pointer">
                 <div className="text-4xl mb-3">{t.emoji}</div>
-                <h3 className="font-bold text-gray-900 mb-1">{t.name}</h3>
-                <p className="text-gray-500 text-xs mb-2">{t.when}</p>
-                <p className="text-gray-600 text-xs">{t.feature}</p>
+                <h3 className="font-bold text-foreground mb-1">{t.name}</h3>
+                <p className="text-muted-foreground text-xs mb-2">{t.when}</p>
+                <p className="text-muted-foreground text-xs">{t.feature}</p>
               </div>
             ))}
           </div>
@@ -149,24 +149,24 @@ export default function NewWebsitePage() {
       </section>
 
       {/* Process */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 bg-background">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 mb-10">진행 프로세스</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-10">진행 프로세스</h2>
           <div className="space-y-4">
             {steps.map((s, i) => (
               <div key={i} className="flex gap-6 items-start">
                 <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white text-sm font-black shrink-0">{s.num}</div>
-                <div className="bg-gray-50 rounded-xl p-5 flex-1">
+                <div className="bg-card rounded-xl p-5 flex-1">
                   <div className="flex items-center gap-3 mb-1">
-                    <span className="font-bold text-gray-900">{s.title}</span>
+                    <span className="font-bold text-foreground">{s.title}</span>
                     <span className="bg-primary/10 text-primary text-xs px-2 py-0.5 rounded-full font-medium">{s.duration}</span>
                   </div>
-                  <p className="text-gray-600 text-sm">{s.desc}</p>
+                  <p className="text-muted-foreground text-sm">{s.desc}</p>
                 </div>
               </div>
             ))}
           </div>
-          <p className="text-gray-500 text-sm text-right mt-4">전체 기간: 평균 5~8주</p>
+          <p className="text-muted-foreground text-sm text-right mt-4">전체 기간: 평균 5~8주</p>
         </div>
       </section>
 
@@ -177,13 +177,13 @@ export default function NewWebsitePage() {
           <p className="text-muted-foreground mb-10">정확한 견적은 무료 상담 후 제공됩니다.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {plans.map((p, i) => (
-              <div key={i} className={`rounded-2xl p-8 border-2 relative bg-white ${p.highlight ? 'border-primary' : 'border-gray-200'}`}>
+              <div key={i} className={`rounded-2xl p-8 border-2 relative bg-card ${p.highlight ? 'border-primary' : 'border-border'}`}>
                 {p.highlight && <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">추천</span>}
-                <h3 className="text-xl font-bold text-gray-900 mb-1">{p.name}</h3>
-                <p className={`text-2xl font-black mb-6 ${p.highlight ? 'text-primary' : 'text-gray-700'}`}>{p.price}</p>
+                <h3 className="text-xl font-bold text-foreground mb-1">{p.name}</h3>
+                <p className={`text-2xl font-black mb-6 ${p.highlight ? 'text-primary' : 'text-muted-foreground'}`}>{p.price}</p>
                 <ul className="space-y-2">
                   {p.items.map((item, j) => (
-                    <li key={j} className="flex items-center gap-2 text-sm text-gray-700">
+                    <li key={j} className="flex items-center gap-2 text-sm text-muted-foreground">
                       <span className="text-primary font-bold">✓</span> {item}
                     </li>
                   ))}
@@ -200,20 +200,20 @@ export default function NewWebsitePage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 bg-background">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 text-center mb-10">자주 묻는 질문</h2>
+          <h2 className="text-2xl font-bold text-foreground text-center mb-10">자주 묻는 질문</h2>
           <div className="space-y-2">
             {faqs.map((faq, i) => (
-              <div key={i} className="bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
+              <div key={i} className="bg-card rounded-xl border border-border overflow-hidden">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full flex items-center justify-between p-5 text-left font-semibold text-gray-900">
+                  className="w-full flex items-center justify-between p-5 text-left font-semibold text-foreground">
                   {faq.q}
-                  {openFaq === i ? <ChevronUp className="w-5 h-5 text-primary shrink-0" /> : <ChevronDown className="w-5 h-5 text-gray-400 shrink-0" />}
+                  {openFaq === i ? <ChevronUp className="w-5 h-5 text-primary shrink-0" /> : <ChevronDown className="w-5 h-5 text-muted-foreground shrink-0" />}
                 </button>
                 {openFaq === i && (
-                  <div className="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-200 pt-4 bg-white">{faq.a}</div>
+                  <div className="px-5 pb-5 text-muted-foreground text-sm leading-relaxed border-t border-border pt-4 bg-white">{faq.a}</div>
                 )}
               </div>
             ))}
@@ -226,7 +226,7 @@ export default function NewWebsitePage() {
         <div className="max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-4">지금 어떤 사이트가 필요한지 말씀해주세요</h2>
           <p className="text-white/80 text-lg mb-8">요구사항 정리부터 함께 도와드립니다.</p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-primary font-bold px-10 py-4 rounded-xl transition-all text-lg">
+          <Link href="/contact" className="inline-flex items-center gap-2 bg-card hover:bg-secondary text-primary font-bold px-10 py-4 rounded-xl transition-all text-lg">
             무료 상담 신청하기 <ArrowRight className="w-5 h-5" />
           </Link>
         </div>

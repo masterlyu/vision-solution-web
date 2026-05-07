@@ -79,22 +79,22 @@ export default function RenewalPage() {
           <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">혹시 이런 상황이세요?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
             {checklistItems.map((item, i) => (
-              <div key={i} className="bg-white rounded-xl shadow-sm p-5 flex items-start gap-3">
-                <CheckSquare className="w-5 h-5 text-gray-300 mt-0.5 shrink-0" />
-                <span className="text-gray-800 font-medium text-sm">{item}</span>
+              <div key={i} className="bg-card rounded-xl shadow-sm p-5 flex items-start gap-3">
+                <CheckSquare className="w-5 h-5 text-muted-foreground mt-0.5 shrink-0" />
+                <span className="text-foreground font-medium text-sm">{item}</span>
               </div>
             ))}
           </div>
-          <div className="border-l-4 border-destructive bg-red-50 px-6 py-4 rounded-r-xl">
-            <p className="text-gray-800 font-semibold">2개 이상 해당된다면, 홈페이지가 매출의 발목을 잡고 있습니다.</p>
+          <div className="border-l-4 border-destructive bg-destructive/10 px-6 py-4 rounded-r-xl">
+            <p className="text-foreground font-semibold">2개 이상 해당된다면, 홈페이지가 매출의 발목을 잡고 있습니다.</p>
           </div>
         </div>
       </section>
 
       {/* Stats */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 bg-background">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 text-center mb-10">수치로 보는 현실</h2>
+          <h2 className="text-2xl font-bold text-foreground text-center mb-10">수치로 보는 현실</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((s, i) => (
               <div key={i} className="text-center p-6 bg-card rounded-2xl">
@@ -118,7 +118,7 @@ export default function RenewalPage() {
                 </div>
                 <div>
                   <span className="font-bold text-white">{s.title}</span>
-                  <span className="text-gray-400 ml-2">→ {s.desc}</span>
+                  <span className="text-muted-foreground ml-2">→ {s.desc}</span>
                 </div>
               </div>
             ))}
@@ -135,36 +135,36 @@ export default function RenewalPage() {
               <div key={i} className="flex gap-6 items-start">
                 <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white text-sm font-black shrink-0">{s.num}</div>
                 {i < steps.length - 1 && <div className="absolute ml-5 mt-10 w-px h-4 bg-primary/30" />}
-                <div className="bg-white rounded-xl p-5 flex-1">
+                <div className="bg-card rounded-xl p-5 flex-1">
                   <div className="flex items-center gap-3 mb-1">
-                    <span className="font-bold text-gray-900">{s.title}</span>
+                    <span className="font-bold text-foreground">{s.title}</span>
                     <span className="bg-primary/10 text-primary text-xs px-2 py-0.5 rounded-full font-medium">{s.duration}</span>
                   </div>
-                  <p className="text-gray-600 text-sm">{s.desc}</p>
+                  <p className="text-muted-foreground text-sm">{s.desc}</p>
                 </div>
               </div>
             ))}
           </div>
-          <p className="text-gray-500 text-sm text-right mt-4">전체 기간: 평균 4~5주 / 일정 초과 시 사전 고지 의무</p>
+          <p className="text-muted-foreground text-sm text-right mt-4">전체 기간: 평균 4~5주 / 일정 초과 시 사전 고지 의무</p>
         </div>
       </section>
 
       {/* Pricing */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 bg-background">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">기본형 100만원대부터 시작합니다</h2>
-          <p className="text-gray-500 mb-10">정확한 견적은 무료 상담 후 제공합니다.</p>
+          <h2 className="text-2xl font-bold text-foreground mb-2">기본형 100만원대부터 시작합니다</h2>
+          <p className="text-muted-foreground mb-10">정확한 견적은 무료 상담 후 제공합니다.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {plans.map((p, i) => (
               <div key={i} className={`rounded-2xl p-8 border-2 relative transition-all ${
-                p.highlight ? 'border-primary bg-primary/5' : 'border-gray-200'
+                p.highlight ? 'border-primary bg-primary/5' : 'border-border'
               }`}>
                 {p.highlight && <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">추천</span>}
-                <h3 className="text-xl font-bold text-gray-900 mb-1">{p.name}</h3>
-                <p className={`text-2xl font-black mb-6 ${p.highlight ? 'text-primary' : 'text-gray-700'}`}>{p.price}</p>
+                <h3 className="text-xl font-bold text-foreground mb-1">{p.name}</h3>
+                <p className={`text-2xl font-black mb-6 ${p.highlight ? 'text-primary' : 'text-muted-foreground'}`}>{p.price}</p>
                 <ul className="space-y-2">
                   {p.items.map((item, j) => (
-                    <li key={j} className="flex items-center gap-2 text-sm text-gray-700">
+                    <li key={j} className="flex items-center gap-2 text-sm text-muted-foreground">
                       <span className="text-primary font-bold">✓</span> {item}
                     </li>
                   ))}
@@ -186,15 +186,15 @@ export default function RenewalPage() {
           <h2 className="text-2xl font-bold text-foreground text-center mb-10">자주 묻는 질문</h2>
           <div className="space-y-2">
             {faqs.map((faq, i) => (
-              <div key={i} className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+              <div key={i} className="bg-card rounded-xl border border-border overflow-hidden">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full flex items-center justify-between p-5 text-left font-semibold text-gray-900">
+                  className="w-full flex items-center justify-between p-5 text-left font-semibold text-foreground">
                   {faq.q}
-                  {openFaq === i ? <ChevronUp className="w-5 h-5 text-primary shrink-0" /> : <ChevronDown className="w-5 h-5 text-gray-400 shrink-0" />}
+                  {openFaq === i ? <ChevronUp className="w-5 h-5 text-primary shrink-0" /> : <ChevronDown className="w-5 h-5 text-muted-foreground shrink-0" />}
                 </button>
                 {openFaq === i && (
-                  <div className="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">{faq.a}</div>
+                  <div className="px-5 pb-5 text-muted-foreground text-sm leading-relaxed border-t border-border pt-4">{faq.a}</div>
                 )}
               </div>
             ))}
@@ -207,7 +207,7 @@ export default function RenewalPage() {
         <div className="max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-4">지금 URL 하나만 주세요</h2>
           <p className="text-muted-foreground text-lg mb-8">48시간 내에 무료 진단 리포트를 드립니다.</p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-primary font-bold px-10 py-4 rounded-xl transition-all text-lg">
+          <Link href="/contact" className="inline-flex items-center gap-2 bg-card hover:bg-secondary text-primary font-bold px-10 py-4 rounded-xl transition-all text-lg">
             무료 진단 신청하기 <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
