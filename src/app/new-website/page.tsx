@@ -213,7 +213,7 @@ export default function NewWebsitePage() {
                   {openFaq === i ? <ChevronUp className="w-5 h-5 text-primary shrink-0" /> : <ChevronDown className="w-5 h-5 text-muted-foreground shrink-0" />}
                 </button>
                 {openFaq === i && (
-                  <div className="px-5 pb-5 text-muted-foreground text-sm leading-relaxed border-t border-border pt-4 bg-white">{faq.a}</div>
+                  <div className="px-5 pb-5 text-muted-foreground text-sm leading-relaxed border-t border-border pt-4 bg-card">{faq.a}</div>
                 )}
               </div>
             ))}
