@@ -38,7 +38,7 @@ function ScoreRing({ score }: { score: number }) {
       <div className={`w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold border-4 ${colorClass}`}>
         {score}
       </div>
-      <span className="text-xs text-gray-400 mt-1">ZAP 점수</span>
+      <span className="text-xs text-muted-foreground mt-1">ZAP 점수</span>
     </div>
   )
 }
@@ -47,7 +47,7 @@ function AlertBadge({ count, label, colorClass }: { count: number; label: string
   return (
     <div className="flex flex-col items-center px-3">
       <span className={`text-lg font-bold ${count > 0 ? colorClass : 'text-muted-foreground'}`}>{count}</span>
-      <span className="text-xs text-gray-400">{label}</span>
+      <span className="text-xs text-muted-foreground">{label}</span>
     </div>
   )
 }
@@ -57,8 +57,8 @@ function TrendChart({ records }: { records: ScanRecord[] }) {
   const recent = [...records].slice(0, 10).reverse()
   const maxScore = 100
   return (
-    <div className="bg-gray-900 rounded-xl p-5 mb-6">
-      <h3 className="text-sm font-semibold text-gray-300 mb-4 flex items-center gap-2">
+    <div className="bg-card rounded-xl p-5 mb-6">
+      <h3 className="text-sm font-semibold text-foreground mb-4 flex items-center gap-2">
         <TrendingUp className="w-4 h-4 text-purple-400" />
         ZAP 점수 추이 (최근 {recent.length}회)
       </h3>
@@ -68,7 +68,7 @@ function TrendChart({ records }: { records: ScanRecord[] }) {
           const barClass = r.zapScore >= 80 ? 'bg-green-500' : r.zapScore >= 60 ? 'bg-amber-500' : 'bg-red-500'
           return (
             <div key={i} className="flex flex-col items-center gap-1 flex-1">
-              <span className="text-xs text-gray-400">{r.zapScore}</span>
+              <span className="text-xs text-muted-foreground">{r.zapScore}</span>
               <div
                 className={`w-full rounded-t opacity-85 ${barClass}`}
                 style={{ height: `${h}px` }}
@@ -99,7 +99,7 @@ export default function ScanHistoryPage() {
     : null
 
   return (
-    <main className="min-h-screen bg-gray-950 text-white pt-20 pb-16 px-4">
+    <main className="min-h-screen bg-background text-white pt-20 pb-16 px-4">
       <div className="max-w-4xl mx-auto">
 
         {/* Header */}
@@ -107,7 +107,7 @@ export default function ScanHistoryPage() {
           <ShieldCheck className="w-8 h-8 text-purple-400" />
           <div>
             <h1 className="text-2xl font-bold">OWASP ZAP 스캔 대시보드</h1>
-            <p className="text-gray-400 text-sm mt-1">visionc.co.kr 자동화 취약점 스캔 이력</p>
+            <p className="text-muted-foreground text-sm mt-1">visionc.co.kr 자동화 취약점 스캔 이력</p>
           </div>
         </div>
 
@@ -117,11 +117,11 @@ export default function ScanHistoryPage() {
             {[
               { label: '최근 ZAP 점수', value: `${latest.zapScore}점`, icon: <ShieldCheck className="w-5 h-5 text-purple-400" />, color: latest.zapScore >= 80 ? 'text-green-400' : latest.zapScore >= 60 ? 'text-yellow-400' : 'text-red-400' },
               { label: '5회 평균 점수', value: avgScore != null ? `${avgScore}점` : '-', icon: <TrendingUp className="w-5 h-5 text-blue-400" />, color: 'text-blue-300' },
-              { label: '마지막 스캔', value: latest.scannedAt.slice(0, 10), icon: <Clock className="w-5 h-5 text-gray-400" />, color: 'text-gray-300' },
+              { label: '마지막 스캔', value: latest.scannedAt.slice(0, 10), icon: <Clock className="w-5 h-5 text-muted-foreground" />, color: 'text-foreground' },
               { label: '총 스캔 횟수', value: `${records.length}회`, icon: <AlertTriangle className="w-5 h-5 text-yellow-400" />, color: 'text-yellow-300' },
             ].map(c => (
-              <div key={c.label} className="bg-gray-900 rounded-xl p-4 flex flex-col gap-2">
-                <div className="flex items-center gap-2 text-xs text-gray-400">{c.icon}{c.label}</div>
+              <div key={c.label} className="bg-card rounded-xl p-4 flex flex-col gap-2">
+                <div className="flex items-center gap-2 text-xs text-muted-foreground">{c.icon}{c.label}</div>
                 <span className={`text-xl font-bold ${c.color}`}>{c.value}</span>
               </div>
             ))}
@@ -132,46 +132,46 @@ export default function ScanHistoryPage() {
         <TrendChart records={records} />
 
         {/* Records */}
-        {loading && <p className="text-gray-400 text-center py-12">스캔 이력 불러오는 중...</p>}
+        {loading && <p className="text-muted-foreground text-center py-12">스캔 이력 불러오는 중...</p>}
         {error   && <p className="text-red-400 text-center py-12">{error}</p>}
 
         {!loading && !error && records.length === 0 && (
-          <div className="bg-gray-900 rounded-xl p-10 text-center">
-            <ShieldAlert className="w-12 h-12 text-gray-600 mx-auto mb-3" />
-            <p className="text-gray-400">아직 스캔 이력이 없습니다.</p>
-            <p className="text-gray-500 text-sm mt-1">GitHub Actions에서 ZAP 스캔을 실행하면 이곳에 기록됩니다.</p>
+          <div className="bg-card rounded-xl p-10 text-center">
+            <ShieldAlert className="w-12 h-12 text-muted-foreground mx-auto mb-3" />
+            <p className="text-muted-foreground">아직 스캔 이력이 없습니다.</p>
+            <p className="text-muted-foreground text-sm mt-1">GitHub Actions에서 ZAP 스캔을 실행하면 이곳에 기록됩니다.</p>
           </div>
         )}
 
         <div className="space-y-4">
           {records.map(rec => (
-            <div key={rec.id} className="bg-gray-900 border border-gray-800 rounded-xl p-5">
+            <div key={rec.id} className="bg-card border border-border rounded-xl p-5">
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-xs font-semibold px-2 py-0.5 rounded bg-purple-900 text-purple-300">
                       {PROFILE_LABEL[rec.profile] ?? rec.profile}
                     </span>
-                    <span className="text-xs text-gray-500">
+                    <span className="text-xs text-muted-foreground">
                       {TRIGGER_LABEL[rec.triggeredBy] ?? rec.triggeredBy}
                     </span>
-                    <span className="text-xs text-gray-500">·</span>
-                    <span className="text-xs text-gray-500">{rec.durationSec}초</span>
+                    <span className="text-xs text-muted-foreground">·</span>
+                    <span className="text-xs text-muted-foreground">{rec.durationSec}초</span>
                   </div>
-                  <p className="text-sm text-gray-300 font-mono">{rec.targetUrl}</p>
-                  <p className="text-xs text-gray-500 mt-1">{rec.scannedAt}</p>
+                  <p className="text-sm text-foreground font-mono">{rec.targetUrl}</p>
+                  <p className="text-xs text-muted-foreground mt-1">{rec.scannedAt}</p>
                 </div>
 
                 <ScoreRing score={rec.zapScore} />
               </div>
 
-              <div className="flex items-center gap-1 mt-4 border-t border-gray-800 pt-4">
+              <div className="flex items-center gap-1 mt-4 border-t border-border pt-4">
                 <AlertBadge count={rec.summary.high}   label="High"   colorClass="text-red-500" />
-                <div className="w-px h-8 bg-gray-800" />
+                <div className="w-px h-8 bg-border" />
                 <AlertBadge count={rec.summary.medium} label="Medium" colorClass="text-amber-500" />
-                <div className="w-px h-8 bg-gray-800" />
+                <div className="w-px h-8 bg-border" />
                 <AlertBadge count={rec.summary.low}    label="Low"    colorClass="text-blue-500" />
-                <div className="w-px h-8 bg-gray-800" />
+                <div className="w-px h-8 bg-border" />
                 <AlertBadge count={rec.summary.informational} label="정보" colorClass="text-muted-foreground" />
 
                 {rec.reportUrl && (
