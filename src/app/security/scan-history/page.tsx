@@ -59,7 +59,7 @@ function TrendChart({ records }: { records: ScanRecord[] }) {
   return (
     <div className="bg-card rounded-xl p-5 mb-6">
       <h3 className="text-sm font-semibold text-foreground mb-4 flex items-center gap-2">
-        <TrendingUp className="w-4 h-4 text-purple-400" />
+        <TrendingUp className="w-4 h-4 text-primary-light" />
         ZAP 점수 추이 (최근 {recent.length}회)
       </h3>
       <div className="flex items-end gap-1 h-20">
@@ -99,12 +99,12 @@ export default function ScanHistoryPage() {
     : null
 
   return (
-    <main className="min-h-screen bg-background text-white pt-20 pb-16 px-4">
+    <main className="min-h-screen bg-background text-foreground pt-20 pb-16 px-4">
       <div className="max-w-4xl mx-auto">
 
         {/* Header */}
         <div className="flex items-center gap-3 mb-8">
-          <ShieldCheck className="w-8 h-8 text-purple-400" />
+          <ShieldCheck className="w-8 h-8 text-primary-light" />
           <div>
             <h1 className="text-2xl font-bold">OWASP ZAP 스캔 대시보드</h1>
             <p className="text-muted-foreground text-sm mt-1">visionc.co.kr 자동화 취약점 스캔 이력</p>
@@ -115,8 +115,8 @@ export default function ScanHistoryPage() {
         {latest && (
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
             {[
-              { label: '최근 ZAP 점수', value: `${latest.zapScore}점`, icon: <ShieldCheck className="w-5 h-5 text-purple-400" />, color: latest.zapScore >= 80 ? 'text-green-400' : latest.zapScore >= 60 ? 'text-yellow-400' : 'text-red-400' },
-              { label: '5회 평균 점수', value: avgScore != null ? `${avgScore}점` : '-', icon: <TrendingUp className="w-5 h-5 text-blue-400" />, color: 'text-blue-300' },
+              { label: '최근 ZAP 점수', value: `${latest.zapScore}점`, icon: <ShieldCheck className="w-5 h-5 text-primary-light" />, color: latest.zapScore >= 80 ? 'text-green-400' : latest.zapScore >= 60 ? 'text-yellow-400' : 'text-red-400' },
+              { label: '5회 평균 점수', value: avgScore != null ? `${avgScore}점` : '-', icon: <TrendingUp className="w-5 h-5 text-accent-cyan" />, color: 'text-accent-cyan' },
               { label: '마지막 스캔', value: latest.scannedAt.slice(0, 10), icon: <Clock className="w-5 h-5 text-muted-foreground" />, color: 'text-foreground' },
               { label: '총 스캔 횟수', value: `${records.length}회`, icon: <AlertTriangle className="w-5 h-5 text-yellow-400" />, color: 'text-yellow-300' },
             ].map(c => (
@@ -149,7 +149,7 @@ export default function ScanHistoryPage() {
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-xs font-semibold px-2 py-0.5 rounded bg-purple-900 text-purple-300">
+                    <span className="text-xs font-semibold px-2 py-0.5 rounded bg-secondary text-primary-light">
                       {PROFILE_LABEL[rec.profile] ?? rec.profile}
                     </span>
                     <span className="text-xs text-muted-foreground">
@@ -179,7 +179,7 @@ export default function ScanHistoryPage() {
                     href={rec.reportUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="ml-auto text-xs text-purple-400 hover:text-purple-300 underline"
+                    className="ml-auto text-xs text-primary-light hover:text-primary underline"
                   >
                     상세 리포트 →
                   </a>
@@ -190,7 +190,7 @@ export default function ScanHistoryPage() {
         </div>
 
         <div className="mt-8 text-center">
-          <Link href="/security" className="text-sm text-purple-400 hover:text-purple-300">
+          <Link href="/security" className="text-sm text-primary-light hover:text-primary">
             ← 보안 서비스로 돌아가기
           </Link>
         </div>
