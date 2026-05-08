@@ -123,7 +123,7 @@ export default function ChatbotPage() {
             <Zap className="w-3.5 h-3.5" />
             코드 2줄 · 5분 설치 · 24시간 응대
           </span>
-          <h1 className="text-4xl md:text-6xl font-black text-white leading-tight mb-6">
+          <h1 className="text-4xl md:text-6xl font-black text-foreground leading-tight mb-6">
             직원 월급의 <span className="text-primary">1/10 비용</span>으로<br />
             24시간 고객 응대
           </h1>
@@ -164,7 +164,7 @@ export default function ChatbotPage() {
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
               계약부터 챗봇 live까지,<br /><span className="text-primary">딱 3단계</span>
             </h2>
             <p className="text-muted-foreground">복잡한 것 없습니다. 오늘 문의하면 내일 챗봇이 일합니다.</p>
@@ -179,7 +179,7 @@ export default function ChatbotPage() {
                   <span className="w-10 h-10 rounded-full bg-primary/20 text-primary font-black text-sm flex items-center justify-center">{s.num}</span>
                   <span className="text-xs font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full">{s.duration}</span>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">{s.title}</h3>
+                <h3 className="text-lg font-bold text-foreground mb-2">{s.title}</h3>
                 <p className="text-sm text-muted-foreground mb-3">{s.desc}</p>
                 <p className="text-xs font-mono text-primary/70 bg-primary/5 px-3 py-2 rounded-lg">{s.detail}</p>
               </div>
@@ -203,7 +203,7 @@ export default function ChatbotPage() {
       {/* ── 지원 플랫폼 ── */}
       <section className="py-16 px-6 bg-secondary/30">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-black text-white text-center mb-3">어떤 홈페이지든 설치 가능합니다</h2>
+          <h2 className="text-2xl md:text-3xl font-black text-foreground text-center mb-3">어떤 홈페이지든 설치 가능합니다</h2>
           <p className="text-muted-foreground text-center mb-10 text-sm">플랫폼마다 설치 가이드를 제공합니다. 어렵다면 원격 설치 대행 드립니다.</p>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {PLATFORMS.map((p) => {
@@ -214,7 +214,7 @@ export default function ChatbotPage() {
                     <Icon className="w-4.5 h-4.5 text-primary" />
                   </div>
                   <div>
-                    <p className="font-bold text-sm text-white">{p.name}</p>
+                    <p className="font-bold text-sm text-foreground">{p.name}</p>
                     <p className="text-xs text-primary font-semibold">{p.time} 설치</p>
                     <p className="text-xs text-muted-foreground mt-0.5">{p.desc}</p>
                   </div>
@@ -228,7 +228,7 @@ export default function ChatbotPage() {
       {/* ── 업종별 적용 사례 ── */}
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-black text-white text-center mb-3">
+          <h2 className="text-2xl md:text-3xl font-black text-foreground text-center mb-3">
             업종 관계없이 바로 적용됩니다
           </h2>
           <p className="text-muted-foreground text-center mb-10 text-sm">쇼핑몰·학원·병원·부동산 — 고객 문의가 있는 곳이라면 어디든</p>
@@ -239,9 +239,9 @@ export default function ChatbotPage() {
                 <div key={c.type} className={`rounded-2xl bg-gradient-to-br ${c.color} border border-border p-6`}>
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-xl bg-background/50 flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-white" />
+                      <Icon className="w-5 h-5 text-foreground" />
                     </div>
-                    <span className="font-bold text-white">{c.type}</span>
+                    <span className="font-bold text-foreground">{c.type}</span>
                   </div>
                   <div className="space-y-2">
                     <div className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -263,7 +263,7 @@ export default function ChatbotPage() {
       {/* ── 라이브 데모 ── */}
       <section id="demo" className="py-20 px-6 bg-secondary/40">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-black text-white mb-4">
+          <h2 className="text-2xl md:text-3xl font-black text-foreground mb-4">
             지금 바로 체험해보세요
           </h2>
           <p className="text-muted-foreground mb-8 text-sm">
@@ -275,7 +275,7 @@ export default function ChatbotPage() {
               <MessageCircle className="w-5 h-5 text-white" />
             </div>
             <div className="text-left">
-              <p className="text-sm font-bold text-white">우측 하단 버튼 클릭</p>
+              <p className="text-sm font-bold text-foreground">우측 하단 버튼 클릭</p>
               <p className="text-xs text-muted-foreground">실제로 사용 중인 챗봇 체험 가능</p>
             </div>
           </div>
@@ -286,7 +286,7 @@ export default function ChatbotPage() {
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-black text-white mb-4">
+            <h2 className="text-2xl md:text-3xl font-black text-foreground mb-4">
               월 2만원대부터 시작합니다
             </h2>
             <p className="text-muted-foreground text-sm">최소 계약 기간 없음 · 언제든 해지 · 설치 대행 포함</p>
@@ -305,7 +305,7 @@ export default function ChatbotPage() {
                 )}
                 <div className="mb-4">
                   <p className={`text-sm font-bold mb-1 ${p.highlight ? 'text-primary' : 'text-muted-foreground'}`}>{p.name}</p>
-                  <p className="text-2xl font-black text-white">{p.price}</p>
+                  <p className="text-2xl font-black text-foreground">{p.price}</p>
                   <p className="text-xs text-muted-foreground mt-0.5">{p.setup}</p>
                 </div>
                 <ul className="space-y-2.5 mb-6 flex-1">
@@ -336,7 +336,7 @@ export default function ChatbotPage() {
       {/* ── FAQ ── */}
       <section className="py-20 px-6 bg-secondary/30">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-black text-white text-center mb-10">자주 묻는 질문</h2>
+          <h2 className="text-2xl md:text-3xl font-black text-foreground text-center mb-10">자주 묻는 질문</h2>
           <div className="space-y-3">
             {FAQS.map((f, i) => (
               <div key={i} className="bg-card border border-border rounded-xl overflow-hidden">
@@ -344,7 +344,7 @@ export default function ChatbotPage() {
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full flex items-center justify-between px-5 py-4 text-left"
                 >
-                  <span className="text-sm font-semibold text-white pr-4">{f.q}</span>
+                  <span className="text-sm font-semibold text-foreground pr-4">{f.q}</span>
                   <ChevronDown className={`w-4 h-4 text-muted-foreground shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`} />
                 </button>
                 {openFaq === i && (
@@ -361,7 +361,7 @@ export default function ChatbotPage() {
       {/* ── 최종 CTA ── */}
       <section className="py-24 px-6">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
             오늘 문의하면<br /><span className="text-primary">내일 챗봇이 일합니다</span>
           </h2>
           <p className="text-muted-foreground mb-8">

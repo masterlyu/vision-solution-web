@@ -23,7 +23,7 @@ export default function Header() {
   }, [])
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 h-16 flex items-center transition-all duration-200 ${scrolled ? 'bg-black/90 backdrop-blur-md border-b border-neutral-900' : 'bg-transparent'}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 h-16 flex items-center transition-all duration-200 ${scrolled ? 'bg-background/90 backdrop-blur-md border-b border-border' : 'bg-transparent'}`}>
       <div className="container-base w-full flex items-center justify-between">
         <Link href="/">
           <Image src="/logo.svg" alt="비젼솔루션" width={148} height={40} priority />
@@ -32,7 +32,7 @@ export default function Header() {
         <nav className="hidden md:flex items-center gap-1">
           {NAV.map(n => (
             <Link key={n.href} href={n.href}
-              className="px-3 py-2 text-sm text-neutral-400 hover:text-white rounded-lg hover:bg-white/5 transition-all">
+              className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground rounded-lg hover:bg-white/5 transition-all">
               {n.label}
             </Link>
           ))}
@@ -45,17 +45,17 @@ export default function Header() {
         </div>
 
         <button onClick={() => setOpen(!open)} className="md:hidden p-2 flex flex-col gap-1.5">
-          <span className={`block w-5 h-0.5 bg-white transition-all ${open ? 'rotate-45 translate-y-2' : ''}`} />
-          <span className={`block w-5 h-0.5 bg-white transition-all ${open ? 'opacity-0' : ''}`} />
-          <span className={`block w-5 h-0.5 bg-white transition-all ${open ? '-rotate-45 -translate-y-2' : ''}`} />
+          <span className={`block w-5 h-0.5 bg-foreground transition-all ${open ? 'rotate-45 translate-y-2' : ''}`} />
+          <span className={`block w-5 h-0.5 bg-foreground transition-all ${open ? 'opacity-0' : ''}`} />
+          <span className={`block w-5 h-0.5 bg-foreground transition-all ${open ? '-rotate-45 -translate-y-2' : ''}`} />
         </button>
       </div>
 
       {open && (
-        <div className="absolute top-16 left-0 right-0 bg-black border-b border-neutral-900 px-5 py-4 md:hidden">
+        <div className="absolute top-16 left-0 right-0 bg-background border-b border-border px-5 py-4 md:hidden">
           {NAV.map(n => (
             <Link key={n.href} href={n.href} onClick={() => setOpen(false)}
-              className="block py-3 text-neutral-400 hover:text-white border-b border-neutral-900 text-sm transition-colors">
+              className="block py-3 text-muted-foreground hover:text-foreground border-b border-border text-sm transition-colors">
               {n.label}
             </Link>
           ))}

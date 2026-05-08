@@ -13,33 +13,33 @@ const SERVICES = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-neutral-900 bg-black">
+    <footer className="border-t border-border bg-background">
       <div className="container-base py-14">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div>
             <Image src="/logo.svg" alt="비젼솔루션" width={140} height={38} className="mb-4" />
-            <p className="text-neutral-500 text-sm leading-relaxed">
+            <p className="text-muted-foreground text-sm leading-relaxed">
               URL 하나로 시작하는 웹·앱·보안·AI 전문기업.<br />
               분석부터 납품까지 AI 에이전트 팀이 담당합니다.
             </p>
             <div className="mt-5 space-y-1.5">
-              <p className="text-neutral-600 text-xs">✉ biztalktome@gmail.com</p>
-              <p className="text-neutral-600 text-xs">🌐 visionc.co.kr</p>
+              <p className="text-muted-foreground text-xs">✉ biztalktome@gmail.com</p>
+              <p className="text-muted-foreground text-xs">🌐 visionc.co.kr</p>
             </div>
           </div>
           <div>
-            <p className="text-white text-sm font-semibold mb-4">서비스</p>
+            <p className="text-foreground text-sm font-semibold mb-4">서비스</p>
             <div className="space-y-2">
               {SERVICES.map(([l, h]) => (
-                <Link key={h} href={h} className="block text-neutral-500 text-sm hover:text-brand transition-colors">{l}</Link>
+                <Link key={h} href={h} className="block text-muted-foreground text-sm hover:text-brand transition-colors">{l}</Link>
               ))}
             </div>
           </div>
           <div>
-            <p className="text-white text-sm font-semibold mb-4">회사</p>
+            <p className="text-foreground text-sm font-semibold mb-4">회사</p>
             <div className="space-y-2">
               {[['블로그·포트폴리오', '/blog'], ['무료 상담', '/contact']].map(([l, h]) => (
-                <Link key={h} href={h} className="block text-neutral-500 text-sm hover:text-brand transition-colors">{l}</Link>
+                <Link key={h} href={h} className="block text-muted-foreground text-sm hover:text-brand transition-colors">{l}</Link>
               ))}
             </div>
             <div className="mt-8">
@@ -49,7 +49,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="border-t border-neutral-900 mt-10 pt-6 flex flex-col sm:flex-row justify-between gap-3 text-neutral-700 text-xs">
+        <div className="border-t border-border mt-10 pt-6 flex flex-col sm:flex-row justify-between gap-3 text-muted-foreground text-xs">
           <span>© 2025 비젼솔루션. All rights reserved.</span>
           <div className="flex items-center gap-3">
             <LegalModals />
