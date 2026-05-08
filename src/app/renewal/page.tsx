@@ -57,7 +57,7 @@ export default function RenewalPage() {
       <section className="pt-28 pb-20 px-6 bg-background">
         <div className="max-w-6xl mx-auto">
           <span className="inline-block bg-primary/20 border border-primary/40 text-primary text-xs font-bold px-3 py-1 rounded-full mb-6">홈페이지 리뉴얼</span>
-          <h1 className="text-4xl md:text-5xl font-black text-white leading-tight mb-6 max-w-2xl">
+          <h1 className="text-4xl md:text-5xl font-black text-foreground leading-tight mb-6 max-w-2xl">
             지금 이 순간도,<br />
             고객이 당신 사이트에서{' '}
             <span className="text-destructive">떠나고</span> 있습니다
@@ -109,7 +109,7 @@ export default function RenewalPage() {
       {/* Solution */}
       <section className="py-20 px-6 bg-card">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-bold text-white mb-10">리뉴얼 후 이렇게 달라집니다</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-10">리뉴얼 후 이렇게 달라집니다</h2>
           <div className="space-y-4">
             {solutions.map((s, i) => (
               <div key={i} className="flex items-start gap-5 bg-white/5 border border-white/10 rounded-xl p-5">
@@ -117,7 +117,7 @@ export default function RenewalPage() {
                   <s.icon className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <span className="font-bold text-white">{s.title}</span>
+                  <span className="font-bold text-foreground">{s.title}</span>
                   <span className="text-muted-foreground ml-2">→ {s.desc}</span>
                 </div>
               </div>
@@ -205,7 +205,7 @@ export default function RenewalPage() {
       {/* Bottom CTA */}
       <section className="py-24 px-6 bg-card text-center">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-4">지금 URL 하나만 주세요</h2>
+          <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">지금 URL 하나만 주세요</h2>
           <p className="text-muted-foreground text-lg mb-8">48시간 내에 무료 진단 리포트를 드립니다.</p>
           <Link href="/contact" className="inline-flex items-center gap-2 bg-card hover:bg-secondary text-primary font-bold px-10 py-4 rounded-xl transition-all text-lg">
             무료 진단 신청하기 <ArrowRight className="w-5 h-5" />

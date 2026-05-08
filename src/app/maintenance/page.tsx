@@ -69,10 +69,10 @@ export default function MaintenancePage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="pt-28 pb-20 px-6 bg-background" style={{ background: 'radial-gradient(ellipse at bottom right, rgba(220,38,38,0.15) 0%, var(--background) 60%)' }}>
+      <section className="pt-28 pb-20 px-6 bg-background" style={{ background: 'radial-gradient(ellipse at bottom right, color-mix(in oklch, var(--destructive) 15%, transparent) 0%, var(--background) 60%)' }}>
         <div className="max-w-6xl mx-auto">
           <span className="inline-block border border-destructive/50 text-red-400 text-xs font-bold px-3 py-1 rounded-full mb-6">홈페이지 유지보수</span>
-          <h1 className="text-4xl md:text-5xl font-black text-white leading-tight mb-6 max-w-2xl">
+          <h1 className="text-4xl md:text-5xl font-black text-foreground leading-tight mb-6 max-w-2xl">
             홈페이지 만들고 방치하다<br />
             <span className="text-destructive">해킹당한</span> 사장님이 생각보다 많습니다
           </h1>
@@ -216,7 +216,7 @@ export default function MaintenancePage() {
       {/* Bottom CTA */}
       <section className="py-24 px-6 bg-background text-center">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-4">지금 사이트 상태가 걱정된다면</h2>
+          <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">지금 사이트 상태가 걱정된다면</h2>
           <p className="text-muted-foreground text-lg mb-8">현재 보안 상태를 무료로 점검해드립니다.</p>
           <Link href="/contact" className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold px-10 py-4 rounded-xl transition-all text-lg">
             무료 보안 점검 신청하기 <ArrowRight className="w-5 h-5" />
