@@ -86,13 +86,13 @@ export function HeroSection() {
         </div>
 
         {/* Hero Headline — 고객 고통 우선 (VISIONC_PRINCIPLES 준수) */}
-        <h1 className="text-5xl md:text-7xl lg:text-[88px] font-black tracking-tight text-white leading-[1.05] mb-6">
+        <h1 className="text-5xl md:text-7xl lg:text-[88px] font-black tracking-tight text-foreground leading-[1.05] mb-6">
           고객이 지금도<br />
           <BlurWord word={words[wordIdx]} trigger={trigger} /><br />
           있습니다
         </h1>
 
-        <p className="text-lg md:text-xl text-white/60 mb-12 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-lg md:text-xl text-foreground/60 mb-12 max-w-2xl mx-auto leading-relaxed">
           홈페이지가 문제인지 모르는 것이 더 큰 문제입니다.<br />
           URL 하나로 지금 바로 무료 진단합니다 — 48시간 내 리포트 발송.
         </p>
