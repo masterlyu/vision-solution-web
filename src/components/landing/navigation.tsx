@@ -74,14 +74,14 @@ export function Navigation() {
   const linkCls = (active: boolean) => {
     return `text-sm font-medium transition-colors duration-200 relative group ${
       active
-        ? isScrolled ? 'text-foreground' : 'text-white'
-        : isScrolled ? 'text-foreground/50 hover:text-foreground' : 'text-white/50 hover:text-white'
+        ? isScrolled ? 'text-foreground' : 'text-foreground'
+        : isScrolled ? 'text-foreground/50 hover:text-foreground' : 'text-foreground/50 hover:text-foreground'
     }`
   }
 
   const underlineCls = (active: boolean) => {
     return `absolute -bottom-1 left-0 h-px transition-all duration-300 ${
-      active ? 'w-full bg-primary' : `w-0 group-hover:w-full ${isScrolled ? 'bg-foreground' : 'bg-white'}`
+      active ? 'w-full bg-primary' : `w-0 group-hover:w-full ${isScrolled ? 'bg-foreground' : 'bg-foreground'}`
     }`
   }
 
@@ -95,7 +95,7 @@ export function Navigation() {
         <div className={`flex items-center justify-between px-6 lg:px-8 transition-all duration-500 ${isScrolled ? 'h-14' : 'h-20'}`}>
 
           <Link href="/" className="shrink-0">
-            <span className={`font-black tracking-tight transition-all duration-500 ${isScrolled ? 'text-xl text-foreground' : 'text-2xl text-white'}`}>
+            <span className={`font-black tracking-tight transition-all duration-500 ${isScrolled ? 'text-xl text-foreground' : 'text-2xl text-foreground'}`}>
               VISIONC
             </span>
           </Link>
@@ -107,14 +107,14 @@ export function Navigation() {
                 onClick={() => setIsServicesOpen(v => !v)}
                 className={`flex items-center gap-1 text-sm font-medium transition-colors duration-200 relative group ${
                   isServicesActive()
-                    ? isScrolled ? 'text-foreground' : 'text-white'
-                    : isScrolled ? 'text-foreground/50 hover:text-foreground' : 'text-white/50 hover:text-white'
+                    ? isScrolled ? 'text-foreground' : 'text-foreground'
+                    : isScrolled ? 'text-foreground/50 hover:text-foreground' : 'text-foreground/50 hover:text-foreground'
                 }`}
               >
                 서비스
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
                 <span className={`absolute -bottom-1 left-0 h-px transition-all duration-300 ${
-                  isServicesActive() ? 'w-full bg-primary' : `w-0 group-hover:w-full ${isScrolled ? 'bg-foreground' : 'bg-white'}`
+                  isServicesActive() ? 'w-full bg-primary' : `w-0 group-hover:w-full ${isScrolled ? 'bg-foreground' : 'bg-foreground'}`
                 }`} />
               </button>
 
@@ -154,7 +154,7 @@ export function Navigation() {
           </div>
 
           <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden p-2 transition-colors ${isScrolled || isMobileMenuOpen ? 'text-foreground' : 'text-white'}`}>
+            className={`md:hidden p-2 transition-colors ${isScrolled || isMobileMenuOpen ? 'text-foreground' : 'text-foreground'}`}>
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>

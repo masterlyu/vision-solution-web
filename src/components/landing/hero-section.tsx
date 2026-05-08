@@ -101,13 +101,13 @@ export function HeroSection() {
           className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
           <input type="url" value={url} onChange={e => setUrl(e.target.value)}
             placeholder="지금 사이트 URL을 입력하세요"
-            className="flex-1 h-14 px-5 rounded-full bg-white/10 border border-white/20 text-white placeholder-white/40 text-base focus:outline-none focus:border-primary focus:bg-white/15 transition-all" />
+            className="flex-1 h-14 px-5 rounded-full bg-white/10 border border-white/20 text-foreground placeholder-foreground/40 text-base focus:outline-none focus:border-primary focus:bg-white/15 transition-all" />
           <Button type="submit" size="lg"
             className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-white font-bold text-base gap-2">
             지금 무료 진단받기 <ArrowRight className="w-4 h-4" />
           </Button>
         </form>
-        <p className="text-white/30 text-sm mt-4">신용카드 불필요 · 48시간 내 이메일 수신 · 결과 받은 후 결정하세요</p>
+        <p className="text-foreground/30 text-sm mt-4">신용카드 불필요 · 48시간 내 이메일 수신 · 결과 받은 후 결정하세요</p>
       </div>
 
       {/* Scroll indicator */}
