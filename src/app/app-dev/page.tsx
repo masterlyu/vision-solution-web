@@ -198,9 +198,9 @@ export default function AppDevPage() {
       {/* Bottom CTA */}
       <section className="py-24 px-6 text-center" style={{ background: 'linear-gradient(135deg, var(--primary), color-mix(in oklch, var(--primary) 80%, black))' }}>
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-4">어떤 시스템이 필요한지, 지금 말씀해주세요</h2>
-          <p className="text-white/80 text-lg mb-2">아이디어 단계부터 기술 검토를 함께 합니다.</p>
-          <p className="text-white/60 text-sm mb-8">상담 후 24시간 내에 기술 검토 결과를 드립니다.</p>
+          <h2 className="text-3xl md:text-4xl font-black text-primary-foreground mb-4">어떤 시스템이 필요한지, 지금 말씀해주세요</h2>
+          <p className="text-primary-foreground/80 text-lg mb-2">아이디어 단계부터 기술 검토를 함께 합니다.</p>
+          <p className="text-primary-foreground/60 text-sm mb-8">상담 후 24시간 내에 기술 검토 결과를 드립니다.</p>
           <Link href="/contact" className="inline-flex items-center gap-2 bg-card hover:bg-secondary text-primary font-bold px-10 py-4 rounded-xl transition-all text-lg">
             무료 기술 검토 신청하기 <ArrowRight className="w-5 h-5" />
           </Link>

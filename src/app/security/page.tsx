@@ -416,7 +416,7 @@ export default function SecurityPage() {
       {/* ── Middle CTA (신규) ── */}
       <section
         className="py-12 px-6 text-center"
-        style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(220,38,38,0.08) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(ellipse at 50% 50%, color-mix(in oklch, var(--destructive) 8%, transparent) 0%, transparent 70%)' }}
       >
         <p className="text-red-400 text-xs font-bold tracking-[0.15em] uppercase mb-4">지금 바로 확인</p>
         <h2 className="text-3xl font-black text-foreground mb-6">내 사이트는 안전한가요?</h2>

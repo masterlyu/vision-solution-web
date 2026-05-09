@@ -48,7 +48,7 @@ export default function DiagnosticResults({ result, email, company, onReport, re
     const { default: jsPDF } = await import('jspdf')
     const { default: html2canvas } = await import('html2canvas')
     const canvas = await html2canvas(reportRef.current, {
-      backgroundColor: '#0d0d14',
+      backgroundColor: 'var(--background-deep)',
       scale: 2,
       useCORS: true,
     })

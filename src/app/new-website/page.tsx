@@ -224,8 +224,8 @@ export default function NewWebsitePage() {
       {/* Bottom CTA */}
       <section className="py-24 px-6 text-center" style={{ background: 'linear-gradient(135deg, var(--primary), color-mix(in oklch, var(--primary) 80%, black))' }}>
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-4">지금 어떤 사이트가 필요한지 말씀해주세요</h2>
-          <p className="text-white/80 text-lg mb-8">요구사항 정리부터 함께 도와드립니다.</p>
+          <h2 className="text-3xl md:text-4xl font-black text-primary-foreground mb-4">지금 어떤 사이트가 필요한지 말씀해주세요</h2>
+          <p className="text-primary-foreground/80 text-lg mb-8">요구사항 정리부터 함께 도와드립니다.</p>
           <Link href="/contact" className="inline-flex items-center gap-2 bg-card hover:bg-secondary text-primary font-bold px-10 py-4 rounded-xl transition-all text-lg">
             무료 상담 신청하기 <ArrowRight className="w-5 h-5" />
           </Link>
