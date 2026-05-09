@@ -78,7 +78,7 @@ function BeforeAfterSlider() {
       {/* Divider + Handle */}
       <div className="absolute top-0 bottom-0 w-0.5 z-10"
         style={{ left: `${pos}%`, background: 'var(--primary)', transform: 'translateX(-50%)' }}>
-        <div className="absolute top-1/2 left-1/2 w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold"
+        <div className="absolute top-1/2 left-1/2 w-9 h-9 rounded-full flex items-center justify-center text-primary-foreground text-sm font-bold"
           style={{ background: 'var(--primary)', transform: 'translate(-50%, -50%)', boxShadow: '0 2px 12px color-mix(in oklch, var(--primary) 50%, transparent)' }}>
           ⇄
         </div>
@@ -257,7 +257,7 @@ export default function PortfolioPage() {
           {/* CTA #1 */}
           <motion.div variants={fadeInUp} className="flex gap-3 flex-wrap justify-center">
             <a href="#cases"
-              className="inline-flex items-center gap-2 text-white font-bold px-8 py-3.5 rounded-xl hover:opacity-85 transition-opacity"
+              className="inline-flex items-center gap-2 text-primary-foreground font-bold px-8 py-3.5 rounded-xl hover:opacity-85 transition-opacity"
               style={{ background: 'var(--primary)' }}>
               포트폴리오 보기 ↓
             </a>
@@ -461,7 +461,7 @@ export default function PortfolioPage() {
             URL 하나만 입력하세요. 48시간 내 무료 진단 리포트를 드립니다.
           </p>
           <a href="#cta-form"
-            className="inline-flex items-center gap-2 text-white font-bold px-10 py-4 rounded-xl hover:opacity-85 transition-opacity text-base"
+            className="inline-flex items-center gap-2 text-primary-foreground font-bold px-10 py-4 rounded-xl hover:opacity-85 transition-opacity text-base"
             style={{ background: 'var(--primary)' }}>
             무료 진단 시작하기 →
           </a>
