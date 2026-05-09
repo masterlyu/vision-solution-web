@@ -310,7 +310,7 @@ export default function SecurityPage() {
             className="border-l-4 border-destructive bg-destructive/10 px-6 py-4 rounded-r-xl flex items-center justify-between gap-4 flex-wrap"
           >
             <p className="text-foreground font-semibold">하나라도 해당된다면, 지금 당장 무료 진단을 받으세요.</p>
-            <a href="#cta-form" className="inline-flex items-center gap-2 bg-destructive text-white font-bold px-5 py-2.5 rounded-lg text-sm shrink-0">
+            <a href="#cta-form" className="inline-flex items-center gap-2 bg-destructive text-foreground font-bold px-5 py-2.5 rounded-lg text-sm shrink-0">
               지금 무료 보안 진단 받기 →
             </a>
           </motion.div>
