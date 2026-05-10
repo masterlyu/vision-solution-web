@@ -68,7 +68,7 @@ export default function AppDevPage() {
             지금이 바로 그 순간입니다.
           </p>
           <Link href="/contact"
-            className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-xl transition-all text-base">
+            className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all text-base">
             어떤 시스템이 필요한지 무료 상담받기 <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
@@ -129,7 +129,7 @@ export default function AppDevPage() {
           <div className="space-y-4">
             {steps.map((s, i) => (
               <div key={i} className="flex gap-6 items-start">
-                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white text-sm font-black shrink-0">{s.num}</div>
+                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-sm font-black shrink-0">{s.num}</div>
                 <div className="bg-card rounded-xl p-5 flex-1">
                   <div className="flex items-center gap-3 mb-1">
                     <span className="font-bold text-foreground">{s.title}</span>
@@ -152,7 +152,7 @@ export default function AppDevPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             {plans.map((p, i) => (
               <div key={i} className={`rounded-2xl p-6 border-2 relative ${p.highlight ? 'border-primary bg-primary/5' : 'border-border'}`}>
-                {p.highlight && <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">추천</span>}
+                {p.highlight && <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full">추천</span>}
                 <h3 className="font-bold text-foreground mb-1 text-sm">{p.name}</h3>
                 <p className={`text-xl font-black mb-4 ${p.highlight ? 'text-primary' : 'text-muted-foreground'}`}>{p.price}</p>
                 <ul className="space-y-1">
@@ -166,7 +166,7 @@ export default function AppDevPage() {
             ))}
           </div>
           <div className="text-center">
-            <Link href="/contact" className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-xl transition-all">
+            <Link href="/contact" className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all">
               요구사항 공유하고 견적받기 <ArrowRight className="w-5 h-5" />
             </Link>
           </div>

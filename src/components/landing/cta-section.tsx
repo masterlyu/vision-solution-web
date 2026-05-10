@@ -40,7 +40,7 @@ export function CtaSection() {
               <input type="url" value={url} onChange={e => setUrl(e.target.value)}
                 placeholder="https://your-website.com"
                 className="flex-1 h-14 px-5 rounded-full bg-foreground/5 border border-foreground/20 text-foreground placeholder-muted-foreground text-base focus:outline-none focus:border-primary transition-all" />
-              <Button type="submit" size="lg" className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-white font-bold gap-2">
+              <Button type="submit" size="lg" className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold gap-2">
                 무료 진단 <ArrowRight className="w-4 h-4" />
               </Button>
             </form>

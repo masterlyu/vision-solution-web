@@ -236,7 +236,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
         <p className="text-muted-foreground text-sm bg-border/20 rounded-xl p-4 leading-relaxed">{notice}</p>
       )}
       <Button type="submit" disabled={(serviceType === 'security' && !agreed) || domainMismatch}
-        className="w-full rounded-xl bg-primary hover:bg-primary/90 text-white disabled:opacity-40">
+        className="w-full rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground disabled:opacity-40">
         무료 진단 후 리포트 받기 →
       </Button>
       <p className="text-center text-muted-foreground text-xs">분석 완료 후 입력한 이메일로 PDF 리포트와 견적서가 발송됩니다</p>

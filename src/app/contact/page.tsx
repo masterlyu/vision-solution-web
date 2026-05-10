@@ -114,7 +114,7 @@ export default function ContactPage() {
                   className={`${inputCls} resize-none`} />
               </div>
               <button type="submit" disabled={loading}
-                className="w-full h-12 bg-primary hover:bg-primary/90 text-white font-semibold rounded-xl flex items-center justify-center gap-2 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed text-sm">
+                className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl flex items-center justify-center gap-2 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed text-sm">
                 {loading ? <><Loader2 className="w-4 h-4 animate-spin" />전송 중...</> : '문의 전송 →'}
               </button>
             </form>

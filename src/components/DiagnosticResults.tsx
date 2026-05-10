@@ -81,7 +81,7 @@ export default function DiagnosticResults({ result, email, company, onReport, re
           <Download className="w-4 h-4" /> PDF 다운로드
         </button>
         <button onClick={onReport} disabled={reporting || reported}
-          className="flex-1 flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white text-sm font-medium py-3 rounded-xl transition-all disabled:opacity-60">
+          className="flex-1 flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-medium py-3 rounded-xl transition-all disabled:opacity-60">
           <Send className="w-4 h-4" />
           {reported ? '전송 완료 ✓' : reporting ? '전송 중...' : '상담 신청하기'}
         </button>

@@ -68,7 +68,7 @@ export default function AiSolutionPage() {
             지금 당장 없애도 되는 반복 업무가 있다면, 100만원대부터 시작합니다.
           </p>
           <Link href="/contact"
-            className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-xl transition-all text-base">
+            className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all text-base">
             무료 AI 도입 가능 영역 분석받기 <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
@@ -136,7 +136,7 @@ export default function AiSolutionPage() {
           <div className="space-y-4">
             {steps.map((s, i) => (
               <div key={i} className="flex gap-6 items-start">
-                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white text-sm font-black shrink-0">{s.num}</div>
+                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-sm font-black shrink-0">{s.num}</div>
                 <div className="bg-card rounded-xl p-5 flex-1">
                   <div className="flex items-center gap-3 mb-1">
                     <span className="font-bold text-foreground">{s.title}</span>
@@ -159,7 +159,7 @@ export default function AiSolutionPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {plans.map((p, i) => (
               <div key={i} className={`rounded-2xl p-8 border-2 relative ${p.highlight ? 'border-primary bg-primary/5' : 'border-border'}`}>
-                {p.highlight && <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">추천</span>}
+                {p.highlight && <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full">추천</span>}
                 <h3 className="text-xl font-bold text-foreground mb-1">{p.name}</h3>
                 <p className={`text-2xl font-black mb-6 ${p.highlight ? 'text-primary' : 'text-muted-foreground'}`}>{p.price}</p>
                 <ul className="space-y-2">
@@ -173,7 +173,7 @@ export default function AiSolutionPage() {
             ))}
           </div>
           <div className="text-center">
-            <Link href="/contact" className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-xl transition-all">
+            <Link href="/contact" className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all">
               내 업무에 맞는 AI 솔루션 견적받기 <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
@@ -207,7 +207,7 @@ export default function AiSolutionPage() {
         <div className="max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">어떤 업무를 자동화할 수 있을지 지금 알아보세요</h2>
           <p className="text-muted-foreground text-lg mb-8">도입 안 해도 분석 결과는 드립니다.</p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold px-10 py-4 rounded-xl transition-all text-lg">
+          <Link href="/contact" className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-10 py-4 rounded-xl transition-all text-lg">
             무료 AI 도입 분석 신청하기 <ArrowRight className="w-5 h-5" />
           </Link>
         </div>

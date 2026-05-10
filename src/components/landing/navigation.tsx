@@ -148,7 +148,7 @@ export function Navigation() {
 
           <div className="hidden md:flex items-center">
             <Button size="sm" asChild
-              className={`rounded-full transition-all duration-500 ${isScrolled ? 'bg-primary hover:bg-primary/90 text-white px-5 h-9 text-xs' : 'bg-white hover:bg-white/90 text-black px-6 h-10'}`}>
+              className={`rounded-full transition-all duration-500 ${isScrolled ? 'bg-primary hover:bg-primary/90 text-primary-foreground px-5 h-9 text-xs' : 'bg-white hover:bg-white/90 text-black px-6 h-10'}`}>
               <Link href="/contact">무료 진단</Link>
             </Button>
           </div>
@@ -211,7 +211,7 @@ export function Navigation() {
             <Button variant="outline" className="flex-1 rounded-full h-14 text-base" asChild onClick={() => setIsMobileMenuOpen(false)}>
               <Link href="/portfolio">포트폴리오</Link>
             </Button>
-            <Button className="flex-1 bg-primary text-white rounded-full h-14 text-base" asChild onClick={() => setIsMobileMenuOpen(false)}>
+            <Button className="flex-1 bg-primary text-primary-foreground rounded-full h-14 text-base" asChild onClick={() => setIsMobileMenuOpen(false)}>
               <Link href="/contact">무료 진단</Link>
             </Button>
           </div>

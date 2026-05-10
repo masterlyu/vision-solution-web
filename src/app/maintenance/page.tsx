@@ -81,7 +81,7 @@ export default function MaintenancePage() {
             한 파트너에게 맡기세요.
           </p>
           <Link href="/contact"
-            className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-xl transition-all text-base">
+            className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all text-base">
             어떤 플랜이 맞는지 무료 상담받기 <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
@@ -146,7 +146,7 @@ export default function MaintenancePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {plans.map((p, i) => (
               <div key={i} className={`rounded-2xl p-8 border-2 relative bg-card ${p.highlight ? 'border-primary' : 'border-border'}`}>
-                {p.highlight && <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">★ 추천</span>}
+                {p.highlight && <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full">★ 추천</span>}
                 <h3 className="text-xl font-bold text-foreground mb-1">{p.name}</h3>
                 <p className={`text-2xl font-black mb-6 ${p.highlight ? 'text-primary' : 'text-muted-foreground'}`}>{p.price}</p>
                 <ul className="space-y-2 mb-4">
@@ -165,7 +165,7 @@ export default function MaintenancePage() {
             ))}
           </div>
           <div className="text-center">
-            <Link href="/contact" className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-xl transition-all">
+            <Link href="/contact" className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all">
               플랜 추천받기 <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
@@ -179,7 +179,7 @@ export default function MaintenancePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {steps.map((s, i) => (
               <div key={i} className="bg-card rounded-xl p-6">
-                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white text-sm font-black mb-4">{s.num}</div>
+                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-sm font-black mb-4">{s.num}</div>
                 <div className="flex items-center gap-2 mb-2">
                   <span className="font-bold text-foreground">{s.title}</span>
                   <span className="bg-primary/10 text-primary text-xs px-2 py-0.5 rounded-full font-medium">{s.duration}</span>
@@ -218,7 +218,7 @@ export default function MaintenancePage() {
         <div className="max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">지금 사이트 상태가 걱정된다면</h2>
           <p className="text-muted-foreground text-lg mb-8">현재 보안 상태를 무료로 점검해드립니다.</p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold px-10 py-4 rounded-xl transition-all text-lg">
+          <Link href="/contact" className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-10 py-4 rounded-xl transition-all text-lg">
             무료 보안 점검 신청하기 <ArrowRight className="w-5 h-5" />
           </Link>
         </div>

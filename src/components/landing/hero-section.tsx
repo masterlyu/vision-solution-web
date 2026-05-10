@@ -103,7 +103,7 @@ export function HeroSection() {
             placeholder="지금 사이트 URL을 입력하세요"
             className="flex-1 h-14 px-5 rounded-full bg-white/10 border border-white/20 text-foreground placeholder-foreground/40 text-base focus:outline-none focus:border-primary focus:bg-white/15 transition-all" />
           <Button type="submit" size="lg"
-            className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-white font-bold text-base gap-2">
+            className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-base gap-2">
             지금 무료 진단받기 <ArrowRight className="w-4 h-4" />
           </Button>
         </form>

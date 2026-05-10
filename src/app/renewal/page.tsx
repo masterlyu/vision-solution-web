@@ -67,7 +67,7 @@ export default function RenewalPage() {
             URL 하나만 입력하세요. 48시간 내에 무료 진단 리포트를 보내드립니다.
           </p>
           <Link href="/contact"
-            className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-xl transition-all text-base">
+            className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all text-base">
             지금 무료 진단 받기 <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
@@ -133,7 +133,7 @@ export default function RenewalPage() {
           <div className="space-y-4">
             {steps.map((s, i) => (
               <div key={i} className="flex gap-6 items-start">
-                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white text-sm font-black shrink-0">{s.num}</div>
+                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-sm font-black shrink-0">{s.num}</div>
                 {i < steps.length - 1 && <div className="absolute ml-5 mt-10 w-px h-4 bg-primary/30" />}
                 <div className="bg-card rounded-xl p-5 flex-1">
                   <div className="flex items-center gap-3 mb-1">
@@ -159,7 +159,7 @@ export default function RenewalPage() {
               <div key={i} className={`rounded-2xl p-8 border-2 relative transition-all ${
                 p.highlight ? 'border-primary bg-primary/5' : 'border-border'
               }`}>
-                {p.highlight && <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">추천</span>}
+                {p.highlight && <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full">추천</span>}
                 <h3 className="text-xl font-bold text-foreground mb-1">{p.name}</h3>
                 <p className={`text-2xl font-black mb-6 ${p.highlight ? 'text-primary' : 'text-muted-foreground'}`}>{p.price}</p>
                 <ul className="space-y-2">
@@ -173,7 +173,7 @@ export default function RenewalPage() {
             ))}
           </div>
           <div className="text-center">
-            <Link href="/contact" className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-xl transition-all">
+            <Link href="/contact" className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all">
               무료 견적 확인하기 <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
