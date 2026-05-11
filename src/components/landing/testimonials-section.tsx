@@ -1,6 +1,10 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
+import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
+import { VisiMascot } from '@/components/visi/VisiMascot'
+
+const fadeInUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const } } }
+const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }
 
 const reviews = [
   {
@@ -30,37 +34,54 @@ const reviews = [
 ]
 
 export function TestimonialsSection() {
-  const [visible, setVisible] = useState(false)
-  const ref = useRef<HTMLDivElement>(null)
-  useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true) }, { threshold: 0.1 })
-    if (ref.current) obs.observe(ref.current)
-    return () => obs.disconnect()
-  }, [])
-
   return (
-    <section ref={ref} className="py-24 lg:py-32">
+    <section className="py-24 lg:py-32">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-        <div className={`mb-16 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-4">TESTIMONIALS</p>
-          <h2 className="text-4xl md:text-5xl font-black text-foreground">실제 고객이 경험한 변화</h2>
-          <p className="text-muted-foreground mt-4 text-lg">비슷한 고민을 가진 기업이 먼저 결과를 냈습니다.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {reviews.map((r, i) => (
-            <div key={r.name} className={`bg-card border border-border rounded-2xl p-8 flex flex-col gap-6 transition-all duration-700 hover:border-primary/40 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-              style={{ transitionDelay: `${i * 100}ms` }}>
+        {/* Header */}
+        <motion.div
+          className="mb-16 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-8"
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+        >
+          <div>
+            <motion.p variants={fadeInUp} className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-4">TESTIMONIALS</motion.p>
+            <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-black text-foreground">실제 고객이 경험한 변화</motion.h2>
+            <motion.p variants={fadeInUp} className="text-muted-foreground mt-4 text-lg">비슷한 고민을 가진 기업이 먼저 결과를 냈습니다.</motion.p>
+          </div>
+          <motion.div variants={fadeInUp} className="shrink-0 hidden sm:block">
+            <VisiMascot pose="thumbsUp" size={120} bubble="실제 고객 후기예요!" bubbleDir="left" />
+          </motion.div>
+        </motion.div>
+
+        {/* Cards */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+        >
+          {reviews.map((r) => (
+            <motion.div
+              key={r.name}
+              variants={fadeInUp}
+              className="bg-card border border-border rounded-2xl p-8 flex flex-col gap-6 hover:border-primary/40 transition-colors duration-300"
+            >
               <div className="flex gap-1">
-                {Array.from({ length: r.stars }).map((_, j) => <Star key={j} className="w-4 h-4 fill-primary text-primary" />)}
+                {Array.from({ length: r.stars }).map((_, j) => (
+                  <Star key={j} className="w-4 h-4 fill-primary text-primary" />
+                ))}
               </div>
-              <p className="text-muted-foreground text-sm leading-relaxed flex-1">"{r.quote}"</p>
+              <p className="text-muted-foreground text-sm leading-relaxed flex-1">&ldquo;{r.quote}&rdquo;</p>
               <div>
                 <div className="text-foreground font-bold text-sm">{r.name}</div>
                 <div className="text-muted-foreground text-xs mt-0.5">{r.role}</div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
