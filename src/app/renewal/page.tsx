@@ -343,10 +343,10 @@ export default function RenewalPage() {
               <VisiMascot pose="cheering" size={130} />
               {/* 말풍선 위에 */}
               <div className="absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-full
-                bg-white text-gray-900 text-sm font-bold px-4 py-2 rounded-2xl shadow-lg whitespace-nowrap">
+                bg-card text-foreground text-sm font-bold px-4 py-2 rounded-2xl shadow-lg whitespace-nowrap">
                 URL만 알려주시면, 48시간 안에 확인해드려요!
                 <span className="absolute left-1/2 -translate-x-1/2 top-full
-                  border-8 border-transparent border-t-white" />
+                  border-8 border-transparent border-t-card" />
               </div>
             </div>
           </div>

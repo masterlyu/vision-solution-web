@@ -276,9 +276,9 @@ export default function NewWebsitePage() {
           <div className="flex justify-center mb-6">
             <div className="relative">
               <VisiMascot pose="cheering" size={120} />
-              <div className="absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-full bg-white text-gray-900 text-sm font-bold px-4 py-2 rounded-2xl shadow-lg whitespace-nowrap">
+              <div className="absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-full bg-card text-foreground text-sm font-bold px-4 py-2 rounded-2xl shadow-lg whitespace-nowrap">
                 기획부터 배포까지 원스톱으로 해드려요!
-                <span className="absolute left-1/2 -translate-x-1/2 top-full border-8 border-transparent border-t-white" />
+                <span className="absolute left-1/2 -translate-x-1/2 top-full border-8 border-transparent border-t-card" />
               </div>
             </div>
           </div>
