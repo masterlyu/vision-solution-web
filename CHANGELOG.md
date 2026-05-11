@@ -2,6 +2,119 @@
 
 ---
 
+## [2026-05-11] — 보안 진단 고도화: 악성코드·CMS 탐지 + PDF 수정 + 보안 페이지 개편
+
+### 개요
+VISIONC 보안 서비스의 무료 진단 품질을 경쟁 서비스 대비 차별화. Sucuri 악성코드 탐지·CMS 버전 노출 점검을 실제 진단·이메일·PDF 전 영역에 추가. PDF 한글 깨짐 근본 해결. 보안 서비스 페이지를 3개 플랜 상세 정보로 전면 개편.
+
+---
+
+### 1. SEO 정식 주소(canonical) 추가
+
+**파일**: `src/app/page.tsx`
+
+- 홈페이지 canonical 태그 누락으로 자체 진단 점수 81점 → 수정 후 85점+
+- `alternates: { canonical: '/' }` 메타데이터 추가
+
+---
+
+### 2. 보안 서비스 페이지 전면 개편
+
+**파일**: `src/app/security/page.tsx`
+
+| 항목 | 변경 전 | 변경 후 |
+|------|---------|---------|
+| 가격 플랜 상세 | 가격만 표시 | 점검 항목(🔍) + 보완 내용(✓) + 대상 고객 뱃지 |
+| 무료 리포트 안내 | 없음 | 8가지 항목 설명 박스 (초보자 대상) |
+| 표준·심층 CTA | 단순 문의 버튼 | "전문가 수동 분석 리포트" 안내 + `/contact?service=security` 연결 |
+| 점검 항목 수 | 6개 | 8개 (악성코드 탐지·구글 블랙리스트·CMS 버전 노출 추가) |
+| 그리드 | 2×3 | 2×4 |
+
+**플랜별 reportType 구분**
+- 기본: `reportType: 'auto'` → `#cta-form`으로 연결
+- 표준·심층: `reportType: 'manual'` → `/contact?service=security`로 연결
+
+---
+
+### 3. 진단 엔진 고도화
+
+**파일**: `src/lib/siteAnalyzer.ts`
+
+#### 신규 기능
+- **악성코드 탐지**: Sucuri SiteCheck API (`https://sitecheck.sucuri.net/api/v3/?scan={domain}`) 연동
+  - 구글·노턴·맥아피 등 블랙리스트 등재 여부
+  - 악성코드 유형 분류
+- **CMS 자동 감지**: WordPress·Joomla·Drupal·Rhymix·Gnuboard·Cafe24
+  - generator 메타 태그, wp-content/ 경로 패턴 등
+  - 버전 정보 노출 여부 판단
+- **서버 정보 노출**: `Server:`, `X-Powered-By:` 헤더 버전 포함 여부
+
+#### 보안 점수 계산 변경
+```
+infoLeakPenalty = min(cms.infoLeaks.length × 5, 15)
+malwarePenalty  = 블랙리스트 등재 ? 30 : 악성코드 발견 ? 20 : 0
+secScore        = max(0, headerSecScore − infoLeakPenalty − malwarePenalty)
+```
+
+#### 성능
+- PageSpeed API + Sucuri API `Promise.all()` 병렬 실행
+
+#### 견적 자동 추가
+- 악성코드 발견 시: 악성코드 제거(150~300만원), 블랙리스트 해제(200~400만원)
+- 정보 노출 발견 시: 정보 노출 차단(20~50만원)
+
+---
+
+### 4. PDF 리포트 한글 깨짐 수정
+
+**파일**: `src/lib/pdfReport.tsx`, `next.config.ts`, `public/fonts/NotoSansKR-Regular.ttf`
+
+| 항목 | 변경 전 | 변경 후 |
+|------|---------|---------|
+| 폰트 소스 | jsDelivr CDN woff2 Korean-subset | 로컬 TTF (NotoSansKR-Regular.ttf, 10MB) |
+| 문제 | Korean-subset에 숫자·영문 글리프 없어 박스 표시 | TTF 전체 글리프 — 한글·숫자·영문 모두 정상 |
+| Vercel 번들링 | 미설정 (서버리스에서 폰트 미포함) | `outputFileTracingIncludes: { '/api/analyze': ['./public/fonts/**/*'] }` |
+
+**PDF 신규 섹션**
+- 악성코드 탐지 위험 시 상단 경고 박스
+- "악성코드 및 블랙리스트 진단" 섹션 (3가지 상태)
+- "CMS 및 서버 정보 점검" 섹션
+
+---
+
+### 5. 이메일 리포트 섹션 추가
+
+**파일**: `src/lib/emailSender.ts`
+
+- `malwareHtml()`: 악성코드·블랙리스트 결과 (미확인/정상/위험 3가지 스타일)
+- `cmsHtml()`: 감지된 CMS·버전 노출·서버 정보 노출 경고 (amber 스타일)
+- 두 섹션이 "Security Headers" 앞에 삽입됨
+
+---
+
+### 6. Oracle 대시보드 보안 모듈 구현 스펙 작성
+
+**파일**: `docs/security-dashboard-spec.md`
+
+THE CITADEL 대시보드(`/security` 페이지) 구현을 위한 전체 스펙:
+- 표준 취약점 개선 / 심층보안강화 / 모의공격 3개 프로그램
+- DB 스키마 4개 테이블 (security_clients, scans, findings, pentest_logs)
+- 스캔 엔진 8가지 점검 항목 상세 (HTTP fetch 기반, 외부 도구 불필요)
+- 심층 스캔 8가지 추가 항목 (SQLi, XSS, CSRF, 민감파일, 인증 우회 등)
+- 모의공격 5가지 시나리오
+- Next.js API Route 구조 + 프론트엔드 레이아웃 가이드
+
+---
+
+### 7. Paperclip 블로그 글 작성 태스크 등록
+
+- **이슈**: VIS-1150
+- **담당**: 콘텐츠 라이터 에이전트
+- 기본 보안 점검 초보자 가이드 블로그 글
+- 실제 해킹 뉴스 인용, 8가지 점검 항목 설명, 무료 진단 신청 CTA 포함
+
+---
+
 ## [2026-05-11] — VISI 마스코트 전사 적용 + 홈페이지 섹션 개편
 
 ### 개요
