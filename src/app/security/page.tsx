@@ -127,13 +127,13 @@ const stats = [
 
 const dangers = [
   {
-    lottie: '/lottie/hacker.json',
+    icon: '💳',
     title: '고객 카드정보가 통째로 빠져나갑니다',
     case: '국내 쇼핑몰 2,300명 카드 유출 → 3개월 만에 폐업.',
     color: 'red',
   },
   {
-    lottie: '/lottie/warning.json',
+    icon: '☠️',
     title: '내 사이트가 범죄 도구로 쓰입니다',
     case: '소규모 병원 홈페이지 악성코드 유포지 → 구글 완전 차단.',
     color: 'orange',
@@ -166,12 +166,12 @@ const dangerCaseBg: Record<string, string> = {
 }
 
 const checks = [
-  { lottie: '/lottie/lock.json',    sub: 'SSL/HTTPS',      title: '자물쇠가 잠겼나요?' },
-  { lottie: '/lottie/shield.json',  sub: '기본 보안 설정 6가지',  title: '창문이 열려 있나요?' },
-  { lottie: '/lottie/scan.json',    sub: '정보 노출 점검',   title: '해커가 정찰 중인가요?' },
-  { lottie: '/lottie/hacker.json',  sub: '관리자 접근 보안', title: '뒷문이 열려 있나요?' },
-  { lottie: '/lottie/alert.json',   sub: 'SEO·신뢰도',      title: '구글이 경고하나요?' },
-  { lottie: '/lottie/check.json',   sub: '속도·성능',        title: '3초 안에 열리나요?' },
+  { lottie: '/lottie/lock.json',  sub: 'SSL/HTTPS',         title: '자물쇠가 잠겼나요?' },
+  { icon: '🛡️',                  sub: '기본 보안 설정 6가지', title: '창문이 열려 있나요?' },
+  { lottie: '/lottie/scan.json',  sub: '정보 노출 점검',     title: '해커가 정찰 중인가요?' },
+  { icon: '🔑',                   sub: '관리자 접근 보안',   title: '뒷문이 열려 있나요?' },
+  { lottie: '/lottie/alert.json', sub: 'SEO·신뢰도',         title: '구글이 경고하나요?' },
+  { lottie: '/lottie/check.json', sub: '속도·성능',           title: '3초 안에 열리나요?' },
 ]
 
 const steps = [
@@ -412,7 +412,9 @@ export default function SecurityPage() {
                 variants={fadeInUp}
                 className={`border rounded-2xl p-6 flex flex-col items-center gap-3 ${dangerColorMap[d.color]}`}
               >
-                <LottiePlayer src={d.lottie} width={100} height={100} />
+                {'icon' in d
+                  ? <div className="text-6xl h-[100px] flex items-center justify-center">{d.icon}</div>
+                  : <LottiePlayer src={d.lottie} width={100} height={100} />}
                 <h3 className="text-foreground font-bold text-base text-center">{d.title}</h3>
                 <div className={`border rounded-xl px-4 py-2 text-xs text-center w-full ${dangerCaseBg[d.color]}`}>
                   📌 {d.case}
@@ -449,7 +451,9 @@ export default function SecurityPage() {
                 variants={fadeInUp}
                 className="bg-card border border-border rounded-2xl p-5 flex flex-col items-center gap-2.5 text-center hover:border-primary/40 transition-colors"
               >
-                <LottiePlayer src={c.lottie} width={72} height={72} />
+                {'icon' in c
+                  ? <div className="text-4xl h-[72px] flex items-center justify-center">{c.icon}</div>
+                  : <LottiePlayer src={c.lottie} width={72} height={72} />}
                 <p className="text-primary text-xs font-bold">{c.sub}</p>
                 <h3 className="text-foreground font-bold text-sm leading-snug">{c.title}</h3>
               </motion.div>
