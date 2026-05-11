@@ -62,8 +62,12 @@ export async function POST(req: NextRequest) {
     `⏰ ${new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })}`,
   ].filter(Boolean).join('\n')
 
-  // 텔레그램 알림 (실패 시 로그만, 응답은 무조건 성공)
-  sendTelegram(msg).catch(e => console.error('[contact] Telegram 실패:', e))
+  // 텔레그램 알림 (await — Vercel 함수 종료 전 완료 보장)
+  try {
+    await sendTelegram(msg)
+  } catch (e) {
+    console.error('[contact] Telegram 실패:', e)
+  }
 
   // 어드민 이메일 알림 (fire-and-forget)
   const now = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })
