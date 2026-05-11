@@ -26,7 +26,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
   const [grade, setGrade]     = useState('')
   const [total, setTotal]     = useState(0)
 
-  const inputCls = "w-full bg-background border border-border rounded-xl px-4 py-3 text-foreground text-sm placeholder-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/30 transition-all"
+  const inputCls = "w-full bg-[#12101e] border-2 border-white/20 rounded-xl px-4 py-3.5 text-foreground text-base placeholder:text-white/25 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/25 transition-all"
 
   const normalizeUrl = (raw: string) => {
     const t = raw.trim()
@@ -182,10 +182,10 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
 
   // ── Form ──
   return (
-    <form onSubmit={handleSubmit} className="bg-card border border-border rounded-2xl p-7 space-y-4">
-      <h3 className="text-foreground font-bold text-lg">{title}</h3>
+    <form onSubmit={handleSubmit} className="bg-[#0f0d1a] border-2 border-white/10 rounded-2xl p-7 space-y-5">
+      <h3 className="text-foreground font-bold text-xl mb-1">{title}</h3>
       <div>
-        <label className="text-muted-foreground text-sm font-medium mb-1.5 block">
+        <label className="text-foreground/90 text-sm font-semibold mb-2 block">
           분석할 사이트 URL <span className="text-primary">*</span>
         </label>
         <input
@@ -198,7 +198,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
         />
       </div>
       <div>
-        <label className="text-muted-foreground text-sm font-medium mb-1.5 block">
+        <label className="text-foreground/90 text-sm font-semibold mb-2 block">
           이메일 <span className="text-primary">*</span>
           <span className="text-muted-foreground/60 font-normal ml-2">— 진단 리포트 PDF 발송</span>
         </label>
@@ -216,7 +216,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
         )}
       </div>
       <div>
-        <label className="text-muted-foreground text-sm font-medium mb-1.5 block">
+        <label className="text-foreground/90 text-sm font-semibold mb-2 block">
           회사명 <span className="text-muted-foreground/50">(선택)</span>
         </label>
         <input type="text" value={company} onChange={e => setCompany(e.target.value)}
@@ -233,13 +233,13 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
         </label>
       )}
       {notice && (
-        <p className="text-muted-foreground text-sm bg-border/20 rounded-xl p-4 leading-relaxed">{notice}</p>
+        <p className="text-white/45 text-sm bg-white/5 border border-white/10 rounded-xl p-4 leading-relaxed">{notice}</p>
       )}
       <Button type="submit" disabled={(serviceType === 'security' && !agreed) || domainMismatch}
-        className="w-full rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground disabled:opacity-40">
+        className="w-full h-14 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground text-base font-bold disabled:opacity-40">
         무료 진단 후 리포트 받기 →
       </Button>
-      <p className="text-center text-muted-foreground text-xs">분석 완료 후 입력한 이메일로 PDF 리포트와 견적서가 발송됩니다</p>
+      <p className="text-center text-white/25 text-xs">분석 완료 후 입력한 이메일로 PDF 리포트와 견적서가 발송됩니다</p>
     </form>
   )
 }

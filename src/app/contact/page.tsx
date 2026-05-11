@@ -25,8 +25,8 @@ export default function ContactPage() {
   const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm(prev => ({ ...prev, [k]: e.target.value }))
 
-  const inputCls = 'w-full bg-card border border-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/30 transition-all'
-  const labelCls = 'text-foreground/70 text-sm font-medium mb-1.5 block'
+  const inputCls = 'w-full bg-[#12101e] border-2 border-white/20 rounded-xl px-4 py-3.5 text-foreground placeholder:text-white/25 text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/25 transition-all'
+  const labelCls = 'text-foreground/90 text-sm font-semibold mb-2 block'
 
   if (done) return (
     <div className="min-h-screen pt-28 pb-24 bg-background flex items-center justify-center">
@@ -81,10 +81,10 @@ export default function ContactPage() {
           </div>
 
           {/* Right: form */}
-          <div className="lg:col-span-2 bg-card border border-border rounded-2xl p-8">
+          <div className="lg:col-span-2 bg-[#0f0d1a] border-2 border-white/10 rounded-2xl p-8">
             <h2 className="text-foreground text-xl font-bold mb-6">무료 상담 신청</h2>
             <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label className={labelCls}>이름 <span className="text-primary">*</span></label>
                   <input type="text" value={form.name} onChange={set('name')} placeholder="홍길동" required className={inputCls} />
@@ -95,13 +95,15 @@ export default function ContactPage() {
                 </div>
               </div>
               <div>
-                <label className={labelCls}>회사명</label>
-                <input type="text" value={form.company} onChange={set('company')} placeholder="(선택)" className={inputCls} />
+                <label className={labelCls}>회사명 <span className="text-white/30 font-normal text-xs ml-1">(선택)</span></label>
+                <input type="text" value={form.company} onChange={set('company')} placeholder="회사명 또는 담당자명" className={inputCls} />
               </div>
               <div>
                 <label className={labelCls}>문의 서비스 <span className="text-primary">*</span></label>
-                <select value={form.service} onChange={set('service')} required className={inputCls}>
-                  <option value="">선택하세요</option>
+                <select value={form.service} onChange={set('service')} required
+                  className={`${inputCls} appearance-none`}
+                  style={{ colorScheme: 'dark' }}>
+                  <option value="" disabled>어떤 서비스가 필요하신가요?</option>
                   <option value="renewal">홈페이지 리뉴얼</option>
                   <option value="new-website">신규 사이트 구축</option>
                   <option value="maintenance">유지보수</option>
@@ -113,14 +115,15 @@ export default function ContactPage() {
               </div>
               <div>
                 <label className={labelCls}>문의 내용 <span className="text-primary">*</span></label>
-                <textarea value={form.message} onChange={set('message')} rows={5} required
-                  placeholder="현재 상황과 원하시는 내용을 자유롭게 적어주세요."
-                  className={`${inputCls} resize-none`} />
+                <textarea value={form.message} onChange={set('message')} rows={6} required
+                  placeholder="현재 상황과 원하시는 내용을 자유롭게 적어주세요.&#10;예) 홈페이지 리뉴얼을 원하고, 예산은 OOO 정도입니다."
+                  className={`${inputCls} resize-none leading-relaxed`} />
               </div>
               <button type="submit" disabled={loading}
-                className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl flex items-center justify-center gap-2 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed text-sm">
-                {loading ? <><Loader2 className="w-4 h-4 animate-spin" />전송 중...</> : '문의 전송 →'}
+                className="w-full h-14 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-xl flex items-center justify-center gap-2 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed text-base">
+                {loading ? <><Loader2 className="w-5 h-5 animate-spin" />전송 중...</> : '문의 전송 →'}
               </button>
+              <p className="text-center text-white/25 text-xs">영업일 기준 48시간 내 이메일로 답장드립니다</p>
             </form>
           </div>
 
