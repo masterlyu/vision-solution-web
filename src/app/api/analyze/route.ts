@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { analyzeUrl } from '@/lib/siteAnalyzer'
 import { generatePdfBuffer } from '@/lib/pdfReport'
+import { sendAdminNotification } from '@/lib/emailSender'
 import { Redis } from '@upstash/redis'
 import { randomUUID } from 'crypto'
 import { checkRateLimit, getClientId } from '@/lib/rateLimit'
@@ -92,6 +93,23 @@ export async function POST(req: NextRequest) {
       method: 'POST',
       body: formData,
     })
+
+    // 어드민 이메일 알림 (fire-and-forget)
+    const gradeColors: Record<string, string> = { A: '#22c55e', B: '#84cc16', C: '#f59e0b', D: '#f97316', F: '#ef4444' }
+    const gc = gradeColors[result.score.grade] ?? '#6b7280'
+    const notifyHtml = `
+      <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px;">
+        <h2 style="color:#7C3AED;margin:0 0 16px;">🔍 새 보안 진단 신청</h2>
+        <table style="width:100%;border-collapse:collapse;">
+          <tr><td style="padding:8px 0;font-weight:700;width:100px;">URL</td><td style="padding:8px 0;">${result.url}</td></tr>
+          <tr><td style="padding:8px 0;font-weight:700;">이메일</td><td style="padding:8px 0;"><a href="mailto:${email}">${email}</a></td></tr>
+          ${company ? `<tr><td style="padding:8px 0;font-weight:700;">회사</td><td style="padding:8px 0;">${company}</td></tr>` : ''}
+          <tr><td style="padding:8px 0;font-weight:700;">등급</td><td style="padding:8px 0;"><span style="font-size:20px;font-weight:900;color:${gc};">${result.score.grade}</span> / ${result.score.total}점</td></tr>
+        </table>
+        <p style="margin-top:16px;color:#6b7280;font-size:12px;">텔레그램에서 승인하면 고객에게 리포트가 발송됩니다.</p>
+      </div>`
+    sendAdminNotification(`[VISIONC] 보안 진단 신청 — ${new URL(result.url).hostname} (등급 ${result.score.grade})`, notifyHtml)
+      .catch(e => console.error('[analyze] 이메일 알림 실패:', e))
 
     // 대시보드에 간편 점검 요청 기록 (fire-and-forget)
     const dashboardUrl = process.env.DASHBOARD_INTERNAL_URL

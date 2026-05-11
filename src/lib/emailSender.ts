@@ -174,6 +174,26 @@ export function buildEmailHtml(r: AnalysisResult, email: string, company?: strin
 </body></html>`
 }
 
+export async function sendAdminNotification(subject: string, html: string): Promise<void> {
+  const gmailUser = env.GMAIL_USER
+  const appPass = env.GMAIL_APP_PASSWORD.replace(/\s+/g, '')
+  if (!gmailUser || !appPass) return
+
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
+    auth: { user: gmailUser, pass: appPass },
+  })
+
+  await transporter.sendMail({
+    from: `VISIONC 알림 <${gmailUser}>`,
+    to: gmailUser,
+    subject,
+    html,
+  })
+}
+
 export async function sendReportEmail(
   result: AnalysisResult,
   pdfBuffer: Buffer,

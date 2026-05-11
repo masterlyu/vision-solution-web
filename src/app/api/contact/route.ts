@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { checkRateLimit, getClientId } from '@/lib/rateLimit'
+import { sendAdminNotification } from '@/lib/emailSender'
 import { env } from '@/lib/env'
 
 const TOKEN = env.TELEGRAM_BOT_TOKEN
@@ -55,5 +56,26 @@ export async function POST(req: NextRequest) {
   ].filter(Boolean).join('\n')
 
   await sendTelegram(msg)
+
+  const now = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })
+  const emailHtml = `
+    <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px;">
+      <h2 style="color:#7C3AED;margin:0 0 16px;">📩 새 문의 접수</h2>
+      <table style="width:100%;border-collapse:collapse;">
+        <tr><td style="padding:8px 0;font-weight:700;width:100px;">이름</td><td style="padding:8px 0;">${name}</td></tr>
+        <tr><td style="padding:8px 0;font-weight:700;">이메일</td><td style="padding:8px 0;"><a href="mailto:${email}">${email}</a></td></tr>
+        ${company ? `<tr><td style="padding:8px 0;font-weight:700;">회사명</td><td style="padding:8px 0;">${company}</td></tr>` : ''}
+        <tr><td style="padding:8px 0;font-weight:700;">서비스</td><td style="padding:8px 0;">${serviceLabel[service] ?? service}</td></tr>
+      </table>
+      <div style="margin-top:16px;padding:16px;background:#f5f3ff;border-radius:8px;">
+        <div style="font-weight:700;margin-bottom:8px;">문의 내용</div>
+        <div style="white-space:pre-wrap;color:#374151;">${message}</div>
+      </div>
+      <div style="margin-top:16px;color:#9ca3af;font-size:12px;">⏰ ${now}</div>
+    </div>`
+
+  sendAdminNotification(`[VISIONC] 새 문의 — ${name} (${serviceLabel[service] ?? service})`, emailHtml)
+    .catch(e => console.error('[contact] 이메일 알림 실패:', e))
+
   return NextResponse.json({ ok: true })
 }
