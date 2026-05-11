@@ -14,7 +14,16 @@ async function sendTelegram(text: string) {
   })
 }
 
+export async function GET() {
+  return NextResponse.json({
+    TELEGRAM_BOT_TOKEN: env.TELEGRAM_BOT_TOKEN ? '✓ set' : '✗ missing',
+    TELEGRAM_CHAT_ID:   env.TELEGRAM_CHAT_ID   ? '✓ set' : '✗ missing',
+    UPSTASH_REDIS_URL:  env.UPSTASH_REDIS_REST_URL  ? '✓ set' : '✗ missing',
+  })
+}
+
 export async function POST(req: NextRequest) {
+  try {
   const rl = await checkRateLimit('contact', getClientId(req), { limit: 5, windowSec: 60 })
   if (!rl.success) {
     return NextResponse.json(
@@ -78,4 +87,8 @@ export async function POST(req: NextRequest) {
     .catch(e => console.error('[contact] 이메일 알림 실패:', e))
 
   return NextResponse.json({ ok: true })
+  } catch (e: any) {
+    console.error('[contact] POST 오류:', e)
+    return NextResponse.json({ error: e.message ?? String(e) }, { status: 500 })
+  }
 }
