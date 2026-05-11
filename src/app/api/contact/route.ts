@@ -24,14 +24,22 @@ export async function GET() {
 
 export async function POST(req: NextRequest) {
   try {
-  const rl = await checkRateLimit('contact', getClientId(req), { limit: 5, windowSec: 60 })
-  if (!rl.success) {
+  let rl
+  try {
+    rl = await checkRateLimit('contact', getClientId(req), { limit: 5, windowSec: 60 })
+  } catch (e: any) {
+    console.error('[contact] Rate limit 오류:', e)
+    // Redis 실패 시 요청 허용
+    rl = { success: true, remaining: 5, resetAt: 0 }
+  }
+  const rl2 = rl
+  if (!rl2.success) {
     return NextResponse.json(
       { error: '요청이 너무 많습니다. 잠시 후 다시 시도해주세요.' },
       {
         status: 429,
         headers: {
-          'Retry-After': String(rl.resetAt - Math.floor(Date.now() / 1000)),
+          'Retry-After': String(rl2.resetAt - Math.floor(Date.now() / 1000)),
           'X-RateLimit-Remaining': '0',
         },
       }
@@ -64,7 +72,12 @@ export async function POST(req: NextRequest) {
     `⏰ ${new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })}`,
   ].filter(Boolean).join('\n')
 
-  await sendTelegram(msg)
+  try {
+    await sendTelegram(msg)
+  } catch (e: any) {
+    console.error('[contact] Telegram 전송 실패:', e)
+    return NextResponse.json({ error: `Telegram: ${e.message}` }, { status: 500 })
+  }
 
   const now = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })
   const emailHtml = `
