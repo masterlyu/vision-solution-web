@@ -30,9 +30,11 @@ interface PageProps {
 }
 
 export default async function BlogPage({ searchParams }: PageProps) {
-  const { tag: activeTag } = await searchParams
+  const { tag: rawTag } = await searchParams
   const allPosts = getAllPosts()
   const tags = getAllTags()
+  const knownTags = new Set(tags)
+  const activeTag = rawTag && knownTags.has(rawTag) ? rawTag : undefined
   const posts = activeTag ? allPosts.filter(p => p.tag === activeTag) : allPosts
 
   return (

@@ -146,8 +146,11 @@ function inlineFormat(text: string): string {
     .replace(/\*(.+?)\*/g, '<em class="italic">$1</em>')
     // Inline code
     .replace(/`([^`]+)`/g, '<code class="bg-muted px-1.5 py-0.5 rounded text-sm font-mono text-primary">$1</code>')
-    // Links
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-primary underline underline-offset-2 hover:text-primary/70" target="_blank" rel="noopener noreferrer">$1</a>')
+    // Links — sanitize URL to block javascript: URIs
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, url) => {
+      const safe = /^(https?:\/\/|mailto:|\/|#)/.test(url.trim()) ? url.trim() : '#'
+      return `<a href="${safe}" class="text-primary underline underline-offset-2 hover:text-primary/70" target="_blank" rel="noopener noreferrer">${label}</a>`
+    })
 }
 
 function escapeHtml(str: string): string {

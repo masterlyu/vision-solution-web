@@ -32,13 +32,22 @@ function buildSecurityHeaders(nonce: string): Record<string, string> {
   }
 }
 
+const BLOCKED_METHODS = ['PUT', 'DELETE', 'TRACE', 'CONNECT']
 const CSRF_GUARDED = ['/api/contact', '/api/notify', '/api/analyze']
 const CSRF_EXEMPT = ['/api/telegram-webhook', '/api/deploy-notify', '/api/creative-approve', '/api/report']
 
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl
 
-  // 1. CSRF 검증
+  // 1. 허용되지 않는 HTTP 메서드 차단
+  if (BLOCKED_METHODS.includes(req.method)) {
+    return new NextResponse('Method Not Allowed', {
+      status: 405,
+      headers: { Allow: 'GET, POST, HEAD, OPTIONS, PATCH' },
+    })
+  }
+
+  // 2. CSRF 검증
   if (
     req.method === 'POST' &&
     CSRF_GUARDED.some(p => pathname.startsWith(p)) &&
@@ -58,7 +67,7 @@ export function middleware(req: NextRequest) {
     }
   }
 
-  // 2. 보안 헤더 적용 — btoa(randomUUID()) : Edge Runtime 호환
+  // 3. 보안 헤더 적용 — btoa(randomUUID()) : Edge Runtime 호환
   const nonce = btoa(crypto.randomUUID())
   const securityHeaders = buildSecurityHeaders(nonce)
 
@@ -69,6 +78,7 @@ export function middleware(req: NextRequest) {
   for (const [key, value] of Object.entries(securityHeaders)) {
     response.headers.set(key, value)
   }
+  response.headers.delete('X-Powered-By')
   return response
 }
 
