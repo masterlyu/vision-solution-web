@@ -29,18 +29,23 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
-  const rl = await checkRateLimit('analyze', getClientId(req), { limit: 3, windowSec: 60 })
-  if (!rl.success) {
-    return NextResponse.json(
-      { error: '요청이 너무 많습니다. 잠시 후 다시 시도해주세요.' },
-      {
-        status: 429,
-        headers: {
-          'Retry-After': String(rl.resetAt - Math.floor(Date.now() / 1000)),
-          'X-RateLimit-Remaining': '0',
-        },
-      }
-    )
+  // Rate limit — Redis 실패 시 요청 허용 (가용성 우선)
+  try {
+    const rl = await checkRateLimit('analyze', getClientId(req), { limit: 3, windowSec: 60 })
+    if (!rl.success) {
+      return NextResponse.json(
+        { error: '요청이 너무 많습니다. 잠시 후 다시 시도해주세요.' },
+        {
+          status: 429,
+          headers: {
+            'Retry-After': String(rl.resetAt - Math.floor(Date.now() / 1000)),
+            'X-RateLimit-Remaining': '0',
+          },
+        }
+      )
+    }
+  } catch (e) {
+    console.error('[analyze] rate limit 오류 (무시):', e)
   }
 
   const { url, email, company } = await req.json()

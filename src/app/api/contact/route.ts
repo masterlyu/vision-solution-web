@@ -14,44 +14,26 @@ async function sendTelegram(text: string) {
   })
 }
 
-export async function GET() {
-  const base = {
-    TELEGRAM_BOT_TOKEN: env.TELEGRAM_BOT_TOKEN ? '✓ set' : '✗ missing',
-    TELEGRAM_CHAT_ID:   env.TELEGRAM_CHAT_ID   ? '✓ set' : '✗ missing',
-    UPSTASH_REDIS_URL:  env.UPSTASH_REDIS_REST_URL  ? '✓ set' : '✗ missing',
-    code_version: 'v5',
-  }
-  // Telegram 네트워크 연결 테스트
-  try {
-    const r = await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/getMe`, { signal: AbortSignal.timeout(5000) })
-    return NextResponse.json({ ...base, telegram_ping: r.ok ? '✓ ok' : `✗ http ${r.status}` })
-  } catch (e: any) {
-    return NextResponse.json({ ...base, telegram_ping: `✗ ${e.message}` })
-  }
-}
-
 export async function POST(req: NextRequest) {
+  // Rate limit — Redis 실패 시 요청 허용 (가용성 우선)
+  let rlSuccess = true
+  let rlResetAt = 0
   try {
-  let rl
-  try {
-    rl = await checkRateLimit('contact', getClientId(req), { limit: 5, windowSec: 60 })
-  } catch (e: any) {
-    console.error('[contact] Rate limit 오류:', e)
-    // Redis 실패 시 요청 허용
-    rl = { success: true, remaining: 5, resetAt: 0 }
-  }
-  const rl2 = rl
-  if (!rl2.success) {
-    return NextResponse.json(
-      { error: '요청이 너무 많습니다. 잠시 후 다시 시도해주세요.' },
-      {
-        status: 429,
-        headers: {
-          'Retry-After': String(rl2.resetAt - Math.floor(Date.now() / 1000)),
-          'X-RateLimit-Remaining': '0',
-        },
-      }
-    )
+    const rl = await checkRateLimit('contact', getClientId(req), { limit: 5, windowSec: 60 })
+    if (!rl.success) {
+      return NextResponse.json(
+        { error: '요청이 너무 많습니다. 잠시 후 다시 시도해주세요.' },
+        {
+          status: 429,
+          headers: {
+            'Retry-After': String(rl.resetAt - Math.floor(Date.now() / 1000)),
+            'X-RateLimit-Remaining': '0',
+          },
+        }
+      )
+    }
+  } catch (e) {
+    console.error('[contact] rate limit 오류 (무시):', e)
   }
 
   const { name, email, company, service, message } = await req.json()
@@ -80,13 +62,10 @@ export async function POST(req: NextRequest) {
     `⏰ ${new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })}`,
   ].filter(Boolean).join('\n')
 
-  try {
-    await sendTelegram(msg)
-  } catch (e: any) {
-    console.error('[contact] Telegram 전송 실패:', e)
-    return NextResponse.json({ error: `Telegram: ${e.message}` }, { status: 500 })
-  }
+  // 텔레그램 알림 (실패 시 로그만, 응답은 무조건 성공)
+  sendTelegram(msg).catch(e => console.error('[contact] Telegram 실패:', e))
 
+  // 어드민 이메일 알림 (fire-and-forget)
   const now = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })
   const emailHtml = `
     <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px;">
@@ -108,8 +87,4 @@ export async function POST(req: NextRequest) {
     .catch(e => console.error('[contact] 이메일 알림 실패:', e))
 
   return NextResponse.json({ ok: true })
-  } catch (e: any) {
-    console.error('[contact] POST 오류:', e)
-    return NextResponse.json({ error: e.message ?? String(e) }, { status: 500 })
-  }
 }
