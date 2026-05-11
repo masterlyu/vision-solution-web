@@ -17,14 +17,23 @@ const redis = new Redis({
 
 export const maxDuration = 60
 
-// Temp debug
 export async function GET() {
+  // Redis 실제 연결 테스트
+  let redisPing = '✗ failed'
+  try {
+    await redis.set('__ping__', '1', { ex: 10 })
+    redisPing = '✓ ok'
+  } catch (e: any) {
+    redisPing = `✗ ${e.message}`
+  }
+
   return Response.json({
     GMAIL_USER:               env.GMAIL_USER               ? '✓ set' : '✗ missing',
     GMAIL_APP_PASSWORD:       env.GMAIL_APP_PASSWORD        ? '✓ set' : '✗ missing',
     TELEGRAM_BOT_TOKEN:       env.TELEGRAM_BOT_TOKEN        ? '✓ set' : '✗ missing',
     UPSTASH_REDIS_REST_URL:   env.UPSTASH_REDIS_REST_URL    ? '✓ set' : '✗ missing',
     UPSTASH_REDIS_REST_TOKEN: env.UPSTASH_REDIS_REST_TOKEN  ? '✓ set' : '✗ missing',
+    redis_ping:               redisPing,
   })
 }
 
@@ -106,27 +115,28 @@ export async function POST(req: NextRequest) {
         body: formData,
       })
     } else {
-      // 폴백 경로: Redis 없이 고객에게 직접 발송 + 텔레그램 알림
-      sendReportEmail(result, pdfBuffer, email, company)
-        .then(() => console.log('[analyze] 직접 발송 완료:', email))
-        .catch(e => console.error('[analyze] 직접 발송 실패:', e))
-
-      fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id: CHAT_ID,
-          text: [
-            `${emoji} <b>⚡ 진단 신청 — 직접 발송됨 (Redis 불가)</b>`,
-            ``,
-            `🌐 ${result.url}`,
-            `📧 ${email}${company ? `  ·  ${company}` : ''}`,
-            `📊 ${result.score.total}점 (등급 ${result.score.grade})`,
-            highMissing.length > 0 ? `🚨 HIGH 위험: ${highMissing.join(', ')}` : `✅ HIGH 위험 없음`,
-          ].join('\n'),
-          parse_mode: 'HTML',
-        }),
-      }).catch(e => console.error('[analyze] Telegram 알림 실패:', e))
+      // 폴백 경로: Redis 없이 고객에게 직접 발송 + 텔레그램 알림 (모두 await)
+      await Promise.allSettled([
+        sendReportEmail(result, pdfBuffer, email, company)
+          .then(() => console.log('[analyze] 직접 발송 완료:', email))
+          .catch(e => console.error('[analyze] 직접 발송 실패:', e)),
+        fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: CHAT_ID,
+            text: [
+              `${emoji} <b>⚡ 진단 신청 — 직접 발송됨 (Redis 불가)</b>`,
+              ``,
+              `🌐 ${result.url}`,
+              `📧 ${email}${company ? `  ·  ${company}` : ''}`,
+              `📊 ${result.score.total}점 (등급 ${result.score.grade})`,
+              highMissing.length > 0 ? `🚨 HIGH 위험: ${highMissing.join(', ')}` : `✅ HIGH 위험 없음`,
+            ].join('\n'),
+            parse_mode: 'HTML',
+          }),
+        }).catch(e => console.error('[analyze] Telegram 알림 실패:', e)),
+      ])
     }
 
     const telegramRes = { ok: true } // 폴백에서도 성공 처리
