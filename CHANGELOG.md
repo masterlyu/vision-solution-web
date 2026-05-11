@@ -2,6 +2,96 @@
 
 ---
 
+## [2026-05-11] — 보안 취약점 수정 (모의해킹 결과 반영)
+
+### 개요
+visionc.co.kr 자체 모의해킹 스캔(VISIONC 보안 진단) 결과 점수 28점 → 취약점 4건 수정.
+
+---
+
+### 1. XSS 취약점 수정 — 마크다운 링크 URL 검증
+
+**파일**: `src/lib/markdownToHtml.ts`
+
+**취약점**: `inlineFormat()` 함수의 링크 처리 시 URL을 검증 없이 `href`에 직접 삽입
+→ `[클릭](javascript:alert(1))` 형태의 마크다운이 XSS로 실행 가능
+
+**수정 내용**:
+```typescript
+// 수정 전 (취약)
+.replace(/\[([^\]]+)\]\(([^)]+)\)/g,
+  '<a href="$2" ...>$1</a>')
+
+// 수정 후 (안전)
+.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, url) => {
+  const safe = /^(https?:\/\/|mailto:|\/|#)/.test(url.trim()) ? url.trim() : '#'
+  return `<a href="${safe}" ...>${label}</a>`
+})
+```
+- 허용 프로토콜: `https://`, `http://`, `mailto:`, `/` (상대경로), `#` (앵커)
+- 그 외 (`javascript:`, `data:` 등) → `#` 으로 대체
+
+---
+
+### 2. HTTP 메서드 차단 — 미들웨어 강화
+
+**파일**: `src/middleware.ts`
+
+**취약점**: PUT·DELETE·TRACE·CONNECT 메서드 허용 → 정보 노출 및 불필요한 공격 경로
+
+**수정 내용**: CSRF 검증 이전에 차단 로직 추가
+```typescript
+const BLOCKED_METHODS = ['PUT', 'DELETE', 'TRACE', 'CONNECT']
+if (BLOCKED_METHODS.includes(req.method)) {
+  return new NextResponse('Method Not Allowed', {
+    status: 405,
+    headers: { Allow: 'GET, POST, HEAD, OPTIONS, PATCH' },
+  })
+}
+```
+
+---
+
+### 3. X-Powered-By 헤더 제거
+
+**파일**: `src/middleware.ts`, `next.config.ts`
+
+**취약점**: `X-Powered-By: Next.js` 헤더 노출 → 기술 스택 정보 유출
+
+**수정 내용**:
+- `middleware.ts`: `response.headers.delete('X-Powered-By')` 추가
+- `next.config.ts`: `poweredByHeader: false` 추가 (이중 차단)
+
+---
+
+### 4. 블로그 태그 파라미터 입력값 검증
+
+**파일**: `src/app/blog/page.tsx`
+
+**취약점**: `?tag=` 쿼리 파라미터를 검증 없이 사용 → 비정상 입력값 통과 가능
+
+**수정 내용**:
+```typescript
+// 수정 전
+const { tag: activeTag } = await searchParams
+
+// 수정 후
+const { tag: rawTag } = await searchParams
+const knownTags = new Set(getAllTags())
+const activeTag = rawTag && knownTags.has(rawTag) ? rawTag : undefined
+```
+- `getAllTags()`에서 반환하는 실제 태그 목록과 대조 후 유효한 값만 사용
+
+---
+
+### 커밋
+
+| 해시 | 내용 |
+|------|------|
+| `dcc92a4` | fix: security vulnerabilities (XSS, HTTP methods, server headers, input validation) |
+
+---
+
 ## [2026-05-11] — 보안 진단 고도화: 악성코드·CMS 탐지 + PDF 수정 + 보안 페이지 개편
 
 ### 개요
