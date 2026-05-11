@@ -214,13 +214,13 @@ export default function AboutPage() {
             </div>
           </FadeInSection>
 
-          <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))', gap: 20 }}>
             {/* Stat 1 — 프로젝트 수 */}
             <FadeInSection delay={0.05}>
               <div style={{
                 background: 'var(--card)', border: '1px solid var(--border)',
-                borderRadius: 16, padding: '36px 24px', textAlign: 'center', flex: 1, minWidth: 220,
-                position: 'relative', overflow: 'hidden',
+                borderRadius: 16, padding: '36px 24px', textAlign: 'center',
+                position: 'relative', overflow: 'hidden', height: '100%',
               }}>
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--primary), var(--primary-alt))' }} />
                 <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}>
@@ -238,8 +238,8 @@ export default function AboutPage() {
             <FadeInSection delay={0.10}>
               <div style={{
                 background: 'var(--card)', border: '1px solid var(--border)',
-                borderRadius: 16, padding: '36px 24px', textAlign: 'center', flex: 1, minWidth: 220,
-                position: 'relative', overflow: 'hidden',
+                borderRadius: 16, padding: '36px 24px', textAlign: 'center',
+                position: 'relative', overflow: 'hidden', height: '100%',
               }}>
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--accent-green), var(--accent-green-alt))' }} />
                 <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}>
@@ -257,8 +257,8 @@ export default function AboutPage() {
             <FadeInSection delay={0.15}>
               <div style={{
                 background: 'var(--card)', border: '1px solid var(--border)',
-                borderRadius: 16, padding: '36px 24px', textAlign: 'center', flex: 1, minWidth: 220,
-                position: 'relative', overflow: 'hidden',
+                borderRadius: 16, padding: '36px 24px', textAlign: 'center',
+                position: 'relative', overflow: 'hidden', height: '100%',
               }}>
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--accent-amber), var(--accent-amber-alt))' }} />
                 <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}>
@@ -269,6 +269,25 @@ export default function AboutPage() {
                 </div>
                 <div style={{ fontSize: '1rem', fontWeight: 700, margin: '8px 0 6px' }}>고객 만족도</div>
                 <div style={{ fontSize: '0.82rem', color: 'var(--muted-foreground)' }}>납품 후 고객 설문 기준 / 5.0점 만점</div>
+              </div>
+            </FadeInSection>
+
+            {/* Stat 4 — 재의뢰율 */}
+            <FadeInSection delay={0.20}>
+              <div style={{
+                background: 'var(--card)', border: '1px solid var(--border)',
+                borderRadius: 16, padding: '36px 24px', textAlign: 'center',
+                position: 'relative', overflow: 'hidden', height: '100%',
+              }}>
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, #06b6d4, #3b82f6)' }} />
+                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}>
+                  <LottiePlayer src="/lottie/check.json" width={80} height={80} />
+                </div>
+                <div style={{ fontSize: 'clamp(2.8rem, 6vw, 4rem)', fontWeight: 900, letterSpacing: '-0.04em', color: '#06b6d4', lineHeight: 1 }}>
+                  <CountUpNumber value={97} suffix="%" />
+                </div>
+                <div style={{ fontSize: '1rem', fontWeight: 700, margin: '8px 0 6px' }}>재의뢰율</div>
+                <div style={{ fontSize: '0.82rem', color: 'var(--muted-foreground)' }}>한 번 함께하면 계속 함께합니다</div>
               </div>
             </FadeInSection>
           </div>
