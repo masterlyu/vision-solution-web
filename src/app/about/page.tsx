@@ -6,6 +6,7 @@ import Link from 'next/link'
 import UrlAnalysisForm from '@/components/UrlAnalysisForm'
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
+import { VisiMascot } from '@/components/visi/VisiMascot'
 
 // ── LottiePlayer ──────────────────────────────────────────────────────────
 function LottiePlayer({ src, width = 120, height = 120, loop = true }: {
@@ -59,6 +60,53 @@ function FadeInSection({ children, delay = 0 }: { children: React.ReactNode; del
   )
 }
 
+// ── AboutHeroIllust ────────────────────────────────────────────────────────
+function AboutHeroIllust() {
+  return (
+    <div style={{ display: 'flex', alignItems: 'flex-end', gap: 8 }}>
+      <svg viewBox="0 0 260 240" width="250" height="230" xmlns="http://www.w3.org/2000/svg">
+        {/* Laptop body */}
+        <rect x="28" y="38" width="204" height="144" rx="12" fill="#16102a" stroke="#8B5CF6" strokeWidth="2"/>
+        {/* Screen */}
+        <rect x="40" y="50" width="180" height="120" rx="7" fill="#0d0d16"/>
+        {/* Header bar */}
+        <rect x="40" y="50" width="180" height="24" rx="7" fill="#1a1030"/>
+        {/* Traffic light dots */}
+        <circle cx="56" cy="62" r="4" fill="#ef4444" opacity="0.8"/>
+        <circle cx="69" cy="62" r="4" fill="#fbbf24" opacity="0.8"/>
+        <circle cx="82" cy="62" r="4" fill="#22c55e" opacity="0.8"/>
+        {/* URL bar */}
+        <rect x="100" y="57" width="106" height="10" rx="5" fill="#2a1f4a"/>
+        <text x="107" y="66" fill="#6b7280" fontSize="7" fontFamily="sans-serif">visionc.co.kr</text>
+        {/* Bar chart */}
+        <rect x="54" y="134" width="14" height="20" rx="3" fill="#8B5CF6" opacity="0.35"/>
+        <rect x="74" y="120" width="14" height="34" rx="3" fill="#8B5CF6" opacity="0.5"/>
+        <rect x="94" y="104" width="14" height="50" rx="3" fill="#8B5CF6" opacity="0.65"/>
+        <rect x="114" y="86" width="14" height="68" rx="3" fill="#8B5CF6" opacity="0.8"/>
+        <rect x="134" y="68" width="14" height="86" rx="3" fill="#8B5CF6"/>
+        {/* Trend line */}
+        <polyline points="61,138 81,126 101,110 121,90 141,74" fill="none" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="141" cy="74" r="5" fill="#22c55e"/>
+        {/* +240% badge */}
+        <rect x="154" y="72" width="56" height="24" rx="7" fill="#22c55e" opacity="0.9"/>
+        <text x="161" y="83" fill="white" fontSize="9.5" fontWeight="bold" fontFamily="sans-serif">문의 +240%</text>
+        <text x="163" y="92" fill="white" fontSize="7.5" fontFamily="sans-serif">리뉴얼 3개월 후</text>
+        {/* Phone beside laptop */}
+        <rect x="202" y="100" width="42" height="74" rx="10" fill="#1a1030" stroke="#8B5CF6" strokeWidth="1.5"/>
+        <rect x="208" y="110" width="30" height="54" rx="5" fill="#0d0d16"/>
+        <rect x="210" y="116" width="26" height="14" rx="4" fill="#8B5CF6"/>
+        <text x="213" y="127" fill="white" fontSize="7.5" fontFamily="sans-serif">문의 +3건</text>
+        <rect x="210" y="134" width="26" height="10" rx="3" fill="#22c55e" opacity="0.8"/>
+        <text x="213" y="142" fill="white" fontSize="7" fontFamily="sans-serif">계약완료 ✓</text>
+        {/* Laptop base */}
+        <rect x="8" y="182" width="244" height="12" rx="4" fill="#16102a" stroke="#8B5CF6" strokeWidth="1.5"/>
+        <rect x="88" y="194" width="84" height="6" rx="3" fill="#2a1f4a"/>
+      </svg>
+      <VisiMascot pose="happy" size={90} />
+    </div>
+  )
+}
+
 // ── Page ──────────────────────────────────────────────────────────────────
 export default function AboutPage() {
   return (
@@ -67,77 +115,78 @@ export default function AboutPage() {
       {/* ── SECTION 1: HERO ──────────────────────────────────────────────── */}
       <section style={{
         padding: '100px 24px 80px',
-        textAlign: 'center',
         background: 'var(--background-deep)',
         backgroundImage: 'radial-gradient(ellipse 80% 40% at 50% 0%, color-mix(in oklch, var(--primary) 13%, transparent), transparent)',
       }}>
-        <div style={{ maxWidth: 780, margin: '0 auto' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <FadeInSection>
-            {/* Lottie Hero */}
-            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 28 }}>
-              <LottiePlayer
-                src="/lottie/about-hero.json"
-                width={120} height={120}
-              />
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: 48, alignItems: 'center' }}>
+              {/* Left: text */}
+              <div>
+                {/* Badge */}
+                <div style={{ marginBottom: 18 }}>
+                  <span style={{
+                    display: 'inline-flex', alignItems: 'center', gap: 5,
+                    padding: '4px 12px', borderRadius: 999,
+                    fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase',
+                    background: 'color-mix(in oklch, var(--primary) 18%, transparent)', color: 'var(--primary-light)',
+                    border: '1px solid color-mix(in oklch, var(--primary) 40%, transparent)',
+                  }}>
+                    회사 소개
+                  </span>
+                </div>
+
+                {/* H1 */}
+                <h1 style={{
+                  fontSize: 'clamp(2.2rem, 7vw, 3.8rem)', fontWeight: 900,
+                  lineHeight: 1.15, letterSpacing: '-0.03em', marginBottom: 22,
+                  color: 'var(--foreground)',
+                }}>
+                  홈페이지 업체에 맡겼다가<br />
+                  <span style={{ color: 'var(--primary-light)' }}>연락 두절 된 적 있으신가요?</span>
+                </h1>
+
+                {/* Sub */}
+                <p style={{
+                  color: 'var(--muted-foreground)', fontSize: '1.1rem', lineHeight: 1.7,
+                  marginBottom: 38,
+                }}>
+                  Vision Solution은 그 경험을 바꾸고 싶어서 만들어진 회사입니다.<br />
+                  우리는 <strong style={{ color: 'var(--foreground)' }}>"문의 주시면 검토 후 연락드리겠습니다"</strong> 대신,<br />
+                  <strong style={{ color: 'var(--foreground)' }}>48시간 안에 리포트를 드립니다.</strong>
+                </p>
+
+                {/* CTA #1 */}
+                <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 24 }}>
+                  <Link href="/contact" style={{
+                    display: 'inline-flex', alignItems: 'center', gap: 8,
+                    background: 'var(--primary)', color: 'var(--primary-foreground)',
+                    padding: '15px 36px', borderRadius: 10,
+                    fontSize: '1rem', fontWeight: 700, textDecoration: 'none',
+                  }}>
+                    무료 상담 신청하기 →
+                  </Link>
+                  <Link href="/portfolio" style={{
+                    display: 'inline-flex', alignItems: 'center', gap: 8,
+                    background: 'transparent', color: 'var(--primary-light)',
+                    padding: '15px 36px', borderRadius: 10,
+                    fontSize: '1rem', fontWeight: 700, textDecoration: 'none',
+                    border: '1.5px solid color-mix(in oklch, var(--primary) 55%, transparent)',
+                  }}>
+                    포트폴리오 보기
+                  </Link>
+                </div>
+
+                <p style={{ fontSize: '0.82rem', color: 'var(--muted-foreground)' }}>
+                  지금 신청하시면 48시간 안에 담당자가 연락드립니다
+                </p>
+              </div>
+
+              {/* Right: illustration */}
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <AboutHeroIllust />
+              </div>
             </div>
-
-            {/* Badge */}
-            <div style={{ marginBottom: 18 }}>
-              <span style={{
-                display: 'inline-flex', alignItems: 'center', gap: 5,
-                padding: '4px 12px', borderRadius: 999,
-                fontSize: '0.68rem', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase',
-                background: 'color-mix(in oklch, var(--primary) 18%, transparent)', color: 'var(--primary-light)',
-                border: '1px solid color-mix(in oklch, var(--primary) 40%, transparent)',
-              }}>
-                회사 소개
-              </span>
-            </div>
-
-            {/* H1 */}
-            <h1 style={{
-              fontSize: 'clamp(2.2rem, 7vw, 3.8rem)', fontWeight: 900,
-              lineHeight: 1.15, letterSpacing: '-0.03em', marginBottom: 22,
-              color: 'var(--foreground)',
-            }}>
-              홈페이지 업체에 맡겼다가<br />
-              <span style={{ color: 'var(--primary-light)' }}>연락 두절 된 적 있으신가요?</span>
-            </h1>
-
-            {/* Sub */}
-            <p style={{
-              color: 'var(--muted-foreground)', fontSize: '1.1rem', lineHeight: 1.7,
-              maxWidth: 600, margin: '0 auto 38px',
-            }}>
-              Vision Solution은 그 경험을 바꾸고 싶어서 만들어진 회사입니다.<br />
-              우리는 <strong style={{ color: 'var(--foreground)' }}>"문의 주시면 검토 후 연락드리겠습니다"</strong> 대신,<br />
-              <strong style={{ color: 'var(--foreground)' }}>48시간 안에 리포트를 드립니다.</strong>
-            </p>
-
-            {/* CTA #1 */}
-            <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 24 }}>
-              <Link href="/contact" style={{
-                display: 'inline-flex', alignItems: 'center', gap: 8,
-                background: 'var(--primary)', color: 'var(--primary-foreground)',
-                padding: '15px 36px', borderRadius: 10,
-                fontSize: '1rem', fontWeight: 700, textDecoration: 'none',
-              }}>
-                무료 상담 신청하기 →
-              </Link>
-              <Link href="/portfolio" style={{
-                display: 'inline-flex', alignItems: 'center', gap: 8,
-                background: 'transparent', color: 'var(--primary-light)',
-                padding: '15px 36px', borderRadius: 10,
-                fontSize: '1rem', fontWeight: 700, textDecoration: 'none',
-                border: '1.5px solid color-mix(in oklch, var(--primary) 55%, transparent)',
-              }}>
-                포트폴리오 보기
-              </Link>
-            </div>
-
-            <p style={{ fontSize: '0.82rem', color: 'var(--muted-foreground)' }}>
-              지금 신청하시면 48시간 안에 담당자가 연락드립니다
-            </p>
           </FadeInSection>
         </div>
       </section>
@@ -571,6 +620,11 @@ export default function AboutPage() {
       }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <FadeInSection>
+            {/* VISI cheering */}
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 24 }}>
+              <VisiMascot pose="cheering" size={130} bubble="48시간 안에 리포트 드려요!" bubbleDir="left" />
+            </div>
+
             {/* Urgency badge */}
             <div style={{ marginBottom: 20 }}>
               <span style={{

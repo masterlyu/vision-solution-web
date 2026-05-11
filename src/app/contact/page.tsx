@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
-import { Mail, Globe, Clock, Loader2, CheckCircle } from 'lucide-react'
+import { Mail, Globe, Clock, Loader2 } from 'lucide-react'
+import { VisiMascot } from '@/components/visi/VisiMascot'
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: '', email: '', company: '', service: '', message: '' })
@@ -30,8 +31,8 @@ export default function ContactPage() {
   if (done) return (
     <div className="min-h-screen pt-28 pb-24 bg-background flex items-center justify-center">
       <div className="bg-card border border-border rounded-2xl p-14 text-center max-w-md w-full mx-4">
-        <div className="w-14 h-14 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-6">
-          <CheckCircle className="w-7 h-7 text-primary" strokeWidth={1.5} />
+        <div className="flex justify-center mb-4">
+          <VisiMascot pose="thumbsUp" size={130} bubble="문의 접수 완료!" bubbleDir="right" />
         </div>
         <h2 className="text-foreground text-2xl font-bold mb-3">문의가 접수됐습니다</h2>
         <p className="text-muted-foreground text-sm leading-relaxed">영업일 기준 1일 내 이메일로 연락드립니다.</p>
@@ -63,6 +64,9 @@ export default function ContactPage() {
 
           {/* Left: info cards */}
           <div className="space-y-4">
+            <div className="flex justify-center mb-2">
+              <VisiMascot pose="wave" size={110} bubble="무엇이든 물어보세요!" bubbleDir="right" />
+            </div>
             {info.map(i => (
               <div key={i.title} className="bg-card border border-border rounded-xl p-6 hover:border-primary/40 transition-all duration-200 group">
                 <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/20 group-hover:border-primary/40 transition-all">

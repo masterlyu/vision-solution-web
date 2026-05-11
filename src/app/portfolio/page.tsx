@@ -5,6 +5,7 @@ import { motion, useMotionValue, useSpring, useTransform, useInView, type Varian
 import UrlAnalysisForm from '@/components/UrlAnalysisForm'
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
+import { VisiMascot } from '@/components/visi/VisiMascot'
 
 // ── LottiePlayer ──────────────────────────────────────────────────────────
 function LottiePlayer({ src, width = 120, height = 120, loop = true }: {
@@ -196,12 +197,49 @@ const cases: CaseItem[] = [
 ]
 
 const processSteps = [
-  { num: '01', title: 'URL 무료 진단',    sub: '48시간 내 리포트 발송', lottie: '/lottie/scan.json',   highlight: false },
-  { num: '02', title: '요구사항 미팅',    sub: '30분 화상/전화 상담',   lottie: '/lottie/email.json',  highlight: false },
-  { num: '03', title: '디자인 시안',      sub: '3~5일 내 초안 공유',    lottie: '/lottie/ring.json',   highlight: false },
-  { num: '04', title: '개발 & 배포',      sub: '평균 2~3주 내 완료',    lottie: '/lottie/shield.json', highlight: false },
-  { num: '05', title: '납품 + 사후 관리', sub: '3개월 무상 유지보수',   lottie: '/lottie/check.json',  highlight: true  },
+  { num: '01', title: 'URL 무료 진단',    sub: '48시간 내 리포트 발송', highlight: false, pose: 'magnify' as const },
+  { num: '02', title: '요구사항 미팅',    sub: '30분 화상/전화 상담',   highlight: false, pose: 'wave' as const },
+  { num: '03', title: '디자인 시안',      sub: '3~5일 내 초안 공유',    highlight: false, pose: 'pointing' as const },
+  { num: '04', title: '개발 & 배포',      sub: '평균 2~3주 내 완료',    highlight: false, pose: 'typing' as const },
+  { num: '05', title: '납품 + 사후 관리', sub: '3개월 무상 유지보수',   highlight: true,  pose: 'thumbsUp' as const },
 ]
+
+// ── PortfolioHeroIllust ────────────────────────────────────────────────────
+function PortfolioHeroIllust() {
+  return (
+    <div className="flex items-end gap-2 justify-center">
+      <svg viewBox="0 0 260 260" width="250" height="250" xmlns="http://www.w3.org/2000/svg">
+        {/* Presentation frame */}
+        <rect x="18" y="18" width="224" height="164" rx="14" fill="#16102a" stroke="#8B5CF6" strokeWidth="2.5"/>
+        {/* Screen */}
+        <rect x="30" y="30" width="200" height="140" rx="8" fill="#0d0d16"/>
+        {/* Title */}
+        <text x="44" y="55" fill="#FFF5E8" fontSize="11" fontWeight="bold" fontFamily="sans-serif">성과 포트폴리오</text>
+        {/* 5 bar chart bars — growing */}
+        <rect x="44" y="134" width="22" height="28" rx="4" fill="#8B5CF6" opacity="0.35"/>
+        <rect x="72" y="116" width="22" height="46" rx="4" fill="#8B5CF6" opacity="0.5"/>
+        <rect x="100" y="96" width="22" height="66" rx="4" fill="#8B5CF6" opacity="0.65"/>
+        <rect x="128" y="74" width="22" height="88" rx="4" fill="#8B5CF6" opacity="0.82"/>
+        <rect x="156" y="54" width="22" height="108" rx="4" fill="#8B5CF6"/>
+        {/* Trend line */}
+        <polyline points="55,138 83,120 111,100 139,78 167,60" fill="none" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="5,3"/>
+        {/* Result badge */}
+        <rect x="148" y="48" width="72" height="30" rx="8" fill="#22c55e" opacity="0.9"/>
+        <text x="156" y="62" fill="white" fontSize="10.5" fontWeight="bold" fontFamily="sans-serif">문의 ×3배</text>
+        <text x="156" y="73" fill="white" fontSize="8" fontFamily="sans-serif">평균 증가율</text>
+        {/* Bottom caption */}
+        <text x="44" y="165" fill="#6b7280" fontSize="8" fontFamily="sans-serif">127+ 프로젝트 · 만족도 4.9 · 납기 준수 98%</text>
+        {/* Stand */}
+        <rect x="114" y="182" width="32" height="20" rx="2" fill="#16102a" stroke="#8B5CF6" strokeWidth="1"/>
+        <rect x="78" y="202" width="104" height="8" rx="4" fill="#16102a" stroke="#8B5CF6" strokeWidth="1.5"/>
+        {/* Star badge */}
+        <circle cx="218" cy="32" r="20" fill="#fbbf24" opacity="0.9"/>
+        <text x="212" y="40" fill="white" fontSize="15" fontFamily="sans-serif">★</text>
+      </svg>
+      <VisiMascot pose="pointing" size={92} />
+    </div>
+  )
+}
 
 // ── Page ──────────────────────────────────────────────────────────────────
 export default function PortfolioPage() {
@@ -222,56 +260,67 @@ export default function PortfolioPage() {
 
       {/* ── Section 1 — Hero ── */}
       <section
-        className="pt-24 pb-16 px-6 text-center relative overflow-hidden"
+        className="pt-24 pb-16 px-6 relative overflow-hidden"
         style={{ background: 'radial-gradient(ellipse 80% 40% at 50% 0%, color-mix(in oklch, var(--primary) 12%, transparent), transparent)' }}
       >
-        <motion.div
-          className="max-w-3xl mx-auto flex flex-col items-center gap-5"
-          variants={staggerSlow}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.div variants={fadeInUp}>
-            <LottiePlayer src="/lottie/star.json" width={140} height={140} />
-          </motion.div>
+        <div className="max-w-[1100px] mx-auto">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            {/* Left: text */}
+            <motion.div
+              className="flex flex-col gap-5"
+              variants={staggerSlow}
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.div variants={fadeInUp}>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest"
+                  style={{ background: 'color-mix(in oklch, var(--primary) 20%, transparent)', color: 'var(--primary-bright)', border: '1px solid color-mix(in oklch, var(--primary) 40%, transparent)' }}>
+                  Portfolio
+                </span>
+              </motion.div>
 
-          <motion.div variants={fadeInUp}>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest"
-              style={{ background: 'color-mix(in oklch, var(--primary) 20%, transparent)', color: 'var(--primary-bright)', border: '1px solid color-mix(in oklch, var(--primary) 40%, transparent)' }}>
-              Portfolio
-            </span>
-          </motion.div>
+              <motion.h1
+                variants={fadeInUp}
+                className="text-4xl md:text-5xl font-black leading-tight tracking-tight"
+              >
+                &ldquo;홈페이지 바꿨더니<br />
+                <span style={{ color: 'var(--primary-light)' }}>문의가 3배 늘었어요&rdquo;</span>
+              </motion.h1>
 
-          <motion.h1
-            variants={fadeInUp}
-            className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight"
-          >
-            &ldquo;홈페이지 바꿨더니<br />
-            <span style={{ color: 'var(--primary-light)' }}>문의가 3배 늘었어요&rdquo;</span>
-          </motion.h1>
+              <motion.p variants={fadeInUp} className="text-muted-foreground text-lg">
+                실제 의뢰인 사이트. 실제 수치. 직접 확인하세요.
+              </motion.p>
 
-          <motion.p variants={fadeInUp} className="text-muted-foreground text-lg">
-            실제 의뢰인 사이트. 실제 수치. 직접 확인하세요.
-          </motion.p>
+              {/* CTA #1 */}
+              <motion.div variants={fadeInUp} className="flex gap-3 flex-wrap">
+                <a href="#cases"
+                  className="inline-flex items-center gap-2 text-primary-foreground font-bold px-8 py-3.5 rounded-xl hover:opacity-85 transition-opacity"
+                  style={{ background: 'var(--primary)' }}>
+                  포트폴리오 보기 ↓
+                </a>
+                <a href="#cta-form"
+                  className="inline-flex items-center gap-2 font-bold px-8 py-3.5 rounded-xl transition-all"
+                  style={{
+                    background: 'transparent',
+                    color: 'var(--primary-light)',
+                    border: '1.5px solid color-mix(in oklch, var(--primary) 60%, transparent)',
+                  }}>
+                  무료 진단 받기 →
+                </a>
+              </motion.div>
+            </motion.div>
 
-          {/* CTA #1 */}
-          <motion.div variants={fadeInUp} className="flex gap-3 flex-wrap justify-center">
-            <a href="#cases"
-              className="inline-flex items-center gap-2 text-primary-foreground font-bold px-8 py-3.5 rounded-xl hover:opacity-85 transition-opacity"
-              style={{ background: 'var(--primary)' }}>
-              포트폴리오 보기 ↓
-            </a>
-            <a href="#cta-form"
-              className="inline-flex items-center gap-2 font-bold px-8 py-3.5 rounded-xl transition-all"
-              style={{
-                background: 'transparent',
-                color: 'var(--primary-light)',
-                border: '1.5px solid color-mix(in oklch, var(--primary) 60%, transparent)',
-              }}>
-              무료 진단 받기 →
-            </a>
-          </motion.div>
-        </motion.div>
+            {/* Right: illustration */}
+            <motion.div
+              variants={fadeInUp}
+              initial="hidden"
+              animate="visible"
+              className="flex justify-center"
+            >
+              <PortfolioHeroIllust />
+            </motion.div>
+          </div>
+        </div>
       </section>
 
       <hr className="border-border" />
@@ -451,7 +500,7 @@ export default function PortfolioPage() {
         style={{ background: 'radial-gradient(ellipse 60% 80% at 50% 50%, color-mix(in oklch, var(--primary) 10%, transparent), transparent)' }}
       >
         <div className="max-w-lg mx-auto flex flex-col items-center gap-4">
-          <LottiePlayer src="/lottie/check.json" width={80} height={80} loop={false} />
+          <VisiMascot pose="cheering" size={120} bubble="내 사이트도 바꿀 수 있어요!" bubbleDir="right" />
 
           <h2 className="text-3xl md:text-4xl font-black text-foreground leading-snug">
             내 사이트도 이렇게<br />
@@ -509,7 +558,7 @@ export default function PortfolioPage() {
                   {s.num}
                 </div>
 
-                <LottiePlayer src={s.lottie} width={56} height={56} />
+                <VisiMascot pose={s.pose} size={60} />
 
                 <div>
                   <div className="font-black text-foreground text-sm">{s.title}</div>
@@ -537,6 +586,9 @@ export default function PortfolioPage() {
               className="flex flex-col gap-5"
             >
               <motion.div variants={fadeInUp}>
+                <div className="flex mb-4">
+                  <VisiMascot pose="cheering" size={110} bubble="URL 하나로 시작해요!" bubbleDir="right" />
+                </div>
                 <p className="text-xs font-black uppercase tracking-[0.15em] mb-2" style={{ color: 'var(--primary-light)' }}>
                   무료 진단
                 </p>
