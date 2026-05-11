@@ -223,9 +223,7 @@ export default function AboutPage() {
                 position: 'relative', overflow: 'hidden', height: '100%',
               }}>
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--primary), var(--primary-alt))' }} />
-                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}>
-                  <LottiePlayer src="/lottie/ring.json" width={80} height={80} />
-                </div>
+                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18, fontSize: '3rem', lineHeight: 1 }}>🚀</div>
                 <div style={{ fontSize: 'clamp(2.8rem, 6vw, 4rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--primary-light)', lineHeight: 1 }}>
                   <CountUpNumber value={200} suffix="+" />
                 </div>
@@ -242,9 +240,7 @@ export default function AboutPage() {
                 position: 'relative', overflow: 'hidden', height: '100%',
               }}>
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--accent-green), var(--accent-green-alt))' }} />
-                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}>
-                  <LottiePlayer src="/lottie/ring.json" width={80} height={80} />
-                </div>
+                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18, fontSize: '3rem', lineHeight: 1 }}>⚡</div>
                 <div style={{ fontSize: 'clamp(2.8rem, 6vw, 4rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--accent-green)', lineHeight: 1 }}>
                   <CountUpNumber value={98} suffix="%" />
                 </div>
@@ -261,9 +257,7 @@ export default function AboutPage() {
                 position: 'relative', overflow: 'hidden', height: '100%',
               }}>
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--accent-amber), var(--accent-amber-alt))' }} />
-                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}>
-                  <LottiePlayer src="/lottie/star.json" width={80} height={80} />
-                </div>
+                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18, fontSize: '3rem', lineHeight: 1 }}>⭐</div>
                 <div style={{ fontSize: 'clamp(2.8rem, 6vw, 4rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--accent-amber)', lineHeight: 1 }}>
                   <CountUpNumber value={4.9} suffix="" decimals={1} />
                 </div>
@@ -280,9 +274,7 @@ export default function AboutPage() {
                 position: 'relative', overflow: 'hidden', height: '100%',
               }}>
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, #06b6d4, #3b82f6)' }} />
-                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}>
-                  <LottiePlayer src="/lottie/check.json" width={80} height={80} />
-                </div>
+                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18, fontSize: '3rem', lineHeight: 1 }}>🤝</div>
                 <div style={{ fontSize: 'clamp(2.8rem, 6vw, 4rem)', fontWeight: 900, letterSpacing: '-0.04em', color: '#06b6d4', lineHeight: 1 }}>
                   <CountUpNumber value={97} suffix="%" />
                 </div>
