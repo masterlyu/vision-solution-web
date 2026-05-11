@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { ArrowRight, CheckSquare, ChevronDown, ChevronUp, Shield, PenLine, Eye, BarChart3 } from 'lucide-react'
+import { VisiMascot } from '@/components/visi/VisiMascot'
 
 const checklistItems = [
   '홈페이지를 만든 업체와 연락이 끊겼다',
@@ -48,10 +49,10 @@ const plans = [
 ]
 
 const steps = [
-  { num: '01', title: '현재 사이트 점검', duration: '무료', desc: '서버 환경, 보안 현황, 플러그인 버전 체크.' },
-  { num: '02', title: '플랜 선택 & 계약', duration: '최소 3개월', desc: '현재 상황에 맞는 플랜 추천 후 계약.' },
-  { num: '03', title: '유지보수 시작',   duration: '즉시', desc: '담당자 배정. 카카오 채널 또는 이메일 연동.' },
-  { num: '04', title: '정기 리포트',     duration: '매월', desc: '사이트 상태 리포트 발송. 이상 시 사전 고지.' },
+  { num: '01', title: '현재 사이트 점검', duration: '무료', desc: '서버 환경, 보안 현황, 플러그인 버전 체크.', pose: 'magnify' as const },
+  { num: '02', title: '플랜 선택 & 계약', duration: '최소 3개월', desc: '현재 상황에 맞는 플랜 추천 후 계약.', pose: 'thinking' as const },
+  { num: '03', title: '유지보수 시작',   duration: '즉시', desc: '담당자 배정. 카카오 채널 또는 이메일 연동.', pose: 'default' as const },
+  { num: '04', title: '정기 리포트',     duration: '매월', desc: '사이트 상태 리포트 발송. 이상 시 사전 고지.', pose: 'cheering' as const },
 ]
 
 const faqs = [
@@ -63,6 +64,40 @@ const faqs = [
   { q: '유지보수 중 해킹이 발생하면 어떻게 되나요?', a: 'Standard 이상 플랜에서 계약 기간 중 해킹 피해 발생 시, 복구 작업을 추가 비용 없이 진행합니다.' },
 ]
 
+function MaintenanceHeroIllust() {
+  return (
+    <div className="relative">
+      <svg width="320" height="280" viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg">
+        {/* Dashboard card */}
+        <rect x="20" y="20" width="260" height="180" rx="14" fill="#0e0e22" stroke="rgba(139,92,246,.35)" strokeWidth="1.5" />
+        <rect x="20" y="20" width="260" height="32" rx="14" fill="#1a1a30" />
+        <circle cx="14" cy="14" r="0" /> {/* placeholder */}
+        <text x="36" y="42" fontSize="11" fill="#c4b5fd" fontFamily="sans-serif" fontWeight="bold">MONITORING DASHBOARD</text>
+        <circle cx="262" cy="36" r="6" fill="#28c840" opacity={0.8} />
+        <circle cx="262" cy="36" r="4" fill="#28c840" />
+        {/* Status indicators */}
+        <rect x="32" y="62" width="100" height="44" rx="8" fill="rgba(40,200,64,.08)" stroke="rgba(40,200,64,.25)" strokeWidth="1" />
+        <text x="82" y="79" textAnchor="middle" fontSize="9" fill="#4ade80" fontFamily="sans-serif">서버 상태</text>
+        <text x="82" y="96" textAnchor="middle" fontSize="18" fill="#4ade80" fontFamily="sans-serif" fontWeight="bold">정상</text>
+        <rect x="144" y="62" width="100" height="44" rx="8" fill="rgba(139,92,246,.08)" stroke="rgba(139,92,246,.25)" strokeWidth="1" />
+        <text x="194" y="79" textAnchor="middle" fontSize="9" fill="#a78bfa" fontFamily="sans-serif">업타임</text>
+        <text x="194" y="96" textAnchor="middle" fontSize="18" fill="#8b5cf6" fontFamily="sans-serif" fontWeight="bold">99.9%</text>
+        {/* Line chart */}
+        <rect x="32" y="118" width="212" height="64" rx="8" fill="rgba(139,92,246,.04)" stroke="rgba(139,92,246,.15)" strokeWidth="1" />
+        <polyline points="44,166 70,155 96,159 122,148 148,152 174,140 200,144 226,132 232,135" fill="none" stroke="#8b5cf6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="232" cy="135" r="4" fill="#8b5cf6" />
+        <text x="44" y="130" fontSize="8" fill="rgba(167,139,250,.5)" fontFamily="sans-serif">응답속도 (ms)</text>
+        {/* Alert icon */}
+        <text x="248" y="112" fontSize="16" fill="#fbbf24" opacity={0.8}>⚡</text>
+        <text x="28" y="15" fontSize="12" fill="#8b5cf6" opacity={0.6}>✦</text>
+      </svg>
+      <div className="absolute -bottom-4 -right-6">
+        <VisiMascot pose="default" size={88} bubble="24시간 지켜볼게요!" bubbleDir="left" />
+      </div>
+    </div>
+  )
+}
+
 export default function MaintenancePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
@@ -70,20 +105,25 @@ export default function MaintenancePage() {
     <div className="min-h-screen bg-background">
       {/* Hero */}
       <section className="pt-28 pb-20 px-6 bg-background" style={{ background: 'radial-gradient(ellipse at bottom right, color-mix(in oklch, var(--destructive) 15%, transparent) 0%, var(--background) 60%)' }}>
-        <div className="max-w-6xl mx-auto">
-          <span className="inline-block border border-destructive/50 text-red-400 text-xs font-bold px-3 py-1 rounded-full mb-6">홈페이지 유지보수</span>
-          <h1 className="text-4xl md:text-5xl font-black text-foreground leading-tight mb-6 max-w-2xl">
-            홈페이지 만들고 방치하다<br />
-            <span className="text-destructive">해킹당한</span> 사장님이 생각보다 많습니다
-          </h1>
-          <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-xl">
-            월 99,000원으로 보안·수정·장애 대응을<br />
-            한 파트너에게 맡기세요.
-          </p>
-          <Link href="/contact"
-            className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all text-base">
-            어떤 플랜이 맞는지 무료 상담받기 <ArrowRight className="w-5 h-5" />
-          </Link>
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <span className="inline-block border border-destructive/50 text-red-400 text-xs font-bold px-3 py-1 rounded-full mb-6">홈페이지 유지보수</span>
+            <h1 className="text-4xl md:text-5xl font-black text-foreground leading-tight mb-6 max-w-2xl">
+              홈페이지 만들고 방치하다<br />
+              <span className="text-destructive">해킹당한</span> 사장님이 생각보다 많습니다
+            </h1>
+            <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-xl">
+              월 99,000원으로 보안·수정·장애 대응을<br />
+              한 파트너에게 맡기세요.
+            </p>
+            <Link href="/contact"
+              className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all text-base">
+              어떤 플랜이 맞는지 무료 상담받기 <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
+          <div className="hidden lg:flex justify-center items-center">
+            <MaintenanceHeroIllust />
+          </div>
         </div>
       </section>
 
@@ -179,6 +219,9 @@ export default function MaintenancePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {steps.map((s, i) => (
               <div key={i} className="bg-card rounded-xl p-6">
+                <div className="hidden sm:flex justify-center mb-3">
+                  <VisiMascot pose={s.pose} size={76} />
+                </div>
                 <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-sm font-black mb-4">{s.num}</div>
                 <div className="flex items-center gap-2 mb-2">
                   <span className="font-bold text-foreground">{s.title}</span>
@@ -216,6 +259,15 @@ export default function MaintenancePage() {
       {/* Bottom CTA */}
       <section className="py-24 px-6 bg-background text-center">
         <div className="max-w-2xl mx-auto">
+          <div className="flex justify-center mb-6">
+            <div className="relative">
+              <VisiMascot pose="cheering" size={120} />
+              <div className="absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-full bg-white text-gray-900 text-sm font-bold px-4 py-2 rounded-2xl shadow-lg whitespace-nowrap">
+                문제 생기면 제가 바로 달려갈게요!
+                <span className="absolute left-1/2 -translate-x-1/2 top-full border-8 border-transparent border-t-white" />
+              </div>
+            </div>
+          </div>
           <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">지금 사이트 상태가 걱정된다면</h2>
           <p className="text-muted-foreground text-lg mb-8">현재 보안 상태를 무료로 점검해드립니다.</p>
           <Link href="/contact" className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-10 py-4 rounded-xl transition-all text-lg">

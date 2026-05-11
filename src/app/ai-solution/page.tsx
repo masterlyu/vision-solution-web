@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { ArrowRight, CheckSquare, ChevronDown, ChevronUp } from 'lucide-react'
+import { VisiMascot } from '@/components/visi/VisiMascot'
 
 const checklistItems = [
   '같은 질문을 하루에도 수십 번 고객에게 답하고 있다',
@@ -29,10 +30,10 @@ const aiTypes = [
 ]
 
 const steps = [
-  { num: '01', title: '업무 분석', duration: '무료, 1일', desc: '현재 업무 프로세스 공유 → AI 도입 가능 영역 도출.' },
-  { num: '02', title: '솔루션 설계', duration: '1주', desc: '어떤 AI 도구가 적합한지, 예산과 효과를 같이 검토.' },
-  { num: '03', title: '구축·학습', duration: '2~6주', desc: '데이터 학습, 연동, 테스트. 진행 상황 매주 보고.' },
-  { num: '04', title: '인수인계·운영', duration: '상시', desc: '담당자 교육. 이후 이상 시 즉시 대응.' },
+  { num: '01', title: '업무 분석', duration: '무료, 1일', desc: '현재 업무 프로세스 공유 → AI 도입 가능 영역 도출.', pose: 'magnify' as const },
+  { num: '02', title: '솔루션 설계', duration: '1주', desc: '어떤 AI 도구가 적합한지, 예산과 효과를 같이 검토.', pose: 'thinking' as const },
+  { num: '03', title: '구축·학습', duration: '2~6주', desc: '데이터 학습, 연동, 테스트. 진행 상황 매주 보고.', pose: 'typing' as const },
+  { num: '04', title: '인수인계·운영', duration: '상시', desc: '담당자 교육. 이후 이상 시 즉시 대응.', pose: 'cheering' as const },
 ]
 
 const plans = [
@@ -50,6 +51,50 @@ const faqs = [
   { q: '월 비용이 추가로 발생하나요?', a: '구축 비용 외에 서버·API 사용료가 월별로 발생할 수 있습니다. 규모에 따라 월 5~30만원 수준이며, 상담 시 정확히 안내합니다.' },
 ]
 
+function AiHeroIllust() {
+  return (
+    <div className="relative">
+      <svg width="320" height="280" viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg">
+        {/* Central AI brain circle */}
+        <circle cx="160" cy="130" r="70" fill="rgba(139,92,246,.06)" stroke="rgba(139,92,246,.25)" strokeWidth="1.5" />
+        <circle cx="160" cy="130" r="50" fill="rgba(139,92,246,.08)" stroke="rgba(139,92,246,.2)" strokeWidth="1" />
+        <circle cx="160" cy="130" r="28" fill="rgba(139,92,246,.15)" />
+        <text x="160" y="138" textAnchor="middle" fontSize="24" fill="#8b5cf6">🤖</text>
+        {/* Orbiting nodes */}
+        {[0, 60, 120, 180, 240, 300].map((deg, i) => {
+          const rad = (deg * Math.PI) / 180
+          const cx = 160 + 70 * Math.cos(rad)
+          const cy = 130 + 70 * Math.sin(rad)
+          const icons = ['📊','✉️','📝','🔄','📈','💬']
+          return (
+            <g key={i}>
+              <circle cx={cx} cy={cy} r="18" fill="rgba(139,92,246,.12)" stroke="rgba(139,92,246,.3)" strokeWidth="1.5" />
+              <text x={cx} y={cy+5} textAnchor="middle" fontSize="13">{icons[i]}</text>
+            </g>
+          )
+        })}
+        {/* Connection lines */}
+        {[0, 60, 120, 180, 240, 300].map((deg, i) => {
+          const rad = (deg * Math.PI) / 180
+          const x = 160 + 42 * Math.cos(rad)
+          const y = 130 + 42 * Math.sin(rad)
+          const x2 = 160 + 52 * Math.cos(rad)
+          const y2 = 130 + 52 * Math.sin(rad)
+          return <line key={i} x1={x} y1={y} x2={x2} y2={y2} stroke="rgba(139,92,246,.4)" strokeWidth="1.5" />
+        })}
+        {/* Sparkles */}
+        <text x="38" y="45" fontSize="16" fill="#8b5cf6" opacity={0.7}>✦</text>
+        <text x="275" y="55" fontSize="12" fill="#c4b5fd" opacity={0.6}>✦</text>
+        <text x="290" y="200" fontSize="10" fill="#8b5cf6" opacity={0.5}>✦</text>
+      </svg>
+      {/* VISI small, bottom-right */}
+      <div className="absolute -bottom-4 -right-4">
+        <VisiMascot pose="happy" size={88} bubble="자동화 완료!" bubbleDir="left" />
+      </div>
+    </div>
+  )
+}
+
 export default function AiSolutionPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
@@ -57,20 +102,25 @@ export default function AiSolutionPage() {
     <div className="min-h-screen bg-background">
       {/* Hero */}
       <section className="pt-28 pb-20 px-6 bg-background" style={{ background: 'radial-gradient(ellipse at top right, color-mix(in oklch, var(--primary) 20%, transparent) 0%, var(--background) 60%)' }}>
-        <div className="max-w-6xl mx-auto">
-          <span className="inline-block bg-primary/20 border border-primary/40 text-primary text-xs font-bold px-3 py-1 rounded-full mb-6">중소기업 AI 솔루션</span>
-          <h1 className="text-4xl md:text-5xl font-black text-foreground leading-tight mb-6 max-w-2xl">
-            직원이 하루 2시간씩 반복 업무를 하고 있다면,<br />
-            <span className="text-primary">AI가 대신할 수 있습니다</span>
-          </h1>
-          <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-xl">
-            고객 문의 자동 응답, 주문 집계, 보고서 작성—<br />
-            지금 당장 없애도 되는 반복 업무가 있다면, 100만원대부터 시작합니다.
-          </p>
-          <Link href="/contact"
-            className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all text-base">
-            무료 AI 도입 가능 영역 분석받기 <ArrowRight className="w-5 h-5" />
-          </Link>
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <span className="inline-block bg-primary/20 border border-primary/40 text-primary text-xs font-bold px-3 py-1 rounded-full mb-6">중소기업 AI 솔루션</span>
+            <h1 className="text-4xl md:text-5xl font-black text-foreground leading-tight mb-6 max-w-2xl">
+              직원이 하루 2시간씩 반복 업무를 하고 있다면,<br />
+              <span className="text-primary">AI가 대신할 수 있습니다</span>
+            </h1>
+            <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-xl">
+              고객 문의 자동 응답, 주문 집계, 보고서 작성—<br />
+              지금 당장 없애도 되는 반복 업무가 있다면, 100만원대부터 시작합니다.
+            </p>
+            <Link href="/contact"
+              className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all text-base">
+              무료 AI 도입 가능 영역 분석받기 <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
+          <div className="hidden lg:flex justify-center items-center">
+            <AiHeroIllust />
+          </div>
         </div>
       </section>
 
@@ -135,14 +185,19 @@ export default function AiSolutionPage() {
           <h2 className="text-2xl font-bold text-foreground mb-10">진행 프로세스</h2>
           <div className="space-y-4">
             {steps.map((s, i) => (
-              <div key={i} className="flex gap-6 items-start">
-                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-sm font-black shrink-0">{s.num}</div>
-                <div className="bg-card rounded-xl p-5 flex-1">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="font-bold text-foreground">{s.title}</span>
-                    <span className="bg-primary/10 text-primary text-xs px-2 py-0.5 rounded-full font-medium">{s.duration}</span>
+              <div key={i} className="flex gap-4 items-start">
+                <div className="hidden sm:flex flex-col items-center w-20 shrink-0">
+                  <VisiMascot pose={s.pose} size={76} />
+                </div>
+                <div className="flex gap-4 items-start flex-1">
+                  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-sm font-black shrink-0">{s.num}</div>
+                  <div className="bg-card rounded-xl p-5 flex-1">
+                    <div className="flex items-center gap-3 mb-1">
+                      <span className="font-bold text-foreground">{s.title}</span>
+                      <span className="bg-primary/10 text-primary text-xs px-2 py-0.5 rounded-full font-medium">{s.duration}</span>
+                    </div>
+                    <p className="text-muted-foreground text-sm">{s.desc}</p>
                   </div>
-                  <p className="text-muted-foreground text-sm">{s.desc}</p>
                 </div>
               </div>
             ))}
@@ -205,6 +260,15 @@ export default function AiSolutionPage() {
       {/* Bottom CTA */}
       <section className="py-24 px-6 bg-background text-center" style={{ background: 'radial-gradient(ellipse at center, color-mix(in oklch, var(--primary) 15%, transparent) 0%, var(--background) 70%)' }}>
         <div className="max-w-2xl mx-auto">
+          <div className="flex justify-center mb-6">
+            <div className="relative">
+              <VisiMascot pose="cheering" size={120} />
+              <div className="absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-full bg-white text-gray-900 text-sm font-bold px-4 py-2 rounded-2xl shadow-lg whitespace-nowrap">
+                어떤 업무든 자동화할 수 있어요!
+                <span className="absolute left-1/2 -translate-x-1/2 top-full border-8 border-transparent border-t-white" />
+              </div>
+            </div>
+          </div>
           <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">어떤 업무를 자동화할 수 있을지 지금 알아보세요</h2>
           <p className="text-muted-foreground text-lg mb-8">도입 안 해도 분석 결과는 드립니다.</p>
           <Link href="/contact" className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-10 py-4 rounded-xl transition-all text-lg">

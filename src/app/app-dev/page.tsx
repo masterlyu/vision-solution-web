@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { ArrowRight, CheckSquare, ChevronDown, ChevronUp } from 'lucide-react'
+import { VisiMascot } from '@/components/visi/VisiMascot'
 
 const checklistItems = [
   '재고·주문·고객 데이터를 아직도 엑셀로 관리한다',
@@ -27,10 +28,10 @@ const comparisons = [
 ]
 
 const steps = [
-  { num: '01', title: '요구사항 분석', duration: '1~3일', desc: '기능 목록, 사용자 흐름, 데이터 구조 정의.' },
-  { num: '02', title: '아키텍처 설계', duration: '1주',   desc: '기술 스택 선정, DB 설계, API 명세서 작성. 착수 전 전체 설계 공개.' },
-  { num: '03', title: '스프린트 개발', duration: '4~12주', desc: '2주 단위 스프린트. 중간 시연으로 방향 확인 후 진행.' },
-  { num: '04', title: '배포·인수인계', duration: '1주',   desc: '스테이징 검증 → 프로덕션 배포 → 운영 가이드 제공.' },
+  { num: '01', title: '요구사항 분석', duration: '1~3일', desc: '기능 목록, 사용자 흐름, 데이터 구조 정의.', pose: 'thinking' as const },
+  { num: '02', title: '아키텍처 설계', duration: '1주',   desc: '기술 스택 선정, DB 설계, API 명세서 작성. 착수 전 전체 설계 공개.', pose: 'writing' as const },
+  { num: '03', title: '스프린트 개발', duration: '4~12주', desc: '2주 단위 스프린트. 중간 시연으로 방향 확인 후 진행.', pose: 'typing' as const },
+  { num: '04', title: '배포·인수인계', duration: '1주',   desc: '스테이징 검증 → 프로덕션 배포 → 운영 가이드 제공.', pose: 'thumbsUp' as const },
 ]
 
 const plans = [
@@ -49,6 +50,47 @@ const faqs = [
   { q: '비슷한 업종의 개발 경험이 있나요?', a: '제조·유통·서비스·의료·교육 등 다양한 업종에서 시스템을 개발했습니다. 상담 시 업종을 알려주시면 관련 사례를 공유합니다.' },
 ]
 
+function AppDevHeroIllust() {
+  return (
+    <div className="relative">
+      <svg width="320" height="280" viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg">
+        {/* Laptop */}
+        <rect x="60" y="60" width="180" height="120" rx="10" fill="#0e0e22" stroke="rgba(139,92,246,.45)" strokeWidth="2" />
+        <rect x="60" y="60" width="180" height="18" rx="10" fill="#1a1a30" />
+        <circle cx="76" cy="69" r="3.5" fill="#ff5f57" />
+        <circle cx="87" cy="69" r="3.5" fill="#ffbd2e" />
+        <circle cx="98" cy="69" r="3.5" fill="#28c840" />
+        {/* Code on screen */}
+        <rect x="68" y="85" width="164" height="88" rx="4" fill="#060610" />
+        <rect x="75" y="93" width="40" height="4" rx="2" fill="#8b5cf6" opacity={0.8} />
+        <rect x="120" y="93" width="60" height="4" rx="2" fill="#c4b5fd" opacity={0.5} />
+        <rect x="80" y="103" width="80" height="4" rx="2" fill="rgba(139,92,246,.4)" />
+        <rect x="80" y="113" width="100" height="4" rx="2" fill="rgba(139,92,246,.3)" />
+        <rect x="75" y="123" width="55" height="4" rx="2" fill="#8b5cf6" opacity={0.7} />
+        <rect x="135" y="123" width="45" height="4" rx="2" fill="rgba(139,92,246,.4)" />
+        <rect x="80" y="133" width="70" height="4" rx="2" fill="rgba(139,92,246,.25)" />
+        <rect x="75" y="143" width="90" height="4" rx="2" fill="#c4b5fd" opacity={0.5} />
+        <rect x="75" y="153" width="30" height="4" rx="2" fill="#8b5cf6" opacity={0.8} />
+        {/* Laptop base */}
+        <rect x="40" y="180" width="220" height="8" rx="4" fill="#1a1a30" stroke="rgba(139,92,246,.2)" strokeWidth="1" />
+        {/* Phone */}
+        <rect x="260" y="100" width="46" height="78" rx="8" fill="#0e0e22" stroke="rgba(139,92,246,.4)" strokeWidth="1.5" />
+        <rect x="264" y="108" width="38" height="56" rx="4" fill="#060610" />
+        <rect x="267" y="114" width="32" height="5" rx="2" fill="#8b5cf6" opacity={0.7} />
+        <rect x="267" y="123" width="22" height="3" rx="1.5" fill="rgba(139,92,246,.4)" />
+        <rect x="267" y="130" width="28" height="3" rx="1.5" fill="rgba(139,92,246,.3)" />
+        <circle cx="283" cy="148" r="6" fill="rgba(139,92,246,.15)" stroke="rgba(139,92,246,.3)" strokeWidth="1" />
+        {/* Sparkles */}
+        <text x="20" y="80" fontSize="14" fill="#8b5cf6" opacity={0.7}>✦</text>
+        <text x="295" y="85" fontSize="10" fill="#c4b5fd" opacity={0.5}>✦</text>
+      </svg>
+      <div className="absolute -bottom-4 -right-4">
+        <VisiMascot pose="pointing" size={88} bubble="앱도 시스템도!" bubbleDir="left" />
+      </div>
+    </div>
+  )
+}
+
 export default function AppDevPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
@@ -56,21 +98,26 @@ export default function AppDevPage() {
     <div className="min-h-screen bg-background">
       {/* Hero */}
       <section className="pt-28 pb-20 px-6 bg-background">
-        <div className="max-w-6xl mx-auto">
-          <span className="inline-block bg-primary/10 border border-primary/30 text-primary text-xs font-bold px-3 py-1 rounded-full mb-6">앱·시스템 개발</span>
-          <h1 className="text-4xl md:text-5xl font-black text-foreground leading-tight mb-6 max-w-2xl">
-            엑셀로 더 이상<br />
-            <span className="text-destructive">버틸 수 없는 순간</span>이 있습니다
-          </h1>
-          <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-xl">
-            직원 10명이 같은 파일을 열었다가 덮어쓰고,<br />
-            "앱으로 만들면 좋겠다"고 생각한 지 1년이 넘었다면—<br />
-            지금이 바로 그 순간입니다.
-          </p>
-          <Link href="/contact"
-            className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all text-base">
-            어떤 시스템이 필요한지 무료 상담받기 <ArrowRight className="w-5 h-5" />
-          </Link>
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <span className="inline-block bg-primary/10 border border-primary/30 text-primary text-xs font-bold px-3 py-1 rounded-full mb-6">앱·시스템 개발</span>
+            <h1 className="text-4xl md:text-5xl font-black text-foreground leading-tight mb-6 max-w-2xl">
+              엑셀로 더 이상<br />
+              <span className="text-destructive">버틸 수 없는 순간</span>이 있습니다
+            </h1>
+            <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-xl">
+              직원 10명이 같은 파일을 열었다가 덮어쓰고,<br />
+              "앱으로 만들면 좋겠다"고 생각한 지 1년이 넘었다면—<br />
+              지금이 바로 그 순간입니다.
+            </p>
+            <Link href="/contact"
+              className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all text-base">
+              어떤 시스템이 필요한지 무료 상담받기 <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
+          <div className="hidden lg:flex justify-center items-center">
+            <AppDevHeroIllust />
+          </div>
         </div>
       </section>
 
@@ -128,14 +175,19 @@ export default function AppDevPage() {
           <h2 className="text-2xl font-bold text-foreground mb-10">개발 프로세스</h2>
           <div className="space-y-4">
             {steps.map((s, i) => (
-              <div key={i} className="flex gap-6 items-start">
-                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-sm font-black shrink-0">{s.num}</div>
-                <div className="bg-card rounded-xl p-5 flex-1">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="font-bold text-foreground">{s.title}</span>
-                    <span className="bg-primary/10 text-primary text-xs px-2 py-0.5 rounded-full font-medium">{s.duration}</span>
+              <div key={i} className="flex gap-4 items-start">
+                <div className="hidden sm:flex flex-col items-center w-20 shrink-0">
+                  <VisiMascot pose={s.pose} size={76} />
+                </div>
+                <div className="flex gap-4 items-start flex-1">
+                  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-sm font-black shrink-0">{s.num}</div>
+                  <div className="bg-card rounded-xl p-5 flex-1">
+                    <div className="flex items-center gap-3 mb-1">
+                      <span className="font-bold text-foreground">{s.title}</span>
+                      <span className="bg-primary/10 text-primary text-xs px-2 py-0.5 rounded-full font-medium">{s.duration}</span>
+                    </div>
+                    <p className="text-muted-foreground text-sm">{s.desc}</p>
                   </div>
-                  <p className="text-muted-foreground text-sm">{s.desc}</p>
                 </div>
               </div>
             ))}
@@ -198,6 +250,15 @@ export default function AppDevPage() {
       {/* Bottom CTA */}
       <section className="py-24 px-6 text-center" style={{ background: 'linear-gradient(135deg, var(--primary), color-mix(in oklch, var(--primary) 80%, black))' }}>
         <div className="max-w-2xl mx-auto">
+          <div className="flex justify-center mb-6">
+            <div className="relative">
+              <VisiMascot pose="cheering" size={120} />
+              <div className="absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-full bg-white text-gray-900 text-sm font-bold px-4 py-2 rounded-2xl shadow-lg whitespace-nowrap">
+                모바일부터 사내 시스템까지 다 만들어드려요!
+                <span className="absolute left-1/2 -translate-x-1/2 top-full border-8 border-transparent border-t-white" />
+              </div>
+            </div>
+          </div>
           <h2 className="text-3xl md:text-4xl font-black text-primary-foreground mb-4">어떤 시스템이 필요한지, 지금 말씀해주세요</h2>
           <p className="text-primary-foreground/80 text-lg mb-2">아이디어 단계부터 기술 검토를 함께 합니다.</p>
           <p className="text-primary-foreground/60 text-sm mb-8">상담 후 24시간 내에 기술 검토 결과를 드립니다.</p>
