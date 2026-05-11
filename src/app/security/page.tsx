@@ -6,6 +6,7 @@ import UrlAnalysisForm from '@/components/UrlAnalysisForm'
 import { CheckCircle, XCircle, AlertTriangle, CheckSquare, ChevronDown, ChevronUp } from 'lucide-react'
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
+import { VisiMascot } from '@/components/visi/VisiMascot'
 
 // ── Lottie Player ──────────────────────────────────────────────────────────
 function LottiePlayer({ src, width = 200, height = 200, loop = true, className = '' }: {
@@ -174,12 +175,12 @@ const checks = [
 ]
 
 const steps = [
-  { step: '01', title: 'URL 입력' },
-  { step: '02', title: '자동 정밀 스캔' },
-  { step: '03', title: '전문가 검토' },
-  { step: '04', title: '알기 쉬운 결과 이메일' },
-  { step: '05', title: '맞춤 견적 제안' },
-  { step: '06', title: '개선 + 재진단' },
+  { step: '01', title: 'URL 입력', pose: 'typing' as const },
+  { step: '02', title: '자동 정밀 스캔', pose: 'magnify' as const },
+  { step: '03', title: '전문가 검토', pose: 'thinking' as const },
+  { step: '04', title: '알기 쉬운 결과 이메일', pose: 'writing' as const },
+  { step: '05', title: '맞춤 견적 제안', pose: 'pointing' as const },
+  { step: '06', title: '개선 + 재진단', pose: 'cheering' as const },
 ]
 
 const siteTypes = [
@@ -219,6 +220,43 @@ const securityPricing = [
   { name: '심층 보안 강화', price: '200만원~', items: ['전체 코드 취약점 스캔', 'WAF 설치', '24시간 모니터링 설정'], highlight: false },
 ]
 
+// ── SecurityHeroIllust ─────────────────────────────────────────────────────
+function SecurityHeroIllust() {
+  return (
+    <div className="flex items-end gap-2 justify-center">
+      <svg viewBox="0 0 260 290" width="250" height="275" xmlns="http://www.w3.org/2000/svg">
+        {/* Outer glow ring */}
+        <circle cx="130" cy="135" r="115" fill="none" stroke="#8B5CF6" strokeWidth="1" opacity="0.12" strokeDasharray="6,6"/>
+        {/* Shield body */}
+        <path d="M130 25 L215 65 L215 152 C215 202 172 234 130 252 C88 234 45 202 45 152 L45 65 Z" fill="#16102a" stroke="#8B5CF6" strokeWidth="2.5"/>
+        {/* Shield inner line */}
+        <path d="M130 42 L202 78 L202 152 C202 196 164 224 130 239 C96 224 58 196 58 152 L58 78 Z" fill="none" stroke="#8B5CF6" strokeWidth="1" opacity="0.25"/>
+        {/* Scan lines */}
+        <line x1="48" y1="105" x2="212" y2="105" stroke="#8B5CF6" strokeWidth="1" strokeDasharray="4,5" opacity="0.28"/>
+        <line x1="48" y1="165" x2="212" y2="165" stroke="#8B5CF6" strokeWidth="1" strokeDasharray="4,5" opacity="0.28"/>
+        {/* Lock body */}
+        <rect x="108" y="140" width="44" height="38" rx="8" fill="#8B5CF6"/>
+        {/* Lock shackle */}
+        <path d="M115 140 L115 123 A15 15 0 0 1 145 123 L145 140" fill="none" stroke="#8B5CF6" strokeWidth="7" strokeLinecap="round"/>
+        <path d="M121 140 L121 126 A9 9 0 0 1 139 126 L139 140" fill="none" stroke="#16102a" strokeWidth="4" strokeLinecap="round"/>
+        {/* Keyhole */}
+        <circle cx="130" cy="156" r="6" fill="#16102a"/>
+        <rect x="127" y="159" width="6" height="9" rx="2" fill="#16102a"/>
+        {/* Warning badge top-right */}
+        <circle cx="208" cy="58" r="22" fill="#ef4444" opacity="0.95"/>
+        <text x="208" y="66" textAnchor="middle" fill="white" fontSize="22" fontWeight="bold" fontFamily="sans-serif">!</text>
+        {/* Check badge bottom-left */}
+        <circle cx="52" cy="215" r="22" fill="#22c55e" opacity="0.9"/>
+        <text x="52" y="223" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold" fontFamily="sans-serif">✓</text>
+        {/* Amber dot */}
+        <circle cx="192" cy="210" r="6" fill="#fbbf24" opacity="0.85"/>
+        <circle cx="208" cy="226" r="4" fill="#fbbf24" opacity="0.5"/>
+      </svg>
+      <VisiMascot pose="magnify" size={92} />
+    </div>
+  )
+}
+
 // ── Page ───────────────────────────────────────────────────────────────────
 export default function SecurityPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
@@ -228,52 +266,59 @@ export default function SecurityPage() {
 
       {/* ── Hero ── */}
       <section
-        className="min-h-screen flex flex-col items-center justify-center px-6 lg:px-12 text-center relative overflow-hidden"
+        className="min-h-screen flex flex-col items-center justify-center px-6 lg:px-12 relative overflow-hidden"
         style={{
           background: 'radial-gradient(ellipse at 50% -10%, color-mix(in oklch, var(--destructive) 18%, transparent) 0%, transparent 65%)',
         }}
       >
-        {/* 얼럿 배지 — SSR 무관하게 항상 visible (스모크 테스트 키워드) */}
-        <span className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-bold px-4 py-1.5 rounded-full mb-6">
-          <span className="w-1.5 h-1.5 rounded-full bg-red-400 inline-block" />
-          지금 이 순간도 해킹 시도 중
-        </span>
-
-        <motion.div
-          className="max-w-4xl mx-auto flex flex-col items-center gap-6"
-          variants={staggerSlow}
-          initial="hidden"
-          animate="visible"
-        >
-          {/* Lottie 최상단 — 240px */}
-          <motion.div variants={fadeInUp}>
-            <LottiePlayer src="/lottie/shield.json" width={240} height={240} />
-          </motion.div>
-
-          {/* H1: 2줄 */}
-          <motion.h1
-            variants={fadeInUp}
-            className="text-5xl md:text-7xl lg:text-8xl font-black text-foreground leading-tight"
-          >
-            지금 내 사이트,<br />
-            <span className="text-red-400">털리고 있지 않나요?</span>
-          </motion.h1>
-
-          {/* P: 1줄 */}
-          <motion.p variants={fadeInUp} className="text-muted-foreground text-lg">
-            국내 중소기업 73%가 지금 해킹에 노출되어 있습니다.
-          </motion.p>
-
-          {/* CTA 버튼 1개 */}
-          <motion.div variants={fadeInUp}>
-            <a
-              href="#cta-form"
-              className="inline-block bg-primary text-primary-foreground text-base font-bold px-9 py-3.5 rounded-xl hover:opacity-85 transition-opacity"
+        <div className="max-w-[1100px] mx-auto w-full">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            {/* Left: text */}
+            <motion.div
+              className="flex flex-col gap-6"
+              variants={staggerSlow}
+              initial="hidden"
+              animate="visible"
             >
-              무료로 내 사이트 확인하기 →
-            </a>
-          </motion.div>
-        </motion.div>
+              {/* 얼럿 배지 — SSR 무관하게 항상 visible (스모크 테스트 키워드) */}
+              <motion.span variants={fadeInUp} className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-bold px-4 py-1.5 rounded-full w-fit">
+                <span className="w-1.5 h-1.5 rounded-full bg-red-400 inline-block" />
+                지금 이 순간도 해킹 시도 중
+              </motion.span>
+
+              <motion.h1
+                variants={fadeInUp}
+                className="text-5xl md:text-6xl lg:text-7xl font-black text-foreground leading-tight"
+              >
+                지금 내 사이트,<br />
+                <span className="text-red-400">털리고 있지 않나요?</span>
+              </motion.h1>
+
+              <motion.p variants={fadeInUp} className="text-muted-foreground text-lg">
+                국내 중소기업 73%가 지금 해킹에 노출되어 있습니다.
+              </motion.p>
+
+              <motion.div variants={fadeInUp}>
+                <a
+                  href="#cta-form"
+                  className="inline-block bg-primary text-primary-foreground text-base font-bold px-9 py-3.5 rounded-xl hover:opacity-85 transition-opacity"
+                >
+                  무료로 내 사이트 확인하기 →
+                </a>
+              </motion.div>
+            </motion.div>
+
+            {/* Right: illustration */}
+            <motion.div
+              variants={fadeInUp}
+              initial="hidden"
+              animate="visible"
+              className="flex justify-center"
+            >
+              <SecurityHeroIllust />
+            </motion.div>
+          </div>
+        </div>
       </section>
 
       {/* ── 공감 체크리스트 (신규) ── */}
@@ -478,8 +523,11 @@ export default function SecurityPage() {
                     <div className="w-0.5 h-8 bg-primary/20 my-1" />
                   )}
                 </div>
-                <div className="pt-2 pb-6">
-                  <h3 className="text-foreground font-bold text-sm">{s.title}</h3>
+                <div className="pt-1 pb-6 flex items-center gap-3">
+                  <h3 className="text-foreground font-bold text-sm flex-1">{s.title}</h3>
+                  <div className="shrink-0 hidden sm:block">
+                    <VisiMascot pose={s.pose} size={52} />
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -624,7 +672,7 @@ export default function SecurityPage() {
                 ))}
               </motion.div>
               <motion.div variants={fadeInUp} className="flex justify-center">
-                <LottiePlayer src="/lottie/check.json" width={100} height={100} loop={false} />
+                <VisiMascot pose="cheering" size={120} bubble="보안 걱정은 저한테 맡겨요!" bubbleDir="right" />
               </motion.div>
             </motion.div>
 

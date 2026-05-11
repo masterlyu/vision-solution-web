@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useState } from 'react'
+import { VisiMascot } from '@/components/visi/VisiMascot'
 import { ArrowRight, Check, ChevronDown, MessageCircle, Zap, Shield, Clock, TrendingUp, Code2, Smartphone, Store, Building2, GraduationCap, Heart, ShoppingBag } from 'lucide-react'
 
 // ── 페르소나 검증 결과 반영 ──
@@ -13,6 +14,7 @@ const STEPS = [
     num: '01',
     title: '문의·계약',
     duration: '당일 처리',
+    pose: 'wave' as const,
     desc: '홈페이지 문의 또는 이메일로 연락하시면 당일 안에 계약을 마칩니다.',
     detail: '서비스 설명 → 간단한 계약서 → 완료',
   },
@@ -20,6 +22,7 @@ const STEPS = [
     num: '02',
     title: '토큰 발급',
     duration: '10분 이내',
+    pose: 'typing' as const,
     desc: '계약 즉시 귀사 전용 토큰(코드)을 이메일로 발급해드립니다.',
     detail: '이메일 수신 → 코드 1개 확인',
   },
@@ -27,6 +30,7 @@ const STEPS = [
     num: '03',
     title: '내 홈페이지에 붙이기',
     duration: '5분 이내',
+    pose: 'pointing' as const,
     desc: '받은 코드 2줄을 홈페이지에 붙여넣으면 끝입니다. IT 지식 필요 없습니다.',
     detail: '복사 → 붙여넣기 → 챗봇 live!',
   },
@@ -109,6 +113,50 @@ const FAQS = [
   },
 ]
 
+// ── ChatbotHeroIllust ──────────────────────────────────────────────────────
+function ChatbotHeroIllust() {
+  return (
+    <div className="flex items-end gap-2 justify-center">
+      <svg viewBox="0 0 240 300" width="220" height="275" xmlns="http://www.w3.org/2000/svg">
+        {/* Phone frame */}
+        <rect x="38" y="8" width="164" height="284" rx="26" fill="#16102a" stroke="#8B5CF6" strokeWidth="2.5"/>
+        {/* Screen */}
+        <rect x="48" y="32" width="144" height="244" rx="14" fill="#0d0d16"/>
+        {/* Header bar */}
+        <rect x="48" y="32" width="144" height="34" rx="14" fill="#1a1030"/>
+        {/* Bot avatar */}
+        <circle cx="70" cy="49" r="11" fill="#8B5CF6"/>
+        <text x="70" y="54" textAnchor="middle" fill="white" fontSize="12" fontFamily="sans-serif">V</text>
+        {/* Header text */}
+        <text x="86" y="46" fill="#FFF5E8" fontSize="9.5" fontWeight="bold" fontFamily="sans-serif">VISI 챗봇</text>
+        <text x="86" y="58" fill="#a3a3a3" fontSize="8" fontFamily="sans-serif">온라인</text>
+        {/* Online dot */}
+        <circle cx="166" cy="49" r="5" fill="#22c55e"/>
+        {/* Bot bubble 1 */}
+        <rect x="56" y="76" width="108" height="28" rx="10" fill="#8B5CF6"/>
+        <text x="66" y="95" fill="white" fontSize="9.5" fontFamily="sans-serif">안녕하세요! 무엇을</text>
+        {/* Bot bubble 2 */}
+        <rect x="56" y="110" width="94" height="28" rx="10" fill="#8B5CF6"/>
+        <text x="66" y="129" fill="white" fontSize="9.5" fontFamily="sans-serif">도와드릴까요?</text>
+        {/* User bubble */}
+        <rect x="88" y="148" width="104" height="28" rx="10" fill="#2a1f4a"/>
+        <text x="98" y="167" fill="#e2e8f0" fontSize="9" fontFamily="sans-serif">영업시간 알려주세요</text>
+        {/* Bot reply */}
+        <rect x="56" y="186" width="118" height="42" rx="10" fill="#8B5CF6"/>
+        <text x="66" y="204" fill="white" fontSize="9" fontFamily="sans-serif">평일 09:00 ~ 18:00,</text>
+        <text x="66" y="218" fill="white" fontSize="9" fontFamily="sans-serif">주말도 챗봇이 응대해요!</text>
+        {/* Input bar */}
+        <rect x="56" y="242" width="128" height="24" rx="12" fill="#1a1030" stroke="#8B5CF6" strokeWidth="1" opacity="0.5"/>
+        <text x="68" y="258" fill="#6b7280" fontSize="8.5" fontFamily="sans-serif">메시지를 입력하세요...</text>
+        {/* Send button */}
+        <circle cx="174" cy="254" r="10" fill="#8B5CF6"/>
+        <text x="170" y="258" fill="white" fontSize="10" fontFamily="sans-serif">▶</text>
+      </svg>
+      <VisiMascot pose="wave" size={92} />
+    </div>
+  )
+}
+
 export default function ChatbotPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
@@ -118,31 +166,40 @@ export default function ChatbotPage() {
       {/* ── Hero ── */}
       <section className="pt-28 pb-20 px-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-background pointer-events-none" />
-        <div className="max-w-4xl mx-auto text-center relative">
-          <span className="inline-flex items-center gap-2 bg-primary/15 border border-primary/30 text-primary text-xs font-bold px-4 py-1.5 rounded-full mb-6">
-            <Zap className="w-3.5 h-3.5" />
-            코드 2줄 · 5분 설치 · 24시간 응대
-          </span>
-          <h1 className="text-4xl md:text-6xl font-black text-foreground leading-tight mb-6">
-            직원 월급의 <span className="text-primary">1/10 비용</span>으로<br />
-            24시간 고객 응대
-          </h1>
-          <p className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-4 max-w-2xl mx-auto">
-            자는 동안에도, 주말에도, 새벽에도—<br />
-            AI 챗봇이 고객 문의를 대신 받습니다.<br className="hidden md:block" />
-            <strong className="text-foreground">홈페이지에 코드 2줄만 붙이면 내일부터 바로 시작됩니다.</strong>
-          </p>
-          <p className="text-muted-foreground text-sm mb-10">IT 지식 전혀 필요 없음 · 설치 대행 가능 · 월 단위 구독, 언제든 해지</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-8 py-4 rounded-xl transition-all text-base">
-              무료 상담 신청 <ArrowRight className="w-5 h-5" />
-            </Link>
-            <a href="#demo"
-              className="inline-flex items-center justify-center gap-2 border border-foreground/20 hover:border-primary/50 text-foreground/70 hover:text-foreground font-medium px-8 py-4 rounded-xl transition-all text-base">
-              <MessageCircle className="w-5 h-5" />
-              챗봇 직접 체험하기 ↓
-            </a>
+        <div className="max-w-[1100px] mx-auto relative">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            {/* Left: text */}
+            <div className="flex flex-col gap-5">
+              <span className="inline-flex items-center gap-2 bg-primary/15 border border-primary/30 text-primary text-xs font-bold px-4 py-1.5 rounded-full w-fit">
+                <Zap className="w-3.5 h-3.5" />
+                코드 2줄 · 5분 설치 · 24시간 응대
+              </span>
+              <h1 className="text-4xl md:text-5xl font-black text-foreground leading-tight">
+                직원 월급의 <span className="text-primary">1/10 비용</span>으로<br />
+                24시간 고객 응대
+              </h1>
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                자는 동안에도, 주말에도, 새벽에도—<br />
+                AI 챗봇이 고객 문의를 대신 받습니다.<br />
+                <strong className="text-foreground">코드 2줄만 붙이면 내일부터 바로 시작됩니다.</strong>
+              </p>
+              <p className="text-muted-foreground text-sm">IT 지식 전혀 필요 없음 · 설치 대행 가능 · 월 단위 구독, 언제든 해지</p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/contact"
+                  className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-8 py-4 rounded-xl transition-all text-base">
+                  무료 상담 신청 <ArrowRight className="w-5 h-5" />
+                </Link>
+                <a href="#demo"
+                  className="inline-flex items-center justify-center gap-2 border border-foreground/20 hover:border-primary/50 text-foreground/70 hover:text-foreground font-medium px-8 py-4 rounded-xl transition-all text-base">
+                  <MessageCircle className="w-5 h-5" />
+                  챗봇 직접 체험하기 ↓
+                </a>
+              </div>
+            </div>
+            {/* Right: illustration */}
+            <div className="flex justify-center">
+              <ChatbotHeroIllust />
+            </div>
           </div>
         </div>
       </section>
@@ -175,9 +232,12 @@ export default function ChatbotPage() {
                 {i < STEPS.length - 1 && (
                   <div className="hidden md:block absolute top-10 -right-3 w-6 h-px bg-primary/40 z-10" />
                 )}
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="w-10 h-10 rounded-full bg-primary/20 text-primary font-black text-sm flex items-center justify-center">{s.num}</span>
-                  <span className="text-xs font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full">{s.duration}</span>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <span className="w-10 h-10 rounded-full bg-primary/20 text-primary font-black text-sm flex items-center justify-center">{s.num}</span>
+                    <span className="text-xs font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full">{s.duration}</span>
+                  </div>
+                  <VisiMascot pose={s.pose} size={58} />
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-2">{s.title}</h3>
                 <p className="text-sm text-muted-foreground mb-3">{s.desc}</p>
@@ -361,6 +421,9 @@ export default function ChatbotPage() {
       {/* ── 최종 CTA ── */}
       <section className="py-24 px-6">
         <div className="max-w-2xl mx-auto text-center">
+          <div className="flex justify-center mb-6">
+            <VisiMascot pose="cheering" size={120} bubble="오늘 문의하면 내일부터 챗봇이 일해요!" bubbleDir="left" />
+          </div>
           <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
             오늘 문의하면<br /><span className="text-primary">내일 챗봇이 일합니다</span>
           </h2>
