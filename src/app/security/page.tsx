@@ -215,9 +215,67 @@ const securityFaqs = [
 ]
 
 const securityPricing = [
-  { name: '기본 보안 설정', price: '30만원~', items: ['자물쇠(HTTPS) 적용', '기본 해킹 차단 설정 6가지', '관리자 주소 변경'], highlight: false },
-  { name: '표준 취약점 개선', price: '80만원~', items: ['기본 설정 전체 포함', '플러그인 업데이트', '권한·계정 설정 강화'], highlight: true },
-  { name: '심층 보안 강화', price: '200만원~', items: ['전체 코드 취약점 스캔', 'WAF 설치', '24시간 모니터링 설정'], highlight: false },
+  {
+    name: '기본 보안 설정',
+    price: '30만원~',
+    highlight: false,
+    badge: null,
+    target: '보안이 전혀 안 된 소규모 홈페이지',
+    reportNote: '무료 자동 진단 리포트로 확인 가능',
+    reportType: 'auto' as const,
+    checkItems: [
+      'HTTPS/SSL 인증서 적용 여부',
+      '보안 헤더 6가지 (HSTS·CSP·X-Frame-Options·X-Content-Type·Referrer·Permissions)',
+      '관리자 페이지(/admin·/wp-admin) 노출 여부',
+    ],
+    fixItems: [
+      'HTTPS 인증서 설치 + 자동 전환 설정',
+      '보안 헤더 6종 서버 적용',
+      '관리자 URL 변경 및 IP 접근 제한',
+    ],
+  },
+  {
+    name: '표준 취약점 개선',
+    price: '80만원~',
+    highlight: true,
+    badge: '추천',
+    target: '워드프레스·그누보드 등 CMS 운영 사이트',
+    reportNote: '전문가 수동 분석 심층 리포트 제공',
+    reportType: 'manual' as const,
+    checkItems: [
+      '기본 보안 설정 6가지 전체 포함',
+      'CMS·플러그인 버전 취약점 스캔',
+      '관리자 계정·권한 설정 점검',
+      '디렉터리 노출·오류 메시지 정보 누출',
+    ],
+    fixItems: [
+      '플러그인·CMS 최신 보안 버전 업데이트',
+      '관리자 계정 분리 및 2단계 인증 설정',
+      '불필요 디렉터리 접근 차단',
+      '오류 페이지 민감정보 노출 차단',
+    ],
+  },
+  {
+    name: '심층 보안 강화',
+    price: '200만원~',
+    highlight: false,
+    badge: '고급',
+    target: '쇼핑몰·고객 개인정보 취급 사이트',
+    reportNote: '전문가 수동 분석 + 코드 리뷰 리포트 제공',
+    reportType: 'manual' as const,
+    checkItems: [
+      '표준 취약점 개선 전체 포함',
+      '소스코드 보안 취약점 전수 분석',
+      'SQL 인젝션·XSS·CSRF 취약점 점검',
+      'API 엔드포인트 노출 및 인증 점검',
+    ],
+    fixItems: [
+      '위험 코드 직접 패치 및 입력 검증 추가',
+      'WAF(웹방화벽) 설치 및 규칙 최적화',
+      '24시간 실시간 모니터링 설정',
+      '분기별 재진단 1회 포함',
+    ],
+  },
 ]
 
 // ── SecurityHeroIllust ─────────────────────────────────────────────────────
@@ -610,7 +668,7 @@ export default function SecurityPage() {
         </div>
       </section>
 
-      {/* ── 가격 안내 (신규) ── */}
+      {/* ── 가격 안내 ── */}
       <section className="py-16 px-6 lg:px-12 bg-background">
         <div className="max-w-[1100px] mx-auto">
           <motion.div
@@ -630,21 +688,74 @@ export default function SecurityPage() {
             viewport={{ once: true, margin: '-100px' }}
           >
             {securityPricing.map((p, i) => (
-              <motion.div key={i} variants={fadeInUp} className={`rounded-2xl p-8 border-2 relative ${p.highlight ? 'border-primary bg-primary/5' : 'border-border'}`}>
-                {p.highlight && <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full">추천</span>}
-                <h3 className="text-lg font-bold text-foreground mb-1">{p.name}</h3>
-                <p className={`text-2xl font-black mb-6 ${p.highlight ? 'text-primary' : 'text-muted-foreground'}`}>{p.price}</p>
-                <ul className="space-y-2">
-                  {p.items.map((item, j) => (
-                    <li key={j} className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <span className="text-primary font-bold">✓</span> {item}
-                    </li>
-                  ))}
-                </ul>
+              <motion.div key={i} variants={fadeInUp} className={`rounded-2xl border-2 relative flex flex-col ${p.highlight ? 'border-primary bg-primary/5' : 'border-border bg-card'}`}>
+                {p.badge && (
+                  <span className={`absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-bold px-3 py-1 rounded-full ${p.highlight ? 'bg-primary text-primary-foreground' : 'bg-border text-foreground'}`}>
+                    {p.badge}
+                  </span>
+                )}
+
+                {/* 헤더 */}
+                <div className="p-6 pb-4 border-b border-border/50">
+                  <h3 className="text-lg font-bold text-foreground mb-1">{p.name}</h3>
+                  <p className={`text-2xl font-black mb-3 ${p.highlight ? 'text-primary' : 'text-foreground'}`}>{p.price}</p>
+                  <p className="text-xs text-muted-foreground bg-secondary px-3 py-1.5 rounded-lg inline-block">
+                    🎯 {p.target}
+                  </p>
+                </div>
+
+                {/* 점검 항목 */}
+                <div className="p-6 pb-3 flex-1">
+                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3">점검 항목</p>
+                  <ul className="space-y-2 mb-5">
+                    {p.checkItems.map((item, j) => (
+                      <li key={j} className="flex items-start gap-2 text-sm text-foreground/80">
+                        <span className="text-blue-400 font-bold shrink-0 mt-0.5">🔍</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3">보완 내용</p>
+                  <ul className="space-y-2 mb-5">
+                    {p.fixItems.map((item, j) => (
+                      <li key={j} className="flex items-start gap-2 text-sm text-foreground/80">
+                        <span className="text-green-400 font-bold shrink-0 mt-0.5">✓</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* 리포트 타입 안내 */}
+                  <div className={`rounded-lg px-3 py-2 text-xs mb-4 ${p.reportType === 'auto' ? 'bg-green-500/10 border border-green-500/20 text-green-400' : 'bg-amber-500/10 border border-amber-500/20 text-amber-400'}`}>
+                    {p.reportType === 'auto'
+                      ? '📄 무료 자동 진단 → 즉시 이메일 발송'
+                      : '📋 전문가 수동 분석 → 개별 리포트 발송'}
+                  </div>
+                </div>
+
+                {/* CTA */}
+                <div className="px-6 pb-6">
+                  {p.reportType === 'auto' ? (
+                    <a
+                      href="#cta-form"
+                      className={`block text-center text-sm font-bold py-3 rounded-xl transition-opacity ${p.highlight ? 'bg-primary text-primary-foreground hover:opacity-85' : 'bg-secondary border border-border text-foreground hover:border-primary/40'}`}
+                    >
+                      무료 진단 신청하기 →
+                    </a>
+                  ) : (
+                    <a
+                      href="/contact?service=security"
+                      className={`block text-center text-sm font-bold py-3 rounded-xl transition-opacity ${p.highlight ? 'bg-primary text-primary-foreground hover:opacity-85' : 'bg-secondary border border-border text-foreground hover:border-primary/40'}`}
+                    >
+                      전문가 상담 신청하기 →
+                    </a>
+                  )}
+                </div>
               </motion.div>
             ))}
           </motion.div>
-          <p className="text-muted-foreground text-sm text-center mt-6">진단 결과서 기준으로 정확한 견적을 제공합니다.</p>
+          <p className="text-muted-foreground text-sm text-center mt-6">※ 진단 결과서 기준으로 정확한 견적을 제공합니다. 부가세 별도.</p>
         </div>
       </section>
 
@@ -662,21 +773,49 @@ export default function SecurityPage() {
                 지금 바로 확인하세요.<br />
                 <span className="text-primary">무료입니다.</span>
               </motion.h2>
-              <motion.div variants={stagger} className="space-y-2.5 mb-7">
-                {[
-                  ['💰', '비용 없음'],
-                  ['⏱️', '시간 없음'],
-                  ['🧠', '지식 없음'],
-                  ['😌', '부담 없음'],
-                ].map(([e, t]) => (
-                  <motion.div key={t} variants={fadeInUp} className="flex items-center gap-3.5 bg-card border border-border rounded-xl px-4 py-3.5">
-                    <span className="text-2xl">{e}</span>
-                    <span className="text-foreground font-bold text-sm">{t}</span>
-                  </motion.div>
-                ))}
+
+              {/* 무료 리포트 안내 */}
+              <motion.div variants={fadeInUp} className="bg-card border border-primary/20 rounded-2xl p-5 mb-5">
+                <p className="text-xs font-bold text-primary uppercase tracking-wider mb-3">📄 무료 리포트에 담기는 내용</p>
+                <ul className="space-y-2.5">
+                  {[
+                    ['🔒', 'HTTPS 자물쇠 상태', 'SSL 인증서 유효 여부 + 등급'],
+                    ['🛡️', '보안 헤더 6가지 점검', '해킹·XSS·클릭재킹 차단 설정 확인'],
+                    ['🔍', 'SEO 노출 평가', '구글 신뢰도·검색 노출 영향 분석'],
+                    ['⚡', '페이지 속도 측정', 'Google PageSpeed 기준 성능 등급'],
+                    ['📊', '종합 등급 A~F + 원인 설명', '초보도 이해할 수 있는 쉬운 언어로'],
+                    ['💰', '자동 견적서 포함', '발견된 취약점 기준 예상 수정 비용'],
+                  ].map(([icon, title, desc]) => (
+                    <li key={title} className="flex items-start gap-2.5">
+                      <span className="text-base shrink-0 mt-0.5">{icon}</span>
+                      <div>
+                        <span className="text-foreground font-semibold text-sm">{title}</span>
+                        <span className="text-muted-foreground text-xs ml-2">— {desc}</span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-4 pt-3 border-t border-border/50 text-xs text-muted-foreground">
+                  ✅ URL 입력 후 <strong className="text-foreground">20~40초</strong> 내 자동 분석 완료 →
+                  입력한 이메일로 <strong className="text-foreground">PDF 리포트 즉시 발송</strong>
+                </div>
               </motion.div>
+
+              {/* 표준/심층 안내 */}
+              <motion.div variants={fadeInUp} className="bg-amber-500/5 border border-amber-500/20 rounded-xl px-4 py-3.5 mb-5">
+                <p className="text-amber-400 text-xs font-bold mb-1">📋 표준 · 심층 플랜을 원하신다면?</p>
+                <p className="text-muted-foreground text-xs leading-relaxed">
+                  표준·심층은 전문가가 직접 수동 분석해 개별 리포트를 발송합니다.
+                  아래 버튼으로 상담을 신청하시면 연락드립니다.
+                </p>
+                <a href="/contact?service=security"
+                  className="inline-block mt-2.5 text-xs font-bold text-amber-400 border border-amber-500/30 px-3 py-1.5 rounded-lg hover:bg-amber-500/10 transition-colors">
+                  전문가 보안 상담 신청 →
+                </a>
+              </motion.div>
+
               <motion.div variants={fadeInUp} className="flex justify-center">
-                <VisiMascot pose="cheering" size={120} bubble="보안 걱정은 저한테 맡겨요!" bubbleDir="right" />
+                <VisiMascot pose="cheering" size={110} bubble="보안 걱정은 저한테 맡겨요!" bubbleDir="right" />
               </motion.div>
             </motion.div>
 
@@ -684,7 +823,7 @@ export default function SecurityPage() {
               <UrlAnalysisForm
                 serviceType="security"
                 title="무료 보안 진단 신청"
-                notice="분석 완료 후 전문가 검토를 거쳐 이메일로 결과서를 발송합니다."
+                notice="URL 입력 후 20~40초 내 자동 분석 → 입력한 이메일로 PDF 리포트 즉시 발송"
               />
             </div>
           </div>
