@@ -429,7 +429,7 @@ export function VisiMascot({
     <div className={`relative inline-flex flex-col items-center ${className}`}>
       {bubble && (
         <div
-          className="absolute z-10 bg-white text-gray-900 text-xs font-bold px-3 py-1.5 rounded-xl shadow-lg whitespace-nowrap"
+          className="absolute z-10 bg-card border border-border text-foreground text-xs font-bold px-3 py-1.5 rounded-xl shadow-lg whitespace-nowrap"
           style={{
             top: 0,
             ...(bubbleDir === 'right'

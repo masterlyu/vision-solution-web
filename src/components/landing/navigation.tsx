@@ -148,7 +148,7 @@ export function Navigation() {
 
           <div className="hidden md:flex items-center">
             <Button size="sm" asChild
-              className={`rounded-full transition-all duration-500 ${isScrolled ? 'bg-primary hover:bg-primary/90 text-primary-foreground px-5 h-9 text-xs' : 'bg-white hover:bg-white/90 text-black px-6 h-10'}`}>
+              className={`rounded-full transition-all duration-500 ${isScrolled ? 'bg-primary hover:bg-primary/90 text-primary-foreground px-5 h-9 text-xs' : 'bg-primary hover:bg-primary/90 text-primary-foreground px-6 h-10'}`}>
               <Link href="/contact">무료 진단</Link>
             </Button>
           </div>
