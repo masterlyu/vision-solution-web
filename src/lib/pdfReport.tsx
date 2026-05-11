@@ -1,13 +1,15 @@
 import React from 'react'
+import path from 'path'
 import { Document, Page, Text, View, StyleSheet, Font, renderToBuffer } from '@react-pdf/renderer'
 import type { AnalysisResult } from './siteAnalyzer'
 
-// NotoSansKR from jsDelivr — supports Korean
+// 로컬 TTF 사용 — woff2 Korean subset은 숫자·영문 렌더링 불가
+const fontPath = path.join(process.cwd(), 'public/fonts/NotoSansKR-Regular.ttf')
 Font.register({
   family: 'NotoKR',
   fonts: [
-    { src: 'https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-kr@5/files/noto-sans-kr-korean-400-normal.woff2', fontWeight: 400 },
-    { src: 'https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-kr@5/files/noto-sans-kr-korean-700-normal.woff2', fontWeight: 700 },
+    { src: fontPath, fontWeight: 400 },
+    { src: fontPath, fontWeight: 700 },
   ],
 })
 
@@ -22,36 +24,36 @@ const C = {
   amber: '#F59E0B',
   green: '#22C55E',
   blue: '#3B82F6',
+  orange: '#f97316',
 }
 
 const s = StyleSheet.create({
-  page:       { fontFamily: 'NotoKR', backgroundColor: C.bg, paddingHorizontal: 44, paddingVertical: 40, fontSize: 9, color: C.text },
-  header:     { borderBottom: `2px solid ${C.primary}`, paddingBottom: 14, marginBottom: 20, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end' },
-  brand:      { fontSize: 18, fontWeight: 700, color: C.primary },
-  brandSub:   { fontSize: 8, color: C.muted, marginTop: 2 },
-  gradeBox:   { alignItems: 'center' },
-  grade:      { fontSize: 36, fontWeight: 700 },
-  gradeLabel: { fontSize: 7, color: C.muted },
-  section:    { marginBottom: 18 },
+  page:         { fontFamily: 'NotoKR', backgroundColor: C.bg, paddingHorizontal: 44, paddingVertical: 40, fontSize: 9, color: C.text },
+  header:       { borderBottom: `2px solid ${C.primary}`, paddingBottom: 14, marginBottom: 20, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end' },
+  brand:        { fontSize: 18, fontWeight: 700, color: C.primary },
+  brandSub:     { fontSize: 8, color: C.muted, marginTop: 2 },
+  gradeBox:     { alignItems: 'center' },
+  grade:        { fontSize: 36, fontWeight: 700 },
+  gradeLabel:   { fontSize: 7, color: C.muted },
+  section:      { marginBottom: 18 },
   sectionTitle: { fontSize: 11, fontWeight: 700, color: C.primary, borderBottom: `1px solid ${C.border}`, paddingBottom: 5, marginBottom: 10 },
-  row:        { flexDirection: 'row', gap: 8, marginBottom: 8 },
-  scoreCard:  { flex: 1, backgroundColor: C.surface, borderRadius: 6, padding: 10, alignItems: 'center', border: `1px solid ${C.border}` },
-  scoreNum:   { fontSize: 22, fontWeight: 700, marginTop: 2 },
-  scoreLbl:   { fontSize: 7, color: C.muted, marginTop: 1 },
-  chip:       { fontSize: 7, paddingHorizontal: 6, paddingVertical: 2, borderRadius: 10, fontWeight: 700, marginLeft: 6 },
-  tableHeader: { flexDirection: 'row', backgroundColor: C.surface, borderRadius: 4, padding: '6 8', marginBottom: 4 },
-  tableRow:   { flexDirection: 'row', borderBottom: `1px solid ${C.border}`, padding: '5 8' },
-  col1:       { flex: 2 },
-  col2:       { flex: 1, textAlign: 'center' },
-  col3:       { flex: 3 },
-  footer:     { borderTop: `1px solid ${C.border}`, paddingTop: 10, marginTop: 20, flexDirection: 'row', justifyContent: 'space-between' },
-  footerTxt:  { fontSize: 7, color: C.muted },
+  row:          { flexDirection: 'row', gap: 8, marginBottom: 8 },
+  scoreCard:    { flex: 1, backgroundColor: C.surface, borderRadius: 6, padding: 10, alignItems: 'center', border: `1px solid ${C.border}` },
+  scoreNum:     { fontSize: 22, fontWeight: 700, marginTop: 2 },
+  scoreLbl:     { fontSize: 7, color: C.muted, marginTop: 1 },
+  tableHeader:  { flexDirection: 'row', backgroundColor: C.surface, borderRadius: 4, padding: '6 8', marginBottom: 4 },
+  tableRow:     { flexDirection: 'row', borderBottom: `1px solid ${C.border}`, padding: '5 8' },
+  col1:         { flex: 2 },
+  col2:         { flex: 1, textAlign: 'center' },
+  col3:         { flex: 3 },
+  alertBox:     { borderRadius: 4, padding: '6 8', marginBottom: 6, flexDirection: 'row', alignItems: 'flex-start', gap: 6 },
+  footer:       { borderTop: `1px solid ${C.border}`, paddingTop: 10, marginTop: 20, flexDirection: 'row', justifyContent: 'space-between' },
+  footerTxt:    { fontSize: 7, color: C.muted },
 })
 
 function gradeColor(g: string) {
-  return { A: C.green, B: '#84cc16', C: C.amber, D: '#f97316', F: C.red }[g] ?? C.text
+  return { A: C.green, B: '#84cc16', C: C.amber, D: C.orange, F: C.red }[g] ?? C.text
 }
-
 function severityColor(sev: string) {
   return { HIGH: C.red, MEDIUM: C.amber, LOW: C.blue }[sev] ?? C.muted
 }
@@ -60,7 +62,7 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
   <Document title={`VISIONC 보안 진단 리포트 — ${r.url}`} author="VISIONC">
     <Page size="A4" style={s.page}>
 
-      {/* Header */}
+      {/* ── 헤더 ── */}
       <View style={s.header}>
         <View>
           <Text style={s.brand}>VISIONC</Text>
@@ -80,7 +82,26 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
         </View>
       </View>
 
-      {/* Scores */}
+      {/* ── 악성코드·블랙리스트 경고 (발견 시만) ── */}
+      {r.malware.available && (r.malware.blacklisted || r.malware.malwareFound) && (
+        <View style={[s.section, { backgroundColor: '#fef2f2', border: `1px solid ${C.red}30`, borderRadius: 6, padding: '10 12' }]}>
+          <Text style={{ fontSize: 10, fontWeight: 700, color: C.red, marginBottom: 6 }}>
+            ⚠ 긴급 위험 탐지 — 즉시 조치 필요
+          </Text>
+          {r.malware.blacklisted && (
+            <Text style={{ fontSize: 8, color: C.text, marginBottom: 4 }}>
+              블랙리스트 등재: {r.malware.blacklistItems.join(', ')}
+            </Text>
+          )}
+          {r.malware.malwareFound && (
+            <Text style={{ fontSize: 8, color: C.text }}>
+              악성코드 유형: {r.malware.malwareTypes.join(', ')}
+            </Text>
+          )}
+        </View>
+      )}
+
+      {/* ── 영역별 점수 ── */}
       <View style={s.section}>
         <Text style={s.sectionTitle}>영역별 점수</Text>
         <View style={s.row}>
@@ -109,7 +130,72 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
         </View>
       </View>
 
-      {/* Security Headers */}
+      {/* ── 악성코드·블랙리스트 진단 ── */}
+      <View style={s.section}>
+        <Text style={s.sectionTitle}>악성코드 및 블랙리스트 진단</Text>
+        {!r.malware.available ? (
+          <View style={[s.alertBox, { backgroundColor: '#f9fafb', border: `1px solid ${C.border}` }]}>
+            <Text style={{ fontSize: 8, color: C.muted }}>Sucuri 악성코드 탐지 서비스 응답 없음 — 수동 확인 권장</Text>
+          </View>
+        ) : r.malware.clean ? (
+          <View style={[s.alertBox, { backgroundColor: '#f0fdf4', border: `1px solid ${C.green}40` }]}>
+            <Text style={{ fontSize: 8, color: C.green, fontWeight: 700 }}>✓ 정상</Text>
+            <Text style={{ fontSize: 8, color: C.muted, marginLeft: 4 }}>악성코드 미탐지 · 블랙리스트 미등재 (Sucuri SiteCheck)</Text>
+          </View>
+        ) : (
+          <View>
+            {r.malware.blacklisted && (
+              <View style={[s.alertBox, { backgroundColor: '#fef2f2', border: `1px solid ${C.red}40` }]}>
+                <Text style={{ fontSize: 8, color: C.red, fontWeight: 700 }}>✗ 블랙리스트 등재:</Text>
+                <Text style={{ fontSize: 8, color: C.text, marginLeft: 4 }}>{r.malware.blacklistItems.join(', ')}</Text>
+              </View>
+            )}
+            {r.malware.malwareFound && (
+              <View style={[s.alertBox, { backgroundColor: '#fef2f2', border: `1px solid ${C.red}40` }]}>
+                <Text style={{ fontSize: 8, color: C.red, fontWeight: 700 }}>✗ 악성코드 발견:</Text>
+                <Text style={{ fontSize: 8, color: C.text, marginLeft: 4 }}>{r.malware.malwareTypes.join(', ')}</Text>
+              </View>
+            )}
+          </View>
+        )}
+      </View>
+
+      {/* ── CMS·서버 정보 ── */}
+      <View style={s.section}>
+        <Text style={s.sectionTitle}>CMS 및 서버 정보 점검</Text>
+        <View style={{ flexDirection: 'row', gap: 8, marginBottom: 8 }}>
+          <View style={[s.scoreCard, { flex: 1, alignItems: 'flex-start' }]}>
+            <Text style={[s.scoreLbl, { marginBottom: 3 }]}>탐지된 CMS</Text>
+            <Text style={{ fontSize: 9, fontWeight: 700, color: r.cms.detected ? C.primary : C.muted }}>
+              {r.cms.detected ?? '탐지 안 됨'}
+              {r.cms.version ? ` ${r.cms.version}` : ''}
+            </Text>
+          </View>
+          <View style={[s.scoreCard, { flex: 1, alignItems: 'flex-start' }]}>
+            <Text style={[s.scoreLbl, { marginBottom: 3 }]}>정보 노출</Text>
+            <Text style={{ fontSize: 9, fontWeight: 700, color: r.cms.infoLeaks.length > 0 ? C.red : C.green }}>
+              {r.cms.infoLeaks.length > 0 ? `${r.cms.infoLeaks.length}건 노출` : '노출 없음'}
+            </Text>
+          </View>
+        </View>
+        {r.cms.infoLeaks.length > 0 && (
+          <View>
+            {r.cms.infoLeaks.map((leak, i) => (
+              <View key={i} style={[s.alertBox, { backgroundColor: '#fffbeb', border: `1px solid ${C.amber}30` }]}>
+                <Text style={{ fontSize: 8, color: C.amber, fontWeight: 700 }}>⚠</Text>
+                <Text style={{ fontSize: 8, color: C.text, marginLeft: 4 }}>{leak}</Text>
+              </View>
+            ))}
+            <View style={{ backgroundColor: '#f9fafb', border: `1px solid ${C.border}`, borderRadius: 4, padding: '5 8', marginTop: 4 }}>
+              <Text style={{ fontSize: 7, color: C.muted }}>
+                서버·CMS 버전 노출 시 해커가 알려진 취약점(CVE)을 바로 공격할 수 있습니다. Server 헤더 숨김 처리를 권장합니다.
+              </Text>
+            </View>
+          </View>
+        )}
+      </View>
+
+      {/* ── 보안 헤더 ── */}
       <View style={s.section}>
         <Text style={s.sectionTitle}>보안 헤더 점검</Text>
         <View style={s.tableHeader}>
@@ -134,7 +220,7 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
         ))}
       </View>
 
-      {/* SEO */}
+      {/* ── SEO ── */}
       {r.seo.issues.length > 0 && (
         <View style={s.section}>
           <Text style={s.sectionTitle}>SEO 점검 결과</Text>
@@ -152,7 +238,7 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
         </View>
       )}
 
-      {/* Performance */}
+      {/* ── 성능 ── */}
       {r.performance.available && (
         <View style={s.section}>
           <Text style={s.sectionTitle}>성능 측정 (Google PageSpeed Insights)</Text>
@@ -179,7 +265,7 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
         </View>
       )}
 
-      {/* Estimate */}
+      {/* ── 견적 ── */}
       <View style={s.section}>
         <Text style={s.sectionTitle}>수정 견적서 (예상)</Text>
         <View style={s.tableHeader}>
@@ -199,17 +285,16 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
         </View>
       </View>
 
-      {/* ZAP Scan Results */}
+      {/* ── ZAP 스캔 ── */}
       {r.zap && r.zap.alerts.length > 0 && (
         <View style={s.section}>
           <Text style={s.sectionTitle}>OWASP ZAP 취약점 스캔 결과</Text>
-          {/* Summary cards */}
           <View style={[s.row, { marginBottom: 10 }]}>
             {[
-              { label: 'ZAP 점수',     val: `${r.zap.zapScore}점`, color: r.zap.zapScore >= 80 ? C.green : r.zap.zapScore >= 60 ? C.amber : C.red },
-              { label: 'High 위험',    val: String(r.zap.summary.high),    color: r.zap.summary.high    > 0 ? C.red   : C.green },
-              { label: 'Medium 위험',  val: String(r.zap.summary.medium),  color: r.zap.summary.medium  > 0 ? C.amber : C.green },
-              { label: 'Low 위험',     val: String(r.zap.summary.low),     color: r.zap.summary.low     > 0 ? C.blue  : C.green },
+              { label: 'ZAP 점수',    val: `${r.zap.zapScore}점`, color: r.zap.zapScore >= 80 ? C.green : r.zap.zapScore >= 60 ? C.amber : C.red },
+              { label: 'High 위험',   val: String(r.zap.summary.high),   color: r.zap.summary.high   > 0 ? C.red   : C.green },
+              { label: 'Medium 위험', val: String(r.zap.summary.medium), color: r.zap.summary.medium > 0 ? C.amber : C.green },
+              { label: 'Low 위험',    val: String(r.zap.summary.low),    color: r.zap.summary.low    > 0 ? C.blue  : C.green },
             ].map(card => (
               <View key={card.label} style={s.scoreCard}>
                 <Text style={s.scoreLbl}>{card.label}</Text>
@@ -217,37 +302,31 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
               </View>
             ))}
           </View>
-          {/* Alert list (최대 8개) */}
           <View style={s.tableHeader}>
             <Text style={[{ flex: 2, fontWeight: 700, fontSize: 8 }]}>항목</Text>
             <Text style={[{ flex: 1, fontWeight: 700, fontSize: 8 }]}>위험도</Text>
             <Text style={[{ flex: 3, fontWeight: 700, fontSize: 8 }]}>설명</Text>
           </View>
-          {r.zap.alerts.slice(0, 8).map((alert, i) => (
+          {r.zap.alerts.slice(0, 6).map((alert, i) => (
             <View key={i} style={s.tableRow}>
               <Text style={{ flex: 2, fontSize: 8, fontWeight: 700 }}>{alert.name}</Text>
               <Text style={{ flex: 1, fontSize: 8, color: severityColor(alert.riskdesc), fontWeight: 700 }}>
                 {alert.riskdesc}
               </Text>
               <Text style={{ flex: 3, fontSize: 7, color: C.muted, lineHeight: 1.4 }}>
-                {alert.description.slice(0, 120)}{alert.description.length > 120 ? '…' : ''}
+                {alert.description.slice(0, 100)}{alert.description.length > 100 ? '…' : ''}
               </Text>
             </View>
           ))}
-          {r.zap.alerts.length > 8 && (
+          {r.zap.alerts.length > 6 && (
             <Text style={{ fontSize: 7, color: C.muted, marginTop: 4 }}>
-              외 {r.zap.alerts.length - 8}개 항목 — 전문가 상담 시 전체 리포트 제공
+              외 {r.zap.alerts.length - 6}개 항목 — 전문가 상담 시 전체 리포트 제공
             </Text>
           )}
-          <View style={{ backgroundColor: '#fef9f0', border: `1px solid ${C.amber}30`, borderRadius: 4, padding: '5 8', marginTop: 6 }}>
-            <Text style={{ fontSize: 7, color: C.muted }}>
-              ※ 헤더 기반 자동 추론 결과입니다. 정밀 진단(Full OWASP ZAP 스캔)은 심화 진단 서비스에서 제공합니다.
-            </Text>
-          </View>
         </View>
       )}
 
-      {/* Footer */}
+      {/* ── 푸터 ── */}
       <View style={s.footer}>
         <Text style={s.footerTxt}>VISIONC — visionc.co.kr</Text>
         <Text style={s.footerTxt}>biztalktome@gmail.com</Text>

@@ -166,12 +166,14 @@ const dangerCaseBg: Record<string, string> = {
 }
 
 const checks = [
-  { lottie: '/lottie/lock.json',  sub: 'SSL/HTTPS',         title: '자물쇠가 잠겼나요?' },
-  { icon: '🛡️',                  sub: '기본 보안 설정 6가지', title: '창문이 열려 있나요?' },
-  { lottie: '/lottie/scan.json',  sub: '정보 노출 점검',     title: '해커가 정찰 중인가요?' },
-  { icon: '🔑',                   sub: '관리자 접근 보안',   title: '뒷문이 열려 있나요?' },
-  { lottie: '/lottie/alert.json', sub: 'SEO·신뢰도',         title: '구글이 경고하나요?' },
-  { lottie: '/lottie/check.json', sub: '속도·성능',           title: '3초 안에 열리나요?' },
+  { lottie: '/lottie/lock.json',  sub: 'SSL/HTTPS',              title: '자물쇠가 잠겼나요?' },
+  { icon: '🛡️',                  sub: '보안 헤더 6가지',          title: '해킹 차단막이 있나요?' },
+  { icon: '🦠',                   sub: '악성코드 탐지',            title: '바이러스가 숨어 있나요?' },
+  { icon: '🚫',                   sub: '구글·보안기관 블랙리스트', title: '검색에서 차단됐나요?' },
+  { lottie: '/lottie/scan.json',  sub: 'CMS·서버 버전 노출',      title: '해커에게 힌트 주고 있나요?' },
+  { icon: '🔑',                   sub: '관리자 접근 보안',         title: '뒷문이 열려 있나요?' },
+  { lottie: '/lottie/alert.json', sub: 'SEO·신뢰도',              title: '구글이 경고하나요?' },
+  { lottie: '/lottie/check.json', sub: '속도·성능',               title: '3초 안에 열리나요?' },
 ]
 
 const steps = [
@@ -207,7 +209,7 @@ const securityFaqs = [
   { q: '진단이 진짜 무료인가요? 나중에 비용이 청구되지 않나요?', a: '보안 진단 결과서는 완전 무료입니다. 결과를 받은 후 취약점 개선 작업을 의뢰하실지는 전적으로 선택이며, 강요하지 않습니다.' },
   { q: 'URL만 입력하면 되나요? 관리자 계정이나 서버 접근이 필요한가요?', a: '밖에서 볼 수 있는 공개된 보안 요소만 분석합니다. 관리자 계정, 비밀번호, 서버 접근 정보는 전혀 필요하지 않습니다.' },
   { q: '진단 중에 사이트가 느려지거나 오류가 생기지 않나요?', a: '사이트 운영에 전혀 영향을 주지 않는 방식으로 분석합니다. 방문자도 아무것도 느끼지 못합니다.' },
-  { q: '결과 보고서에는 어떤 내용이 담기나요?', a: '① 자물쇠(HTTPS) 상태 ② 기본 해킹 차단 설정 6가지 ③ 개인정보 노출 여부 ④ 관리자 접근 보안 ⑤ 구글 신뢰도 영향 ⑥ 페이지 속도 — 이 6가지 항목에 대한 등급과 개선 방법이 포함됩니다.' },
+  { q: '결과 보고서에는 어떤 내용이 담기나요?', a: '① HTTPS/자물쇠 상태 ② 보안 헤더 6가지 점검 ③ 악성코드 탐지 (Sucuri 연동) ④ 구글·노턴 등 블랙리스트 등재 여부 ⑤ CMS·서버 버전 정보 노출 여부 ⑥ SEO 노출도 ⑦ Google PageSpeed 성능 점수 — 이 7가지 항목의 등급과 개선 방법이 PDF로 발송됩니다.' },
   { q: '결과를 받고 나서 어떻게 해야 하나요?', a: '항목별 우선순위와 직접 조치 방법이 함께 제공됩니다. 직접 수정이 어렵다면 개선 작업을 의뢰할 수 있으며, 별도 견적을 드립니다.' },
   { q: 'WordPress가 아닌 사이트도 진단되나요?', a: '네. WordPress, Cafe24, 자체 개발 사이트 등 플랫폼에 관계없이 URL 기반으로 분석합니다.' },
   { q: '이미 보안이 잘 되어 있는 사이트도 진단하면 의미가 있나요?', a: '네. 진단 결과 "이상 없음"이 나오면 그것 자체가 증거입니다. 결과서를 고객 신뢰 자료로 활용하는 분들도 있습니다.' },
@@ -497,7 +499,7 @@ export default function SecurityPage() {
           </motion.h2>
 
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-3 gap-4"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4"
             variants={stagger}
             initial="hidden"
             whileInView="visible"
@@ -781,9 +783,11 @@ export default function SecurityPage() {
                   {[
                     ['🔒', 'HTTPS 자물쇠 상태', 'SSL 인증서 유효 여부 + 등급'],
                     ['🛡️', '보안 헤더 6가지 점검', '해킹·XSS·클릭재킹 차단 설정 확인'],
+                    ['🦠', '악성코드 탐지', '전 세계 보안 DB(Sucuri) 연동 스캔'],
+                    ['🚫', '구글·보안기관 블랙리스트', '검색 차단·경고 등재 여부 확인'],
+                    ['🖥️', 'CMS·서버 버전 노출', '워드프레스 등 버전 정보 유출 점검'],
                     ['🔍', 'SEO 노출 평가', '구글 신뢰도·검색 노출 영향 분석'],
                     ['⚡', '페이지 속도 측정', 'Google PageSpeed 기준 성능 등급'],
-                    ['📊', '종합 등급 A~F + 원인 설명', '초보도 이해할 수 있는 쉬운 언어로'],
                     ['💰', '자동 견적서 포함', '발견된 취약점 기준 예상 수정 비용'],
                   ].map(([icon, title, desc]) => (
                     <li key={title} className="flex items-start gap-2.5">

@@ -17,6 +17,56 @@ export function buildEmailHtml(r: AnalysisResult, email: string, company?: strin
   const gc = gradeColor(r.score.grade)
   const sevColor: Record<string, string> = { HIGH: '#EF4444', MEDIUM: '#F59E0B', LOW: '#3B82F6' }
 
+  // ── 악성코드·블랙리스트 섹션 ──
+  const malwareHtml = (() => {
+    if (!r.malware.available) return `
+      <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:12px 16px;font-size:12px;color:#6b7280;">
+        Sucuri 악성코드 탐지 응답 없음 — 수동 확인을 권장합니다.
+      </div>`
+    if (r.malware.clean) return `
+      <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:10px;">
+        <span style="font-size:20px;">✅</span>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:#15803d;">정상 — 악성코드 미탐지</div>
+          <div style="font-size:11px;color:#6b7280;margin-top:2px;">구글·노턴·맥아피 등 블랙리스트 미등재 (Sucuri SiteCheck)</div>
+        </div>
+      </div>`
+    return `
+      <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:14px 16px;">
+        <div style="font-size:13px;font-weight:700;color:#dc2626;margin-bottom:8px;">⚠ 위험 탐지 — 즉시 조치 필요</div>
+        ${r.malware.blacklisted ? `<div style="font-size:12px;color:#374151;margin-bottom:4px;">🚫 블랙리스트 등재: <strong>${r.malware.blacklistItems.join(', ')}</strong></div>` : ''}
+        ${r.malware.malwareFound ? `<div style="font-size:12px;color:#374151;">🦠 악성코드 유형: <strong>${r.malware.malwareTypes.join(', ')}</strong></div>` : ''}
+      </div>`
+  })()
+
+  // ── CMS·서버 정보 섹션 ──
+  const cmsHtml = (() => {
+    const rows = []
+    if (r.cms.detected) {
+      rows.push(`<div style="font-size:12px;color:#374151;padding:6px 0;border-bottom:1px solid #f0eeff;">
+        <span style="font-weight:600;color:#111827;">탐지된 CMS:</span>
+        <span style="margin-left:8px;">${r.cms.detected}${r.cms.version ? ` <strong>${r.cms.version}</strong>` : ''}</span>
+        ${r.cms.versionExposed ? '<span style="display:inline-block;background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:1px 6px;border-radius:10px;margin-left:6px;">버전 노출</span>' : ''}
+      </div>`)
+    }
+    if (r.cms.infoLeaks.length > 0) {
+      r.cms.infoLeaks.forEach(leak => {
+        rows.push(`<div style="font-size:12px;color:#374151;padding:6px 0;border-bottom:1px solid #f0eeff;">
+          <span style="color:#f59e0b;margin-right:6px;">⚠</span>${leak}
+        </div>`)
+      })
+    }
+    if (rows.length === 0) {
+      return `<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:10px 14px;font-size:12px;color:#15803d;">✓ 서버·CMS 버전 정보 노출 없음</div>`
+    }
+    return `<div style="border:1px solid #ede9fe;border-radius:8px;overflow:hidden;">
+      ${rows.join('')}
+      <div style="background:#fffbeb;padding:8px 12px;font-size:11px;color:#92400e;">
+        서버·CMS 버전 노출 시 해커가 알려진 취약점을 바로 공격할 수 있습니다. 버전 정보 숨김 처리를 권장합니다.
+      </div>
+    </div>`
+  })()
+
   const headerRows = r.headers.map(h => `
     <tr style="border-bottom:1px solid #f0eeff;">
       <td style="padding:8px 12px;font-size:12px;font-weight:600;">${h.label}</td>
@@ -115,6 +165,14 @@ export function buildEmailHtml(r: AnalysisResult, email: string, company?: strin
         </td>
       </tr>
     </table>
+
+    <!-- 악성코드·블랙리스트 -->
+    <h2 style="font-size:15px;font-weight:700;color:#111;margin:0 0 12px;">악성코드 및 블랙리스트 진단</h2>
+    <div style="margin-bottom:32px;">${malwareHtml}</div>
+
+    <!-- CMS·서버 정보 -->
+    <h2 style="font-size:15px;font-weight:700;color:#111;margin:0 0 12px;">CMS 및 서버 정보 점검</h2>
+    <div style="margin-bottom:32px;">${cmsHtml}</div>
 
     <!-- Security Headers -->
     <h2 style="font-size:15px;font-weight:700;color:#111;margin:0 0 12px;">보안 헤더 점검</h2>
