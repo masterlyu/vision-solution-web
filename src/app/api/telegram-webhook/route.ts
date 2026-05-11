@@ -1,9 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Redis } from '@upstash/redis'
-import { generatePdfBuffer } from '@/lib/pdfReport'
-import { sendReportEmail } from '@/lib/emailSender'
 import { sendQuoteEmail } from '@/lib/quoteEmailSender'
-import type { AnalysisResult } from '@/lib/siteAnalyzer'
 import type { QuoteData } from '@/app/api/quote-approve/route'
 import { env } from '@/lib/env'
 
@@ -100,45 +97,6 @@ export async function POST(req: NextRequest) {
   const colonIdx = (data as string).indexOf(':')
   const action   = colonIdx >= 0 ? (data as string).slice(0, colonIdx) : (data as string)
   const payload  = colonIdx >= 0 ? (data as string).slice(colonIdx + 1) : ''
-
-  // ── 진단 리포트 콜백 (기존) ──────────────────────────────────────────────
-  if (action === 'reject') {
-    await answerCallback(callbackId, '취소됐습니다.')
-    await editCaption(chatId, messageId,
-      `❌ <b>발송 취소됨</b>\n\n${message.caption ?? ''}\n\n<i>취소 처리됐습니다.</i>`
-    )
-    await redis.del(`pending:${payload}`)
-    return NextResponse.json({ ok: true })
-  }
-
-  if (action === 'approve') {
-    await answerCallback(callbackId, '발송 중...')
-
-    const raw = await redis.get(`pending:${payload}`)
-    if (!raw) {
-      await answerCallback(callbackId, '데이터가 만료됐습니다. (24시간 초과)')
-      return NextResponse.json({ ok: true })
-    }
-
-    const { result, email, company } = raw as { result: AnalysisResult; email: string; company?: string }
-
-    try {
-      const pdfBuffer = await generatePdfBuffer(result, email, company)
-      await sendReportEmail(result, pdfBuffer, email, company)
-      await redis.del(`pending:${payload}`)
-
-      await editCaption(chatId, messageId,
-        `✅ <b>발송 완료</b>\n\n` +
-        `🌐 ${result.url}\n` +
-        `📧 ${email}${company ? `  ·  ${company}` : ''}\n` +
-        `📊 ${result.score.total}점 (등급 ${result.score.grade})\n\n` +
-        `<i>리포트 PDF가 고객 이메일로 발송됐습니다.</i>`
-      )
-    } catch (e: any) {
-      await answerCallback(callbackId, `오류: ${e.message}`)
-    }
-    return NextResponse.json({ ok: true })
-  }
 
   // ── 견적 승인 콜백 ────────────────────────────────────────────────────────
   if (action === 'quote_approve') {
