@@ -44,44 +44,44 @@ export function FeaturesSection() {
             >
               {/* Number + Icon row */}
               <div className="flex items-start justify-between">
-                <span className="text-muted-foreground/40 text-sm font-mono group-hover:text-white/50 transition-colors">
+                <span className="text-muted-foreground/40 text-sm font-mono group-hover:text-primary-foreground/50 transition-colors">
                   {s.number}
                 </span>
-                <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-white/20 group-hover:border-white/30 transition-all">
-                  <s.icon className="w-5 h-5 text-primary group-hover:text-white transition-colors" strokeWidth={1.5} />
+                <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary-foreground/20 group-hover:border-primary-foreground/30 transition-all">
+                  <s.icon className="w-5 h-5 text-primary group-hover:text-primary-foreground transition-colors" strokeWidth={1.5} />
                 </div>
               </div>
 
               {/* Stat */}
               <div>
-                <div className="text-3xl font-black text-primary mb-1 group-hover:text-white transition-colors">
+                <div className="text-3xl font-black text-primary mb-1 group-hover:text-primary-foreground transition-colors">
                   {s.stat.value}
                 </div>
-                <div className="text-muted-foreground text-xs group-hover:text-white/70 transition-colors">
+                <div className="text-muted-foreground text-xs group-hover:text-primary-foreground/70 transition-colors">
                   {s.stat.label}
                 </div>
               </div>
 
               {/* Title */}
-              <h3 className="text-foreground font-bold text-lg group-hover:text-white transition-colors">
+              <h3 className="text-foreground font-bold text-lg group-hover:text-primary-foreground transition-colors">
                 {s.title}
               </h3>
 
               {/* Price badge */}
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary/[0.08] border border-primary/20 rounded-full text-sm font-semibold text-primary w-fit group-hover:bg-white/20 group-hover:border-white/30 group-hover:text-white transition-all">
-                <span className="text-[10px] font-medium text-muted-foreground group-hover:text-white/70 transition-colors">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary/[0.08] border border-primary/20 rounded-full text-sm font-semibold text-primary w-fit group-hover:bg-primary-foreground/20 group-hover:border-primary-foreground/30 group-hover:text-primary-foreground transition-all">
+                <span className="text-[10px] font-medium text-muted-foreground group-hover:text-primary-foreground/70 transition-colors">
                   {s.price.prefix}
                 </span>
                 {s.price.value}
               </div>
 
               {/* Desc */}
-              <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2 group-hover:text-white/80 transition-colors">
+              <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2 group-hover:text-primary-foreground/80 transition-colors">
                 {s.desc}
               </p>
 
               {/* CTA arrow */}
-              <div className="flex items-center gap-1.5 text-primary text-sm font-semibold mt-auto group-hover:text-white transition-all -translate-x-1 group-hover:translate-x-0 opacity-0 group-hover:opacity-100">
+              <div className="flex items-center gap-1.5 text-primary text-sm font-semibold mt-auto group-hover:text-primary-foreground transition-all -translate-x-1 group-hover:translate-x-0 opacity-0 group-hover:opacity-100">
                 자세히 보기 <ArrowRight className="w-4 h-4" />
               </div>
             </Link>
