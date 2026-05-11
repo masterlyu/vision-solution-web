@@ -15,11 +15,19 @@ async function sendTelegram(text: string) {
 }
 
 export async function GET() {
-  return NextResponse.json({
+  const base = {
     TELEGRAM_BOT_TOKEN: env.TELEGRAM_BOT_TOKEN ? '✓ set' : '✗ missing',
     TELEGRAM_CHAT_ID:   env.TELEGRAM_CHAT_ID   ? '✓ set' : '✗ missing',
     UPSTASH_REDIS_URL:  env.UPSTASH_REDIS_REST_URL  ? '✓ set' : '✗ missing',
-  })
+    code_version: 'v5',
+  }
+  // Telegram 네트워크 연결 테스트
+  try {
+    const r = await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/getMe`, { signal: AbortSignal.timeout(5000) })
+    return NextResponse.json({ ...base, telegram_ping: r.ok ? '✓ ok' : `✗ http ${r.status}` })
+  } catch (e: any) {
+    return NextResponse.json({ ...base, telegram_ping: `✗ ${e.message}` })
+  }
 }
 
 export async function POST(req: NextRequest) {
