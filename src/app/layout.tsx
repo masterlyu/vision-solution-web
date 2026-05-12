@@ -36,7 +36,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         />
         <Script
           src="https://chatbot.visionc.co.kr/embed.min.js"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
       </body>
     </html>
