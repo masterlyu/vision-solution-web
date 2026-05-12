@@ -346,27 +346,27 @@ function SecurityHeroIllust() {
     <div className="flex items-end gap-2 justify-center">
       <svg viewBox="0 0 260 290" width="250" height="275" xmlns="http://www.w3.org/2000/svg">
         {/* Outer glow ring */}
-        <circle cx="130" cy="135" r="115" fill="none" stroke="#8B5CF6" strokeWidth="1" opacity="0.12" strokeDasharray="6,6"/>
+        <circle cx="130" cy="135" r="115" fill="none" stroke="var(--primary)" strokeWidth="1" opacity="0.12" strokeDasharray="6,6"/>
         {/* Shield body */}
-        <path d="M130 25 L215 65 L215 152 C215 202 172 234 130 252 C88 234 45 202 45 152 L45 65 Z" fill="#16102a" stroke="#8B5CF6" strokeWidth="2.5"/>
+        <path d="M130 25 L215 65 L215 152 C215 202 172 234 130 252 C88 234 45 202 45 152 L45 65 Z" fill="var(--background-deep)" stroke="var(--primary)" strokeWidth="2.5"/>
         {/* Shield inner line */}
-        <path d="M130 42 L202 78 L202 152 C202 196 164 224 130 239 C96 224 58 196 58 152 L58 78 Z" fill="none" stroke="#8B5CF6" strokeWidth="1" opacity="0.25"/>
+        <path d="M130 42 L202 78 L202 152 C202 196 164 224 130 239 C96 224 58 196 58 152 L58 78 Z" fill="none" stroke="var(--primary)" strokeWidth="1" opacity="0.25"/>
         {/* Scan lines */}
-        <line x1="48" y1="105" x2="212" y2="105" stroke="#8B5CF6" strokeWidth="1" strokeDasharray="4,5" opacity="0.28"/>
-        <line x1="48" y1="165" x2="212" y2="165" stroke="#8B5CF6" strokeWidth="1" strokeDasharray="4,5" opacity="0.28"/>
+        <line x1="48" y1="105" x2="212" y2="105" stroke="var(--primary)" strokeWidth="1" strokeDasharray="4,5" opacity="0.28"/>
+        <line x1="48" y1="165" x2="212" y2="165" stroke="var(--primary)" strokeWidth="1" strokeDasharray="4,5" opacity="0.28"/>
         {/* Lock body */}
-        <rect x="108" y="140" width="44" height="38" rx="8" fill="#8B5CF6"/>
+        <rect x="108" y="140" width="44" height="38" rx="8" fill="var(--primary)"/>
         {/* Lock shackle */}
-        <path d="M115 140 L115 123 A15 15 0 0 1 145 123 L145 140" fill="none" stroke="#8B5CF6" strokeWidth="7" strokeLinecap="round"/>
-        <path d="M121 140 L121 126 A9 9 0 0 1 139 126 L139 140" fill="none" stroke="#16102a" strokeWidth="4" strokeLinecap="round"/>
+        <path d="M115 140 L115 123 A15 15 0 0 1 145 123 L145 140" fill="none" stroke="var(--primary)" strokeWidth="7" strokeLinecap="round"/>
+        <path d="M121 140 L121 126 A9 9 0 0 1 139 126 L139 140" fill="none" stroke="var(--background-deep)" strokeWidth="4" strokeLinecap="round"/>
         {/* Keyhole */}
-        <circle cx="130" cy="156" r="6" fill="#16102a"/>
-        <rect x="127" y="159" width="6" height="9" rx="2" fill="#16102a"/>
+        <circle cx="130" cy="156" r="6" fill="var(--background-deep)"/>
+        <rect x="127" y="159" width="6" height="9" rx="2" fill="var(--background-deep)"/>
         {/* Warning badge top-right */}
         <circle cx="208" cy="58" r="22" fill="#ef4444" opacity="0.95"/>
         <text x="208" y="66" textAnchor="middle" fill="white" fontSize="22" fontWeight="bold" fontFamily="sans-serif">!</text>
         {/* Check badge bottom-left */}
-        <circle cx="52" cy="215" r="22" fill="#22c55e" opacity="0.9"/>
+        <circle cx="52" cy="215" r="22" fill="var(--accent-green)" opacity="0.9"/>
         <text x="52" y="223" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold" fontFamily="sans-serif">✓</text>
         {/* Amber dot */}
         <circle cx="192" cy="210" r="6" fill="#fbbf24" opacity="0.85"/>
