@@ -166,14 +166,18 @@ const dangerCaseBg: Record<string, string> = {
 }
 
 const checks = [
-  { lottie: '/lottie/lock.json',  sub: 'SSL/HTTPS',              title: '자물쇠가 잠겼나요?' },
-  { icon: '🛡️',                  sub: '보안 헤더 6가지',          title: '해킹 차단막이 있나요?' },
-  { icon: '🦠',                   sub: '악성코드 탐지',            title: '바이러스가 숨어 있나요?' },
-  { icon: '🚫',                   sub: '구글·보안기관 블랙리스트', title: '검색에서 차단됐나요?' },
-  { lottie: '/lottie/scan.json',  sub: 'CMS·서버 버전 노출',      title: '해커에게 힌트 주고 있나요?' },
-  { icon: '🔑',                   sub: '관리자 접근 보안',         title: '뒷문이 열려 있나요?' },
-  { lottie: '/lottie/alert.json', sub: 'SEO·신뢰도',              title: '구글이 경고하나요?' },
-  { lottie: '/lottie/check.json', sub: '속도·성능',               title: '3초 안에 열리나요?' },
+  { lottie: '/lottie/lock.json',  sub: 'SSL/TLS A+~F 등급',       title: '암호화가 안전한가요?' },
+  { icon: '🛡️',                  sub: '보안 헤더 13종',            title: '해킹 차단막이 있나요?' },
+  { icon: '🍪',                   sub: '쿠키 보안 플래그',          title: '세션이 보호되나요?' },
+  { icon: '🌐',                   sub: 'CORS 설정 오류',            title: '데이터가 새고 있나요?' },
+  { icon: '📧',                   sub: '이메일 보안 DNS',           title: '피싱 메일 차단됐나요?' },
+  { icon: '📁',                   sub: '민감 파일 30경로',          title: '소스코드가 노출됐나요?' },
+  { icon: '🦠',                   sub: '악성코드 탐지',             title: '바이러스가 숨어 있나요?' },
+  { icon: '🚫',                   sub: '구글·보안기관 블랙리스트',  title: '검색에서 차단됐나요?' },
+  { lottie: '/lottie/scan.json',  sub: 'CMS·서버 버전 노출',       title: '해커에게 힌트 주고 있나요?' },
+  { icon: '🔑',                   sub: '관리자 접근 보안',          title: '뒷문이 열려 있나요?' },
+  { lottie: '/lottie/alert.json', sub: 'SEO·신뢰도',               title: '구글이 경고하나요?' },
+  { lottie: '/lottie/check.json', sub: '속도·성능',                title: '3초 안에 열리나요?' },
 ]
 
 const steps = [
@@ -273,17 +277,20 @@ const securityPricing = [
     reportType: 'manual' as const,
     checkItems: [
       '패키지 B 전체 포함',
-      'Rate Limiting (무제한 요청 방어)',
-      '서브도메인 탈취 탐지 및 차단',
-      'WAF(웹방화벽) 설치 및 규칙 최적화',
-      '인증·세션 관리 점검 (JWT·쿠키)',
-      '전문가 소스코드 전수 보안 리뷰',
+      'Rate Limiting (무제한 요청 차단)',
+      'WAF 탐지 및 도입 지원',
+      '서브도메인 탈취 취약점 탐지',
+      '에러 페이지 정보 노출 점검',
+      'Mixed Content (HTTP 리소스 혼재)',
+      'CMS CVE 취약점 (WordPress·Joomla 등)',
+      'SQLi·XSS 심층 크롤러 전수 점검',
     ],
     fixItems: [
       '로그인·API Rate Limit 적용',
       'WAF 설치 및 맞춤 규칙 설정',
-      '소스코드 보안 취약점 직접 패치',
-      '수정 완료 후 재진단 1회 포함',
+      '에러 페이지·Mixed Content 수정',
+      'CMS 보안 업데이트 및 관리자 강화',
+      '소스코드 취약점 직접 패치 + 재진단',
     ],
   },
   {
