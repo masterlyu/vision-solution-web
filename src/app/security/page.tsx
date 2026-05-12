@@ -222,18 +222,24 @@ const securityFaqs = [
 
 const securityPricing = [
   {
+    nameShort: 'A 기본',
     name: '패키지 A — 보안 위생 패치',
     price: '₩299,000',
     highlight: false,
-    badge: null,
+    badge: null as null,
     target: '기본 보안 설정이 안 된 소규모 홈페이지',
-    reportNote: '무료 자동 진단 리포트로 점검 후 진행',
     reportType: 'auto' as const,
+    coreItems: [
+      '자물쇠·HTTPS 보안 등급 강화 (SSL/TLS)',
+      '보안 헤더 13종 일괄 설정 (HSTS·CSP·XFO 등)',
+      '쿠키·세션 보안 속성 추가 (HttpOnly·SameSite)',
+      '관리자 페이지 URL 변경 및 접근 제한',
+    ],
     checkItems: [
       'HTTPS·SSL/TLS A등급 설정',
       '보안 헤더 13종 일괄 적용 (HSTS·CSP·XFO 등)',
       '쿠키 보안 플래그 (HttpOnly·Secure·SameSite)',
-      'X-Powered-By·Server 헤더 제거',
+      'X-Powered-By·Server 헤더 노출 제거',
       '관리자 페이지 URL 변경 및 접근 제한',
     ],
     fixItems: [
@@ -244,63 +250,81 @@ const securityPricing = [
     ],
   },
   {
+    nameShort: 'B 표준',
     name: '패키지 B — 표준 보안 강화',
     price: '₩799,000',
     highlight: true,
-    badge: '추천',
+    badge: '추천' as const,
     target: 'CMS·회원가입·로그인 기능이 있는 사이트',
-    reportNote: '자동 진단 + 전문가 수동 분석 리포트 제공',
     reportType: 'manual' as const,
+    coreItems: [
+      '패키지 A 전체 포함',
+      '해킹 공격 차단 코드 수정 (XSS·SQLi·CSRF)',
+      '이메일 위조 방어 레코드 설정 (SPF·DKIM·DMARC)',
+      '민감 파일 30개 경로 접근 차단',
+    ],
     checkItems: [
       '패키지 A 전체 포함',
-      '이메일 보안 (SPF·DKIM·DMARC) 설정',
+      '이메일 위조 방어 레코드 점검 (SPF·DKIM·DMARC)',
       '민감 파일 30개 경로 노출 차단',
-      'CORS 정책 수정 (허용 도메인 제한)',
-      'XSS·SQL Injection 코드 레벨 패치',
-      'CSRF 방어 토큰 구현',
+      '외부 데이터 유출 차단 점검 (CORS)',
+      '해킹 공격 입력값 필터링 점검 (XSS·SQL Injection)',
+      '위조 요청 방어 점검 (CSRF)',
     ],
     fixItems: [
       '도메인 이메일 보안 레코드 설정',
       '민감 파일·소스코드 접근 차단',
-      'CORS 화이트리스트 정책 적용',
-      '입력값 이스케이프·Prepared Statement',
-      '상태 변경 폼 CSRF 토큰 추가',
+      '외부 도메인 허용 목록 정책 적용 (CORS)',
+      '입력값 이스케이프·Prepared Statement 적용',
+      '상태 변경 폼 위조 방어 토큰 추가 (CSRF)',
     ],
   },
   {
+    nameShort: 'C 고급',
     name: '패키지 C — 심층 진단 + 수정',
     price: '₩1,990,000',
     highlight: false,
-    badge: '고급',
+    badge: '고급' as const,
     target: '쇼핑몰·개인정보·핀테크 운영 사이트',
-    reportNote: '전문가 수동 분석 + 코드 리뷰 + 재진단 포함',
     reportType: 'manual' as const,
+    coreItems: [
+      '패키지 B 전체 포함',
+      '방화벽 + 무제한 공격 차단 시스템 (WAF·Rate Limit)',
+      '모의해킹 전수 점검 33개 항목',
+      '전문가 코드 리뷰 + 재진단 1회 무료',
+    ],
     checkItems: [
       '패키지 B 전체 포함',
-      'Rate Limiting·WAF 탐지 및 도입',
-      '서브도메인 탈취·에러노출·Mixed Content',
-      'CMS CVE 취약점 (WordPress·Joomla 등)',
-      'HTTP 스머글링·캐시 포이즈닝 지표',
-      'JWT 취약점 (alg·exp·시크릿 분석)',
-      'SSTI 서버측 템플릿 인젝션 탐지',
-      '클릭재킹 심화 (CSP frame-ancestors)',
+      '방화벽 + 무제한 공격 차단 탐지 (WAF·Rate Limiting)',
+      '서브도메인 탈취·에러 정보 노출·Mixed Content 점검',
+      'CMS 보안 취약점 점검 (WordPress·Joomla·Drupal 등)',
+      '요청 조작·캐시 오염 탐지 (HTTP 스머글링·캐시 포이즈닝)',
+      '로그인 토큰 위조 방어 점검 (JWT)',
+      '서버 코드 해킹 탐지 (SSTI 템플릿 인젝션)',
+      '투명 클릭 도용 방어 (Clickjacking)',
     ],
     fixItems: [
-      '로그인·API Rate Limit + WAF 적용',
-      'HTTP 스머글링·캐시 포이즈닝 방어 설정',
-      'JWT 알고리즘·만료·시크릿 키 재설정',
-      'SSTI·에러노출·Mixed Content 패치',
-      'CMS 업데이트 + 재진단 1회 포함',
+      '로그인·API 무제한 요청 차단 설정 (Rate Limit + WAF)',
+      '요청 조작·캐시 오염 방어 설정',
+      '로그인 토큰 알고리즘·만료 시간 강화 (JWT)',
+      '서버 코드 인젝션·정보 노출·Mixed Content 패치',
+      'CMS 최신 버전 업데이트 + 재진단 1회 포함',
     ],
   },
   {
+    nameShort: 'D 구독',
     name: '패키지 D — 정기 모니터링',
     price: '₩299,000/월',
     highlight: false,
-    badge: '월정액',
+    badge: '월정액' as const,
     target: '상시 보안 관리가 필요한 운영 사이트',
-    reportNote: '월 1회 자동 스캔 + 새 취약점 즉시 알림',
     reportType: 'manual' as const,
+    coreItems: [
+      '월 1회 13개 항목 자동 전체 스캔',
+      '새 취약점 발견 즉시 알림 (텔레그램)',
+      '월간 보안 현황 리포트 발송',
+      '긴급 이슈 48시간 내 패치 지원',
+    ],
     checkItems: [
       '월 1회 13개 항목 전체 자동 스캔',
       '새 취약점 발견 즉시 알림 (텔레그램)',
@@ -356,6 +380,13 @@ function SecurityHeroIllust() {
 // ── Page ───────────────────────────────────────────────────────────────────
 export default function SecurityPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const [selectedPkg, setSelectedPkg] = useState(1)
+  const [showMore, setShowMore] = useState(false)
+
+  const handlePkgChange = (i: number) => {
+    setSelectedPkg(i)
+    setShowMore(false)
+  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -708,7 +739,7 @@ export default function SecurityPage() {
 
       {/* ── 가격 안내 ── */}
       <section className="py-16 px-6 lg:px-12 bg-background">
-        <div className="max-w-[1100px] mx-auto">
+        <div className="max-w-[720px] mx-auto">
           <motion.div
             variants={fadeInUp}
             initial="hidden"
@@ -716,56 +747,119 @@ export default function SecurityPage() {
             viewport={{ once: true, margin: '-100px' }}
           >
             <h2 className="text-2xl font-bold text-foreground mb-2">취약점 발견 시 개선 비용은?</h2>
-            <p className="text-muted-foreground mb-10">진단은 무료. 개선 작업은 범위에 따라 별도 견적입니다.</p>
+            <p className="text-muted-foreground mb-8">진단은 무료. 개선 작업은 범위에 따라 별도 견적입니다.</p>
           </motion.div>
+
+          {/* 탭 바 */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
-            variants={stagger}
+            variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
+            className="flex gap-1.5 mb-5 p-1 bg-secondary rounded-xl"
           >
             {securityPricing.map((p, i) => (
-              <motion.div key={i} variants={fadeInUp} className={`rounded-2xl border-2 relative flex flex-col ${p.highlight ? 'border-primary bg-primary/5' : 'border-border bg-card'}`}>
+              <button
+                key={i}
+                onClick={() => handlePkgChange(i)}
+                className={`relative flex-1 py-2 px-2 rounded-lg text-xs sm:text-sm font-bold transition-all
+                  ${selectedPkg === i
+                    ? 'bg-card text-foreground shadow-sm'
+                    : 'text-muted-foreground hover:text-foreground'
+                  }`}
+              >
+                {p.nameShort}
                 {p.badge && (
-                  <span className={`absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-bold px-3 py-1 rounded-full ${p.highlight ? 'bg-primary text-primary-foreground' : 'bg-border text-foreground'}`}>
+                  <span className={`absolute -top-1.5 -right-0.5 text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none
+                    ${p.highlight ? 'bg-primary text-primary-foreground' : 'bg-border text-foreground/70'}`}>
                     {p.badge}
                   </span>
                 )}
+              </button>
+            ))}
+          </motion.div>
 
+          {/* 선택된 패키지 카드 */}
+          {securityPricing.map((p, i) =>
+            selectedPkg !== i ? null : (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.18 }}
+                className={`rounded-2xl border-2 flex flex-col ${p.highlight ? 'border-primary bg-primary/5' : 'border-border bg-card'}`}
+              >
                 {/* 헤더 */}
-                <div className="p-6 pb-4 border-b border-border/50">
-                  <h3 className="text-lg font-bold text-foreground mb-1">{p.name}</h3>
-                  <p className={`text-2xl font-black mb-3 ${p.highlight ? 'text-primary' : 'text-foreground'}`}>{p.price}</p>
-                  <p className="text-xs text-muted-foreground bg-secondary px-3 py-1.5 rounded-lg inline-block">
-                    🎯 {p.target}
-                  </p>
+                <div className="p-6 pb-5 border-b border-border/50">
+                  <div className="flex items-start justify-between gap-4 flex-wrap">
+                    <div>
+                      <h3 className="text-lg font-bold text-foreground mb-1">{p.name}</h3>
+                      <p className={`text-3xl font-black ${p.highlight ? 'text-primary' : 'text-foreground'}`}>{p.price}</p>
+                    </div>
+                    <p className="text-xs text-muted-foreground bg-secondary px-3 py-1.5 rounded-lg self-start mt-0.5">
+                      🎯 {p.target}
+                    </p>
+                  </div>
                 </div>
 
-                {/* 점검 항목 */}
-                <div className="p-6 pb-3 flex-1">
-                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3">점검 항목</p>
-                  <ul className="space-y-2 mb-5">
-                    {p.checkItems.map((item, j) => (
-                      <li key={j} className="flex items-start gap-2 text-sm text-foreground/80">
-                        <span className="text-blue-400 font-bold shrink-0 mt-0.5">🔍</span>
-                        <span>{item}</span>
+                {/* 핵심 항목 (항상 표시) */}
+                <div className="p-6 pb-4">
+                  <ul className="space-y-3 mb-4">
+                    {p.coreItems.map((item, j) => (
+                      <li key={j} className="flex items-start gap-2.5">
+                        <span className={`shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold mt-0.5
+                          ${p.highlight ? 'bg-primary/20 text-primary' : 'bg-green-500/15 text-green-400'}`}>
+                          ✓
+                        </span>
+                        <span className="text-foreground/90 text-sm leading-snug">{item}</span>
                       </li>
                     ))}
                   </ul>
 
-                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3">보완 내용</p>
-                  <ul className="space-y-2 mb-5">
-                    {p.fixItems.map((item, j) => (
-                      <li key={j} className="flex items-start gap-2 text-sm text-foreground/80">
-                        <span className="text-green-400 font-bold shrink-0 mt-0.5">✓</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {/* 더보기 토글 버튼 */}
+                  <button
+                    onClick={() => setShowMore(!showMore)}
+                    className="flex items-center gap-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground transition-colors mb-5"
+                  >
+                    {showMore
+                      ? <><ChevronUp className="w-3.5 h-3.5" />접기</>
+                      : <><ChevronDown className="w-3.5 h-3.5" />전체 항목 {p.checkItems.length + p.fixItems.length}개 보기</>
+                    }
+                  </button>
 
-                  {/* 리포트 타입 안내 */}
-                  <div className={`rounded-lg px-3 py-2 text-xs mb-4 ${p.reportType === 'auto' ? 'bg-green-500/10 border border-green-500/20 text-green-400' : 'bg-amber-500/10 border border-amber-500/20 text-amber-400'}`}>
+                  {/* 더보기 내용 */}
+                  {showMore && (
+                    <div className="border-t border-border/50 pt-4 mb-5 space-y-5">
+                      <div>
+                        <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-2">점검 항목</p>
+                        <ul className="space-y-1.5">
+                          {p.checkItems.map((item, j) => (
+                            <li key={j} className="flex items-start gap-2 text-sm text-foreground/70">
+                              <span className="text-blue-400 shrink-0 mt-0.5 text-xs">🔍</span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-2">수정 내용</p>
+                        <ul className="space-y-1.5">
+                          {p.fixItems.map((item, j) => (
+                            <li key={j} className="flex items-start gap-2 text-sm text-foreground/70">
+                              <span className="text-green-400 shrink-0 mt-0.5 text-xs">🔧</span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* 리포트 타입 */}
+                  <div className={`rounded-lg px-3 py-2 text-xs mb-5
+                    ${p.reportType === 'auto'
+                      ? 'bg-green-500/10 border border-green-500/20 text-green-400'
+                      : 'bg-amber-500/10 border border-amber-500/20 text-amber-400'}`}>
                     {p.reportType === 'auto'
                       ? '📄 무료 자동 진단 → 즉시 이메일 발송'
                       : '📋 전문가 수동 분석 → 개별 리포트 발송'}
@@ -777,22 +871,25 @@ export default function SecurityPage() {
                   {p.reportType === 'auto' ? (
                     <a
                       href="#cta-form"
-                      className={`block text-center text-sm font-bold py-3 rounded-xl transition-opacity ${p.highlight ? 'bg-primary text-primary-foreground hover:opacity-85' : 'bg-secondary border border-border text-foreground hover:border-primary/40'}`}
+                      className={`block text-center text-sm font-bold py-3 rounded-xl transition-opacity
+                        ${p.highlight ? 'bg-primary text-primary-foreground hover:opacity-85' : 'bg-secondary border border-border text-foreground hover:border-primary/40'}`}
                     >
                       무료 진단 신청하기 →
                     </a>
                   ) : (
                     <a
                       href="/contact?service=security"
-                      className={`block text-center text-sm font-bold py-3 rounded-xl transition-opacity ${p.highlight ? 'bg-primary text-primary-foreground hover:opacity-85' : 'bg-secondary border border-border text-foreground hover:border-primary/40'}`}
+                      className={`block text-center text-sm font-bold py-3 rounded-xl transition-opacity
+                        ${p.highlight ? 'bg-primary text-primary-foreground hover:opacity-85' : 'bg-secondary border border-border text-foreground hover:border-primary/40'}`}
                     >
                       전문가 상담 신청하기 →
                     </a>
                   )}
                 </div>
               </motion.div>
-            ))}
-          </motion.div>
+            )
+          )}
+
           <p className="text-muted-foreground text-sm text-center mt-6">※ 진단 결과서 기준으로 정확한 견적을 제공합니다. 부가세 별도.</p>
         </div>
       </section>
