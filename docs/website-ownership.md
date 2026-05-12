@@ -269,10 +269,16 @@
 2. Oracle 서버 `.env.local` 동일값으로 업데이트 (GMAIL 관련)
 3. `~/company/docs/website-ownership.md` 3-3 표 업데이트
 
-### 3개 시스템 동시 작업 충돌 방지
-- **같은 파일을 동시에 수정하는 경우**: git merge conflict 발생 → 미니PC Claude가 최종 판단
-- **Paperclip 에이전트 작업 주기**: `0 */2 * * *` (짝수시 정각) — 이 시간대 미니PC 직접 push 자제
-- **Oracle Claude**: `~/company/website/` 직접 push 금지, API 호출로만 연동
+### 3개 시스템 협업 규칙 (2026-05-12 확정)
+
+| 시스템 | 규칙 |
+|--------|------|
+| **Oracle Claude** | 단위 작업마다 커밋 필수. 커밋 메시지에 변경 내용 명확히 기재 |
+| **미니PC Claude** | 홈페이지 작업 시작 전 `git pull origin main && git log --oneline -5` 로 Oracle 작업 여부 확인 (사령관 별도 언급 없어도 자동 수행) |
+| **Paperclip 에이전트** | 작업 주기 `0 */2 * * *` (짝수시 정각) — 이 시간대 다른 시스템 직접 push 자제 |
+
+- **충돌 발생 시**: git merge conflict → 미니PC Claude가 최종 판단
+- **미니PC 자원·툴 확인 방법**: `~/.claude/CLAUDE.md` (서비스·인프라) + 이 문서 섹션 6 (툴 목록) 두 파일 참조
 
 ---
 
