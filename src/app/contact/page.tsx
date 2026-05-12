@@ -25,7 +25,7 @@ export default function ContactPage() {
   const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm(prev => ({ ...prev, [k]: e.target.value }))
 
-  const inputCls = 'w-full bg-[var(--card-deep)] border-2 border-primary/65 rounded-xl px-5 py-4 text-foreground text-[1.05rem] placeholder:text-foreground/40 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/40 transition-all'
+  const inputCls = 'w-full bg-secondary border-2 border-primary/50 rounded-xl px-5 py-4 text-foreground text-[1.05rem] placeholder:text-foreground/40 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/40 transition-all'
   const labelCls = 'text-foreground text-base font-bold mb-2 block'
 
   if (done) return (
