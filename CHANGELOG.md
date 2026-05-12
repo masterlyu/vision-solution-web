@@ -2,6 +2,94 @@
 
 ---
 
+## [2026-05-12] — Nemotron Shim ReAct 루프 구현 + Paperclip 에이전트 복구
+
+### 개요
+Nemotron으로 교체된 4개 에이전트(콘텐츠 라이터, 트렌드 스카우트, 가이드 컨설턴트, 아카이브 매니저)가
+Paperclip 태스크를 처리하지 못하는 근본 원인을 분석하고, shim에 ReAct 아gentic loop를 구현해 해결.
+
+---
+
+### 문제 분석
+
+**증상**: VIS-1150 블로그 글 작성 태스크가 할당 후 이틀째 `todo` 상태 유지
+
+**근본 원인**: Nemotron shim이 텍스트 생성만 하고 tool use(bash 실행)를 지원하지 않음
+
+```
+기존 구조 (broken):
+Paperclip → shim → Nemotron API → 텍스트 출력만
+→ curl/bash 실행 불가 → checkout/PATCH 호출 불가 → 이슈 영원히 todo
+
+수정 후:
+Paperclip → shim → Nemotron이 <bash>curl...</bash> 생성
+                 → shim이 subprocess.run() 실행
+                 → 결과를 다음 메시지로 피드백 (ReAct 루프)
+                 → <done> 태그까지 반복
+```
+
+---
+
+### 수정 내용
+
+**파일**: `~/company/nemotron-claude-shim.py`
+
+#### 핵심 변경: 단순 LLM 호출 → ReAct agentic loop
+
+| 항목 | 기존 | 개선 |
+|------|------|------|
+| 동작 방식 | 프롬프트 1회 전송 → 텍스트 반환 | ReAct 루프 (최대 30회 반복) |
+| Tool use | 없음 | `<bash>`, `<read>`, `<write>`, `<done>` 태그 파싱 + 실행 |
+| Paperclip API 호출 | 불가 | bash 태그 → subprocess → curl 실행 |
+| 이슈 checkout | 불가 | 정상 동작 |
+| 이슈 done 처리 | 불가 | 정상 동작 |
+| 비용 | 무료 (Nemotron) | 무료 유지 (Nemotron) |
+
+#### ReAct 루프 구조
+
+```python
+for i in range(MAX_ITER=30):
+    response = call_nemotron(messages)   # Nemotron에 판단 요청
+    
+    if <done>:   break                   # 완료
+    if <bash>:   output = subprocess.run(cmd)   # bash 실행
+    if <read>:   output = open(path).read()     # 파일 읽기
+    if <write>:  open(path).write(content)      # 파일 쓰기
+    
+    messages.append({"role":"user","content": output})  # 결과 피드백
+```
+
+#### 지원 태그
+
+```xml
+<bash>curl -s -H "Authorization: Bearer $PAPERCLIP_API_KEY" ...</bash>
+<read>/path/to/file.md</read>
+<write path="/path/to/output.md">내용</write>
+<done>완료 요약</done>
+```
+
+---
+
+### 적용 결과
+
+| 에이전트 | 조치 |
+|---------|------|
+| 콘텐츠 라이터 | Nemotron shim 적용 + VIS-1150 처리 완료 |
+| 트렌드 스카우트 | Nemotron shim 적용 |
+| 가이드 컨설턴트 | Nemotron shim 적용 |
+| 아카이브 매니저 | Nemotron shim 적용 |
+
+**검증**: VIS-1173 테스트 이슈로 동작 확인
+- `echo shim-test-ok` 실행 → 코멘트 포스팅 → `done` 처리 성공
+
+---
+
+### 중간 조치 (임시)
+VIS-1150 블로그 글 작성 태스크 처리를 위해 콘텐츠 라이터를 일시적으로 Claude Haiku로 원복.
+VIS-1150은 Claude Haiku가 처리 완료. 이후 Nemotron shim으로 복귀.
+
+---
+
 ## [2026-05-11] — 보안 취약점 수정 (모의해킹 결과 반영)
 
 ### 개요
