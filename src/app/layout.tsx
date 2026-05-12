@@ -3,6 +3,7 @@ import './globals.css'
 import { Navigation } from '@/components/landing/navigation'
 import { FooterSection } from '@/components/landing/footer-section'
 import { ChatbotLoader } from '@/components/chatbot-loader'
+import { FontLoader } from '@/components/font-loader'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://visionc.co.kr'),
@@ -18,13 +19,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="ko" className="dark">
       <head>
         <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-        <link rel="stylesheet" crossOrigin="anonymous"
-          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
       </head>
       <body>
         <Navigation />
         <main>{children}</main>
         <FooterSection />
+        <FontLoader />
         <ChatbotLoader />
       </body>
     </html>
