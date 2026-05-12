@@ -210,30 +210,30 @@ function PortfolioHeroIllust() {
     <div className="flex items-end gap-2 justify-center">
       <svg viewBox="0 0 260 260" width="250" height="250" xmlns="http://www.w3.org/2000/svg">
         {/* Presentation frame */}
-        <rect x="18" y="18" width="224" height="164" rx="14" fill="#16102a" stroke="#8B5CF6" strokeWidth="2.5"/>
+        <rect x="18" y="18" width="224" height="164" rx="14" fill="var(--background-deep)" stroke="var(--primary)" strokeWidth="2.5"/>
         {/* Screen */}
-        <rect x="30" y="30" width="200" height="140" rx="8" fill="#0d0d16"/>
+        <rect x="30" y="30" width="200" height="140" rx="8" fill="var(--background-deep)"/>
         {/* Title */}
-        <text x="44" y="55" fill="#FFF5E8" fontSize="11" fontWeight="bold" fontFamily="sans-serif">성과 포트폴리오</text>
+        <text x="44" y="55" fill="var(--foreground)" fontSize="11" fontWeight="bold" fontFamily="sans-serif">성과 포트폴리오</text>
         {/* 5 bar chart bars — growing */}
-        <rect x="44" y="134" width="22" height="28" rx="4" fill="#8B5CF6" opacity="0.35"/>
-        <rect x="72" y="116" width="22" height="46" rx="4" fill="#8B5CF6" opacity="0.5"/>
-        <rect x="100" y="96" width="22" height="66" rx="4" fill="#8B5CF6" opacity="0.65"/>
-        <rect x="128" y="74" width="22" height="88" rx="4" fill="#8B5CF6" opacity="0.82"/>
-        <rect x="156" y="54" width="22" height="108" rx="4" fill="#8B5CF6"/>
+        <rect x="44" y="134" width="22" height="28" rx="4" fill="var(--primary)" opacity="0.35"/>
+        <rect x="72" y="116" width="22" height="46" rx="4" fill="var(--primary)" opacity="0.5"/>
+        <rect x="100" y="96" width="22" height="66" rx="4" fill="var(--primary)" opacity="0.65"/>
+        <rect x="128" y="74" width="22" height="88" rx="4" fill="var(--primary)" opacity="0.82"/>
+        <rect x="156" y="54" width="22" height="108" rx="4" fill="var(--primary)"/>
         {/* Trend line */}
-        <polyline points="55,138 83,120 111,100 139,78 167,60" fill="none" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="5,3"/>
+        <polyline points="55,138 83,120 111,100 139,78 167,60" fill="none" stroke="var(--accent-green)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="5,3"/>
         {/* Result badge */}
-        <rect x="148" y="48" width="72" height="30" rx="8" fill="#22c55e" opacity="0.9"/>
+        <rect x="148" y="48" width="72" height="30" rx="8" fill="var(--accent-green)" opacity="0.9"/>
         <text x="156" y="62" fill="white" fontSize="10.5" fontWeight="bold" fontFamily="sans-serif">문의 ×3배</text>
         <text x="156" y="73" fill="white" fontSize="8" fontFamily="sans-serif">평균 증가율</text>
         {/* Bottom caption */}
-        <text x="44" y="165" fill="#6b7280" fontSize="8" fontFamily="sans-serif">127+ 프로젝트 · 만족도 4.9 · 납기 준수 98%</text>
+        <text x="44" y="165" fill="var(--muted-foreground)" fontSize="8" fontFamily="sans-serif">127+ 프로젝트 · 만족도 4.9 · 납기 준수 98%</text>
         {/* Stand */}
-        <rect x="114" y="182" width="32" height="20" rx="2" fill="#16102a" stroke="#8B5CF6" strokeWidth="1"/>
-        <rect x="78" y="202" width="104" height="8" rx="4" fill="#16102a" stroke="#8B5CF6" strokeWidth="1.5"/>
+        <rect x="114" y="182" width="32" height="20" rx="2" fill="var(--background-deep)" stroke="var(--primary)" strokeWidth="1"/>
+        <rect x="78" y="202" width="104" height="8" rx="4" fill="var(--background-deep)" stroke="var(--primary)" strokeWidth="1.5"/>
         {/* Star badge */}
-        <circle cx="218" cy="32" r="20" fill="#fbbf24" opacity="0.9"/>
+        <circle cx="218" cy="32" r="20" fill="var(--accent-amber)" opacity="0.9"/>
         <text x="212" y="40" fill="white" fontSize="15" fontFamily="sans-serif">★</text>
       </svg>
       <VisiMascot pose="pointing" size={92} />

@@ -61,30 +61,30 @@ function NewWebsiteHeroIllust() {
     <div className="relative">
       <svg width="320" height="280" viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg">
         {/* Main browser window */}
-        <rect x="30" y="30" width="240" height="180" rx="12" fill="#0e0e22" stroke="rgba(139,92,246,.5)" strokeWidth="2" />
-        <rect x="30" y="30" width="240" height="24" rx="12" fill="#1a1a30" />
+        <rect x="30" y="30" width="240" height="180" rx="12" fill="var(--background-deep)" stroke="rgba(var(--primary-rgb),.5)" strokeWidth="2" />
+        <rect x="30" y="30" width="240" height="24" rx="12" fill="var(--background-deep)" />
         <circle cx="48" cy="42" r="4" fill="#ff5f57" />
         <circle cx="61" cy="42" r="4" fill="#ffbd2e" />
         <circle cx="74" cy="42" r="4" fill="#28c840" />
-        <rect x="96" y="37" width="130" height="11" rx="5.5" fill="#2a2a4e" />
+        <rect x="96" y="37" width="130" height="11" rx="5.5" fill="var(--background-deep)" />
         {/* Hero area */}
-        <rect x="38" y="62" width="224" height="68" rx="6" fill="rgba(139,92,246,.1)" />
-        <rect x="46" y="72" width="90" height="10" rx="4" fill="#8b5cf6" opacity={0.8} />
-        <rect x="46" y="86" width="130" height="6" rx="3" fill="rgba(139,92,246,.4)" />
-        <rect x="46" y="96" width="100" height="6" rx="3" fill="rgba(139,92,246,.3)" />
-        <rect x="46" y="110" width="70" height="12" rx="6" fill="#8b5cf6" />
+        <rect x="38" y="62" width="224" height="68" rx="6" fill="rgba(var(--primary-rgb),.1)" />
+        <rect x="46" y="72" width="90" height="10" rx="4" fill="var(--primary)" opacity={0.8} />
+        <rect x="46" y="86" width="130" height="6" rx="3" fill="rgba(var(--primary-rgb),.4)" />
+        <rect x="46" y="96" width="100" height="6" rx="3" fill="rgba(var(--primary-rgb),.3)" />
+        <rect x="46" y="110" width="70" height="12" rx="6" fill="var(--primary)" />
         {/* 3 cards */}
         {[38, 116, 194].map((x, i) => (
           <rect key={i} x={x} y="140" width="68" height="52" rx="6"
-            fill="rgba(139,92,246,.06)" stroke="rgba(139,92,246,.2)" strokeWidth="1" />
+            fill="rgba(var(--primary-rgb),.06)" stroke="rgba(var(--primary-rgb),.2)" strokeWidth="1" />
         ))}
         {/* Design tools floating */}
-        <rect x="4" y="80" width="20" height="3" rx="1.5" fill="#8b5cf6" opacity={0.5} />
-        <rect x="4" y="88" width="16" height="3" rx="1.5" fill="#8b5cf6" opacity={0.35} />
-        <rect x="4" y="96" width="18" height="3" rx="1.5" fill="#8b5cf6" opacity={0.25} />
+        <rect x="4" y="80" width="20" height="3" rx="1.5" fill="var(--primary)" opacity={0.5} />
+        <rect x="4" y="88" width="16" height="3" rx="1.5" fill="var(--primary)" opacity={0.35} />
+        <rect x="4" y="96" width="18" height="3" rx="1.5" fill="var(--primary)" opacity={0.25} />
         {/* Pencil icon */}
         <rect x="275" y="90" width="8" height="32" rx="4" fill="#c4b5fd" transform="rotate(-25 275 90)" />
-        <text x="36" y="25" fontSize="14" fill="#8b5cf6" opacity={0.7}>✦</text>
+        <text x="36" y="25" fontSize="14" fill="var(--primary)" opacity={0.7}>✦</text>
         <text x="285" y="55" fontSize="10" fill="#c4b5fd" opacity={0.5}>✦</text>
       </svg>
       <div className="absolute -bottom-4 -right-4">

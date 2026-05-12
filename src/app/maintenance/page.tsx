@@ -69,27 +69,27 @@ function MaintenanceHeroIllust() {
     <div className="relative">
       <svg width="320" height="280" viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg">
         {/* Dashboard card */}
-        <rect x="20" y="20" width="260" height="180" rx="14" fill="#0e0e22" stroke="rgba(139,92,246,.35)" strokeWidth="1.5" />
-        <rect x="20" y="20" width="260" height="32" rx="14" fill="#1a1a30" />
+        <rect x="20" y="20" width="260" height="180" rx="14" fill="var(--background-deep)" stroke="rgba(var(--primary-rgb),.35)" strokeWidth="1.5" />
+        <rect x="20" y="20" width="260" height="32" rx="14" fill="var(--background-deep)" />
         <circle cx="14" cy="14" r="0" /> {/* placeholder */}
-        <text x="36" y="42" fontSize="11" fill="#c4b5fd" fontFamily="sans-serif" fontWeight="bold">MONITORING DASHBOARD</text>
-        <circle cx="262" cy="36" r="6" fill="#28c840" opacity={0.8} />
-        <circle cx="262" cy="36" r="4" fill="#28c840" />
+        <text x="36" y="42" fontSize="11" fill="var(--primary-light)" fontFamily="sans-serif" fontWeight="bold">MONITORING DASHBOARD</text>
+        <circle cx="262" cy="36" r="6" fill="var(--accent-green)" opacity={0.8} />
+        <circle cx="262" cy="36" r="4" fill="var(--accent-green)" />
         {/* Status indicators */}
         <rect x="32" y="62" width="100" height="44" rx="8" fill="rgba(40,200,64,.08)" stroke="rgba(40,200,64,.25)" strokeWidth="1" />
-        <text x="82" y="79" textAnchor="middle" fontSize="9" fill="#4ade80" fontFamily="sans-serif">서버 상태</text>
-        <text x="82" y="96" textAnchor="middle" fontSize="18" fill="#4ade80" fontFamily="sans-serif" fontWeight="bold">정상</text>
-        <rect x="144" y="62" width="100" height="44" rx="8" fill="rgba(139,92,246,.08)" stroke="rgba(139,92,246,.25)" strokeWidth="1" />
-        <text x="194" y="79" textAnchor="middle" fontSize="9" fill="#a78bfa" fontFamily="sans-serif">업타임</text>
-        <text x="194" y="96" textAnchor="middle" fontSize="18" fill="#8b5cf6" fontFamily="sans-serif" fontWeight="bold">99.9%</text>
+        <text x="82" y="79" textAnchor="middle" fontSize="9" fill="var(--accent-green-text)" fontFamily="sans-serif">서버 상태</text>
+        <text x="82" y="96" textAnchor="middle" fontSize="18" fill="var(--accent-green-text)" fontFamily="sans-serif" fontWeight="bold">정상</text>
+        <rect x="144" y="62" width="100" height="44" rx="8" fill="rgba(var(--primary-rgb),.08)" stroke="rgba(var(--primary-rgb),.25)" strokeWidth="1" />
+        <text x="194" y="79" textAnchor="middle" fontSize="9" fill="var(--primary-light)" fontFamily="sans-serif">업타임</text>
+        <text x="194" y="96" textAnchor="middle" fontSize="18" fill="var(--primary)" fontFamily="sans-serif" fontWeight="bold">99.9%</text>
         {/* Line chart */}
-        <rect x="32" y="118" width="212" height="64" rx="8" fill="rgba(139,92,246,.04)" stroke="rgba(139,92,246,.15)" strokeWidth="1" />
-        <polyline points="44,166 70,155 96,159 122,148 148,152 174,140 200,144 226,132 232,135" fill="none" stroke="#8b5cf6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <circle cx="232" cy="135" r="4" fill="#8b5cf6" />
+        <rect x="32" y="118" width="212" height="64" rx="8" fill="rgba(var(--primary-rgb),.04)" stroke="rgba(var(--primary-rgb),.15)" strokeWidth="1" />
+        <polyline points="44,166 70,155 96,159 122,148 148,152 174,140 200,144 226,132 232,135" fill="none" stroke="var(--primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="232" cy="135" r="4" fill="var(--primary)" />
         <text x="44" y="130" fontSize="8" fill="rgba(167,139,250,.5)" fontFamily="sans-serif">응답속도 (ms)</text>
         {/* Alert icon */}
         <text x="248" y="112" fontSize="16" fill="#fbbf24" opacity={0.8}>⚡</text>
-        <text x="28" y="15" fontSize="12" fill="#8b5cf6" opacity={0.6}>✦</text>
+        <text x="28" y="15" fontSize="12" fill="var(--primary)" opacity={0.6}>✦</text>
       </svg>
       <div className="absolute -bottom-4 -right-6">
         <VisiMascot pose="default" size={88} bubble="24시간 지켜볼게요!" bubbleDir="left" />
