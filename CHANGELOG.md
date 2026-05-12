@@ -1,5 +1,80 @@
 # CHANGELOG — Vision Solution 웹사이트
 
+
+---
+
+## [2026-05-12] — 무료 진단·상담 폼 UX 개선 (전체 페이지 공통 적용)
+
+### 개요
+홈페이지 전반의 무료 진단·상담 신청 폼이 배경에 묻혀 눈에 띄지 않는 문제를 개선.
+폼 컨테이너 카드 강조 + 입력창 시각 구분 + 텍스트 크기 확대를 전체 페이지에 일관 적용.
+
+### 커밋
+- `eb3b39b` feat: 무료 진단 폼 시각 강화 — 입력창 primary 테두리·glow·버튼 shadow 전체 적용
+- `c95da69` feat: 진단·상담 폼 카드 박스 강조 — 상단 primary 액센트 바 + glow shadow + 입력창 border 선명화
+- `fea9f87` feat: 폼 강조 강화 — 상단 accent 바, border 65% 불투명도, 라벨 text-base, 글자 크기 확대
+- `a754820` feat: 폼 입력창 배경색 bg-secondary로 변경 — 카드 배경 대비 시각적 구분 강화
+
+---
+
+### 1. 폼 컨테이너 카드 강조
+
+**적용 파일:** `src/components/UrlAnalysisForm.tsx`, `src/app/contact/page.tsx`
+
+| 항목 | 변경 전 | 변경 후 |
+|------|---------|---------|
+| 배경 | `bg-[var(--background-deep)]` | `bg-card` |
+| 테두리 | `border-border/30` (중립, 거의 안 보임) | `border-primary/60` (보라색, 선명) |
+| 상단 액센트 | 없음 | `h-[3px] bg-primary` absolute 바 |
+| 그림자 | 없음 | `shadow-[0_4px_40px_rgba(139,92,246,0.25)]` |
+
+### 2. 입력창 스타일 강화
+
+| 항목 | 변경 전 | 변경 후 |
+|------|---------|---------|
+| 배경색 | `bg-[var(--card-deep)]` — oklch(0.10), 폼과 거의 동일 | `bg-secondary` — oklch(0.18), 명확히 구분 |
+| 테두리 | `border-border/40` (중립) | `border-primary/50` (보라 tint) |
+| focus ring | `ring-primary/25` | `ring-primary/40` |
+| 패딩 | `px-4 py-3.5` | `px-5 py-4` |
+| 글자 크기 | `text-base` | `text-[1.05rem]` |
+
+### 3. 텍스트 크기 확대
+
+| 항목 | 변경 전 | 변경 후 |
+|------|---------|---------|
+| 폼 제목 | `text-xl font-bold` | `text-2xl font-black` |
+| 라벨 | `text-sm font-semibold` | `text-base font-bold` |
+| 하단 안내 | `text-xs` | `text-sm` |
+
+### 4. 버튼 강조
+
+| 항목 | 변경 전 | 변경 후 |
+|------|---------|---------|
+| 그림자 | 없음 | `shadow-lg shadow-primary/40` |
+| hover | 없음 | `hover:shadow-primary/60` |
+
+### 5. 인라인 URL 폼 (히어로·CTA 섹션)
+
+**적용 파일:** `src/components/landing/hero-section.tsx`, `src/components/landing/cta-section.tsx`
+
+| 항목 | 변경 전 | 변경 후 |
+|------|---------|---------|
+| 입력창 테두리 | `border` 1px `border-white/20` (거의 안 보임) | `border-2 border-primary/60` |
+| focus | 없음 | `focus:ring-2 focus:ring-primary/30` |
+| 버튼 그림자 | 없음 | `shadow-lg shadow-primary/50` |
+
+---
+
+### 색상 계층 구조 (변경 후)
+
+```
+페이지 배경    --background  oklch(0.08)  ← 가장 어두움
+폼 컨테이너   --card        oklch(0.11)  ← 폼 카드 (보라 테두리 + 상단 bar)
+입력창 배경   --secondary   oklch(0.18)  ← 입력 필드 (밝은 회색)
+```
+
+**적용 범위:** 보안 진단 페이지, 리뉴얼 페이지, 포트폴리오 페이지, about 페이지, 문의 페이지, 홈 히어로·CTA 섹션
+
 ---
 
 ## [2026-05-12] — 보안 서비스 페이지 Phase 1·2 반영 + 스캐너 고도화
