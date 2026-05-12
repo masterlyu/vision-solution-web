@@ -25,8 +25,8 @@ export default function ContactPage() {
   const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm(prev => ({ ...prev, [k]: e.target.value }))
 
-  const inputCls = 'w-full bg-[var(--card-deep)] border-2 border-primary/35 rounded-xl px-4 py-4 text-foreground placeholder:text-foreground/35 text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 transition-all'
-  const labelCls = 'text-foreground/90 text-sm font-semibold mb-2 block'
+  const inputCls = 'w-full bg-[var(--card-deep)] border-2 border-primary/65 rounded-xl px-5 py-4 text-foreground text-[1.05rem] placeholder:text-foreground/40 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/40 transition-all'
+  const labelCls = 'text-foreground text-base font-bold mb-2 block'
 
   if (done) return (
     <div className="min-h-screen pt-28 pb-24 bg-background flex items-center justify-center">
@@ -81,7 +81,8 @@ export default function ContactPage() {
           </div>
 
           {/* Right: form */}
-          <div className="lg:col-span-2 bg-card border-2 border-primary/35 border-t-4 border-t-primary rounded-2xl p-8 shadow-[0_4px_40px_rgba(139,92,246,0.18)]">
+          <div className="lg:col-span-2 relative bg-card border-2 border-primary/60 rounded-2xl p-8 shadow-[0_4px_40px_rgba(139,92,246,0.25)]">
+            <div className="absolute inset-x-0 top-0 h-[3px] bg-primary rounded-t-2xl pointer-events-none" />
             <h2 className="text-foreground text-2xl font-black mb-6">무료 상담 신청</h2>
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -123,7 +124,7 @@ export default function ContactPage() {
                 className="w-full h-14 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-xl flex items-center justify-center gap-2 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed text-base shadow-lg shadow-primary/40 hover:shadow-primary/60">
                 {loading ? <><Loader2 className="w-5 h-5 animate-spin" />전송 중...</> : '문의 전송 →'}
               </button>
-              <p className="text-center text-muted-foreground text-xs">영업일 기준 48시간 내 이메일로 답장드립니다</p>
+              <p className="text-center text-muted-foreground text-sm">영업일 기준 48시간 내 이메일로 답장드립니다</p>
             </form>
           </div>
 

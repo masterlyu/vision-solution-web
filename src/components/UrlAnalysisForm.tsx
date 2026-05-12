@@ -182,10 +182,11 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
 
   // ── Form ──
   return (
-    <form onSubmit={handleSubmit} className="bg-card border-2 border-primary/35 border-t-4 border-t-primary rounded-2xl p-7 space-y-5 shadow-[0_4px_40px_rgba(139,92,246,0.18)]">
+    <form onSubmit={handleSubmit} className="relative bg-card border-2 border-primary/60 rounded-2xl p-7 space-y-5 shadow-[0_4px_40px_rgba(139,92,246,0.25)]">
+      <div className="absolute inset-x-0 top-0 h-[3px] bg-primary rounded-t-2xl pointer-events-none" />
       <h3 className="text-foreground font-black text-2xl mb-2">{title}</h3>
       <div>
-        <label className="text-foreground/90 text-sm font-semibold mb-2 block">
+        <label className="text-foreground text-base font-bold mb-2 block">
           분석할 사이트 URL <span className="text-primary">*</span>
         </label>
         <input
@@ -198,7 +199,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
         />
       </div>
       <div>
-        <label className="text-foreground/90 text-sm font-semibold mb-2 block">
+        <label className="text-foreground text-base font-bold mb-2 block">
           이메일 <span className="text-primary">*</span>
           <span className="text-muted-foreground/60 font-normal ml-2">— 진단 리포트 PDF 발송</span>
         </label>
@@ -216,7 +217,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
         )}
       </div>
       <div>
-        <label className="text-foreground/90 text-sm font-semibold mb-2 block">
+        <label className="text-foreground text-base font-bold mb-2 block">
           회사명 <span className="text-muted-foreground/50">(선택)</span>
         </label>
         <input type="text" value={company} onChange={e => setCompany(e.target.value)}
@@ -239,7 +240,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
         className="w-full h-14 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground text-base font-bold disabled:opacity-40 shadow-lg shadow-primary/40 hover:shadow-primary/60 transition-all">
         무료 진단 후 리포트 받기 →
       </Button>
-      <p className="text-center text-muted-foreground text-xs">분석 완료 후 입력한 이메일로 PDF 리포트와 견적서가 발송됩니다</p>
+      <p className="text-center text-muted-foreground text-sm">분석 완료 후 입력한 이메일로 PDF 리포트와 견적서가 발송됩니다</p>
     </form>
   )
 }
