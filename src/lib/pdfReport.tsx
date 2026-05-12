@@ -1,7 +1,7 @@
 import React from 'react'
 import path from 'path'
 import { Document, Page, Text, View, StyleSheet, Font, renderToBuffer } from '@react-pdf/renderer'
-import type { AnalysisResult } from './siteAnalyzer'
+import type { AnalysisResult, CookieResult, CorsResult, EmailSecResult, SensitiveFilesResult } from './siteAnalyzer'
 
 // 로컬 TTF 사용 — woff2 Korean subset은 숫자·영문 렌더링 불가
 const fontPath = path.join(process.cwd(), 'public/fonts/NotoSansKR-Regular.ttf')
@@ -121,11 +121,17 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
           ))}
         </View>
         <View style={[s.row, { marginTop: 4 }]}>
-          <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', backgroundColor: r.ssl.valid ? '#f0fdf4' : '#fef2f2', border: `1px solid ${r.ssl.valid ? C.green : C.red}`, borderRadius: 4, padding: '5 8' }}>
+          <View style={{ flex: 2, flexDirection: 'row', alignItems: 'center', backgroundColor: r.ssl.valid ? '#f0fdf4' : '#fef2f2', border: `1px solid ${r.ssl.valid ? C.green : C.red}`, borderRadius: 4, padding: '5 8' }}>
             <Text style={{ fontSize: 8, color: r.ssl.valid ? C.green : C.red, fontWeight: 700 }}>
               {r.ssl.valid ? '✓ HTTPS 정상' : '✗ HTTPS 미설정'}
             </Text>
             <Text style={{ fontSize: 8, color: C.muted, marginLeft: 8 }}>{r.ssl.note}</Text>
+          </View>
+          <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', backgroundColor: C.surface, border: `1px solid ${C.border}`, borderRadius: 4, padding: '5 8', gap: 6 }}>
+            <Text style={{ fontSize: 7, color: C.muted }}>SSL Labs 등급</Text>
+            <Text style={{ fontSize: 11, fontWeight: 700, color: r.ssl.grade ? (r.ssl.grade.startsWith('A') ? C.green : r.ssl.grade === 'B' ? '#84cc16' : C.amber) : C.muted }}>
+              {r.ssl.grade ?? (r.ssl.gradeChecked ? '—' : '미확인')}
+            </Text>
           </View>
         </View>
       </View>
@@ -191,6 +197,127 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
                 서버·CMS 버전 노출 시 해커가 알려진 취약점(CVE)을 바로 공격할 수 있습니다. Server 헤더 숨김 처리를 권장합니다.
               </Text>
             </View>
+          </View>
+        )}
+      </View>
+
+      {/* ── 쿠키 보안 플래그 ── */}
+      {r.cookie.total > 0 && (
+        <View style={s.section}>
+          <Text style={s.sectionTitle}>쿠키 보안 플래그 점검</Text>
+          <View style={{ flexDirection: 'row', gap: 8, marginBottom: 6 }}>
+            {[
+              { label: '총 쿠키', val: String(r.cookie.total), color: C.text },
+              { label: 'HttpOnly 미설정', val: String(r.cookie.missingHttpOnly), color: r.cookie.missingHttpOnly > 0 ? C.red : C.green },
+              { label: 'Secure 미설정', val: String(r.cookie.missingSecure), color: r.cookie.missingSecure > 0 ? C.red : C.green },
+              { label: 'SameSite 미설정', val: String(r.cookie.missingSameSite), color: r.cookie.missingSameSite > 0 ? C.amber : C.green },
+            ].map(item => (
+              <View key={item.label} style={[s.scoreCard, { flex: 1 }]}>
+                <Text style={s.scoreLbl}>{item.label}</Text>
+                <Text style={{ fontSize: 14, fontWeight: 700, color: item.color }}>{item.val}</Text>
+              </View>
+            ))}
+          </View>
+          {r.cookie.issues.map((issue, i) => (
+            <View key={i} style={[s.alertBox, { backgroundColor: '#fffbeb', border: `1px solid ${C.amber}30` }]}>
+              <Text style={{ fontSize: 8, color: C.amber, fontWeight: 700 }}>⚠</Text>
+              <Text style={{ fontSize: 8, color: C.text, marginLeft: 4 }}>{issue}</Text>
+            </View>
+          ))}
+          {r.cookie.issues.length === 0 && (
+            <View style={[s.alertBox, { backgroundColor: '#f0fdf4', border: `1px solid ${C.green}40` }]}>
+              <Text style={{ fontSize: 8, color: C.green, fontWeight: 700 }}>✓ 정상</Text>
+              <Text style={{ fontSize: 8, color: C.muted, marginLeft: 4 }}>모든 쿠키에 보안 플래그가 설정되어 있습니다.</Text>
+            </View>
+          )}
+        </View>
+      )}
+
+      {/* ── CORS 점검 ── */}
+      <View style={s.section}>
+        <Text style={s.sectionTitle}>CORS 설정 점검</Text>
+        {!r.cors.tested ? (
+          <View style={[s.alertBox, { backgroundColor: '#f9fafb', border: `1px solid ${C.border}` }]}>
+            <Text style={{ fontSize: 8, color: C.muted }}>CORS 점검을 수행할 수 없었습니다.</Text>
+          </View>
+        ) : r.cors.vulnerable ? (
+          <View>
+            <View style={[s.alertBox, { backgroundColor: '#fef2f2', border: `1px solid ${C.red}40` }]}>
+              <Text style={{ fontSize: 8, color: C.red, fontWeight: 700 }}>✗ 취약 ({r.cors.severity})</Text>
+              <Text style={{ fontSize: 8, color: C.text, marginLeft: 4 }}>{r.cors.detail}</Text>
+            </View>
+            {r.cors.allowCredentials && (
+              <View style={{ backgroundColor: '#f9fafb', borderRadius: 4, padding: '4 8', marginTop: 2 }}>
+                <Text style={{ fontSize: 7, color: C.muted }}>
+                  Access-Control-Allow-Credentials: true 설정으로 인해 로그인 세션 탈취 가능. 즉각 수정 필요.
+                </Text>
+              </View>
+            )}
+          </View>
+        ) : (
+          <View style={[s.alertBox, { backgroundColor: '#f0fdf4', border: `1px solid ${C.green}40` }]}>
+            <Text style={{ fontSize: 8, color: C.green, fontWeight: 700 }}>✓ 정상</Text>
+            <Text style={{ fontSize: 8, color: C.muted, marginLeft: 4 }}>{r.cors.detail}</Text>
+          </View>
+        )}
+      </View>
+
+      {/* ── 이메일 보안 ── */}
+      <View style={s.section}>
+        <Text style={s.sectionTitle}>이메일 보안 (SPF · DMARC)</Text>
+        <View style={s.tableHeader}>
+          <Text style={[{ flex: 2, fontWeight: 700, fontSize: 8 }]}>항목</Text>
+          <Text style={[{ flex: 1, fontWeight: 700, fontSize: 8 }]}>상태</Text>
+          <Text style={[{ flex: 4, fontWeight: 700, fontSize: 8 }]}>레코드</Text>
+        </View>
+        {[
+          {
+            label: 'SPF (발신 서버 인증)',
+            present: r.emailSec.spf.present,
+            record: r.emailSec.spf.record,
+            missing: '도메인 위조 메일(스푸핑) 차단 불가',
+          },
+          {
+            label: `DMARC${r.emailSec.dmarc.policy ? ` (정책: ${r.emailSec.dmarc.policy})` : ''}`,
+            present: r.emailSec.dmarc.present,
+            record: r.emailSec.dmarc.record,
+            missing: '피싱 메일 차단 정책 없음 — 브랜드 도용 위험',
+          },
+        ].map((item, i) => (
+          <View key={i} style={s.tableRow}>
+            <Text style={{ flex: 2, fontSize: 8 }}>{item.label}</Text>
+            <Text style={{ flex: 1, fontSize: 8, fontWeight: 700, color: item.present ? C.green : C.red }}>
+              {item.present ? '설정됨' : '미설정'}
+            </Text>
+            <Text style={{ flex: 4, fontSize: 7, color: C.muted, lineHeight: 1.4 }}>
+              {item.present ? (item.record ?? '') : item.missing}
+            </Text>
+          </View>
+        ))}
+      </View>
+
+      {/* ── 민감 파일 점검 ── */}
+      <View style={s.section}>
+        <Text style={s.sectionTitle}>민감 파일 30경로 점검</Text>
+        {r.sensitiveFiles.exposed.length === 0 ? (
+          <View style={[s.alertBox, { backgroundColor: '#f0fdf4', border: `1px solid ${C.green}40` }]}>
+            <Text style={{ fontSize: 8, color: C.green, fontWeight: 700 }}>✓ 정상</Text>
+            <Text style={{ fontSize: 8, color: C.muted, marginLeft: 4 }}>
+              점검한 {r.sensitiveFiles.checked}개 경로에서 노출된 파일 없음 (.env·.git·DB 백업 등)
+            </Text>
+          </View>
+        ) : (
+          <View>
+            <View style={[s.alertBox, { backgroundColor: '#fef2f2', border: `1px solid ${C.red}40` }]}>
+              <Text style={{ fontSize: 8, color: C.red, fontWeight: 700 }}>✗ {r.sensitiveFiles.exposed.length}개 경로 노출</Text>
+              <Text style={{ fontSize: 8, color: C.text, marginLeft: 4 }}>즉각 접근 차단 필요</Text>
+            </View>
+            {r.sensitiveFiles.exposed.map((p, i) => (
+              <View key={i} style={{ flexDirection: 'row', alignItems: 'center', marginTop: 3 }}>
+                <Text style={{ fontSize: 8, color: C.red, marginRight: 6 }}>•</Text>
+                <Text style={{ fontSize: 8, color: C.text, fontFamily: 'NotoKR' }}>{p}</Text>
+              </View>
+            ))}
           </View>
         )}
       </View>
