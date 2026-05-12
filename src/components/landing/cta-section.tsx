@@ -71,7 +71,7 @@ export function CtaSection() {
                   value={url}
                   onChange={e => setUrl(e.target.value)}
                   placeholder="https://your-website.com"
-                  className="flex-1 h-14 px-5 rounded-xl bg-[#12101e] border-2 border-white/20 text-foreground placeholder:text-white/25 text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/25 transition-all"
+                  className="flex-1 h-14 px-5 rounded-xl bg-[var(--card-deep)] border-2 border-border/40 text-foreground placeholder:text-foreground/25 text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/25 transition-all"
                 />
                 <Button type="submit" size="lg" className="h-14 px-8 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-bold gap-2 shrink-0">
                   무료 진단 <ArrowRight className="w-4 h-4" />

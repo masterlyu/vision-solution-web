@@ -25,7 +25,7 @@ export default function ContactPage() {
   const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm(prev => ({ ...prev, [k]: e.target.value }))
 
-  const inputCls = 'w-full bg-[#12101e] border-2 border-white/20 rounded-xl px-4 py-3.5 text-foreground placeholder:text-white/25 text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/25 transition-all'
+  const inputCls = 'w-full bg-[var(--card-deep)] border-2 border-border/40 rounded-xl px-4 py-3.5 text-foreground placeholder:text-foreground/25 text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/25 transition-all'
   const labelCls = 'text-foreground/90 text-sm font-semibold mb-2 block'
 
   if (done) return (
@@ -81,7 +81,7 @@ export default function ContactPage() {
           </div>
 
           {/* Right: form */}
-          <div className="lg:col-span-2 bg-[#0f0d1a] border-2 border-white/10 rounded-2xl p-8">
+          <div className="lg:col-span-2 bg-[var(--background-deep)] border-2 border-border/30 rounded-2xl p-8">
             <h2 className="text-foreground text-xl font-bold mb-6">무료 상담 신청</h2>
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -95,7 +95,7 @@ export default function ContactPage() {
                 </div>
               </div>
               <div>
-                <label className={labelCls}>회사명 <span className="text-white/30 font-normal text-xs ml-1">(선택)</span></label>
+                <label className={labelCls}>회사명 <span className="text-foreground/30 font-normal text-xs ml-1">(선택)</span></label>
                 <input type="text" value={form.company} onChange={set('company')} placeholder="회사명 또는 담당자명" className={inputCls} />
               </div>
               <div>
@@ -123,7 +123,7 @@ export default function ContactPage() {
                 className="w-full h-14 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-xl flex items-center justify-center gap-2 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed text-base">
                 {loading ? <><Loader2 className="w-5 h-5 animate-spin" />전송 중...</> : '문의 전송 →'}
               </button>
-              <p className="text-center text-white/25 text-xs">영업일 기준 48시간 내 이메일로 답장드립니다</p>
+              <p className="text-center text-muted-foreground text-xs">영업일 기준 48시간 내 이메일로 답장드립니다</p>
             </form>
           </div>
 
