@@ -506,12 +506,16 @@ export async function analyzeUrl(rawUrl: string): Promise<AnalysisResult> {
   const cms = detectCms(html, response.headers)
 
   // --- 7. 병렬 실행: PageSpeed · Sucuri · SSL Labs · CORS · Email · 민감파일 ---
-  const domain = (() => { try { return new URL(url).hostname } catch { return url } })()
+  const rawHostname = (() => { try { return new URL(url).hostname } catch { return url } })()
+  const domain = rawHostname.replace(/^www\./, '')
+
+  const psApiKey = process.env.PAGESPEED_API_KEY ?? ''
+  const psKeyParam = psApiKey ? `&key=${psApiKey}` : ''
 
   const [psResult, malware, sslGrade, cors, emailSec, sensitiveFiles] = await Promise.all([
     // PageSpeed
     fetch(
-      `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(url)}&strategy=mobile&category=PERFORMANCE`,
+      `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(url)}&strategy=mobile&category=PERFORMANCE${psKeyParam}`,
       { signal: AbortSignal.timeout(20000) }
     ).then(r => r.ok ? r.json() : null).catch(() => null),
 
