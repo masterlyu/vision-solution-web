@@ -55,34 +55,34 @@ function AppDevHeroIllust() {
     <div className="relative">
       <svg width="320" height="280" viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg">
         {/* Laptop */}
-        <rect x="60" y="60" width="180" height="120" rx="10" fill="#0e0e22" stroke="rgba(139,92,246,.45)" strokeWidth="2" />
-        <rect x="60" y="60" width="180" height="18" rx="10" fill="#1a1a30" />
+        <rect x="60" y="60" width="180" height="120" rx="10" fill="var(--background-deep)" stroke="rgba(var(--primary-rgb),.45)" strokeWidth="2" />
+        <rect x="60" y="60" width="180" height="18" rx="10" fill="var(--background-deep)" />
         <circle cx="76" cy="69" r="3.5" fill="#ff5f57" />
         <circle cx="87" cy="69" r="3.5" fill="#ffbd2e" />
         <circle cx="98" cy="69" r="3.5" fill="#28c840" />
         {/* Code on screen */}
-        <rect x="68" y="85" width="164" height="88" rx="4" fill="#060610" />
-        <rect x="75" y="93" width="40" height="4" rx="2" fill="#8b5cf6" opacity={0.8} />
-        <rect x="120" y="93" width="60" height="4" rx="2" fill="#c4b5fd" opacity={0.5} />
-        <rect x="80" y="103" width="80" height="4" rx="2" fill="rgba(139,92,246,.4)" />
-        <rect x="80" y="113" width="100" height="4" rx="2" fill="rgba(139,92,246,.3)" />
-        <rect x="75" y="123" width="55" height="4" rx="2" fill="#8b5cf6" opacity={0.7} />
-        <rect x="135" y="123" width="45" height="4" rx="2" fill="rgba(139,92,246,.4)" />
-        <rect x="80" y="133" width="70" height="4" rx="2" fill="rgba(139,92,246,.25)" />
-        <rect x="75" y="143" width="90" height="4" rx="2" fill="#c4b5fd" opacity={0.5} />
-        <rect x="75" y="153" width="30" height="4" rx="2" fill="#8b5cf6" opacity={0.8} />
+        <rect x="68" y="85" width="164" height="88" rx="4" fill="var(--background)" />
+        <rect x="75" y="93" width="40" height="4" rx="2" fill="var(--primary)" opacity={0.8} />
+        <rect x="120" y="93" width="60" height="4" rx="2" fill="var(--primary-light)" opacity={0.5} />
+        <rect x="80" y="103" width="80" height="4" rx="2" fill="rgba(var(--primary-rgb),.4)" />
+        <rect x="80" y="113" width="100" height="4" rx="2" fill="rgba(var(--primary-rgb),.3)" />
+        <rect x="75" y="123" width="55" height="4" rx="2" fill="var(--primary)" opacity={0.7} />
+        <rect x="135" y="123" width="45" height="4" rx="2" fill="rgba(var(--primary-rgb),.4)" />
+        <rect x="80" y="133" width="70" height="4" rx="2" fill="rgba(var(--primary-rgb),.25)" />
+        <rect x="75" y="143" width="90" height="4" rx="2" fill="var(--primary-light)" opacity={0.5} />
+        <rect x="75" y="153" width="30" height="4" rx="2" fill="var(--primary)" opacity={0.8} />
         {/* Laptop base */}
-        <rect x="40" y="180" width="220" height="8" rx="4" fill="#1a1a30" stroke="rgba(139,92,246,.2)" strokeWidth="1" />
+        <rect x="40" y="180" width="220" height="8" rx="4" fill="var(--background-deep)" stroke="rgba(var(--primary-rgb),.2)" strokeWidth="1" />
         {/* Phone */}
-        <rect x="260" y="100" width="46" height="78" rx="8" fill="#0e0e22" stroke="rgba(139,92,246,.4)" strokeWidth="1.5" />
-        <rect x="264" y="108" width="38" height="56" rx="4" fill="#060610" />
-        <rect x="267" y="114" width="32" height="5" rx="2" fill="#8b5cf6" opacity={0.7} />
-        <rect x="267" y="123" width="22" height="3" rx="1.5" fill="rgba(139,92,246,.4)" />
-        <rect x="267" y="130" width="28" height="3" rx="1.5" fill="rgba(139,92,246,.3)" />
-        <circle cx="283" cy="148" r="6" fill="rgba(139,92,246,.15)" stroke="rgba(139,92,246,.3)" strokeWidth="1" />
+        <rect x="260" y="100" width="46" height="78" rx="8" fill="var(--background-deep)" stroke="rgba(var(--primary-rgb),.4)" strokeWidth="1.5" />
+        <rect x="264" y="108" width="38" height="56" rx="4" fill="var(--background)" />
+        <rect x="267" y="114" width="32" height="5" rx="2" fill="var(--primary)" opacity={0.7} />
+        <rect x="267" y="123" width="22" height="3" rx="1.5" fill="rgba(var(--primary-rgb),.4)" />
+        <rect x="267" y="130" width="28" height="3" rx="1.5" fill="rgba(var(--primary-rgb),.3)" />
+        <circle cx="283" cy="148" r="6" fill="rgba(var(--primary-rgb),.15)" stroke="rgba(var(--primary-rgb),.3)" strokeWidth="1" />
         {/* Sparkles */}
-        <text x="20" y="80" fontSize="14" fill="#8b5cf6" opacity={0.7}>✦</text>
-        <text x="295" y="85" fontSize="10" fill="#c4b5fd" opacity={0.5}>✦</text>
+        <text x="20" y="80" fontSize="14" fill="var(--primary)" opacity={0.7}>✦</text>
+        <text x="295" y="85" fontSize="10" fill="var(--primary-light)" opacity={0.5}>✦</text>
       </svg>
       <div className="absolute -bottom-4 -right-4">
         <VisiMascot pose="pointing" size={88} bubble="앱도 시스템도!" bubbleDir="left" />
