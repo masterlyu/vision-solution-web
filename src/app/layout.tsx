@@ -3,7 +3,6 @@ import { headers } from 'next/headers'
 import './globals.css'
 import { Navigation } from '@/components/landing/navigation'
 import { FooterSection } from '@/components/landing/footer-section'
-import { ChatbotLoader } from '@/components/chatbot-loader'
 import { FontLoader } from '@/components/font-loader'
 
 export const metadata: Metadata = {
@@ -16,7 +15,7 @@ export const metadata: Metadata = {
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  await headers() // nonce 전파용 — 제거 시 CSP가 Next.js 내부 스크립트 차단
+  const nonce = (await headers()).get('x-nonce') ?? ''
   return (
     <html lang="ko" className="dark">
       <head>
@@ -27,7 +26,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <main>{children}</main>
         <FooterSection />
         <FontLoader />
-        <ChatbotLoader />
+        {/* VISIONC 챗봇 */}
+        <script
+          nonce={nonce}
+          dangerouslySetInnerHTML={{
+            __html: `window.difyChatbotConfig={token:'PCt1VlRbyvKH4dX3',baseUrl:'https://chatbot.visionc.co.kr'}`
+          }}
+        />
+        <script src="https://chatbot.visionc.co.kr/embed.min.js" defer />
       </body>
     </html>
   )
