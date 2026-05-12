@@ -1,6 +1,6 @@
 # visionc.co.kr 홈페이지 역할 분담 정의
 
-> 최종 업데이트: 2026-05-12 (KST)  
+> 최종 업데이트: 2026-05-12 (KST) — Oracle 서버 역할 상세 추가  
 > **목적:** 미니PC Claude / Oracle Claude / Paperclip 에이전트 3곳이 동시에 홈페이지를 수정하면서 발생하는 충돌 방지
 
 ---
@@ -34,9 +34,14 @@
 
 | 영역 | 위치 | 소유 주체 | 비고 |
 |------|------|---------|------|
-| B/C/D 패키지 보안 서비스 실행 | THE CITADEL `/security` | **Oracle Claude** | 미니PC 개입 금지 |
-| 고객 보안 대시보드 | THE CITADEL DB (empire) | **Oracle Claude** | 스펙: `docs/security-dashboard-spec.md` |
-| Dify 챗봇 서버 | `chatbot.visionc.co.kr` | **Oracle Claude** | embed token: `PCt1VlRbyvKH4dX3` |
+| **보안 스캐너 엔진** | `trading-dashboard/lib/security/scanner.ts` | **Oracle Claude** | standard 13 / deep 23 / pentest 33 단계 |
+| **보안 서비스 B패키지** | THE CITADEL `/security` → standard 모드 | **Oracle Claude** | SSL·헤더·쿠키·CORS·이메일DNS·민감파일 등 13종 |
+| **보안 서비스 C패키지** | THE CITADEL `/security` → deep 모드 | **Oracle Claude** | B항목 + Rate Limiting·WAF·서브도메인·에러노출·MixedContent·CMS CVE 등 23종 |
+| **보안 서비스 D패키지** | THE CITADEL `/security` → pentest 모드 | **Oracle Claude** | C항목 + HTTP 스머글링·캐시포이즈닝·JWT·SSTI·클릭재킹 등 33종 |
+| **고객 보안 대시보드 DB** | PostgreSQL `empire` 스키마 | **Oracle Claude** | `security_scans`, `security_findings` 테이블 |
+| **견적 이메일 API** | `app/api/security/scans/[id]/quote-email/` | **Oracle Claude** | PRICE_MAP 28항목, Gmail SMTP 발송 |
+| **보안 API 라우트** | `app/api/security/` (scan·findings·overview·reports·rulebook 등) | **Oracle Claude** | PostgREST `localhost:3334` 경유 |
+| **Dify 챗봇 서버** | `chatbot.visionc.co.kr` (미니PC Docker) | **Oracle Claude** | embed token: `PCt1VlRbyvKH4dX3`, 플로우 편집은 미니PC Dify UI |
 | 트레이딩·콘텐츠·운영 모듈 | THE CITADEL 각 페이지 | **Oracle Claude** | |
 
 ---
@@ -44,9 +49,20 @@
 ## 3. 공유 자원 및 충돌 방지 규칙
 
 ### 3-1. Dify 챗봇
-- **서버 관리**: Oracle Claude (chatbot.visionc.co.kr 운영)
+- **서버 위치**: 미니PC Docker (`localhost:80` → Nginx 리버스 프록시 → `chatbot.visionc.co.kr`)
+- **서버 관리**: Oracle Claude (플로우·모델·토큰 변경 지시)
 - **프론트 embed**: 미니PC Claude (`layout.tsx`의 token·baseUrl)
 - **토큰 변경 시**: Oracle Claude가 먼저 변경 → 미니PC Claude에 통보 → `layout.tsx` 업데이트
+
+**Oracle Claude의 Dify 플로우 관리 방법:**
+| 작업 | 방법 |
+|------|------|
+| 플로우 편집 | 미니PC SSH → `http://localhost:80` Dify UI 접속 (또는 chatbot.visionc.co.kr/signin) |
+| 로그인 정보 | `DIFY_EMAIL=masterlyu@gmail.com` / Oracle 서버 `.env.local` 참조 |
+| API 호출 경로 | Oracle 서버에서 `http://100.116.174.66:80` (DIFY_API_URL) |
+| 모델 변경 | Dify UI → 설정 → 모델 공급자 (DeepSeek·OpenAI 등) |
+| embed token 확인 | Dify UI → 앱 → 퍼블리시 → embed 코드 내 token 값 |
+| token 변경 후 절차 | Oracle Claude → 미니PC Claude에 통보 → `src/app/layout.tsx` difyChatbotConfig.token 업데이트 |
 
 ### 3-2. 보안 서비스 소개 페이지 (`/security`)
 - **콘텐츠·가격**: Paperclip 에이전트 담당
@@ -61,6 +77,24 @@
 | `TELEGRAM_BOT_TOKEN` | 미니PC Claude | Vercel |
 | `UPSTASH_REDIS_REST_URL/TOKEN` | 미니PC Claude | Vercel |
 | Dify 관련 토큰 | Oracle Claude | chatbot.visionc.co.kr |
+
+**Oracle 서버 전용 환경변수** (`trading-dashboard/.env.local`):
+| 변수 | 값/설명 | 용도 |
+|------|--------|------|
+| `NEXT_PUBLIC_SUPABASE_URL` | `http://100.89.247.7:8080` | PostgREST API 엔드포인트 |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | JWT (anon role) | PostgREST 인증 토큰 |
+| `MINIPC_DB_HOST` | `100.116.174.66` | 미니PC archive DB (BT 캔들 캐시) |
+| `MINIPC_DB_USER` / `MINIPC_DB_NAME` | `citadel` / `archive` | BT 데이터 조회용 |
+| `VISIONC_INTERNAL_URL` | `http://100.116.174.66:3999` | 보안 스캔 시 visionc 내부 호출 |
+| `VISIONC_INTERNAL_TOKEN` | sha256 토큰 | 내부 API 인증 |
+| `SMTP_HOST` / `SMTP_PORT` | `smtp.gmail.com:587` | 보안 리포트 이메일 발송 |
+| `SMTP_USER` | `biztalktome@gmail.com` | Gmail 계정 |
+| `SMTP_PASS` | Gmail App Password | Gmail SMTP 인증 |
+| `SMTP_FROM` | `VISIONC Security <biztalktome@gmail.com>` | 발신자 표시명 |
+| `TELEGRAM_BOT_TOKEN` | BotFather 토큰 | 보안 스캔 완료 알림 |
+| `TELEGRAM_CHAT_ID` | `338242589` | 알림 수신 채팅 ID |
+| `DIFY_API_URL` | `http://100.116.174.66:80` | 미니PC Dify 내부 호출 경로 |
+| `DIFY_EMAIL` / `DIFY_PASSWORD` | 관리자 계정 | Dify API 인증 |
 
 ### 3-4. DNS (Cloudflare)
 - **관리 주체**: 사령관 직접 (미니PC·Oracle 모두 변경 불가)
