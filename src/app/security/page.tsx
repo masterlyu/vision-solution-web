@@ -363,14 +363,14 @@ function SecurityHeroIllust() {
         <circle cx="130" cy="156" r="6" fill="var(--background-deep)"/>
         <rect x="127" y="159" width="6" height="9" rx="2" fill="var(--background-deep)"/>
         {/* Warning badge top-right */}
-        <circle cx="208" cy="58" r="22" fill="#ef4444" opacity="0.95"/>
+        <circle cx="208" cy="58" r="22" fill="var(--destructive)" opacity="0.95"/>
         <text x="208" y="66" textAnchor="middle" fill="white" fontSize="22" fontWeight="bold" fontFamily="sans-serif">!</text>
         {/* Check badge bottom-left */}
         <circle cx="52" cy="215" r="22" fill="var(--accent-green)" opacity="0.9"/>
         <text x="52" y="223" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold" fontFamily="sans-serif">✓</text>
         {/* Amber dot */}
-        <circle cx="192" cy="210" r="6" fill="#fbbf24" opacity="0.85"/>
-        <circle cx="208" cy="226" r="4" fill="#fbbf24" opacity="0.5"/>
+        <circle cx="192" cy="210" r="6" fill="var(--accent-amber)" opacity="0.85"/>
+        <circle cx="208" cy="226" r="4" fill="var(--accent-amber)" opacity="0.5"/>
       </svg>
       <VisiMascot pose="magnify" size={92} />
     </div>
