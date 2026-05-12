@@ -260,12 +260,12 @@ const securityPricing = [
     coreItems: [
       '패키지 A 전체 포함',
       '해킹 공격 차단 코드 수정 (XSS·SQLi·CSRF)',
-      '이메일 위조 방어 레코드 설정 (SPF·DKIM·DMARC)',
+      '이메일 위조 방어 레코드 설정 (SPF·DMARC)',
       '민감 파일 30개 경로 접근 차단',
     ],
     checkItems: [
       '패키지 A 전체 포함',
-      '이메일 위조 방어 레코드 점검 (SPF·DKIM·DMARC)',
+      '이메일 위조 방어 레코드 점검 (SPF·DMARC)',
       '민감 파일 30개 경로 노출 차단',
       '외부 데이터 유출 차단 점검 (CORS)',
       '해킹 공격 입력값 필터링 점검 (XSS·SQL Injection)',
@@ -918,7 +918,7 @@ export default function SecurityPage() {
                     ['🛡️', '보안 헤더 13종 점검', 'HSTS·CSP·XFO·쿠키플래그 등 전체 확인'],
                     ['🍪', '쿠키 보안 플래그', 'HttpOnly·Secure·SameSite 설정 여부'],
                     ['🌐', 'CORS 설정 오류', '임의 도메인 접근 허용 여부 자동 탐지'],
-                    ['📧', '이메일 보안 (SPF·DKIM·DMARC)', '피싱·도메인 위조 방어 레코드 점검'],
+                    ['📧', '이메일 보안 (SPF·DMARC)', '피싱·도메인 위조 방어 레코드 점검'],
                     ['📁', '민감 파일 30개 경로 노출', '.env·.git·백업·설정파일 노출 점검'],
                     ['🦠', '악성코드·블랙리스트 탐지', '전 세계 보안 DB(Sucuri) 연동 스캔'],
                     ['🖥️', 'CMS·서버 버전 노출', '워드프레스·서버 기술 스택 정보 유출'],

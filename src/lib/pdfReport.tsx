@@ -218,39 +218,46 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
       </View>
 
       {/* ── 쿠키 보안 플래그 ── */}
-      {r.cookie.total > 0 && (
-        <View style={s.section}>
-          <Text style={s.sectionTitle}>쿠키 보안 플래그 점검</Text>
-          <Text style={{ fontSize: 7, color: C.muted, marginBottom: 8 }}>
-            로그인 쿠키가 안전하게 보호되고 있는지 확인합니다. 플래그가 없으면 해커가 로그인 정보를 훔칠 수 있습니다.
-          </Text>
-          <View style={{ flexDirection: 'row', gap: 8, marginBottom: 6 }}>
-            {[
-              { label: '총 쿠키', val: String(r.cookie.total), color: C.text },
-              { label: 'HttpOnly 미설정', val: String(r.cookie.missingHttpOnly), color: r.cookie.missingHttpOnly > 0 ? C.red : C.green },
-              { label: 'Secure 미설정', val: String(r.cookie.missingSecure), color: r.cookie.missingSecure > 0 ? C.red : C.green },
-              { label: 'SameSite 미설정', val: String(r.cookie.missingSameSite), color: r.cookie.missingSameSite > 0 ? C.amber : C.green },
-            ].map(item => (
-              <View key={item.label} style={[s.scoreCard, { flex: 1 }]}>
-                <Text style={s.scoreLbl}>{item.label}</Text>
-                <Text style={{ fontSize: 14, fontWeight: 700, color: item.color }}>{item.val}</Text>
+      <View style={s.section}>
+        <Text style={s.sectionTitle}>쿠키 보안 플래그 점검</Text>
+        <Text style={{ fontSize: 7, color: C.muted, marginBottom: 8 }}>
+          로그인 쿠키가 안전하게 보호되고 있는지 확인합니다. 플래그가 없으면 해커가 로그인 정보를 훔칠 수 있습니다.
+        </Text>
+        {r.cookie.total === 0 ? (
+          <View style={[s.alertBox, { backgroundColor: '#f0fdf4', border: `1px solid ${C.green}40` }]}>
+            <Text style={{ fontSize: 8, color: C.green, fontWeight: 700 }}>✓ 해당 없음</Text>
+            <Text style={{ fontSize: 8, color: C.muted, marginLeft: 4 }}>응답에서 쿠키가 발견되지 않았습니다. (로그인 기능 없는 사이트)</Text>
+          </View>
+        ) : (
+          <>
+            <View style={{ flexDirection: 'row', gap: 8, marginBottom: 6 }}>
+              {[
+                { label: '총 쿠키', val: String(r.cookie.total), color: C.text },
+                { label: 'HttpOnly 미설정', val: String(r.cookie.missingHttpOnly), color: r.cookie.missingHttpOnly > 0 ? C.red : C.green },
+                { label: 'Secure 미설정', val: String(r.cookie.missingSecure), color: r.cookie.missingSecure > 0 ? C.red : C.green },
+                { label: 'SameSite 미설정', val: String(r.cookie.missingSameSite), color: r.cookie.missingSameSite > 0 ? C.amber : C.green },
+              ].map(item => (
+                <View key={item.label} style={[s.scoreCard, { flex: 1 }]}>
+                  <Text style={s.scoreLbl}>{item.label}</Text>
+                  <Text style={{ fontSize: 14, fontWeight: 700, color: item.color }}>{item.val}</Text>
+                </View>
+              ))}
+            </View>
+            {r.cookie.issues.map((issue, i) => (
+              <View key={i} style={[s.alertBox, { backgroundColor: '#fffbeb', border: `1px solid ${C.amber}30` }]}>
+                <Text style={{ fontSize: 8, color: C.amber, fontWeight: 700 }}>⚠</Text>
+                <Text style={{ fontSize: 8, color: C.text, marginLeft: 4 }}>{issue}</Text>
               </View>
             ))}
-          </View>
-          {r.cookie.issues.map((issue, i) => (
-            <View key={i} style={[s.alertBox, { backgroundColor: '#fffbeb', border: `1px solid ${C.amber}30` }]}>
-              <Text style={{ fontSize: 8, color: C.amber, fontWeight: 700 }}>⚠</Text>
-              <Text style={{ fontSize: 8, color: C.text, marginLeft: 4 }}>{issue}</Text>
-            </View>
-          ))}
-          {r.cookie.issues.length === 0 && (
-            <View style={[s.alertBox, { backgroundColor: '#f0fdf4', border: `1px solid ${C.green}40` }]}>
-              <Text style={{ fontSize: 8, color: C.green, fontWeight: 700 }}>✓ 정상</Text>
-              <Text style={{ fontSize: 8, color: C.muted, marginLeft: 4 }}>모든 쿠키에 보안 플래그가 설정되어 있습니다.</Text>
-            </View>
-          )}
-        </View>
-      )}
+            {r.cookie.issues.length === 0 && (
+              <View style={[s.alertBox, { backgroundColor: '#f0fdf4', border: `1px solid ${C.green}40` }]}>
+                <Text style={{ fontSize: 8, color: C.green, fontWeight: 700 }}>✓ 정상</Text>
+                <Text style={{ fontSize: 8, color: C.muted, marginLeft: 4 }}>모든 쿠키에 보안 플래그가 설정되어 있습니다.</Text>
+              </View>
+            )}
+          </>
+        )}
+      </View>
 
       {/* ── CORS 점검 ── */}
       <View style={s.section}>
