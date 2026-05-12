@@ -78,58 +78,58 @@ function RenewalHeroIllust() {
         <svg width="340" height="280" viewBox="0 0 340 280" xmlns="http://www.w3.org/2000/svg">
           {/* Before 브라우저 (뒤에, 흐리게) */}
           <rect x="10" y="30" width="220" height="190" rx="10"
-            fill="#0e0e1a" stroke="rgba(139,92,246,.2)" strokeWidth="1.5" opacity={0.6} />
+            fill="var(--background-deep)" stroke="rgba(var(--primary-rgb),.2)" strokeWidth="1.5" opacity={0.6} />
           <rect x="10" y="30" width="220" height="22" rx="10"
-            fill="#16162a" opacity={0.6} />
+            fill="var(--background-deep)" opacity={0.6} />
           <circle cx="24" cy="41" r="4" fill="#ff5f57" opacity={0.5} />
           <circle cx="36" cy="41" r="4" fill="#ffbd2e" opacity={0.5} />
           <circle cx="48" cy="41" r="4" fill="#28c840" opacity={0.5} />
-          <rect x="70" y="36" width="110" height="10" rx="5" fill="#2a2a3e" opacity={0.5} />
+          <rect x="70" y="36" width="110" height="10" rx="5" fill="var(--background-deep)" opacity={0.5} />
           {/* 오래된 사이트 느낌 (흐리고 정렬 안됨) */}
-          <rect x="20" y="62" width="200" height="50" rx="4" fill="#1a1a2e" opacity={0.5} />
-          <rect x="28" y="72" width="100" height="8" rx="2" fill="#3a3a5e" opacity={0.6} />
-          <rect x="28" y="84" width="140" height="6" rx="2" fill="#2a2a4e" opacity={0.4} />
-          <rect x="28" y="94" width="80" height="6" rx="2" fill="#2a2a4e" opacity={0.4} />
-          <rect x="20" y="122" width="90" height="60" rx="4" fill="#1a1a2e" opacity={0.4} />
-          <rect x="120" y="122" width="100" height="60" rx="4" fill="#1a1a2e" opacity={0.4} />
-          <text x="170" y="155" textAnchor="middle" fontSize="9" fill="rgba(139,92,246,.3)" fontFamily="sans-serif">기존 사이트</text>
+          <rect x="20" y="62" width="200" height="50" rx="4" fill="var(--background-deep)" opacity={0.5} />
+          <rect x="28" y="72" width="100" height="8" rx="2" fill="var(--background-deep)" opacity={0.6} />
+          <rect x="28" y="84" width="140" height="6" rx="2" fill="var(--background-deep)" opacity={0.4} />
+          <rect x="28" y="94" width="80" height="6" rx="2" fill="var(--background-deep)" opacity={0.4} />
+          <rect x="20" y="122" width="90" height="60" rx="4" fill="var(--background-deep)" opacity={0.4} />
+          <rect x="120" y="122" width="100" height="60" rx="4" fill="var(--background-deep)" opacity={0.4} />
+          <text x="170" y="155" textAnchor="middle" fontSize="9" fill="rgba(var(--primary-rgb),.3)" fontFamily="sans-serif">기존 사이트</text>
           {/* BEFORE 레이블 */}
           <rect x="12" y="32" width="42" height="15" rx="4" fill="#ff5f57" opacity={0.8} />
           <text x="33" y="43" textAnchor="middle" fontSize="8" fill="white" fontWeight="bold" fontFamily="sans-serif">BEFORE</text>
 
           {/* Arrow */}
-          <path d="M240 140 L270 140" stroke="rgba(139,92,246,.5)" strokeWidth="2.5" strokeDasharray="4,3" />
-          <path d="M265 134 L272 140 L265 146" fill="none" stroke="rgba(139,92,246,.7)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M240 140 L270 140" stroke="rgba(var(--primary-rgb),.5)" strokeWidth="2.5" strokeDasharray="4,3" />
+          <path d="M265 134 L272 140 L265 146" fill="none" stroke="rgba(var(--primary-rgb),.7)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
 
           {/* After 브라우저 (앞에, 밝게) */}
           <rect x="110" y="10" width="220" height="210" rx="12"
-            fill="#0e0e1a" stroke="rgba(139,92,246,.55)" strokeWidth="2" />
+            fill="var(--background-deep)" stroke="rgba(var(--primary-rgb),.55)" strokeWidth="2" />
           <rect x="110" y="10" width="220" height="24" rx="12"
-            fill="#1a1a30" />
+            fill="var(--background-deep)" />
           <circle cx="126" cy="22" r="4.5" fill="#ff5f57" />
           <circle cx="139" cy="22" r="4.5" fill="#ffbd2e" />
           <circle cx="152" cy="22" r="4.5" fill="#28c840" />
-          <rect x="174" y="17" width="120" height="11" rx="5.5" fill="#2a2a4e" />
+          <rect x="174" y="17" width="120" height="11" rx="5.5" fill="var(--background-deep)" />
           {/* 새 사이트 — 깔끔한 레이아웃 */}
           {/* 히어로 */}
-          <rect x="118" y="42" width="204" height="56" rx="6" fill="rgba(139,92,246,.12)" />
-          <rect x="126" y="52" width="80" height="9" rx="3" fill="#8b5cf6" opacity={0.8} />
-          <rect x="126" y="65" width="120" height="6" rx="2" fill="rgba(139,92,246,.35)" />
-          <rect x="126" y="75" width="90" height="6" rx="2" fill="rgba(139,92,246,.25)" />
-          <rect x="126" y="87" width="60" height="10" rx="5" fill="#8b5cf6" />
+          <rect x="118" y="42" width="204" height="56" rx="6" fill="rgba(var(--primary-rgb),.12)" />
+          <rect x="126" y="52" width="80" height="9" rx="3" fill="var(--primary)" opacity={0.8} />
+          <rect x="126" y="65" width="120" height="6" rx="2" fill="rgba(var(--primary-rgb),.35)" />
+          <rect x="126" y="75" width="90" height="6" rx="2" fill="rgba(var(--primary-rgb),.25)" />
+          <rect x="126" y="87" width="60" height="10" rx="5" fill="var(--primary)" />
           {/* 카드 3개 */}
           {[118, 188, 258].map((cx, i) => (
             <rect key={i} x={cx} y="108" width="58" height="50" rx="6"
-              fill="rgba(139,92,246,.08)" stroke="rgba(139,92,246,.2)" strokeWidth="1" />
+              fill="rgba(var(--primary-rgb),.08)" stroke="rgba(var(--primary-rgb),.2)" strokeWidth="1" />
           ))}
-          <text x="220" y="195" textAnchor="middle" fontSize="9" fill="rgba(139,92,246,.6)" fontFamily="sans-serif">새 사이트</text>
+          <text x="220" y="195" textAnchor="middle" fontSize="9" fill="rgba(var(--primary-rgb),.6)" fontFamily="sans-serif">새 사이트</text>
           {/* AFTER 레이블 */}
-          <rect x="112" y="12" width="38" height="15" rx="4" fill="#8b5cf6" />
+          <rect x="112" y="12" width="38" height="15" rx="4" fill="var(--primary)" />
           <text x="131" y="23" textAnchor="middle" fontSize="8" fill="white" fontWeight="bold" fontFamily="sans-serif">AFTER</text>
 
           {/* 반짝이 효과 */}
-          <text x="318" y="25" fontSize="14" fill="#8b5cf6" opacity={0.8}>✦</text>
-          <text x="305" y="45" fontSize="9" fill="#c4b5fd" opacity={0.6}>✦</text>
+          <text x="318" y="25" fontSize="14" fill="var(--primary)" opacity={0.8}>✦</text>
+          <text x="305" y="45" fontSize="9" fill="var(--primary-light)" opacity={0.6}>✦</text>
         </svg>
 
         {/* VISI — 작게, 오른쪽 아래 */}

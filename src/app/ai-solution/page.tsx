@@ -59,7 +59,7 @@ function AiHeroIllust() {
         <circle cx="160" cy="130" r="70" fill="rgba(139,92,246,.06)" stroke="rgba(139,92,246,.25)" strokeWidth="1.5" />
         <circle cx="160" cy="130" r="50" fill="rgba(139,92,246,.08)" stroke="rgba(139,92,246,.2)" strokeWidth="1" />
         <circle cx="160" cy="130" r="28" fill="rgba(139,92,246,.15)" />
-        <text x="160" y="138" textAnchor="middle" fontSize="24" fill="#8b5cf6">🤖</text>
+        <text x="160" y="138" textAnchor="middle" fontSize="24" fill="var(--primary)">🤖</text>
         {/* Orbiting nodes */}
         {[0, 60, 120, 180, 240, 300].map((deg, i) => {
           const rad = (deg * Math.PI) / 180
@@ -83,9 +83,9 @@ function AiHeroIllust() {
           return <line key={i} x1={x} y1={y} x2={x2} y2={y2} stroke="rgba(139,92,246,.4)" strokeWidth="1.5" />
         })}
         {/* Sparkles */}
-        <text x="38" y="45" fontSize="16" fill="#8b5cf6" opacity={0.7}>✦</text>
-        <text x="275" y="55" fontSize="12" fill="#c4b5fd" opacity={0.6}>✦</text>
-        <text x="290" y="200" fontSize="10" fill="#8b5cf6" opacity={0.5}>✦</text>
+        <text x="38" y="45" fontSize="16" fill="var(--primary)" opacity={0.7}>✦</text>
+        <text x="275" y="55" fontSize="12" fill="var(--primary-light)" opacity={0.6}>✦</text>
+        <text x="290" y="200" fontSize="10" fill="var(--primary)" opacity={0.5}>✦</text>
       </svg>
       {/* VISI small, bottom-right */}
       <div className="absolute -bottom-4 -right-4">

@@ -83,9 +83,9 @@ function NewWebsiteHeroIllust() {
         <rect x="4" y="88" width="16" height="3" rx="1.5" fill="var(--primary)" opacity={0.35} />
         <rect x="4" y="96" width="18" height="3" rx="1.5" fill="var(--primary)" opacity={0.25} />
         {/* Pencil icon */}
-        <rect x="275" y="90" width="8" height="32" rx="4" fill="#c4b5fd" transform="rotate(-25 275 90)" />
+        <rect x="275" y="90" width="8" height="32" rx="4" fill="var(--primary-light)" transform="rotate(-25 275 90)" />
         <text x="36" y="25" fontSize="14" fill="var(--primary)" opacity={0.7}>✦</text>
-        <text x="285" y="55" fontSize="10" fill="#c4b5fd" opacity={0.5}>✦</text>
+        <text x="285" y="55" fontSize="10" fill="var(--primary-light)" opacity={0.5}>✦</text>
       </svg>
       <div className="absolute -bottom-4 -right-4">
         <VisiMascot pose="wave" size={88} bubble="새 사이트 만들어드려요!" bubbleDir="left" />
