@@ -101,9 +101,9 @@ export function HeroSection() {
           className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
           <input type="url" value={url} onChange={e => setUrl(e.target.value)}
             placeholder="지금 사이트 URL을 입력하세요"
-            className="flex-1 h-14 px-5 rounded-full bg-white/10 border border-white/20 text-foreground placeholder-foreground/40 text-base focus:outline-none focus:border-primary focus:bg-white/15 transition-all" />
+            className="flex-1 h-14 px-5 rounded-full bg-white/15 border-2 border-primary/50 text-foreground placeholder-foreground/40 text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 focus:bg-white/20 transition-all" />
           <Button type="submit" size="lg"
-            className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-base gap-2">
+            className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-base gap-2 shadow-lg shadow-primary/50 hover:shadow-primary/70 transition-all">
             지금 무료 진단받기 <ArrowRight className="w-4 h-4" />
           </Button>
         </form>

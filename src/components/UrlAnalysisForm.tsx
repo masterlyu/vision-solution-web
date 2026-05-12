@@ -26,7 +26,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
   const [grade, setGrade]     = useState('')
   const [total, setTotal]     = useState(0)
 
-  const inputCls = "w-full bg-[var(--card-deep)] border-2 border-border/40 rounded-xl px-4 py-3.5 text-foreground text-base placeholder:text-foreground/25 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/25 transition-all"
+  const inputCls = "w-full bg-[var(--card-deep)] border-2 border-primary/30 rounded-xl px-4 py-4 text-foreground text-base placeholder:text-foreground/35 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
 
   const normalizeUrl = (raw: string) => {
     const t = raw.trim()
@@ -182,8 +182,8 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
 
   // ── Form ──
   return (
-    <form onSubmit={handleSubmit} className="bg-[var(--background-deep)] border-2 border-border/30 rounded-2xl p-7 space-y-5">
-      <h3 className="text-foreground font-bold text-xl mb-1">{title}</h3>
+    <form onSubmit={handleSubmit} className="bg-gradient-to-b from-primary/[0.07] to-[var(--background-deep)] border-2 border-primary/40 rounded-2xl p-7 space-y-5 ring-4 ring-primary/10 shadow-[0_8px_48px_rgba(139,92,246,0.18)]">
+      <h3 className="text-foreground font-black text-2xl mb-2">{title}</h3>
       <div>
         <label className="text-foreground/90 text-sm font-semibold mb-2 block">
           분석할 사이트 URL <span className="text-primary">*</span>
@@ -236,7 +236,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
         <p className="text-foreground/45 text-sm bg-foreground/5 border border-foreground/10 rounded-xl p-4 leading-relaxed">{notice}</p>
       )}
       <Button type="submit" disabled={(serviceType === 'security' && !agreed) || domainMismatch}
-        className="w-full h-14 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground text-base font-bold disabled:opacity-40">
+        className="w-full h-14 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground text-base font-bold disabled:opacity-40 shadow-lg shadow-primary/40 hover:shadow-primary/60 transition-all">
         무료 진단 후 리포트 받기 →
       </Button>
       <p className="text-center text-muted-foreground text-xs">분석 완료 후 입력한 이메일로 PDF 리포트와 견적서가 발송됩니다</p>
