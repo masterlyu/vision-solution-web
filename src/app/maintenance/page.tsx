@@ -88,7 +88,7 @@ function MaintenanceHeroIllust() {
         <circle cx="232" cy="135" r="4" fill="var(--primary)" />
         <text x="44" y="130" fontSize="8" fill="rgba(167,139,250,.5)" fontFamily="sans-serif">응답속도 (ms)</text>
         {/* Alert icon */}
-        <text x="248" y="112" fontSize="16" fill="#fbbf24" opacity={0.8}>⚡</text>
+        <text x="248" y="112" fontSize="16" fill="var(--accent-amber)" opacity={0.8}>⚡</text>
         <text x="28" y="15" fontSize="12" fill="var(--primary)" opacity={0.6}>✦</text>
       </svg>
       <div className="absolute -bottom-4 -right-6">
