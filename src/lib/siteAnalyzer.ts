@@ -513,10 +513,10 @@ export async function analyzeUrl(rawUrl: string): Promise<AnalysisResult> {
   const psKeyParam = psApiKey ? `&key=${psApiKey}` : ''
 
   const [psResult, malware, sslGrade, cors, emailSec, sensitiveFiles] = await Promise.all([
-    // PageSpeed
+    // PageSpeed — API 응답 최대 55초 (Vercel 60s 한계 내)
     fetch(
       `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(url)}&strategy=mobile&category=PERFORMANCE${psKeyParam}`,
-      { signal: AbortSignal.timeout(20000) }
+      { signal: AbortSignal.timeout(55000) }
     ).then(r => r.ok ? r.json() : null).catch(() => null),
 
     // Sucuri
