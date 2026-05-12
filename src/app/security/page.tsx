@@ -218,64 +218,93 @@ const securityFaqs = [
 
 const securityPricing = [
   {
-    name: '기본 보안 설정',
-    price: '30만원~',
+    name: '패키지 A — 보안 위생 패치',
+    price: '₩299,000',
     highlight: false,
     badge: null,
-    target: '보안이 전혀 안 된 소규모 홈페이지',
-    reportNote: '무료 자동 진단 리포트로 확인 가능',
+    target: '기본 보안 설정이 안 된 소규모 홈페이지',
+    reportNote: '무료 자동 진단 리포트로 점검 후 진행',
     reportType: 'auto' as const,
     checkItems: [
-      'HTTPS/SSL 인증서 적용 여부',
-      '보안 헤더 6가지 (HSTS·CSP·X-Frame-Options·X-Content-Type·Referrer·Permissions)',
-      '관리자 페이지(/admin·/wp-admin) 노출 여부',
+      'HTTPS·SSL/TLS A등급 설정',
+      '보안 헤더 13종 일괄 적용 (HSTS·CSP·XFO 등)',
+      '쿠키 보안 플래그 (HttpOnly·Secure·SameSite)',
+      'X-Powered-By·Server 헤더 제거',
+      '관리자 페이지 URL 변경 및 접근 제한',
     ],
     fixItems: [
-      'HTTPS 인증서 설치 + 자동 전환 설정',
-      '보안 헤더 6종 서버 적용',
-      '관리자 URL 변경 및 IP 접근 제한',
+      'HTTPS 인증서 설치 + 강제 전환',
+      '보안 헤더 13종 서버 일괄 적용',
+      '쿠키 보안 속성 전체 추가',
+      '서버 정보 은닉 설정',
     ],
   },
   {
-    name: '표준 취약점 개선',
-    price: '80만원~',
+    name: '패키지 B — 표준 보안 강화',
+    price: '₩799,000',
     highlight: true,
     badge: '추천',
-    target: '워드프레스·그누보드 등 CMS 운영 사이트',
-    reportNote: '전문가 수동 분석 심층 리포트 제공',
+    target: 'CMS·회원가입·로그인 기능이 있는 사이트',
+    reportNote: '자동 진단 + 전문가 수동 분석 리포트 제공',
     reportType: 'manual' as const,
     checkItems: [
-      '기본 보안 설정 6가지 전체 포함',
-      'CMS·플러그인 버전 취약점 스캔',
-      '관리자 계정·권한 설정 점검',
-      '디렉터리 노출·오류 메시지 정보 누출',
+      '패키지 A 전체 포함',
+      '이메일 보안 (SPF·DKIM·DMARC) 설정',
+      '민감 파일 30개 경로 노출 차단',
+      'CORS 정책 수정 (허용 도메인 제한)',
+      'XSS·SQL Injection 코드 레벨 패치',
+      'CSRF 방어 토큰 구현',
     ],
     fixItems: [
-      '플러그인·CMS 최신 보안 버전 업데이트',
-      '관리자 계정 분리 및 2단계 인증 설정',
-      '불필요 디렉터리 접근 차단',
-      '오류 페이지 민감정보 노출 차단',
+      '도메인 이메일 보안 레코드 설정',
+      '민감 파일·소스코드 접근 차단',
+      'CORS 화이트리스트 정책 적용',
+      '입력값 이스케이프·Prepared Statement',
+      '상태 변경 폼 CSRF 토큰 추가',
     ],
   },
   {
-    name: '심층 보안 강화',
-    price: '200만원~',
+    name: '패키지 C — 심층 진단 + 수정',
+    price: '₩1,990,000',
     highlight: false,
     badge: '고급',
-    target: '쇼핑몰·고객 개인정보 취급 사이트',
-    reportNote: '전문가 수동 분석 + 코드 리뷰 리포트 제공',
+    target: '쇼핑몰·개인정보·핀테크 운영 사이트',
+    reportNote: '전문가 수동 분석 + 코드 리뷰 + 재진단 포함',
     reportType: 'manual' as const,
     checkItems: [
-      '표준 취약점 개선 전체 포함',
-      '소스코드 보안 취약점 전수 분석',
-      'SQL 인젝션·XSS·CSRF 취약점 점검',
-      'API 엔드포인트 노출 및 인증 점검',
+      '패키지 B 전체 포함',
+      'Rate Limiting (무제한 요청 방어)',
+      '서브도메인 탈취 탐지 및 차단',
+      'WAF(웹방화벽) 설치 및 규칙 최적화',
+      '인증·세션 관리 점검 (JWT·쿠키)',
+      '전문가 소스코드 전수 보안 리뷰',
     ],
     fixItems: [
-      '위험 코드 직접 패치 및 입력 검증 추가',
-      'WAF(웹방화벽) 설치 및 규칙 최적화',
-      '24시간 실시간 모니터링 설정',
-      '분기별 재진단 1회 포함',
+      '로그인·API Rate Limit 적용',
+      'WAF 설치 및 맞춤 규칙 설정',
+      '소스코드 보안 취약점 직접 패치',
+      '수정 완료 후 재진단 1회 포함',
+    ],
+  },
+  {
+    name: '패키지 D — 정기 모니터링',
+    price: '₩299,000/월',
+    highlight: false,
+    badge: '월정액',
+    target: '상시 보안 관리가 필요한 운영 사이트',
+    reportNote: '월 1회 자동 스캔 + 새 취약점 즉시 알림',
+    reportType: 'manual' as const,
+    checkItems: [
+      '월 1회 13개 항목 전체 자동 스캔',
+      '새 취약점 발견 즉시 알림 (텔레그램)',
+      '전월 대비 보안 점수 변화 추적',
+      '월간 보안 현황 리포트 발송',
+    ],
+    fixItems: [
+      '긴급 이슈 48시간 내 패치 지원',
+      '신규 취약점 발견 시 즉시 대응',
+      '연간 계약 시 1개월 무료',
+      '전담 보안 담당자 배정',
     ],
   },
 ]
@@ -781,14 +810,16 @@ export default function SecurityPage() {
                 <p className="text-xs font-bold text-primary uppercase tracking-wider mb-3">📄 무료 리포트에 담기는 내용</p>
                 <ul className="space-y-2.5">
                   {[
-                    ['🔒', 'HTTPS 자물쇠 상태', 'SSL 인증서 유효 여부 + 등급'],
-                    ['🛡️', '보안 헤더 6가지 점검', '해킹·XSS·클릭재킹 차단 설정 확인'],
-                    ['🦠', '악성코드 탐지', '전 세계 보안 DB(Sucuri) 연동 스캔'],
-                    ['🚫', '구글·보안기관 블랙리스트', '검색 차단·경고 등재 여부 확인'],
-                    ['🖥️', 'CMS·서버 버전 노출', '워드프레스 등 버전 정보 유출 점검'],
-                    ['🔍', 'SEO 노출 평가', '구글 신뢰도·검색 노출 영향 분석'],
-                    ['⚡', '페이지 속도 측정', 'Google PageSpeed 기준 성능 등급'],
-                    ['💰', '자동 견적서 포함', '발견된 취약점 기준 예상 수정 비용'],
+                    ['🔒', 'SSL/TLS 등급 (A+~F)', 'SSL Labs 기준 상세 등급 · 취약 프로토콜 탐지'],
+                    ['🛡️', '보안 헤더 13종 점검', 'HSTS·CSP·XFO·쿠키플래그 등 전체 확인'],
+                    ['🍪', '쿠키 보안 플래그', 'HttpOnly·Secure·SameSite 설정 여부'],
+                    ['🌐', 'CORS 설정 오류', '임의 도메인 접근 허용 여부 자동 탐지'],
+                    ['📧', '이메일 보안 (SPF·DKIM·DMARC)', '피싱·도메인 위조 방어 레코드 점검'],
+                    ['📁', '민감 파일 30개 경로 노출', '.env·.git·백업·설정파일 노출 점검'],
+                    ['🦠', '악성코드·블랙리스트 탐지', '전 세계 보안 DB(Sucuri) 연동 스캔'],
+                    ['🖥️', 'CMS·서버 버전 노출', '워드프레스·서버 기술 스택 정보 유출'],
+                    ['🔍', 'SEO·페이지 속도', '구글 신뢰도·PageSpeed 성능 등급'],
+                    ['💰', '자동 견적서 포함', '발견된 취약점 기준 패키지별 예상 비용'],
                   ].map(([icon, title, desc]) => (
                     <li key={title} className="flex items-start gap-2.5">
                       <span className="text-base shrink-0 mt-0.5">{icon}</span>
@@ -800,20 +831,31 @@ export default function SecurityPage() {
                   ))}
                 </ul>
                 <div className="mt-4 pt-3 border-t border-border/50 text-xs text-muted-foreground">
-                  ✅ URL 입력 후 <strong className="text-foreground">20~40초</strong> 내 자동 분석 완료 →
-                  입력한 이메일로 <strong className="text-foreground">PDF 리포트 즉시 발송</strong>
+                  ✅ URL 입력 후 <strong className="text-foreground">40초~2분</strong> 내 자동 분석 완료 →
+                  입력한 이메일로 <strong className="text-foreground">PDF 리포트 + 자동 견적서 즉시 발송</strong>
                 </div>
               </motion.div>
 
-              {/* 표준/심층 안내 */}
+              {/* 패키지 안내 */}
               <motion.div variants={fadeInUp} className="bg-amber-500/5 border border-amber-500/20 rounded-xl px-4 py-3.5 mb-5">
-                <p className="text-amber-400 text-xs font-bold mb-1">📋 표준 · 심층 플랜을 원하신다면?</p>
-                <p className="text-muted-foreground text-xs leading-relaxed">
-                  표준·심층은 전문가가 직접 수동 분석해 개별 리포트를 발송합니다.
-                  아래 버튼으로 상담을 신청하시면 연락드립니다.
-                </p>
+                <p className="text-amber-400 text-xs font-bold mb-2">💼 수정까지 원하신다면? 4가지 패키지</p>
+                <div className="space-y-1.5 mb-3">
+                  {[
+                    ['A', '보안 위생 패치',    '₩299,000',   '헤더·SSL·쿠키 설정 수정'],
+                    ['B', '표준 보안 강화',    '₩799,000',   'A + XSS·SQLi·CORS 코드 패치'],
+                    ['C', '심층 진단 + 수정',  '₩1,990,000', 'B + WAF·Rate Limit + 코드 리뷰'],
+                    ['D', '정기 모니터링',     '₩299,000/월','월 1회 자동 스캔 + 즉시 알림'],
+                  ].map(([pkg, name, price, desc]) => (
+                    <div key={pkg} className="flex items-center gap-2 text-xs">
+                      <span className="w-5 h-5 rounded bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center shrink-0 text-[10px]">{pkg}</span>
+                      <span className="text-foreground font-semibold w-28 shrink-0">{name}</span>
+                      <span className="text-amber-400 font-bold w-24 shrink-0">{price}</span>
+                      <span className="text-muted-foreground">{desc}</span>
+                    </div>
+                  ))}
+                </div>
                 <a href="/contact?service=security"
-                  className="inline-block mt-2.5 text-xs font-bold text-amber-400 border border-amber-500/30 px-3 py-1.5 rounded-lg hover:bg-amber-500/10 transition-colors">
+                  className="inline-block text-xs font-bold text-amber-400 border border-amber-500/30 px-3 py-1.5 rounded-lg hover:bg-amber-500/10 transition-colors">
                   전문가 보안 상담 신청 →
                 </a>
               </motion.div>
