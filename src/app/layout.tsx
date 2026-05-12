@@ -27,11 +27,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <main>{children}</main>
         <FooterSection />
         <FontLoader />
-        {/* VISIONC 챗봇 — lazyOnload: 페이지 완전 로드 후 유휴 시간에 실행 */}
-        <Script
-          id="chatbot-config"
+        {/* VISIONC 챗봇 — config는 nonce 즉시 실행, embed만 lazyOnload */}
+        <script
           nonce={nonce}
-          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `window.difyChatbotConfig={token:'PCt1VlRbyvKH4dX3',baseUrl:'https://chatbot.visionc.co.kr'}`
           }}
