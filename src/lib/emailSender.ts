@@ -13,6 +13,22 @@ function scoreBar(score: number) {
     <div style="width:${w}px;height:8px;border-radius:4px;background:${color};"></div></div>`
 }
 
+const HEADER_BEGINNER: Record<string, string> = {
+  'strict-transport-security':   '자물쇠 강제설정',
+  'content-security-policy':     '해킹 스크립트 차단막',
+  'x-frame-options':             '클릭재킹 방어',
+  'x-content-type-options':      '파일 위장 방어',
+  'referrer-policy':             '방문기록 보호',
+  'permissions-policy':          '기기 권한 차단',
+  'cross-origin-opener-policy':  '탭 간 정보 보호',
+  'cross-origin-resource-policy':'리소스 도용 방어',
+  'cross-origin-embedder-policy':'외부 콘텐츠 격리',
+  'x-xss-protection':            'XSS 자동 필터',
+  'cache-control':               '민감 페이지 캐시 방지',
+  'expect-ct':                   '인증서 위조 탐지',
+  'feature-policy':              '브라우저 기능 제한',
+}
+
 export function buildEmailHtml(r: AnalysisResult, email: string, company?: string): string {
   const gc = gradeColor(r.score.grade)
   const sevColor: Record<string, string> = { HIGH: '#EF4444', MEDIUM: '#F59E0B', LOW: '#3B82F6' }
@@ -67,9 +83,14 @@ export function buildEmailHtml(r: AnalysisResult, email: string, company?: strin
     </div>`
   })()
 
-  const headerRows = r.headers.map(h => `
+  const headerRows = r.headers.map(h => {
+    const beginner = HEADER_BEGINNER[h.key]
+    return `
     <tr style="border-bottom:1px solid #f0eeff;">
-      <td style="padding:8px 12px;font-size:12px;font-weight:600;">${h.label}</td>
+      <td style="padding:8px 12px;">
+        ${beginner ? `<div style="font-size:12px;font-weight:700;color:#111827;">${beginner}</div>` : ''}
+        <div style="font-size:10px;color:#9ca3af;margin-top:1px;">${h.label}</div>
+      </td>
       <td style="padding:8px 12px;text-align:center;">
         <span style="display:inline-block;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700;
           background:${h.present ? '#f0fdf4' : '#fef2f2'};color:${h.present ? '#16a34a' : '#dc2626'};">
@@ -84,7 +105,111 @@ export function buildEmailHtml(r: AnalysisResult, email: string, company?: strin
       <td style="padding:8px 12px;font-size:11px;color:#6b7280;line-height:1.5;">
         ${h.present ? (h.value ? `<code style="font-size:10px;">${h.value.slice(0, 60)}${h.value.length > 60 ? '…' : ''}</code>` : '설정됨') : h.description}
       </td>
-    </tr>`).join('')
+    </tr>`
+  }).join('')
+
+  // ── 쿠키 보안 플래그 ──
+  const cookieHtml = (() => {
+    if (r.cookie.total === 0) return `
+      <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:10px 14px;font-size:12px;color:#15803d;">
+        ✅ 쿠키 없음 — 로그인 세션 없는 사이트
+      </div>`
+    const ok = r.cookie.missingHttpOnly === 0 && r.cookie.missingSecure === 0
+    if (ok) return `
+      <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:10px 14px;font-size:12px;color:#15803d;">
+        ✅ 모든 쿠키에 보안 플래그가 설정되어 있습니다.
+      </div>`
+    const cells = [
+      { label: '총 쿠키', val: r.cookie.total, bad: false },
+      { label: 'HttpOnly 미설정', val: r.cookie.missingHttpOnly, bad: r.cookie.missingHttpOnly > 0 },
+      { label: 'Secure 미설정', val: r.cookie.missingSecure, bad: r.cookie.missingSecure > 0 },
+      { label: 'SameSite 미설정', val: r.cookie.missingSameSite, bad: r.cookie.missingSameSite > 0 },
+    ]
+    return `
+      <table width="100%" style="border-collapse:collapse;margin-bottom:10px;">
+        <tr>${cells.map(c => `
+          <td style="text-align:center;padding:10px;background:#faf8ff;border-radius:8px;border:1px solid #ede9fe;">
+            <div style="font-size:10px;color:#6b7280;margin-bottom:4px;">${c.label}</div>
+            <div style="font-size:22px;font-weight:700;color:${c.bad ? '#dc2626' : '#22c55e'};">${c.val}</div>
+          </td>`).join('<td style="width:6px;"></td>')}
+        </tr>
+      </table>
+      ${r.cookie.issues.map(i => `<div style="background:#fffbeb;border:1px solid #fde68a;border-radius:6px;padding:8px 12px;font-size:11px;color:#92400e;margin-top:4px;">⚠ ${i}</div>`).join('')}`
+  })()
+
+  // ── CORS ──
+  const corsHtml = (() => {
+    if (!r.cors.tested) return `
+      <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:10px 14px;font-size:12px;color:#6b7280;">
+        CORS 점검을 수행할 수 없었습니다.
+      </div>`
+    if (!r.cors.vulnerable) return `
+      <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:10px 14px;font-size:12px;color:#15803d;">
+        ✅ 정상 — ${r.cors.detail}
+      </div>`
+    return `
+      <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:12px 16px;">
+        <div style="font-size:13px;font-weight:700;color:#dc2626;margin-bottom:6px;">⚠ CORS 취약점 발견 (${r.cors.severity})</div>
+        <div style="font-size:12px;color:#374151;margin-bottom:4px;">${r.cors.detail}</div>
+        ${r.cors.allowCredentials ? `<div style="font-size:11px;color:#dc2626;margin-top:6px;">로그인 쿠키까지 외부에 노출될 수 있습니다 — 즉각 수정 필요</div>` : ''}
+      </div>`
+  })()
+
+  // ── 이메일 보안 ──
+  const emailSecHtml = (() => {
+    const rows = [
+      {
+        name: 'SPF',
+        desc: '내 도메인을 사칭한 가짜 이메일 발송 차단',
+        present: r.emailSec.spf.present,
+        record: r.emailSec.spf.record,
+        missing: '도메인 사칭 메일 차단 불가 — 피싱 위험',
+      },
+      {
+        name: 'DMARC',
+        desc: `SPF/DKIM 실패 메일 처리 정책${r.emailSec.dmarc.policy ? ` (정책: ${r.emailSec.dmarc.policy})` : ''}`,
+        present: r.emailSec.dmarc.present,
+        record: r.emailSec.dmarc.record,
+        missing: '피싱 메일 차단 정책 없음 — 브랜드 도용 위험',
+      },
+    ]
+    return `
+      <table width="100%" style="border-collapse:collapse;border:1px solid #ede9fe;border-radius:8px;overflow:hidden;">
+        ${rows.map(row => `
+        <tr style="border-bottom:1px solid #f0eeff;">
+          <td style="padding:10px 14px;width:30%;">
+            <div style="font-size:13px;font-weight:700;color:#111827;">${row.name}</div>
+            <div style="font-size:10px;color:#9ca3af;margin-top:2px;">${row.desc}</div>
+          </td>
+          <td style="padding:10px 14px;text-align:center;width:15%;">
+            <span style="display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;
+              background:${row.present ? '#f0fdf4' : '#fef2f2'};color:${row.present ? '#16a34a' : '#dc2626'};">
+              ${row.present ? '설정됨' : '미설정'}
+            </span>
+          </td>
+          <td style="padding:10px 14px;font-size:11px;color:#6b7280;line-height:1.5;">
+            ${row.present ? (row.record ?? '설정됨') : `<span style="color:#dc2626;">${row.missing}</span>`}
+          </td>
+        </tr>`).join('')}
+      </table>`
+  })()
+
+  // ── 민감 파일 ──
+  const sensitiveFilesHtml = (() => {
+    if (r.sensitiveFiles.exposed.length === 0) return `
+      <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:10px 14px;font-size:12px;color:#15803d;">
+        ✅ 점검한 ${r.sensitiveFiles.checked}개 경로에서 노출된 파일 없음 (.env · .git · DB 백업 등)
+      </div>`
+    return `
+      <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:12px 16px;">
+        <div style="font-size:13px;font-weight:700;color:#dc2626;margin-bottom:8px;">⚠ ${r.sensitiveFiles.exposed.length}개 파일 외부 노출 — 즉각 차단 필요</div>
+        ${r.sensitiveFiles.exposed.map(p => `
+          <div style="font-size:12px;color:#374151;padding:3px 0;border-bottom:1px solid #fecaca;">
+            🔴 ${p}
+          </div>`).join('')}
+        <div style="font-size:11px;color:#dc2626;margin-top:8px;">비밀번호·DB 접속 정보가 담긴 파일이 누구나 볼 수 있는 상태입니다.</div>
+      </div>`
+  })()
 
   const seoRows = r.seo.issues.map(i => `
     <li style="padding:4px 0;font-size:12px;color:#374151;">
@@ -162,6 +287,7 @@ export function buildEmailHtml(r: AnalysisResult, email: string, company?: strin
           <div style="font-size:18px;font-weight:700;color:${r.ssl.valid ? '#22c55e' : '#ef4444'};">
             ${r.ssl.valid ? '✅ 정상' : '❌ 미설정'}
           </div>
+          ${r.ssl.grade ? `<div style="margin-top:6px;"><span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:13px;font-weight:700;background:${r.ssl.grade.startsWith('A') ? '#f0fdf4' : r.ssl.grade === 'B' ? '#f7fee7' : '#fffbeb'};color:${r.ssl.grade.startsWith('A') ? '#16a34a' : r.ssl.grade === 'B' ? '#65a30d' : '#d97706'};">SSL Labs ${r.ssl.grade}</span></div>` : ''}
         </td>
       </tr>
     </table>
@@ -174,8 +300,29 @@ export function buildEmailHtml(r: AnalysisResult, email: string, company?: strin
     <h2 style="font-size:15px;font-weight:700;color:#111;margin:0 0 12px;">CMS 및 서버 정보 점검</h2>
     <div style="margin-bottom:32px;">${cmsHtml}</div>
 
+    <!-- 쿠키 보안 플래그 -->
+    <h2 style="font-size:15px;font-weight:700;color:#111;margin:0 0 4px;">쿠키 보안 플래그 점검</h2>
+    <p style="font-size:11px;color:#9ca3af;margin:0 0 12px;">로그인 쿠키가 안전하게 보호되고 있는지 확인합니다. 플래그가 없으면 해커가 로그인 정보를 훔칠 수 있습니다.</p>
+    <div style="margin-bottom:32px;">${cookieHtml}</div>
+
+    <!-- CORS -->
+    <h2 style="font-size:15px;font-weight:700;color:#111;margin:0 0 4px;">CORS 설정 점검</h2>
+    <p style="font-size:11px;color:#9ca3af;margin:0 0 12px;">다른 웹사이트가 내 사이트 데이터를 몰래 가져가는 것을 막는 설정입니다. 잘못 설정하면 회원 정보가 유출될 수 있습니다.</p>
+    <div style="margin-bottom:32px;">${corsHtml}</div>
+
+    <!-- 이메일 보안 -->
+    <h2 style="font-size:15px;font-weight:700;color:#111;margin:0 0 4px;">이메일 보안 (SPF · DMARC)</h2>
+    <p style="font-size:11px;color:#9ca3af;margin:0 0 12px;">내 도메인 이름으로 가짜 피싱 이메일을 보내는 것을 막는 설정입니다. 설정이 없으면 고객이 사칭 이메일에 속을 수 있습니다.</p>
+    <div style="margin-bottom:32px;">${emailSecHtml}</div>
+
+    <!-- 민감 파일 노출 -->
+    <h2 style="font-size:15px;font-weight:700;color:#111;margin:0 0 4px;">민감 파일 30경로 노출 점검</h2>
+    <p style="font-size:11px;color:#9ca3af;margin:0 0 12px;">비밀번호·DB 정보가 담긴 설정 파일(.env, .git 등)이 외부에 공개되어 있는지 30개 경로를 점검합니다.</p>
+    <div style="margin-bottom:32px;">${sensitiveFilesHtml}</div>
+
     <!-- Security Headers -->
-    <h2 style="font-size:15px;font-weight:700;color:#111;margin:0 0 12px;">보안 헤더 점검</h2>
+    <h2 style="font-size:15px;font-weight:700;color:#111;margin:0 0 4px;">보안 헤더 점검</h2>
+    <p style="font-size:11px;color:#9ca3af;margin:0 0 12px;">웹 서버가 브라우저에게 보내는 보안 지침입니다. 없으면 해킹·클릭재킹 등 다양한 공격에 노출됩니다.</p>
     <table width="100%" style="border-collapse:collapse;border:1px solid #ede9fe;border-radius:12px;overflow:hidden;margin-bottom:32px;">
       <thead>
         <tr style="background:#faf8ff;">

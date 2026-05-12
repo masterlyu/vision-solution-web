@@ -58,6 +58,22 @@ function severityColor(sev: string) {
   return { HIGH: C.red, MEDIUM: C.amber, LOW: C.blue }[sev] ?? C.muted
 }
 
+const HEADER_BEGINNER: Record<string, string> = {
+  'strict-transport-security':    '자물쇠 강제설정',
+  'content-security-policy':      '해킹 스크립트 차단막',
+  'x-frame-options':              '클릭재킹 방어',
+  'x-content-type-options':       '파일 위장 방어',
+  'referrer-policy':              '방문기록 보호',
+  'permissions-policy':           '기기 권한 차단',
+  'cross-origin-opener-policy':   '탭 간 정보 보호',
+  'cross-origin-resource-policy': '리소스 도용 방어',
+  'cross-origin-embedder-policy': '외부 콘텐츠 격리',
+  'x-xss-protection':             'XSS 자동 필터',
+  'cache-control':                '민감 페이지 캐시 방지',
+  'expect-ct':                    '인증서 위조 탐지',
+  'feature-policy':               '브라우저 기능 제한',
+}
+
 const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; company?: string }) => (
   <Document title={`VISIONC 보안 진단 리포트 — ${r.url}`} author="VISIONC">
     <Page size="A4" style={s.page}>
@@ -205,6 +221,9 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
       {r.cookie.total > 0 && (
         <View style={s.section}>
           <Text style={s.sectionTitle}>쿠키 보안 플래그 점검</Text>
+          <Text style={{ fontSize: 7, color: C.muted, marginBottom: 8 }}>
+            로그인 쿠키가 안전하게 보호되고 있는지 확인합니다. 플래그가 없으면 해커가 로그인 정보를 훔칠 수 있습니다.
+          </Text>
           <View style={{ flexDirection: 'row', gap: 8, marginBottom: 6 }}>
             {[
               { label: '총 쿠키', val: String(r.cookie.total), color: C.text },
@@ -235,7 +254,10 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
 
       {/* ── CORS 점검 ── */}
       <View style={s.section}>
-        <Text style={s.sectionTitle}>CORS 설정 점검</Text>
+        <Text style={s.sectionTitle}>CORS 설정 점검 (다른 사이트 데이터 도용 방어)</Text>
+        <Text style={{ fontSize: 7, color: C.muted, marginBottom: 8 }}>
+          다른 웹사이트가 내 사이트 데이터를 몰래 가져가는 것을 막는 설정입니다. 잘못 설정하면 회원 정보가 유출될 수 있습니다.
+        </Text>
         {!r.cors.tested ? (
           <View style={[s.alertBox, { backgroundColor: '#f9fafb', border: `1px solid ${C.border}` }]}>
             <Text style={{ fontSize: 8, color: C.muted }}>CORS 점검을 수행할 수 없었습니다.</Text>
@@ -265,6 +287,9 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
       {/* ── 이메일 보안 ── */}
       <View style={s.section}>
         <Text style={s.sectionTitle}>이메일 보안 (SPF · DMARC)</Text>
+        <Text style={{ fontSize: 7, color: C.muted, marginBottom: 8 }}>
+          내 도메인 이름으로 가짜 피싱 이메일을 보내는 것을 막는 설정입니다. 설정이 없으면 고객이 사칭 이메일에 속을 수 있습니다.
+        </Text>
         <View style={s.tableHeader}>
           <Text style={[{ flex: 2, fontWeight: 700, fontSize: 8 }]}>항목</Text>
           <Text style={[{ flex: 1, fontWeight: 700, fontSize: 8 }]}>상태</Text>
@@ -272,20 +297,25 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
         </View>
         {[
           {
-            label: 'SPF (발신 서버 인증)',
+            label: 'SPF',
+            sub: '내 도메인을 사칭한 가짜 이메일 발송 차단',
             present: r.emailSec.spf.present,
             record: r.emailSec.spf.record,
-            missing: '도메인 위조 메일(스푸핑) 차단 불가',
+            missing: '도메인 사칭 이메일 차단 불가 — 피싱 위험',
           },
           {
             label: `DMARC${r.emailSec.dmarc.policy ? ` (정책: ${r.emailSec.dmarc.policy})` : ''}`,
+            sub: 'SPF 실패 메일 처리 정책 — 피싱 차단',
             present: r.emailSec.dmarc.present,
             record: r.emailSec.dmarc.record,
             missing: '피싱 메일 차단 정책 없음 — 브랜드 도용 위험',
           },
         ].map((item, i) => (
           <View key={i} style={s.tableRow}>
-            <Text style={{ flex: 2, fontSize: 8 }}>{item.label}</Text>
+            <View style={{ flex: 2 }}>
+              <Text style={{ fontSize: 8, fontWeight: 700 }}>{item.label}</Text>
+              <Text style={{ fontSize: 7, color: C.muted, marginTop: 1 }}>{item.sub}</Text>
+            </View>
             <Text style={{ flex: 1, fontSize: 8, fontWeight: 700, color: item.present ? C.green : C.red }}>
               {item.present ? '설정됨' : '미설정'}
             </Text>
@@ -299,6 +329,9 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
       {/* ── 민감 파일 점검 ── */}
       <View style={s.section}>
         <Text style={s.sectionTitle}>민감 파일 30경로 점검</Text>
+        <Text style={{ fontSize: 7, color: C.muted, marginBottom: 8 }}>
+          비밀번호·DB 정보가 담긴 설정 파일(.env, .git 등)이 외부에 공개되어 있는지 30개 경로를 확인합니다.
+        </Text>
         {r.sensitiveFiles.exposed.length === 0 ? (
           <View style={[s.alertBox, { backgroundColor: '#f0fdf4', border: `1px solid ${C.green}40` }]}>
             <Text style={{ fontSize: 8, color: C.green, fontWeight: 700 }}>✓ 정상</Text>
@@ -325,26 +358,35 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
       {/* ── 보안 헤더 ── */}
       <View style={s.section}>
         <Text style={s.sectionTitle}>보안 헤더 점검</Text>
+        <Text style={{ fontSize: 7, color: C.muted, marginBottom: 8 }}>
+          웹 서버가 브라우저에게 보내는 보안 지침입니다. 없으면 해킹·클릭재킹 등 다양한 공격에 노출됩니다.
+        </Text>
         <View style={s.tableHeader}>
           <Text style={[s.col1, { fontWeight: 700, fontSize: 8 }]}>헤더</Text>
           <Text style={[s.col2, { fontWeight: 700, fontSize: 8 }]}>상태</Text>
           <Text style={[s.col1, { fontWeight: 700, fontSize: 8 }]}>위험도</Text>
           <Text style={[s.col3, { fontWeight: 700, fontSize: 8 }]}>설명</Text>
         </View>
-        {r.headers.map(h => (
-          <View key={h.key} style={s.tableRow}>
-            <Text style={[s.col1, { fontSize: 8 }]}>{h.label}</Text>
-            <Text style={[s.col2, { fontSize: 8, color: h.present ? C.green : C.red, fontWeight: 700 }]}>
-              {h.present ? '통과' : '미설정'}
-            </Text>
-            <Text style={[s.col1, { fontSize: 8, color: h.present ? C.muted : severityColor(h.severity) }]}>
-              {h.present ? '-' : h.severity}
-            </Text>
-            <Text style={[s.col3, { fontSize: 7, color: C.muted, lineHeight: 1.4 }]}>
-              {h.present ? (h.value ?? '') : h.description}
-            </Text>
-          </View>
-        ))}
+        {r.headers.map(h => {
+          const beginner = HEADER_BEGINNER[h.key]
+          return (
+            <View key={h.key} style={s.tableRow}>
+              <View style={s.col1}>
+                {beginner ? <Text style={{ fontSize: 8, fontWeight: 700 }}>{beginner}</Text> : null}
+                <Text style={{ fontSize: 7, color: C.muted }}>{h.label}</Text>
+              </View>
+              <Text style={[s.col2, { fontSize: 8, color: h.present ? C.green : C.red, fontWeight: 700 }]}>
+                {h.present ? '통과' : '미설정'}
+              </Text>
+              <Text style={[s.col1, { fontSize: 8, color: h.present ? C.muted : severityColor(h.severity) }]}>
+                {h.present ? '-' : h.severity}
+              </Text>
+              <Text style={[s.col3, { fontSize: 7, color: C.muted, lineHeight: 1.4 }]}>
+                {h.present ? (h.value ?? '') : h.description}
+              </Text>
+            </View>
+          )
+        })}
       </View>
 
       {/* ── SEO ── */}
