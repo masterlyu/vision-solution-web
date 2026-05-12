@@ -29,6 +29,12 @@ function buildSecurityHeaders(nonce: string): Record<string, string> {
     'Referrer-Policy': 'strict-origin-when-cross-origin',
     'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), payment=()',
     'Cross-Origin-Resource-Policy': 'same-origin',
+    // 추가 헤더 — 탭 간 공격 차단, 레거시 XSS 필터, CT 감사, 레거시 기능 정책
+    'Cross-Origin-Opener-Policy': 'same-origin-allow-popups',
+    'Cross-Origin-Embedder-Policy': 'unsafe-none',
+    'X-XSS-Protection': '1; mode=block',
+    'Expect-CT': 'max-age=86400',
+    'Feature-Policy': "camera 'none'; microphone 'none'; geolocation 'none'; payment 'none'",
   }
 }
 
