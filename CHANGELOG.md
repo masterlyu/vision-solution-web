@@ -2,6 +2,80 @@
 
 ---
 
+## [2026-05-12] — 보안 서비스 페이지 Phase 1·2 반영 + 스캐너 고도화
+
+### 개요
+VISIONC 보안 진단 스캐너 Phase 1(5종)·Phase 2(6종) 구현 완료.
+스캔 항목 표준 8개 → 최대 28개로 확대. 홈페이지 보안 서비스 페이지 전면 반영.
+
+### 커밋
+- `0059f82` feat: 보안 서비스 페이지 — Phase 1 반영 + 4개 패키지 구조로 개편
+- `cb853f8` feat: 보안 서비스 페이지 — Phase 2 반영 (심층 진단 항목 업데이트)
+
+---
+
+### 1. 보안 스캐너 Phase 1 (Oracle 대시보드 — 전 모드 공통)
+
+파일: trading-dashboard/lib/security/scanner.ts
+
+| 체크 | 설명 |
+|------|------|
+| ssl_tls | SSL Labs API — A+~F 등급, TLS 1.0/1.1, Forward Secrecy |
+| cookie_flags | Set-Cookie HttpOnly·Secure·SameSite 누락 탐지 |
+| cors | 임의 Origin 반영·와일드카드+Credentials 오류 탐지 |
+| email_security | Cloudflare DoH — SPF·DKIM·DMARC 레코드 점검 |
+| sensitive_files | 30개 경로 노출 탐지 (.env·.git·백업·CMS 설정 등) |
+
+---
+
+### 2. 보안 스캐너 Phase 2 (deep·pentest 모드)
+
+파일: trading-dashboard/lib/security/scanner.ts
+
+| 체크 | 설명 |
+|------|------|
+| rate_limiting | 15회 연속 요청 — 429·RateLimit 헤더 감지 |
+| waf_detection | 헤더 핑거프린트 + XSS 프로브 차단 여부 |
+| subdomain_takeover | 10개 서브도메인 CNAME 댕글링·탈취 서명 확인 |
+| error_disclosure | 404·SQLi 프로브 → 스택트레이스·파일경로 노출 탐지 |
+| mixed_content | HTTPS 페이지 내 HTTP 리소스 참조 탐지 |
+| cms_cve | WordPress·Joomla·Drupal·Magento 버전 → CVE 매핑 |
+
+스캔 단계: standard 13 / deep 23 / pentest 28
+
+---
+
+### 3. 보안 서비스 페이지 업데이트
+
+파일: src/app/security/page.tsx
+
+- 무료 점검 항목 카드 8개 → 12개 확장 (SSL 상세·쿠키·CORS·이메일DNS·민감파일 추가)
+- 패키지 C 점검 항목: Phase 2 기준으로 갱신 (Rate Limiting·WAF·서브도메인·에러노출·MixedContent·CMS CVE)
+- 패키지 C 수정 항목: 에러 페이지·Mixed Content·CMS 보안업데이트 추가
+
+---
+
+### 4. 견적 이메일 PRICE_MAP 확장
+
+파일: trading-dashboard/app/api/security/scans/[id]/quote-email/route.ts
+
+Phase 1·2 신규 10개 항목 추가 (기존 13개 → 23개):
+
+| check_type | 단가 |
+|---|---|
+| ssl_tls | 150,000원 |
+| cookie_flags | 80,000원 |
+| cors | 200,000원 |
+| email_security | 80,000원 |
+| rate_limiting | 100,000원 |
+| waf_detection | 300,000원 |
+| subdomain_takeover | 150,000원 |
+| error_disclosure | 80,000원 |
+| mixed_content | 100,000원 |
+| cms_cve | 200,000원 |
+
+---
+
 ## [2026-05-12 오후] — Paperclip manager 에이전트 tasks:assign 권한 부여
 
 ### 개요
