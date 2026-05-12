@@ -26,7 +26,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
   const [grade, setGrade]     = useState('')
   const [total, setTotal]     = useState(0)
 
-  const inputCls = "w-full bg-[var(--card-deep)] border-2 border-primary/30 rounded-xl px-4 py-4 text-foreground text-base placeholder:text-foreground/35 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
+  const inputCls = "w-full bg-[var(--card-deep)] border-2 border-primary/35 rounded-xl px-4 py-4 text-foreground text-base placeholder:text-foreground/35 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all"
 
   const normalizeUrl = (raw: string) => {
     const t = raw.trim()
@@ -182,7 +182,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
 
   // ── Form ──
   return (
-    <form onSubmit={handleSubmit} className="bg-gradient-to-b from-primary/[0.07] to-[var(--background-deep)] border-2 border-primary/40 rounded-2xl p-7 space-y-5 ring-4 ring-primary/10 shadow-[0_8px_48px_rgba(139,92,246,0.18)]">
+    <form onSubmit={handleSubmit} className="bg-card border-2 border-primary/35 border-t-4 border-t-primary rounded-2xl p-7 space-y-5 shadow-[0_4px_40px_rgba(139,92,246,0.18)]">
       <h3 className="text-foreground font-black text-2xl mb-2">{title}</h3>
       <div>
         <label className="text-foreground/90 text-sm font-semibold mb-2 block">
