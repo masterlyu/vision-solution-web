@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { headers } from 'next/headers'
+import Script from 'next/script'
 import './globals.css'
 import { Navigation } from '@/components/landing/navigation'
 import { FooterSection } from '@/components/landing/footer-section'
@@ -26,14 +27,19 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <main>{children}</main>
         <FooterSection />
         <FontLoader />
-        {/* VISIONC 챗봇 */}
-        <script
+        {/* VISIONC 챗봇 — lazyOnload: 페이지 완전 로드 후 유휴 시간에 실행 */}
+        <Script
+          id="chatbot-config"
           nonce={nonce}
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `window.difyChatbotConfig={token:'PCt1VlRbyvKH4dX3',baseUrl:'https://chatbot.visionc.co.kr'}`
           }}
         />
-        <script src="https://chatbot.visionc.co.kr/embed.min.js" defer />
+        <Script
+          src="https://chatbot.visionc.co.kr/embed.min.js"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   )
