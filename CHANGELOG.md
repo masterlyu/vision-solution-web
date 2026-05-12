@@ -2,7 +2,50 @@
 
 ---
 
-## [2026-05-12] — Nemotron Shim ReAct 루프 구현 + Paperclip 에이전트 복구
+## [2026-05-12 오후] — Paperclip manager 에이전트 tasks:assign 권한 부여
+
+### 개요
+디자인 검증관 루틴이 2시간마다 CSS 위반 이슈를 생성하지만 퍼블리셔에게 배정하지 못하는 문제(403 Forbidden) 근본 해결.
+manager role 6개 에이전트 전원에게 `tasks:assign` 권한 부여.
+
+---
+
+### 문제 분석
+
+**증상**: 디자인 검증관 루틴 실행 시 VIS-1171, VIS-1172 등 이슈 생성 후 퍼블리셔 배정 실패 → 미배정 누적
+
+**근본 원인**: 에이전트 permissions에 `tasks:assign` 권한이 없어 `PATCH /api/issues/{id}` assignee 변경 시 403
+
+**의사결정**: CTO 경유 방식(모든 배정 요청을 CTO에게 전달) vs 개별 권한 부여 비교 검토 후 **개별 권한 방식** 채택
+- CTO 경유는 2시간 루틴마다 추가 Opus 호출 발생 → 불필요한 비용/지연
+- 배정 대상이 이미 명확히 정해진 워크플로우(검증관 → 담당 에이전트)
+- manager role에만 제한, worker는 기존대로
+
+---
+
+### 적용 내용
+
+**대상**: manager role 에이전트 6명 전원
+
+| 에이전트 | ID | 부여 방식 |
+|---------|-----|---------|
+| 디자인 검증관 | bb200001 | API (`PATCH /api/agents/:id/permissions`) |
+| 마케팅 검증관 | bb100001 | API |
+| 기술 검증관 | bb300001 | API |
+| 통합 검증관 | bb600001 | API |
+| 보안 검증관 | bb400001 | API |
+| AI 솔루션 검증관 | bb500001 | DB 직접 삽입 (urlKey 충돌로 API 우회) |
+
+**AI 솔루션 검증관 특이사항**: urlKey가 "ai"로 단축되어 AI 디자이너·AI 엔지니어와 충돌(ambiguous). isUuidLike() 정규식이 RFC 4122 표준 UUID만 인식하므로 synthetic ID가 shortname으로 처리됨. `principal_permission_grants` 테이블에 직접 INSERT로 해결.
+
+---
+
+### 효과
+다음 루틴 실행(KST 12:00)부터 디자인 검증관이 CSS 위반 이슈 생성 → 퍼블리셔 직접 배정까지 완전 자동화.
+
+---
+
+## [2026-05-12 오전] — Nemotron Shim ReAct 루프 구현 + Paperclip 에이전트 복구
 
 ### 개요
 Nemotron으로 교체된 4개 에이전트(콘텐츠 라이터, 트렌드 스카우트, 가이드 컨설턴트, 아카이브 매니저)가

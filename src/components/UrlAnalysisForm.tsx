@@ -233,13 +233,13 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
         </label>
       )}
       {notice && (
-        <p className="text-white/45 text-sm bg-white/5 border border-white/10 rounded-xl p-4 leading-relaxed">{notice}</p>
+        <p className="text-foreground/45 text-sm bg-foreground/5 border border-foreground/10 rounded-xl p-4 leading-relaxed">{notice}</p>
       )}
       <Button type="submit" disabled={(serviceType === 'security' && !agreed) || domainMismatch}
         className="w-full h-14 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground text-base font-bold disabled:opacity-40">
         무료 진단 후 리포트 받기 →
       </Button>
-      <p className="text-center text-white/25 text-xs">분석 완료 후 입력한 이메일로 PDF 리포트와 견적서가 발송됩니다</p>
+      <p className="text-center text-muted-foreground text-xs">분석 완료 후 입력한 이메일로 PDF 리포트와 견적서가 발송됩니다</p>
     </form>
   )
 }
