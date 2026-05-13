@@ -153,16 +153,16 @@ const dangers = [
 ]
 
 const dangerColorMap: Record<string, string> = {
-  red:    'border-red-500/30 bg-red-500/5',
-  orange: 'border-orange-500/30 bg-orange-500/5',
-  amber:  'border-amber-500/30 bg-amber-500/5',
-  blue:   'border-blue-500/30 bg-blue-500/5',
+  red:    'border-[var(--accent-red)]/30 bg-[var(--accent-red)]/5',
+  orange: 'border-[var(--accent-orange)]/30 bg-[var(--accent-orange)]/5',
+  amber:  'border-[var(--accent-amber)]/30 bg-[var(--accent-amber)]/5',
+  blue:   'border-[var(--accent-blue)]/30 bg-[var(--accent-blue)]/5',
 }
 const dangerCaseBg: Record<string, string> = {
-  red:    'bg-red-500/10 border-red-500/20 text-red-400',
-  orange: 'bg-orange-500/10 border-orange-500/20 text-orange-400',
-  amber:  'bg-amber-500/10 border-amber-500/20 text-amber-400',
-  blue:   'bg-blue-500/10 border-blue-500/20 text-blue-400',
+  red:    'bg-[var(--accent-red)]/10 border-[var(--accent-red)]/20 text-[var(--accent-red)]',
+  orange: 'bg-[var(--accent-orange)]/10 border-[var(--accent-orange)]/20 text-[var(--accent-orange)]',
+  amber:  'bg-[var(--accent-amber)]/10 border-[var(--accent-amber)]/20 text-[var(--accent-amber)]',
+  blue:   'bg-[var(--accent-blue)]/10 border-[var(--accent-blue)]/20 text-[var(--accent-blue)]',
 }
 
 const checks = [
@@ -408,8 +408,8 @@ export default function SecurityPage() {
               animate="visible"
             >
               {/* 얼럿 배지 — SSR 무관하게 항상 visible (스모크 테스트 키워드) */}
-              <motion.span variants={fadeInUp} className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-bold px-4 py-1.5 rounded-full w-fit">
-                <span className="w-1.5 h-1.5 rounded-full bg-red-400 inline-block" />
+              <motion.span variants={fadeInUp} className="inline-flex items-center gap-2 bg-[var(--accent-red)]/10 border border-[var(--accent-red)]/30 text-[var(--accent-red)] text-xs font-bold px-4 py-1.5 rounded-full w-fit">
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-red)] inline-block" />
                 지금 이 순간도 해킹 시도 중
               </motion.span>
 
@@ -418,7 +418,7 @@ export default function SecurityPage() {
                 className="text-5xl md:text-6xl lg:text-7xl font-black text-foreground leading-tight"
               >
                 지금 내 사이트,<br />
-                <span className="text-red-400">털리고 있지 않나요?</span>
+                <span className="text-[var(--accent-red)]">털리고 있지 않나요?</span>
               </motion.h1>
 
               <motion.p variants={fadeInUp} className="text-muted-foreground text-lg">
@@ -523,7 +523,7 @@ export default function SecurityPage() {
             viewport={{ once: true, margin: '-100px' }}
           >
             &ldquo;우리 같은 작은 회사는 괜찮아&rdquo;<br />
-            <span className="text-red-400">— 이 생각이 가장 위험합니다</span>
+            <span className="text-[var(--accent-red)]">— 이 생각이 가장 위험합니다</span>
           </motion.h2>
 
           <motion.div
@@ -594,7 +594,7 @@ export default function SecurityPage() {
         className="py-12 px-6 text-center"
         style={{ background: 'radial-gradient(ellipse at 50% 50%, color-mix(in oklch, var(--destructive) 8%, transparent) 0%, transparent 70%)' }}
       >
-        <p className="text-red-400 text-xs font-bold tracking-[0.15em] uppercase mb-4">지금 바로 확인</p>
+        <p className="text-[var(--accent-red)] text-xs font-bold tracking-[0.15em] uppercase mb-4">지금 바로 확인</p>
         <h2 className="text-3xl font-black text-foreground mb-6">내 사이트는 안전한가요?</h2>
         <a
           href="#cta-form"
@@ -691,14 +691,14 @@ export default function SecurityPage() {
                 key={s.label}
                 variants={fadeInUp}
                 className={`bg-card border rounded-2xl py-4 px-3 flex flex-col items-center gap-1.5 ${
-                  s.ok === true  ? 'border-green-500/30' :
-                  s.ok === null  ? 'border-amber-500/30' :
-                  'border-red-500/20 opacity-55'
+                  s.ok === true  ? 'border-[var(--accent-green)]/30' :
+                  s.ok === null  ? 'border-[var(--accent-amber)]/30' :
+                  'border-[var(--accent-red)]/20 opacity-55'
                 }`}
               >
                 <span className="text-3xl">{s.emoji}</span>
                 <span className="text-foreground font-bold text-sm">{s.label}</span>
-                <span className={`text-xl font-bold ${s.ok === true ? 'text-green-400' : s.ok === null ? 'text-amber-400' : 'text-red-400'}`}>
+                <span className={`text-xl font-bold ${s.ok === true ? 'text-[var(--accent-green)]' : s.ok === null ? 'text-[var(--accent-amber)]' : 'text-[var(--accent-red)]'}`}>
                   {s.ok === true ? '✓' : s.ok === null ? '△' : '✗'}
                 </span>
               </motion.div>
@@ -808,7 +808,7 @@ export default function SecurityPage() {
                     {p.coreItems.map((item, j) => (
                       <li key={j} className="flex items-start gap-2.5">
                         <span className={`shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold mt-0.5
-                          ${p.highlight ? 'bg-primary/20 text-primary' : 'bg-green-500/15 text-green-400'}`}>
+                          ${p.highlight ? 'bg-primary/20 text-primary' : 'bg-[var(--accent-green)]/15 text-[var(--accent-green)]'}`}>
                           ✓
                         </span>
                         <span className="text-foreground/90 text-sm leading-snug">{item}</span>
@@ -835,7 +835,7 @@ export default function SecurityPage() {
                         <ul className="space-y-1.5">
                           {p.checkItems.map((item, j) => (
                             <li key={j} className="flex items-start gap-2 text-sm text-foreground/70">
-                              <span className="text-blue-400 shrink-0 mt-0.5 text-xs">🔍</span>
+                              <span className="text-[var(--accent-blue)] shrink-0 mt-0.5 text-xs">🔍</span>
                               <span>{item}</span>
                             </li>
                           ))}
@@ -846,7 +846,7 @@ export default function SecurityPage() {
                         <ul className="space-y-1.5">
                           {p.fixItems.map((item, j) => (
                             <li key={j} className="flex items-start gap-2 text-sm text-foreground/70">
-                              <span className="text-green-400 shrink-0 mt-0.5 text-xs">🔧</span>
+                              <span className="text-[var(--accent-green)] shrink-0 mt-0.5 text-xs">🔧</span>
                               <span>{item}</span>
                             </li>
                           ))}
@@ -858,8 +858,8 @@ export default function SecurityPage() {
                   {/* 리포트 타입 */}
                   <div className={`rounded-lg px-3 py-2 text-xs mb-5
                     ${p.reportType === 'auto'
-                      ? 'bg-green-500/10 border border-green-500/20 text-green-400'
-                      : 'bg-amber-500/10 border border-amber-500/20 text-amber-400'}`}>
+                      ? 'bg-[var(--accent-green)]/10 border border-[var(--accent-green)]/20 text-[var(--accent-green)]'
+                      : 'bg-[var(--accent-amber)]/10 border border-[var(--accent-amber)]/20 text-[var(--accent-amber)]'}`}>
                     {p.reportType === 'auto'
                       ? '📄 무료 자동 진단 → 즉시 이메일 발송'
                       : '📋 전문가 수동 분석 → 개별 리포트 발송'}
@@ -941,8 +941,8 @@ export default function SecurityPage() {
               </motion.div>
 
               {/* 패키지 안내 */}
-              <motion.div variants={fadeInUp} className="bg-amber-500/5 border border-amber-500/20 rounded-xl px-4 py-3.5 mb-5">
-                <p className="text-amber-400 text-xs font-bold mb-2">💼 수정까지 원하신다면? 4가지 패키지</p>
+              <motion.div variants={fadeInUp} className="bg-[var(--accent-amber)]/5 border border-[var(--accent-amber)]/20 rounded-xl px-4 py-3.5 mb-5">
+                <p className="text-[var(--accent-amber)] text-xs font-bold mb-2">💼 수정까지 원하신다면? 4가지 패키지</p>
                 <div className="space-y-1.5 mb-3">
                   {[
                     ['A', '보안 위생 패치',    '₩299,000',   '헤더·SSL·쿠키 설정 수정'],
@@ -951,15 +951,15 @@ export default function SecurityPage() {
                     ['D', '정기 모니터링',     '₩299,000/월','월 1회 자동 스캔 + 즉시 알림'],
                   ].map(([pkg, name, price, desc]) => (
                     <div key={pkg} className="flex items-center gap-2 text-xs">
-                      <span className="w-5 h-5 rounded bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center shrink-0 text-[10px]">{pkg}</span>
+                      <span className="w-5 h-5 rounded bg-[var(--accent-amber)]/20 text-[var(--accent-amber)] font-bold flex items-center justify-center shrink-0 text-[10px]">{pkg}</span>
                       <span className="text-foreground font-semibold w-28 shrink-0">{name}</span>
-                      <span className="text-amber-400 font-bold w-24 shrink-0">{price}</span>
+                      <span className="text-[var(--accent-amber)] font-bold w-24 shrink-0">{price}</span>
                       <span className="text-muted-foreground">{desc}</span>
                     </div>
                   ))}
                 </div>
                 <a href="/contact?service=security"
-                  className="inline-block text-xs font-bold text-amber-400 border border-amber-500/30 px-3 py-1.5 rounded-lg hover:bg-amber-500/10 transition-colors">
+                  className="inline-block text-xs font-bold text-[var(--accent-amber)] border border-[var(--accent-amber)]/30 px-3 py-1.5 rounded-lg hover:bg-[var(--accent-amber)]/10 transition-colors">
                   전문가 보안 상담 신청 →
                 </a>
               </motion.div>
