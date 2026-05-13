@@ -273,9 +273,9 @@ export default function AboutPage() {
                 borderRadius: 16, padding: '36px 24px', textAlign: 'center',
                 position: 'relative', overflow: 'hidden', height: '100%',
               }}>
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, #06b6d4, #3b82f6)' }} />
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--accent-cyan), var(--accent-blue))' }} />
                 <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18, fontSize: '3rem', lineHeight: 1 }}>🤝</div>
-                <div style={{ fontSize: 'clamp(2.8rem, 6vw, 4rem)', fontWeight: 900, letterSpacing: '-0.04em', color: '#06b6d4', lineHeight: 1 }}>
+                <div style={{ fontSize: 'clamp(2.8rem, 6vw, 4rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--accent-cyan-text)', lineHeight: 1 }}>
                   <CountUpNumber value={97} suffix="%" />
                 </div>
                 <div style={{ fontSize: '1rem', fontWeight: 700, margin: '8px 0 6px' }}>재의뢰율</div>

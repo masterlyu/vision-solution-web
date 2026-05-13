@@ -46,6 +46,7 @@ body {
   --accent-amber-alt: oklch(0.85 0.18 60);
   --accent-cyan: oklch(0.55 0.18 200);
   --accent-cyan-text: oklch(0.78 0.18 200);
+  --accent-blue: oklch(0.55 0.20 260);
 }
 
 @theme inline {
