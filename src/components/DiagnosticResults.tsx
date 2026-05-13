@@ -25,7 +25,7 @@ const GRADE_CLS: Record<string, string> = {
 function ScoreRing({ score, label }: { score: number; label: string }) {
   const r = 28, circ = 2 * Math.PI * r
   const dash = (score / 100) * circ
-  const color = score >= 80 ? '#4ade80' : score >= 60 ? '#facc15' : score >= 40 ? '#fb923c' : '#f87171'
+  const color = score >= 80 ? 'var(--accent-green)' : score >= 60 ? 'var(--accent-amber)' : score >= 40 ? 'var(--accent-orange)' : 'var(--accent-red)'
   return (
     <div className="flex flex-col items-center gap-1">
       <svg width="72" height="72" viewBox="0 0 72 72">
