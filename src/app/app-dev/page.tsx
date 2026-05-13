@@ -161,7 +161,7 @@ export default function AppDevPage() {
             {comparisons.map((c, i) => (
               <div key={i} className="grid grid-cols-1 md:grid-cols-[auto_1fr_1fr] gap-3 items-center">
                 <span className="bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">{c.tag}</span>
-                <div className="bg-red-500/10 border border-red-500/30 rounded-xl px-4 py-3 text-red-400 text-sm">{c.before}</div>
+                <div className="bg-[var(--accent-red)]/10 border border-[var(--accent-red)]/30 rounded-xl px-4 py-3 text-[var(--accent-red)] text-sm">{c.before}</div>
                 <div className="bg-primary/5 border border-primary/20 rounded-xl px-4 py-3 text-primary text-sm font-semibold">{c.after}</div>
               </div>
             ))}

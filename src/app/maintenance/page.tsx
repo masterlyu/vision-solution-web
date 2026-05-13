@@ -107,7 +107,7 @@ export default function MaintenancePage() {
       <section className="pt-28 pb-20 px-6 bg-background" style={{ background: 'radial-gradient(ellipse at bottom right, color-mix(in oklch, var(--destructive) 15%, transparent) 0%, var(--background) 60%)' }}>
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block border border-destructive/50 text-red-400 text-xs font-bold px-3 py-1 rounded-full mb-6">홈페이지 유지보수</span>
+            <span className="inline-block border border-destructive/50 text-[var(--accent-red)] text-xs font-bold px-3 py-1 rounded-full mb-6">홈페이지 유지보수</span>
             <h1 className="text-4xl md:text-5xl font-black text-foreground leading-tight mb-6 max-w-2xl">
               홈페이지 만들고 방치하다<br />
               <span className="text-destructive">해킹당한</span> 사장님이 생각보다 많습니다
@@ -134,7 +134,7 @@ export default function MaintenancePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
             {checklistItems.map((item, i) => (
               <div key={i} className="bg-card rounded-xl shadow-sm p-5 flex items-start gap-3 border-l-2 border-transparent hover:border-destructive transition-all">
-                <CheckSquare className="w-5 h-5 text-red-300 mt-0.5 shrink-0" />
+                <CheckSquare className="w-5 h-5 text-[var(--accent-red)] mt-0.5 shrink-0" />
                 <span className="text-foreground font-medium text-sm">{item}</span>
               </div>
             ))}

@@ -151,7 +151,7 @@ export default function AiSolutionPage() {
               <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-6">
                 <span className="text-primary text-xs font-bold bg-primary/10 px-2 py-1 rounded-full">{c.tag}</span>
                 <div className="mt-4 flex flex-col gap-3">
-                  <div className="bg-red-950/40 rounded-lg px-4 py-3 text-red-300 text-sm">이전: {c.before}</div>
+                  <div className="bg-[var(--accent-red)]/10 rounded-lg px-4 py-3 text-[var(--accent-red)] text-sm">이전: {c.before}</div>
                   <div className="text-muted-foreground text-center text-sm">→</div>
                   <div className="bg-primary/10 rounded-lg px-4 py-3 text-primary text-sm font-semibold">
                     이후: {c.after} <span className="text-2xl font-black ml-1">{c.highlight}</span>
