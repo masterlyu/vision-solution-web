@@ -2,7 +2,7 @@
 import dynamic from 'next/dynamic'
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, useMotionValue, useSpring, useTransform, useInView, type Variants } from 'framer-motion'
-import UrlAnalysisForm from '@/components/UrlAnalysisForm'
+import RenewalRequestForm from '@/components/RenewalRequestForm'
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 import { VisiMascot } from '@/components/visi/VisiMascot'
@@ -623,10 +623,9 @@ export default function PortfolioPage() {
 
             {/* Right — Form */}
             <div className="lg:sticky lg:top-24">
-              <UrlAnalysisForm
-                serviceType="renewal"
-                title="무료 사이트 진단 신청"
-                notice="분석 완료 후 전문가 검토를 거쳐 이메일로 리포트를 발송합니다."
+              <RenewalRequestForm
+                title="무료 상담 신청"
+                notice="전문가가 직접 검토 후 48시간 내 이메일로 연락드립니다."
               />
             </div>
           </div>
