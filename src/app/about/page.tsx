@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 import { useState, useEffect, useRef } from 'react'
 import { motion, useMotionValue, useSpring, useTransform, useInView } from 'framer-motion'
 import Link from 'next/link'
-import UrlAnalysisForm from '@/components/UrlAnalysisForm'
+import RenewalRequestForm from '@/components/RenewalRequestForm'
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 import { VisiMascot } from '@/components/visi/VisiMascot'
@@ -663,12 +663,10 @@ export default function AboutPage() {
               <strong style={{ color: 'var(--foreground)' }}>48시간 안에 리포트를 드립니다.</strong>
             </p>
 
-            {/* UrlAnalysisForm */}
             <div style={{ marginBottom: 28 }}>
-              <UrlAnalysisForm
-                serviceType="security"
-                title="내 홈페이지 무료 진단"
-                notice="회사 소개 페이지에서 무료 진단 신청"
+              <RenewalRequestForm
+                title="무료 상담 신청"
+                notice="전문가가 직접 검토 후 48시간 내 이메일로 연락드립니다."
               />
             </div>
 
