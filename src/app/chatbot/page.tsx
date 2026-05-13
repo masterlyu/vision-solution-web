@@ -126,7 +126,7 @@ function ChatbotHeroIllust() {
         <rect x="48" y="32" width="144" height="34" rx="14" fill="var(--background-deep)"/>
         {/* Bot avatar */}
         <circle cx="70" cy="49" r="11" fill="var(--primary)"/>
-        <text x="70" y="54" textAnchor="middle" fill="white" fontSize="12" fontFamily="sans-serif">V</text>
+        <text x="70" y="54" textAnchor="middle" fill="var(--primary-foreground)" fontSize="12" fontFamily="sans-serif">V</text>
         {/* Header text */}
         <text x="86" y="46" fill="var(--foreground)" fontSize="9.5" fontWeight="bold" fontFamily="sans-serif">VISI 챗봇</text>
         <text x="86" y="58" fill="var(--muted-foreground)" fontSize="8" fontFamily="sans-serif">온라인</text>
@@ -134,23 +134,23 @@ function ChatbotHeroIllust() {
         <circle cx="166" cy="49" r="5" fill="var(--accent-green)"/>
         {/* Bot bubble 1 */}
         <rect x="56" y="76" width="108" height="28" rx="10" fill="var(--primary)"/>
-        <text x="66" y="95" fill="white" fontSize="9.5" fontFamily="sans-serif">안녕하세요! 무엇을</text>
+        <text x="66" y="95" fill="var(--primary-foreground)" fontSize="9.5" fontFamily="sans-serif">안녕하세요! 무엇을</text>
         {/* Bot bubble 2 */}
         <rect x="56" y="110" width="94" height="28" rx="10" fill="var(--primary)"/>
-        <text x="66" y="129" fill="white" fontSize="9.5" fontFamily="sans-serif">도와드릴까요?</text>
+        <text x="66" y="129" fill="var(--primary-foreground)" fontSize="9.5" fontFamily="sans-serif">도와드릴까요?</text>
         {/* User bubble */}
         <rect x="88" y="148" width="104" height="28" rx="10" fill="var(--background-deep)"/>
         <text x="98" y="167" fill="var(--foreground)" fontSize="9" fontFamily="sans-serif">영업시간 알려주세요</text>
         {/* Bot reply */}
         <rect x="56" y="186" width="118" height="42" rx="10" fill="var(--primary)"/>
-        <text x="66" y="204" fill="white" fontSize="9" fontFamily="sans-serif">평일 09:00 ~ 18:00,</text>
-        <text x="66" y="218" fill="white" fontSize="9" fontFamily="sans-serif">주말도 챗봇이 응대해요!</text>
+        <text x="66" y="204" fill="var(--primary-foreground)" fontSize="9" fontFamily="sans-serif">평일 09:00 ~ 18:00,</text>
+        <text x="66" y="218" fill="var(--primary-foreground)" fontSize="9" fontFamily="sans-serif">주말도 챗봇이 응대해요!</text>
         {/* Input bar */}
         <rect x="56" y="242" width="128" height="24" rx="12" fill="var(--background-deep)" stroke="var(--primary)" strokeWidth="1" opacity="0.5"/>
         <text x="68" y="258" fill="var(--muted-foreground)" fontSize="8.5" fontFamily="sans-serif">메시지를 입력하세요...</text>
         {/* Send button */}
         <circle cx="174" cy="254" r="10" fill="var(--primary)"/>
-        <text x="170" y="258" fill="white" fontSize="10" fontFamily="sans-serif">▶</text>
+        <text x="170" y="258" fill="var(--primary-foreground)" fontSize="10" fontFamily="sans-serif">▶</text>
       </svg>
       <VisiMascot pose="wave" size={92} />
     </div>
