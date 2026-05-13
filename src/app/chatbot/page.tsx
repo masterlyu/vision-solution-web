@@ -305,11 +305,11 @@ export default function ChatbotPage() {
                   </div>
                   <div className="space-y-2">
                     <div className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <span className="text-red-400 font-bold shrink-0">Before</span>
+                      <span className="text-destructive font-bold shrink-0">Before</span>
                       <span>{c.pain}</span>
                     </div>
                     <div className="flex items-start gap-2 text-sm text-foreground">
-                      <span className="text-emerald-400 font-bold shrink-0">After</span>
+                      <span className="text-success font-bold shrink-0">After</span>
                       <span>{c.result}</span>
                     </div>
                   </div>
