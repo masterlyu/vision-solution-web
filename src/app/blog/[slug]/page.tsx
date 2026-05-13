@@ -32,16 +32,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 const TAG_COLORS: Record<string, string> = {
-  '리뉴얼 사례': 'bg-blue-500/10 text-blue-600 dark:text-blue-400',
-  '리뉴얼 비용': 'bg-blue-500/10 text-blue-600 dark:text-blue-400',
-  '보안 경고':   'bg-red-500/10 text-red-600 dark:text-red-400',
-  '보안 점검':   'bg-red-500/10 text-red-600 dark:text-red-400',
-  'AI 활용':     'bg-purple-500/10 text-purple-600 dark:text-purple-400',
-  'AI 솔루션':   'bg-purple-500/10 text-purple-600 dark:text-purple-400',
-  '개발 팁':     'bg-green-500/10 text-green-600 dark:text-green-400',
-  '앱 개발':     'bg-green-500/10 text-green-600 dark:text-green-400',
-  '홈페이지 제작': 'bg-amber-500/10 text-amber-600 dark:text-amber-400',
-  '유지보수':    'bg-amber-500/10 text-amber-600 dark:text-amber-400',
+  '리뉴얼 사례': 'bg-[var(--accent-blue)]/10 text-[var(--accent-blue)]',
+  '리뉴얼 비용': 'bg-[var(--accent-blue)]/10 text-[var(--accent-blue)]',
+  '보안 경고':   'bg-[var(--accent-red)]/10 text-[var(--accent-red)]',
+  '보안 점검':   'bg-[var(--accent-red)]/10 text-[var(--accent-red)]',
+  'AI 활용':     'bg-primary/10 text-primary',
+  'AI 솔루션':   'bg-primary/10 text-primary',
+  '개발 팁':     'bg-[var(--accent-green)]/10 text-[var(--accent-green)]',
+  '앱 개발':     'bg-[var(--accent-green)]/10 text-[var(--accent-green)]',
+  '홈페이지 제작': 'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
+  '유지보수':    'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
 }
 
 function tagClass(tag: string) {
