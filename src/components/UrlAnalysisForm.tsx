@@ -208,8 +208,8 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
           className={`${inputCls} ${domainMismatch ? 'border-red-500 focus:border-red-500 focus:ring-red-500/30' : ''}`} />
         {domainMismatch && (
           <div className="mt-2 space-y-0.5">
-            <p className="text-red-500 text-xs font-medium">이메일 도메인이 일치하지 않습니다</p>
-            <p className="text-red-400 text-xs">
+            <p className="text-destructive text-xs font-medium">이메일 도메인이 일치하지 않습니다</p>
+            <p className="text-destructive text-xs">
               진단 신청은 <strong>{urlDomain}</strong> 이메일로만 가능합니다.
               해당 사이트의 담당자 이메일을 입력해 주세요. (예: 담당자@{urlDomain})
             </p>
@@ -229,7 +229,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
             className="mt-0.5 w-4 h-4 flex-shrink-0 accent-primary" />
           <span className="text-muted-foreground text-sm leading-relaxed">
             본인이 소유하거나 운영자로부터 허가받은 사이트임을 확인합니다.
-            <br /><span className="text-amber-500 text-xs">무단 진단은 정보통신망법 위반입니다.</span>
+            <br /><span className="text-[var(--accent-amber)] text-xs">무단 진단은 정보통신망법 위반입니다.</span>
           </span>
         </label>
       )}
