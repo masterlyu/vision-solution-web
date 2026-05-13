@@ -32,6 +32,7 @@ const C = {
   eye:     '#1E1240',  // 눈
   ant:     '#8B5CF6',  // 안테나
   antStem: '#C4B5FD',  // 안테나 줄기
+  screen:  '#1a1a2e',  // 화면/문서 배경 다크 네이비
 }
 
 // ── 안경 (공통) ──
@@ -262,7 +263,7 @@ function PoseTyping() {
       <rect x="100" y="216" width="28" height="14" rx="7" fill={C.face} stroke={C.outline} strokeWidth="2" />
       {/* 키보드 */}
       <rect x="18" y="178" width="164" height="48" rx="10"
-        fill="#1a1a2e" stroke={C.glass} strokeWidth="1.5" strokeOpacity={0.4} />
+        fill={C.screen} stroke={C.glass} strokeWidth="1.5" strokeOpacity={0.4} />
       {[28,48,68,88,108,128,148,160].map((kx, i) => (
         <rect key={i} x={kx} y="186" width="12" height="9" rx="3" fill={C.glass} opacity={0.35} />
       ))}
@@ -385,7 +386,7 @@ function PoseWriting() {
       {/* 문서 왼손 */}
       <Arm x={14} y={138} rot="rotate(-8 14 138)" />
       <rect x="4" y="110" width="46" height="62" rx="6"
-        fill="#1a1a2e" stroke={C.glass} strokeWidth="1.5" strokeOpacity={0.4} />
+        fill={C.screen} stroke={C.glass} strokeWidth="1.5" strokeOpacity={0.4} />
       <rect x="10" y="118" width="34" height="3" rx="1.5" fill={C.glass} opacity={0.7} />
       <rect x="10" y="125" width="26" height="2" rx="1" fill={C.glass} opacity={0.35} />
       <rect x="10" y="131" width="30" height="2" rx="1" fill={C.glass} opacity={0.35} />
@@ -395,7 +396,7 @@ function PoseWriting() {
       <Arm x={154} y={145} rot="rotate(18 154 145)" />
       <Hand cx={185} cy={154} />
       <rect x="188" y="130" width="7" height="26" rx="3.5"
-        fill="#C4B5FD" stroke={C.outline} strokeWidth="1.5"
+        fill={C.antStem} stroke={C.outline} strokeWidth="1.5"
         transform="rotate(20 188 130)" />
       <Body />
       <Head />
