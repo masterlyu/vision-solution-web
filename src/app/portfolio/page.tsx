@@ -225,8 +225,8 @@ function PortfolioHeroIllust() {
         <polyline points="55,138 83,120 111,100 139,78 167,60" fill="none" stroke="var(--accent-green)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="5,3"/>
         {/* Result badge */}
         <rect x="148" y="48" width="72" height="30" rx="8" fill="var(--accent-green)" opacity="0.9"/>
-        <text x="156" y="62" fill="white" fontSize="10.5" fontWeight="bold" fontFamily="sans-serif">문의 ×3배</text>
-        <text x="156" y="73" fill="white" fontSize="8" fontFamily="sans-serif">평균 증가율</text>
+        <text x="156" y="62" style={{ fill: "var(--primary-foreground)" }} fontSize="10.5" fontWeight="bold" fontFamily="sans-serif">문의 ×3배</text>
+        <text x="156" y="73" style={{ fill: "var(--primary-foreground)" }} fontSize="8" fontFamily="sans-serif">평균 증가율</text>
         {/* Bottom caption */}
         <text x="44" y="165" fill="var(--muted-foreground)" fontSize="8" fontFamily="sans-serif">127+ 프로젝트 · 만족도 4.9 · 납기 준수 98%</text>
         {/* Stand */}
@@ -234,7 +234,7 @@ function PortfolioHeroIllust() {
         <rect x="78" y="202" width="104" height="8" rx="4" fill="var(--background-deep)" stroke="var(--primary)" strokeWidth="1.5"/>
         {/* Star badge */}
         <circle cx="218" cy="32" r="20" fill="var(--accent-amber)" opacity="0.9"/>
-        <text x="212" y="40" fill="white" fontSize="15" fontFamily="sans-serif">★</text>
+        <text x="212" y="40" style={{ fill: "var(--primary-foreground)" }} fontSize="15" fontFamily="sans-serif">★</text>
       </svg>
       <VisiMascot pose="pointing" size={92} />
     </div>

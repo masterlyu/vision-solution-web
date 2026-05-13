@@ -89,15 +89,15 @@ function AboutHeroIllust() {
         <circle cx="141" cy="74" r="5" fill="var(--accent-green)"/>
         {/* +240% badge */}
         <rect x="154" y="72" width="56" height="24" rx="7" fill="var(--accent-green)" opacity="0.9"/>
-        <text x="161" y="83" fill="white" fontSize="9.5" fontWeight="bold" fontFamily="sans-serif">문의 +240%</text>
-        <text x="163" y="92" fill="white" fontSize="7.5" fontFamily="sans-serif">리뉴얼 3개월 후</text>
+        <text x="161" y="83" style={{ fill: "var(--primary-foreground)" }} fontSize="9.5" fontWeight="bold" fontFamily="sans-serif">문의 +240%</text>
+        <text x="163" y="92" style={{ fill: "var(--primary-foreground)" }} fontSize="7.5" fontFamily="sans-serif">리뉴얼 3개월 후</text>
         {/* Phone beside laptop */}
         <rect x="202" y="100" width="42" height="74" rx="10" fill="var(--background-deep)" stroke="var(--primary)" strokeWidth="1.5"/>
         <rect x="208" y="110" width="30" height="54" rx="5" fill="var(--background)"/>
         <rect x="210" y="116" width="26" height="14" rx="4" fill="var(--primary)"/>
-        <text x="213" y="127" fill="white" fontSize="7.5" fontFamily="sans-serif">문의 +3건</text>
+        <text x="213" y="127" style={{ fill: "var(--primary-foreground)" }} fontSize="7.5" fontFamily="sans-serif">문의 +3건</text>
         <rect x="210" y="134" width="26" height="10" rx="3" fill="var(--accent-green)" opacity="0.8"/>
-        <text x="213" y="142" fill="white" fontSize="7" fontFamily="sans-serif">계약완료 ✓</text>
+        <text x="213" y="142" style={{ fill: "var(--primary-foreground)" }} fontSize="7" fontFamily="sans-serif">계약완료 ✓</text>
         {/* Laptop base */}
         <rect x="8" y="182" width="244" height="12" rx="4" fill="var(--background-deep)" stroke="var(--primary)" strokeWidth="1.5"/>
         <rect x="88" y="194" width="84" height="6" rx="3" fill="var(--background-deep)"/>

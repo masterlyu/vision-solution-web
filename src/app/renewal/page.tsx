@@ -94,8 +94,8 @@ function RenewalHeroIllust() {
           <rect x="120" y="122" width="100" height="60" rx="4" fill="var(--background-deep)" opacity={0.4} />
           <text x="170" y="155" textAnchor="middle" fontSize="9" fill="rgba(var(--primary-rgb),.3)" fontFamily="sans-serif">기존 사이트</text>
           {/* BEFORE 레이블 */}
-          <rect x="12" y="32" width="42" height="15" rx="4" fill="#ff5f57" opacity={0.8} />
-          <text x="33" y="43" textAnchor="middle" fontSize="8" fill="white" fontWeight="bold" fontFamily="sans-serif">BEFORE</text>
+          <rect x="12" y="32" width="42" height="15" rx="4" fill="var(--destructive)" opacity={0.8} />
+          <text x="33" y="43" textAnchor="middle" fontSize="8" style={{ fill: "var(--primary-foreground)" }} fontWeight="bold" fontFamily="sans-serif">BEFORE</text>
 
           {/* Arrow */}
           <path d="M240 140 L270 140" stroke="rgba(var(--primary-rgb),.5)" strokeWidth="2.5" strokeDasharray="4,3" />
@@ -125,7 +125,7 @@ function RenewalHeroIllust() {
           <text x="220" y="195" textAnchor="middle" fontSize="9" fill="rgba(var(--primary-rgb),.6)" fontFamily="sans-serif">새 사이트</text>
           {/* AFTER 레이블 */}
           <rect x="112" y="12" width="38" height="15" rx="4" fill="var(--primary)" />
-          <text x="131" y="23" textAnchor="middle" fontSize="8" fill="white" fontWeight="bold" fontFamily="sans-serif">AFTER</text>
+          <text x="131" y="23" textAnchor="middle" fontSize="8" style={{ fill: "var(--primary-foreground)" }} fontWeight="bold" fontFamily="sans-serif">AFTER</text>
 
           {/* 반짝이 효과 */}
           <text x="318" y="25" fontSize="14" fill="var(--primary)" opacity={0.8}>✦</text>
