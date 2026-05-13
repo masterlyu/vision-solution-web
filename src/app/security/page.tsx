@@ -71,11 +71,11 @@ function RadialGauge({ percent, color, size = 80 }: {
   }, [isInView, percent, circumference, strokeDashoffset])
 
   const colorMap: Record<string, string> = {
-    red: '#f87171',
-    orange: '#fb923c',
-    amber: '#fbbf24',
+    red: 'var(--accent-red)',
+    orange: 'var(--accent-orange)',
+    amber: 'var(--accent-amber)',
   }
-  const strokeColor = colorMap[color] ?? '#a78bfa'
+  const strokeColor = colorMap[color] ?? 'var(--primary-light)'
 
   return (
     <svg viewBox="0 0 100 60" width={size} height={size * 0.6} className="overflow-visible">
