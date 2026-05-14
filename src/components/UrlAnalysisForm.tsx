@@ -205,7 +205,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
         </label>
         <input type="email" value={email} onChange={e => setEmail(e.target.value)}
           placeholder="report@example.com" required
-          className={`${inputCls} ${domainMismatch ? 'border-red-500 focus:border-red-500 focus:ring-red-500/30' : ''}`} />
+          className={`${inputCls} ${domainMismatch ? 'border-[var(--accent-red)] focus:border-[var(--accent-red)] focus:ring-[var(--accent-red)]/30' : ''}`} />
         {domainMismatch && (
           <div className="mt-2 space-y-0.5">
             <p className="text-destructive text-xs font-medium">이메일 도메인이 일치하지 않습니다</p>
@@ -224,7 +224,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
           placeholder="회사 또는 담당자명" className={inputCls} />
       </div>
       {serviceType === 'security' && (
-        <label className="flex items-start gap-3 p-4 rounded-xl bg-amber-500/5 border border-amber-500/20 cursor-pointer">
+        <label className="flex items-start gap-3 p-4 rounded-xl bg-[var(--accent-amber)]/5 border border-[var(--accent-amber)]/20 cursor-pointer">
           <input type="checkbox" checked={agreed} onChange={e => setAgreed(e.target.checked)} required
             className="mt-0.5 w-4 h-4 flex-shrink-0 accent-primary" />
           <span className="text-muted-foreground text-sm leading-relaxed">
