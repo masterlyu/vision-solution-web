@@ -182,7 +182,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
 
   // ── Form ──
   return (
-    <form onSubmit={handleSubmit} className="relative bg-card border-2 border-primary/60 rounded-2xl p-7 space-y-5 shadow-[0_4px_40px_rgba(139,92,246,0.25)]">
+    <form onSubmit={handleSubmit} className="relative bg-card border-2 border-primary/60 rounded-2xl p-7 space-y-5 shadow-[0_4px_40px_rgba(var(--primary-rgb),0.25)]">
       <div className="absolute inset-x-0 top-0 h-[3px] bg-primary rounded-t-2xl pointer-events-none" />
       <h3 className="text-foreground font-black text-2xl mb-2">{title}</h3>
       <div>

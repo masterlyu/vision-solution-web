@@ -81,7 +81,7 @@ export default function ContactPage() {
           </div>
 
           {/* Right: form */}
-          <div className="lg:col-span-2 relative bg-card border-2 border-primary/60 rounded-2xl p-8 shadow-[0_4px_40px_rgba(139,92,246,0.25)]">
+          <div className="lg:col-span-2 relative bg-card border-2 border-primary/60 rounded-2xl p-8 shadow-[0_4px_40px_rgba(var(--primary-rgb),0.25)]">
             <div className="absolute inset-x-0 top-0 h-[3px] bg-primary rounded-t-2xl pointer-events-none" />
             <h2 className="text-foreground text-2xl font-black mb-6">무료 상담 신청</h2>
             <form onSubmit={handleSubmit} className="space-y-5">
