@@ -84,7 +84,7 @@ function RadialGauge({ percent, color, size = 80 }: {
         fill="none"
         stroke="currentColor"
         strokeWidth="8"
-        className="text-white/10"
+        className="text-foreground/10"
         strokeLinecap="round"
       />
       <motion.path
@@ -625,7 +625,7 @@ export default function SecurityPage() {
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
           >
-            <div className="absolute top-6 left-[calc(8.33%+20px)] right-[calc(8.33%+20px)] h-0.5 bg-white/8" />
+            <div className="absolute top-6 left-[calc(8.33%+20px)] right-[calc(8.33%+20px)] h-0.5 bg-foreground/8" />
             {steps.map(s => (
               <motion.div key={s.step} variants={fadeInUp} className="flex flex-col items-center text-center w-[15%] gap-2.5 relative">
                 <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground font-black text-sm flex items-center justify-center z-10 shadow-lg shadow-primary/30">
