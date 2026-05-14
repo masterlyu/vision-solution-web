@@ -32,7 +32,7 @@ export default function Header() {
         <nav className="hidden md:flex items-center gap-1">
           {NAV.map(n => (
             <Link key={n.href} href={n.href}
-              className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground rounded-lg hover:bg-white/5 transition-all">
+              className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground rounded-lg hover:bg-foreground/5 transition-all">
               {n.label}
             </Link>
           ))}
