@@ -14,12 +14,12 @@ interface Props {
 
 const SEVERITY_LABEL: Record<string, string> = { HIGH: '높음', MEDIUM: '중간', LOW: '낮음' }
 const SEVERITY_CLS: Record<string, string> = {
-  HIGH:   'bg-red-500/10 border-red-500/30 text-red-400',
-  MEDIUM: 'bg-amber-500/10 border-amber-500/30 text-amber-400',
-  LOW:    'bg-blue-500/10 border-blue-500/30 text-blue-400',
+  HIGH:   'bg-[var(--accent-red)]/10 border-[var(--accent-red)]/30 text-[var(--accent-red)]',
+  MEDIUM: 'bg-[var(--accent-amber)]/10 border-[var(--accent-amber)]/30 text-[var(--accent-amber)]',
+  LOW:    'bg-[var(--accent-blue)]/10 border-[var(--accent-blue)]/30 text-[var(--accent-blue)]',
 }
 const GRADE_CLS: Record<string, string> = {
-  A: 'text-green-400', B: 'text-lime-400', C: 'text-amber-400', D: 'text-orange-400', F: 'text-red-400',
+  A: 'text-[var(--accent-green)]', B: 'text-[var(--accent-green-text)]', C: 'text-[var(--accent-amber)]', D: 'text-[var(--accent-orange)]', F: 'text-[var(--accent-red)]',
 }
 
 function ScoreRing({ score, label }: { score: number; label: string }) {
@@ -29,7 +29,7 @@ function ScoreRing({ score, label }: { score: number; label: string }) {
   return (
     <div className="flex flex-col items-center gap-1">
       <svg width="72" height="72" viewBox="0 0 72 72">
-        <circle cx="36" cy="36" r={r} fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="6" />
+        <circle cx="36" cy="36" r={r} fill="none" stroke="var(--foreground)" strokeOpacity="0.06" strokeWidth="6" />
         <circle cx="36" cy="36" r={r} fill="none" stroke={color} strokeWidth="6"
           strokeDasharray={`${dash} ${circ}`} strokeLinecap="round"
           transform="rotate(-90 36 36)" />
@@ -118,14 +118,14 @@ export default function DiagnosticResults({ result, email, company, onReport, re
         {/* Summary badges */}
         <div className="flex flex-wrap gap-2">
           {result.ssl.valid
-            ? <span className="flex items-center gap-1 text-xs px-3 py-1 rounded-full bg-green-500/10 border border-green-500/30 text-green-400"><CheckCircle className="w-3 h-3" /> HTTPS 정상</span>
-            : <span className="flex items-center gap-1 text-xs px-3 py-1 rounded-full bg-red-500/10 border border-red-500/30 text-red-400"><XCircle className="w-3 h-3" /> HTTPS 미설정</span>
+            ? <span className="flex items-center gap-1 text-xs px-3 py-1 rounded-full bg-[var(--accent-green)]/10 border border-[var(--accent-green)]/30 text-[var(--accent-green)]"><CheckCircle className="w-3 h-3" /> HTTPS 정상</span>
+            : <span className="flex items-center gap-1 text-xs px-3 py-1 rounded-full bg-[var(--accent-red)]/10 border border-[var(--accent-red)]/30 text-[var(--accent-red)]"><XCircle className="w-3 h-3" /> HTTPS 미설정</span>
           }
           {highCount > 0
-            ? <span className="flex items-center gap-1 text-xs px-3 py-1 rounded-full bg-red-500/10 border border-red-500/30 text-red-400"><AlertTriangle className="w-3 h-3" /> 위험 {highCount}건</span>
-            : <span className="flex items-center gap-1 text-xs px-3 py-1 rounded-full bg-green-500/10 border border-green-500/30 text-green-400"><CheckCircle className="w-3 h-3" /> 위험 없음</span>
+            ? <span className="flex items-center gap-1 text-xs px-3 py-1 rounded-full bg-[var(--accent-red)]/10 border border-[var(--accent-red)]/30 text-[var(--accent-red)]"><AlertTriangle className="w-3 h-3" /> 위험 {highCount}건</span>
+            : <span className="flex items-center gap-1 text-xs px-3 py-1 rounded-full bg-[var(--accent-green)]/10 border border-[var(--accent-green)]/30 text-[var(--accent-green)]"><CheckCircle className="w-3 h-3" /> 위험 없음</span>
           }
-          {medCount > 0 && <span className="flex items-center gap-1 text-xs px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400"><AlertTriangle className="w-3 h-3" /> 경고 {medCount}건</span>}
+          {medCount > 0 && <span className="flex items-center gap-1 text-xs px-3 py-1 rounded-full bg-[var(--accent-amber)]/10 border border-[var(--accent-amber)]/30 text-[var(--accent-amber)]"><AlertTriangle className="w-3 h-3" /> 경고 {medCount}건</span>}
           <span className="flex items-center gap-1 text-xs px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary"><CheckCircle className="w-3 h-3" /> 통과 {passCount}건</span>
         </div>
 
@@ -134,11 +134,11 @@ export default function DiagnosticResults({ result, email, company, onReport, re
           <h3 className="text-foreground font-bold text-sm mb-3">보안 헤더 점검</h3>
           <div className="space-y-2">
             {result.headers.map(h => (
-              <div key={h.key} className={`rounded-xl border p-4 ${h.present ? 'bg-green-500/5 border-green-500/20' : SEVERITY_CLS[h.severity]}`}>
+              <div key={h.key} className={`rounded-xl border p-4 ${h.present ? 'bg-[var(--accent-green)]/5 border-[var(--accent-green)]/20' : SEVERITY_CLS[h.severity]}`}>
                 <div className="flex items-start justify-between gap-2 mb-1">
                   <div className="flex items-center gap-2">
                     {h.present
-                      ? <CheckCircle className="w-4 h-4 text-green-400 shrink-0" />
+                      ? <CheckCircle className="w-4 h-4 text-[var(--accent-green)] shrink-0" />
                       : <XCircle className="w-4 h-4 shrink-0" />}
                     <span className="text-sm font-mono font-semibold">{h.label}</span>
                   </div>
@@ -151,7 +151,7 @@ export default function DiagnosticResults({ result, email, company, onReport, re
                 {!h.present ? (
                   <p className="text-xs leading-relaxed ml-6 opacity-80">{h.description}</p>
                 ) : h.value && (
-                  <p className="text-xs font-mono ml-6 text-green-400/70 truncate">{h.value}</p>
+                  <p className="text-xs font-mono ml-6 text-[var(--accent-green)]/70 truncate">{h.value}</p>
                 )}
               </div>
             ))}
@@ -170,9 +170,9 @@ export default function DiagnosticResults({ result, email, company, onReport, re
                 </div>
               )}
               {result.seo.issues.map(issue => (
-                <div key={issue} className="flex items-center gap-2 bg-amber-500/5 border border-amber-500/20 rounded-xl p-3">
-                  <AlertTriangle className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                  <span className="text-amber-400 text-xs">{issue}</span>
+                <div key={issue} className="flex items-center gap-2 bg-[var(--accent-amber)]/5 border border-[var(--accent-amber)]/20 rounded-xl p-3">
+                  <AlertTriangle className="w-3.5 h-3.5 text-[var(--accent-amber)] shrink-0" />
+                  <span className="text-[var(--accent-amber)] text-xs">{issue}</span>
                 </div>
               ))}
             </div>
@@ -191,7 +191,7 @@ export default function DiagnosticResults({ result, email, company, onReport, re
               ].map(m => m.val != null && (
                 <div key={m.label} className="bg-card border border-border rounded-xl p-3 text-center">
                   <p className="text-muted-foreground text-xs mb-1">{m.label}</p>
-                  <p className={`text-lg font-bold ${(m.val / m.div) <= m.good ? 'text-green-400' : 'text-amber-400'}`}>
+                  <p className={`text-lg font-bold ${(m.val / m.div) <= m.good ? 'text-[var(--accent-green)]' : 'text-[var(--accent-amber)]'}`}>
                     {(m.val / m.div).toFixed(m.div === 1 ? 3 : 1)}{m.unit}
                   </p>
                 </div>

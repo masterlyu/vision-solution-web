@@ -490,7 +490,7 @@ export default function SecurityPage() {
       </section>
 
       {/* ── Stats ── */}
-      <section className="py-16 px-6 lg:px-12 border-y border-border" style={{ background: 'rgba(255,255,255,0.02)' }}>
+      <section className="py-16 px-6 lg:px-12 border-y border-border bg-foreground/[0.02]">
         <div className="max-w-[1100px] mx-auto">
           <motion.div
             className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center"
@@ -553,7 +553,7 @@ export default function SecurityPage() {
       </section>
 
       {/* ── Checklist ── */}
-      <section className="py-16 px-6 lg:px-12 border-y border-border" style={{ background: 'rgba(255,255,255,0.02)' }}>
+      <section className="py-16 px-6 lg:px-12 border-y border-border bg-foreground/[0.02]">
         <div className="max-w-[1100px] mx-auto">
           <motion.h2
             className="text-3xl md:text-4xl font-black text-foreground text-center mb-10"
@@ -667,7 +667,7 @@ export default function SecurityPage() {
       </section>
 
       {/* ── Site Types ── */}
-      <section className="py-16 px-6 lg:px-12 border-y border-border" style={{ background: 'rgba(255,255,255,0.02)' }}>
+      <section className="py-16 px-6 lg:px-12 border-y border-border bg-foreground/[0.02]">
         <div className="max-w-[700px] mx-auto text-center">
           <motion.h2
             className="text-3xl md:text-4xl font-black text-foreground mb-10"
