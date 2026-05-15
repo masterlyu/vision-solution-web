@@ -135,34 +135,137 @@ async function detectTechStack(base: string, html: string, headers: Headers): Pr
     signals: [],
   }
 
-  // Webserver
   const srv = headers.get('server') ?? ''
-  if (/apache/i.test(srv)) stack.webServer = 'Apache'
-  else if (/nginx/i.test(srv)) stack.webServer = 'nginx'
-  else if (/iis/i.test(srv)) stack.webServer = 'IIS'
+  const xPowered = headers.get('x-powered-by') ?? ''
+
+  // ── 웹서버 ──
+  if (/apache/i.test(srv))          stack.webServer = 'Apache'
+  else if (/nginx/i.test(srv))      stack.webServer = 'nginx'
+  else if (/iis/i.test(srv))        stack.webServer = 'IIS (Windows)'
+  else if (/vercel/i.test(srv))     stack.webServer = 'Vercel Edge'
   else if (/cloudflare/i.test(srv)) stack.webServer = 'Cloudflare'
+  else if (/netlify/i.test(srv))    stack.webServer = 'Netlify'
+  else if (/openresty/i.test(srv))  stack.webServer = 'OpenResty (nginx 기반)'
+  else if (/litespeed/i.test(srv))  stack.webServer = 'LiteSpeed'
   if (stack.webServer) stack.signals.push({ label: '웹서버', value: stack.webServer, confidence: 'confirmed' })
 
-  // Hosting fingerprint
-  if (headers.get('cf-ray')) { stack.hosting = 'Cloudflare'; stack.signals.push({ label: '호스팅', value: 'Cloudflare', confidence: 'confirmed' }) }
-  else if (/cafe24/i.test(srv) || html.includes('cafe24')) { stack.hosting = '카페24'; stack.signals.push({ label: '호스팅', value: '카페24', confidence: 'confirmed' }) }
-  else if (/gabia/i.test(srv)) { stack.hosting = '가비아'; stack.signals.push({ label: '호스팅', value: '가비아', confidence: 'confirmed' }) }
+  // ── 호스팅 감지 (헤더 기반) ──
+  if (headers.get('x-vercel-id') || /vercel/i.test(srv)) {
+    stack.hosting = 'Vercel'
+    stack.signals.push({ label: '호스팅', value: 'Vercel', confidence: 'confirmed' })
+  } else if (headers.get('x-nf-request-id') || /netlify/i.test(srv)) {
+    stack.hosting = 'Netlify'
+    stack.signals.push({ label: '호스팅', value: 'Netlify', confidence: 'confirmed' })
+  } else if (headers.get('x-amz-cf-id')) {
+    stack.hosting = 'AWS CloudFront'
+    stack.signals.push({ label: '호스팅', value: 'AWS CloudFront (CDN)', confidence: 'confirmed' })
+  } else if (headers.get('x-amz-request-id')) {
+    stack.hosting = 'AWS S3'
+    stack.signals.push({ label: '호스팅', value: 'AWS S3 (정적 호스팅)', confidence: 'confirmed' })
+  } else if (headers.get('x-github-request-id')) {
+    stack.hosting = 'GitHub Pages'
+    stack.signals.push({ label: '호스팅', value: 'GitHub Pages', confidence: 'confirmed' })
+  } else if (headers.get('x-azure-ref')) {
+    stack.hosting = 'Microsoft Azure'
+    stack.signals.push({ label: '호스팅', value: 'Microsoft Azure', confidence: 'confirmed' })
+  } else if (/cafe24/i.test(srv) || html.includes('cdn.cafe24')) {
+    stack.hosting = '카페24'
+    stack.signals.push({ label: '호스팅', value: '카페24', confidence: 'confirmed' })
+  } else if (/gabia/i.test(srv) || headers.get('x-gabia-server')) {
+    stack.hosting = '가비아'
+    stack.signals.push({ label: '호스팅', value: '가비아', confidence: 'confirmed' })
+  } else if (headers.get('cf-ray')) {
+    stack.hosting = 'Cloudflare (CDN/프록시)'
+    stack.signals.push({ label: 'CDN', value: 'Cloudflare (원본 호스팅 미확인)', confidence: 'confirmed' })
+  }
 
-  // PHP
-  const xPowered = headers.get('x-powered-by') ?? ''
+  // ── JavaScript 프레임워크 감지 ──
+  const isNextJs = html.includes('__NEXT_DATA__') || html.includes('/_next/static/') || html.includes('/_next/chunks/')
+  const isNuxt = html.includes('__NUXT__') || html.includes('/_nuxt/') || html.includes('window.__nuxt')
+  const isGatsby = html.includes('___gatsby') || html.includes('/gatsby-chunk') || html.includes('gatsby-image')
+  const isReact = html.includes('data-reactroot') || html.includes('react.min.js') || html.includes('react-dom')
+  const isVue = html.includes('data-v-app') || html.includes('__vue_app__') || /vue(?:\.runtime)?\.(?:min\.)?js/i.test(html)
+  const isAngular = html.includes('ng-version') || html.includes('[ng-') || html.includes('angular.min.js')
+  const isAstro = html.includes('data-astro-cid') || html.includes('@astrojs')
+
+  if (isNextJs) {
+    stack.cms = 'Next.js'
+    stack.cmsConfidence = 'confirmed'
+    stack.signals.push({ label: '프레임워크', value: 'Next.js (React 기반 SSR/SSG)', confidence: 'confirmed' })
+    if (!stack.hosting) {
+      stack.hosting = 'Vercel 또는 Node.js 서버'
+      stack.signals.push({ label: '호스팅 추정', value: 'Vercel 또는 Node.js 호환 호스팅', confidence: 'inferred' })
+    }
+    if (!stack.webServer) stack.webServer = 'Node.js'
+    stack.signals.push({ label: '런타임', value: 'Node.js', confidence: 'inferred' })
+  } else if (isNuxt) {
+    stack.cms = 'Nuxt.js'
+    stack.cmsConfidence = 'confirmed'
+    stack.signals.push({ label: '프레임워크', value: 'Nuxt.js (Vue 기반 SSR)', confidence: 'confirmed' })
+    stack.signals.push({ label: '런타임', value: 'Node.js', confidence: 'inferred' })
+  } else if (isGatsby) {
+    stack.cms = 'Gatsby'
+    stack.cmsConfidence = 'confirmed'
+    stack.signals.push({ label: '프레임워크', value: 'Gatsby (React 정적사이트)', confidence: 'confirmed' })
+  } else if (isAstro) {
+    stack.cms = 'Astro'
+    stack.cmsConfidence = 'confirmed'
+    stack.signals.push({ label: '프레임워크', value: 'Astro (정적사이트 생성기)', confidence: 'confirmed' })
+  } else if (isReact) {
+    stack.signals.push({ label: '프론트엔드', value: 'React.js', confidence: 'confirmed' })
+  } else if (isVue) {
+    stack.signals.push({ label: '프론트엔드', value: 'Vue.js', confidence: 'confirmed' })
+  } else if (isAngular) {
+    stack.signals.push({ label: '프론트엔드', value: 'Angular', confidence: 'confirmed' })
+  }
+
+  // ── ASP.NET ──
+  const isAspNet = /asp\.net/i.test(xPowered) || html.includes('__VIEWSTATE') || /\.aspx/i.test(html) || headers.get('x-aspnet-version')
+  if (isAspNet) {
+    if (!stack.cms) { stack.cms = 'ASP.NET'; stack.cmsConfidence = 'confirmed' }
+    stack.webServer = stack.webServer ?? 'IIS (Windows)'
+    stack.signals.push({ label: '서버 기술', value: 'ASP.NET (Microsoft .NET)', confidence: 'confirmed' })
+    stack.signals.push({ label: 'OS 추정', value: 'Windows Server', confidence: 'inferred' })
+    if (!stack.dbType) {
+      stack.dbType = 'MSSQL'
+      stack.dbConfidence = 'inferred'
+      stack.signals.push({ label: '데이터베이스', value: 'MS SQL Server 추정 (ASP.NET 기본 조합)', confidence: 'inferred' })
+    }
+  }
+
+  // ── Express / Node.js ──
+  if (/express/i.test(xPowered)) {
+    stack.signals.push({ label: '서버 기술', value: 'Node.js (Express)', confidence: 'confirmed' })
+    if (!stack.webServer) stack.webServer = 'Node.js'
+  }
+
+  // ── PHP ──
   const phpMatch = xPowered.match(/PHP\/([\d.]+)/i)
   if (phpMatch) {
     stack.phpVersion = phpMatch[1]
     stack.phpConfidence = 'confirmed'
-    const major = parseInt(phpMatch[1])
-    stack.phpEol = major < 8
-    stack.signals.push({ label: 'PHP 버전', value: `PHP ${phpMatch[1]}`, confidence: 'confirmed' })
-  } else if (html.includes('.php') || html.includes('<?php')) {
+    stack.phpEol = parseInt(phpMatch[1]) < 8
+    stack.signals.push({ label: 'PHP 버전', value: `PHP ${phpMatch[1]}${stack.phpEol ? ' (보안 지원 종료)' : ''}`, confidence: 'confirmed' })
+  } else if (!isNextJs && !isNuxt && !isGatsby && !isAspNet && (html.includes('.php') || html.includes('<?php'))) {
     stack.phpConfidence = 'inferred'
     stack.signals.push({ label: 'PHP 사용', value: '.php URL 패턴 감지', confidence: 'inferred' })
   }
 
-  // WordPress
+  // ── Java (JSP/Spring) ──
+  if (/jsp/i.test(xPowered) || html.includes('.jsp') || html.includes('spring') || headers.get('x-application-context')) {
+    stack.signals.push({ label: '서버 기술', value: 'Java (JSP/Spring 추정)', confidence: 'inferred' })
+  }
+
+  // ── OS 추정 ──
+  if (/IIS|Windows/i.test(stack.webServer ?? '')) {
+    stack.signals.push({ label: 'OS', value: 'Windows Server', confidence: 'inferred' })
+  } else if (stack.webServer && /apache|nginx|openresty|litespeed/i.test(stack.webServer)) {
+    stack.signals.push({ label: 'OS', value: 'Linux', confidence: 'inferred' })
+  } else if (isNextJs || isNuxt || /express/i.test(xPowered)) {
+    stack.signals.push({ label: 'OS', value: 'Linux (Node.js 환경)', confidence: 'inferred' })
+  }
+
+  // ── WordPress ──
   const wpGenerator = html.match(/<meta[^>]+name=["']generator["'][^>]+content=["']WordPress ([\d.]+)["']/i)
   const hasWpContent = html.includes('/wp-content/') || html.includes('/wp-includes/')
   const wpStatus = await probe(`https://${base}/wp-login.php`)
@@ -173,45 +276,56 @@ async function detectTechStack(base: string, html: string, headers: Headers): Pr
     stack.cmsConfidence = 'confirmed'
     stack.isWordPress = true
     stack.signals.push({ label: 'CMS', value: `WordPress ${wpGenerator[1]}`, confidence: 'confirmed' })
-    // plugin count estimate
     const pluginMatches = html.match(/\/wp-content\/plugins\//g)
     stack.pluginCount = pluginMatches ? Math.max(pluginMatches.length, 1) : null
-    // infer PHP if not already confirmed
     if (!phpMatch) {
       stack.phpConfidence = 'inferred'
-      stack.phpEol = true // WP 5.x era commonly uses PHP 7.x
+      stack.phpEol = true
       stack.signals.push({ label: 'PHP', value: 'PHP 7.x 이하 추정 (WP 조합)', confidence: 'inferred' })
     }
-    // infer MySQL
-    stack.dbType = 'MySQL'
-    stack.dbVersion = '5.7'
-    stack.dbConfidence = 'inferred'
-    stack.dbEol = true
+    stack.dbType = 'MySQL'; stack.dbVersion = '5.7'; stack.dbConfidence = 'inferred'; stack.dbEol = true
     stack.signals.push({ label: '데이터베이스', value: 'MySQL 5.7 추정 (WP 기본 조합)', confidence: 'inferred' })
-  } else if (hasWpContent || wpStatus === 200) {
+  } else if (!stack.cms && (hasWpContent || wpStatus === 200)) {
     stack.cms = 'WordPress'
     stack.cmsConfidence = 'inferred'
     stack.isWordPress = true
     stack.signals.push({ label: 'CMS', value: 'WordPress (경로 패턴 감지)', confidence: 'inferred' })
   }
 
-  // Joomla
-  if (!stack.cms && (html.includes('/components/com_') || html.includes('Joomla!'))) {
-    stack.cms = 'Joomla'
-    stack.cmsConfidence = 'inferred'
-    stack.signals.push({ label: 'CMS', value: 'Joomla (패턴 감지)', confidence: 'inferred' })
+  // ── 한국형 CMS ──
+  if (!stack.cms) {
+    if (html.includes('/xe/') || html.includes('XpressEngine')) {
+      stack.cms = 'XpressEngine (XE)'; stack.cmsConfidence = 'inferred'
+      stack.signals.push({ label: 'CMS', value: 'XpressEngine (XE)', confidence: 'inferred' })
+      stack.dbType = stack.dbType ?? 'MySQL'; stack.dbConfidence = 'inferred'
+    } else if (html.includes('gnuboard') || html.includes('gnu.gz')) {
+      stack.cms = 'Gnuboard'; stack.cmsConfidence = 'inferred'
+      stack.signals.push({ label: 'CMS', value: 'Gnuboard', confidence: 'inferred' })
+      stack.dbType = stack.dbType ?? 'MySQL'; stack.dbConfidence = 'inferred'
+    } else if (html.includes('youngcart') || html.includes('Youngcart')) {
+      stack.cms = '영카트'; stack.cmsConfidence = 'inferred'
+      stack.signals.push({ label: 'CMS', value: '영카트 (한국형 쇼핑몰)', confidence: 'inferred' })
+    }
   }
 
-  // XE / Gnuboard (Korean CMS)
-  if (!stack.cms && (html.includes('/xe/') || html.includes('XpressEngine'))) {
-    stack.cms = 'XpressEngine (XE)'
-    stack.cmsConfidence = 'inferred'
-    stack.signals.push({ label: 'CMS', value: 'XpressEngine (XE)', confidence: 'inferred' })
+  // ── Joomla / Drupal ──
+  if (!stack.cms) {
+    if (html.includes('/components/com_') || html.includes('Joomla!')) {
+      stack.cms = 'Joomla'; stack.cmsConfidence = 'inferred'
+      stack.signals.push({ label: 'CMS', value: 'Joomla (패턴 감지)', confidence: 'inferred' })
+    } else if (html.includes('drupal') || html.includes('/sites/default/files/')) {
+      stack.cms = 'Drupal'; stack.cmsConfidence = 'inferred'
+      stack.signals.push({ label: 'CMS', value: 'Drupal (패턴 감지)', confidence: 'inferred' })
+    }
   }
-  if (!stack.cms && (html.includes('gnuboard') || html.includes('gnu.gz'))) {
-    stack.cms = 'Gnuboard'
-    stack.cmsConfidence = 'inferred'
-    stack.signals.push({ label: 'CMS', value: 'Gnuboard', confidence: 'inferred' })
+
+  // ── Shopify / Cafe24 쇼핑몰 ──
+  if (html.includes('cdn.shopify.com') || html.includes('myshopify.com')) {
+    stack.cms = 'Shopify'; stack.cmsConfidence = 'confirmed'
+    stack.signals.push({ label: '플랫폼', value: 'Shopify (쇼핑몰)', confidence: 'confirmed' })
+  } else if (html.includes('cafe24.com') || html.includes('ec-cdn.cafe24')) {
+    stack.hosting = stack.hosting ?? '카페24'
+    stack.signals.push({ label: '플랫폼', value: '카페24 쇼핑몰', confidence: 'confirmed' })
   }
 
   return stack
