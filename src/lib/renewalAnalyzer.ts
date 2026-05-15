@@ -561,8 +561,9 @@ function analyzeUX(html: string): AxisResult {
   const items: CheckItem[] = []
   let score = 0
 
-  // H1 clarity
-  const h1 = html.match(/<h1[^>]*>([^<]{3,})<\/h1>/i)?.[1]?.replace(/<[^>]+>/g, '').trim()
+  // H1 clarity — strip inner tags first to handle <h1><span>text</span></h1> or <h1>line1<br>line2</h1>
+  const h1Raw = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)?.[1] ?? ''
+  const h1 = h1Raw.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim() || undefined
   const h1Score = h1 && h1.length > 5 ? 6 : h1 ? 3 : 0
   score += h1Score
   items.push({
@@ -735,8 +736,8 @@ function analyzeModern(html: string, domain: string, techStack: TechStack): Axis
   const items: CheckItem[] = []
   let score = 0
 
-  // Analytics
-  const hasGA = hasScript(html, 'gtag(', 'ga(', 'analytics.js', 'googletagmanager.com')
+  // Analytics — also match CSP proxy patterns (e.g. /api/gtm-proxy, gtag-init.js)
+  const hasGA = hasScript(html, 'gtag(', 'ga(', 'analytics.js', 'googletagmanager.com', 'gtag-init.js', 'gtm-proxy')
   const hasNaver = hasScript(html, 'wcs.naver.com', 'NAV_ANALYTICS', '_nasa')
   const analyticsScore = (hasGA || hasNaver) ? 6 : 0
   score += analyticsScore
@@ -845,8 +846,8 @@ function analyzeModern(html: string, domain: string, techStack: TechStack): Axis
     tags: ['all'],
   })
 
-  // Chat/contact widget
-  const hasChat = /kakao.*channel|pf\.kakao|channeltalk|channel\.io|tawkto|tidio|bootpay/i.test(html)
+  // Chat/contact widget — include Dify embedded chatbot patterns
+  const hasChat = /kakao.*channel|pf\.kakao|channeltalk|channel\.io|tawkto|tidio|bootpay|dify|embed\.min\.js|difyChatbotConfig/i.test(html)
   score += hasChat ? 4 : 0
   items.push({
     id: 'chat',
