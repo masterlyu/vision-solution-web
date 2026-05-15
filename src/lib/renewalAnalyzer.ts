@@ -228,12 +228,22 @@ function detectSiteType(domain: string, html: string): SiteTypeResult {
   if (domain.endsWith('.go.kr')) { scores.public += 50; signals.push('.go.kr 도메인 (공공기관 전용)') }
   if (domain.endsWith('.or.kr')) { scores.nonprofit += 30; scores.public += 20; signals.push('.or.kr 도메인 (공공·비영리)') }
 
-  // Manufacturer keywords
-  const mfgKw = ['제조', '가공', '납품', 'oem', 'odm', '부품', '공장', '생산', '도면', '견적', 'iso인증', '특허', '기계', '금속', '철강', '플라스틱', '사출']
-  const mfgHits = mfgKw.filter(k => lower.includes(k))
-  if (mfgHits.length >= 3) { scores.manufacturer += mfgHits.length * 5; signals.push(`제조업 키워드 ${mfgHits.length}개 감지`) }
+  // IT·web service keywords (high weight — specific to digital agencies, software cos)
+  const itKw = ['홈페이지', '웹사이트', '앱개발', '앱 개발', '모바일앱', '소프트웨어', 'it솔루션', '웹개발', '웹 개발', '시스템개발', '디지털', '개발사', '에이전시', 'ui/ux', '리뉴얼', 'ux디자인', '프론트엔드', '백엔드']
+  const itHits = itKw.filter(k => lower.includes(k))
+  if (itHits.length >= 2) { scores.service += itHits.length * 8; signals.push(`IT·웹서비스 키워드 ${itHits.length}개 감지`) }
 
-  // Address patterns (Korean industrial zones)
+  // General service keywords (lower weight)
+  const svcKw = ['컨설팅', '솔루션', '서비스업', '에이전시', '스튜디오', '기획', '마케팅', '광고']
+  const svcHits = svcKw.filter(k => lower.includes(k))
+  if (svcHits.length >= 2) { scores.service += svcHits.length * 3 }
+
+  // Manufacturer keywords — strictly physical manufacturing only (납품/견적 제외: 서비스업도 사용)
+  const mfgKw = ['제조', '가공', 'oem', 'odm', '부품', '공장', '생산라인', '도면', 'iso인증', '기계', '금속', '철강', '플라스틱', '사출', '압출', '용접', '주조', '단조']
+  const mfgHits = mfgKw.filter(k => lower.includes(k))
+  if (mfgHits.length >= 2) { scores.manufacturer += mfgHits.length * 5; signals.push(`제조업 키워드 ${mfgHits.length}개 감지`) }
+
+  // Address patterns (Korean industrial zones — 제조업 전용)
   if (/산업단지|공단로|공업단지|산단/.test(html)) { scores.manufacturer += 20; signals.push('산업단지 주소 패턴') }
 
   // Public institution keywords
@@ -250,11 +260,13 @@ function detectSiteType(domain: string, html: string): SiteTypeResult {
   const confidence = Math.min(95, best[1])
   const primary = confidence >= 20 ? (best[0] as SiteTypeResult['primary']) : 'unknown'
 
+  // Dynamic label: IT keywords detected → IT 서비스업 표기
+  const isItService = itHits.length >= 2
   const labels: Record<string, [string, string]> = {
     manufacturer: ['중소 제조업체', 'B2B 제조형'],
     public: ['공공기관', '공공기관형'],
     nonprofit: ['비영리·협회', '비영리형'],
-    service: ['서비스업', '일반기업형'],
+    service: [isItService ? '중소 IT·웹 서비스업' : '서비스업', isItService ? 'IT서비스형' : '일반기업형'],
     unknown: ['일반기업', '일반기업형'],
   }
   const [label, profile] = labels[primary]
