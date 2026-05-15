@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>홈페이지 성과 진단 리포트 v3 — 범용 프레임워크</title>
+<style>
+  :root {
+    --red: #ef4444; --red-bg: #fef2f2; --red-border: #fecaca;
+    --yellow: #f59e0b; --yellow-bg: #fffbeb; --yellow-border: #fde68a;
+    --green: #10b981; --green-bg: #ecfdf5; --green-border: #a7f3d0;
+    --blue: #3b82f6; --blue-bg: #eff6ff; --blue-border: #bfdbfe;
+    --gray: #6b7280; --gray-light: #f9fafb; --gray-border: #e5e7eb;
+    --dark: #111827; --ink: #374151; --muted: #9ca3af;
+    --accent: #1e40af;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',sans-serif; background: #f3f4f6; color: var(--ink); line-height: 1.6; }
+
+  /* ── LAYOUT ── */
+  .page { max-width: 860px; margin: 0 auto; padding: 20px; }
+  .card { background: #fff; border-radius: 16px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+  .section-title { font-size: 17px; font-weight: 700; color: var(--dark); margin-bottom: 20px; display: flex; align-items: center; gap: 8px; padding-bottom: 12px; border-bottom: 2px solid var(--gray-border); }
+
+  /* ── COVER ── */
+  .cover { background: linear-gradient(135deg, #1e3a5f 0%, #1e40af 60%, #2563eb 100%); color: #fff; border-radius: 20px; padding: 48px 40px 40px; margin-bottom: 24px; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: -60px; right: -60px; width: 280px; height: 280px; border-radius: 50%; background: rgba(255,255,255,.05); }
+  .cover-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25); border-radius: 100px; padding: 4px 14px; font-size: 12px; font-weight: 600; margin-bottom: 24px; }
+  .cover-title { font-size: 28px; font-weight: 800; margin-bottom: 6px; }
+  .cover-domain { font-size: 15px; color: rgba(255,255,255,.7); margin-bottom: 32px; }
+  .cover-meta { display: flex; gap: 32px; flex-wrap: wrap; }
+  .cover-meta-item label { font-size: 11px; color: rgba(255,255,255,.55); text-transform: uppercase; letter-spacing: .05em; display: block; margin-bottom: 2px; }
+  .cover-meta-item span { font-size: 15px; font-weight: 600; }
+
+  .score-box { position: absolute; top: 40px; right: 40px; text-align: center; }
+  .score-ring { width: 100px; height: 100px; border-radius: 50%; background: conic-gradient(#f59e0b calc(58 * 3.6deg), rgba(255,255,255,.2) 0); display: flex; align-items: center; justify-content: center; }
+  .score-inner { width: 76px; height: 76px; border-radius: 50%; background: #1e3a5f; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .score-num { font-size: 26px; font-weight: 800; color: #f59e0b; line-height: 1; }
+  .score-denom { font-size: 11px; color: rgba(255,255,255,.5); }
+  .score-grade { margin-top: 6px; font-size: 13px; font-weight: 700; color: #f59e0b; }
+
+  /* ── TARGETS TAG ── */
+  .target-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+  .tag { display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; border-radius: 100px; font-size: 12px; font-weight: 600; }
+  .tag-mfg { background: #dbeafe; color: #1e40af; }
+  .tag-pub { background: #d1fae5; color: #065f46; }
+  .tag-ngo { background: #ede9fe; color: #5b21b6; }
+  .tag-common { background: #f3f4f6; color: #374151; }
+  .tag-weight { background: #fef9c3; color: #854d0e; border: 1px solid #fde047; }
+
+  /* ── ALERT BOXES ── */
+  .alert { border-radius: 12px; padding: 16px 20px; margin-bottom: 12px; display: flex; gap: 14px; align-items: flex-start; border-left: 4px solid; }
+  .alert-red { background: var(--red-bg); border-color: var(--red); }
+  .alert-yellow { background: var(--yellow-bg); border-color: var(--yellow); }
+  .alert-green { background: var(--green-bg); border-color: var(--green); }
+  .alert-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+  .alert-text strong { display: block; font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+  .alert-text span { font-size: 13px; color: var(--gray); }
+
+  /* ── AXIS SECTION ── */
+  .axis-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 2px solid var(--gray-border); }
+  .axis-title-area h3 { font-size: 18px; font-weight: 800; color: var(--dark); }
+  .axis-title-area p { font-size: 13px; color: var(--gray); margin-top: 2px; }
+  .axis-score { text-align: right; }
+  .axis-score .num { font-size: 28px; font-weight: 800; line-height: 1; }
+  .axis-score .denom { font-size: 14px; color: var(--gray); }
+  .axis-score .bar { width: 120px; height: 6px; background: var(--gray-border); border-radius: 99px; margin-top: 8px; overflow: hidden; }
+  .axis-score .bar-fill { height: 100%; border-radius: 99px; }
+
+  /* ── CHECK TABLE ── */
+  .check-list { display: flex; flex-direction: column; gap: 10px; }
+  .check-item { display: grid; grid-template-columns: 24px 1fr auto auto; gap: 10px; align-items: start; padding: 14px 16px; border-radius: 10px; background: var(--gray-light); border: 1px solid var(--gray-border); }
+  .check-item.red { background: var(--red-bg); border-color: var(--red-border); }
+  .check-item.yellow { background: var(--yellow-bg); border-color: var(--yellow-border); }
+  .check-item.green { background: var(--green-bg); border-color: var(--green-border); }
+  .check-status { font-size: 16px; }
+  .check-body .title { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+  .check-body .current { font-size: 12px; color: var(--gray); }
+  .check-body .impact { font-size: 12px; margin-top: 4px; padding: 4px 8px; border-radius: 6px; display: inline-block; font-weight: 600; }
+  .impact-high { background: #fecaca; color: #b91c1c; }
+  .impact-mid { background: #fde68a; color: #92400e; }
+  .impact-low { background: #d1fae5; color: #065f46; }
+  .check-weight { display: flex; flex-direction: column; gap: 4px; align-items: flex-end; }
+  .weight-badge { font-size: 10px; padding: 2px 7px; border-radius: 100px; white-space: nowrap; font-weight: 600; }
+  .w-mfg { background: #dbeafe; color: #1e40af; }
+  .w-pub { background: #d1fae5; color: #065f46; }
+  .w-all { background: #f3f4f6; color: #374151; }
+
+  /* ── TOBE BLOCK ── */
+  .tobe { background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 10px; padding: 10px 14px; margin-top: 6px; }
+  .tobe .label { font-size: 10px; font-weight: 700; color: #0369a1; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 3px; }
+  .tobe .text { font-size: 12px; color: #0c4a6e; }
+
+  /* ── PRIORITY TABLE ── */
+  .priority-table { width: 100%; border-collapse: collapse; }
+  .priority-table th { font-size: 12px; font-weight: 600; color: var(--muted); text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--gray-border); background: var(--gray-light); }
+  .priority-table td { font-size: 13px; padding: 12px 12px; border-bottom: 1px solid var(--gray-border); vertical-align: top; }
+  .priority-table tr:last-child td { border-bottom: none; }
+  .priority-num { width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+  .p1 { background: #fecaca; color: #b91c1c; }
+  .p2 { background: #fed7aa; color: #c2410c; }
+  .p3 { background: #fde68a; color: #92400e; }
+  .p4 { background: #bbf7d0; color: #065f46; }
+  .p5 { background: #e0e7ff; color: #3730a3; }
+  .timing-badge { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 100px; }
+  .t-now { background: #fecaca; color: #b91c1c; }
+  .t-1m { background: #fde68a; color: #92400e; }
+  .t-3m { background: #bbf7d0; color: #065f46; }
+
+  /* ── DIFF BLOCK (공공기관 vs 제조업) ── */
+  .split-table { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .split-col { border-radius: 12px; padding: 20px; }
+  .split-mfg { background: #eff6ff; border: 1px solid #bfdbfe; }
+  .split-pub { background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .split-col h4 { font-size: 14px; font-weight: 700; margin-bottom: 14px; }
+  .split-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .split-col ul li { font-size: 13px; display: flex; align-items: flex-start; gap: 8px; }
+  .split-col ul li::before { content: '✓'; font-weight: 700; flex-shrink: 0; }
+  .split-mfg ul li::before { color: #1e40af; }
+  .split-pub ul li::before { color: #059669; }
+
+  /* ── CTA ── */
+  .cta-card { background: linear-gradient(135deg, #1e3a5f 0%, #1e40af 100%); border-radius: 20px; padding: 40px; text-align: center; color: #fff; }
+  .cta-card h3 { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+  .cta-card p { font-size: 14px; color: rgba(255,255,255,.75); margin-bottom: 28px; line-height: 1.7; }
+  .cta-btn { display: inline-block; background: #fff; color: #1e40af; font-size: 15px; font-weight: 700; padding: 14px 36px; border-radius: 100px; text-decoration: none; }
+  .cta-btn:hover { background: #f0f9ff; }
+  .cta-note { font-size: 12px; color: rgba(255,255,255,.5); margin-top: 16px; }
+
+  /* ── MISC ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .summary-stat { background: var(--gray-light); border: 1px solid var(--gray-border); border-radius: 12px; padding: 20px; text-align: center; }
+  .summary-stat .val { font-size: 32px; font-weight: 800; line-height: 1; }
+  .summary-stat .lbl { font-size: 12px; color: var(--gray); margin-top: 4px; }
+  .divider { height: 1px; background: var(--gray-border); margin: 24px 0; }
+  .footnote { font-size: 11px; color: var(--muted); margin-top: 16px; line-height: 1.6; }
+  .badge-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+
+  @media (max-width: 640px) {
+    .cover { padding: 32px 24px 28px; }
+    .score-box { position: static; margin-top: 28px; display: flex; align-items: center; gap: 16px; }
+    .two-col, .split-table { grid-template-columns: 1fr; }
+    .check-item { grid-template-columns: 24px 1fr; }
+    .check-weight { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ═══ COVER ═══ -->
+  <div class="cover">
+    <div class="cover-badge">📋 홈페이지 성과 진단 리포트</div>
+    <div class="cover-title">(주)한국정밀기계</div>
+    <div class="cover-domain">hkm-tech.co.kr &nbsp;·&nbsp; 2026년 5월 진단</div>
+    <div class="cover-meta">
+      <div class="cover-meta-item"><label>진단 유형</label><span>중소제조업 종합</span></div>
+      <div class="cover-meta-item"><label>분석 페이지</label><span>14페이지</span></div>
+      <div class="cover-meta-item"><label>발견 항목</label><span>🔴 8건 &nbsp;🟡 6건 &nbsp;✅ 7건</span></div>
+    </div>
+    <div class="score-box">
+      <div class="score-ring">
+        <div class="score-inner">
+          <div class="score-num">58</div>
+          <div class="score-denom">/100</div>
+        </div>
+      </div>
+      <div class="score-grade">등급 C+</div>
+    </div>
+  </div>
+
+  <!-- ═══ 진단 대상 범위 ═══ -->
+  <div class="card">
+    <div class="section-title">🎯 이 리포트의 진단 기준</div>
+    <p style="font-size:14px;color:var(--gray);margin-bottom:16px;">아래 3가지 기준축으로 홈페이지를 분석합니다. 업종·기관 유형에 관계없이 동일 프레임워크를 적용하며, 중요도는 타깃에 따라 가중됩니다.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px;">
+      <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:16px;text-align:center;">
+        <div style="font-size:28px;margin-bottom:6px;">⚙️</div>
+        <div style="font-weight:700;font-size:14px;color:#1e3a5f;margin-bottom:4px;">기술 기반</div>
+        <div style="font-size:12px;color:#64748b;">태그·속도·보안·크롤링</div>
+      </div>
+      <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:16px;text-align:center;">
+        <div style="font-size:28px;margin-bottom:6px;">👥</div>
+        <div style="font-weight:700;font-size:14px;color:#065f46;margin-bottom:4px;">사용자 경험</div>
+        <div style="font-size:12px;color:#64748b;">탐색·CTA·가독성·접근성</div>
+      </div>
+      <div style="background:#faf5ff;border:1px solid #e9d5ff;border-radius:12px;padding:16px;text-align:center;">
+        <div style="font-size:28px;margin-bottom:6px;">🌐</div>
+        <div style="font-weight:700;font-size:14px;color:#5b21b6;margin-bottom:4px;">현대 기준</div>
+        <div style="font-size:12px;color:#64748b;">트렌드·다국어·법적 의무</div>
+      </div>
+    </div>
+    <div class="target-tags">
+      <span style="font-size:13px;font-weight:600;color:var(--gray);margin-right:4px;">적용 대상:</span>
+      <span class="tag tag-mfg">🏭 중소제조업</span>
+      <span class="tag tag-pub">🏛 공공기관</span>
+      <span class="tag tag-ngo">🤝 비영리기관</span>
+      <span class="tag tag-common">🏢 일반기업</span>
+    </div>
+    <p class="footnote">※ 가중치 표시: <span class="weight-badge w-mfg">제조업 중요</span> <span class="weight-badge w-pub">공공·비영리 필수</span> <span class="weight-badge w-all">전 업종 공통</span> — 귀사 유형에서 특히 중요한 항목을 표시합니다.</p>
+  </div>
+
+  <!-- ═══ 사이트 유형 자동 판단 ═══ -->
+  <div class="card">
+    <div class="section-title">🔍 사이트 유형 자동 판단 결과</div>
+    <p style="font-size:13px;color:var(--gray);margin-bottom:18px;">도메인·페이지 내용·메타 정보를 분석해 업종과 기관 유형을 자동으로 추정합니다. 분석 가중치가 여기서 결정됩니다.</p>
+
+    <!-- 판단 결과 -->
+    <div style="background:#eff6ff;border:2px solid #3b82f6;border-radius:14px;padding:20px 24px;margin-bottom:20px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+      <div style="font-size:40px;">🏭</div>
+      <div style="flex:1;min-width:180px;">
+        <div style="font-size:18px;font-weight:800;color:#1e3a5f;margin-bottom:4px;">중소 제조업체</div>
+        <div style="font-size:13px;color:#3b82f6;font-weight:600;">판단 신뢰도: 높음 (85%)</div>
+        <div style="font-size:12px;color:#64748b;margin-top:2px;">가중치 적용: 영문 대응 · 견적 CTA · 제품 DB · 인증 표시 강화</div>
+      </div>
+      <div style="text-align:right;">
+        <span style="font-size:11px;font-weight:700;background:#dbeafe;color:#1e40af;padding:4px 12px;border-radius:100px;">적용 프로파일: B2B 제조형</span>
+      </div>
+    </div>
+
+    <!-- 판단 근거 -->
+    <div style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:12px;">판단 근거 (감지된 신호)</div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+
+      <div style="display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:center;padding:10px 14px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;">
+        <span style="font-size:15px;">✅</span>
+        <div>
+          <span style="font-size:13px;font-weight:600;">도메인 확인:</span>
+          <span style="font-size:13px;color:var(--gray);"> .co.kr — 영리 법인 (제조·서비스·유통업 전형)</span>
+        </div>
+        <span style="font-size:11px;font-weight:700;color:#059669;background:#dcfce7;padding:2px 8px;border-radius:100px;">확인됨</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:center;padding:10px 14px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;">
+        <span style="font-size:15px;">✅</span>
+        <div>
+          <span style="font-size:13px;font-weight:600;">페이지 키워드:</span>
+          <span style="font-size:13px;color:var(--gray);"> "정밀가공", "납품", "OEM", "견적문의", "ISO인증" 감지</span>
+        </div>
+        <span style="font-size:11px;font-weight:700;color:#059669;background:#dcfce7;padding:2px 8px;border-radius:100px;">확인됨</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:center;padding:10px 14px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;">
+        <span style="font-size:15px;">✅</span>
+        <div>
+          <span style="font-size:13px;font-weight:600;">주소 패턴:</span>
+          <span style="font-size:13px;color:var(--gray);"> "○○산업단지", "공단로" 포함 → 제조업 입지 특징</span>
+        </div>
+        <span style="font-size:11px;font-weight:700;color:#059669;background:#dcfce7;padding:2px 8px;border-radius:100px;">확인됨</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:center;padding:10px 14px;background:#fffbeb;border:1px solid #fde68a;border-radius:10px;">
+        <span style="font-size:15px;">⚠️</span>
+        <div>
+          <span style="font-size:13px;font-weight:600;">Schema.org 마크업:</span>
+          <span style="font-size:13px;color:var(--gray);"> 구조화 데이터 없음 — 업종 자동 분류 불가 (키워드 기반으로 보완)</span>
+        </div>
+        <span style="font-size:11px;font-weight:700;color:#92400e;background:#fef9c3;padding:2px 8px;border-radius:100px;">추정됨</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:center;padding:10px 14px;background:#fef2f2;border:1px solid #fecaca;border-radius:10px;">
+        <span style="font-size:15px;">🔴</span>
+        <div>
+          <span style="font-size:13px;font-weight:600;">공공기관 신호:</span>
+          <span style="font-size:13px;color:var(--gray);"> .go.kr 도메인 없음, 정보공개 메뉴 없음, 웹접근성 인증 마크 없음</span>
+        </div>
+        <span style="font-size:11px;font-weight:700;color:#b91c1c;background:#fef2f2;padding:2px 8px;border-radius:100px;">해당없음</span>
+      </div>
+
+    </div>
+
+    <!-- 다른 업종이라면 -->
+    <div style="margin-top:16px;padding:12px 16px;background:var(--gray-light);border-radius:10px;border:1px dashed var(--gray-border);">
+      <span style="font-size:12px;color:var(--gray);">📌 <strong>판단이 다르다면?</strong> — 실제 업종이 다를 경우 상담 신청 시 업종을 선택해 주시면 해당 프로파일로 재분석합니다.</span>
+    </div>
+  </div>
+
+  <!-- ═══ 기술 스택 추정 ═══ -->
+  <div class="card">
+    <div class="section-title">🖥️ 기술 스택 추정 결과</div>
+    <p style="font-size:13px;color:var(--gray);margin-bottom:18px;">서버 응답 헤더, 소스코드 패턴, URL 구조를 분석해 기술 환경을 추정합니다. DB 접근 없이 외부 신호만으로 진단합니다.</p>
+
+    <!-- 스택 요약 칩 -->
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;">
+      <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:12px 16px;text-align:center;min-width:110px;">
+        <div style="font-size:11px;color:#9ca3af;margin-bottom:4px;font-weight:600;">CMS</div>
+        <div style="font-size:15px;font-weight:800;color:#ef4444;">WordPress</div>
+        <div style="font-size:11px;color:#b91c1c;margin-top:2px;font-weight:600;">v5.9 ✅ 확인됨</div>
+      </div>
+      <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px 16px;text-align:center;min-width:110px;">
+        <div style="font-size:11px;color:#9ca3af;margin-bottom:4px;font-weight:600;">서버 언어</div>
+        <div style="font-size:15px;font-weight:800;color:#f59e0b;">PHP</div>
+        <div style="font-size:11px;color:#92400e;margin-top:2px;font-weight:600;">7.4 이하 ⚠️ 추정됨</div>
+      </div>
+      <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px 16px;text-align:center;min-width:110px;">
+        <div style="font-size:11px;color:#9ca3af;margin-bottom:4px;font-weight:600;">데이터베이스</div>
+        <div style="font-size:15px;font-weight:800;color:#f59e0b;">MySQL</div>
+        <div style="font-size:11px;color:#92400e;margin-top:2px;font-weight:600;">5.7 추정 ⚠️ 추정됨</div>
+      </div>
+      <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:12px 16px;text-align:center;min-width:110px;">
+        <div style="font-size:11px;color:#9ca3af;margin-bottom:4px;font-weight:600;">웹서버</div>
+        <div style="font-size:15px;font-weight:800;color:#059669;">Apache</div>
+        <div style="font-size:11px;color:#065f46;margin-top:2px;font-weight:600;">✅ 확인됨</div>
+      </div>
+      <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:12px 16px;text-align:center;min-width:110px;">
+        <div style="font-size:11px;color:#9ca3af;margin-bottom:4px;font-weight:600;">호스팅</div>
+        <div style="font-size:15px;font-weight:800;color:#059669;">카페24</div>
+        <div style="font-size:11px;color:#065f46;margin-top:2px;font-weight:600;">IP 대역 ✅ 확인됨</div>
+      </div>
+    </div>
+
+    <!-- 감지 상세 -->
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px;">
+
+      <div style="padding:12px 16px;background:var(--gray-light);border-radius:10px;border:1px solid var(--gray-border);">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;flex-wrap:wrap;">
+          <div>
+            <span style="font-size:13px;font-weight:700;">WordPress 5.9 감지</span>
+            <span style="font-size:11px;margin-left:8px;background:#dcfce7;color:#065f46;padding:1px 7px;border-radius:100px;font-weight:700;">✅ 확인됨</span>
+            <div style="font-size:12px;color:var(--gray);margin-top:3px;">감지 근거: <code style="background:#f3f4f6;padding:1px 5px;border-radius:4px;">&lt;meta name="generator" content="WordPress 5.9"&gt;</code> + <code style="background:#f3f4f6;padding:1px 5px;border-radius:4px;">/wp-login.php</code> 200 응답</div>
+          </div>
+          <span style="font-size:11px;font-weight:700;color:#b91c1c;background:#fef2f2;padding:3px 10px;border-radius:100px;white-space:nowrap;">⚠️ 보안 위험</span>
+        </div>
+        <div style="margin-top:8px;padding:8px 12px;background:#fef2f2;border-radius:8px;font-size:12px;color:#b91c1c;">
+          WordPress 5.9는 2022년 출시. 현재 최신 버전 6.5와 32개 보안 패치 차이. 즉각 업데이트 권장.
+        </div>
+      </div>
+
+      <div style="padding:12px 16px;background:var(--gray-light);border-radius:10px;border:1px solid var(--gray-border);">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;flex-wrap:wrap;">
+          <div>
+            <span style="font-size:13px;font-weight:700;">PHP 7.4 이하 추정</span>
+            <span style="font-size:11px;margin-left:8px;background:#fef9c3;color:#854d0e;padding:1px 7px;border-radius:100px;font-weight:700;">⚠️ 추정됨</span>
+            <div style="font-size:12px;color:var(--gray);margin-top:3px;">감지 근거: <code style="background:#f3f4f6;padding:1px 5px;border-radius:4px;">X-Powered-By</code> 헤더 숨김. WordPress 5.9 + 카페24 환경에서 PHP 7.4가 기본 조합으로 사용됨</div>
+          </div>
+          <span style="font-size:11px;font-weight:700;color:#b91c1c;background:#fef2f2;padding:3px 10px;border-radius:100px;white-space:nowrap;">EOL 위험</span>
+        </div>
+        <div style="margin-top:8px;padding:8px 12px;background:#fffbeb;border-radius:8px;font-size:12px;color:#92400e;">
+          PHP 7.4는 2022년 11월 공식 지원 종료(EOL). 신규 보안 취약점 패치가 없어 해킹 위험 지속 증가.
+        </div>
+      </div>
+
+      <div style="padding:12px 16px;background:var(--gray-light);border-radius:10px;border:1px solid var(--gray-border);">
+        <div>
+          <span style="font-size:13px;font-weight:700;">MySQL 5.7 추정 (DB 직접 접근 없음)</span>
+          <span style="font-size:11px;margin-left:8px;background:#fef9c3;color:#854d0e;padding:1px 7px;border-radius:100px;font-weight:700;">⚠️ 추정됨</span>
+          <div style="font-size:12px;color:var(--gray);margin-top:3px;">감지 근거: WordPress + PHP 7.4 + 카페24 공유호스팅 조합에서 MySQL 5.7이 표준 구성. 오류 페이지에서 DB 정보 노출 없음.</div>
+        </div>
+        <div style="margin-top:8px;padding:8px 12px;background:#fffbeb;border-radius:8px;font-size:12px;color:#92400e;">
+          MySQL 5.7은 2023년 10월 EOL. 카페24 공유호스팅은 업그레이드 제한이 있어 호스팅 이전 검토 권장.
+        </div>
+      </div>
+
+      <div style="padding:12px 16px;background:var(--gray-light);border-radius:10px;border:1px solid var(--gray-border);">
+        <div>
+          <span style="font-size:13px;font-weight:700;">활성 플러그인 수 추정: 12개 이상</span>
+          <span style="font-size:11px;margin-left:8px;background:#fef9c3;color:#854d0e;padding:1px 7px;border-radius:100px;font-weight:700;">⚠️ 추정됨</span>
+          <div style="font-size:12px;color:var(--gray);margin-top:3px;">감지 근거: <code style="background:#f3f4f6;padding:1px 5px;border-radius:4px;">/wp-content/plugins/</code> 경로에서 로드되는 스크립트 12종 감지</div>
+        </div>
+        <div style="margin-top:8px;padding:8px 12px;background:#fffbeb;border-radius:8px;font-size:12px;color:#92400e;">
+          플러그인 업데이트 여부는 관리자 패널 없이 확인 불가. 방치된 플러그인이 해킹 주요 경로 — 상담 후 점검 권장.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 추정 기준 안내 -->
+    <div style="padding:12px 16px;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:10px;">
+      <div style="font-size:12px;color:var(--gray);line-height:1.7;">
+        <strong style="color:var(--dark);">추정 기준 안내</strong><br>
+        ✅ <strong>확인됨</strong> — 서버 헤더, HTML 소스, URL 패턴에서 직접 감지<br>
+        ⚠️ <strong>추정됨</strong> — 감지된 신호의 전형적 조합에서 추론 (DB 직접 접근 없음)<br>
+        ❓ <strong>확인불가</strong> — 외부에서 알 수 없는 항목 (관리자 패널, 백업 상태 등)
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 핵심 요약 (3줄) ═══ -->
+  <div class="card">
+    <div class="section-title">🚨 지금 당장 해결해야 할 3가지</div>
+    <div class="alert alert-red">
+      <div class="alert-icon">🔴</div>
+      <div class="alert-text">
+        <strong>바이어가 검색해도 귀사 홈페이지가 잘 나오지 않습니다</strong>
+        <span>네이버·구글 검색 노출을 위한 기본 설정이 빠져 있어, 잠재 거래처가 검색으로 유입되지 않고 있습니다.</span>
+      </div>
+    </div>
+    <div class="alert alert-red">
+      <div class="alert-icon">🔴</div>
+      <div class="alert-text">
+        <strong>홈페이지가 열리는 데 7초 이상 걸립니다 — 방문자 절반이 기다리다 나갑니다</strong>
+        <span>첫 화면이 뜨기까지 평균 7.2초 소요. 3초 이상이면 방문자 40%가 이탈하는 것으로 조사됩니다.</span>
+      </div>
+    </div>
+    <div class="alert alert-red">
+      <div class="alert-icon">🔴</div>
+      <div class="alert-text">
+        <strong>영문 페이지가 없어 해외 바이어는 바로 이탈합니다</strong>
+        <span>수출·해외 납품을 목표로 한다면, 최소한의 영문 소개 페이지가 없으면 신뢰를 얻기 어렵습니다.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 축 1: 기술 기반 ═══ -->
+  <div class="card">
+    <div class="axis-header">
+      <div class="axis-title-area">
+        <h3>⚙️ 기술 기반 진단</h3>
+        <p>"홈페이지가 검색되고, 빠르고, 안전한가?"</p>
+      </div>
+      <div class="axis-score">
+        <span class="num" style="color:#ef4444;">18</span><span class="denom">/35점</span>
+        <div class="bar"><div class="bar-fill" style="width:51%;background:#ef4444;"></div></div>
+      </div>
+    </div>
+    <div class="check-list">
+
+      <div class="check-item red">
+        <div class="check-status">🔴</div>
+        <div class="check-body">
+          <div class="title">네이버·구글 검색 노출 설정이 빠져 있습니다</div>
+          <div class="current">현재: 페이지 제목·설명·대표 이미지 설정 없음 → 검색 결과에 회사 정보가 제대로 표시 안 됨</div>
+          <span class="impact impact-high">영업 영향 높음</span>
+          <div class="tobe"><div class="label">개선 후</div><div class="text">검색 결과에 "(주)한국정밀기계 — 정밀 가공 전문, 견적 문의 환영" 형태로 노출 → 신규 바이어 유입 증가</div></div>
+        </div>
+        <div class="check-weight">
+          <span class="weight-badge w-all">전 업종</span>
+        </div>
+      </div>
+
+      <div class="check-item red">
+        <div class="check-status">🔴</div>
+        <div class="check-body">
+          <div class="title">홈페이지 첫 화면이 뜨는 데 7.2초 걸립니다</div>
+          <div class="current">현재: 7.2초 (권장 기준 1.8초 이내). 구글 검색 순위에도 불이익 적용됨</div>
+          <span class="impact impact-high">영업 영향 높음</span>
+          <div class="tobe"><div class="label">개선 후</div><div class="text">이미지 압축·불필요 코드 제거로 2초 이내 달성 → 방문자 이탈 40% 이상 감소 예상</div></div>
+        </div>
+        <div class="check-weight">
+          <span class="weight-badge w-all">전 업종</span>
+        </div>
+      </div>
+
+      <div class="check-item yellow">
+        <div class="check-status">🟡</div>
+        <div class="check-body">
+          <div class="title">스마트폰에서 화면이 일부 잘리거나 버튼이 눌리지 않습니다</div>
+          <div class="current">현재: 모바일 대응 일부 적용, 하단 메뉴 터치 영역 너무 좁음</div>
+          <span class="impact impact-mid">개선 권장</span>
+          <div class="tobe"><div class="label">개선 후</div><div class="text">모든 버튼 터치 영역 44px 이상 확보 → 스마트폰 방문자 경험 개선</div></div>
+        </div>
+        <div class="check-weight">
+          <span class="weight-badge w-all">전 업종</span>
+        </div>
+      </div>
+
+      <div class="check-item yellow">
+        <div class="check-status">🟡</div>
+        <div class="check-body">
+          <div class="title">해킹 방어 설정이 절반만 되어 있습니다</div>
+          <div class="current">현재: HTTPS 적용 ✅, 방어 헤더 13개 중 6개만 설정됨</div>
+          <span class="impact impact-mid">보안 위험</span>
+          <div class="tobe"><div class="label">개선 후</div><div class="text">방어 설정 완료 → 고객 정보 유출·사이트 변조 위험 감소</div></div>
+        </div>
+        <div class="check-weight">
+          <span class="weight-badge w-all">전 업종</span>
+          <span class="weight-badge w-pub">공공 필수</span>
+        </div>
+      </div>
+
+      <div class="check-item red">
+        <div class="check-status">🔴</div>
+        <div class="check-body">
+          <div class="title">구글이 홈페이지 내용을 제대로 파악하지 못하고 있습니다</div>
+          <div class="current">현재: 사이트맵 없음, 검색엔진 안내 파일 없음 → 새 페이지 추가해도 검색에 반영 느림</div>
+          <span class="impact impact-high">검색 노출 불이익</span>
+          <div class="tobe"><div class="label">개선 후</div><div class="text">사이트맵 등록 → 신규 제품 페이지가 2~4주 내 검색 반영</div></div>
+        </div>
+        <div class="check-weight">
+          <span class="weight-badge w-all">전 업종</span>
+        </div>
+      </div>
+
+      <div class="check-item yellow">
+        <div class="check-status">🟡</div>
+        <div class="check-body">
+          <div class="title">깨진 링크 3건 발견 — 클릭하면 오류 페이지로 이동</div>
+          <div class="current">현재: /products/catalog-2021.pdf, /about/ceo-message, /en/ — 3개 링크 404 오류</div>
+          <span class="impact impact-mid">신뢰도 하락</span>
+          <div class="tobe"><div class="label">개선 후</div><div class="text">링크 수정 또는 삭제 → 방문자 혼란 없애고 구글 평가 개선</div></div>
+        </div>
+        <div class="check-weight">
+          <span class="weight-badge w-all">전 업종</span>
+        </div>
+      </div>
+
+      <div class="check-item green">
+        <div class="check-status">✅</div>
+        <div class="check-body">
+          <div class="title">HTTPS 보안 접속 적용됨 — 자물쇠 아이콘 정상</div>
+          <div class="current">현재: SSL 인증서 정상 적용, 만료일 2027년 3월</div>
+        </div>
+        <div class="check-weight">
+          <span class="weight-badge w-all">전 업종</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ 축 2: 사용자 경험 ═══ -->
+  <div class="card">
+    <div class="axis-header">
+      <div class="axis-title-area">
+        <h3>👥 사용자 경험 진단</h3>
+        <p>"방문자가 원하는 것을 쉽게 찾고 행동하는가?"</p>
+      </div>
+      <div class="axis-score">
+        <span class="num" style="color:#f59e0b;">22</span><span class="denom">/35점</span>
+        <div class="bar"><div class="bar-fill" style="width:63%;background:#f59e0b;"></div></div>
+      </div>
+    </div>
+    <div class="check-list">
+
+      <div class="check-item yellow">
+        <div class="check-status">🟡</div>
+        <div class="check-body">
+          <div class="title">첫 화면만 봐서는 '무엇을 만드는 회사'인지 바로 알기 어렵습니다</div>
+          <div class="current">현재: 회사명은 보이지만 "정밀 가공 부품 전문 제조업체" 같은 한 줄 설명이 없음</div>
+          <span class="impact impact-mid">바이어 이탈 위험</span>
+          <div class="tobe"><div class="label">개선 후</div><div class="text">첫 화면에 업종·전문 분야·강점을 30자 이내로 명시 → 방문 3초 이내 판단 가능</div></div>
+        </div>
+        <div class="check-weight">
+          <span class="weight-badge w-mfg">제조업 중요</span>
+        </div>
+      </div>
+
+      <div class="check-item red">
+        <div class="check-status">🔴</div>
+        <div class="check-body">
+          <div class="title">'견적 문의' 버튼을 찾으려면 3번 이상 클릭해야 합니다</div>
+          <div class="current">현재: 견적 문의 버튼이 '고객지원 → 문의하기' 메뉴 안에 숨어 있음</div>
+          <span class="impact impact-high">매출 직결</span>
+          <div class="tobe"><div class="label">개선 후</div><div class="text">메인 상단 고정 메뉴에 '견적 문의' 버튼 배치 → 첫 화면에서 바로 클릭 가능</div></div>
+        </div>
+        <div class="check-weight">
+          <span class="weight-badge w-mfg">제조업 중요</span>
+        </div>
+      </div>
+
+      <div class="check-item red">
+        <div class="check-status">🔴</div>
+        <div class="check-body">
+          <div class="title">제품 카탈로그·스펙 시트를 홈페이지에서 받을 수 없습니다</div>
+          <div class="current">현재: PDF 카탈로그 링크 없음, 제품 스펙 표 없음 → 바이어가 팩스/전화로만 자료 요청 가능</div>
+          <span class="impact impact-high">거래 기회 손실</span>
+          <div class="tobe"><div class="label">개선 후</div><div class="text">각 제품 페이지에 스펙 표 + PDF 다운로드 → 바이어가 24시간 자료 확인 가능</div></div>
+        </div>
+        <div class="check-weight">
+          <span class="weight-badge w-mfg">제조업 중요</span>
+        </div>
+      </div>
+
+      <div class="check-item yellow">
+        <div class="check-status">🟡</div>
+        <div class="check-body">
+          <div class="title">ISO 인증서와 주요 납품 실적이 눈에 잘 띄지 않습니다</div>
+          <div class="current">현재: 인증서 이미지가 '회사 소개' 페이지 하단에 작게 있음, 납품처 로고 없음</div>
+          <span class="impact impact-mid">신뢰도 개선 필요</span>
+          <div class="tobe"><div class="label">개선 후</div><div class="text">인증 마크 + 주요 납품처 로고를 첫 화면 또는 상단 배너에 노출 → 신뢰도 즉시 상승</div></div>
+        </div>
+        <div class="check-weight">
+          <span class="weight-badge w-mfg">제조업 중요</span>
+        </div>
+      </div>
+
+      <div class="check-item red">
+        <div class="check-status">🔴</div>
+        <div class="check-body">
+          <div class="title">장애인·고령자가 홈페이지를 이용하기 어렵습니다</div>
+          <div class="current">현재: 이미지에 설명 텍스트 없음, 키보드만으로 탐색 불가, 글자-배경 색상 대비 기준 미달</div>
+          <span class="impact impact-high">법적 의무 (공공·비영리)</span>
+          <div class="tobe"><div class="label">개선 후</div><div class="text">웹접근성 KWCAG 2.1 기준 충족 → 공공기관은 법적 의무, 민간도 신뢰도 향상</div></div>
+        </div>
+        <div class="check-weight">
+          <span class="weight-badge w-pub">공공 필수</span>
+          <span class="weight-badge w-mfg">제조업 권장</span>
+        </div>
+      </div>
+
+      <div class="check-item green">
+        <div class="check-status">✅</div>
+        <div class="check-body">
+          <div class="title">글자 크기와 줄 간격이 읽기 편합니다</div>
+          <div class="current">현재: 본문 16px, 줄간격 1.7 — 기준 충족</div>
+        </div>
+        <div class="check-weight"><span class="weight-badge w-all">전 업종</span></div>
+      </div>
+
+      <div class="check-item green">
+        <div class="check-status">✅</div>
+        <div class="check-body">
+          <div class="title">개인정보처리방침 페이지가 있습니다</div>
+          <div class="current">현재: 하단 링크로 접근 가능, 최종 업데이트 2025년 1월</div>
+        </div>
+        <div class="check-weight">
+          <span class="weight-badge w-all">전 업종</span>
+          <span class="weight-badge w-pub">공공 필수</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ 축 3: 현대 기준 ═══ -->
+  <div class="card">
+    <div class="axis-header">
+      <div class="axis-title-area">
+        <h3>🌐 현대 기준 적합도 진단</h3>
+        <p>"2025년 기준으로 갖춰야 할 것들을 갖추고 있는가?"</p>
+      </div>
+      <div class="axis-score">
+        <span class="num" style="color:#ef4444;">18</span><span class="denom">/30점</span>
+        <div class="bar"><div class="bar-fill" style="width:60%;background:#ef4444;"></div></div>
+      </div>
+    </div>
+    <div class="check-list">
+
+      <div class="check-item red">
+        <div class="check-status">🔴</div>
+        <div class="check-body">
+          <div class="title">방문자가 얼마나 오는지, 어디서 오는지 모릅니다</div>
+          <div class="current">현재: 방문자 분석 도구(GA4 등) 미설치 → 마케팅 효과 측정 불가</div>
+          <span class="impact impact-high">경영 판단 불가</span>
+          <div class="tobe"><div class="label">개선 후</div><div class="text">GA4 설치 → 어느 제품 페이지에 바이어가 많이 오는지, 어디서 이탈하는지 파악 가능</div></div>
+        </div>
+        <div class="check-weight"><span class="weight-badge w-all">전 업종</span></div>
+      </div>
+
+      <div class="check-item red">
+        <div class="check-status">🔴</div>
+        <div class="check-body">
+          <div class="title">영문 페이지가 없어 해외 바이어 대응이 불가합니다</div>
+          <div class="current">현재: 한국어 전용, 영문 URL(/en/)도 없음 → 링크를 줘도 해외 거래처가 이해 불가</div>
+          <span class="impact impact-high">수출 기회 손실</span>
+          <div class="tobe"><div class="label">개선 후</div><div class="text">영문 기본 페이지(회사 소개·제품·견적 문의) 구성 → 해외 전시회·이메일 영업 효과 즉시 상승</div></div>
+        </div>
+        <div class="check-weight"><span class="weight-badge w-mfg">제조업 중요</span></div>
+      </div>
+
+      <div class="check-item yellow">
+        <div class="check-status">🟡</div>
+        <div class="check-body">
+          <div class="title">SNS 공유 시 회사 로고·설명이 제대로 보이지 않습니다</div>
+          <div class="current">현재: 카카오톡·링크드인 공유 시 대표 이미지·설명 없이 URL만 표시됨</div>
+          <span class="impact impact-mid">홍보 효율 저하</span>
+          <div class="tobe"><div class="label">개선 후</div><div class="text">OG 이미지 설정 → 공유 시 회사 로고+제품 사진+소개 자동 표시</div></div>
+        </div>
+        <div class="check-weight"><span class="weight-badge w-all">전 업종</span></div>
+      </div>
+
+      <div class="check-item red">
+        <div class="check-status">🔴</div>
+        <div class="check-body">
+          <div class="title">홈페이지 디자인이 5년 이상 된 방식입니다</div>
+          <div class="current">현재: Flash 기반 슬라이더, 테이블 레이아웃 일부 사용, 2019년 이전 UI 패턴</div>
+          <span class="impact impact-mid">첫인상·신뢰도</span>
+          <div class="tobe"><div class="label">개선 후</div><div class="text">현대 레이아웃 적용 → 바이어가 "관리되는 회사"라는 인상 형성</div></div>
+        </div>
+        <div class="check-weight"><span class="weight-badge w-all">전 업종</span></div>
+      </div>
+
+      <div class="check-item yellow">
+        <div class="check-status">🟡</div>
+        <div class="check-body">
+          <div class="title">카카오톡·실시간 문의 채널이 없습니다</div>
+          <div class="current">현재: 이메일·전화번호만 있음, 채팅 기능 없음</div>
+          <span class="impact impact-mid">문의 전환율 영향</span>
+          <div class="tobe"><div class="label">개선 후</div><div class="text">카카오 채널 또는 간단한 채팅 연동 → 즉각 문의 응대 가능</div></div>
+        </div>
+        <div class="check-weight"><span class="weight-badge w-mfg">제조업 권장</span></div>
+      </div>
+
+      <div class="check-item green">
+        <div class="check-status">✅</div>
+        <div class="check-body">
+          <div class="title">쿠키 동의 팝업이 있습니다</div>
+          <div class="current">현재: 첫 방문 시 쿠키 동의 안내 정상 작동</div>
+        </div>
+        <div class="check-weight">
+          <span class="weight-badge w-all">전 업종</span>
+          <span class="weight-badge w-pub">공공 필수</span>
+        </div>
+      </div>
+
+      <div class="check-item green">
+        <div class="check-status">✅</div>
+        <div class="check-body">
+          <div class="title">회사 연락처·주소·사업자번호가 하단에 표시됩니다</div>
+          <div class="current">현재: 모든 필수 사업자 정보 정상 표시, 지도 링크도 있음</div>
+        </div>
+        <div class="check-weight"><span class="weight-badge w-all">전 업종</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ 업종별 추가 체크 ═══ -->
+  <div class="card">
+    <div class="section-title">🏭 🏛 기관 유형별 특화 체크 항목</div>
+    <p style="font-size:13px;color:var(--gray);margin-bottom:16px;">기본 3축 외에 기관 유형에 따라 추가로 확인하는 항목입니다.</p>
+    <div class="split-table">
+      <div class="split-col split-mfg">
+        <h4>🏭 중소제조업 전용</h4>
+        <ul>
+          <li>영문 페이지 유무 (수출 필수) <span style="font-size:11px;background:#fecaca;color:#b91c1c;padding:1px 6px;border-radius:4px;font-weight:700;">미충족</span></li>
+          <li>제품 스펙 표·기술 데이터시트 다운로드</li>
+          <li>ISO·KC·CE 등 인증서 표시</li>
+          <li>주요 납품처·거래 기업 레퍼런스</li>
+          <li>견적 요청 폼 (24시간 자동 접수)</li>
+          <li>생산 능력·리드타임 안내</li>
+          <li>공장 사진·시설 소개</li>
+        </ul>
+      </div>
+      <div class="split-col split-pub">
+        <h4>🏛 공공·비영리기관 전용</h4>
+        <ul>
+          <li>웹접근성 KWCAG 2.1 AA 준수 <span style="font-size:11px;background:#fecaca;color:#b91c1c;padding:1px 6px;border-radius:4px;font-weight:700;">법적 의무</span></li>
+          <li>정보공개 게시판·공시 자료</li>
+          <li>민원·문의 처리 현황 안내</li>
+          <li>사업 실적·연간 보고서 공개</li>
+          <li>후원·기부 안내 (비영리)</li>
+          <li>뉴스·공지사항 최신 업데이트</li>
+          <li>저작권 표시·이용 약관</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 우선순위 액션 ═══ -->
+  <div class="card">
+    <div class="section-title">📋 우선순위별 개선 과제</div>
+    <table class="priority-table">
+      <thead>
+        <tr>
+          <th style="width:40px;">순위</th>
+          <th>해야 할 일</th>
+          <th style="width:80px;">시기</th>
+          <th style="width:90px;">기대 효과</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="priority-num p1">1</span></td>
+          <td>
+            <strong>검색 노출 태그 설정</strong><br>
+            <span style="font-size:12px;color:var(--gray);">페이지 제목·설명·대표 이미지 등록</span>
+          </td>
+          <td><span class="timing-badge t-now">즉시</span></td>
+          <td style="font-size:12px;">신규 바이어<br>검색 유입</td>
+        </tr>
+        <tr>
+          <td><span class="priority-num p2">2</span></td>
+          <td>
+            <strong>견적 문의 버튼 첫 화면 배치</strong><br>
+            <span style="font-size:12px;color:var(--gray);">상단 고정 메뉴 또는 첫 화면 내 CTA 추가</span>
+          </td>
+          <td><span class="timing-badge t-now">즉시</span></td>
+          <td style="font-size:12px;">문의 전환율<br>즉시 상승</td>
+        </tr>
+        <tr>
+          <td><span class="priority-num p2">3</span></td>
+          <td>
+            <strong>방문자 분석 도구 설치</strong><br>
+            <span style="font-size:12px;color:var(--gray);">GA4 또는 네이버 애널리틱스 기본 연동</span>
+          </td>
+          <td><span class="timing-badge t-now">즉시</span></td>
+          <td style="font-size:12px;">마케팅 효과<br>측정 시작</td>
+        </tr>
+        <tr>
+          <td><span class="priority-num p3">4</span></td>
+          <td>
+            <strong>홈페이지 로딩 속도 개선</strong><br>
+            <span style="font-size:12px;color:var(--gray);">이미지 압축, 불필요 스크립트 제거</span>
+          </td>
+          <td><span class="timing-badge t-1m">1개월</span></td>
+          <td style="font-size:12px;">이탈률 40%<br>감소 예상</td>
+        </tr>
+        <tr>
+          <td><span class="priority-num p3">5</span></td>
+          <td>
+            <strong>영문 소개 페이지 기본 구성</strong><br>
+            <span style="font-size:12px;color:var(--gray);">회사 소개·제품 목록·견적 문의 폼 (영문)</span>
+          </td>
+          <td><span class="timing-badge t-1m">1개월</span></td>
+          <td style="font-size:12px;">해외 바이어<br>대응 가능</td>
+        </tr>
+        <tr>
+          <td><span class="priority-num p4">6</span></td>
+          <td>
+            <strong>제품 카탈로그·스펙 시트 등록</strong><br>
+            <span style="font-size:12px;color:var(--gray);">PDF 다운로드 또는 스펙 표 페이지 구성</span>
+          </td>
+          <td><span class="timing-badge t-1m">1개월</span></td>
+          <td style="font-size:12px;">바이어 자료<br>자동 제공</td>
+        </tr>
+        <tr>
+          <td><span class="priority-num p5">7</span></td>
+          <td>
+            <strong>전체 리뉴얼 또는 기술 스택 현대화</strong><br>
+            <span style="font-size:12px;color:var(--gray);">현재 CMS 버전 낙후, 디자인 전면 개편 검토</span>
+          </td>
+          <td><span class="timing-badge t-3m">3개월</span></td>
+          <td style="font-size:12px;">브랜드 신뢰도<br>전면 개선</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══ 점수 요약 ═══ -->
+  <div class="card">
+    <div class="section-title">📊 진단 점수 요약</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px;">
+      <div class="summary-stat">
+        <div class="val" style="color:#ef4444;">58</div>
+        <div class="lbl">종합 점수<br>/100점</div>
+      </div>
+      <div class="summary-stat">
+        <div class="val" style="color:#ef4444;">18/35</div>
+        <div class="lbl">기술 기반<br>점수</div>
+      </div>
+      <div class="summary-stat">
+        <div class="val" style="color:#f59e0b;">22/35</div>
+        <div class="lbl">사용자 경험<br>점수</div>
+      </div>
+      <div class="summary-stat">
+        <div class="val" style="color:#ef4444;">18/30</div>
+        <div class="lbl">현대 기준<br>점수</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+      <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:16px;text-align:center;">
+        <div style="font-size:24px;font-weight:800;color:#ef4444;">8건</div>
+        <div style="font-size:12px;color:#b91c1c;margin-top:2px;">🔴 즉시 개선 필요</div>
+      </div>
+      <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:16px;text-align:center;">
+        <div style="font-size:24px;font-weight:800;color:#f59e0b;">6건</div>
+        <div style="font-size:12px;color:#92400e;margin-top:2px;">🟡 개선 권장</div>
+      </div>
+      <div style="background:#ecfdf5;border:1px solid #a7f3d0;border-radius:10px;padding:16px;text-align:center;">
+        <div style="font-size:24px;font-weight:800;color:#10b981;">7건</div>
+        <div style="font-size:12px;color:#065f46;margin-top:2px;">✅ 양호</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 등급 기준 ═══ -->
+  <div class="card">
+    <div class="section-title">📏 등급 기준표</div>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;text-align:center;font-size:13px;">
+      <div style="background:#dcfce7;border-radius:10px;padding:12px;border:2px solid #a7f3d0;">
+        <div style="font-weight:800;font-size:16px;color:#059669;">A</div>
+        <div style="color:#065f46;font-size:11px;margin-top:2px;">85~100점<br>우수</div>
+      </div>
+      <div style="background:#dbeafe;border-radius:10px;padding:12px;border:2px solid #93c5fd;">
+        <div style="font-weight:800;font-size:16px;color:#2563eb;">B</div>
+        <div style="color:#1e3a8a;font-size:11px;margin-top:2px;">70~84점<br>양호</div>
+      </div>
+      <div style="background:#fef9c3;border-radius:10px;padding:12px;border:2px solid #fde047;border-width:3px;">
+        <div style="font-weight:800;font-size:16px;color:#d97706;">C+</div>
+        <div style="color:#92400e;font-size:11px;margin-top:2px;">55~69점<br>현재 수준 ← 귀사</div>
+      </div>
+      <div style="background:#ffedd5;border-radius:10px;padding:12px;border:2px solid #fed7aa;">
+        <div style="font-weight:800;font-size:16px;color:#ea580c;">D</div>
+        <div style="color:#9a3412;font-size:11px;margin-top:2px;">40~54점<br>미흡</div>
+      </div>
+      <div style="background:#fef2f2;border-radius:10px;padding:12px;border:2px solid #fecaca;">
+        <div style="font-weight:800;font-size:16px;color:#dc2626;">F</div>
+        <div style="color:#991b1b;font-size:11px;margin-top:2px;">0~39점<br>긴급</div>
+      </div>
+    </div>
+    <p class="footnote" style="margin-top:16px;">※ 이 리포트는 자동 분석 + 전문가 검토를 결합한 결과입니다. 최종 개선 방향과 제안은 무료 상담을 통해 구체적으로 안내해 드립니다. 견적은 상담 후 페이지 수·기능 범위 확인 후 제시됩니다.</p>
+  </div>
+
+  <!-- ═══ CTA ═══ -->
+  <div class="cta-card">
+    <h3>개선하면 얼마나 달라질까요?</h3>
+    <p>
+      지금 확인된 우선순위 3가지만 수정해도<br>
+      <strong>바이어 검색 유입 + 견적 문의 전환율</strong>이 동시에 개선됩니다.<br>
+      30분 무료 상담으로 귀사에 맞는 순서와 방법을 알려드립니다.
+    </p>
+    <a href="#" class="cta-btn">30분 무료 상담 신청 →</a>
+    <div class="cta-note">견적은 상담 후 제시 · 의무 계약 없음 · 48시간 내 답변</div>
+  </div>
+
+  <p style="text-align:center;font-size:11px;color:var(--muted);margin-top:16px;padding-bottom:32px;">
+    Vision Solution 홈페이지 성과 진단 리포트 v3 &nbsp;|&nbsp; 진단일: 2026년 5월 15일<br>
+    본 리포트는 공개 접근 가능한 정보만을 대상으로 분석하며, 서버 내부 접근은 포함하지 않습니다.
+  </p>
+
+</div>
+</body>
+</html>
