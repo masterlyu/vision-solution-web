@@ -25,6 +25,12 @@ const C = {
   green: '#22C55E',
   blue: '#3B82F6',
   orange: '#f97316',
+  dangerBg: '#fef2f2',
+  successBg: '#f0fdf4',
+  neutralBg: '#f9fafb',
+  warningBg: '#fffbeb',
+  lime: '#84cc16',
+  primaryTint: '#faf8ff',
 }
 
 const s = StyleSheet.create({
@@ -52,7 +58,7 @@ const s = StyleSheet.create({
 })
 
 function gradeColor(g: string) {
-  return { A: C.green, B: '#84cc16', C: C.amber, D: C.orange, F: C.red }[g] ?? C.text
+  return { A: C.green, B: C.lime, C: C.amber, D: C.orange, F: C.red }[g] ?? C.text
 }
 function severityColor(sev: string) {
   return { HIGH: C.red, MEDIUM: C.amber, LOW: C.blue }[sev] ?? C.muted
@@ -100,7 +106,7 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
 
       {/* ── 악성코드·블랙리스트 경고 (발견 시만) ── */}
       {r.malware.available && (r.malware.blacklisted || r.malware.malwareFound) && (
-        <View style={[s.section, { backgroundColor: '#fef2f2', border: `1px solid ${C.red}30`, borderRadius: 6, padding: '10 12' }]}>
+        <View style={[s.section, { backgroundColor: C.dangerBg, border: `1px solid ${C.red}30`, borderRadius: 6, padding: '10 12' }]}>
           <Text style={{ fontSize: 10, fontWeight: 700, color: C.red, marginBottom: 6 }}>
             ⚠ 긴급 위험 탐지 — 즉시 조치 필요
           </Text>
@@ -137,7 +143,7 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
           ))}
         </View>
         <View style={[s.row, { marginTop: 4 }]}>
-          <View style={{ flex: 2, flexDirection: 'row', alignItems: 'center', backgroundColor: r.ssl.valid ? '#f0fdf4' : '#fef2f2', border: `1px solid ${r.ssl.valid ? C.green : C.red}`, borderRadius: 4, padding: '5 8' }}>
+          <View style={{ flex: 2, flexDirection: 'row', alignItems: 'center', backgroundColor: r.ssl.valid ? C.successBg : C.dangerBg, border: `1px solid ${r.ssl.valid ? C.green : C.red}`, borderRadius: 4, padding: '5 8' }}>
             <Text style={{ fontSize: 8, color: r.ssl.valid ? C.green : C.red, fontWeight: 700 }}>
               {r.ssl.valid ? '✓ HTTPS 정상' : '✗ HTTPS 미설정'}
             </Text>
@@ -145,7 +151,7 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
           </View>
           <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', backgroundColor: C.surface, border: `1px solid ${C.border}`, borderRadius: 4, padding: '5 8', gap: 6 }}>
             <Text style={{ fontSize: 7, color: C.muted }}>SSL Labs 등급</Text>
-            <Text style={{ fontSize: 11, fontWeight: 700, color: r.ssl.grade ? (r.ssl.grade.startsWith('A') ? C.green : r.ssl.grade === 'B' ? '#84cc16' : C.amber) : C.muted }}>
+            <Text style={{ fontSize: 11, fontWeight: 700, color: r.ssl.grade ? (r.ssl.grade.startsWith('A') ? C.green : r.ssl.grade === 'B' ? C.lime : C.amber) : C.muted }}>
               {r.ssl.grade ?? (r.ssl.gradeChecked ? '—' : '미확인')}
             </Text>
           </View>
@@ -156,24 +162,24 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
       <View style={s.section}>
         <Text style={s.sectionTitle}>악성코드 및 블랙리스트 진단</Text>
         {!r.malware.available ? (
-          <View style={[s.alertBox, { backgroundColor: '#f9fafb', border: `1px solid ${C.border}` }]}>
+          <View style={[s.alertBox, { backgroundColor: C.neutralBg, border: `1px solid ${C.border}` }]}>
             <Text style={{ fontSize: 8, color: C.muted }}>Sucuri 악성코드 탐지 서비스 응답 없음 — 수동 확인 권장</Text>
           </View>
         ) : r.malware.clean ? (
-          <View style={[s.alertBox, { backgroundColor: '#f0fdf4', border: `1px solid ${C.green}40` }]}>
+          <View style={[s.alertBox, { backgroundColor: C.successBg, border: `1px solid ${C.green}40` }]}>
             <Text style={{ fontSize: 8, color: C.green, fontWeight: 700 }}>✓ 정상</Text>
             <Text style={{ fontSize: 8, color: C.muted, marginLeft: 4 }}>악성코드 미탐지 · 블랙리스트 미등재 (Sucuri SiteCheck)</Text>
           </View>
         ) : (
           <View>
             {r.malware.blacklisted && (
-              <View style={[s.alertBox, { backgroundColor: '#fef2f2', border: `1px solid ${C.red}40` }]}>
+              <View style={[s.alertBox, { backgroundColor: C.dangerBg, border: `1px solid ${C.red}40` }]}>
                 <Text style={{ fontSize: 8, color: C.red, fontWeight: 700 }}>✗ 블랙리스트 등재:</Text>
                 <Text style={{ fontSize: 8, color: C.text, marginLeft: 4 }}>{r.malware.blacklistItems.join(', ')}</Text>
               </View>
             )}
             {r.malware.malwareFound && (
-              <View style={[s.alertBox, { backgroundColor: '#fef2f2', border: `1px solid ${C.red}40` }]}>
+              <View style={[s.alertBox, { backgroundColor: C.dangerBg, border: `1px solid ${C.red}40` }]}>
                 <Text style={{ fontSize: 8, color: C.red, fontWeight: 700 }}>✗ 악성코드 발견:</Text>
                 <Text style={{ fontSize: 8, color: C.text, marginLeft: 4 }}>{r.malware.malwareTypes.join(', ')}</Text>
               </View>
@@ -203,12 +209,12 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
         {r.cms.infoLeaks.length > 0 && (
           <View>
             {r.cms.infoLeaks.map((leak, i) => (
-              <View key={i} style={[s.alertBox, { backgroundColor: '#fffbeb', border: `1px solid ${C.amber}30` }]}>
+              <View key={i} style={[s.alertBox, { backgroundColor: C.warningBg, border: `1px solid ${C.amber}30` }]}>
                 <Text style={{ fontSize: 8, color: C.amber, fontWeight: 700 }}>⚠</Text>
                 <Text style={{ fontSize: 8, color: C.text, marginLeft: 4 }}>{leak}</Text>
               </View>
             ))}
-            <View style={{ backgroundColor: '#f9fafb', border: `1px solid ${C.border}`, borderRadius: 4, padding: '5 8', marginTop: 4 }}>
+            <View style={{ backgroundColor: C.neutralBg, border: `1px solid ${C.border}`, borderRadius: 4, padding: '5 8', marginTop: 4 }}>
               <Text style={{ fontSize: 7, color: C.muted }}>
                 서버·CMS 버전 노출 시 해커가 알려진 취약점(CVE)을 바로 공격할 수 있습니다. Server 헤더 숨김 처리를 권장합니다.
               </Text>
@@ -224,7 +230,7 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
           로그인 쿠키가 안전하게 보호되고 있는지 확인합니다. 플래그가 없으면 해커가 로그인 정보를 훔칠 수 있습니다.
         </Text>
         {r.cookie.total === 0 ? (
-          <View style={[s.alertBox, { backgroundColor: '#f0fdf4', border: `1px solid ${C.green}40` }]}>
+          <View style={[s.alertBox, { backgroundColor: C.successBg, border: `1px solid ${C.green}40` }]}>
             <Text style={{ fontSize: 8, color: C.green, fontWeight: 700 }}>✓ 해당 없음</Text>
             <Text style={{ fontSize: 8, color: C.muted, marginLeft: 4 }}>응답에서 쿠키가 발견되지 않았습니다. (로그인 기능 없는 사이트)</Text>
           </View>
@@ -244,13 +250,13 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
               ))}
             </View>
             {r.cookie.issues.map((issue, i) => (
-              <View key={i} style={[s.alertBox, { backgroundColor: '#fffbeb', border: `1px solid ${C.amber}30` }]}>
+              <View key={i} style={[s.alertBox, { backgroundColor: C.warningBg, border: `1px solid ${C.amber}30` }]}>
                 <Text style={{ fontSize: 8, color: C.amber, fontWeight: 700 }}>⚠</Text>
                 <Text style={{ fontSize: 8, color: C.text, marginLeft: 4 }}>{issue}</Text>
               </View>
             ))}
             {r.cookie.issues.length === 0 && (
-              <View style={[s.alertBox, { backgroundColor: '#f0fdf4', border: `1px solid ${C.green}40` }]}>
+              <View style={[s.alertBox, { backgroundColor: C.successBg, border: `1px solid ${C.green}40` }]}>
                 <Text style={{ fontSize: 8, color: C.green, fontWeight: 700 }}>✓ 정상</Text>
                 <Text style={{ fontSize: 8, color: C.muted, marginLeft: 4 }}>모든 쿠키에 보안 플래그가 설정되어 있습니다.</Text>
               </View>
@@ -266,17 +272,17 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
           다른 웹사이트가 내 사이트 데이터를 몰래 가져가는 것을 막는 설정입니다. 잘못 설정하면 회원 정보가 유출될 수 있습니다.
         </Text>
         {!r.cors.tested ? (
-          <View style={[s.alertBox, { backgroundColor: '#f9fafb', border: `1px solid ${C.border}` }]}>
+          <View style={[s.alertBox, { backgroundColor: C.neutralBg, border: `1px solid ${C.border}` }]}>
             <Text style={{ fontSize: 8, color: C.muted }}>CORS 점검을 수행할 수 없었습니다.</Text>
           </View>
         ) : r.cors.vulnerable ? (
           <View>
-            <View style={[s.alertBox, { backgroundColor: '#fef2f2', border: `1px solid ${C.red}40` }]}>
+            <View style={[s.alertBox, { backgroundColor: C.dangerBg, border: `1px solid ${C.red}40` }]}>
               <Text style={{ fontSize: 8, color: C.red, fontWeight: 700 }}>✗ 취약 ({r.cors.severity})</Text>
               <Text style={{ fontSize: 8, color: C.text, marginLeft: 4 }}>{r.cors.detail}</Text>
             </View>
             {r.cors.allowCredentials && (
-              <View style={{ backgroundColor: '#f9fafb', borderRadius: 4, padding: '4 8', marginTop: 2 }}>
+              <View style={{ backgroundColor: C.neutralBg, borderRadius: 4, padding: '4 8', marginTop: 2 }}>
                 <Text style={{ fontSize: 7, color: C.muted }}>
                   Access-Control-Allow-Credentials: true 설정으로 인해 로그인 세션 탈취 가능. 즉각 수정 필요.
                 </Text>
@@ -284,7 +290,7 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
             )}
           </View>
         ) : (
-          <View style={[s.alertBox, { backgroundColor: '#f0fdf4', border: `1px solid ${C.green}40` }]}>
+          <View style={[s.alertBox, { backgroundColor: C.successBg, border: `1px solid ${C.green}40` }]}>
             <Text style={{ fontSize: 8, color: C.green, fontWeight: 700 }}>✓ 정상</Text>
             <Text style={{ fontSize: 8, color: C.muted, marginLeft: 4 }}>{r.cors.detail}</Text>
           </View>
@@ -340,7 +346,7 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
           비밀번호·DB 정보가 담긴 설정 파일(.env, .git 등)이 외부에 공개되어 있는지 30개 경로를 확인합니다.
         </Text>
         {r.sensitiveFiles.exposed.length === 0 ? (
-          <View style={[s.alertBox, { backgroundColor: '#f0fdf4', border: `1px solid ${C.green}40` }]}>
+          <View style={[s.alertBox, { backgroundColor: C.successBg, border: `1px solid ${C.green}40` }]}>
             <Text style={{ fontSize: 8, color: C.green, fontWeight: 700 }}>✓ 정상</Text>
             <Text style={{ fontSize: 8, color: C.muted, marginLeft: 4 }}>
               점검한 {r.sensitiveFiles.checked}개 경로에서 노출된 파일 없음 (.env·.git·DB 백업 등)
@@ -348,7 +354,7 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
           </View>
         ) : (
           <View>
-            <View style={[s.alertBox, { backgroundColor: '#fef2f2', border: `1px solid ${C.red}40` }]}>
+            <View style={[s.alertBox, { backgroundColor: C.dangerBg, border: `1px solid ${C.red}40` }]}>
               <Text style={{ fontSize: 8, color: C.red, fontWeight: 700 }}>✗ {r.sensitiveFiles.exposed.length}개 경로 노출</Text>
               <Text style={{ fontSize: 8, color: C.text, marginLeft: 4 }}>즉각 접근 차단 필요</Text>
             </View>
@@ -456,7 +462,7 @@ const PdfDoc = ({ r, email, company }: { r: AnalysisResult; email: string; compa
             <Text style={{ flex: 2, fontSize: 8, fontWeight: 700, color: C.primary, textAlign: 'right' }}>{item.priceRange}</Text>
           </View>
         ))}
-        <View style={{ backgroundColor: '#faf8ff', border: `1px solid ${C.primary}20`, borderRadius: 4, padding: '6 8', marginTop: 6 }}>
+        <View style={{ backgroundColor: C.primaryTint, border: `1px solid ${C.primary}20`, borderRadius: 4, padding: '6 8', marginTop: 6 }}>
           <Text style={{ fontSize: 7, color: C.muted }}>※ 본 견적은 자동 분석 기반 예상 비용입니다. 실제 견적은 상담 후 확정됩니다. 부가세 별도.</Text>
         </View>
       </View>

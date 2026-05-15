@@ -32,7 +32,7 @@ const TRIGGER_LABEL: Record<string, string> = {
 }
 
 function ScoreRing({ score }: { score: number }) {
-  const colorClass = score >= 80 ? 'border-green-500 text-green-500' : score >= 60 ? 'border-amber-500 text-amber-500' : 'border-red-500 text-red-500'
+  const colorClass = score >= 80 ? 'border-[var(--accent-green)] text-[var(--accent-green)]' : score >= 60 ? 'border-[var(--accent-amber)] text-[var(--accent-amber)]' : 'border-[var(--accent-red)] text-[var(--accent-red)]'
   return (
     <div className="flex flex-col items-center">
       <div className={`w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold border-4 ${colorClass}`}>
@@ -65,7 +65,7 @@ function TrendChart({ records }: { records: ScanRecord[] }) {
       <div className="flex items-end gap-1 h-20">
         {recent.map((r, i) => {
           const h = Math.round((r.zapScore / maxScore) * 80)
-          const barClass = r.zapScore >= 80 ? 'bg-green-500' : r.zapScore >= 60 ? 'bg-amber-500' : 'bg-red-500'
+          const barClass = r.zapScore >= 80 ? 'bg-[var(--accent-green)]' : r.zapScore >= 60 ? 'bg-[var(--accent-amber)]' : 'bg-[var(--accent-red)]'
           return (
             <div key={i} className="flex flex-col items-center gap-1 flex-1">
               <span className="text-xs text-muted-foreground">{r.zapScore}</span>
@@ -115,10 +115,10 @@ export default function ScanHistoryPage() {
         {latest && (
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
             {[
-              { label: '최근 ZAP 점수', value: `${latest.zapScore}점`, icon: <ShieldCheck className="w-5 h-5 text-primary-light" />, color: latest.zapScore >= 80 ? 'text-green-400' : latest.zapScore >= 60 ? 'text-yellow-400' : 'text-red-400' },
+              { label: '최근 ZAP 점수', value: `${latest.zapScore}점`, icon: <ShieldCheck className="w-5 h-5 text-primary-light" />, color: latest.zapScore >= 80 ? 'text-[var(--accent-green)]' : latest.zapScore >= 60 ? 'text-[var(--accent-amber)]' : 'text-[var(--accent-red)]' },
               { label: '5회 평균 점수', value: avgScore != null ? `${avgScore}점` : '-', icon: <TrendingUp className="w-5 h-5 text-accent-cyan" />, color: 'text-accent-cyan' },
               { label: '마지막 스캔', value: latest.scannedAt.slice(0, 10), icon: <Clock className="w-5 h-5 text-muted-foreground" />, color: 'text-foreground' },
-              { label: '총 스캔 횟수', value: `${records.length}회`, icon: <AlertTriangle className="w-5 h-5 text-yellow-400" />, color: 'text-yellow-300' },
+              { label: '총 스캔 횟수', value: `${records.length}회`, icon: <AlertTriangle className="w-5 h-5 text-[var(--accent-amber)]" />, color: 'text-[var(--accent-amber)]' },
             ].map(c => (
               <div key={c.label} className="bg-card rounded-xl p-4 flex flex-col gap-2">
                 <div className="flex items-center gap-2 text-xs text-muted-foreground">{c.icon}{c.label}</div>
@@ -133,7 +133,7 @@ export default function ScanHistoryPage() {
 
         {/* Records */}
         {loading && <p className="text-muted-foreground text-center py-12">스캔 이력 불러오는 중...</p>}
-        {error   && <p className="text-red-400 text-center py-12">{error}</p>}
+        {error   && <p className="text-destructive text-center py-12">{error}</p>}
 
         {!loading && !error && records.length === 0 && (
           <div className="bg-card rounded-xl p-10 text-center">
@@ -166,11 +166,11 @@ export default function ScanHistoryPage() {
               </div>
 
               <div className="flex items-center gap-1 mt-4 border-t border-border pt-4">
-                <AlertBadge count={rec.summary.high}   label="High"   colorClass="text-red-500" />
+                <AlertBadge count={rec.summary.high}   label="High"   colorClass="text-[var(--accent-red)]" />
                 <div className="w-px h-8 bg-border" />
-                <AlertBadge count={rec.summary.medium} label="Medium" colorClass="text-amber-500" />
+                <AlertBadge count={rec.summary.medium} label="Medium" colorClass="text-[var(--accent-amber)]" />
                 <div className="w-px h-8 bg-border" />
-                <AlertBadge count={rec.summary.low}    label="Low"    colorClass="text-blue-500" />
+                <AlertBadge count={rec.summary.low}    label="Low"    colorClass="text-[var(--accent-blue)]" />
                 <div className="w-px h-8 bg-border" />
                 <AlertBadge count={rec.summary.informational} label="정보" colorClass="text-muted-foreground" />
 

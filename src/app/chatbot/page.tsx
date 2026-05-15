@@ -247,15 +247,15 @@ export default function ChatbotPage() {
           </div>
 
           {/* 코드 미리보기 */}
-          <div className="mt-10 bg-zinc-900 border border-zinc-700 rounded-2xl p-6">
-            <p className="text-xs text-zinc-400 mb-3 font-mono">// 받은 코드를 여기에 붙여넣기만 하면 끝 (홈페이지 관리자에게 전달)</p>
+          <div className="mt-10 bg-[var(--code-bg,theme(colors.zinc.900))] border border-border rounded-2xl p-6">
+            <p className="text-xs text-muted-foreground mb-3 font-mono">// 받은 코드를 여기에 붙여넣기만 하면 끝 (홈페이지 관리자에게 전달)</p>
             <div className="font-mono text-sm space-y-1">
-              <p><span className="text-zinc-500">&lt;script&gt;</span></p>
-              <p className="pl-4"><span className="text-emerald-400">window.difyChatbotConfig</span> <span className="text-zinc-400">=</span> {'{'} <span className="text-amber-300">token</span><span className="text-zinc-400">:</span> <span className="text-sky-300">'<span className="bg-sky-900/30 px-1 rounded">귀사 전용 토큰</span>'</span>,  <span className="text-amber-300">baseUrl</span><span className="text-zinc-400">:</span> <span className="text-sky-300">'https://chatbot.visionc.co.kr'</span> {'}'}</p>
-              <p><span className="text-zinc-500">&lt;/script&gt;</span></p>
-              <p><span className="text-zinc-500">&lt;script </span><span className="text-amber-300">src</span><span className="text-zinc-400">=</span><span className="text-sky-300">"https://chatbot.visionc.co.kr/embed.min.js"</span><span className="text-zinc-400"> defer</span><span className="text-zinc-500">&gt;&lt;/script&gt;</span></p>
+              <p><span className="text-muted-foreground/70">&lt;script&gt;</span></p>
+              <p className="pl-4"><span className="text-[var(--accent-green-text)]">window.difyChatbotConfig</span> <span className="text-muted-foreground">=</span> {'{'} <span className="text-[var(--accent-amber)]">token</span><span className="text-muted-foreground">:</span> <span className="text-[var(--accent-cyan-text)]">'<span className="bg-[var(--accent-cyan)]/20 px-1 rounded">귀사 전용 토큰</span>'</span>,  <span className="text-[var(--accent-amber)]">baseUrl</span><span className="text-muted-foreground">:</span> <span className="text-[var(--accent-cyan-text)]">'https://chatbot.visionc.co.kr'</span> {'}'}</p>
+              <p><span className="text-muted-foreground/70">&lt;/script&gt;</span></p>
+              <p><span className="text-muted-foreground/70">&lt;script </span><span className="text-[var(--accent-amber)]">src</span><span className="text-muted-foreground">=</span><span className="text-[var(--accent-cyan-text)]">"https://chatbot.visionc.co.kr/embed.min.js"</span><span className="text-muted-foreground"> defer</span><span className="text-muted-foreground/70">&gt;&lt;/script&gt;</span></p>
             </div>
-            <p className="text-xs text-zinc-500 mt-4">← 이게 전부입니다. 복사해서 홈페이지 관리자에게 카톡으로 보내도 됩니다.</p>
+            <p className="text-xs text-muted-foreground/70 mt-4">← 이게 전부입니다. 복사해서 홈페이지 관리자에게 카톡으로 보내도 됩니다.</p>
           </div>
         </div>
       </section>

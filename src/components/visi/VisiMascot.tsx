@@ -1,5 +1,5 @@
 // VISI 마스코트 — 카카오 프렌즈 스타일 (크림/아이보리 + 보라 사각 안경)
-// 모든 색값은 CSS 변수가 아닌 하드코딩(SVG는 CSS 변수 미지원)
+// 브랜드 컬러는 CSS 변수(var(--primary) 등)를 사용. SVG fill/stroke 속성에서 CSS 변수 동작 확인됨.
 
 import React from 'react'
 
@@ -27,12 +27,13 @@ interface VisiMascotProps {
 const C = {
   face:    '#FFF5E8',  // 크림 (얼굴/몸)
   outline: '#1E1240',  // 다크 네이비 (아웃라인)
-  glass:   '#8B5CF6',  // 브랜드 퍼플 (안경)
-  blush:   '#F9A8D4',  // 핑크 볼터치
-  eye:     '#1E1240',  // 눈
-  ant:     '#8B5CF6',  // 안테나
-  antStem: '#C4B5FD',  // 안테나 줄기
+  glass:   'var(--primary)',        // 브랜드 퍼플 (안경)
+  blush:   '#F9A8D4',              // 핑크 볼터치
+  eye:     '#1E1240',              // 눈
+  ant:     'var(--primary)',        // 안테나
+  antStem: 'var(--primary-light)', // 안테나 줄기
   screen:  '#1a1a2e',  // 화면/문서 배경 다크 네이비
+  white:   'var(--primary-foreground)',  // 흰색 하이라이트 (테마 호환)
 }
 
 // ── 안경 (공통) ──
@@ -53,9 +54,9 @@ function EyesNormal() {
   return (
     <>
       <ellipse cx="76" cy="80" rx="10" ry="11" fill={C.eye} />
-      <circle cx="82" cy="73" r="4" fill="white" />
+      <circle cx="82" cy="73" r="4" fill={C.white} />
       <ellipse cx="124" cy="80" rx="10" ry="11" fill={C.eye} />
-      <circle cx="130" cy="73" r="4" fill="white" />
+      <circle cx="130" cy="73" r="4" fill={C.white} />
     </>
   )
 }
@@ -103,7 +104,7 @@ function Antenna() {
       <rect x="97.5" y="16" width="5" height="20" rx="2.5" fill={C.antStem} />
       <circle cx="100" cy="10" r="10" fill={C.ant} opacity={0.25} />
       <circle cx="100" cy="10" r="9" fill={C.ant} />
-      <circle cx="97" cy="7" r="3" fill="white" />
+      <circle cx="97" cy="7" r="3" fill={C.white} />
     </>
   )
 }
@@ -320,7 +321,7 @@ function PoseMagnify() {
       <circle cx="176" cy="118" r="16" fill={C.glass} opacity={0.06} />
       <line x1="194" y1="136" x2="207" y2="150" stroke={C.glass} strokeWidth="6" strokeLinecap="round" />
       {/* 유리 빛반사 */}
-      <ellipse cx="168" cy="110" rx="7" ry="4" fill="white" opacity={0.2} transform="rotate(-20 168 110)" />
+      <ellipse cx="168" cy="110" rx="7" ry="4" fill={C.white} opacity={0.2} transform="rotate(-20 168 110)" />
       <Head eyes={<EyesFocus />} />
     </>
   )

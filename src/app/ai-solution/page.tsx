@@ -56,9 +56,9 @@ function AiHeroIllust() {
     <div className="relative">
       <svg width="320" height="280" viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg">
         {/* Central AI brain circle */}
-        <circle cx="160" cy="130" r="70" fill="rgba(139,92,246,.06)" stroke="rgba(139,92,246,.25)" strokeWidth="1.5" />
-        <circle cx="160" cy="130" r="50" fill="rgba(139,92,246,.08)" stroke="rgba(139,92,246,.2)" strokeWidth="1" />
-        <circle cx="160" cy="130" r="28" fill="rgba(139,92,246,.15)" />
+        <circle cx="160" cy="130" r="70" fill="rgba(var(--primary-rgb),.06)" stroke="rgba(var(--primary-rgb),.25)" strokeWidth="1.5" />
+        <circle cx="160" cy="130" r="50" fill="rgba(var(--primary-rgb),.08)" stroke="rgba(var(--primary-rgb),.2)" strokeWidth="1" />
+        <circle cx="160" cy="130" r="28" fill="rgba(var(--primary-rgb),.15)" />
         <text x="160" y="138" textAnchor="middle" fontSize="24" fill="var(--primary)">🤖</text>
         {/* Orbiting nodes */}
         {[0, 60, 120, 180, 240, 300].map((deg, i) => {
@@ -68,7 +68,7 @@ function AiHeroIllust() {
           const icons = ['📊','✉️','📝','🔄','📈','💬']
           return (
             <g key={i}>
-              <circle cx={cx} cy={cy} r="18" fill="rgba(139,92,246,.12)" stroke="rgba(139,92,246,.3)" strokeWidth="1.5" />
+              <circle cx={cx} cy={cy} r="18" fill="rgba(var(--primary-rgb),.12)" stroke="rgba(var(--primary-rgb),.3)" strokeWidth="1.5" />
               <text x={cx} y={cy+5} textAnchor="middle" fontSize="13">{icons[i]}</text>
             </g>
           )
@@ -80,7 +80,7 @@ function AiHeroIllust() {
           const y = 130 + 42 * Math.sin(rad)
           const x2 = 160 + 52 * Math.cos(rad)
           const y2 = 130 + 52 * Math.sin(rad)
-          return <line key={i} x1={x} y1={y} x2={x2} y2={y2} stroke="rgba(139,92,246,.4)" strokeWidth="1.5" />
+          return <line key={i} x1={x} y1={y} x2={x2} y2={y2} stroke="rgba(var(--primary-rgb),.4)" strokeWidth="1.5" />
         })}
         {/* Sparkles */}
         <text x="38" y="45" fontSize="16" fill="var(--primary)" opacity={0.7}>✦</text>
@@ -148,7 +148,7 @@ export default function AiSolutionPage() {
           <h2 className="text-2xl font-bold text-foreground mb-10">실제 도입 사례</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {cases.map((c, i) => (
-              <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-6">
+              <div key={i} className="bg-foreground/5 border border-foreground/10 rounded-xl p-6">
                 <span className="text-primary text-xs font-bold bg-primary/10 px-2 py-1 rounded-full">{c.tag}</span>
                 <div className="mt-4 flex flex-col gap-3">
                   <div className="bg-[var(--accent-red)]/10 rounded-lg px-4 py-3 text-[var(--accent-red)] text-sm">이전: {c.before}</div>
