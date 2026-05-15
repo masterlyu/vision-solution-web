@@ -150,8 +150,13 @@ export function buildRenewalEmailHtml(r: RenewalAnalysisResult, email: string): 
       <a href="https://www.visionc.co.kr/renewal" style="display:inline-block;background:#fff;color:#1e40af;text-decoration:none;padding:14px 36px;border-radius:100px;font-weight:700;font-size:14px;">상담 신청하기 →</a>
     </div>
 
-    <p style="font-size:11px;color:#9ca3af;text-align:center;margin-top:20px;line-height:1.6;">
-      본 리포트는 공개 접근 가능한 정보를 자동 분석한 결과입니다.<br>
+    <div style="background:#f8fafc;border:1px solid #e5e7eb;border-radius:8px;padding:14px 18px;margin-top:8px;">
+      <p style="font-size:11px;color:#6b7280;margin:0;line-height:1.7;">
+        ⚠ <strong>AI 자동 분석 안내</strong><br>
+        본 리포트는 AI가 공개 접근 가능한 외부 정보를 자동으로 분석한 결과입니다. 서버 내부에 직접 접근하지 않으므로 일부 항목은 실제 구현 상태와 다를 수 있습니다. 정확한 진단은 전문가 검토를 통해 확인하시기 바랍니다.
+      </p>
+    </div>
+    <p style="font-size:11px;color:#9ca3af;text-align:center;margin-top:16px;line-height:1.6;">
       VISION SOLUTION · visionc.co.kr · biztalktome@gmail.com
     </p>
   </div>

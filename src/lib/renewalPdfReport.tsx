@@ -269,6 +269,13 @@ function RenewalReport({ r }: { r: RenewalAnalysisResult }) {
           <Text style={{ fontSize: 10, fontWeight: 700, color: C.white, backgroundColor: C.blue, padding: '6 20', borderRadius: 20 }}>visionc.co.kr/renewal</Text>
         </View>
 
+        {/* AI disclaimer */}
+        <View style={{ backgroundColor: C.grayLight, borderRadius: 6, padding: '8 12', marginTop: 12 }}>
+          <Text style={{ fontSize: 7.5, color: C.gray, lineHeight: 1.6 }}>
+            ⚠ 본 리포트는 AI가 공개 접근 가능한 정보를 자동 분석한 결과입니다. 서버 내부 접근 없이 외부 신호만을 기반으로 하므로 일부 항목은 실제와 다를 수 있습니다. 최종 판단은 반드시 전문가 검토를 통해 확인하시기 바랍니다.
+          </Text>
+        </View>
+
         {/* Footer p2 */}
         <View style={s.footer}>
           <Text style={s.footerTxt}>본 리포트는 공개 접근 정보 자동 분석 결과입니다. 서버 내부 접근 미포함.  ·  Vision Solution</Text>
