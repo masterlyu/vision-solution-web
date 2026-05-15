@@ -46,6 +46,7 @@ export default function RenewalDiagnosisForm() {
   const [state, setState] = useState<'idle' | 'loading' | 'done' | 'error'>('idle')
   const [result, setResult] = useState<DiagResult | null>(null)
   const [errorMsg, setErrorMsg] = useState('')
+  const [consent, setConsent] = useState(false)
 
   function validateDomain() {
     if (!url || !email) return true
@@ -262,9 +263,29 @@ export default function RenewalDiagnosisForm() {
         </div>
       )}
 
+      {/* Consent */}
+      <div className="bg-secondary/60 border border-border rounded-xl px-4 py-3">
+        <label className="flex items-start gap-3 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={consent}
+            onChange={e => setConsent(e.target.checked)}
+            className="mt-0.5 w-4 h-4 shrink-0 accent-primary cursor-pointer"
+          />
+          <div>
+            <p className="text-sm text-foreground leading-snug">
+              본인이 소유하거나 운영자로부터 허가받은 사이트임을 확인합니다.
+            </p>
+            <p className="text-xs text-destructive mt-1 font-medium">
+              무단 진단은 정보통신망법 위반입니다.
+            </p>
+          </div>
+        </label>
+      </div>
+
       <button
         type="submit"
-        disabled={!!domainError}
+        disabled={!!domainError || !consent}
         className="w-full h-14 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-xl transition-all disabled:opacity-40 disabled:cursor-not-allowed text-base shadow-lg shadow-primary/30">
         무료 진단 시작 →
       </button>
