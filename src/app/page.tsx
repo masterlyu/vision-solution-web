@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description: '고객이 지금도 떠나고 있습니까? URL 하나로 48시간 내 AI 진단. 무료 리포트를 지금 신청하세요.',
     url: 'https://visionc.co.kr',
     siteName: 'Vision Solution',
-    images: [{ url: '/images/og-main.jpg', width: 1200, height: 630, alt: 'Vision Solution 홈페이지 무료 AI 진단' }],
+    images: [{ url: '/api/og', width: 1200, height: 630, alt: 'Vision Solution 홈페이지 무료 AI 진단' }],
     locale: 'ko_KR',
     type: 'website',
   },
