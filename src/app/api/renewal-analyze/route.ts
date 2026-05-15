@@ -13,8 +13,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'URL과 이메일을 입력해 주세요.' }, { status: 400 })
   }
 
-  // Domain-email match validation
-  if (!domainsMatch(url, email)) {
+  // Domain-email match validation (관리자 이메일은 모든 도메인 허용)
+  const ADMIN_EMAILS = ['biztalktome@gmail.com']
+  if (!ADMIN_EMAILS.includes(email.toLowerCase()) && !domainsMatch(url, email)) {
     const siteDomain = extractBaseDomain(url)
     return NextResponse.json({
       error: `이메일 도메인이 사이트 도메인과 일치하지 않습니다. ${siteDomain} 도메인의 이메일을 입력해 주세요. (예: info@${siteDomain})`,

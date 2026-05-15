@@ -18,8 +18,11 @@ export default function RenewalDiagnosisForm() {
   const [errorMsg, setErrorMsg] = useState('')
   const [consent, setConsent] = useState(false)
 
+  const ADMIN_EMAILS = ['biztalktome@gmail.com']
+
   function validateDomain() {
     if (!url || !email) return true
+    if (ADMIN_EMAILS.includes(email.toLowerCase())) return true
     const site = extractBaseDomain(url)
     const mail = extractEmailDomain(email)
     if (!site || !mail) return true
@@ -140,10 +143,13 @@ export default function RenewalDiagnosisForm() {
       </div>
 
       {/* Domain match notice */}
-      {url && email && !domainError && extractBaseDomain(url) && extractEmailDomain(email) && (
+      {url && email && !domainError && extractBaseDomain(url) && (
         <div className="flex items-center gap-2 text-xs text-primary bg-primary/10 rounded-lg px-3 py-2">
           <CheckCircle className="w-3.5 h-3.5 shrink-0" />
-          도메인 일치 확인 — <span className="font-bold">{extractBaseDomain(url)}</span>
+          {ADMIN_EMAILS.includes(email.toLowerCase())
+            ? <>관리자 계정 — <span className="font-bold">모든 도메인 허용</span></>
+            : <>도메인 일치 확인 — <span className="font-bold">{extractBaseDomain(url)}</span></>
+          }
         </div>
       )}
 
