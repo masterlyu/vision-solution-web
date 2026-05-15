@@ -51,6 +51,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
     return emailVal.slice(atIdx + 1).toLowerCase()
   }
 
+  const ADMIN_EMAILS = ['biztalktome@gmail.com']
   const urlDomain = extractUrlDomain(url)
   const emailDomain = extractEmailDomain(email)
   const domainMismatch =
@@ -59,6 +60,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
     email.trim() !== '' &&
     urlDomain !== '' &&
     emailDomain !== '' &&
+    !ADMIN_EMAILS.includes(email.toLowerCase()) &&
     urlDomain !== emailDomain
 
   const handleSubmit = async (e: React.FormEvent) => {
