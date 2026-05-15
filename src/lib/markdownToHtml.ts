@@ -171,10 +171,16 @@ function inlineFormat(text: string): string {
     .replace(/\*(.+?)\*/g, '<em class="italic">$1</em>')
     // Inline code
     .replace(/`([^`]+)`/g, '<code class="bg-muted px-1.5 py-0.5 rounded text-sm font-mono text-primary">$1</code>')
+    // Images — must come before link rule
+    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_, alt, src) => {
+      const safe = /^(https?:\/\/|\/)/.test(src.trim()) ? src.trim() : '#'
+      return `<img src="${safe}" alt="${alt}" class="w-full rounded-xl my-6 shadow-sm" loading="lazy" />`
+    })
     // Links — sanitize URL to block javascript: URIs
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, url) => {
       const safe = /^(https?:\/\/|mailto:|\/|#)/.test(url.trim()) ? url.trim() : '#'
-      return `<a href="${safe}" class="text-primary underline underline-offset-2 hover:text-primary/70" target="_blank" rel="noopener noreferrer">${label}</a>`
+      const isExternal = /^https?:\/\//.test(safe)
+      return `<a href="${safe}" class="text-primary underline underline-offset-2 hover:text-primary/70"${isExternal ? ' target="_blank" rel="noopener noreferrer"' : ''}>${label}</a>`
     })
 }
 
