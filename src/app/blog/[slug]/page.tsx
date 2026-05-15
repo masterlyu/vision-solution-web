@@ -14,19 +14,34 @@ export async function generateStaticParams() {
   return posts.map(post => ({ slug: post.slug }))
 }
 
+const BASE = 'https://visionc.co.kr'
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params
   const post = getPostBySlug(slug)
   if (!post) return {}
+  const url = `${BASE}/blog/${slug}`
+  const imageUrl = post.image ? `${BASE}${post.image}` : `${BASE}/api/og`
   return {
     title: `${post.title} | 비전솔루션 블로그`,
     description: post.summary,
+    keywords: post.tags.join(', '),
+    alternates: { canonical: url },
     openGraph: {
       title: post.title,
       description: post.summary,
       type: 'article',
+      url,
       publishedTime: post.date,
-      images: post.image ? [{ url: post.image }] : [],
+      modifiedTime: post.date,
+      authors: ['비전솔루션'],
+      images: [{ url: imageUrl, width: 800, height: 420, alt: post.title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.summary,
+      images: [imageUrl],
     },
   }
 }
