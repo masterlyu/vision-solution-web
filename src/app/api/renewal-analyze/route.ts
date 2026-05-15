@@ -54,6 +54,9 @@ export async function POST(req: NextRequest) {
       }),
     }).catch(e => console.error('[renewal-analyze] Telegram 알림 실패:', e))
 
+    const pickItems = (items: typeof result.axes.technical.items) =>
+      items.map(({ id, title, currentState, status, impact, tobe }) => ({ id, title, currentState, status, impact, tobe }))
+
     // Return summary for on-screen display
     return NextResponse.json({
       success: true,
@@ -62,9 +65,9 @@ export async function POST(req: NextRequest) {
       siteType: result.siteType.label,
       criticalIssues: result.criticalIssues,
       axes: {
-        technical: { score: result.axes.technical.score, max: result.axes.technical.maxScore },
-        ux: { score: result.axes.ux.score, max: result.axes.ux.maxScore },
-        modern: { score: result.axes.modern.score, max: result.axes.modern.maxScore },
+        technical: { score: result.axes.technical.score, max: result.axes.technical.maxScore, items: pickItems(result.axes.technical.items) },
+        ux: { score: result.axes.ux.score, max: result.axes.ux.maxScore, items: pickItems(result.axes.ux.items) },
+        modern: { score: result.axes.modern.score, max: result.axes.modern.maxScore, items: pickItems(result.axes.modern.items) },
       },
       techStack: result.techStack.cms
         ? `${result.techStack.cms}${result.techStack.cmsVersion ? ` ${result.techStack.cmsVersion}` : ''}`

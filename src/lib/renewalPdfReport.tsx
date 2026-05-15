@@ -95,28 +95,41 @@ function AxisBar({ score, max }: { score: number; max: number }) {
 }
 
 function CheckItems({ items }: { items: RenewalAnalysisResult['axes']['technical']['items'] }) {
+  const issues = items.filter(i => i.status !== 'green')
+  const okCount = items.length - issues.length
   return (
     <View style={{ border: `1 solid ${C.grayBorder}`, borderRadius: 6, overflow: 'hidden' }}>
-      {items.map(item => (
-        <View key={item.id} style={[s.checkRow, {
-          backgroundColor: item.status === 'green' ? C.greenBg : item.status === 'red' ? C.redBg : C.amberBg,
-        }]}>
-          <Text style={[s.checkDot, { color: statusColor(item.status) }]}>{statusDot(item.status)}</Text>
-          <View style={s.checkBody}>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 2 }}>
-              <Text style={s.checkTitle}>{item.title}</Text>
-              <Text style={[s.impactBadge, {
-                backgroundColor: item.impact === 'high' ? '#fecaca' : item.impact === 'mid' ? '#fde68a' : '#d1fae5',
-                color: item.impact === 'high' ? '#b91c1c' : item.impact === 'mid' ? '#92400e' : '#065f46',
-              }]}>영향 {impactLabel(item.impact)}</Text>
-            </View>
-            <Text style={s.checkCurrent}>{item.currentState}</Text>
-            {item.status !== 'green' && (
-              <Text style={s.checkTobe}>→ {item.tobe}</Text>
-            )}
-          </View>
+      {issues.length === 0 ? (
+        <View style={[s.checkRow, { backgroundColor: C.greenBg }]}>
+          <Text style={[s.checkDot, { color: C.green }]}>●</Text>
+          <Text style={[s.checkTitle, { color: C.green }]}>모든 항목 양호</Text>
         </View>
-      ))}
+      ) : (
+        issues.map(item => (
+          <View key={item.id} style={[s.checkRow, {
+            backgroundColor: item.status === 'red' ? C.redBg : C.amberBg,
+          }]}>
+            <Text style={[s.checkDot, { color: statusColor(item.status) }]}>{statusDot(item.status)}</Text>
+            <View style={s.checkBody}>
+              <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 2 }}>
+                <Text style={s.checkTitle}>{item.title}</Text>
+                <Text style={[s.impactBadge, {
+                  backgroundColor: item.impact === 'high' ? '#fecaca' : item.impact === 'mid' ? '#fde68a' : '#d1fae5',
+                  color: item.impact === 'high' ? '#b91c1c' : item.impact === 'mid' ? '#92400e' : '#065f46',
+                }]}>영향 {impactLabel(item.impact)}</Text>
+              </View>
+              <Text style={s.checkCurrent}>{item.currentState}</Text>
+              <Text style={s.checkTobe}>→ {item.tobe}</Text>
+            </View>
+          </View>
+        ))
+      )}
+      {okCount > 0 && issues.length > 0 && (
+        <View style={[s.checkRow, { backgroundColor: C.greenBg }]}>
+          <Text style={[s.checkDot, { color: C.green }]}>●</Text>
+          <Text style={[s.checkCurrent, { color: C.green }]}>양호 {okCount}개 항목 — 현재 기준 충족</Text>
+        </View>
+      )}
     </View>
   )
 }

@@ -2,12 +2,27 @@
 import { useState } from 'react'
 import { Loader2, CheckCircle, AlertCircle, Globe, Mail } from 'lucide-react'
 
+interface AxisItem {
+  id: string
+  title: string
+  currentState: string
+  status: 'red' | 'yellow' | 'green'
+  impact: 'high' | 'mid' | 'low'
+  tobe: string
+}
+
+interface AxisResult {
+  score: number
+  max: number
+  items: AxisItem[]
+}
+
 interface DiagResult {
   grade: string
   totalScore: number
   siteType: string
   criticalIssues: string[]
-  axes: { technical: { score: number; max: number }; ux: { score: number; max: number }; modern: { score: number; max: number } }
+  axes: { technical: AxisResult; ux: AxisResult; modern: AxisResult }
   techStack: string | null
   loadTimeMs: number
 }
@@ -122,18 +137,54 @@ export default function RenewalDiagnosisForm() {
           })}
         </div>
 
-        {/* Critical issues */}
-        {result.criticalIssues.length > 0 && (
-          <div className="space-y-2">
-            <p className="text-sm font-bold text-foreground">🚨 즉시 해결이 필요한 문제</p>
-            {result.criticalIssues.map((issue, i) => (
-              <div key={i} className="flex items-start gap-3 bg-destructive/10 border border-destructive/30 rounded-xl px-4 py-3">
-                <span className="text-sm shrink-0">🔴</span>
-                <span className="text-sm text-foreground">{issue}</span>
+        {/* Detailed axis breakdown */}
+        {([
+          { label: '⚙️ 기술 기반', key: 'technical' as const },
+          { label: '👥 사용자 경험', key: 'ux' as const },
+          { label: '🌐 현대 기준', key: 'modern' as const },
+        ]).map(({ label, key }) => {
+          const ax = result.axes[key]
+          const pct = ax.score / ax.max
+          const color = pct >= 0.7 ? '#10b981' : pct >= 0.5 ? '#f59e0b' : '#ef4444'
+          return (
+            <div key={key} className="space-y-2">
+              <div className="flex items-center justify-between">
+                <p className="text-sm font-bold text-foreground">{label}</p>
+                <span className="text-sm font-black" style={{ color }}>{ax.score}<span className="text-xs text-muted-foreground font-normal">/{ax.max}점</span></span>
               </div>
-            ))}
-          </div>
-        )}
+              <div className="space-y-1.5">
+                {ax.items.map(item => (
+                  <div key={item.id} className={`rounded-lg px-3 py-2.5 border text-xs ${
+                    item.status === 'red'
+                      ? 'bg-destructive/8 border-destructive/25'
+                      : item.status === 'yellow'
+                        ? 'bg-amber-50/80 border-amber-200/60 dark:bg-amber-950/20 dark:border-amber-800/40'
+                        : 'bg-emerald-50/80 border-emerald-200/60 dark:bg-emerald-950/20 dark:border-emerald-800/40'
+                  }`}>
+                    <div className="flex items-start gap-2">
+                      <span className={`shrink-0 text-[10px] mt-0.5 ${
+                        item.status === 'red' ? 'text-destructive' :
+                        item.status === 'yellow' ? 'text-amber-500' : 'text-emerald-500'
+                      }`}>●</span>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between gap-2 mb-0.5">
+                          <p className="font-semibold text-foreground leading-tight">{item.title}</p>
+                          {item.impact === 'high' && item.status !== 'green' && (
+                            <span className="shrink-0 text-[9px] font-bold bg-destructive/15 text-destructive px-1.5 py-0.5 rounded-full">고영향</span>
+                          )}
+                        </div>
+                        <p className="text-muted-foreground leading-snug">{item.currentState}</p>
+                        {item.status !== 'green' && (
+                          <p className="text-primary mt-1 leading-snug">→ {item.tobe}</p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )
+        })}
 
         {/* Email confirmation */}
         <div className="flex items-center gap-3 bg-primary/10 border border-primary/30 rounded-xl px-4 py-4">

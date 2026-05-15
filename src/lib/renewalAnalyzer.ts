@@ -278,13 +278,13 @@ function analyzeTechnical(html: string, headers: Headers, base: string, loadMs: 
   score += seoScore
   items.push({
     id: 'seo-tags',
-    title: '네이버·구글 검색 노출 설정',
+    title: '검색 노출 기본 태그 (Title/Description/OG)',
     currentState: seoScore >= 5
-      ? `페이지 제목·설명·이미지 정상 설정됨`
-      : `${!title ? '페이지 제목 없음 ' : ''}${!desc ? '설명 없음 ' : ''}${!ogImage ? 'SNS 공유 이미지 없음' : ''}`.trim(),
+      ? `페이지 제목·설명·공유 이미지 모두 설정됨`
+      : [!title && '페이지 제목(title) 없음', !desc && '검색 설명(description) 없음', !ogImage && 'SNS 공유 이미지(og:image) 없음'].filter(Boolean).join(' · '),
     status: seoScore >= 5 ? 'green' : seoScore >= 3 ? 'yellow' : 'red',
     impact: 'high',
-    tobe: '검색 결과에 회사명·업종·연락처가 자동 노출되도록 태그 설정',
+    tobe: 'title·description·og:image 완성 → 구글·네이버 검색 결과 클릭률 직접 향상',
     tags: ['all'],
   })
 
@@ -293,10 +293,10 @@ function analyzeTechnical(html: string, headers: Headers, base: string, loadMs: 
   items.push({
     id: 'sitemap',
     title: '사이트맵 (sitemap.xml)',
-    currentState: sitemapOk ? '사이트맵 정상' : '사이트맵 없음 — 신규 페이지 검색 반영 지연',
+    currentState: sitemapOk ? 'sitemap.xml 정상 확인' : 'sitemap.xml 없음 — 신규 페이지 검색 반영 수주~수개월 지연 가능',
     status: sitemapOk ? 'green' : 'red',
     impact: 'mid',
-    tobe: '사이트맵 생성 → 신규 페이지 2~4주 내 검색 반영',
+    tobe: 'sitemap.xml 생성 후 서치콘솔 등록 → 신규 페이지 2~4주 내 검색 반영',
     tags: ['all'],
   })
 
@@ -304,11 +304,24 @@ function analyzeTechnical(html: string, headers: Headers, base: string, loadMs: 
   score += robotsOk ? 2 : 0
   items.push({
     id: 'robots',
-    title: 'robots.txt (검색엔진 안내 파일)',
-    currentState: robotsOk ? 'robots.txt 정상' : 'robots.txt 없음',
+    title: 'robots.txt (크롤링 안내 파일)',
+    currentState: robotsOk ? 'robots.txt 정상' : 'robots.txt 없음 — 검색엔진 크롤러 방향 미설정',
     status: robotsOk ? 'green' : 'yellow',
     impact: 'mid',
-    tobe: 'robots.txt 생성으로 검색엔진 크롤링 안내 설정',
+    tobe: 'robots.txt 생성 → 크롤러 허용/차단 경로 명시, sitemap 위치 안내',
+    tags: ['all'],
+  })
+
+  // Canonical tag
+  const hasCanonical = /<link[^>]+rel=["']canonical["']/i.test(html)
+  score += hasCanonical ? 2 : 0
+  items.push({
+    id: 'canonical',
+    title: '대표 URL 설정 (Canonical 태그)',
+    currentState: hasCanonical ? 'Canonical 태그 설정됨 — 중복 URL 방지' : 'Canonical 태그 없음 — www/비www 중복 페이지 검색 페널티 위험',
+    status: hasCanonical ? 'green' : 'yellow',
+    impact: 'mid',
+    tobe: '<link rel="canonical"> 추가 → 대표 URL 명시로 중복 콘텐츠 페널티 방지',
     tags: ['all'],
   })
 
@@ -318,10 +331,10 @@ function analyzeTechnical(html: string, headers: Headers, base: string, loadMs: 
   items.push({
     id: 'https',
     title: 'HTTPS 보안 접속',
-    currentState: isHttps ? 'HTTPS 적용됨 (자물쇠 정상)' : 'HTTP만 사용 중 — 개인정보 유출 위험',
+    currentState: isHttps ? 'HTTPS 적용됨 (주소창 자물쇠 정상)' : 'HTTP만 사용 중 — 개인정보 유출 위험, 크롬 경고 표시',
     status: isHttps ? 'green' : 'red',
     impact: 'high',
-    tobe: 'SSL 인증서 적용으로 보안 접속 보장',
+    tobe: 'SSL 인증서 적용 → 보안 접속 보장, 구글 검색 가산점',
     tags: ['all'],
   })
 
@@ -331,15 +344,17 @@ function analyzeTechnical(html: string, headers: Headers, base: string, loadMs: 
     'x-content-type-options', 'referrer-policy', 'content-security-policy',
   ]
   const presentHeaders = secHeaders.filter(h => headers.has(h))
-  const hScore = presentHeaders.length // 1pt each, max 5
+  const hScore = presentHeaders.length
   score += hScore
   items.push({
     id: 'sec-headers',
-    title: '해킹 방어 설정 (보안 헤더)',
-    currentState: `5개 항목 중 ${presentHeaders.length}개 설정됨`,
+    title: '해킹 방어 보안 헤더',
+    currentState: hScore >= 4
+      ? `보안 헤더 ${presentHeaders.length}/5개 설정됨`
+      : `보안 헤더 ${presentHeaders.length}/5개만 설정 — 클릭재킹·XSS 등 공격 노출 위험`,
     status: hScore >= 4 ? 'green' : hScore >= 2 ? 'yellow' : 'red',
     impact: 'high',
-    tobe: '5개 보안 헤더 전체 설정 → 클릭재킹·XSS 등 자동 방어',
+    tobe: 'HSTS·X-Frame-Options·CSP 등 5개 보안 헤더 전체 설정 → 주요 웹 공격 자동 차단',
     tags: ['all'],
   })
 
@@ -348,11 +363,25 @@ function analyzeTechnical(html: string, headers: Headers, base: string, loadMs: 
   score += speedScore
   items.push({
     id: 'speed',
-    title: `홈페이지 첫 화면 로딩 속도`,
-    currentState: `첫 응답 ${(loadMs / 1000).toFixed(1)}초 (권장 2초 이내)`,
+    title: '첫 화면 로딩 속도',
+    currentState: `첫 응답 ${(loadMs / 1000).toFixed(1)}초 ${loadMs < 2000 ? '(권장 기준 충족)' : loadMs < 4000 ? '(권장 2초 초과)' : '(매우 느림 — 방문자 즉시 이탈)'}`,
     status: loadMs < 2000 ? 'green' : loadMs < 4000 ? 'yellow' : 'red',
     impact: 'high',
-    tobe: '이미지 압축·코드 최적화로 2초 이내 달성 → 이탈률 40% 감소 예상',
+    tobe: '이미지 WebP 변환·코드 압축으로 2초 이내 달성 → 이탈률 40% 감소 효과',
+    tags: ['all'],
+  })
+
+  // Compression
+  const encoding = headers.get('content-encoding') ?? ''
+  const hasCompression = /gzip|br|deflate/i.test(encoding)
+  score += hasCompression ? 2 : 0
+  items.push({
+    id: 'compression',
+    title: '파일 압축 전송 (gzip/brotli)',
+    currentState: hasCompression ? `압축 전송 적용됨 (${encoding})` : '압축 전송 미적용 — HTML·CSS·JS 원본 그대로 전송 중',
+    status: hasCompression ? 'green' : 'yellow',
+    impact: 'mid',
+    tobe: 'gzip/brotli 압축 활성화 → 전송 데이터 60~80% 절감, 로딩 속도 개선',
     tags: ['all'],
   })
 
@@ -361,11 +390,25 @@ function analyzeTechnical(html: string, headers: Headers, base: string, loadMs: 
   score += hasViewport ? 4 : 0
   items.push({
     id: 'viewport',
-    title: '모바일 최적화 (반응형 설정)',
-    currentState: hasViewport ? '모바일 반응형 설정됨' : '모바일 반응형 설정 없음 — 스마트폰에서 잘림',
+    title: '모바일 반응형 설정 (viewport)',
+    currentState: hasViewport ? '모바일 반응형 설정됨' : '모바일 반응형 없음 — 스마트폰에서 가로 스크롤 발생',
     status: hasViewport ? 'green' : 'red',
     impact: 'high',
-    tobe: '반응형 설정 적용 → 스마트폰 방문자 경험 정상화',
+    tobe: 'viewport 메타 태그 + 반응형 CSS 적용 → 스마트폰·태블릿 방문자 경험 정상화',
+    tags: ['all'],
+  })
+
+  // Cache-Control
+  const cacheHeader = headers.get('cache-control') ?? ''
+  const hasCaching = /max-age|s-maxage|immutable/i.test(cacheHeader)
+  score += hasCaching ? 1 : 0
+  items.push({
+    id: 'caching',
+    title: '브라우저 캐시 설정',
+    currentState: hasCaching ? `캐시 설정됨 — 재방문자 빠른 로딩` : '캐시 헤더 없음 — 재방문 시에도 전체 자원 재다운로드',
+    status: hasCaching ? 'green' : 'yellow',
+    impact: 'low',
+    tobe: 'Cache-Control max-age 설정 → 재방문자 로딩 속도 개선, 서버 부하 감소',
     tags: ['all'],
   })
 
@@ -374,14 +417,14 @@ function analyzeTechnical(html: string, headers: Headers, base: string, loadMs: 
   if (wpOldVersion) {
     items.push({
       id: 'wp-version',
-      title: 'CMS 버전 보안 위험',
-      currentState: `WordPress ${wpOldVersion[1]}버전 노출 — 보안 패치 미적용 위험`,
+      title: 'CMS 구버전 보안 위험',
+      currentState: `WordPress ${wpOldVersion[1]}버전 노출 — 알려진 취약점 다수, 해킹 위험 높음`,
       status: 'red',
       impact: 'high',
-      tobe: 'WordPress 최신 버전 업데이트 + 버전 정보 숨김 처리',
+      tobe: 'WordPress 최신 버전 업데이트 + 제너레이터 태그 숨김 처리',
       tags: ['all'],
     })
-  } else score += 5 // 버전 이슈 없으면 5점 추가
+  } else score += 5
 
   return { score: Math.min(score, 35), maxScore: 35, items }
 }
@@ -399,10 +442,27 @@ function analyzeUX(html: string): AxisResult {
   items.push({
     id: 'h1',
     title: '첫 화면 핵심 메시지 (H1)',
-    currentState: h1 ? `H1: "${h1.slice(0, 40)}${h1.length > 40 ? '…' : ''}"` : '페이지 대표 제목(H1) 없음',
+    currentState: h1 ? `H1 있음: "${h1.slice(0, 40)}${h1.length > 40 ? '…' : ''}"` : '페이지 대표 제목(H1) 없음 — 검색엔진이 페이지 주제 파악 불가',
     status: h1Score >= 6 ? 'green' : h1Score >= 3 ? 'yellow' : 'red',
     impact: 'high',
-    tobe: '첫 화면에 업종·전문 분야·강점을 30자 이내로 명시',
+    tobe: '첫 화면 H1에 업종·전문 분야·핵심 강점을 30자 이내로 명시',
+    tags: ['all'],
+  })
+
+  // Heading structure H2/H3
+  const h2Count = (html.match(/<h2[\s>]/gi) ?? []).length
+  const h3Count = (html.match(/<h3[\s>]/gi) ?? []).length
+  const headingScore = h2Count >= 3 ? 3 : h2Count >= 1 ? 2 : 0
+  score += headingScore
+  items.push({
+    id: 'heading-structure',
+    title: '소제목 계층 구조 (H2/H3)',
+    currentState: h2Count > 0
+      ? `H2 ${h2Count}개, H3 ${h3Count}개 사용 — 콘텐츠 구조 명확`
+      : '소제목(H2/H3) 없음 — 섹션 구분 없이 텍스트 나열, SEO 손실',
+    status: headingScore >= 3 ? 'green' : headingScore >= 2 ? 'yellow' : 'red',
+    impact: 'mid',
+    tobe: '각 섹션마다 H2 소제목 설정 → 가독성·검색엔진 구조 파악 동시 개선',
     tags: ['all'],
   })
 
@@ -414,13 +474,13 @@ function analyzeUX(html: string): AxisResult {
   score += ctaScore
   items.push({
     id: 'cta',
-    title: '연락·문의 버튼 접근성',
+    title: '문의·연락 버튼 접근성',
     currentState: hasTel && (hasMailto || hasContactForm)
-      ? '전화·이메일·문의 폼 모두 있음'
-      : `${!hasTel ? '전화 링크 없음' : ''} ${!hasMailto && !hasContactForm ? '이메일·문의 폼 없음' : ''}`.trim(),
+      ? '전화·이메일·문의 폼 모두 제공됨'
+      : [!hasTel && '전화 링크 없음', !hasMailto && !hasContactForm && '이메일·문의 폼 없음'].filter(Boolean).join(' · '),
     status: ctaScore >= 5 ? 'green' : ctaScore >= 3 ? 'yellow' : 'red',
     impact: 'high',
-    tobe: '전화·이메일·문의 폼을 첫 화면에서 바로 접근 가능하게 배치',
+    tobe: '전화 링크(tel:)·문의 폼을 첫 화면 스크롤 없이 접근 가능하게 배치',
     tags: ['all'],
   })
 
@@ -432,25 +492,10 @@ function analyzeUX(html: string): AxisResult {
   items.push({
     id: 'nav',
     title: '메뉴·네비게이션 구조',
-    currentState: hasNav ? `메뉴 있음 (링크 ${navLinks}개 이상)` : '명확한 네비게이션 메뉴 없음',
+    currentState: hasNav ? `메뉴 구조 있음 (링크 ${navLinks}개 감지)` : '명확한 네비게이션 메뉴 없음 — 방문자 탐색 불가',
     status: navScore >= 5 ? 'green' : navScore >= 3 ? 'yellow' : 'red',
     impact: 'mid',
-    tobe: '명확한 메인 메뉴 구성으로 방문자 탐색 편의성 확보',
-    tags: ['all'],
-  })
-
-  // Readability: lang attribute + text content
-  const hasLang = /html[^>]+lang=/i.test(html)
-  const bodyText = html.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim()
-  const textScore = (hasLang ? 2 : 0) + (bodyText.length > 300 ? 3 : bodyText.length > 100 ? 1 : 0)
-  score += textScore
-  items.push({
-    id: 'readability',
-    title: '콘텐츠 가독성 기본 설정',
-    currentState: hasLang ? '한국어 언어 설정 정상' : 'HTML 언어 속성 미설정',
-    status: textScore >= 5 ? 'green' : textScore >= 3 ? 'yellow' : 'red',
-    impact: 'low',
-    tobe: '언어 설정·충분한 콘텐츠 텍스트로 접근성 및 SEO 개선',
+    tobe: '명확한 메인 메뉴(제품/서비스/회사소개/문의)로 방문자 탐색 편의성 확보',
     tags: ['all'],
   })
 
@@ -464,11 +509,11 @@ function analyzeUX(html: string): AxisResult {
     id: 'img-alt',
     title: '이미지 설명 텍스트 (alt 태그)',
     currentState: totalImgs === 0
-      ? '이미지 없음'
-      : `이미지 ${totalImgs}개 중 ${altImgs}개에 설명 텍스트 있음`,
+      ? '이미지 감지 없음'
+      : `이미지 ${totalImgs}개 중 ${altImgs}개에 alt 텍스트 있음 (${Math.round(altRatio * 100)}%)`,
     status: altScore >= 4 ? 'green' : altScore >= 2 ? 'yellow' : 'red',
     impact: 'mid',
-    tobe: '모든 이미지에 설명 텍스트 추가 → 검색 노출 + 장애인 접근성 개선',
+    tobe: '모든 이미지에 alt 텍스트 추가 → 이미지 검색 노출 + 웹접근성 법적 기준 충족',
     tags: ['all'],
   })
 
@@ -478,11 +523,66 @@ function analyzeUX(html: string): AxisResult {
   score += hasFooterContact ? 5 : 0
   items.push({
     id: 'footer-contact',
-    title: '하단 연락처·사업자 정보',
-    currentState: hasFooterContact ? '하단에 연락처 정보 있음' : '하단 연락처·사업자번호 없음',
+    title: '하단 연락처 표시',
+    currentState: hasFooterContact ? '하단에 연락처 정보 있음' : '하단 연락처·사업자 정보 없음 — 신뢰도 저하',
     status: hasFooterContact ? 'green' : 'red',
     impact: 'mid',
-    tobe: '전화번호·이메일·사업자번호·주소를 하단에 명시',
+    tobe: '전화번호·이메일·주소를 하단에 명시 → 방문자 신뢰도 즉시 향상',
+    tags: ['all'],
+  })
+
+  // Social proof
+  const hasCertification = /인증|특허|수상|iso|qs|협력사|파트너|고객사|납품처|공급업체/i.test(html)
+  const hasTestimonial = /후기|리뷰|사례|추천|만족|도입|활용/i.test(html)
+  const spScore = (hasCertification ? 2 : 0) + (hasTestimonial ? 2 : 0)
+  score += spScore
+  items.push({
+    id: 'social-proof',
+    title: '신뢰 요소 (인증·실적·납품처)',
+    currentState: hasCertification && hasTestimonial
+      ? '인증/실적 및 도입 사례 모두 확인됨'
+      : hasCertification
+        ? '인증/실적 정보 있음 — 납품 사례·후기 추가 권장'
+        : hasTestimonial
+          ? '도입 사례 있음 — 인증·실적 정보 추가 권장'
+          : '인증서·납품 실적·고객 후기 없음 — 방문자 신뢰 확보 어려움',
+    status: spScore >= 4 ? 'green' : spScore >= 2 ? 'yellow' : 'red',
+    impact: 'high',
+    tobe: 'ISO 인증·특허·납품처 로고·도입 후기를 메인에 배치 → 문의 전환율 직접 상승',
+    tags: ['all'],
+  })
+
+  // Business registration info
+  const hasBusinessNum = /\d{3}-\d{2}-\d{5}/.test(html)
+  const hasPhysicalAddr = /서울|부산|대구|인천|광주|대전|울산|경기|강원|충북|충남|전북|전남|경북|경남|제주/.test(html)
+  const bizScore = (hasBusinessNum ? 2 : 0) + (hasPhysicalAddr ? 1 : 0)
+  score += bizScore
+  items.push({
+    id: 'business-info',
+    title: '사업자 등록정보 공개',
+    currentState: hasBusinessNum
+      ? `사업자등록번호 표시됨${hasPhysicalAddr ? ' · 주소 확인됨' : ''}`
+      : `사업자등록번호 없음${!hasPhysicalAddr ? ' · 주소 불명확' : ''}`,
+    status: bizScore >= 3 ? 'green' : bizScore >= 1 ? 'yellow' : 'red',
+    impact: 'mid',
+    tobe: '사업자등록번호·대표자명·주소를 하단에 명시 → 법적 의무 충족 + 신뢰도 상승',
+    tags: ['all'],
+  })
+
+  // Readability: lang attribute + text content
+  const hasLang = /html[^>]+lang=/i.test(html)
+  const bodyText = html.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim()
+  const textScore = (hasLang ? 2 : 0) + (bodyText.length > 300 ? 3 : bodyText.length > 100 ? 1 : 0)
+  score += textScore
+  items.push({
+    id: 'readability',
+    title: '언어 설정 및 콘텐츠 충분도',
+    currentState: hasLang
+      ? `한국어 언어 설정 정상 · 본문 텍스트 ${bodyText.length.toLocaleString()}자`
+      : `HTML 언어 속성 미설정 · 본문 텍스트 ${bodyText.length.toLocaleString()}자`,
+    status: textScore >= 5 ? 'green' : textScore >= 3 ? 'yellow' : 'red',
+    impact: 'low',
+    tobe: 'lang="ko" 설정 + 충분한 설명 텍스트 → 접근성 및 SEO 개선',
     tags: ['all'],
   })
 
@@ -492,11 +592,11 @@ function analyzeUX(html: string): AxisResult {
   score += accScore
   items.push({
     id: 'accessibility',
-    title: '웹 접근성 기초 준수',
-    currentState: hasSkipNav ? '건너뛰기 링크 있음' : '키보드 접근성·건너뛰기 링크 없음',
+    title: '웹 접근성 기초 (키보드·건너뛰기)',
+    currentState: hasSkipNav ? '건너뛰기 링크 있음 — 키보드 접근성 기초 충족' : '건너뛰기 링크 없음 — 키보드 탐색 불편, 공공기관 법적 의무 미충족',
     status: accScore >= 4 ? 'green' : accScore >= 2 ? 'yellow' : 'red',
     impact: 'high',
-    tobe: '웹접근성 KWCAG 2.1 기준 충족 → 공공기관 법적 의무, 일반기업 신뢰도 상승',
+    tobe: '건너뛰기 링크 + ARIA 레이블 추가 → KWCAG 2.1 기준 충족, 공공기관 법적 의무',
     tags: ['all', 'pub'],
   })
 
@@ -517,10 +617,10 @@ function analyzeModern(html: string, domain: string, techStack: TechStack): Axis
   items.push({
     id: 'analytics',
     title: '방문자 분석 도구 설치',
-    currentState: hasGA ? 'Google Analytics 설치됨' : hasNaver ? '네이버 애널리틱스 설치됨' : '방문자 분석 도구 없음',
+    currentState: hasGA ? 'Google Analytics(GA4) 설치됨' : hasNaver ? '네이버 애널리틱스 설치됨' : '방문자 분석 도구 없음 — 유입 경로·이탈 구간 파악 불가',
     status: analyticsScore > 0 ? 'green' : 'red',
     impact: 'high',
-    tobe: 'GA4 설치 → 어느 페이지에 바이어가 많이 오는지, 어디서 이탈하는지 파악 가능',
+    tobe: 'GA4 설치 → 어느 페이지에 방문자가 많은지, 어디서 이탈하는지 데이터 기반 파악',
     tags: ['all'],
   })
 
@@ -529,11 +629,11 @@ function analyzeModern(html: string, domain: string, techStack: TechStack): Axis
   score += ogImage ? 4 : 0
   items.push({
     id: 'og-image',
-    title: 'SNS 공유 시 대표 이미지',
-    currentState: ogImage ? 'OG 이미지 설정됨' : '공유 시 이미지·설명 없음 — URL만 표시됨',
+    title: 'SNS 공유 시 대표 이미지 (OG)',
+    currentState: ogImage ? 'OG 이미지 설정됨' : '공유 시 이미지·설명 없음 — URL 텍스트만 표시됨',
     status: ogImage ? 'green' : 'yellow',
     impact: 'mid',
-    tobe: 'OG 이미지 설정 → 카카오·링크드인 공유 시 회사 로고+소개 자동 표시',
+    tobe: 'og:image 설정 → 카카오·링크드인·네이버 공유 시 회사 로고+소개 자동 표시',
     tags: ['all'],
   })
 
@@ -546,7 +646,7 @@ function analyzeModern(html: string, domain: string, techStack: TechStack): Axis
     currentState: hasPrivacy ? '개인정보처리방침 페이지 있음' : '개인정보처리방침 없음 — 법적 의무 위반 위험',
     status: hasPrivacy ? 'green' : 'red',
     impact: 'high',
-    tobe: '개인정보처리방침 페이지 작성 및 하단 링크 연결 (법적 의무)',
+    tobe: '개인정보처리방침 페이지 작성 및 하단 링크 연결 (정보통신망법 의무)',
     tags: ['all', 'pub'],
   })
 
@@ -556,10 +656,10 @@ function analyzeModern(html: string, domain: string, techStack: TechStack): Axis
   items.push({
     id: 'schema',
     title: '구조화 데이터 마크업 (Schema.org)',
-    currentState: hasSchema ? '구조화 데이터 마크업 있음' : '구조화 데이터 없음 — 구글 리치 결과 불가',
+    currentState: hasSchema ? '구조화 데이터 마크업 있음' : '구조화 데이터 없음 — 구글 리치 결과(별점·FAQ) 불가',
     status: hasSchema ? 'green' : 'yellow',
     impact: 'mid',
-    tobe: 'Schema.org 마크업 추가 → 구글 검색 결과에 회사 정보 강조 표시',
+    tobe: 'Organization·LocalBusiness 마크업 추가 → 구글 검색 결과에 회사 정보 강조 표시',
     tags: ['all'],
   })
 
@@ -570,13 +670,13 @@ function analyzeModern(html: string, domain: string, techStack: TechStack): Axis
     id: 'tech-age',
     title: '기술 스택 현대성',
     currentState: techStack.phpEol
-      ? `PHP ${techStack.phpVersion ?? '7.x'} 지원 종료(EOL) — 보안 패치 없음`
+      ? `PHP ${techStack.phpVersion ?? '7.x'} 지원 종료(EOL) — 보안 패치 없음, 해킹 위험`
       : techStack.cms
-        ? `${techStack.cms} 기반 (관리 필요)`
-        : '최신 기술 스택 사용',
+        ? `${techStack.cms} 기반 — 지속적 업데이트 관리 필요`
+        : '최신 기술 스택 사용 중',
     status: techScore >= 5 ? 'green' : techScore >= 3 ? 'yellow' : 'red',
     impact: 'high',
-    tobe: '최신 버전 업데이트 또는 현대 스택으로 전환 → 보안·성능·유지보수성 개선',
+    tobe: '최신 버전 업데이트 또는 현대 프레임워크로 전환 → 보안·성능·유지보수성 동시 개선',
     tags: ['all'],
   })
 
@@ -586,24 +686,37 @@ function analyzeModern(html: string, domain: string, techStack: TechStack): Axis
   items.push({
     id: 'social',
     title: 'SNS·채널 연동',
-    currentState: hasSocial ? 'SNS 채널 링크 있음' : 'SNS·채널 링크 없음',
+    currentState: hasSocial ? 'SNS 채널 링크 있음' : 'SNS·소셜 채널 링크 없음 — 브랜드 노출 기회 손실',
     status: hasSocial ? 'green' : 'yellow',
     impact: 'low',
-    tobe: '인스타그램·유튜브·카카오 채널 링크 추가',
+    tobe: '인스타그램·유튜브·카카오 채널 링크 추가 → 브랜드 채널로 유입 경로 다변화',
     tags: ['all'],
   })
 
-  // Multilingual (especially important for manufacturers)
-  const hasEnglish = /href=["'][^"']*\/en[\/"]|lang=["']en["']|english/i.test(html)
-  score += hasEnglish ? 5 : 0
+  // Cookie consent banner
+  const hasCookieConsent = /cookie.*consent|쿠키.*동의|쿠키.*설정|cookieconsent|cookiebot|gdpr/i.test(html)
+  score += hasCookieConsent ? 3 : 0
   items.push({
-    id: 'multilingual',
-    title: '영문 페이지 (해외 바이어 대응)',
-    currentState: hasEnglish ? '영문 페이지 있음' : '영문 페이지 없음 — 해외 바이어 즉시 이탈',
-    status: hasEnglish ? 'green' : 'red',
-    impact: 'high',
-    tobe: '회사 소개·제품 목록·견적 문의를 영문으로 구성 → 수출·해외 납품 기회 확보',
-    tags: ['mfg'],
+    id: 'cookie-consent',
+    title: '쿠키·개인정보 동의 배너',
+    currentState: hasCookieConsent ? '쿠키 동의 처리 있음' : '쿠키 동의 배너 없음 — 개인정보보호법 위반 위험',
+    status: hasCookieConsent ? 'green' : 'yellow',
+    impact: 'mid',
+    tobe: '쿠키 동의 팝업 추가 → 개인정보보호법 대응 + 방문자 신뢰 향상',
+    tags: ['all'],
+  })
+
+  // Naver search advisor
+  const hasNaverVerify = /naver-site-verification/i.test(html)
+  score += hasNaverVerify ? 2 : 0
+  items.push({
+    id: 'naver-verify',
+    title: '네이버 서치어드바이저 등록',
+    currentState: hasNaverVerify ? '네이버 서치어드바이저 인증 완료' : '네이버 서치어드바이저 미등록 — 네이버 검색 최적화 불가',
+    status: hasNaverVerify ? 'green' : 'yellow',
+    impact: 'mid',
+    tobe: '네이버 서치어드바이저 등록 → 네이버 검색 유입 현황 파악 및 키워드 최적화',
+    tags: ['all'],
   })
 
   // Chat/contact widget
@@ -612,10 +725,10 @@ function analyzeModern(html: string, domain: string, techStack: TechStack): Axis
   items.push({
     id: 'chat',
     title: '실시간 상담 채널 (채팅)',
-    currentState: hasChat ? '실시간 채팅 채널 있음' : '실시간 상담 채널 없음',
+    currentState: hasChat ? '실시간 채팅 채널 있음' : '실시간 상담 채널 없음 — 방문자 즉시 이탈 가능',
     status: hasChat ? 'green' : 'yellow',
     impact: 'mid',
-    tobe: '카카오 채널 또는 채팅 위젯 연동 → 즉각 문의 응대 가능',
+    tobe: '카카오 채널 또는 채팅 위젯 연동 → 즉각 문의 응대, 리드 이탈 방지',
     tags: ['all'],
   })
 
@@ -645,9 +758,11 @@ function buildPriorityActions(
 
   const timingMap: Record<string, PriorityAction['timing']> = {
     'seo-tags': 'now', 'sec-headers': 'now', 'analytics': 'now', 'privacy': 'now',
-    'cta': 'now', 'h1': 'now', 'https': 'now',
-    'sitemap': '1m', 'speed': '1m', 'multilingual': '1m', 'schema': '1m',
-    'tech-age': '3m', 'wp-version': '1m',
+    'cta': 'now', 'h1': 'now', 'https': 'now', 'heading-structure': 'now',
+    'business-info': 'now', 'naver-verify': 'now', 'canonical': 'now',
+    'sitemap': '1m', 'speed': '1m', 'schema': '1m', 'wp-version': '1m',
+    'social-proof': '1m', 'cookie-consent': '1m', 'compression': '1m', 'caching': '1m',
+    'tech-age': '3m',
   }
 
   return redItems.slice(0, 7).map((item, i) => ({
