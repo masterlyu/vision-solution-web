@@ -4,7 +4,7 @@ date: "2026-03-28"
 tag: "보안 경고"
 tags: "보안 경고,보안 헤더,중소기업,취약점"
 image: "/images/blog/sme-security-headers-missing.svg"
-summary: "무작위 100개 중소기업 사이트 점검 결과, 83%가 X-Content-Type-Options 미설정. 실제 공격 시나리오와 대응법."
+summary: "무작위 100개 중소기업 사이트 점검 결과, 83%가 X-Content-Type-Options 미설정. 실제 공격 시나리오와 대응법. 자세한 내용과 실제 사례를 확인해보세요. 지금 바로 문의해 주세요."
 ---
 
 ## 🚨 지금 이 순간도 우리 홈페이지가 위험할 수 있습니다
