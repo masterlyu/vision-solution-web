@@ -85,7 +85,7 @@ export default function RenewalDiagnosisForm() {
         <div>
           <p className="text-foreground font-bold text-lg mb-2">진단이 완료되었습니다</p>
           <p className="text-muted-foreground text-sm">
-            3축 성과 진단 리포트를 아래 이메일로 발송했습니다.
+            홈페이지 운영상태진단 리포트를 아래 이메일로 발송했습니다.
           </p>
           <p className="text-primary font-semibold text-sm mt-1">{email}</p>
           <p className="text-muted-foreground text-xs mt-3">PDF 보고서 첨부 · 수신까지 1~2분 소요될 수 있습니다</p>

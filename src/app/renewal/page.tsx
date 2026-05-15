@@ -352,7 +352,7 @@ export default function RenewalPage() {
           </div>
 
           <h2 className="text-3xl md:text-4xl font-black text-foreground mb-3 text-center">
-            무료 홈페이지 성과 진단
+            무료 홈페이지 운영상태진단
           </h2>
           <p className="text-muted-foreground text-center mb-8">
             URL 입력 즉시 자동 분석 · 결과 리포트 PDF를 이메일로 발송합니다

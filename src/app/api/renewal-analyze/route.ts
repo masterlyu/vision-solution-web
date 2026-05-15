@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
         chat_id: env.TELEGRAM_CHAT_ID,
         parse_mode: 'HTML',
         text: [
-          `${emoji} <b>홈페이지 성과 진단 완료</b>`,
+          `${emoji} <b>홈페이지 운영상태진단 완료</b>`,
           ``,
           `🌐 ${result.url}`,
           `📧 ${email}`,
