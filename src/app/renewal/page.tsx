@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { ArrowRight, CheckSquare, ChevronDown, ChevronUp, Zap, Smartphone, Target, Search } from 'lucide-react'
 import { VisiMascot } from '@/components/visi/VisiMascot'
+import RenewalDiagnosisForm from '@/components/RenewalDiagnosisForm'
 
 const checklistItems = [
   '홈페이지를 만든 지 3년이 넘었다',
@@ -164,10 +165,10 @@ export default function RenewalPage() {
               홈페이지가 낡았다는 걸 알지만 어디서부터 시작해야 할지 모르겠다면,<br />
               URL 하나만 입력하세요. 48시간 내에 무료 진단 리포트를 보내드립니다.
             </p>
-            <Link href="/contact"
+            <a href="#diagnosis-form"
               className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all text-base">
               지금 무료 진단 받기 <ArrowRight className="w-5 h-5" />
-            </Link>
+            </a>
           </div>
 
           {/* 오른쪽: Before/After 일러스트 */}
@@ -216,7 +217,7 @@ export default function RenewalPage() {
           <h2 className="text-2xl font-bold text-foreground mb-10">리뉴얼 후 이렇게 달라집니다</h2>
           <div className="space-y-4">
             {solutions.map((s, i) => (
-              <div key={i} className="flex items-start gap-5 bg-white/5 border border-white/10 rounded-xl p-5">
+              <div key={i} className="flex items-start gap-5 bg-foreground/5 border border-foreground/10 rounded-xl p-5">
                 <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center shrink-0">
                   <s.icon className="w-5 h-5 text-primary" />
                 </div>
@@ -300,10 +301,10 @@ export default function RenewalPage() {
             ))}
           </div>
           <div className="text-center">
-            <Link href="/contact"
+            <a href="#diagnosis-form"
               className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all">
-              무료 견적 확인하기 <ArrowRight className="w-5 h-5" />
-            </Link>
+              무료 진단으로 시작하기 <ArrowRight className="w-5 h-5" />
+            </a>
           </div>
         </div>
       </section>
@@ -334,33 +335,36 @@ export default function RenewalPage() {
         </div>
       </section>
 
-      {/* ── Bottom CTA — VISI 웨이브 ── */}
-      <section className="py-24 px-6 bg-card text-center">
+      {/* ── Diagnosis Form ── */}
+      <section id="diagnosis-form" className="py-24 px-6 bg-card">
         <div className="max-w-2xl mx-auto">
-          {/* VISI 중앙 */}
-          <div className="flex justify-center mb-6">
+          {/* VISI */}
+          <div className="flex justify-center mb-8">
             <div className="relative">
-              <VisiMascot pose="cheering" size={130} />
-              {/* 말풍선 위에 */}
+              <VisiMascot pose="cheering" size={110} />
               <div className="absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-full
                 bg-card text-foreground text-sm font-bold px-4 py-2 rounded-2xl shadow-lg whitespace-nowrap">
-                URL만 알려주시면, 48시간 안에 확인해드려요!
+                URL과 회사 이메일만 입력하면 자동 분석됩니다!
                 <span className="absolute left-1/2 -translate-x-1/2 top-full
                   border-8 border-transparent border-t-card" />
               </div>
             </div>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
-            지금 URL 하나만 주세요
+          <h2 className="text-3xl md:text-4xl font-black text-foreground mb-3 text-center">
+            무료 홈페이지 성과 진단
           </h2>
-          <p className="text-muted-foreground text-lg mb-8">
-            48시간 내에 무료 진단 리포트를 드립니다.
+          <p className="text-muted-foreground text-center mb-8">
+            URL 입력 즉시 자동 분석 · 결과 리포트 PDF를 이메일로 발송합니다
           </p>
-          <Link href="/contact"
-            className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-10 py-4 rounded-xl transition-all text-lg">
-            무료 진단 신청하기 <ArrowRight className="w-5 h-5" />
-          </Link>
+
+          <div className="bg-background border border-border rounded-2xl p-8 shadow-sm">
+            <RenewalDiagnosisForm />
+          </div>
+
+          <p className="text-center text-xs text-muted-foreground mt-6">
+            진단은 공개 접근 가능한 정보만 분석합니다 · 서버/DB 직접 접근 없음
+          </p>
         </div>
       </section>
 
