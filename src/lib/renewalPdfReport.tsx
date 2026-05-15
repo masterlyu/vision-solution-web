@@ -74,11 +74,11 @@ const s = StyleSheet.create({
   techConf: { fontSize: 7, fontWeight: 700, padding: '1 6', borderRadius: 8 },
   // Priority table
   prioRow: { flexDirection: 'row', padding: '8 10', borderBottom: `1 solid ${C.grayBorder}`, gap: 8, alignItems: 'flex-start' },
-  prioRank: { width: 20, height: 20, borderRadius: 10, alignItems: 'center', justifyContent: 'center' },
+  prioRank: { width: 20, height: 20, borderRadius: 10, alignItems: 'center', justifyContent: 'center', flexShrink: 0 },
   prioRankTxt: { fontSize: 9, fontWeight: 700 },
-  prioTitle: { fontSize: 9, fontWeight: 700, flex: 2, marginBottom: 2 },
+  prioTitle: { fontSize: 9, fontWeight: 700, marginBottom: 3 },
   prioDesc: { fontSize: 8, color: C.gray },
-  prioTiming: { fontSize: 8, fontWeight: 700, width: 42, textAlign: 'center', padding: '2 0' },
+  prioTiming: { fontSize: 8, fontWeight: 700, width: 42, textAlign: 'center', padding: '2 0', flexShrink: 0 },
   // Footer
   footer: { borderTop: `1 solid ${C.grayBorder}`, paddingTop: 8, marginTop: 20, flexDirection: 'row', justifyContent: 'space-between' },
   footerTxt: { fontSize: 7, color: C.gray },
@@ -137,9 +137,9 @@ function CheckItems({ items }: { items: RenewalAnalysisResult['axes']['technical
 function RenewalReport({ r }: { r: RenewalAnalysisResult }) {
   const gc = gradeColor(r.grade)
   const axes = [
-    { name: '⚙  기술 기반', result: r.axes.technical },
-    { name: '👥 사용자 경험', result: r.axes.ux },
-    { name: '🌐 현대 기준', result: r.axes.modern },
+    { name: '기술 기반', result: r.axes.technical },
+    { name: '사용자 경험', result: r.axes.ux },
+    { name: '현대 기준', result: r.axes.modern },
   ]
 
   return (
@@ -149,8 +149,8 @@ function RenewalReport({ r }: { r: RenewalAnalysisResult }) {
         <View style={s.coverBg}>
           <Text style={s.coverTitle}>홈페이지 성과 진단 리포트</Text>
           <Text style={s.coverSub}>Vision Solution · visionc.co.kr</Text>
-          <Text style={s.coverMeta}>🌐  {r.url}</Text>
-          <Text style={s.coverMeta}>🏢  {r.siteType.label}  ·  {r.analyzedAt}</Text>
+          <Text style={s.coverMeta}>{r.url}</Text>
+          <Text style={s.coverMeta}>{r.siteType.label}  ·  {r.analyzedAt}</Text>
           <View style={s.gradeBox}>
             <Text style={[s.gradeNum, { color: gc }]}>{r.grade}</Text>
             <Text style={s.gradeSub}>종합 등급</Text>
@@ -160,13 +160,13 @@ function RenewalReport({ r }: { r: RenewalAnalysisResult }) {
 
         {/* Site type */}
         <View style={s.typeBox}>
-          <Text style={s.typeLbl}>🔍 사이트 유형 판단</Text>
+          <Text style={s.typeLbl}>사이트 유형 판단</Text>
           <Text style={s.typeVal}>{r.siteType.label}</Text>
           <Text style={s.typeConf}>신뢰도 {r.siteType.confidence}%  ·  {r.siteType.profile} 프로파일 적용</Text>
         </View>
 
         {/* Score summary */}
-        <Text style={s.sectionTitle}>📊 3축 진단 점수</Text>
+        <Text style={s.sectionTitle}>3축 진단 점수</Text>
         <View style={{ border: `1 solid ${C.grayBorder}`, borderRadius: 6, overflow: 'hidden', marginBottom: 8 }}>
           {axes.map(ax => {
             const pct = ax.result.score / ax.result.maxScore
@@ -185,9 +185,9 @@ function RenewalReport({ r }: { r: RenewalAnalysisResult }) {
         <View style={[s.row, { marginBottom: 16 }]}>
           {[
             { label: '총점', val: `${r.totalScore}/100`, color: gradeColor(r.grade) },
-            { label: '🔴 즉시 개선', val: `${[...r.axes.technical.items,...r.axes.ux.items,...r.axes.modern.items].filter(i=>i.status==='red').length}건`, color: C.red },
-            { label: '🟡 개선 권장', val: `${[...r.axes.technical.items,...r.axes.ux.items,...r.axes.modern.items].filter(i=>i.status==='yellow').length}건`, color: C.amber },
-            { label: '✅ 양호', val: `${[...r.axes.technical.items,...r.axes.ux.items,...r.axes.modern.items].filter(i=>i.status==='green').length}건`, color: C.green },
+            { label: '즉시 개선', val: `${[...r.axes.technical.items,...r.axes.ux.items,...r.axes.modern.items].filter(i=>i.status==='red').length}건`, color: C.red },
+            { label: '개선 권장', val: `${[...r.axes.technical.items,...r.axes.ux.items,...r.axes.modern.items].filter(i=>i.status==='yellow').length}건`, color: C.amber },
+            { label: '양호', val: `${[...r.axes.technical.items,...r.axes.ux.items,...r.axes.modern.items].filter(i=>i.status==='green').length}건`, color: C.green },
           ].map(c => (
             <View key={c.label} style={s.card}>
               <Text style={[s.cardNum, { color: c.color }]}>{c.val}</Text>
@@ -199,7 +199,7 @@ function RenewalReport({ r }: { r: RenewalAnalysisResult }) {
         {/* Tech stack */}
         {r.techStack.signals.length > 0 && (
           <>
-            <Text style={s.sectionTitle}>🖥️ 기술 스택 추정</Text>
+            <Text style={s.sectionTitle}>기술 스택 추정</Text>
             <View style={{ border: `1 solid ${C.grayBorder}`, borderRadius: 6, overflow: 'hidden', marginBottom: 8 }}>
               {r.techStack.signals.map((sig, i) => (
                 <View key={i} style={s.techRow}>
@@ -226,19 +226,19 @@ function RenewalReport({ r }: { r: RenewalAnalysisResult }) {
       <Page size="A4" style={s.page}>
 
         {/* Technical axis */}
-        <Text style={s.sectionTitle}>⚙️ 기술 기반 진단 상세 ({r.axes.technical.score}/{r.axes.technical.maxScore}점)</Text>
+        <Text style={s.sectionTitle}>기술 기반 진단 상세 ({r.axes.technical.score}/{r.axes.technical.maxScore}점)</Text>
         <CheckItems items={r.axes.technical.items} />
 
         {/* UX axis */}
-        <Text style={s.sectionTitle}>👥 사용자 경험 진단 상세 ({r.axes.ux.score}/{r.axes.ux.maxScore}점)</Text>
+        <Text style={s.sectionTitle}>사용자 경험 진단 상세 ({r.axes.ux.score}/{r.axes.ux.maxScore}점)</Text>
         <CheckItems items={r.axes.ux.items} />
 
         {/* Modern axis */}
-        <Text style={s.sectionTitle}>🌐 현대 기준 진단 상세 ({r.axes.modern.score}/{r.axes.modern.maxScore}점)</Text>
+        <Text style={s.sectionTitle}>현대 기준 진단 상세 ({r.axes.modern.score}/{r.axes.modern.maxScore}점)</Text>
         <CheckItems items={r.axes.modern.items} />
 
         {/* Priority actions */}
-        <Text style={s.sectionTitle}>📋 우선순위별 개선 과제</Text>
+        <Text style={s.sectionTitle}>우선순위별 개선 과제</Text>
         <View style={{ border: `1 solid ${C.grayBorder}`, borderRadius: 6, overflow: 'hidden', marginBottom: 16 }}>
           {r.priorityActions.map((a, i) => (
             <View key={a.rank} style={s.prioRow}>
@@ -247,15 +247,17 @@ function RenewalReport({ r }: { r: RenewalAnalysisResult }) {
               }]}>
                 <Text style={[s.prioRankTxt, { color: i < 2 ? '#b91c1c' : i < 4 ? '#92400e' : '#065f46' }]}>{a.rank}</Text>
               </View>
-              <View style={{ flex: 1 }}>
+              <View style={{ flex: 1, flexDirection: 'column' }}>
                 <Text style={s.prioTitle}>{a.title}</Text>
                 <Text style={s.prioDesc}>{a.description}</Text>
               </View>
-              <Text style={[s.prioTiming, {
-                color: a.timing === 'now' ? '#b91c1c' : a.timing === '1m' ? '#92400e' : '#065f46',
+              <View style={[{ width: 42, flexShrink: 0, borderRadius: 8,
                 backgroundColor: a.timing === 'now' ? '#fef2f2' : a.timing === '1m' ? '#fffbeb' : '#f0fdf4',
-                borderRadius: 8,
-              }]}>{timingLabel(a.timing)}</Text>
+              }]}>
+                <Text style={[s.prioTiming, {
+                  color: a.timing === 'now' ? '#b91c1c' : a.timing === '1m' ? '#92400e' : '#065f46',
+                }]}>{timingLabel(a.timing)}</Text>
+              </View>
             </View>
           ))}
         </View>
