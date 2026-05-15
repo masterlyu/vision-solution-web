@@ -3,7 +3,12 @@ import { useEffect, useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { AsciiScene } from '@/components/landing/ascii-scene'
+import dynamic from 'next/dynamic'
+
+const AsciiScene = dynamic(
+  () => import('@/components/landing/ascii-scene').then(m => ({ default: m.AsciiScene })),
+  { ssr: false, loading: () => null }
+)
 
 // Primary A/B 후보 (현재 적용): 고객 이탈 고통 → 공감 즉시
 const words = ['이탈하고', '포기하고', '외면하고', '떠나고']

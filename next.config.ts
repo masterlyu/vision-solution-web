@@ -12,6 +12,10 @@ const nextConfig: NextConfig = {
       {
         source: '/(.*)',
         headers: [
+          {
+            key: 'Link',
+            value: '<https://chatbot.visionc.co.kr>; rel=preconnect, <https://cdn.jsdelivr.net>; rel=preconnect; crossorigin',
+          },
           // CSP는 middleware에서 nonce와 함께 동적으로 처리됨 (여기는 fallback)
           {
             key: 'Content-Security-Policy',
