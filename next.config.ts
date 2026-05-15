@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   outputFileTracingIncludes: {
     '/api/analyze': ['./public/fonts/**/*'],
+    '/api/og': ['./public/fonts/**/*'],
   },
   async headers() {
     return [
