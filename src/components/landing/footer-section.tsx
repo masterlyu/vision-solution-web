@@ -36,9 +36,12 @@ export function FooterSection() {
               URL 하나로 홈페이지 문제를 AI가 진단합니다.<br />
               리뉴얼·보안·AI 솔루션을 원스톱으로 제공합니다.
             </p>
-            <a href="mailto:biztalktome@gmail.com" className="text-sm text-primary hover:underline">
+            <a href="mailto:biztalktome@gmail.com" className="text-sm text-primary hover:underline block mb-1">
               biztalktome@gmail.com
             </a>
+            <Link href="/contact" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+              무료 상담 신청하기 →
+            </Link>
           </div>
           {Object.entries(links).map(([title, items]) => (
             <div key={title}>
@@ -56,7 +59,12 @@ export function FooterSection() {
           ))}
         </div>
         <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">© 2026 Vision Solution. All rights reserved.</p>
+          <div className="flex flex-col gap-1">
+            <p className="text-sm text-muted-foreground">© 2026 Vision Solution. All rights reserved.</p>
+            <p className="text-xs text-muted-foreground/70">
+              비젼솔루션 · 사업자등록번호 121-81-84378 · 인천광역시 계양구 동양로 10
+            </p>
+          </div>
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             정상 운영 중
