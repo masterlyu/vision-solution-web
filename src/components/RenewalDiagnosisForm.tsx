@@ -2,31 +2,6 @@
 import { useState } from 'react'
 import { Loader2, CheckCircle, AlertCircle, Globe, Mail } from 'lucide-react'
 
-interface AxisItem {
-  id: string
-  title: string
-  currentState: string
-  status: 'red' | 'yellow' | 'green'
-  impact: 'high' | 'mid' | 'low'
-  tobe: string
-}
-
-interface AxisResult {
-  score: number
-  max: number
-  items: AxisItem[]
-}
-
-interface DiagResult {
-  grade: string
-  totalScore: number
-  siteType: string
-  criticalIssues: string[]
-  axes: { technical: AxisResult; ux: AxisResult; modern: AxisResult }
-  techStack: string | null
-  loadTimeMs: number
-}
-
 function extractBaseDomain(raw: string): string {
   return raw.trim().replace(/^https?:\/\//, '').split('/')[0].replace(/^www\./, '').toLowerCase()
 }
@@ -35,16 +10,11 @@ function extractEmailDomain(email: string): string {
   return (email.split('@')[1] ?? '').toLowerCase()
 }
 
-const gradeColors: Record<string, string> = {
-  A: '#10b981', B: '#84cc16', 'C+': '#f59e0b', D: '#f97316', F: '#ef4444',
-}
-
 export default function RenewalDiagnosisForm() {
   const [url, setUrl] = useState('')
   const [email, setEmail] = useState('')
   const [domainError, setDomainError] = useState('')
   const [state, setState] = useState<'idle' | 'loading' | 'done' | 'error'>('idle')
-  const [result, setResult] = useState<DiagResult | null>(null)
   const [errorMsg, setErrorMsg] = useState('')
   const [consent, setConsent] = useState(false)
 
@@ -76,7 +46,6 @@ export default function RenewalDiagnosisForm() {
       })
       const data = await res.json()
       if (!res.ok) { setErrorMsg(data.error ?? '오류가 발생했습니다.'); setState('error'); return }
-      setResult(data)
       setState('done')
     } catch {
       setErrorMsg('네트워크 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.')
@@ -104,101 +73,23 @@ export default function RenewalDiagnosisForm() {
     )
   }
 
-  if (state === 'done' && result) {
-    const gc = gradeColors[result.grade] ?? '#6b7280'
+  if (state === 'done') {
     return (
-      <div className="space-y-5">
-        {/* Grade banner */}
-        <div className="rounded-2xl p-6 text-center" style={{ background: `linear-gradient(135deg, #1e3a5f, #1e40af)` }}>
-          <p className="text-white/70 text-sm mb-2">홈페이지 성과 진단 결과</p>
-          <div className="text-6xl font-black mb-1" style={{ color: gc }}>{result.grade}</div>
-          <div className="text-white text-2xl font-bold">{result.totalScore}점 / 100점</div>
-          <div className="text-white/60 text-xs mt-2">{result.siteType} · {result.techStack ?? '스택 감지 없음'}</div>
+      <div className="flex flex-col items-center text-center py-10 gap-6">
+        <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+          <CheckCircle className="w-8 h-8 text-primary" />
         </div>
-
-        {/* Axis scores */}
-        <div className="grid grid-cols-3 gap-3">
-          {[
-            { label: '⚙️ 기술', ...result.axes.technical },
-            { label: '👥 경험', ...result.axes.ux },
-            { label: '🌐 현대', ...result.axes.modern },
-          ].map(ax => {
-            const pct = ax.score / ax.max
-            const color = pct >= 0.7 ? '#10b981' : pct >= 0.5 ? '#f59e0b' : '#ef4444'
-            return (
-              <div key={ax.label} className="bg-card border border-border rounded-xl p-4 text-center">
-                <div className="text-xs text-muted-foreground mb-1">{ax.label}</div>
-                <div className="text-2xl font-black" style={{ color }}>{ax.score}</div>
-                <div className="text-xs text-muted-foreground">/{ax.max}점</div>
-                <div className="mt-2 h-1.5 bg-secondary rounded-full overflow-hidden">
-                  <div className="h-full rounded-full transition-all" style={{ width: `${pct * 100}%`, backgroundColor: color }} />
-                </div>
-              </div>
-            )
-          })}
+        <div>
+          <p className="text-foreground font-bold text-lg mb-2">진단이 완료되었습니다</p>
+          <p className="text-muted-foreground text-sm">
+            3축 성과 진단 리포트를 아래 이메일로 발송했습니다.
+          </p>
+          <p className="text-primary font-semibold text-sm mt-1">{email}</p>
+          <p className="text-muted-foreground text-xs mt-3">PDF 보고서 첨부 · 수신까지 1~2분 소요될 수 있습니다</p>
         </div>
-
-        {/* Detailed axis breakdown */}
-        {([
-          { label: '⚙️ 기술 기반', key: 'technical' as const },
-          { label: '👥 사용자 경험', key: 'ux' as const },
-          { label: '🌐 현대 기준', key: 'modern' as const },
-        ]).map(({ label, key }) => {
-          const ax = result.axes[key]
-          const pct = ax.score / ax.max
-          const color = pct >= 0.7 ? '#10b981' : pct >= 0.5 ? '#f59e0b' : '#ef4444'
-          return (
-            <div key={key} className="space-y-2">
-              <div className="flex items-center justify-between">
-                <p className="text-sm font-bold text-foreground">{label}</p>
-                <span className="text-sm font-black" style={{ color }}>{ax.score}<span className="text-xs text-muted-foreground font-normal">/{ax.max}점</span></span>
-              </div>
-              <div className="space-y-1.5">
-                {ax.items.map(item => (
-                  <div key={item.id} className={`rounded-lg px-3 py-2.5 border text-xs ${
-                    item.status === 'red'
-                      ? 'bg-destructive/8 border-destructive/25'
-                      : item.status === 'yellow'
-                        ? 'bg-amber-50/80 border-amber-200/60 dark:bg-amber-950/20 dark:border-amber-800/40'
-                        : 'bg-emerald-50/80 border-emerald-200/60 dark:bg-emerald-950/20 dark:border-emerald-800/40'
-                  }`}>
-                    <div className="flex items-start gap-2">
-                      <span className={`shrink-0 text-[10px] mt-0.5 ${
-                        item.status === 'red' ? 'text-destructive' :
-                        item.status === 'yellow' ? 'text-amber-500' : 'text-emerald-500'
-                      }`}>●</span>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between gap-2 mb-0.5">
-                          <p className="font-semibold text-foreground leading-tight">{item.title}</p>
-                          {item.impact === 'high' && item.status !== 'green' && (
-                            <span className="shrink-0 text-[9px] font-bold bg-destructive/15 text-destructive px-1.5 py-0.5 rounded-full">고영향</span>
-                          )}
-                        </div>
-                        <p className="text-muted-foreground leading-snug">{item.currentState}</p>
-                        {item.status !== 'green' && (
-                          <p className="text-primary mt-1 leading-snug">→ {item.tobe}</p>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )
-        })}
-
-        {/* Email confirmation */}
-        <div className="flex items-center gap-3 bg-primary/10 border border-primary/30 rounded-xl px-4 py-4">
-          <CheckCircle className="w-5 h-5 text-primary shrink-0" />
-          <div>
-            <p className="text-sm font-bold text-foreground">상세 리포트가 이메일로 발송되었습니다</p>
-            <p className="text-xs text-muted-foreground mt-0.5">{email} — PDF 첨부 포함</p>
-          </div>
-        </div>
-
         <button
-          onClick={() => { setState('idle'); setResult(null); setUrl(''); setEmail('') }}
-          className="w-full py-3 border border-border rounded-xl text-sm text-muted-foreground hover:text-foreground hover:bg-secondary transition">
+          onClick={() => { setState('idle'); setUrl(''); setEmail(''); setConsent(false) }}
+          className="mt-2 px-6 py-2.5 border border-border rounded-xl text-sm text-muted-foreground hover:text-foreground hover:bg-secondary transition">
           다른 사이트 진단하기
         </button>
       </div>
