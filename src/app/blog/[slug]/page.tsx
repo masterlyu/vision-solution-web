@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { getAllPosts, getPostBySlug } from '@/lib/blog'
-import { markdownToHtml } from '@/lib/markdownToHtml'
+import { markdownToHtml, extractHeadings } from '@/lib/markdownToHtml'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -69,13 +69,62 @@ export default async function BlogPostPage({ params }: PageProps) {
   if (!post) notFound()
 
   const contentHtml = markdownToHtml(post.content)
+  const headings = extractHeadings(post.content)
+  const readingMinutes = Math.max(1, Math.round(post.content.split(/\s+/).length / 250))
 
   // Get related posts (same tag, excluding current)
   const allPosts = getAllPosts()
   const related = allPosts.filter(p => p.slug !== slug && p.tag === post.tag).slice(0, 2)
 
+  const pageUrl = `${BASE}/blog/${slug}`
+  const imageUrl = post.image ? `${BASE}${post.image}` : `${BASE}/api/og`
+
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.summary,
+    image: imageUrl,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      '@type': 'Organization',
+      name: '비전솔루션',
+      url: BASE,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: '비전솔루션',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${BASE}/logo.svg`,
+      },
+    },
+    mainEntityOfPage: pageUrl,
+  }
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '홈', item: BASE },
+      { '@type': 'ListItem', position: 2, name: '블로그', item: `${BASE}/blog` },
+      { '@type': 'ListItem', position: 3, name: post.title, item: pageUrl },
+    ],
+  }
+
   return (
     <div className="min-h-screen pt-28 pb-24 bg-background">
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
       <div className="max-w-[800px] mx-auto px-6 lg:px-8">
 
         {/* Breadcrumb */}
@@ -109,6 +158,8 @@ export default async function BlogPostPage({ params }: PageProps) {
             <time dateTime={post.date}>{post.date}</time>
             <span>·</span>
             <span>비전솔루션</span>
+            <span>·</span>
+            <span>약 {readingMinutes}분</span>
           </div>
           {/* Tags */}
           {post.tags && post.tags.length > 0 && (
@@ -128,6 +179,32 @@ export default async function BlogPostPage({ params }: PageProps) {
             {post.summary}
           </p>
         </header>
+
+        {/* Table of Contents */}
+        {headings.length > 0 && (
+          <details
+            className="mb-10 bg-muted/40 border border-border rounded-2xl overflow-hidden"
+            open
+          >
+            <summary className="cursor-pointer px-6 py-4 font-bold text-foreground text-sm flex items-center justify-between select-none list-none">
+              <span>📋 목차</span>
+              <span className="text-xs text-muted-foreground font-normal">클릭하여 접기/펼치기</span>
+            </summary>
+            <ol className="px-6 pb-5 pt-1 space-y-2">
+              {headings.map((h, idx) => (
+                <li key={h.id} className="flex items-start gap-2.5 text-sm">
+                  <span className="text-primary font-bold shrink-0">{idx + 1}.</span>
+                  <a
+                    href={`#${h.id}`}
+                    className="text-foreground/80 hover:text-primary transition-colors leading-snug"
+                  >
+                    {h.text}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </details>
+        )}
 
         {/* Post Content */}
         <article

@@ -4,6 +4,31 @@
  *         unordered lists, ordered lists, blockquotes, fenced code blocks, tables.
  * No external packages required.
  */
+
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\s가-힣]/g, '')
+    .trim()
+    .replace(/\s+/g, '-')
+}
+
+export interface Heading {
+  id: string
+  text: string
+}
+
+/** Extract ## headings from markdown for ToC */
+export function extractHeadings(markdown: string): Heading[] {
+  return markdown
+    .split('\n')
+    .filter(line => /^##\s+/.test(line) && !/^###/.test(line))
+    .map(line => {
+      const text = line.replace(/^##\s+/, '').trim()
+      return { id: slugify(text), text }
+    })
+}
+
 export function markdownToHtml(markdown: string): string {
   let html = ''
   const lines = markdown.split('\n')
@@ -34,7 +59,7 @@ export function markdownToHtml(markdown: string): string {
     if (h3) { html += `<h3 class="text-lg font-bold text-foreground mt-8 mb-3">${inlineFormat(h3[1])}</h3>\n`; i++; continue }
 
     const h2 = line.match(/^##\s+(.+)/)
-    if (h2) { html += `<h2 class="text-xl font-bold text-foreground mt-10 mb-4 pb-2 border-b border-border">${inlineFormat(h2[1])}</h2>\n`; i++; continue }
+    if (h2) { const id = slugify(h2[1]); html += `<h2 id="${id}" class="text-xl font-bold text-foreground mt-10 mb-4 pb-2 border-b border-border">${inlineFormat(h2[1])}</h2>\n`; i++; continue }
 
     const h1 = line.match(/^#\s+(.+)/)
     if (h1) { html += `<h2 class="text-2xl font-bold text-foreground mt-10 mb-4">${inlineFormat(h1[1])}</h2>\n`; i++; continue }
