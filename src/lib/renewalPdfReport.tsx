@@ -147,7 +147,7 @@ function RenewalReport({ r }: { r: RenewalAnalysisResult }) {
       <Page size="A4" style={s.page}>
         {/* Cover */}
         <View style={s.coverBg}>
-          <Text style={s.coverTitle}>홈페이지 성과 진단 리포트</Text>
+          <Text style={s.coverTitle}>홈페이지 운영상태진단 리포트</Text>
           <Text style={s.coverSub}>Vision Solution · visionc.co.kr</Text>
           <Text style={s.coverMeta}>{r.url}</Text>
           <Text style={s.coverMeta}>{r.siteType.label}  ·  {r.analyzedAt}</Text>
@@ -217,7 +217,7 @@ function RenewalReport({ r }: { r: RenewalAnalysisResult }) {
 
         {/* Footer p1 */}
         <View style={s.footer}>
-          <Text style={s.footerTxt}>Vision Solution 홈페이지 성과 진단 리포트  ·  {r.analyzedAt}</Text>
+          <Text style={s.footerTxt}>Vision Solution 홈페이지 운영상태진단 리포트  ·  {r.analyzedAt}</Text>
           <Text style={s.footerTxt}>1 / 2</Text>
         </View>
       </Page>

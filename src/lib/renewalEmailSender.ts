@@ -74,7 +74,7 @@ export function buildRenewalEmailHtml(r: RenewalAnalysisResult, email: string): 
 
   return `<!DOCTYPE html>
 <html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>홈페이지 성과 진단 리포트</title></head>
+<title>홈페이지 운영상태진단 리포트</title></head>
 <body style="margin:0;padding:0;background:#f3f4f6;font-family:-apple-system,BlinkMacSystemFont,'Malgun Gothic',sans-serif;">
 <div style="max-width:680px;margin:32px auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);">
 
@@ -83,7 +83,7 @@ export function buildRenewalEmailHtml(r: RenewalAnalysisResult, email: string): 
     <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:20px;">
       <div>
         <div style="font-size:22px;font-weight:900;color:#fff;">VISION SOLUTION</div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.7);margin-top:4px;">홈페이지 성과 진단 리포트</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.7);margin-top:4px;">홈페이지 운영상태진단 리포트</div>
         <div style="margin-top:16px;">
           <div style="font-size:13px;color:rgba(255,255,255,0.85);">🌐 ${r.url}</div>
           <div style="font-size:12px;color:rgba(255,255,255,0.6);margin-top:4px;">
