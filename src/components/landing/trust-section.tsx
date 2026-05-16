@@ -3,13 +3,14 @@ import { useEffect, useRef, useState } from 'react'
 import { ShieldCheck, Clock, Wrench, Lock, Gift } from 'lucide-react'
 
 const logosRow1 = [
-  '○○테크', '△△유통', '□□쇼핑몰', '○○건설', '△△병원', '□□학원', '○○물류',
-  '△△인테리어', '□□법무사', '○○식품', '△△컨설팅', '□□미디어', '○○부동산', '△△제조',
+  '서울시 자원봉사센타', '서울시 동부병원', '서울시 교육시설재난', '수도권광역발전위원회',
+  '한국전지연구조합', '원자력국제협력재단', '한국전지산업협회', '서울시 전지협회',
+  '충청권광역발전위원회', '경기도 농림진흥재단', '재단법인 동아건설',
 ]
 
 const logosRow2 = [
-  '○○스튜디오', '△△프랜차이즈', '□□자동차', '○○세무사', '△△화장품', '□□헬스케어', '○○교육',
-  '△△펫샵', '□□여행사', '○○금융', '△△패션', '□□농업', '○○출판', '△△스포츠',
+  '㈜에일전자', '㈜동일기계공업', '㈜태영광학', '㈜오토전자', '㈜제일로닉',
+  '㈜에이엠씨쏠텍', '㈜일진', '우성I&C', '㈜에이엠씨', '㈜삼웅AFT',
 ]
 
 const trustBadges = [
@@ -50,9 +51,9 @@ export function TrustSection() {
 
       {/* Marquee Row 1 — left */}
       <div className="overflow-hidden mb-3" style={fadeMask}>
-        <div className="flex animate-[marqueeLeft_28s_linear_infinite] hover:[animation-play-state:paused]" style={{ width: 'max-content', gap: '12px' }}>
-          {[...logosRow1, ...logosRow1].map((name, i) => (
-            <div key={i} className="bg-card border border-border rounded-lg px-5 py-2.5 text-[13px] font-semibold text-muted-foreground whitespace-nowrap tracking-[0.02em]">
+        <div className="flex animate-[marqueeLeft_32s_linear_infinite] hover:[animation-play-state:paused]" style={{ width: 'max-content', gap: '12px' }}>
+          {[...logosRow1, ...logosRow1, ...logosRow1].map((name, i) => (
+            <div key={i} className="bg-card border border-border rounded-lg px-5 py-2.5 text-[13px] font-semibold text-muted-foreground whitespace-nowrap tracking-[0.02em] cursor-default transition-all duration-200 hover:border-primary/60 hover:text-foreground hover:bg-primary/5 hover:scale-105 hover:shadow-[0_0_12px_rgba(139,92,246,0.15)]">
               {name}
             </div>
           ))}
@@ -61,9 +62,9 @@ export function TrustSection() {
 
       {/* Marquee Row 2 — right */}
       <div className="overflow-hidden mb-10" style={fadeMask}>
-        <div className="flex animate-[marqueeRight_22s_linear_infinite] hover:[animation-play-state:paused]" style={{ width: 'max-content', gap: '12px' }}>
-          {[...logosRow2, ...logosRow2].map((name, i) => (
-            <div key={i} className="bg-card border border-border rounded-lg px-5 py-2.5 text-[13px] font-semibold text-muted-foreground whitespace-nowrap tracking-[0.02em]">
+        <div className="flex animate-[marqueeRight_26s_linear_infinite] hover:[animation-play-state:paused]" style={{ width: 'max-content', gap: '12px' }}>
+          {[...logosRow2, ...logosRow2, ...logosRow2].map((name, i) => (
+            <div key={i} className="bg-card border border-border rounded-lg px-5 py-2.5 text-[13px] font-semibold text-muted-foreground whitespace-nowrap tracking-[0.02em] cursor-default transition-all duration-200 hover:border-primary/60 hover:text-foreground hover:bg-primary/5 hover:scale-105 hover:shadow-[0_0_12px_rgba(139,92,246,0.15)]">
               {name}
             </div>
           ))}
