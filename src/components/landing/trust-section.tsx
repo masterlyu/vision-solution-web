@@ -8,10 +8,12 @@ const logosRow1 = [
   '충청권광역발전위원회', '경기도 농림진흥재단', '재단법인 동아건설',
 ]
 
-const logosRow2 = [
+const logosRow2base = [
   '㈜에일전자', '㈜동일기계공업', '㈜태영광학', '㈜오토전자', '㈜제일로닉',
   '㈜에이엠씨쏠텍', '㈜일진', '우성I&C', '㈜에이엠씨', '㈜삼웅AFT',
 ]
+// 항목 수가 적어 뷰포트보다 짧으므로 내부 2배 확장 (총 4세트 = 뷰포트를 항상 초과)
+const logosRow2 = [...logosRow2base, ...logosRow2base]
 
 const trustBadges = [
   { icon: ShieldCheck, label: '무료 진단 보장' },
