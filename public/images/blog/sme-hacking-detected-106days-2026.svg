@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0d0d16"/>
+  <rect x="60" y="60" width="1080" height="510" rx="12" fill="#12121f" stroke="#2a2a4a" stroke-width="1"/>
+
+  <!-- Warning icon -->
+  <polygon points="600,120 520,260 680,260" fill="none" stroke="#ef4444" stroke-width="6" stroke-linejoin="round"/>
+  <line x1="600" y1="155" x2="600" y2="215" stroke="#ef4444" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="600" cy="238" r="5" fill="#ef4444"/>
+
+  <!-- Main title -->
+  <text x="600" y="320" font-family="Arial, sans-serif" font-size="38" font-weight="bold" fill="#ffffff" text-anchor="middle">해킹당하고 106일 후에야 알았다</text>
+
+  <!-- Subtitle -->
+  <text x="600" y="375" font-family="Arial, sans-serif" font-size="24" fill="#94a3b8" text-anchor="middle">중소기업 홈페이지 보안의 충격적 실태</text>
+
+  <!-- Stats bar -->
+  <rect x="200" y="420" width="800" height="2" fill="#2a2a4a"/>
+
+  <!-- Stats -->
+  <text x="340" y="470" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#ef4444" text-anchor="middle">2,242개사</text>
+  <text x="340" y="500" font-family="Arial, sans-serif" font-size="16" fill="#64748b" text-anchor="middle">정부 점검 대상</text>
+
+  <text x="600" y="470" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#ef4444" text-anchor="middle">9만 건</text>
+  <text x="600" y="500" font-family="Arial, sans-serif" font-size="16" fill="#64748b" text-anchor="middle">발견된 취약점</text>
+
+  <text x="860" y="470" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#ef4444" text-anchor="middle">평균 106일</text>
+  <text x="860" y="500" font-family="Arial, sans-serif" font-size="16" fill="#64748b" text-anchor="middle">해킹 인지까지</text>
+
+  <!-- Brand -->
+  <text x="600" y="555" font-family="Arial, sans-serif" font-size="18" fill="#3b82f6" text-anchor="middle">Vision Solution — visionc.co.kr</text>
+</svg>
