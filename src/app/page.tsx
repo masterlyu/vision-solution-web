@@ -43,10 +43,7 @@ const schemaOrg = {
   serviceType: ['홈페이지 제작', '홈페이지 리뉴얼', '웹 보안 진단', 'AI 솔루션'],
   priceRange: '₩₩',
   knowsAbout: ['웹개발', '홈페이지 제작', '보안 진단', 'AI 솔루션', '앱 개발'],
-  sameAs: [
-    'https://blog.naver.com/visionc',
-    'https://www.youtube.com/@visionc',
-  ],
+  sameAs: [],
 }
 
 export default function Home() {
