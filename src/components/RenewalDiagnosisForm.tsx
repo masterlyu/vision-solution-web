@@ -56,7 +56,8 @@ export default function RenewalDiagnosisForm() {
     }
   }
 
-  const inputCls = 'w-full bg-background border border-border rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition'
+  const inputCls = 'w-full bg-secondary border-2 border-primary/50 rounded-xl px-5 py-4 text-foreground text-[1.05rem] placeholder:text-foreground/40 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/40 transition-all'
+  const labelCls = 'text-foreground text-base font-bold mb-2 block'
 
   if (state === 'loading') {
     return (
@@ -103,8 +104,7 @@ export default function RenewalDiagnosisForm() {
     <form onSubmit={handleSubmit} className="space-y-4">
       {/* URL */}
       <div>
-        <label className="block text-sm font-semibold text-foreground mb-2">
-          <Globe className="inline w-4 h-4 mr-1 text-primary" />
+        <label className={labelCls}>
           진단할 홈페이지 주소 <span className="text-primary">*</span>
         </label>
         <input
@@ -120,10 +120,9 @@ export default function RenewalDiagnosisForm() {
 
       {/* Email */}
       <div>
-        <label className="block text-sm font-semibold text-foreground mb-2">
-          <Mail className="inline w-4 h-4 mr-1 text-primary" />
+        <label className={labelCls}>
           회사 이메일 <span className="text-primary">*</span>
-          <span className="ml-2 text-xs text-muted-foreground font-normal">사이트 도메인과 동일해야 합니다</span>
+          <span className="ml-2 text-xs text-muted-foreground font-normal">— 진단 리포트 PDF 발송</span>
         </label>
         <input
           type="email"
@@ -161,7 +160,7 @@ export default function RenewalDiagnosisForm() {
       )}
 
       {/* Consent */}
-      <div className="bg-secondary/60 border border-border rounded-xl px-4 py-3">
+      <div className="bg-[var(--accent-amber)]/5 border border-[var(--accent-amber)]/20 rounded-xl px-4 py-3">
         <label className="flex items-start gap-3 cursor-pointer">
           <input
             type="checkbox"
@@ -187,10 +186,7 @@ export default function RenewalDiagnosisForm() {
         무료 진단 시작 →
       </button>
 
-      <p className="text-center text-xs text-muted-foreground">
-        분석 20~40초 소요 · 결과는 입력한 이메일로 PDF와 함께 발송됩니다<br />
-        <span className="text-primary/70">* 실제 사이트 소유자 확인을 위해 회사 이메일이 필요합니다</span>
-      </p>
+      <p className="text-center text-muted-foreground text-sm">분석 완료 후 입력한 이메일로 PDF 리포트와 견적서가 발송됩니다</p>
     </form>
   )
 }

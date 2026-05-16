@@ -7,6 +7,7 @@ interface Props {
   serviceType: 'renewal' | 'maintenance' | 'security'
   title: string
   notice?: string
+  embedded?: boolean  // 외부 카드 안에 삽입될 때 자체 래퍼·타이틀 숨김
 }
 
 const STEPS = [
@@ -16,7 +17,7 @@ const STEPS = [
   { icon: Zap,    label: '성능 측정' },
 ]
 
-export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
+export default function UrlAnalysisForm({ serviceType, title, notice, embedded = false }: Props) {
   const [url, setUrl]         = useState('')
   const [email, setEmail]     = useState('')
   const [company, setCompany] = useState('')
@@ -184,9 +185,9 @@ export default function UrlAnalysisForm({ serviceType, title, notice }: Props) {
 
   // ── Form ──
   return (
-    <form onSubmit={handleSubmit} className="relative bg-card border-2 border-primary/60 rounded-2xl p-7 space-y-5 shadow-[0_4px_40px_rgba(var(--primary-rgb),0.25)]">
-      <div className="absolute inset-x-0 top-0 h-[3px] bg-primary rounded-t-2xl pointer-events-none" />
-      <h3 className="text-foreground font-black text-2xl mb-2">{title}</h3>
+    <form onSubmit={handleSubmit} className={embedded ? 'space-y-5' : 'relative bg-card border-2 border-primary/60 rounded-2xl p-7 space-y-5 shadow-[0_4px_40px_rgba(var(--primary-rgb),0.25)]'}>
+      {!embedded && <div className="absolute inset-x-0 top-0 h-[3px] bg-primary rounded-t-2xl pointer-events-none" />}
+      {!embedded && <h3 className="text-foreground font-black text-2xl mb-2">{title}</h3>}
       <div>
         <label className="text-foreground text-base font-bold mb-2 block">
           분석할 사이트 URL <span className="text-primary">*</span>

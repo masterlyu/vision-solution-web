@@ -172,16 +172,23 @@ export default function ContactPage() {
 
               {/* 보안 점검 */}
               {tab === 'security' && (
-                <UrlAnalysisForm
-                  serviceType="security"
-                  title="무료 보안 진단 신청"
-                  notice="URL 입력 후 20~40초 내 자동 분석 → 입력한 이메일로 PDF 리포트 즉시 발송"
-                />
+                <>
+                  <h2 className="text-foreground text-2xl font-black mb-6">무료 보안 진단 신청</h2>
+                  <UrlAnalysisForm
+                    serviceType="security"
+                    title="무료 보안 진단 신청"
+                    notice="URL 입력 후 20~40초 내 자동 분석 → 입력한 이메일로 PDF 리포트 즉시 발송"
+                    embedded
+                  />
+                </>
               )}
 
               {/* 홈페이지 진단 */}
               {tab === 'renewal' && (
-                <RenewalDiagnosisForm />
+                <>
+                  <h2 className="text-foreground text-2xl font-black mb-6">무료 홈페이지 진단 신청</h2>
+                  <RenewalDiagnosisForm />
+                </>
               )}
 
             </div>
