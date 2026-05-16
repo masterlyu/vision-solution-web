@@ -81,12 +81,13 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const articleJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'BlogPosting',
     headline: post.title,
     description: post.summary,
     image: imageUrl,
     datePublished: post.date,
     dateModified: post.date,
+    keywords: post.tags.join(', '),
     author: {
       '@type': 'Organization',
       name: '비전솔루션',
@@ -100,7 +101,11 @@ export default async function BlogPostPage({ params }: PageProps) {
         url: `${BASE}/logo.svg`,
       },
     },
-    mainEntityOfPage: pageUrl,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': pageUrl,
+    },
+    url: pageUrl,
   }
 
   const breadcrumbJsonLd = {

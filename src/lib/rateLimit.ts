@@ -1,54 +1,51 @@
-import { Redis } from '@upstash/redis'
-import { env } from './env'
+// 인메모리 rate limiter — Upstash Redis 의존성 제거
+// 서버리스 환경에서 인스턴스 간 공유는 안 되지만 단일 인스턴스 내 단순 공격은 차단 가능
 
-const redis = new Redis({
-  url:   env.UPSTASH_REDIS_REST_URL,
-  token: env.UPSTASH_REDIS_REST_TOKEN,
-})
+interface Window {
+  count: number
+  resetAt: number
+}
+
+const store = new Map<string, Window>()
+
+function cleanup() {
+  const now = Math.floor(Date.now() / 1000)
+  for (const [key, win] of store) {
+    if (win.resetAt < now) store.delete(key)
+  }
+}
 
 export interface RateLimitConfig {
-  /** Maximum number of requests allowed in the window */
   limit: number
-  /** Window duration in seconds */
   windowSec: number
 }
 
 export interface RateLimitResult {
   success: boolean
   remaining: number
-  resetAt: number // Unix timestamp (seconds)
+  resetAt: number
 }
 
-/**
- * Fixed-window rate limiter using Upstash Redis.
- * Key format: `rl:{endpoint}:{identifier}`
- */
 export async function checkRateLimit(
   endpoint: string,
   identifier: string,
   config: RateLimitConfig
 ): Promise<RateLimitResult> {
-  const key = `rl:${endpoint}:${identifier}`
   const now = Math.floor(Date.now() / 1000)
   const windowStart = Math.floor(now / config.windowSec) * config.windowSec
-  const windowKey = `${key}:${windowStart}`
   const resetAt = windowStart + config.windowSec
+  const key = `rl:${endpoint}:${identifier}:${windowStart}`
 
-  // INCR atomically increments and returns new value; EXPIRE sets TTL if not already set
-  const count = await redis.incr(windowKey)
-  if (count === 1) {
-    await redis.expire(windowKey, config.windowSec)
-  }
+  if (store.size > 500) cleanup()
 
-  const remaining = Math.max(0, config.limit - count)
-  return {
-    success: count <= config.limit,
-    remaining,
-    resetAt,
-  }
+  const win = store.get(key) ?? { count: 0, resetAt }
+  win.count += 1
+  store.set(key, win)
+
+  const remaining = Math.max(0, config.limit - win.count)
+  return { success: win.count <= config.limit, remaining, resetAt }
 }
 
-/** Extracts a best-effort client identifier from the request (IP address). */
 export function getClientId(req: Request): string {
   const forwarded = req.headers.get('x-forwarded-for')
   if (forwarded) return forwarded.split(',')[0].trim()
