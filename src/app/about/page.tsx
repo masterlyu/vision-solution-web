@@ -4,6 +4,9 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, useMotionValue, useSpring, useTransform, useInView } from 'framer-motion'
 import Link from 'next/link'
 import RenewalRequestForm from '@/components/RenewalRequestForm'
+import historyData from '../../../content/company/history.json'
+import clientsData from '../../../content/company/clients.json'
+import certificationsData from '../../../content/company/certifications.json'
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 import { VisiMascot } from '@/components/visi/VisiMascot'
@@ -465,18 +468,7 @@ export default function AboutPage() {
               background: 'linear-gradient(to bottom, var(--primary), color-mix(in oklch, var(--primary) 10%, transparent))',
             }} />
 
-            {[
-              { year: '2007~', title: '비전솔루션 설립 / 벤처기업 등록', desc: '중소기업 업무솔루션 컨설팅 전문으로 설립. 그룹웨어 / ERP 개발 착수. 중기청·중진공 정부 컨설팅 수행. 벤처기업 등록.' },
-              { year: '2014~', title: '홈페이지·그룹웨어 수주 본격화', desc: '동창회·기관 홈페이지 다수 구축. 영리/비영리 그룹웨어 납품 확대. RF-ID 구축시스템 특허 등록. 반석시스템 업무제휴.' },
-              { year: '2015', title: '서울시 동부병원 비영리기관 그룹웨어 구축', desc: '서울시 동부병원 비영리기관 전용 그룹웨어 구축 완료 / 납품.' },
-              { year: '2016~', title: '공공기관 웹접근성 홈페이지 구축', desc: '물류·유통 ERP 개발 완료 / 납품. 경기도·서울시 산하 공공기관 웹접근성 홈페이지 다수 구축. 비영리 그룹웨어 버전 업그레이드.' },
-              { year: '2018~', title: '그룹웨어 닷넷버전 · 무역 특화 ERP 완성', desc: '그룹웨어 닷넷버전 개발 완료 / 업그레이드. 무역 특화 ERP 개발 완료 / 납품. 중소기업청 컨설팅사업자 선정. 비즈니스 컨설팅 사업자 선정.' },
-              { year: '2020~', title: '홈페이지·쇼핑몰 50여 업체 납품', desc: '비영리 그룹웨어 최신버전 개발. 홈페이지 / 쇼핑몰 약 50여 업체 납품. 비전ERP 유통버전 개발. 비즈니스 컨설팅 사업자 재선정.' },
-              { year: '2021', title: '생산정보화 정부지원사업 MES 개발 진행', desc: '중소기업 생산정보화 정부지원사업 MES(제조실행시스템) 개발 수행.' },
-              { year: '2023~', title: 'AI 챗봇 솔루션 서비스 도입 / 누적 200건+ 돌파', desc: 'AI 챗봇 자동화 서비스 시작. 웹 특화 쇼핑몰 추가 수주. 누적 프로젝트 200건+ 돌파.' },
-              { year: '2024', title: '두루무역 업무관리 안드로이드 앱 개발', desc: '두루무역 전용 업무관리 안드로이드 앱 개발 완료 / 납품.' },
-              { year: '2025~', title: 'AI 기반 홈페이지 진단·리뉴얼 서비스 확장', desc: 'AI 홈페이지 무료 진단 서비스 론칭. 중소기업 디지털 전환 토털 파트너로 도약. 누적 247건+ 프로젝트 완료.', accent: true },
-            ].map((item, i) => (
+            {historyData.map((item, i) => (
               <FadeInSection key={item.year} delay={i * 0.06}>
                 <div style={{ display: 'flex', gap: 0, padding: '20px 0', position: 'relative' }}>
                   <div style={{
@@ -517,14 +509,7 @@ export default function AboutPage() {
 
           {/* Trust badges */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 14, marginBottom: 52, maxWidth: 900, marginLeft: 'auto', marginRight: 'auto' }}>
-            {[
-              { icon: '🚀', title: '벤처기업 등록', sub: '중소기업청 벤처기업 공식 등록' },
-              { icon: '📜', title: '중소기업청 컨설팅사업자 선정', sub: '비즈니스 컨설팅 사업자 (2015·2017)' },
-              { icon: '🔏', title: 'RF-ID 구축시스템 특허 등록', sub: '특허청 공식 등록' },
-              { icon: '☕', title: 'JAVA 시스템 인증', sub: '썬마이크로시스템 (Sun Microsystems)' },
-              { icon: '✅', title: 'IMS 심사 인증', sub: '중소기업진흥공단' },
-              { icon: '🏛️', title: '조달청 IT제품 납품 등록', sub: 'BTBT 조달청 공식 등록' },
-            ].map((badge, i) => (
+            {certificationsData.map((badge, i) => (
               <FadeInSection key={badge.title} delay={i * 0.05}>
                 <div style={{
                   background: 'var(--card)', border: '1px solid var(--border)',
@@ -574,15 +559,7 @@ export default function AboutPage() {
           <FadeInSection>
             <p style={{ fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--muted-foreground)', textAlign: 'center', marginBottom: 28 }}>신뢰하는 고객사</p>
             <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center' }}>
-              {[
-                '서울시 자원봉사센타', '서울시 동부병원', '서울시 교육시설재난',
-                '수도권광역발전위원회', '한국전지연구조합', '원자력국제협력재단',
-                '한국전지산업협회', '서울시 전지협회', '충청권광역발전위원회',
-                '경기도 농림진흥재단', '재단법인 동아건설', '두루무역',
-                '㈜에일전자', '㈜동일기계공업', '㈜태영광학', '㈜오토전자',
-                '㈜제일로닉', '㈜에이엠씨쏠텍', '㈜일진', '우성I&C',
-                '㈜에이엠씨', '㈜삼웅AFT',
-              ].map(name => (
+              {clientsData.featured.map(name => (
                 <div key={name} style={{
                   background: 'var(--card)', border: '1px solid var(--border)',
                   borderRadius: 10, padding: '12px 22px',

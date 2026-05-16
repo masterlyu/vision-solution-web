@@ -1,19 +1,11 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import { ShieldCheck, Clock, Wrench, Lock, Gift } from 'lucide-react'
+import clientsData from '../../../content/company/clients.json'
 
-const logosRow1 = [
-  '서울시 자원봉사센타', '서울시 동부병원', '서울시 교육시설재난', '수도권광역발전위원회',
-  '한국전지연구조합', '원자력국제협력재단', '한국전지산업협회', '서울시 전지협회',
-  '충청권광역발전위원회', '경기도 농림진흥재단', '재단법인 동아건설',
-]
-
-const logosRow2base = [
-  '㈜에일전자', '㈜동일기계공업', '㈜태영광학', '㈜오토전자', '㈜제일로닉',
-  '㈜에이엠씨쏠텍', '㈜일진', '우성I&C', '㈜에이엠씨', '㈜삼웅AFT',
-]
+const logosRow1 = clientsData.marqueeRow1
 // 항목 수가 적어 뷰포트보다 짧으므로 내부 2배 확장 (총 4세트 = 뷰포트를 항상 초과)
-const logosRow2 = [...logosRow2base, ...logosRow2base]
+const logosRow2 = [...clientsData.marqueeRow2, ...clientsData.marqueeRow2]
 
 const trustBadges = [
   { icon: ShieldCheck, label: '무료 진단 보장' },
