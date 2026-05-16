@@ -1,6 +1,5 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -12,9 +11,7 @@ const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.12 } }
 
 export function CtaSection() {
   const [mouse, setMouse] = useState({ x: 50, y: 50 })
-  const [url, setUrl] = useState('')
   const [primaryRgb, setPrimaryRgb] = useState('139,92,246')
-  const router = useRouter()
 
   useEffect(() => {
     setPrimaryRgb(getComputedStyle(document.documentElement).getPropertyValue('--primary-rgb').trim() || '139,92,246')
@@ -61,22 +58,11 @@ export function CtaSection() {
                 지금 바로 URL을 입력하세요.<br />분석·리포트·상담 전부 무료입니다.
               </motion.p>
 
-              <motion.form
-                variants={fadeInUp}
-                onSubmit={e => { e.preventDefault(); if (url) router.push(`/renewal?url=${encodeURIComponent(url)}`) }}
-                className="flex flex-col sm:flex-row gap-3 w-full max-w-xl mb-6"
-              >
-                <input
-                  type="url"
-                  value={url}
-                  onChange={e => setUrl(e.target.value)}
-                  placeholder="https://your-website.com"
-                  className="flex-1 h-14 px-5 rounded-xl bg-[var(--card-deep)] border-2 border-primary/50 text-foreground placeholder:text-foreground/35 text-base focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 transition-all"
-                />
-                <Button type="submit" size="lg" className="h-14 px-8 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-bold gap-2 shrink-0 shadow-lg shadow-primary/50 hover:shadow-primary/70 transition-all">
-                  무료 진단 <ArrowRight className="w-4 h-4" />
+              <motion.div variants={fadeInUp} className="mb-6">
+                <Button asChild size="lg" className="h-14 px-8 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-bold gap-2 shadow-lg shadow-primary/50 hover:shadow-primary/70 transition-all">
+                  <Link href="/contact">무료 진단 <ArrowRight className="w-4 h-4" /></Link>
                 </Button>
-              </motion.form>
+              </motion.div>
 
               <motion.div variants={fadeInUp} className="flex items-center justify-center gap-6 text-sm text-muted-foreground">
                 <Link href="/contact" className="hover:text-foreground transition-colors">문의하기</Link>
