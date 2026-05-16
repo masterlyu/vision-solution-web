@@ -573,22 +573,26 @@ export default function AboutPage() {
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <FadeInSection>
             <p style={{ fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--muted-foreground)', textAlign: 'center', marginBottom: 28 }}>신뢰하는 고객사</p>
-            <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center' }}>
-              {['고객사 A', '고객사 B', '고객사 C', '고객사 D', '고객사 E', '고객사 F', '고객사 G', '고객사 H'].map(name => (
+            <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center' }}>
+              {[
+                '서울시 자원봉사센타', '서울시 동부병원', '서울시 교육시설재난',
+                '수도권광역발전위원회', '한국전지연구조합', '원자력국제협력재단',
+                '한국전지산업협회', '서울시 전지협회', '충청권광역발전위원회',
+                '경기도 농림진흥재단', '재단법인 동아건설', '두루무역',
+                '㈜에일전자', '㈜동일기계공업', '㈜태영광학', '㈜오토전자',
+                '㈜제일로닉', '㈜에이엠씨쏠텍', '㈜일진', '우성I&C',
+                '㈜에이엠씨', '㈜삼웅AFT',
+              ].map(name => (
                 <div key={name} style={{
                   background: 'var(--card)', border: '1px solid var(--border)',
-                  borderRadius: 10, padding: '16px 28px',
-                  fontSize: '0.75rem', fontWeight: 700, color: 'var(--muted-foreground)',
-                  letterSpacing: '0.06em', textTransform: 'uppercase',
-                  minWidth: 120, textAlign: 'center',
+                  borderRadius: 10, padding: '12px 22px',
+                  fontSize: '0.78rem', fontWeight: 700, color: 'var(--muted-foreground)',
+                  letterSpacing: '0.02em', textAlign: 'center',
                 }}>
                   {name}
                 </div>
               ))}
             </div>
-            <p style={{ fontSize: '0.78rem', color: 'var(--muted-foreground)', textAlign: 'center', marginTop: 20 }}>
-              실제 로고 자산 적용 예정 — 고객사 허락 후 교체
-            </p>
           </FadeInSection>
         </div>
       </section>
