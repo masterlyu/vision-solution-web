@@ -57,9 +57,9 @@ function AppDevHeroIllust() {
         {/* Laptop */}
         <rect x="60" y="60" width="180" height="120" rx="10" fill="var(--background-deep)" stroke="rgba(var(--primary-rgb),.45)" strokeWidth="2" />
         <rect x="60" y="60" width="180" height="18" rx="10" fill="var(--background-deep)" />
-        <circle cx="76" cy="69" r="3.5" fill="#ff5f57" />
-        <circle cx="87" cy="69" r="3.5" fill="#ffbd2e" />
-        <circle cx="98" cy="69" r="3.5" fill="#28c840" />
+        <circle cx="76" cy="69" r="3.5" fill="var(--macos-red)" />
+        <circle cx="87" cy="69" r="3.5" fill="var(--macos-yellow)" />
+        <circle cx="98" cy="69" r="3.5" fill="var(--macos-green)" />
         {/* Code on screen */}
         <rect x="68" y="85" width="164" height="88" rx="4" fill="var(--background)" />
         <rect x="75" y="93" width="40" height="4" rx="2" fill="var(--primary)" opacity={0.8} />

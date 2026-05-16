@@ -63,9 +63,9 @@ function NewWebsiteHeroIllust() {
         {/* Main browser window */}
         <rect x="30" y="30" width="240" height="180" rx="12" fill="var(--background-deep)" stroke="rgba(var(--primary-rgb),.5)" strokeWidth="2" />
         <rect x="30" y="30" width="240" height="24" rx="12" fill="var(--background-deep)" />
-        <circle cx="48" cy="42" r="4" fill="#ff5f57" />
-        <circle cx="61" cy="42" r="4" fill="#ffbd2e" />
-        <circle cx="74" cy="42" r="4" fill="#28c840" />
+        <circle cx="48" cy="42" r="4" fill="var(--macos-red)" />
+        <circle cx="61" cy="42" r="4" fill="var(--macos-yellow)" />
+        <circle cx="74" cy="42" r="4" fill="var(--macos-green)" />
         <rect x="96" y="37" width="130" height="11" rx="5.5" fill="var(--background-deep)" />
         {/* Hero area */}
         <rect x="38" y="62" width="224" height="68" rx="6" fill="rgba(var(--primary-rgb),.1)" />

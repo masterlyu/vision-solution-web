@@ -52,6 +52,11 @@ body {
   --accent-blue: oklch(0.55 0.20 260);
   --success: oklch(0.64 0.19 145);
   --overlay: oklch(0 0 0 / 0.5);
+
+  /* macOS 트래픽라이트 SVG 색상 — 테마 무관하게 고정 */
+  --macos-red: #ff5f57;
+  --macos-yellow: #ffbd2e;
+  --macos-green: #28c840;
 }
 
 @keyframes marqueeLeft {

@@ -75,9 +75,9 @@ function AboutHeroIllust() {
         {/* Header bar */}
         <rect x="40" y="50" width="180" height="24" rx="7" fill="var(--background-deep)"/>
         {/* Traffic light dots */}
-        <circle cx="56" cy="62" r="4" fill="#ff5f57" opacity="0.8"/>
-        <circle cx="69" cy="62" r="4" fill="#ffbd2e" opacity="0.8"/>
-        <circle cx="82" cy="62" r="4" fill="#28c840" opacity="0.8"/>
+        <circle cx="56" cy="62" r="4" fill="var(--macos-red)" opacity="0.8"/>
+        <circle cx="69" cy="62" r="4" fill="var(--macos-yellow)" opacity="0.8"/>
+        <circle cx="82" cy="62" r="4" fill="var(--macos-green)" opacity="0.8"/>
         {/* URL bar */}
         <rect x="100" y="57" width="106" height="10" rx="5" fill="var(--background-deep)"/>
         <text x="107" y="66" fill="var(--muted-foreground)" fontSize="7" fontFamily="sans-serif">visionc.co.kr</text>
