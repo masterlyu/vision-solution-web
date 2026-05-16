@@ -82,9 +82,9 @@ function RenewalHeroIllust() {
             fill="var(--background-deep)" stroke="rgba(var(--primary-rgb),.2)" strokeWidth="1.5" opacity={0.6} />
           <rect x="10" y="30" width="220" height="22" rx="10"
             fill="var(--background-deep)" opacity={0.6} />
-          <circle cx="24" cy="41" r="4" fill="#ff5f57" opacity={0.5} />
-          <circle cx="36" cy="41" r="4" fill="#ffbd2e" opacity={0.5} />
-          <circle cx="48" cy="41" r="4" fill="#28c840" opacity={0.5} />
+          <circle cx="24" cy="41" r="4" fill="var(--macos-red)" opacity={0.5} />
+          <circle cx="36" cy="41" r="4" fill="var(--macos-yellow)" opacity={0.5} />
+          <circle cx="48" cy="41" r="4" fill="var(--macos-green)" opacity={0.5} />
           <rect x="70" y="36" width="110" height="10" rx="5" fill="var(--background-deep)" opacity={0.5} />
           {/* 오래된 사이트 느낌 (흐리고 정렬 안됨) */}
           <rect x="20" y="62" width="200" height="50" rx="4" fill="var(--background-deep)" opacity={0.5} />
@@ -107,9 +107,9 @@ function RenewalHeroIllust() {
             fill="var(--background-deep)" stroke="rgba(var(--primary-rgb),.55)" strokeWidth="2" />
           <rect x="110" y="10" width="220" height="24" rx="12"
             fill="var(--background-deep)" />
-          <circle cx="126" cy="22" r="4.5" fill="#ff5f57" />
-          <circle cx="139" cy="22" r="4.5" fill="#ffbd2e" />
-          <circle cx="152" cy="22" r="4.5" fill="#28c840" />
+          <circle cx="126" cy="22" r="4.5" fill="var(--macos-red)" />
+          <circle cx="139" cy="22" r="4.5" fill="var(--macos-yellow)" />
+          <circle cx="152" cy="22" r="4.5" fill="var(--macos-green)" />
           <rect x="174" y="17" width="120" height="11" rx="5.5" fill="var(--background-deep)" />
           {/* 새 사이트 — 깔끔한 레이아웃 */}
           {/* 히어로 */}
