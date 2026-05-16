@@ -516,12 +516,14 @@ export default function AboutPage() {
           </FadeInSection>
 
           {/* Trust badges */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 14, marginBottom: 52, maxWidth: 700, marginLeft: 'auto', marginRight: 'auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 14, marginBottom: 52, maxWidth: 900, marginLeft: 'auto', marginRight: 'auto' }}>
             {[
-              { icon: '🏆', title: '중소기업 IT 서비스 우수업체', sub: '대한민국 중소기업부 선정 (2023)' },
-              { icon: '✅', title: '정보보호관리체계 구축 전문기업', sub: '보안 기준 인증 보유' },
-              { icon: '🤝', title: '중소벤처기업부 협력 파트너', sub: '공식 협약 기업' },
-              { icon: '📋', title: '네이버 파트너스퀘어 등록 업체', sub: '정식 등록 파트너' },
+              { icon: '🚀', title: '벤처기업 등록', sub: '중소기업청 벤처기업 공식 등록' },
+              { icon: '📜', title: '중소기업청 컨설팅사업자 선정', sub: '비즈니스 컨설팅 사업자 (2015·2017)' },
+              { icon: '🔏', title: 'RF-ID 구축시스템 특허 등록', sub: '특허청 공식 등록' },
+              { icon: '☕', title: 'JAVA 시스템 인증', sub: '썬마이크로시스템 (Sun Microsystems)' },
+              { icon: '✅', title: 'IMS 심사 인증', sub: '중소기업진흥공단' },
+              { icon: '🏛️', title: '조달청 IT제품 납품 등록', sub: 'BTBT 조달청 공식 등록' },
             ].map((badge, i) => (
               <FadeInSection key={badge.title} delay={i * 0.05}>
                 <div style={{
