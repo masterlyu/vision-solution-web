@@ -54,7 +54,18 @@ body {
   --overlay: oklch(0 0 0 / 0.5);
 }
 
+@keyframes marqueeLeft {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marqueeRight {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
 @theme inline {
+  --animate-marquee-left:  marqueeLeft 28s linear infinite;
+  --animate-marquee-right: marqueeRight 22s linear infinite;
   --font-sans: 'Pretendard Variable', 'Pretendard', -apple-system, sans-serif;
   --font-mono: ui-monospace, 'SF Mono', monospace;
   --color-background: var(--background);
