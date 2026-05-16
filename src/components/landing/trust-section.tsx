@@ -51,8 +51,8 @@ export function TrustSection() {
 
       {/* Marquee Row 1 — left */}
       <div className="overflow-hidden mb-3" style={fadeMask}>
-        <div className="flex animate-[marqueeLeft_32s_linear_infinite] hover:[animation-play-state:paused]" style={{ width: 'max-content', gap: '12px' }}>
-          {[...logosRow1, ...logosRow1, ...logosRow1].map((name, i) => (
+        <div className="flex animate-marquee-left hover:[animation-play-state:paused]" style={{ width: 'max-content', gap: '12px' }}>
+          {[...logosRow1, ...logosRow1].map((name, i) => (
             <div key={i} className="bg-card border border-border rounded-lg px-5 py-2.5 text-[13px] font-semibold text-muted-foreground whitespace-nowrap tracking-[0.02em] cursor-default transition-all duration-200 hover:border-primary/60 hover:text-foreground hover:bg-primary/5 hover:scale-105 hover:shadow-[0_0_12px_rgba(139,92,246,0.15)]">
               {name}
             </div>
@@ -62,8 +62,8 @@ export function TrustSection() {
 
       {/* Marquee Row 2 — right */}
       <div className="overflow-hidden mb-10" style={fadeMask}>
-        <div className="flex animate-[marqueeRight_26s_linear_infinite] hover:[animation-play-state:paused]" style={{ width: 'max-content', gap: '12px' }}>
-          {[...logosRow2, ...logosRow2, ...logosRow2].map((name, i) => (
+        <div className="flex animate-marquee-right hover:[animation-play-state:paused]" style={{ width: 'max-content', gap: '12px' }}>
+          {[...logosRow2, ...logosRow2].map((name, i) => (
             <div key={i} className="bg-card border border-border rounded-lg px-5 py-2.5 text-[13px] font-semibold text-muted-foreground whitespace-nowrap tracking-[0.02em] cursor-default transition-all duration-200 hover:border-primary/60 hover:text-foreground hover:bg-primary/5 hover:scale-105 hover:shadow-[0_0_12px_rgba(139,92,246,0.15)]">
               {name}
             </div>
