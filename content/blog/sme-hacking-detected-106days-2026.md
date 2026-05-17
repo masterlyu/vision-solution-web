@@ -18,7 +18,7 @@ summary: "국내 중소기업 2,242곳을 점검했더니 취약점이 9만 건 
 ---
 
 ## 정부가 직접 점검했더니... 취약점 9만 건
-![right](/mascot/md/emotion/cat_worried.png)
+![center](/mascot/md/emotion/cat_worried.png)
 
 2026년 과학기술정보통신부는 한국인터넷진흥원(KISA), 한국정보보호산업협회(KISIA)와 함께 **지역·중소기업 2,242개사**를 대상으로 무료 보안 점검을 실시했습니다.
 
@@ -35,7 +35,7 @@ summary: "국내 중소기업 2,242곳을 점검했더니 취약점이 9만 건 
 ---
 
 ## 중소기업이 특히 위험한 이유 3가지
-![right](/mascot/md/emotion/cat_worried.png)
+![center](/mascot/md/emotion/cat_thinking.png)
 
 ### 1. 야간·심야에 집중되는 공격, 대응할 사람이 없다
 
@@ -56,7 +56,7 @@ SK쉴더스 분석에 따르면, 중소기업을 노린 사이버 공격의 **53
 ---
 
 ## 지금 당장 확인해야 할 홈페이지 보안 체크리스트
-![right](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_cheer.png)
 
 보안 전문가 없이도 확인 가능한 기본 항목들입니다.
 
@@ -72,7 +72,7 @@ SK쉴더스 분석에 따르면, 중소기업을 노린 사이버 공격의 **53
 ---
 
 ## 정부 무료 지원도 있지만, 모든 기업이 받을 수 있는 건 아닙니다
-![right](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_surprised.png)
 
 과기정통부·KISA의 무료 점검은 **선발된 기업에만** 제공됩니다. 2026년 기준 2,242개사가 지원을 받았지만, 국내 중소기업 수는 수백만 개에 달합니다. 지원을 기다리는 동안 피해를 입을 수 있습니다.
 

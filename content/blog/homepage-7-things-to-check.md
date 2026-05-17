@@ -8,7 +8,7 @@ summary: "처음 홈페이지를 제작하는 사장님이 업체 계약 전 반
 ---
 
 ## 👋 처음 홈페이지를 만드는 사장님께
-![right](/mascot/md/emotion/cat_grateful.png)
+![center](/mascot/md/emotion/cat_grateful.png)
 
 "이제 홈페이지 하나 만들어야 할 것 같은데..."
 
@@ -27,7 +27,7 @@ summary: "처음 홈페이지를 제작하는 사장님이 업체 계약 전 반
 ---
 
 ## 📋 반드시 확인할 7가지
-![right](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.png)
 
 ### 1. 🎯 목적부터 정하세요 — "예쁜 것"은 목적이 아닙니다
 
@@ -109,7 +109,7 @@ summary: "처음 홈페이지를 제작하는 사장님이 업체 계약 전 반
 ---
 
 ## 📊 정리하면
-![right](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_cheer.png)
 
 | 확인 항목 | 왜 중요한가 |
 |----------|----------|
@@ -124,7 +124,7 @@ summary: "처음 홈페이지를 제작하는 사장님이 업체 계약 전 반
 ---
 
 ## 💬 아직 어디서 시작해야 할지 모르겠다면
-![right](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_happy.png)
 
 VISIONC에 URL 하나만 보내주시면, 경쟁사 홈페이지와 비교 분석한 무료 진단 리포트를 드립니다.
 

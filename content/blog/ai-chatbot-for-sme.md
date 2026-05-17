@@ -8,7 +8,7 @@ summary: "실제 도입 사례와 비용까지 솔직하게 공개합니다. 중
 ---
 
 ## 🤖 "AI 챗봇은 대기업만 쓰는 것 아닌가요?"
-![right](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_cheer.png)
 
 이 질문을 정말 많이 받습니다.
 
@@ -19,7 +19,7 @@ summary: "실제 도입 사례와 비용까지 솔직하게 공개합니다. 중
 ---
 
 ## 😓 사장님, 하루에 몇 번 같은 대답을 하시나요?
-![right](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_happy.png)
 
 "영업시간이 어떻게 되나요?"
 "가격이 얼마예요?"

@@ -8,7 +8,7 @@ summary: "홈페이지를 만들고 방치하면 어떤 문제가 생기는지, 
 ---
 
 ## 😱 "홈페이지 만들어놨는데 그냥 두면 안 되나요?"
-![right](/mascot/md/emotion/cat_worried.png)
+![center](/mascot/md/emotion/cat_worried.png)
 
 안됩니다. 정확히 말하면 — **두면 절대 안 됩니다!**
 
@@ -21,7 +21,7 @@ summary: "홈페이지를 만들고 방치하면 어떤 문제가 생기는지, 
 ---
 
 ## ⚠️ 방치하면 생기는 문제 3가지
-![right](/mascot/md/emotion/cat_worried.png)
+![center](/mascot/md/emotion/cat_thinking.png)
 
 ### 🔓 문제 1: 해킹 — 갑자기 내 홈페이지가 이상해진다
 
@@ -73,7 +73,7 @@ summary: "홈페이지를 만들고 방치하면 어떤 문제가 생기는지, 
 ---
 
 ## 💰 유지보수 비용 vs. 방치 비용
-![right](/mascot/md/emotion/cat_worried.png)
+![center](/mascot/md/emotion/cat_cheer.png)
 
 | 항목 | 유지보수 비용 | 방치 후 복구 비용 |
 |------|------------|---------------|
@@ -86,7 +86,7 @@ summary: "홈페이지를 만들고 방치하면 어떤 문제가 생기는지, 
 ---
 
 ## 🙋 유지보수, 직접 할 수 있나요?
-![right](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_happy.png)
 
 가능한 부분도 있습니다.
 

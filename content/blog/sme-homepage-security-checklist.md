@@ -8,7 +8,7 @@ summary: "소상공인 홈페이지가 해킹에 더 취약한 이유와 지금 
 ---
 
 ## 😰 혹시 이런 일이 있었나요?
-![right](/mascot/md/emotion/cat_worried.png)
+![center](/mascot/md/emotion/cat_worried.png)
 
 - 고객이 "사장님 홈페이지 이상한데요?" 연락을 해왔다
 - 구글에서 홈페이지를 검색하면 "위험한 사이트" 경고가 뜬다
@@ -24,7 +24,7 @@ summary: "소상공인 홈페이지가 해킹에 더 취약한 이유와 지금 
 ---
 
 ## 🤔 왜 소상공인 홈페이지가 더 위험한가요?
-![right](/mascot/md/emotion/cat_worried.png)
+![center](/mascot/md/emotion/cat_thinking.png)
 
 대기업은 보안 전담팀이 있습니다. 하지만 소상공인은 홈페이지를 만들고 나면 거의 방치 상태가 됩니다. 바로 이 틈새를 해커들이 노립니다.
 
@@ -37,7 +37,7 @@ summary: "소상공인 홈페이지가 해킹에 더 취약한 이유와 지금 
 ---
 
 ## ✅ 지금 바로 점검해야 할 5가지 체크리스트
-![right](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_cheer.png)
 
 ### ✅ 체크 1: 🔒 HTTPS 자물쇠가 있는가?
 
@@ -94,7 +94,7 @@ summary: "소상공인 홈페이지가 해킹에 더 취약한 이유와 지금 
 ---
 
 ## 🙋 하나라도 "모르겠다"가 있다면
-![right](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_surprised.png)
 
 5개 항목 중 하나라도 확인이 안 된다면, 지금 당장 전문가의 도움이 필요합니다.
 

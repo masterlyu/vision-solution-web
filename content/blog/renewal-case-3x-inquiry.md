@@ -8,7 +8,7 @@ summary: "10년 된 PHP 사이트를 Next.js로 교체한 결과 PageSpeed 38→
 ---
 
 ## 😔 "문의가 거의 없어요..." — 사장님이 잘못 생각하고 있었습니다
-![right](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_cheer.png)
 
 ○○유통 사장님은 월 8건의 문의를 "원래 이렇게 적은 거겠지"라고 생각하셨습니다. 홈페이지보다는 영업력이나 제품의 문제라고 보셨죠.
 
@@ -19,7 +19,7 @@ summary: "10년 된 PHP 사이트를 Next.js로 교체한 결과 PageSpeed 38→
 ---
 
 ## 🔍 리뉴얼 전 상황 — 숫자가 말해줍니다
-![right](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.png)
 
 ○○유통은 2014년에 제작한 PHP 기반 홈페이지를 그대로 사용하고 있었습니다. 저희가 분석한 결과는 이랬습니다.
 
