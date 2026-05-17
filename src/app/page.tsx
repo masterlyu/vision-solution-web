@@ -52,8 +52,8 @@ export default function Home() {
     <div className="relative min-h-screen overflow-x-hidden bg-background">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }} />
       <HeroSection />
-      <div className="flex justify-center py-12 bg-background">
-        <Mascot pose="cheer" category="emotion" size="lg" alt="VISIONC 마스코트" />
+      <div className="flex justify-center py-8 bg-background">
+        <Mascot pose="main" category="situation" size="md" className="h-40 w-auto" alt="VISIONC 마스코트" />
       </div>
       <TrustSection />
       <MetricsSection />
