@@ -1,15 +1,18 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import { RefreshCw, Globe, Wrench, ShieldCheck, Code2, Sparkles, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+import Mascot from '@/components/Mascot'
+
+type MascotCategory = 'emotion' | 'situation' | 'company' | 'service' | 'process' | 'support' | 'ui' | 'misc'
 
 const services = [
-  { number: '01', icon: RefreshCw,   href: '/renewal',     title: '홈페이지 리뉴얼',  stat: { value: '67%',   label: '평균 로딩 개선' },  price: { prefix: '시작가', value: '80만원~'  }, desc: '오래된 사이트를 속도·디자인·SEO 전부 새로 만듭니다.' },
-  { number: '02', icon: Globe,       href: '/new-website', title: '신규 사이트 구축',  stat: { value: '2.4배', label: '전환율 향상' },     price: { prefix: '시작가', value: '150만원~' }, desc: '기획·디자인·개발·배포를 원스톱으로 진행합니다.' },
-  { number: '03', icon: Wrench,      href: '/maintenance', title: '유지보수',          stat: { value: '4h',    label: '장애 대응' },      price: { prefix: '월',    value: '15만원~'  }, desc: '콘텐츠 업데이트, 보안 패치, 장애 대응을 책임집니다.' },
-  { number: '04', icon: ShieldCheck, href: '/security',    title: '보안 진단',         stat: { value: '23개',  label: '평균 취약점 발견' }, price: { prefix: '시작가', value: '30만원~'  }, desc: 'SSL·보안헤더·취약점을 진단하고 조치 가이드를 제공합니다.' },
-  { number: '05', icon: Code2,       href: '/app-dev',     title: '앱·시스템 개발',    stat: { value: '120건+',label: '납품 실적' },      price: { prefix: '시작가', value: '300만원~' }, desc: '모바일 앱부터 사내 업무 시스템까지 풀스택으로 구축합니다.' },
-  { number: '06', icon: Sparkles,    href: '/ai-solution', title: 'AI 솔루션',         stat: { value: '85%',   label: '업무 자동화' },    price: { prefix: '시작가', value: '200만원~' }, desc: 'AI 챗봇·자동화·데이터 분석을 중소기업 규모에 맞게 도입합니다.' },
+  { number: '01', mascot: { pose: 'svc_renewal',  category: 'service' as MascotCategory }, href: '/renewal',     title: '홈페이지 리뉴얼',  stat: { value: '67%',   label: '평균 로딩 개선' },  price: { prefix: '시작가', value: '80만원~'  }, desc: '오래된 사이트를 속도·디자인·SEO 전부 새로 만듭니다.' },
+  { number: '02', mascot: { pose: 'svc_newbuild', category: 'service' as MascotCategory }, href: '/new-website', title: '신규 사이트 구축',  stat: { value: '2.4배', label: '전환율 향상' },     price: { prefix: '시작가', value: '150만원~' }, desc: '기획·디자인·개발·배포를 원스톱으로 진행합니다.' },
+  { number: '03', mascot: { pose: 'svc_maintain', category: 'service' as MascotCategory }, href: '/maintenance', title: '유지보수',          stat: { value: '4h',    label: '장애 대응' },      price: { prefix: '월',    value: '15만원~'  }, desc: '콘텐츠 업데이트, 보안 패치, 장애 대응을 책임집니다.' },
+  { number: '04', mascot: { pose: 'svc_security', category: 'service' as MascotCategory }, href: '/security',    title: '보안 진단',         stat: { value: '23개',  label: '평균 취약점 발견' }, price: { prefix: '시작가', value: '30만원~'  }, desc: 'SSL·보안헤더·취약점을 진단하고 조치 가이드를 제공합니다.' },
+  { number: '05', mascot: { pose: 'svc_custom',   category: 'service' as MascotCategory }, href: '/app-dev',     title: '앱·시스템 개발',    stat: { value: '120건+',label: '납품 실적' },      price: { prefix: '시작가', value: '300만원~' }, desc: '모바일 앱부터 사내 업무 시스템까지 풀스택으로 구축합니다.' },
+  { number: '06', mascot: { pose: 'ui_loading',   category: 'ui'      as MascotCategory }, href: '/ai-solution', title: 'AI 솔루션',         stat: { value: '85%',   label: '업무 자동화' },    price: { prefix: '시작가', value: '200만원~' }, desc: 'AI 챗봇·자동화·데이터 분석을 중소기업 규모에 맞게 도입합니다.' },
 ]
 
 export function FeaturesSection() {
@@ -42,14 +45,18 @@ export function FeaturesSection() {
                 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
               style={{ transitionDelay: `${i * 80}ms` }}
             >
-              {/* Number + Icon row */}
+              {/* Number + Mascot row */}
               <div className="flex items-start justify-between">
                 <span className="text-muted-foreground/40 text-sm font-mono group-hover:text-primary-foreground/50 transition-colors">
                   {s.number}
                 </span>
-                <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary-foreground/20 group-hover:border-primary-foreground/30 transition-all">
-                  <s.icon className="w-5 h-5 text-primary group-hover:text-primary-foreground transition-colors" strokeWidth={1.5} />
-                </div>
+                <Mascot
+                  pose={s.mascot.pose}
+                  category={s.mascot.category}
+                  size="sm"
+                  className="h-20 w-20 object-contain"
+                  alt={s.title}
+                />
               </div>
 
               {/* Stat */}
