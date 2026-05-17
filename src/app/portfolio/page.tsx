@@ -548,7 +548,7 @@ export default function PortfolioPage() {
               <motion.div
                 key={s.num}
                 variants={fadeInUp}
-                className="bg-card border border-border rounded-xl p-5 flex flex-col gap-3"
+                className="bg-card border border-border rounded-xl p-5 flex flex-col gap-3 items-start"
               >
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-black"
                   style={{
@@ -586,7 +586,7 @@ export default function PortfolioPage() {
               className="flex flex-col gap-5"
             >
               <motion.div variants={fadeInUp}>
-                <div className="flex mb-4">
+                <div className="mb-4">
                   <Mascot pose="cheer" category="emotion" size="sm" className="h-28 w-auto" bubble="URL 하나로 시작해요!" bubbleDir="right" />
                 </div>
                 <p className="text-xs font-black uppercase tracking-[0.15em] mb-2" style={{ color: 'var(--primary-light)' }}>
