@@ -53,7 +53,7 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }} />
       <HeroSection />
       <div className="flex justify-center py-8 bg-background">
-        <Mascot pose="main" category="situation" size="md" className="h-40 w-auto" alt="VISIONC 마스코트" />
+        <Mascot pose="main" category="situation" size="md" className="h-52 w-auto" alt="VISIONC 마스코트" />
       </div>
       <TrustSection />
       <MetricsSection />
