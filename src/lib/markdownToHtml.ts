@@ -172,8 +172,18 @@ function inlineFormat(text: string): string {
     // Inline code
     .replace(/`([^`]+)`/g, '<code class="bg-muted px-1.5 py-0.5 rounded text-sm font-mono text-primary">$1</code>')
     // Images — must come before link rule
+    // Mascot shorthand: alt="right|left|center" + src="/mascot/..." → special layout
     .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_, alt, src) => {
       const safe = /^(https?:\/\/|\/)/.test(src.trim()) ? src.trim() : '#'
+      if (safe.includes('/mascot/')) {
+        const pos = alt.trim().toLowerCase()
+        if (pos === 'left')
+          return `<img src="${safe}" alt="VISIONC 마스코트" class="float-left mr-5 mb-2 h-28 w-auto clear-left" loading="lazy" />`
+        if (pos === 'center')
+          return `<div class="clear-both flex justify-center my-6"><img src="${safe}" alt="VISIONC 마스코트" class="h-40 w-auto" loading="lazy" /></div>`
+        // default: float right
+        return `<img src="${safe}" alt="VISIONC 마스코트" class="float-right ml-5 mb-2 h-28 w-auto clear-right" loading="lazy" />`
+      }
       return `<img src="${safe}" alt="${alt}" class="w-full rounded-xl my-6 shadow-sm" loading="lazy" />`
     })
     // Links — sanitize URL to block javascript: URIs
