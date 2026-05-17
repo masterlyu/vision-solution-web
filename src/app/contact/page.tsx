@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import { Mail, Globe, Clock, Loader2, MessageSquare, Shield, MonitorCheck } from 'lucide-react'
 import { VisiMascot } from '@/components/visi/VisiMascot'
+import Mascot from '@/components/Mascot'
 import UrlAnalysisForm from '@/components/UrlAnalysisForm'
 import RenewalDiagnosisForm from '@/components/RenewalDiagnosisForm'
 
@@ -58,6 +59,9 @@ export default function ContactPage() {
 
         {/* Header */}
         <div className="mb-16">
+          <div className="flex justify-center mb-6">
+            <Mascot pose="inquiry" category="support" size="md" className="h-56 w-auto" alt="VISIONC 마스코트 — 문의하기" />
+          </div>
           <p className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-4">CONTACT</p>
           <h1 className="text-4xl md:text-5xl font-black text-foreground mb-4">문의하기</h1>
           <p className="text-muted-foreground text-lg leading-relaxed">

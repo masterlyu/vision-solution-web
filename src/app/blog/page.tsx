@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { getAllPosts, getAllTags } from '@/lib/blog'
+import Mascot from '@/components/Mascot'
 
 export const metadata: Metadata = {
   title: '홈페이지·보안·AI 인사이트 블로그',
@@ -43,6 +44,9 @@ export default async function BlogPage({ searchParams }: PageProps) {
 
         {/* Header */}
         <div className="mb-12">
+          <div className="flex justify-center mb-6">
+            <Mascot pose="blog" category="service" size="sm" className="h-32 w-auto" alt="VISIONC 마스코트 — 블로그" />
+          </div>
           <p className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-4">BLOG</p>
           <h1 className="text-4xl md:text-5xl font-black text-foreground mb-4">인사이트 & 사례</h1>
           <p className="text-muted-foreground text-lg">실전에서 검증된 웹 전략과 AI 활용법을 공유합니다.</p>

@@ -10,6 +10,7 @@ import certificationsData from '../../../content/company/certifications.json'
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 import { VisiMascot } from '@/components/visi/VisiMascot'
+import Mascot from '@/components/Mascot'
 
 // ── LottiePlayer ──────────────────────────────────────────────────────────
 function LottiePlayer({ src, width = 120, height = 120, loop = true }: {
@@ -186,7 +187,8 @@ export default function AboutPage() {
               </div>
 
               {/* Right: illustration */}
-              <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16 }}>
+                <Mascot pose="about" category="company" size="md" className="h-56 w-auto" alt="VISIONC 마스코트 — 회사 소개" />
                 <AboutHeroIllust />
               </div>
             </div>

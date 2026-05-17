@@ -6,6 +6,7 @@ import RenewalRequestForm from '@/components/RenewalRequestForm'
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 import { VisiMascot } from '@/components/visi/VisiMascot'
+import Mascot from '@/components/Mascot'
 
 // ── LottiePlayer ──────────────────────────────────────────────────────────
 function LottiePlayer({ src, width = 120, height = 120, loop = true }: {
@@ -314,8 +315,9 @@ export default function PortfolioPage() {
               variants={fadeInUp}
               initial="hidden"
               animate="visible"
-              className="flex justify-center"
+              className="flex flex-col justify-center items-center gap-6"
             >
+              <Mascot pose="portfolio" category="service" size="md" className="h-48 w-auto" alt="VISIONC 마스코트 — 포트폴리오" />
               <PortfolioHeroIllust />
             </motion.div>
           </div>

@@ -7,6 +7,7 @@ import { CheckCircle, XCircle, AlertTriangle, CheckSquare, ChevronDown, ChevronU
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 import { VisiMascot } from '@/components/visi/VisiMascot'
+import Mascot from '@/components/Mascot'
 
 // ── Lottie Player ──────────────────────────────────────────────────────────
 function LottiePlayer({ src, width = 200, height = 200, loop = true, className = '' }: {
@@ -440,8 +441,9 @@ export default function SecurityPage() {
               variants={fadeInUp}
               initial="hidden"
               animate="visible"
-              className="flex justify-center"
+              className="flex flex-col justify-center items-center gap-6"
             >
+              <Mascot pose="svc_security" category="service" size="md" className="h-48 w-auto" alt="VISIONC 마스코트 — 보안 진단" />
               <SecurityHeroIllust />
             </motion.div>
           </div>

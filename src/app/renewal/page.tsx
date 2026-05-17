@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { ArrowRight, CheckSquare, ChevronDown, ChevronUp, Zap, Smartphone, Target, Search } from 'lucide-react'
 import { VisiMascot } from '@/components/visi/VisiMascot'
+import Mascot from '@/components/Mascot'
 import RenewalDiagnosisForm from '@/components/RenewalDiagnosisForm'
 
 const checklistItems = [
@@ -172,7 +173,8 @@ export default function RenewalPage() {
           </div>
 
           {/* 오른쪽: Before/After 일러스트 */}
-          <div className="hidden lg:flex justify-center items-center">
+          <div className="hidden lg:flex flex-col justify-center items-center gap-6">
+            <Mascot pose="svc_renewal" category="service" size="md" className="h-48 w-auto" alt="VISIONC 마스코트 — 리뉴얼" />
             <RenewalHeroIllust />
           </div>
         </div>

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { ArrowRight, CheckSquare, ChevronDown, ChevronUp } from 'lucide-react'
 import { VisiMascot } from '@/components/visi/VisiMascot'
+import Mascot from '@/components/Mascot'
 
 const checklistItems = [
   '같은 질문을 하루에도 수십 번 고객에게 답하고 있다',
@@ -118,7 +119,8 @@ export default function AiSolutionPage() {
               무료 AI 도입 가능 영역 분석받기 <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
-          <div className="hidden lg:flex justify-center items-center">
+          <div className="hidden lg:flex flex-col justify-center items-center gap-6">
+            <Mascot pose="develop" category="process" size="md" className="h-48 w-auto" alt="VISIONC 마스코트 — AI 솔루션" />
             <AiHeroIllust />
           </div>
         </div>

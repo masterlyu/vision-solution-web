@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { ArrowRight, CheckSquare, ChevronDown, ChevronUp } from 'lucide-react'
 import { VisiMascot } from '@/components/visi/VisiMascot'
+import Mascot from '@/components/Mascot'
 
 const checklistItems = [
   '재고·주문·고객 데이터를 아직도 엑셀로 관리한다',
@@ -115,7 +116,8 @@ export default function AppDevPage() {
               어떤 시스템이 필요한지 무료 상담받기 <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
-          <div className="hidden lg:flex justify-center items-center">
+          <div className="hidden lg:flex flex-col justify-center items-center gap-6">
+            <Mascot pose="svc_custom" category="service" size="md" className="h-48 w-auto" alt="VISIONC 마스코트 — 앱 개발" />
             <AppDevHeroIllust />
           </div>
         </div>
