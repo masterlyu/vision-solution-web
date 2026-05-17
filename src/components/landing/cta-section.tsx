@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { VisiMascot } from '@/components/visi/VisiMascot'
+import Mascot from '@/components/Mascot'
 import Link from 'next/link'
 
 const fadeInUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const } } }
@@ -45,7 +45,7 @@ export function CtaSection() {
             >
               {/* VISI mascot */}
               <motion.div variants={fadeInUp} className="mb-6">
-                <VisiMascot pose="cheering" size={130} bubble="48시간 안에 답이 와요!" bubbleDir="right" />
+                <Mascot pose="cheer" category="emotion" size="sm" className="h-32 w-auto" bubble="48시간 안에 답이 와요!" bubbleDir="right" />
               </motion.div>
 
               <motion.p variants={fadeInUp} className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-6">지금 시작하세요</motion.p>

@@ -2,7 +2,6 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { ArrowRight, CheckSquare, ChevronDown, ChevronUp, Zap, Smartphone, Target, Search } from 'lucide-react'
-import { VisiMascot } from '@/components/visi/VisiMascot'
 import Mascot from '@/components/Mascot'
 import RenewalDiagnosisForm from '@/components/RenewalDiagnosisForm'
 
@@ -33,25 +32,29 @@ const steps = [
   {
     num: '01', title: '무료 현황 진단', duration: '2일',
     desc: '현재 사이트 속도·검색 노출·화면 분석 결과서. 비용 없음.',
-    pose: 'magnify' as const,
+    pose: 'analytics' as const,
+    category: 'process' as const,
     bubble: '뭐가 문제인지 볼게요!',
   },
   {
     num: '02', title: '기획·설계', duration: '1주',
     desc: '사이트 구성, 화면 배치, 디자인 시안 3종 제시 후 확정.',
     pose: 'thinking' as const,
+    category: 'emotion' as const,
     bubble: '어떻게 만들면 좋을까?',
   },
   {
     num: '03', title: '개발·이전', duration: '2~3주',
     desc: '데이터 손실 없이 기존 콘텐츠를 새 사이트로 옮깁니다.',
-    pose: 'typing' as const,
+    pose: 'develop' as const,
+    category: 'process' as const,
     bubble: '열심히 만들고 있어요!',
   },
   {
     num: '04', title: '검수·배포', duration: '3일',
     desc: '모든 기기에서 최종 점검 후 도메인 무중단 전환.',
-    pose: 'thumbsUp' as const,
+    pose: 'cheer' as const,
+    category: 'emotion' as const,
     bubble: '완성! 확인해보세요 😊',
   },
 ]
@@ -136,7 +139,7 @@ function RenewalHeroIllust() {
 
         {/* VISI — 작게, 오른쪽 아래 */}
         <div className="absolute -bottom-2 -right-2">
-          <VisiMascot pose="thumbsUp" size={90} bubble="훨씬 좋죠?" bubbleDir="left" />
+          <Mascot pose="cheer" category="emotion" size="sm" className="h-24 w-auto" bubble="훨씬 좋죠?" bubbleDir="left" />
         </div>
       </div>
     </div>
@@ -242,7 +245,7 @@ export default function RenewalPage() {
               <div key={i} className="flex gap-4 items-stretch">
                 {/* VISI */}
                 <div className="hidden sm:flex flex-col items-center w-20 shrink-0">
-                  <VisiMascot pose={s.pose} size={76} />
+                  <Mascot pose={s.pose} category={s.category} size="sm" className="h-20 w-auto" />
                 </div>
 
                 {/* 스텝 카드 */}
@@ -343,7 +346,7 @@ export default function RenewalPage() {
           {/* VISI */}
           <div className="flex justify-center mb-8">
             <div className="relative">
-              <VisiMascot pose="cheering" size={110} />
+              <Mascot pose="cheer" category="emotion" size="sm" className="h-28 w-auto" />
               <div className="absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-full
                 bg-card text-foreground text-sm font-bold px-4 py-2 rounded-2xl shadow-lg whitespace-nowrap">
                 URL과 회사 이메일만 입력하면 자동 분석됩니다!

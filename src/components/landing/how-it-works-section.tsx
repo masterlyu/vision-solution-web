@@ -1,17 +1,17 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { VisiMascot } from '@/components/visi/VisiMascot'
+import Mascot from '@/components/Mascot'
 
 const fadeInUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const } } }
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }
 
 const steps = [
-  { number: '01', title: 'URL 입력',      desc: '분석할 사이트 주소와 이메일만 입력하세요. 30초면 됩니다.',       detail: '신용카드 불필요 · 가입 없음',                    pose: 'typing'   as const, bubble: '주소만 알려주세요!' },
-  { number: '02', title: 'AI 자동 분석',  desc: '성능·보안·디자인·SEO를 AI가 동시에 점검합니다.',              detail: 'PageSpeed · Core Web Vitals · SSL · 보안헤더', pose: 'magnify'  as const, bubble: '꼼꼼히 살펴볼게요!' },
-  { number: '03', title: '리포트 생성',   desc: '발견된 문제와 개선 제안을 PDF로 정리합니다.',                  detail: '위험도 분류 · 우선순위 조치 가이드',              pose: 'writing'  as const, bubble: '보고서 작성 중...' },
-  { number: '04', title: '이메일 발송',   desc: '48시간 내 결과를 이메일로 받아보세요.',                        detail: '영업일 기준 1~2일',                              pose: 'happy'    as const, bubble: '이메일 발송 완료!' },
-  { number: '05', title: '1:1 상담',      desc: '결과 기반으로 맞춤 솔루션을 제안드립니다.',                   detail: '무료 · 부담 없음',                               pose: 'cheering' as const, bubble: '같이 해결해요!' },
+  { number: '01', title: 'URL 입력',      desc: '분석할 사이트 주소와 이메일만 입력하세요. 30초면 됩니다.',       detail: '신용카드 불필요 · 가입 없음',                    pose: 'develop'   as const, category: 'process'  as const, bubble: '주소만 알려주세요!' },
+  { number: '02', title: 'AI 자동 분석',  desc: '성능·보안·디자인·SEO를 AI가 동시에 점검합니다.',              detail: 'PageSpeed · Core Web Vitals · SSL · 보안헤더', pose: 'analytics' as const, category: 'process'  as const, bubble: '꼼꼼히 살펴볼게요!' },
+  { number: '03', title: '리포트 생성',   desc: '발견된 문제와 개선 제안을 PDF로 정리합니다.',                  detail: '위험도 분류 · 우선순위 조치 가이드',              pose: 'education' as const, category: 'process'  as const, bubble: '보고서 작성 중...' },
+  { number: '04', title: '이메일 발송',   desc: '48시간 내 결과를 이메일로 받아보세요.',                        detail: '영업일 기준 1~2일',                              pose: 'happy'     as const, category: 'emotion'  as const, bubble: '이메일 발송 완료!' },
+  { number: '05', title: '1:1 상담',      desc: '결과 기반으로 맞춤 솔루션을 제안드립니다.',                   detail: '무료 · 부담 없음',                               pose: 'cheer'     as const, category: 'emotion'  as const, bubble: '같이 해결해요!' },
 ]
 
 export function HowItWorksSection() {
@@ -98,7 +98,7 @@ export function HowItWorksSection() {
                 transition={{ duration: 0.35, ease: 'easeOut' }}
                 className="relative z-10 flex flex-col items-center gap-5 px-8 text-center"
               >
-                <VisiMascot pose={steps[active].pose} size={160} bubble={steps[active].bubble} bubbleDir="right" />
+                <Mascot pose={steps[active].pose} category={steps[active].category} size="md" className="h-40 w-auto" bubble={steps[active].bubble} bubbleDir="right" />
                 <div>
                   <p className="text-muted-foreground text-xs font-mono mb-1">{steps[active].number} / 0{steps.length}</p>
                   <h3 className="text-xl font-black text-foreground">{steps[active].title}</h3>

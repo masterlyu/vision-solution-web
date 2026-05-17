@@ -9,7 +9,6 @@ import clientsData from '../../../content/company/clients.json'
 import certificationsData from '../../../content/company/certifications.json'
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
-import { VisiMascot } from '@/components/visi/VisiMascot'
 import Mascot from '@/components/Mascot'
 
 // ── LottiePlayer ──────────────────────────────────────────────────────────
@@ -106,7 +105,7 @@ function AboutHeroIllust() {
         <rect x="8" y="182" width="244" height="12" rx="4" fill="var(--background-deep)" stroke="var(--primary)" strokeWidth="1.5"/>
         <rect x="88" y="194" width="84" height="6" rx="3" fill="var(--background-deep)"/>
       </svg>
-      <VisiMascot pose="happy" size={90} />
+      <Mascot pose="happy" category="emotion" size="sm" className="h-24 w-auto" />
     </div>
   )
 }
@@ -621,7 +620,7 @@ export default function AboutPage() {
           <FadeInSection>
             {/* VISI cheering */}
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 24 }}>
-              <VisiMascot pose="cheering" size={130} bubble="48시간 안에 리포트 드려요!" bubbleDir="left" />
+              <Mascot pose="cheer" category="emotion" size="sm" className="h-32 w-auto" bubble="48시간 안에 리포트 드려요!" bubbleDir="left" />
             </div>
 
             {/* Urgency badge */}

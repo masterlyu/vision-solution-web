@@ -5,7 +5,6 @@ import { motion, useMotionValue, useSpring, useTransform, useInView, type Varian
 import RenewalRequestForm from '@/components/RenewalRequestForm'
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
-import { VisiMascot } from '@/components/visi/VisiMascot'
 import Mascot from '@/components/Mascot'
 
 // ── LottiePlayer ──────────────────────────────────────────────────────────
@@ -197,11 +196,11 @@ const cases: CaseItem[] = [
 ]
 
 const processSteps = [
-  { num: '01', title: 'URL 무료 진단',    sub: '48시간 내 리포트 발송', highlight: false, pose: 'magnify' as const },
-  { num: '02', title: '요구사항 미팅',    sub: '30분 화상/전화 상담',   highlight: false, pose: 'wave' as const },
-  { num: '03', title: '디자인 시안',      sub: '3~5일 내 초안 공유',    highlight: false, pose: 'pointing' as const },
-  { num: '04', title: '개발 & 배포',      sub: '평균 2~3주 내 완료',    highlight: false, pose: 'typing' as const },
-  { num: '05', title: '납품 + 사후 관리', sub: '3개월 무상 유지보수',   highlight: true,  pose: 'thumbsUp' as const },
+  { num: '01', title: 'URL 무료 진단',    sub: '48시간 내 리포트 발송', highlight: false, pose: 'analytics' as const, category: 'process' as const },
+  { num: '02', title: '요구사항 미팅',    sub: '30분 화상/전화 상담',   highlight: false, pose: 'greeting' as const, category: 'situation' as const },
+  { num: '03', title: '디자인 시안',      sub: '3~5일 내 초안 공유',    highlight: false, pose: 'guide' as const, category: 'situation' as const },
+  { num: '04', title: '개발 & 배포',      sub: '평균 2~3주 내 완료',    highlight: false, pose: 'develop' as const, category: 'process' as const },
+  { num: '05', title: '납품 + 사후 관리', sub: '3개월 무상 유지보수',   highlight: true,  pose: 'cheer' as const, category: 'emotion' as const },
 ]
 
 // ── PortfolioHeroIllust ────────────────────────────────────────────────────
@@ -236,7 +235,7 @@ function PortfolioHeroIllust() {
         <circle cx="218" cy="32" r="20" fill="var(--accent-amber)" opacity="0.9"/>
         <text x="212" y="40" style={{ fill: "var(--primary-foreground)" }} fontSize="15" fontFamily="sans-serif">★</text>
       </svg>
-      <VisiMascot pose="pointing" size={92} />
+      <Mascot pose="guide" category="situation" size="sm" className="h-24 w-auto" />
     </div>
   )
 }
@@ -501,7 +500,7 @@ export default function PortfolioPage() {
         style={{ background: 'radial-gradient(ellipse 60% 80% at 50% 50%, color-mix(in oklch, var(--primary) 10%, transparent), transparent)' }}
       >
         <div className="max-w-lg mx-auto flex flex-col items-center gap-4">
-          <VisiMascot pose="cheering" size={120} bubble="내 사이트도 바꿀 수 있어요!" bubbleDir="right" />
+          <Mascot pose="cheer" category="emotion" size="sm" className="h-28 w-auto" bubble="내 사이트도 바꿀 수 있어요!" bubbleDir="right" />
 
           <h2 className="text-3xl md:text-4xl font-black text-foreground leading-snug">
             내 사이트도 이렇게<br />
@@ -559,7 +558,7 @@ export default function PortfolioPage() {
                   {s.num}
                 </div>
 
-                <VisiMascot pose={s.pose} size={60} />
+                <Mascot pose={s.pose} category={s.category} size="sm" className="h-16 w-auto" />
 
                 <div>
                   <div className="font-black text-foreground text-sm">{s.title}</div>
@@ -588,7 +587,7 @@ export default function PortfolioPage() {
             >
               <motion.div variants={fadeInUp}>
                 <div className="flex mb-4">
-                  <VisiMascot pose="cheering" size={110} bubble="URL 하나로 시작해요!" bubbleDir="right" />
+                  <Mascot pose="cheer" category="emotion" size="sm" className="h-28 w-auto" bubble="URL 하나로 시작해요!" bubbleDir="right" />
                 </div>
                 <p className="text-xs font-black uppercase tracking-[0.15em] mb-2" style={{ color: 'var(--primary-light)' }}>
                   무료 진단

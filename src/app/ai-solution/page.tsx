@@ -2,7 +2,6 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { ArrowRight, CheckSquare, ChevronDown, ChevronUp } from 'lucide-react'
-import { VisiMascot } from '@/components/visi/VisiMascot'
 import Mascot from '@/components/Mascot'
 
 const checklistItems = [
@@ -31,10 +30,10 @@ const aiTypes = [
 ]
 
 const steps = [
-  { num: '01', title: '업무 분석', duration: '무료, 1일', desc: '현재 업무 프로세스 공유 → AI 도입 가능 영역 도출.', pose: 'magnify' as const },
-  { num: '02', title: '솔루션 설계', duration: '1주', desc: '어떤 AI 도구가 적합한지, 예산과 효과를 같이 검토.', pose: 'thinking' as const },
-  { num: '03', title: '구축·학습', duration: '2~6주', desc: '데이터 학습, 연동, 테스트. 진행 상황 매주 보고.', pose: 'typing' as const },
-  { num: '04', title: '인수인계·운영', duration: '상시', desc: '담당자 교육. 이후 이상 시 즉시 대응.', pose: 'cheering' as const },
+  { num: '01', title: '업무 분석', duration: '무료, 1일', desc: '현재 업무 프로세스 공유 → AI 도입 가능 영역 도출.', pose: 'analytics' as const, category: 'process' as const },
+  { num: '02', title: '솔루션 설계', duration: '1주', desc: '어떤 AI 도구가 적합한지, 예산과 효과를 같이 검토.', pose: 'thinking' as const, category: 'emotion' as const },
+  { num: '03', title: '구축·학습', duration: '2~6주', desc: '데이터 학습, 연동, 테스트. 진행 상황 매주 보고.', pose: 'develop' as const, category: 'process' as const },
+  { num: '04', title: '인수인계·운영', duration: '상시', desc: '담당자 교육. 이후 이상 시 즉시 대응.', pose: 'cheer' as const, category: 'emotion' as const },
 ]
 
 const plans = [
@@ -90,7 +89,7 @@ function AiHeroIllust() {
       </svg>
       {/* VISI small, bottom-right */}
       <div className="absolute -bottom-4 -right-4">
-        <VisiMascot pose="happy" size={88} bubble="자동화 완료!" bubbleDir="left" />
+        <Mascot pose="happy" category="emotion" size="sm" className="h-24 w-auto" bubble="자동화 완료!" bubbleDir="left" />
       </div>
     </div>
   )
@@ -189,7 +188,7 @@ export default function AiSolutionPage() {
             {steps.map((s, i) => (
               <div key={i} className="flex gap-4 items-start">
                 <div className="hidden sm:flex flex-col items-center w-20 shrink-0">
-                  <VisiMascot pose={s.pose} size={76} />
+                  <Mascot pose={s.pose} category={s.category} size="sm" className="h-20 w-auto" />
                 </div>
                 <div className="flex gap-4 items-start flex-1">
                   <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-sm font-black shrink-0">{s.num}</div>
@@ -264,7 +263,7 @@ export default function AiSolutionPage() {
         <div className="max-w-2xl mx-auto">
           <div className="flex justify-center mb-6">
             <div className="relative">
-              <VisiMascot pose="cheering" size={120} />
+              <Mascot pose="cheer" category="emotion" size="sm" className="h-28 w-auto" />
               <div className="absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-full bg-card text-foreground text-sm font-bold px-4 py-2 rounded-2xl shadow-lg whitespace-nowrap">
                 어떤 업무든 자동화할 수 있어요!
                 <span className="absolute left-1/2 -translate-x-1/2 top-full border-8 border-transparent border-t-card" />

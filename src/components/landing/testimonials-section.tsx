@@ -1,7 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
-import { VisiMascot } from '@/components/visi/VisiMascot'
+import Mascot from '@/components/Mascot'
 
 const fadeInUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const } } }
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }
@@ -51,7 +51,7 @@ export function TestimonialsSection() {
             <motion.p variants={fadeInUp} className="text-muted-foreground mt-4 text-lg">비슷한 고민을 가진 기업이 먼저 결과를 냈습니다.</motion.p>
           </div>
           <motion.div variants={fadeInUp} className="shrink-0 hidden sm:block">
-            <VisiMascot pose="thumbsUp" size={120} bubble="실제 고객 후기예요!" bubbleDir="left" />
+            <Mascot pose="cheer" category="emotion" size="sm" className="h-28 w-auto" bubble="실제 고객 후기예요!" bubbleDir="left" />
           </motion.div>
         </motion.div>
 

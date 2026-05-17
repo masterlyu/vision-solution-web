@@ -2,7 +2,6 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { ArrowRight, CheckSquare, ChevronDown, ChevronUp, Target, Smartphone, PenLine, Search } from 'lucide-react'
-import { VisiMascot } from '@/components/visi/VisiMascot'
 import Mascot from '@/components/Mascot'
 
 const checklistItems = [
@@ -36,10 +35,10 @@ const siteTypes = [
 ]
 
 const steps = [
-  { num: '01', title: '요구사항 정의', duration: '1~2일', desc: '목적·타겟·기능 목록 확정. 이런 게 필요할 것 같아요부터 시작해도 됩니다.', pose: 'thinking' as const },
-  { num: '02', title: '기획·디자인',   duration: '1~2주', desc: '사이트맵, 와이어프레임, 디자인 시안 3종 제시. 확정 전까지 수정 제한 없음.', pose: 'writing' as const },
-  { num: '03', title: '개발',           duration: '2~4주', desc: '화면 설계부터 기능 개발, 관리자 페이지까지. 진행 상황 매주 공유.', pose: 'typing' as const },
-  { num: '04', title: '배포·인수인계', duration: '3일',   desc: '서버 세팅, 도메인 연결, 보안 인증서 설치까지 전부 대신해드립니다.', pose: 'thumbsUp' as const },
+  { num: '01', title: '요구사항 정의', duration: '1~2일', desc: '목적·타겟·기능 목록 확정. 이런 게 필요할 것 같아요부터 시작해도 됩니다.', pose: 'thinking' as const, category: 'emotion' as const },
+  { num: '02', title: '기획·디자인',   duration: '1~2주', desc: '사이트맵, 와이어프레임, 디자인 시안 3종 제시. 확정 전까지 수정 제한 없음.', pose: 'education' as const, category: 'process' as const },
+  { num: '03', title: '개발',           duration: '2~4주', desc: '화면 설계부터 기능 개발, 관리자 페이지까지. 진행 상황 매주 공유.', pose: 'develop' as const, category: 'process' as const },
+  { num: '04', title: '배포·인수인계', duration: '3일',   desc: '서버 세팅, 도메인 연결, 보안 인증서 설치까지 전부 대신해드립니다.', pose: 'cheer' as const, category: 'emotion' as const },
 ]
 
 const plans = [
@@ -89,7 +88,7 @@ function NewWebsiteHeroIllust() {
         <text x="285" y="55" fontSize="10" fill="var(--primary-light)" opacity={0.5}>✦</text>
       </svg>
       <div className="absolute -bottom-4 -right-4">
-        <VisiMascot pose="wave" size={88} bubble="새 사이트 만들어드려요!" bubbleDir="left" />
+        <Mascot pose="greeting" category="situation" size="sm" className="h-24 w-auto" bubble="새 사이트 만들어드려요!" bubbleDir="left" />
       </div>
     </div>
   )
@@ -202,7 +201,7 @@ export default function NewWebsitePage() {
             {steps.map((s, i) => (
               <div key={i} className="flex gap-4 items-start">
                 <div className="hidden sm:flex flex-col items-center w-20 shrink-0">
-                  <VisiMascot pose={s.pose} size={76} />
+                  <Mascot pose={s.pose} category={s.category} size="sm" className="h-20 w-auto" />
                 </div>
                 <div className="flex gap-4 items-start flex-1">
                   <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-sm font-black shrink-0">{s.num}</div>
@@ -277,7 +276,7 @@ export default function NewWebsitePage() {
         <div className="max-w-2xl mx-auto">
           <div className="flex justify-center mb-6">
             <div className="relative">
-              <VisiMascot pose="cheering" size={120} />
+              <Mascot pose="cheer" category="emotion" size="sm" className="h-28 w-auto" />
               <div className="absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-full bg-card text-foreground text-sm font-bold px-4 py-2 rounded-2xl shadow-lg whitespace-nowrap">
                 기획부터 배포까지 원스톱으로 해드려요!
                 <span className="absolute left-1/2 -translate-x-1/2 top-full border-8 border-transparent border-t-card" />

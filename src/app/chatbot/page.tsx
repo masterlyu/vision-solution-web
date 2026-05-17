@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useState } from 'react'
-import { VisiMascot } from '@/components/visi/VisiMascot'
+import Mascot from '@/components/Mascot'
 import { ArrowRight, Check, ChevronDown, MessageCircle, Zap, Shield, Clock, TrendingUp, Code2, Smartphone, Store, Building2, GraduationCap, Heart, ShoppingBag } from 'lucide-react'
 
 // ── 페르소나 검증 결과 반영 ──
@@ -14,7 +14,8 @@ const STEPS = [
     num: '01',
     title: '문의·계약',
     duration: '당일 처리',
-    pose: 'wave' as const,
+    pose: 'greeting' as const,
+    category: 'situation' as const,
     desc: '홈페이지 문의 또는 이메일로 연락하시면 당일 안에 계약을 마칩니다.',
     detail: '서비스 설명 → 간단한 계약서 → 완료',
   },
@@ -22,7 +23,8 @@ const STEPS = [
     num: '02',
     title: '토큰 발급',
     duration: '10분 이내',
-    pose: 'typing' as const,
+    pose: 'develop' as const,
+    category: 'process' as const,
     desc: '계약 즉시 귀사 전용 토큰(코드)을 이메일로 발급해드립니다.',
     detail: '이메일 수신 → 코드 1개 확인',
   },
@@ -30,7 +32,8 @@ const STEPS = [
     num: '03',
     title: '내 홈페이지에 붙이기',
     duration: '5분 이내',
-    pose: 'pointing' as const,
+    pose: 'guide' as const,
+    category: 'situation' as const,
     desc: '받은 코드 2줄을 홈페이지에 붙여넣으면 끝입니다. IT 지식 필요 없습니다.',
     detail: '복사 → 붙여넣기 → 챗봇 live!',
   },
@@ -152,7 +155,7 @@ function ChatbotHeroIllust() {
         <circle cx="174" cy="254" r="10" fill="var(--primary)"/>
         <text x="170" y="258" fill="var(--primary-foreground)" fontSize="10" fontFamily="sans-serif">▶</text>
       </svg>
-      <VisiMascot pose="wave" size={92} />
+      <Mascot pose="greeting" category="situation" size="sm" className="h-24 w-auto" />
     </div>
   )
 }
@@ -237,7 +240,7 @@ export default function ChatbotPage() {
                     <span className="w-10 h-10 rounded-full bg-primary/20 text-primary font-black text-sm flex items-center justify-center">{s.num}</span>
                     <span className="text-xs font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full">{s.duration}</span>
                   </div>
-                  <VisiMascot pose={s.pose} size={58} />
+                  <Mascot pose={s.pose} category={s.category} size="sm" className="h-16 w-auto" />
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-2">{s.title}</h3>
                 <p className="text-sm text-muted-foreground mb-3">{s.desc}</p>
@@ -422,7 +425,7 @@ export default function ChatbotPage() {
       <section className="py-24 px-6">
         <div className="max-w-2xl mx-auto text-center">
           <div className="flex justify-center mb-6">
-            <VisiMascot pose="cheering" size={120} bubble="오늘 문의하면 내일부터 챗봇이 일해요!" bubbleDir="left" />
+            <Mascot pose="cheer" category="emotion" size="sm" className="h-28 w-auto" bubble="오늘 문의하면 내일부터 챗봇이 일해요!" bubbleDir="left" />
           </div>
           <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">
             오늘 문의하면<br /><span className="text-primary">내일 챗봇이 일합니다</span>

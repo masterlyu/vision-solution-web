@@ -6,7 +6,6 @@ import UrlAnalysisForm from '@/components/UrlAnalysisForm'
 import { CheckCircle, XCircle, AlertTriangle, CheckSquare, ChevronDown, ChevronUp } from 'lucide-react'
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
-import { VisiMascot } from '@/components/visi/VisiMascot'
 import Mascot from '@/components/Mascot'
 
 // ── Lottie Player ──────────────────────────────────────────────────────────
@@ -182,12 +181,12 @@ const checks = [
 ]
 
 const steps = [
-  { step: '01', title: 'URL 입력', pose: 'typing' as const },
-  { step: '02', title: '자동 정밀 스캔', pose: 'magnify' as const },
-  { step: '03', title: '전문가 검토', pose: 'thinking' as const },
-  { step: '04', title: '알기 쉬운 결과 이메일', pose: 'writing' as const },
-  { step: '05', title: '맞춤 견적 제안', pose: 'pointing' as const },
-  { step: '06', title: '개선 + 재진단', pose: 'cheering' as const },
+  { step: '01', title: 'URL 입력', pose: 'develop' as const, category: 'process' as const },
+  { step: '02', title: '자동 정밀 스캔', pose: 'analytics' as const, category: 'process' as const },
+  { step: '03', title: '전문가 검토', pose: 'thinking' as const, category: 'emotion' as const },
+  { step: '04', title: '알기 쉬운 결과 이메일', pose: 'education' as const, category: 'process' as const },
+  { step: '05', title: '맞춤 견적 제안', pose: 'guide' as const, category: 'situation' as const },
+  { step: '06', title: '개선 + 재진단', pose: 'cheer' as const, category: 'emotion' as const },
 ]
 
 const siteTypes = [
@@ -373,7 +372,7 @@ function SecurityHeroIllust() {
         <circle cx="192" cy="210" r="6" fill="var(--accent-amber)" opacity="0.85"/>
         <circle cx="208" cy="226" r="4" fill="var(--accent-amber)" opacity="0.5"/>
       </svg>
-      <VisiMascot pose="magnify" size={92} />
+      <Mascot pose="analytics" category="process" size="sm" className="h-24 w-auto" />
     </div>
   )
 }
@@ -659,7 +658,7 @@ export default function SecurityPage() {
                 <div className="pt-1 pb-6 flex items-center gap-3">
                   <h3 className="text-foreground font-bold text-sm flex-1">{s.title}</h3>
                   <div className="shrink-0 hidden sm:block">
-                    <VisiMascot pose={s.pose} size={52} />
+                    <Mascot pose={s.pose} category={s.category} size="sm" className="h-14 w-auto" />
                   </div>
                 </div>
               </motion.div>
@@ -967,7 +966,7 @@ export default function SecurityPage() {
               </motion.div>
 
               <motion.div variants={fadeInUp} className="flex justify-center">
-                <VisiMascot pose="cheering" size={110} bubble="보안 걱정은 저한테 맡겨요!" bubbleDir="right" />
+                <Mascot pose="cheer" category="emotion" size="sm" className="h-28 w-auto" bubble="보안 걱정은 저한테 맡겨요!" bubbleDir="right" />
               </motion.div>
             </motion.div>
 

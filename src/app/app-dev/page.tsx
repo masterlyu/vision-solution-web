@@ -2,7 +2,6 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { ArrowRight, CheckSquare, ChevronDown, ChevronUp } from 'lucide-react'
-import { VisiMascot } from '@/components/visi/VisiMascot'
 import Mascot from '@/components/Mascot'
 
 const checklistItems = [
@@ -29,10 +28,10 @@ const comparisons = [
 ]
 
 const steps = [
-  { num: '01', title: '요구사항 분석', duration: '1~3일', desc: '기능 목록, 사용자 흐름, 데이터 구조 정의.', pose: 'thinking' as const },
-  { num: '02', title: '아키텍처 설계', duration: '1주',   desc: '기술 스택 선정, DB 설계, API 명세서 작성. 착수 전 전체 설계 공개.', pose: 'writing' as const },
-  { num: '03', title: '스프린트 개발', duration: '4~12주', desc: '2주 단위 스프린트. 중간 시연으로 방향 확인 후 진행.', pose: 'typing' as const },
-  { num: '04', title: '배포·인수인계', duration: '1주',   desc: '스테이징 검증 → 프로덕션 배포 → 운영 가이드 제공.', pose: 'thumbsUp' as const },
+  { num: '01', title: '요구사항 분석', duration: '1~3일', desc: '기능 목록, 사용자 흐름, 데이터 구조 정의.', pose: 'thinking' as const, category: 'emotion' as const },
+  { num: '02', title: '아키텍처 설계', duration: '1주',   desc: '기술 스택 선정, DB 설계, API 명세서 작성. 착수 전 전체 설계 공개.', pose: 'education' as const, category: 'process' as const },
+  { num: '03', title: '스프린트 개발', duration: '4~12주', desc: '2주 단위 스프린트. 중간 시연으로 방향 확인 후 진행.', pose: 'develop' as const, category: 'process' as const },
+  { num: '04', title: '배포·인수인계', duration: '1주',   desc: '스테이징 검증 → 프로덕션 배포 → 운영 가이드 제공.', pose: 'cheer' as const, category: 'emotion' as const },
 ]
 
 const plans = [
@@ -86,7 +85,7 @@ function AppDevHeroIllust() {
         <text x="295" y="85" fontSize="10" fill="var(--primary-light)" opacity={0.5}>✦</text>
       </svg>
       <div className="absolute -bottom-4 -right-4">
-        <VisiMascot pose="pointing" size={88} bubble="앱도 시스템도!" bubbleDir="left" />
+        <Mascot pose="guide" category="situation" size="sm" className="h-24 w-auto" bubble="앱도 시스템도!" bubbleDir="left" />
       </div>
     </div>
   )
@@ -179,7 +178,7 @@ export default function AppDevPage() {
             {steps.map((s, i) => (
               <div key={i} className="flex gap-4 items-start">
                 <div className="hidden sm:flex flex-col items-center w-20 shrink-0">
-                  <VisiMascot pose={s.pose} size={76} />
+                  <Mascot pose={s.pose} category={s.category} size="sm" className="h-20 w-auto" />
                 </div>
                 <div className="flex gap-4 items-start flex-1">
                   <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-sm font-black shrink-0">{s.num}</div>
@@ -254,7 +253,7 @@ export default function AppDevPage() {
         <div className="max-w-2xl mx-auto">
           <div className="flex justify-center mb-6">
             <div className="relative">
-              <VisiMascot pose="cheering" size={120} />
+              <Mascot pose="cheer" category="emotion" size="sm" className="h-28 w-auto" />
               <div className="absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-full bg-card text-foreground text-sm font-bold px-4 py-2 rounded-2xl shadow-lg whitespace-nowrap">
                 모바일부터 사내 시스템까지 다 만들어드려요!
                 <span className="absolute left-1/2 -translate-x-1/2 top-full border-8 border-transparent border-t-card" />

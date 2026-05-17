@@ -1,7 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { Mail, Globe, Clock, Loader2, MessageSquare, Shield, MonitorCheck } from 'lucide-react'
-import { VisiMascot } from '@/components/visi/VisiMascot'
 import Mascot from '@/components/Mascot'
 import UrlAnalysisForm from '@/components/UrlAnalysisForm'
 import RenewalDiagnosisForm from '@/components/RenewalDiagnosisForm'
@@ -75,7 +74,7 @@ export default function ContactPage() {
           {/* Left: info cards */}
           <div className="space-y-4">
             <div className="flex justify-center mb-2">
-              <VisiMascot pose="wave" size={110} bubble="무엇이든 물어보세요!" bubbleDir="right" />
+              <Mascot pose="greeting" category="situation" size="sm" className="h-28 w-auto" bubble="무엇이든 물어보세요!" bubbleDir="right" />
             </div>
             {info.map(i => (
               <div key={i.title} className="bg-card border border-border rounded-xl p-6 hover:border-primary/40 transition-all duration-200 group">
@@ -120,7 +119,7 @@ export default function ContactPage() {
                 done ? (
                   <div className="py-10 text-center">
                     <div className="flex justify-center mb-4">
-                      <VisiMascot pose="thumbsUp" size={110} bubble="문의 접수 완료!" bubbleDir="right" />
+                      <Mascot pose="cheer" category="emotion" size="sm" className="h-28 w-auto" bubble="문의 접수 완료!" bubbleDir="right" />
                     </div>
                     <h2 className="text-foreground text-2xl font-bold mb-3">문의가 접수됐습니다</h2>
                     <p className="text-muted-foreground text-sm">영업일 기준 1일 내 이메일로 연락드립니다.</p>
