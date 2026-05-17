@@ -245,7 +245,7 @@ export default function RenewalPage() {
               <div key={i} className="flex gap-4 items-stretch">
                 {/* VISI */}
                 <div className="hidden sm:flex flex-col items-center w-20 shrink-0">
-                  <Mascot pose={s.pose} category={s.category} size="sm" className="h-20 w-auto" />
+                  <Mascot pose={s.pose} category={s.category} size="sm" className="h-20 w-20 object-contain" />
                 </div>
 
                 {/* 스텝 카드 */}

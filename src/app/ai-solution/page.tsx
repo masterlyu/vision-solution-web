@@ -188,7 +188,7 @@ export default function AiSolutionPage() {
             {steps.map((s, i) => (
               <div key={i} className="flex gap-4 items-start">
                 <div className="hidden sm:flex flex-col items-center w-20 shrink-0">
-                  <Mascot pose={s.pose} category={s.category} size="sm" className="h-20 w-auto" />
+                  <Mascot pose={s.pose} category={s.category} size="sm" className="h-20 w-20 object-contain" />
                 </div>
                 <div className="flex gap-4 items-start flex-1">
                   <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-sm font-black shrink-0">{s.num}</div>
