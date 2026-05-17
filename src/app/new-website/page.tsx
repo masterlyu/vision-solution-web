@@ -119,7 +119,7 @@ export default function NewWebsitePage() {
             </Link>
           </div>
           <div className="hidden lg:flex flex-col justify-center items-center gap-6">
-            <Mascot pose="svc_newbuild" category="service" size="md" className="h-48 w-auto" alt="VISIONC 마스코트 — 신규 홈페이지" />
+            <Mascot pose="svc_newbuild" category="service" size="md" className="h-48 w-auto min-w-[140px]" alt="VISIONC 마스코트 — 신규 홈페이지" />
             <NewWebsiteHeroIllust />
           </div>
         </div>

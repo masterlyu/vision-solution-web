@@ -120,7 +120,7 @@ export default function AiSolutionPage() {
             </Link>
           </div>
           <div className="hidden lg:flex flex-col justify-center items-center gap-6">
-            <Mascot pose="develop" category="process" size="md" className="h-48 w-auto" alt="VISIONC 마스코트 — AI 솔루션" />
+            <Mascot pose="develop" category="process" size="md" className="h-48 w-auto min-w-[140px]" alt="VISIONC 마스코트 — AI 솔루션" />
             <AiHeroIllust />
           </div>
         </div>
