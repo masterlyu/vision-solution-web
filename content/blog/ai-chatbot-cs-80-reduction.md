@@ -7,7 +7,7 @@ summary: "하루 50건 문의 중 40건을 AI가 자동 처리. 도입 비용과
 ---
 
 ## 😰 직원 3명이 CS에 치이고 있었습니다
-![right](/mascot/sm/emotion/cat_cheer.png)
+![right](/mascot/md/emotion/cat_worried.png)
 
 하루 50건의 고객 문의. 직원 2명이 거의 풀타임으로 전화와 카카오톡 응대에만 매달려 있었습니다. 정작 중요한 영업, 물류, 사업 발전에는 시간을 쓸 수 없었죠.
 
@@ -18,7 +18,7 @@ summary: "하루 50건 문의 중 40건을 AI가 자동 처리. 도입 비용과
 ---
 
 ## 🔍 도입 전 상황
-![right](/mascot/sm/emotion/cat_cheer.png)
+![right](/mascot/md/emotion/cat_thinking.png)
 
 하루 평균 CS 문의 50건 중, **40건이 매일 반복되는 똑같은 질문**이었습니다.
 

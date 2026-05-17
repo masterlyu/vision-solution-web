@@ -10,7 +10,7 @@ summary: "작은 사이트라고 안심은 금물! 최근 급증하는 웹사이
 > 보안 사고는 **큰 기업만 대상**이 아닙니다. 오히려 작은 사이트가 더 위험할 수 있어요.
 
 ## 실제로 일어나는 일들
-![right](/mascot/sm/emotion/cat_cheer.png)
+![right](/mascot/md/emotion/cat_cheer.png)
 
 2024년, 한 중소기업 쇼핑몰이 악성코드에 감염되어 고객 정보 3만 건이 유출됐습니다. 2025년 초에는 국내 병원 홈페이지가 랜섬웨어 공격을 받아 **진료 예약 시스템이 며칠간 마비**되기도 했습니다.
 
@@ -19,7 +19,7 @@ summary: "작은 사이트라고 안심은 금물! 최근 급증하는 웹사이
 ---
 
 ## 당신의 홈페이지를 지켜주는 8가지 보안 점검 항목
-![right](/mascot/sm/emotion/cat_cheer.png)
+![right](/mascot/md/emotion/cat_cheer.png)
 
 ### 1. HTTPS/SSL 인증서 — 안전한 통신의 기본
 
@@ -98,7 +98,7 @@ https://yoursite.com (안전) ✅
 ---
 
 ## 문제가 발견되면 어떻게 해야 할까요?
-![right](/mascot/sm/emotion/cat_cheer.png)
+![right](/mascot/md/emotion/cat_worried.png)
 
 ### 스스로 고칠 수 있는 것
 
@@ -121,7 +121,7 @@ https://yoursite.com (안전) ✅
 ---
 
 ## 지금 바로 무료 보안 점검을 받아보세요
-![right](/mascot/sm/emotion/cat_cheer.png)
+![right](/mascot/md/emotion/cat_grateful.png)
 
 위 8가지 항목을 **무료**로 자동 점검해주는 서비스가 있습니다.
 

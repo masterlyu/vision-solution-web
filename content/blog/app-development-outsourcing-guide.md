@@ -7,7 +7,7 @@ summary: "앱 개발 외주를 맡겼다가 수천만 원을 날리는 이유와
 ---
 
 ## 😱 "앱 만들려다 수천만 원 날린 사례"가 왜 이렇게 많을까요?
-![right](/mascot/sm/emotion/cat_cheer.png)
+![right](/mascot/md/emotion/cat_worried.png)
 
 앱 개발 외주를 맡겼다가 실패하는 사례는 생각보다 훨씬 많습니다.
 
@@ -23,7 +23,7 @@ summary: "앱 개발 외주를 맡겼다가 수천만 원을 날리는 이유와
 ---
 
 ## 💵 앱 개발 외주, 얼마나 드나요?
-![right](/mascot/sm/emotion/cat_cheer.png)
+![right](/mascot/md/emotion/cat_cheer.png)
 
 먼저 현실적인 비용 범위를 알아야 합니다.
 
@@ -39,7 +39,7 @@ summary: "앱 개발 외주를 맡겼다가 수천만 원을 날리는 이유와
 ---
 
 ## ✅ 실패하지 않는 업체 선택 기준
-![right](/mascot/sm/emotion/cat_cheer.png)
+![right](/mascot/md/emotion/cat_worried.png)
 
 ### 🔍 기준 1: 앱스토어에 실제로 출시된 앱이 있는가?
 
@@ -91,7 +91,7 @@ summary: "앱 개발 외주를 맡겼다가 수천만 원을 날리는 이유와
 ---
 
 ## 📋 계약 전 체크리스트
-![right](/mascot/sm/emotion/cat_cheer.png)
+![right](/mascot/md/emotion/cat_thinking.png)
 
 ```
 [ ] 실제 앱스토어에 출시된 포트폴리오 확인

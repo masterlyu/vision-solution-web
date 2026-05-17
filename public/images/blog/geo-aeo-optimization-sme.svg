@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1b4b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3730a3;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)" />
+  <circle cx="720" cy="-30" r="220" fill="white" opacity="0.04"/>
+  <circle cx="-20" cy="420" r="180" fill="white" opacity="0.03"/>
+  <!-- Tag badge -->
+  <rect x="40" y="40" width="100" height="28" rx="14" fill="white" opacity="0.15"/>
+  <text x="90" y="59" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="white">검색 최적화</text>
+  <!-- Icon panel -->
+  <rect x="490" y="55" width="270" height="310" rx="18" fill="white" opacity="0.07" stroke="white" stroke-opacity="0.12" stroke-width="1"/>
+  <!-- AI brain icon -->
+  <circle cx="625" cy="140" r="55" fill="none" stroke="white" stroke-opacity="0.3" stroke-width="1.5"/>
+  <text x="625" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="52">🧠</text>
+  <!-- Search nodes -->
+  <circle cx="545" cy="245" r="22" fill="white" opacity="0.12"/>
+  <text x="545" y="252" text-anchor="middle" font-family="Arial, sans-serif" font-size="18">🔍</text>
+  <circle cx="625" cy="265" r="22" fill="white" opacity="0.12"/>
+  <text x="625" y="272" text-anchor="middle" font-family="Arial, sans-serif" font-size="18">💬</text>
+  <circle cx="705" cy="245" r="22" fill="white" opacity="0.12"/>
+  <text x="705" y="252" text-anchor="middle" font-family="Arial, sans-serif" font-size="18">📊</text>
+  <line x1="565" y1="250" x2="605" y2="262" stroke="white" stroke-opacity="0.3" stroke-width="1"/>
+  <line x1="645" y1="262" x2="685" y2="250" stroke="white" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="625" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.5">AI 답변에 노출되는 전략</text>
+  <!-- Main text -->
+  <text x="40" y="130" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="white" opacity="0.7">생성형 AI 검색 시대</text>
+  <text x="40" y="180" font-family="Arial, sans-serif" font-size="33" font-weight="900" fill="white">GEO · AEO</text>
+  <text x="40" y="220" font-family="Arial, sans-serif" font-size="33" font-weight="900" fill="white">검색 최적화</text>
+  <text x="40" y="268" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.7">중소기업 홈페이지 AI 노출 전략</text>
+  <rect x="40" y="295" width="55" height="4" rx="2" fill="#818cf8" opacity="0.8"/>
+  <text x="40" y="340" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.55">비전솔루션</text>
+</svg>
