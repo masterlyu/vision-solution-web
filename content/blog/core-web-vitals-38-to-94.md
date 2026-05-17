@@ -1,3 +1,4 @@
+---
 title: "Core Web Vitals 60점대 → 94점으로 올린 5가지 방법"
 date: "2026-03-08"
 tag: "개발 팁"
