@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { HeroSection } from '@/components/landing/hero-section'
 import { TrustSection } from '@/components/landing/trust-section'
+import Mascot from '@/components/Mascot'
 import { FeaturesSection } from '@/components/landing/features-section'
 import { HowItWorksSection } from '@/components/landing/how-it-works-section'
 import { MetricsSection } from '@/components/landing/metrics-section'
@@ -51,6 +52,9 @@ export default function Home() {
     <div className="relative min-h-screen overflow-x-hidden bg-background">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }} />
       <HeroSection />
+      <div className="flex justify-center py-12 bg-background">
+        <Mascot pose="hero" category="company" size="lg" alt="VISIONC 마스코트 히어로" />
+      </div>
       <TrustSection />
       <MetricsSection />
       <FeaturesSection />
