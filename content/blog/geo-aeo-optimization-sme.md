@@ -1,4 +1,3 @@
----
 title: "GEO·AEO 검색 최적화 — 생성형 AI 검색 시대 중소기업 홈페이지 노출 전략"
 date: 2026-05-15
 tags: ["GEO", "AEO", "검색최적화", "중소기업", "생성형AI", "SEO"]
@@ -27,3 +26,5 @@ visionc.co.kr의 GEO/AEO 최적화 서비스(https://visionc.co.kr/service/seo-o
 결론적으로, 생성형 AI 검색 시대에 살아남는 중소기업은 "검색 엔진에 최적화된" 콘텐츠가 아니라 "AI가 직접 끌어다 쓸 수 있는" 콘텐츠를 만들어야 합니다. 지금부터 GEO/AEO 관점에서 콘텐츠를 점검하고 개선한다면, 향후 검색 트래픽의 새로운 기회를 선점할 수 있을 것입니다.
 
 무료 GEO/AEO 진단을 신청하고, 현재 사이트의 AI 노출 준비도를 확인해 보세요. https://visionc.co.kr/geo-aeo-check
+
+![right](/mascot/sm/emotion/cat_cheer.png)
