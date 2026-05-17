@@ -54,7 +54,7 @@ export function FeaturesSection() {
                   pose={s.mascot.pose}
                   category={s.mascot.category}
                   size="sm"
-                  className="h-20 w-20 object-contain"
+                  className="h-28 w-28 object-contain transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1"
                   alt={s.title}
                 />
               </div>
