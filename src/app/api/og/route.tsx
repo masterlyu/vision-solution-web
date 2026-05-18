@@ -1,9 +1,9 @@
 import { ImageResponse } from 'next/og'
-import { readFileSync } from 'fs'
-import { join } from 'path'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
+
+const BASE_URL = 'https://visionc.co.kr'
 
 async function loadFont(): Promise<ArrayBuffer> {
   const css = await fetch(
@@ -17,13 +17,13 @@ async function loadFont(): Promise<ArrayBuffer> {
   return fetch(match[1]).then(r => r.arrayBuffer())
 }
 
-function loadMascot(): string {
-  const buf = readFileSync(join(process.cwd(), 'public/mascot/md/situation/cat_main.png'))
-  return `data:image/png;base64,${buf.toString('base64')}`
+async function loadMascot(): Promise<string> {
+  const buf = await fetch(`${BASE_URL}/mascot/md/situation/cat_main.png`).then(r => r.arrayBuffer())
+  return `data:image/png;base64,${Buffer.from(buf).toString('base64')}`
 }
 
 export async function GET() {
-  const [fontData, mascotSrc] = await Promise.all([loadFont(), Promise.resolve(loadMascot())])
+  const [fontData, mascotSrc] = await Promise.all([loadFont(), loadMascot()])
 
   return new ImageResponse(
     (
