@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { HeroSection } from '@/components/landing/hero-section'
 import { TrustSection } from '@/components/landing/trust-section'
-import Mascot from '@/components/Mascot'
+import MascotVideo from '@/components/MascotVideo'
 import { FeaturesSection } from '@/components/landing/features-section'
 import { HowItWorksSection } from '@/components/landing/how-it-works-section'
 import { MetricsSection } from '@/components/landing/metrics-section'
@@ -53,7 +53,7 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }} />
       <HeroSection />
       <div className="flex justify-center py-8 bg-background">
-        <Mascot pose="main" category="situation" size="md" className="h-52 w-auto" alt="VISIONC 마스코트" />
+        <MascotVideo src="/mascot/lg/company/cat_bow_web.mp4" className="h-52 w-auto" pauseSeconds={3} />
       </div>
       <TrustSection />
       <MetricsSection />
