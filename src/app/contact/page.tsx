@@ -16,6 +16,7 @@ const TABS = [
 export default function ContactPage() {
   const [tab, setTab] = useState<Tab>('contact')
   const [form, setForm] = useState({ name: '', email: '', company: '', service: '', message: '' })
+  const [pentestAgree, setPentestAgree] = useState(false)
   const [done, setDone] = useState(false)
   const [loading, setLoading] = useState(false)
 
@@ -24,16 +25,21 @@ export default function ContactPage() {
     const service = params.get('service')
     if (service === 'security') setTab('security')
     else if (service === 'renewal') setTab('renewal')
+    else if (service === 'pentest') {
+      setTab('contact')
+      setForm(prev => ({ ...prev, service: 'pentest' }))
+    }
   }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (form.service === 'pentest' && !pentestAgree) return
     setLoading(true)
     try {
       await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, pentestAgreed: form.service === 'pentest' ? pentestAgree : undefined }),
       })
     } catch {}
     setLoading(false)
@@ -152,6 +158,7 @@ export default function ContactPage() {
                           <option value="new-website">신규 사이트 구축</option>
                           <option value="maintenance">유지보수</option>
                           <option value="security">보안 진단</option>
+                          <option value="pentest">모의해킹 진단 (29만원)</option>
                           <option value="app-dev">앱·시스템 개발</option>
                           <option value="ai-solution">AI 솔루션</option>
                           <option value="other">기타</option>
@@ -163,7 +170,28 @@ export default function ContactPage() {
                           placeholder="현재 상황과 원하시는 내용을 자유롭게 적어주세요.&#10;예) 홈페이지 리뉴얼을 원하고, 예산은 OOO 정도입니다."
                           className={`${inputCls} resize-none leading-relaxed`} />
                       </div>
-                      <button type="submit" disabled={loading}
+
+                      {form.service === 'pentest' && (
+                        <div className="bg-primary/5 border border-primary/30 rounded-xl p-5">
+                          <p className="text-foreground text-sm font-bold mb-3">모의해킹 진단 신청 시 아래 사항에 동의해주세요</p>
+                          <ul className="text-muted-foreground text-xs space-y-1.5 mb-4 leading-relaxed">
+                            <li className="flex items-start gap-2"><span className="text-primary font-bold shrink-0">✓</span><span>사전 서면 동의 후에만 진단이 시작됩니다 (정보통신망법 준수)</span></li>
+                            <li className="flex items-start gap-2"><span className="text-primary font-bold shrink-0">✓</span><span>비파괴 진단 원칙 — 시스템 변경·데이터 심기 없음</span></li>
+                            <li className="flex items-start gap-2"><span className="text-primary font-bold shrink-0">✓</span><span>NDA 체결 + 보고서 전달 즉시(당일) 회사 측 데이터 일괄 삭제</span></li>
+                            <li className="flex items-start gap-2"><span className="text-primary font-bold shrink-0">✓</span><span>결과는 진단 시점 기준 (이후 시스템 변경분 별도 진단 필요)</span></li>
+                            <li className="flex items-start gap-2"><span className="text-primary font-bold shrink-0">✓</span><span>진단 결과 의사결정·운영 책임은 이용자에게 귀속</span></li>
+                          </ul>
+                          <label className="flex items-start gap-2 text-sm text-foreground cursor-pointer">
+                            <input type="checkbox" checked={pentestAgree} onChange={e => setPentestAgree(e.target.checked)} required className="mt-1 accent-[var(--primary)]" />
+                            <span className="leading-relaxed">위 진단 원칙·법적 사항 전체에 동의합니다. 정식 계약 시 별도 동의서로 한 번 더 안내받습니다.</span>
+                          </label>
+                          <p className="text-muted-foreground text-xs mt-3">
+                            상세 약관: <a href="/terms" className="text-primary hover:underline">이용약관</a> · <a href="/privacy" className="text-primary hover:underline">개인정보처리방침</a>
+                          </p>
+                        </div>
+                      )}
+
+                      <button type="submit" disabled={loading || (form.service === 'pentest' && !pentestAgree)}
                         className="w-full h-14 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-xl flex items-center justify-center gap-2 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed text-base shadow-lg shadow-primary/40 hover:shadow-primary/60">
                         {loading ? <><Loader2 className="w-5 h-5 animate-spin" />전송 중...</> : '문의 전송 →'}
                       </button>

@@ -18,7 +18,7 @@ export default function PrivacyPage() {
         </Link>
 
         <h1 className="text-3xl font-bold text-foreground mb-2">개인정보처리방침</h1>
-        <p className="text-sm text-muted-foreground mb-12">시행일: 2025년 1월 1일</p>
+        <p className="text-sm text-muted-foreground mb-12">시행일: 2026년 5월 18일 (모의해킹 진단 서비스 추가 개정)</p>
 
         <div className="space-y-10 text-sm leading-relaxed text-muted-foreground">
           <section>
@@ -26,6 +26,7 @@ export default function PrivacyPage() {
             <p>비젼솔루션(이하 &ldquo;회사&rdquo;)은 다음 목적으로 개인정보를 처리합니다. 처리하는 개인정보는 다음 목적 이외의 용도로 사용되지 않으며, 목적이 변경되는 경우에는 별도 동의를 받겠습니다.</p>
             <ul className="list-disc list-inside mt-3 space-y-1.5">
               <li>웹사이트 보안·성능·SEO 무료 진단 서비스 제공</li>
+              <li>모의해킹 진단 서비스 제공 및 결과 보고</li>
               <li>진단 리포트 PDF 이메일 발송</li>
               <li>서비스 이용에 관한 문의·상담 처리</li>
               <li>마케팅 및 서비스 개선 목적 (동의 시)</li>
@@ -38,6 +39,7 @@ export default function PrivacyPage() {
             <ul className="list-disc list-inside space-y-1.5">
               <li>필수: 이메일 주소, 진단 대상 URL</li>
               <li>선택: 회사명/담당자명</li>
+              <li>모의해킹 진단 신청 시 추가: 점검 대상 도메인·IP, 시스템 구성 정보, 담당자 연락처, 진단 범위 합의서</li>
               <li>자동 수집: 서비스 이용 기록, IP 주소, 브라우저 정보</li>
             </ul>
           </section>
@@ -47,6 +49,7 @@ export default function PrivacyPage() {
             <p>회사는 법령에 따른 개인정보 보유·이용 기간 또는 정보주체로부터 개인정보 수집 시 동의받은 보유·이용 기간 내에서 개인정보를 처리·보유합니다.</p>
             <ul className="list-disc list-inside mt-3 space-y-1.5">
               <li>서비스 제공 목적: 서비스 종료 후 즉시 삭제</li>
+              <li>모의해킹 진단 수집 데이터·캡처·로그: 최종 보고서 전달 즉시(당일) 회사 측 보유분 일괄 삭제 (삭제 확인서 발급)</li>
               <li>이메일 수신 기록: 3년 (전자상거래법 준용)</li>
               <li>민원·상담 기록: 3년</li>
             </ul>
@@ -67,6 +70,7 @@ export default function PrivacyPage() {
             <ul className="list-disc list-inside mt-3 space-y-1.5">
               <li>이메일 발송 서비스 (Google Workspace): 진단 리포트 발송</li>
             </ul>
+            <p className="mt-3">모의해킹 진단 업무는 원칙적으로 회사가 직접 수행하며, 외부 위탁이 필요한 경우 별도 동의를 받습니다.</p>
           </section>
 
           <section>
@@ -88,6 +92,7 @@ export default function PrivacyPage() {
               <li>개인정보 암호화: 비밀번호 및 중요 정보 암호화 저장</li>
               <li>해킹 등 대비 조치: SSL 인증서 적용, 보안 서버 운영</li>
               <li>접근 권한 최소화: 담당자 외 접근 제한</li>
+              <li>모의해킹 결과물 암호화: 보고서 PDF는 암호 설정 후 전달, 보고서 전달 즉시 회사 측 보유 데이터 일괄 삭제</li>
             </ul>
           </section>
 
@@ -103,7 +108,7 @@ export default function PrivacyPage() {
 
           <section>
             <h2 className="text-lg font-semibold text-foreground mb-3">제9조 (개인정보 처리방침 변경)</h2>
-            <p>이 개인정보 처리방침은 2025년 1월 1일부터 적용됩니다. 내용이 변경되는 경우 홈페이지 공지사항을 통해 안내드리겠습니다.</p>
+            <p>이 개인정보 처리방침은 2026년 5월 18일부터 적용됩니다. 내용이 변경되는 경우 홈페이지 공지사항을 통해 안내드리겠습니다.</p>
           </section>
         </div>
       </div>

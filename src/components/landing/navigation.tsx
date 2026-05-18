@@ -10,6 +10,7 @@ const serviceLinks = [
   { name: '신규 사이트 구축', href: '/new-website' },
   { name: '유지보수', href: '/maintenance' },
   { name: '보안 진단', href: '/security' },
+  { name: '모의해킹 진단', href: '/pentest' },
   { name: '앱·시스템 개발', href: '/app-dev' },
   { name: 'AI 솔루션', href: '/ai-solution' },
   { name: '🤖 AI 챗봇 설치', href: '/chatbot' },

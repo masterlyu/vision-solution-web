@@ -18,7 +18,7 @@ export default function TermsPage() {
         </Link>
 
         <h1 className="text-3xl font-bold text-foreground mb-2">이용약관</h1>
-        <p className="text-sm text-muted-foreground mb-12">시행일: 2025년 1월 1일</p>
+        <p className="text-sm text-muted-foreground mb-12">시행일: 2026년 5월 18일 (모의해킹 진단 서비스 추가 개정)</p>
 
         <div className="space-y-10 text-sm leading-relaxed text-muted-foreground">
           <section>
@@ -29,7 +29,8 @@ export default function TermsPage() {
           <section>
             <h2 className="text-lg font-semibold text-foreground mb-3">제2조 (용어의 정의)</h2>
             <ul className="list-disc list-inside space-y-1.5">
-              <li>&ldquo;서비스&rdquo;란 회사가 사이트를 통해 제공하는 웹사이트 보안진단, SEO 분석, 성능 측정, 무료 리포트 발송 등 일체의 서비스를 의미합니다.</li>
+              <li>&ldquo;서비스&rdquo;란 회사가 사이트를 통해 제공하는 웹사이트 보안진단, 모의해킹 진단, SEO 분석, 성능 측정, 무료 리포트 발송 등 일체의 서비스를 의미합니다.</li>
+              <li>&ldquo;모의해킹 진단&rdquo;이란 이용자가 사전 서면 동의한 범위 내에서 회사가 실제 침투 시나리오를 수행하여 보안 취약점을 확인하고 결과를 보고하는 유료 서비스를 의미합니다.</li>
               <li>&ldquo;이용자&rdquo;란 이 약관에 따라 회사가 제공하는 서비스를 받는 자를 의미합니다.</li>
             </ul>
           </section>
@@ -49,47 +50,63 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-foreground mb-3">제5조 (이용자의 의무)</h2>
+            <h2 className="text-lg font-semibold text-foreground mb-3">제5조 (모의해킹 진단 서비스 특별 조항)</h2>
+            <p className="mb-3">모의해킹 진단 서비스는 다음 조건 아래에서만 진행됩니다.</p>
+            <ul className="list-disc list-inside space-y-1.5">
+              <li>이용자(또는 시스템 정당 소유자)의 서면 동의서 체결을 진단 개시 조건으로 합니다.</li>
+              <li>동의서에는 진단 대상·범위·일정·중단 조건이 명시되어야 하며, 합의된 범위를 벗어난 진단은 수행하지 않습니다.</li>
+              <li>회사와 이용자는 비밀유지계약(NDA)을 체결하며, 진단 과정에서 알게 된 정보는 외부에 공개되지 않습니다.</li>
+              <li>진단으로 인해 발생할 수 있는 일시적 서비스 영향에 대해서는 사전에 협의하며, 실 서비스 영향 최소화 방식으로 진행합니다. 부하 테스트 등 영향이 큰 시나리오는 별도 동의를 받습니다.</li>
+              <li>회사는 진단 완료 후 최종 보고서를 암호화된 형태로 전달하며, 보고서 전달 즉시(당일) 회사가 보유한 모든 진단 관련 데이터·캡처·로그를 일괄 삭제합니다(삭제 확인서 발급).</li>
+              <li>진단 결과는 진단 시점의 시스템 상태를 기준으로 하며, 이후 시스템 변경에 따른 새 취약점에 대해서는 별도 진단이 필요합니다.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-semibold text-foreground mb-3">제6조 (이용자의 의무)</h2>
             <p className="mb-3">이용자는 다음 행위를 하여서는 안 됩니다.</p>
             <ul className="list-disc list-inside space-y-1.5">
               <li>타인의 정보 도용 또는 허위 정보 입력</li>
               <li>서비스를 이용하여 법령 또는 이 약관을 위반하는 행위</li>
               <li>서비스의 정상적인 운영을 방해하는 행위 (DDoS, 자동화된 요청 등)</li>
+              <li>모의해킹 진단 시 본인이 정당한 권한이 없는 시스템을 진단 대상으로 신청하는 행위</li>
               <li>타인에게 피해를 주거나 미풍양속에 반하는 행위</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-foreground mb-3">제6조 (서비스 제공의 제한)</h2>
+            <h2 className="text-lg font-semibold text-foreground mb-3">제7조 (서비스 제공의 제한)</h2>
             <p>회사는 다음의 경우 서비스 제공을 제한하거나 중단할 수 있습니다.</p>
             <ul className="list-disc list-inside mt-3 space-y-1.5">
               <li>시스템 점검, 교체 및 고장, 통신 두절 등의 경우</li>
               <li>이용자가 이 약관을 위반한 경우</li>
+              <li>모의해킹 진단 신청자가 시스템 정당 소유 또는 위임을 입증하지 못하는 경우</li>
               <li>천재지변, 불가항력 등 회사의 귀책사유 없이 서비스 제공이 불가한 경우</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-foreground mb-3">제7조 (면책조항)</h2>
+            <h2 className="text-lg font-semibold text-foreground mb-3">제8조 (면책조항)</h2>
             <ul className="list-disc list-inside space-y-1.5">
               <li>회사는 무료로 제공하는 진단 서비스의 정확성에 대해 법적 책임을 지지 않습니다.</li>
+              <li>모의해킹 진단은 합의된 범위·시점 기준의 분석이며, 진단 이후의 시스템 변경이나 새 취약점에 대해서는 책임을 지지 않습니다.</li>
               <li>진단 결과를 바탕으로 한 이용자의 의사결정에 대한 책임은 이용자 본인에게 있습니다.</li>
               <li>회사는 이용자와 제3자 간의 분쟁에 대해 책임을 지지 않습니다.</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-foreground mb-3">제8조 (지식재산권)</h2>
-            <p>사이트 내 콘텐츠, 디자인, 코드 등 모든 저작물의 지식재산권은 회사에 귀속됩니다. 이용자는 회사의 명시적인 사전 동의 없이 이를 복제, 배포, 수정하여서는 안 됩니다.</p>
+            <h2 className="text-lg font-semibold text-foreground mb-3">제9조 (지식재산권)</h2>
+            <p>사이트 내 콘텐츠, 디자인, 코드 등 모든 저작물의 지식재산권은 회사에 귀속됩니다. 이용자는 회사의 명시적인 사전 동의 없이 이를 복제, 배포, 수정하여서는 안 됩니다. 모의해킹 진단 결과 보고서의 지식재산권은 회사에 귀속되며, 이용자는 자사 내부 보안 개선 목적으로만 사용할 수 있습니다.</p>
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-foreground mb-3">제9조 (준거법 및 관할법원)</h2>
+            <h2 className="text-lg font-semibold text-foreground mb-3">제10조 (준거법 및 관할법원)</h2>
             <p>이 약관에 관한 분쟁은 대한민국 법률에 따르며, 소송은 회사 소재지를 관할하는 법원에 제기합니다.</p>
           </section>
 
           <section>
-            <h2 className="text-lg font-semibold text-foreground mb-3">제10조 (문의)</h2>
+            <h2 className="text-lg font-semibold text-foreground mb-3">제11조 (문의)</h2>
             <p>서비스 이용 관련 문의는 아래로 연락 주세요.</p>
             <div className="mt-3 space-y-1.5">
               <p>이메일: biztalktome@gmail.com</p>

@@ -7,6 +7,7 @@ const NAV = [
   { label: '웹 리뉴얼', href: '/renewal' },
   { label: '신규 제작', href: '/new-website' },
   { label: '보안 진단', href: '/security' },
+  { label: '모의해킹', href: '/pentest' },
   { label: '유지보수', href: '/maintenance' },
   { label: 'AI 솔루션', href: '/ai-solution' },
   { label: '블로그', href: '/blog' },
