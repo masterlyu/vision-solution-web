@@ -1,4 +1,6 @@
 import { ImageResponse } from 'next/og'
+import { readFileSync } from 'fs'
+import { join } from 'path'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -15,8 +17,13 @@ async function loadFont(): Promise<ArrayBuffer> {
   return fetch(match[1]).then(r => r.arrayBuffer())
 }
 
+function loadMascot(): string {
+  const buf = readFileSync(join(process.cwd(), 'public/mascot/md/situation/cat_main.png'))
+  return `data:image/png;base64,${buf.toString('base64')}`
+}
+
 export async function GET() {
-  const fontData = await loadFont()
+  const [fontData, mascotSrc] = await Promise.all([loadFont(), Promise.resolve(loadMascot())])
 
   return new ImageResponse(
     (
@@ -47,16 +54,16 @@ export async function GET() {
           display: 'flex',
         }} />
 
-        {/* 메인 콘텐츠 */}
+        {/* 좌측 텍스트 */}
         <div style={{
           display: 'flex', flexDirection: 'column',
           justifyContent: 'space-between',
-          padding: '60px 80px',
-          width: '100%', height: '100%',
+          padding: '60px 0 60px 80px',
+          width: '700px', height: '100%',
           position: 'relative',
         }}>
           {/* 상단 로고 + 배지 */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
             <div style={{ fontSize: 34, color: '#ffffff', display: 'flex' }}>
               VISIONC
             </div>
@@ -73,13 +80,13 @@ export async function GET() {
 
           {/* 메인 카피 */}
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <div style={{ fontSize: 60, color: '#ffffff', lineHeight: 1.15, display: 'flex' }}>
+            <div style={{ fontSize: 56, color: '#ffffff', lineHeight: 1.15, display: 'flex' }}>
               홈페이지가 고객을
             </div>
-            <div style={{ fontSize: 60, color: '#a78bfa', lineHeight: 1.15, display: 'flex', marginBottom: 24 }}>
+            <div style={{ fontSize: 56, color: '#a78bfa', lineHeight: 1.15, display: 'flex', marginBottom: 24 }}>
               놓치고 있습니까?
             </div>
-            <div style={{ fontSize: 22, color: 'rgba(255,255,255,0.6)', display: 'flex' }}>
+            <div style={{ fontSize: 20, color: 'rgba(255,255,255,0.6)', display: 'flex' }}>
               URL 하나로 48시간 내 AI 진단 · 리뉴얼·보안·AI 솔루션 원스톱
             </div>
           </div>
@@ -91,6 +98,25 @@ export async function GET() {
               visionc.co.kr
             </div>
           </div>
+        </div>
+
+        {/* 우측 마스코트 */}
+        <div style={{
+          display: 'flex',
+          alignItems: 'flex-end',
+          justifyContent: 'center',
+          width: '500px',
+          height: '100%',
+          position: 'relative',
+        }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={mascotSrc}
+            width={420}
+            height={420}
+            style={{ objectFit: 'contain' }}
+            alt=""
+          />
         </div>
       </div>
     ),
