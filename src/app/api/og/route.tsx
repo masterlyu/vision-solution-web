@@ -18,7 +18,7 @@ async function loadFont(): Promise<ArrayBuffer> {
 }
 
 async function loadMascot(): Promise<string> {
-  const buf = await fetch(`${BASE_URL}/mascot/md/situation/cat_main.png`).then(r => r.arrayBuffer())
+  const buf = await fetch(`${BASE_URL}/mascot/md/emotion/cat_cheer.png`).then(r => r.arrayBuffer())
   return `data:image/png;base64,${Buffer.from(buf).toString('base64')}`
 }
 
@@ -112,8 +112,8 @@ export async function GET() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={mascotSrc}
-            width={420}
-            height={420}
+            width={600}
+            height={600}
             style={{ objectFit: 'contain' }}
             alt=""
           />
