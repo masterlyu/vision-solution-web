@@ -26,7 +26,8 @@ export async function GET() {
     GMAIL_APP_PASSWORD:      env.GMAIL_APP_PASSWORD       ? '✓ set' : '✗ missing',
     TELEGRAM_BOT_TOKEN:      env.TELEGRAM_BOT_TOKEN       ? '✓ set' : '✗ missing',
     UPSTASH_REDIS_REST_URL:  env.UPSTASH_REDIS_REST_URL   ? '✓ set' : '✗ missing',
-    UPSTASH_REDIS_REST_TOKEN:env.UPSTASH_REDIS_REST_TOKEN ? '✓ set' : '✗ missing',
+    UPSTASH_REDIS_REST_TOKEN:env.UPSTASH_REDIS_REST_TOKEN ? "✓ set" : "✗ missing",
+    _v: "debug-step",
   })
 }
 
