@@ -49,6 +49,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: '[서버 설정 오류] Redis 환경변수가 설정되지 않았습니다. 관리자에게 문의해 주세요.' }, { status: 503 })
   }
 
+  let step = 'redis'
   try {
     // 토큰 생성 및 Redis 저장 (24시간 TTL)
     const token = crypto.randomUUID()
@@ -60,10 +61,12 @@ export async function POST(req: NextRequest) {
     )
 
     // 인증 이메일 발송
+    step = 'email'
     const baseUrl = env.NEXT_PUBLIC_BASE_URL ?? 'https://www.visionc.co.kr'
     await sendVerificationEmail(email, url, token, baseUrl)
 
     // 어드민 알림
+    step = 'telegram'
     await fetch(`https://api.telegram.org/bot${TBOT}/sendMessage`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -82,7 +85,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ ok: true, pending: true })
   } catch (e: any) {
-    console.error('[analyze]', e)
-    return NextResponse.json({ error: e.message }, { status: 500 })
+    console.error(`[analyze:${step}]`, e)
+    return NextResponse.json({ error: `[${step}] ${e.message}` }, { status: 500 })
   }
 }
