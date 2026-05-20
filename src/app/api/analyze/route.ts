@@ -1,10 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { Redis } from '@upstash/redis'
 import { sendVerificationEmail } from '@/lib/emailSender'
 import { env } from '@/lib/env'
 
-const TBOT  = env.TELEGRAM_BOT_TOKEN
-const TCHAT = env.TELEGRAM_CHAT_ID
 const ADMIN_EMAILS = ['biztalktome@gmail.com']
 
 export const maxDuration = 15
@@ -20,25 +17,24 @@ function domainsMatch(urlHostname: string, emailAddr: string): boolean {
     emailDomain.endsWith(`.${urlHostname}`)
 }
 
+async function signToken(payload: Record<string, unknown>, secret: string): Promise<string> {
+  const encoder = new TextEncoder()
+  const key = await crypto.subtle.importKey(
+    'raw', encoder.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign'],
+  )
+  const data = btoa(JSON.stringify(payload)).replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '')
+  const sigBytes = await crypto.subtle.sign('HMAC', key, encoder.encode(data))
+  const sig = btoa(String.fromCharCode(...new Uint8Array(sigBytes))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '')
+  return `${data}.${sig}`
+}
+
 export async function GET() {
-  const url = env.UPSTASH_REDIS_REST_URL
-  const urlPrefix = url ? url.slice(0, 12) + '...' : '(empty)'
-  let redisPing = 'not tested'
-  try {
-    const redis = new Redis({ url, token: env.UPSTASH_REDIS_REST_TOKEN })
-    const pong = await redis.ping()
-    redisPing = `ok: ${pong}`
-  } catch (e: any) {
-    redisPing = `error: ${e.message}`
-  }
   return Response.json({
-    GMAIL_USER:              env.GMAIL_USER              ? '✓ set' : '✗ missing',
-    GMAIL_APP_PASSWORD:      env.GMAIL_APP_PASSWORD       ? '✓ set' : '✗ missing',
-    TELEGRAM_BOT_TOKEN:      env.TELEGRAM_BOT_TOKEN       ? '✓ set' : '✗ missing',
-    UPSTASH_REDIS_REST_URL:  url                          ? `✓ set (${urlPrefix})` : '✗ missing',
-    UPSTASH_REDIS_REST_TOKEN:env.UPSTASH_REDIS_REST_TOKEN ? '✓ set' : '✗ missing',
-    redis_ping: redisPing,
-    _v: 'debug-step-4',
+    GMAIL_USER:         env.GMAIL_USER         ? '✓ set' : '✗ missing',
+    GMAIL_APP_PASSWORD: env.GMAIL_APP_PASSWORD  ? '✓ set' : '✗ missing',
+    TELEGRAM_BOT_TOKEN: env.TELEGRAM_BOT_TOKEN  ? '✓ set' : '✗ missing',
+    token_backend: 'hmac-jwt (no redis)',
+    _v: 'hmac-v1',
   })
 }
 
@@ -46,7 +42,6 @@ export async function POST(req: NextRequest) {
   const { url, email, company } = await req.json()
   if (!url || !email) return NextResponse.json({ error: 'URL과 이메일이 필요합니다.' }, { status: 400 })
 
-  // 도메인 소유 확인 — 관리자 이메일은 예외
   if (!ADMIN_EMAILS.includes(email.toLowerCase())) {
     const urlHost = getHostname(url)
     if (!urlHost || !domainsMatch(urlHost, email)) {
@@ -57,28 +52,15 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  if (!env.UPSTASH_REDIS_REST_URL || !env.UPSTASH_REDIS_REST_TOKEN) {
-    return NextResponse.json({ error: '[서버 설정 오류] Redis 환경변수가 설정되지 않았습니다. 관리자에게 문의해 주세요.' }, { status: 503 })
-  }
-
-  let step = 'redis'
   try {
-    // 토큰 생성 및 Redis 저장 (24시간 TTL)
-    const token = crypto.randomUUID()
-    const redis = new Redis({ url: env.UPSTASH_REDIS_REST_URL, token: env.UPSTASH_REDIS_REST_TOKEN })
-    await redis.set(
-      `scan:verify:${token}`,
-      JSON.stringify({ url, email, company: company ?? '' }),
-      { ex: 86400 },
-    )
+    const exp = Date.now() + 86_400_000  // 24h
+    const token = await signToken({ url, email, company: company ?? '', exp }, env.TELEGRAM_BOT_TOKEN)
 
-    // 인증 이메일 발송
-    step = 'email'
     const baseUrl = env.NEXT_PUBLIC_BASE_URL ?? 'https://www.visionc.co.kr'
     await sendVerificationEmail(email, url, token, baseUrl)
 
-    // 어드민 알림
-    step = 'telegram'
+    const TBOT  = env.TELEGRAM_BOT_TOKEN
+    const TCHAT = env.TELEGRAM_CHAT_ID
     await fetch(`https://api.telegram.org/bot${TBOT}/sendMessage`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -97,7 +79,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ ok: true, pending: true })
   } catch (e: any) {
-    console.error(`[analyze:${step}]`, e)
-    return NextResponse.json({ error: `[${step}] ${e.message}` }, { status: 500 })
+    console.error('[analyze]', e)
+    return NextResponse.json({ error: e.message }, { status: 500 })
   }
 }

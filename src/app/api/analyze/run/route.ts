@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { Redis } from '@upstash/redis'
 import { analyzeUrl } from '@/lib/siteAnalyzer'
 import { generatePdfBuffer } from '@/lib/pdfReport'
 import { sendReportEmail } from '@/lib/emailSender'
@@ -7,26 +6,55 @@ import { env } from '@/lib/env'
 
 export const maxDuration = 60
 
+function pad(s: string) {
+  return s + '='.repeat((4 - (s.length % 4)) % 4)
+}
+
+async function verifyToken(
+  token: string,
+  secret: string,
+): Promise<{ url: string; email: string; company: string } | null> {
+  const parts = token.split('.')
+  if (parts.length !== 2) return null
+  const [data, sigB64] = parts
+  try {
+    const encoder = new TextEncoder()
+    const key = await crypto.subtle.importKey(
+      'raw', encoder.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['verify'],
+    )
+    const sig = Uint8Array.from(
+      atob(pad(sigB64.replace(/-/g, '+').replace(/_/g, '/'))),
+      c => c.charCodeAt(0),
+    )
+    const valid = await crypto.subtle.verify('HMAC', key, sig, encoder.encode(data))
+    if (!valid) return null
+    const payload = JSON.parse(atob(pad(data.replace(/-/g, '+').replace(/_/g, '/'))))
+    if (payload.exp && Date.now() > payload.exp) return null
+    return { url: payload.url, email: payload.email, company: payload.company ?? '' }
+  } catch {
+    return null
+  }
+}
+
 export async function POST(req: NextRequest) {
   const { token } = await req.json()
   if (!token) return NextResponse.json({ error: '토큰이 필요합니다.' }, { status: 400 })
 
-  // 토큰 원자적 조회 + 삭제 (일회용)
-  const redis = new Redis({ url: env.UPSTASH_REDIS_REST_URL, token: env.UPSTASH_REDIS_REST_TOKEN })
-  const raw = await redis.getdel<string>(`scan:verify:${token}`)
-  if (!raw) {
-    return NextResponse.json({ error: '인증 링크가 만료되었거나 이미 사용되었습니다. 다시 신청해 주세요.' }, { status: 410 })
+  const payload = await verifyToken(token, env.TELEGRAM_BOT_TOKEN)
+  if (!payload) {
+    return NextResponse.json(
+      { error: '인증 링크가 만료되었거나 유효하지 않습니다. 다시 신청해 주세요.' },
+      { status: 410 },
+    )
   }
 
-  const { url, email, company } = typeof raw === 'string' ? JSON.parse(raw) : raw
+  const { url, email, company } = payload
 
   try {
-    // 스캔 실행
     const result = await analyzeUrl(url)
     const pdfBuffer = await generatePdfBuffer(result, email, company)
     await sendReportEmail(result, pdfBuffer, email, company)
 
-    // 어드민 알림
     const TBOT  = env.TELEGRAM_BOT_TOKEN
     const TCHAT = env.TELEGRAM_CHAT_ID
     const g: Record<string, string> = { A: '🟢', B: '🟡', C: '🟠', D: '🔴', F: '⛔' }
@@ -50,7 +78,6 @@ export async function POST(req: NextRequest) {
       }),
     }).catch(() => {})
 
-    // 대시보드 기록
     const dashboardUrl = process.env.DASHBOARD_INTERNAL_URL
     const internalToken = process.env.VISIONC_INTERNAL_TOKEN
     if (dashboardUrl && internalToken) {
