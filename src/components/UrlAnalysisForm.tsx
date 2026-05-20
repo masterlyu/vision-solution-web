@@ -136,35 +136,30 @@ export default function UrlAnalysisForm({ serviceType, title, notice, embedded =
   )
 
   // ── Done ──
+  // ── Done ──
+  // ── Done ──
   if (step === 'done') return (
     <div className="bg-card border border-border rounded-2xl p-8 text-center space-y-5">
       <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto">
         <CheckCircle className="w-8 h-8 text-primary" />
       </div>
       <div>
-        <h3 className="text-foreground font-bold text-xl mb-2">리포트가 발송됐습니다</h3>
+        <h3 className="text-foreground font-bold text-xl mb-2">인증 이메일이 발송됐습니다</h3>
         <div className="flex items-center justify-center gap-2 text-muted-foreground text-sm mb-3">
           <Mail className="w-4 h-4" />
           <span className="text-primary font-medium">{email}</span>
-          <span>으로 전송됨</span>
+          <span>으로 인증 링크 전송</span>
         </div>
-        {grade && (
-          <div className="inline-flex items-center gap-3 bg-primary/10 border border-primary/20 rounded-xl px-5 py-3 mt-2">
-            <div>
-              <p className="text-muted-foreground text-xs">종합 등급</p>
-              <p className="text-primary text-3xl font-black">{grade}</p>
-            </div>
-            <div className="w-px h-10 bg-border" />
-            <div>
-              <p className="text-muted-foreground text-xs">종합 점수</p>
-              <p className="text-foreground text-3xl font-black">{total}<span className="text-sm font-normal text-muted-foreground">점</span></p>
-            </div>
-          </div>
-        )}
+      </div>
+      <div className="bg-primary/5 border border-primary/10 rounded-xl px-5 py-4 text-left text-sm space-y-2">
+        <p className="font-semibold text-foreground">다음 단계</p>
+        <p className="text-muted-foreground">① 이메일 수신함에서 인증 메일을 확인하세요</p>
+        <p className="text-muted-foreground">② <strong className="text-foreground">인증하고 보안 진단 시작</strong> 버튼을 클릭하세요</p>
+        <p className="text-muted-foreground">③ 진단 완료 후 리포트가 이메일로 자동 발송됩니다</p>
       </div>
       <div className="text-muted-foreground text-sm space-y-1">
-        <p>📄 상세 진단 결과 및 수정 견적서가 첨부됩니다.</p>
-        <p>스팸함을 확인해주세요. 영업일 기준 1일 내 상담 연락드립니다.</p>
+        <p>인증 링크는 24시간 동안 유효합니다.</p>
+        <p>스팸함도 확인해 주세요.</p>
       </div>
       <button onClick={() => { setStep('form'); setUrl(''); setEmail(''); setCompany('') }}
         className="text-primary text-sm hover:underline">
@@ -172,6 +167,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice, embedded =
       </button>
     </div>
   )
+
 
   // ── Error ──
   if (step === 'error') return (

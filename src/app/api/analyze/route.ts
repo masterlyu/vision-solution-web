@@ -1,13 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { analyzeUrl } from '@/lib/siteAnalyzer'
-import { generatePdfBuffer } from '@/lib/pdfReport'
-import { sendReportEmail } from '@/lib/emailSender'
+import { Redis } from '@upstash/redis'
+import { sendVerificationEmail } from '@/lib/emailSender'
 import { env } from '@/lib/env'
 
-const TOKEN   = env.TELEGRAM_BOT_TOKEN
-const CHAT_ID = env.TELEGRAM_CHAT_ID
+const TBOT  = env.TELEGRAM_BOT_TOKEN
+const TCHAT = env.TELEGRAM_CHAT_ID
+const ADMIN_EMAILS = ['biztalktome@gmail.com']
 
-export const maxDuration = 60
+export const maxDuration = 15
+
+function getHostname(raw: string): string {
+  try { return new URL(raw).hostname.replace(/^www\./i, '') } catch { return '' }
+}
+
+function domainsMatch(urlHostname: string, emailAddr: string): boolean {
+  const emailDomain = emailAddr.slice(emailAddr.indexOf('@') + 1).toLowerCase()
+  return urlHostname === emailDomain ||
+    urlHostname.endsWith(`.${emailDomain}`) ||
+    emailDomain.endsWith(`.${urlHostname}`)
+}
 
 export async function GET() {
   return Response.json({
@@ -21,63 +32,49 @@ export async function POST(req: NextRequest) {
   const { url, email, company } = await req.json()
   if (!url || !email) return NextResponse.json({ error: 'URL과 이메일이 필요합니다.' }, { status: 400 })
 
+  // 도메인 소유 확인 — 관리자 이메일은 예외
+  if (!ADMIN_EMAILS.includes(email.toLowerCase())) {
+    const urlHost = getHostname(url)
+    if (!urlHost || !domainsMatch(urlHost, email)) {
+      return NextResponse.json(
+        { error: '이메일 도메인이 스캔 대상 URL의 도메인과 일치해야 합니다. 해당 사이트의 담당자 이메일을 입력해 주세요.' },
+        { status: 400 },
+      )
+    }
+  }
+
   try {
-    // 1. 분석
-    const result = await analyzeUrl(url)
+    // 토큰 생성 및 Redis 저장 (24시간 TTL)
+    const token = crypto.randomUUID()
+    const redis = new Redis({ url: env.UPSTASH_REDIS_REST_URL, token: env.UPSTASH_REDIS_REST_TOKEN })
+    await redis.set(
+      `scan:verify:${token}`,
+      JSON.stringify({ url, email, company: company ?? '' }),
+      { ex: 86400 },
+    )
 
-    // 2. PDF 생성
-    const pdfBuffer = await generatePdfBuffer(result, email, company)
+    // 인증 이메일 발송
+    const baseUrl = env.NEXT_PUBLIC_BASE_URL ?? 'https://www.visionc.co.kr'
+    await sendVerificationEmail(email, url, token, baseUrl)
 
-    // 3. 고객에게 리포트 이메일 직접 발송
-    await sendReportEmail(result, pdfBuffer, email, company)
-
-    // 4. 텔레그램 어드민 알림 (발송 완료 통보)
-    const g: Record<string, string> = { A: '🟢', B: '🟡', C: '🟠', D: '🔴', F: '⛔' }
-    const emoji = g[result.score.grade] ?? '❓'
-    const highMissing = result.headers.filter(h => !h.present && h.severity === 'HIGH').map(h => h.label)
-
-    await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+    // 어드민 알림
+    await fetch(`https://api.telegram.org/bot${TBOT}/sendMessage`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        chat_id: CHAT_ID,
+        chat_id: TCHAT,
         text: [
-          `${emoji} <b>보안 진단 리포트 발송 완료</b>`,
+          `🔐 <b>보안 진단 인증 요청</b>`,
           ``,
-          `🌐 ${result.url}`,
+          `🌐 ${url}`,
           `📧 ${email}${company ? `  ·  ${company}` : ''}`,
-          `📊 ${result.score.total}점 (등급 ${result.score.grade})`,
-          `  · 보안 ${result.score.security}점 / SEO ${result.score.seo}점 / 성능 ${result.score.performance}점`,
-          highMissing.length > 0 ? `🚨 HIGH 위험: ${highMissing.join(', ')}` : `✅ HIGH 위험 없음`,
-          `💰 견적: ${result.estimate.items.map(i => `${i.name} ${i.priceRange}`).join(' / ')}`,
+          `\n인증 대기 중 — 링크 24시간 유효`,
         ].join('\n'),
         parse_mode: 'HTML',
       }),
-    }).catch(e => console.error('[analyze] Telegram 알림 실패:', e))
+    }).catch(() => {})
 
-    // 5. 대시보드 기록 (fire-and-forget)
-    const dashboardUrl = process.env.DASHBOARD_INTERNAL_URL
-    const internalToken = process.env.VISIONC_INTERNAL_TOKEN
-    if (dashboardUrl && internalToken) {
-      fetch(`${dashboardUrl}/api/security/simple-checks`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'x-internal-token': internalToken },
-        body: JSON.stringify({
-          targetUrl: result.url,
-          customerEmail: email,
-          customerCompany: company ?? null,
-          grade: result.score.grade,
-          scoreTotal: result.score.total,
-          scoreSecurity: result.score.security,
-          scoreSeo: result.score.seo,
-          scorePerf: result.score.performance,
-          highRisks: highMissing,
-        }),
-        signal: AbortSignal.timeout(5_000),
-      }).catch(err => console.error('[analyze] dashboard log 실패:', err))
-    }
-
-    return NextResponse.json({ ok: true, grade: result.score.grade, total: result.score.total })
+    return NextResponse.json({ ok: true, pending: true })
   } catch (e: any) {
     console.error('[analyze]', e)
     return NextResponse.json({ error: e.message }, { status: 500 })

@@ -434,3 +434,70 @@ export async function sendReportEmail(
     ],
   })
 }
+
+
+function buildVerificationEmailHtml(domain: string, targetUrl: string, verifyUrl: string): string {
+  return `<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<title>VISIONC 보안 진단 인증</title></head>
+<body style="margin:0;padding:0;background:#f5f3ff;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+<div style="max-width:560px;margin:40px auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(124,58,237,0.1);">
+  <div style="background:linear-gradient(135deg,#7C3AED,#5b21b6);padding:32px 40px;">
+    <div style="font-size:24px;font-weight:900;color:#fff;">VISIONC</div>
+    <div style="font-size:14px;color:rgba(255,255,255,0.8);margin-top:4px;">보안 진단 도메인 소유자 인증</div>
+  </div>
+  <div style="padding:32px 40px;">
+    <h2 style="font-size:18px;font-weight:700;color:#111;margin:0 0 12px;">보안 진단 요청이 접수되었습니다</h2>
+    <p style="font-size:13px;color:#6b7280;margin:0 0 24px;line-height:1.6;">
+      아래 사이트에 대한 무료 보안 진단 요청이 있었습니다.<br>
+      <strong style="color:#111;">본인이 요청하셨다면</strong> 아래 버튼을 클릭하여 도메인 소유자임을 인증하세요.<br>
+      <strong style="color:#9ca3af;">본인이 아니라면</strong> 이 이메일을 무시하시면 됩니다.
+    </p>
+    <div style="background:#faf8ff;border:1px solid #ede9fe;border-radius:10px;padding:16px 20px;margin-bottom:28px;">
+      <div style="font-size:11px;color:#9ca3af;margin-bottom:4px;">진단 대상 사이트</div>
+      <div style="font-size:15px;font-weight:700;color:#7C3AED;">${domain}</div>
+      <div style="font-size:11px;color:#9ca3af;margin-top:2px;">${targetUrl}</div>
+    </div>
+    <div style="text-align:center;margin-bottom:28px;">
+      <a href="${verifyUrl}"
+        style="display:inline-block;background:#7C3AED;color:#fff;text-decoration:none;padding:14px 44px;border-radius:10px;font-weight:700;font-size:15px;letter-spacing:-0.2px;">
+        ✅ 인증하고 보안 진단 시작
+      </a>
+    </div>
+    <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:12px 16px;font-size:11px;color:#92400e;">
+      ⏰ 이 링크는 <strong>24시간</strong> 동안 유효합니다. 기간이 지나면 다시 신청해 주세요.<br>
+      진단이 완료되면 결과 리포트를 이 이메일로 발송해 드립니다.
+    </div>
+  </div>
+  <div style="background:#f5f3ff;padding:20px 40px;text-align:center;">
+    <div style="font-size:11px;color:#9ca3af;">VISIONC · visionc.co.kr · biztalktome@gmail.com</div>
+    <div style="font-size:10px;color:#d1d5db;margin-top:4px;">본인이 신청하지 않으셨다면 이 이메일을 무시하세요.</div>
+  </div>
+</div>
+</body></html>`
+}
+
+export async function sendVerificationEmail(
+  email: string,
+  targetUrl: string,
+  token: string,
+  baseUrl: string,
+): Promise<void> {
+  const appPass = env.GMAIL_APP_PASSWORD.replace(/\s+/g, '')
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
+    auth: { user: env.GMAIL_USER, pass: appPass },
+  })
+
+  const domain = (() => { try { return new URL(targetUrl).hostname } catch { return targetUrl } })()
+  const verifyUrl = `${baseUrl}/security/verify?token=${token}`
+
+  await transporter.sendMail({
+    from: `VISIONC 진단팀 <${env.GMAIL_USER}>`,
+    to: email,
+    subject: `[VISIONC] ${domain} 보안 진단 — 도메인 소유자 인증 필요`,
+    html: buildVerificationEmailHtml(domain, targetUrl, verifyUrl),
+  })
+}
