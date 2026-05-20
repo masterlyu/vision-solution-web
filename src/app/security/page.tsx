@@ -862,7 +862,7 @@ export default function SecurityPage() {
                       ? 'bg-[var(--accent-green)]/10 border border-[var(--accent-green)]/20 text-[var(--accent-green)]'
                       : 'bg-[var(--accent-amber)]/10 border border-[var(--accent-amber)]/20 text-[var(--accent-amber)]'}`}>
                     {p.reportType === 'auto'
-                      ? '📄 무료 자동 진단 → 즉시 이메일 발송'
+                      ? '📄 이메일 인증 후 무료 진단 → PDF 리포트 발송'
                       : '📋 전문가 수동 분석 → 개별 리포트 발송'}
                   </div>
                 </div>
@@ -936,8 +936,8 @@ export default function SecurityPage() {
                   ))}
                 </ul>
                 <div className="mt-4 pt-3 border-t border-border/50 text-xs text-muted-foreground">
-                  ✅ URL 입력 후 <strong className="text-foreground">40초~2분</strong> 내 자동 분석 완료 →
-                  입력한 이메일로 <strong className="text-foreground">PDF 리포트 + 자동 견적서 즉시 발송</strong>
+                  ✅ 도메인 이메일로 <strong className="text-foreground">본인 인증</strong> 후 자동 분석 →
+                  입력한 이메일로 <strong className="text-foreground">PDF 리포트 + 견적서 발송</strong>
                 </div>
               </motion.div>
 
@@ -974,7 +974,7 @@ export default function SecurityPage() {
               <UrlAnalysisForm
                 serviceType="security"
                 title="무료 보안 진단 신청"
-                notice="URL 입력 후 20~40초 내 자동 분석 → 입력한 이메일로 PDF 리포트 즉시 발송"
+                notice="도메인 이메일 인증 후 자동 분석 → PDF 리포트 발송 — 인증 링크 24시간 유효"
               />
             </div>
           </div>
