@@ -22,9 +22,11 @@ function domainsMatch(urlHostname: string, emailAddr: string): boolean {
 
 export async function GET() {
   return Response.json({
-    GMAIL_USER:         env.GMAIL_USER         ? '✓ set' : '✗ missing',
-    GMAIL_APP_PASSWORD: env.GMAIL_APP_PASSWORD  ? '✓ set' : '✗ missing',
-    TELEGRAM_BOT_TOKEN: env.TELEGRAM_BOT_TOKEN  ? '✓ set' : '✗ missing',
+    GMAIL_USER:              env.GMAIL_USER              ? '✓ set' : '✗ missing',
+    GMAIL_APP_PASSWORD:      env.GMAIL_APP_PASSWORD       ? '✓ set' : '✗ missing',
+    TELEGRAM_BOT_TOKEN:      env.TELEGRAM_BOT_TOKEN       ? '✓ set' : '✗ missing',
+    UPSTASH_REDIS_REST_URL:  env.UPSTASH_REDIS_REST_URL   ? '✓ set' : '✗ missing',
+    UPSTASH_REDIS_REST_TOKEN:env.UPSTASH_REDIS_REST_TOKEN ? '✓ set' : '✗ missing',
   })
 }
 
@@ -41,6 +43,10 @@ export async function POST(req: NextRequest) {
         { status: 400 },
       )
     }
+  }
+
+  if (!env.UPSTASH_REDIS_REST_URL || !env.UPSTASH_REDIS_REST_TOKEN) {
+    return NextResponse.json({ error: '[서버 설정 오류] Redis 환경변수가 설정되지 않았습니다. 관리자에게 문의해 주세요.' }, { status: 503 })
   }
 
   try {

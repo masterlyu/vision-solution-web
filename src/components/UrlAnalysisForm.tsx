@@ -26,6 +26,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice, embedded =
   const [progress, setProgress] = useState(0)
   const [grade, setGrade]     = useState('')
   const [total, setTotal]     = useState(0)
+  const [errorMsg, setErrorMsg] = useState('')
 
   const inputCls = "w-full bg-secondary border-2 border-primary/50 rounded-xl px-5 py-4 text-foreground text-[1.05rem] placeholder:text-foreground/45 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all"
 
@@ -97,6 +98,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice, embedded =
     } catch (e: any) {
       clearInterval(timer)
       console.error(e)
+      setErrorMsg(e.message || '알 수 없는 오류')
       setStep('error')
     }
   }
@@ -131,7 +133,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice, embedded =
           <div className="h-full bg-primary rounded-full transition-all duration-500" style={{ width: `${progress}%` }} />
         </div>
       </div>
-      <p className="text-muted-foreground text-xs">보안·SEO·성능 분석 후 PDF 리포트를 이메일로 발송합니다 (20~40초)</p>
+      <p className="text-muted-foreground text-xs">인증 이메일 발송 중... 잠시만 기다려 주세요</p>
     </div>
   )
 
@@ -172,7 +174,8 @@ export default function UrlAnalysisForm({ serviceType, title, notice, embedded =
   // ── Error ──
   if (step === 'error') return (
     <div className="bg-card border border-border rounded-2xl p-8 text-center space-y-4">
-      <p className="text-foreground font-bold">분석 중 오류가 발생했습니다</p>
+      <p className="text-foreground font-bold">요청 처리 중 오류가 발생했습니다</p>
+      {errorMsg && <p className="text-destructive text-sm font-medium">{errorMsg}</p>}
       <p className="text-muted-foreground text-sm">잠시 후 다시 시도하거나, 이메일로 직접 문의해주세요.</p>
       <p className="text-primary text-sm">biztalktome@gmail.com</p>
       <button onClick={() => setStep('form')} className="text-primary text-sm hover:underline">다시 시도 →</button>
