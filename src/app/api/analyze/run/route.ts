@@ -74,7 +74,7 @@ export async function POST(req: NextRequest) {
     const dashboardUrl = process.env.DASHBOARD_INTERNAL_URL
     const internalToken = process.env.VISIONC_INTERNAL_TOKEN
     if (dashboardUrl && internalToken) {
-      fetch(`${dashboardUrl}/api/security/simple-checks`, {
+      await fetch(`${dashboardUrl}/api/security/simple-checks`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'x-internal-token': internalToken },
         body: JSON.stringify({
@@ -89,7 +89,7 @@ export async function POST(req: NextRequest) {
           highRisks: highMissing,
         }),
         signal: AbortSignal.timeout(5_000),
-      }).catch(() => {})
+      }).catch((e) => console.error('[dashboard]', e))
     }
 
     return NextResponse.json({ ok: true, grade: result.score.grade, total: result.score.total })
