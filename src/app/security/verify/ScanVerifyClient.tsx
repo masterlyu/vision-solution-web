@@ -6,12 +6,13 @@ import Link from 'next/link'
 type Step = 'scanning' | 'done' | 'expired' | 'error'
 
 export default function ScanVerifyClient({ token }: { token: string }) {
-  const [step, setStep]   = useState<Step>('scanning')
-  const [grade, setGrade] = useState('')
-  const [total, setTotal] = useState(0)
+  const [step, setStep]     = useState<Step>('scanning')
+  const [grade, setGrade]   = useState('')
+  const [total, setTotal]   = useState(0)
+  const [errMsg, setErrMsg] = useState('')
 
   useEffect(() => {
-    if (!token) { setStep('error'); return }
+    if (!token) { setErrMsg('토큰이 없습니다.'); setStep('error'); return }
 
     fetch('/api/analyze/run', {
       method: 'POST',
@@ -21,14 +22,15 @@ export default function ScanVerifyClient({ token }: { token: string }) {
       .then(r => r.json())
       .then(data => {
         if (data.error) {
-          setStep(data.error.includes('만료') || data.error.includes('사용') ? 'expired' : 'error')
+          setErrMsg(data.error)
+          setStep(data.error.includes('만료') || data.error.includes('사용') || data.error.includes('유효') ? 'expired' : 'error')
         } else {
           setGrade(data.grade ?? '')
           setTotal(data.total ?? 0)
           setStep('done')
         }
       })
-      .catch(() => setStep('error'))
+      .catch((e) => { setErrMsg(e?.message ?? 'Network error'); setStep('error') })
   }, [token])
 
   const card = 'max-w-md mx-auto mt-24 bg-card border border-border rounded-2xl p-10 text-center space-y-5 shadow-xl'
@@ -86,8 +88,8 @@ export default function ScanVerifyClient({ token }: { token: string }) {
 
   if (step === 'expired') return (
     <div className={card}>
-      <div className="w-16 h-16 rounded-full bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center mx-auto">
-        <RefreshCw className="w-8 h-8 text-yellow-500" />
+      <div className="w-16 h-16 rounded-full bg-[var(--accent-amber)]/10 border border-[var(--accent-amber)]/20 flex items-center justify-center mx-auto">
+        <RefreshCw className="w-8 h-8 text-[var(--accent-amber)]" />
       </div>
       <div>
         <h2 className="text-foreground font-bold text-xl mb-2">인증 링크가 만료됐습니다</h2>
@@ -107,6 +109,7 @@ export default function ScanVerifyClient({ token }: { token: string }) {
       </div>
       <div>
         <h2 className="text-foreground font-bold text-xl mb-2">오류가 발생했습니다</h2>
+        {errMsg && <p className="text-destructive text-xs font-mono mt-1 mb-2 break-all">{errMsg}</p>}
         <p className="text-muted-foreground text-sm">잠시 후 다시 시도하거나 이메일로 문의해 주세요.</p>
         <p className="text-primary text-sm mt-2">biztalktome@gmail.com</p>
       </div>
