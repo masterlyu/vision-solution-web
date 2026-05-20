@@ -56,10 +56,10 @@ const EFFECTS = [
 ]
 
 const CASES = [
-  { icon: Store, type: '소매·쇼핑몰', pain: '상품 문의에 하루 2시간 소비', result: 'AI 자동 응대로 업무 시간 80% 절약', color: 'from-violet-500/20 to-violet-500/5' },
-  { icon: GraduationCap, type: '학원·교육', pain: '수강료·수업 일정 반복 문의', result: '야간·주말 문의도 즉시 자동 안내', color: 'from-blue-500/20 to-blue-500/5' },
-  { icon: Heart, type: '병원·의원', pain: '예약·진료과목 전화 폭주', result: '전화 대신 챗봇으로 50% 전환', color: 'from-pink-500/20 to-pink-500/5' },
-  { icon: Building2, type: '부동산·법무', pain: '매물·서류 절차 반복 설명', result: '24시간 FAQ 자동 응대로 신뢰 상승', color: 'from-emerald-500/20 to-emerald-500/5' },
+  { icon: Store, type: '소매·쇼핑몰', pain: '상품 문의에 하루 2시간 소비', result: 'AI 자동 응대로 업무 시간 80% 절약', color: 'from-[var(--accent)]/20 to-[var(--accent)]/5' },
+  { icon: GraduationCap, type: '학원·교육', pain: '수강료·수업 일정 반복 문의', result: '야간·주말 문의도 즉시 자동 안내', color: 'from-[var(--accent-blue)]/20 to-[var(--accent-blue)]/5' },
+  { icon: Heart, type: '병원·의원', pain: '예약·진료과목 전화 폭주', result: '전화 대신 챗봇으로 50% 전환', color: 'from-[var(--accent-red)]/20 to-[var(--accent-red)]/5' },
+  { icon: Building2, type: '부동산·법무', pain: '매물·서류 절차 반복 설명', result: '24시간 FAQ 자동 응대로 신뢰 상승', color: 'from-[var(--accent-green)]/20 to-[var(--accent-green)]/5' },
 ]
 
 const PLANS = [

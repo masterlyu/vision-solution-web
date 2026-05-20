@@ -138,8 +138,6 @@ export default function UrlAnalysisForm({ serviceType, title, notice, embedded =
   )
 
   // ── Done ──
-  // ── Done ──
-  // ── Done ──
   if (step === 'done') return (
     <div className="bg-card border border-border rounded-2xl p-8 text-center space-y-5">
       <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto">
