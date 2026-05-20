@@ -111,11 +111,6 @@ const fadeInUp: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' as const } },
 }
 
-const stagger: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-}
-
 const staggerSlow: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.15 } },
@@ -328,23 +323,17 @@ export default function PortfolioPage() {
       {/* ── Section 2 — Stats ── */}
       <section className="py-14 px-6">
         <div className="max-w-5xl mx-auto">
-          <motion.div
-            className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center"
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-          >
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             {stats.map(s => (
-              <motion.div key={s.label} variants={fadeInUp} className="flex flex-col items-center gap-1.5">
+              <div key={s.label} className="flex flex-col items-center gap-1.5">
                 <div className="text-5xl font-black tabular-nums" style={{ color: 'var(--primary-light)' }}>
                   <CountUpNumber value={s.value} suffix={s.suffix} decimals={s.decimals} />
                 </div>
                 <div className="text-sm font-bold text-foreground">{s.label}</div>
                 <div className="text-xs text-muted-foreground">{s.sub}</div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -353,25 +342,14 @@ export default function PortfolioPage() {
       {/* ── Section 3 — Filter ── */}
       <section id="cases" className="pt-12 pb-6 px-6">
         <div className="max-w-5xl mx-auto">
-          <motion.div
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-          >
+          <div>
             <p className="text-xs font-black uppercase tracking-[0.15em] mb-2" style={{ color: 'var(--primary-light)' }}>
               사례 필터
             </p>
             <h2 className="text-2xl font-black text-foreground mb-6">우리 업종 사례만 골라 보세요</h2>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="space-y-3"
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-          >
+          <div className="space-y-3">
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest w-10">업종</span>
               {industryFilters.map(f => (
@@ -384,7 +362,7 @@ export default function PortfolioPage() {
                 <FilterTab key={f} label={f} active={serviceFilter === f} onClick={() => { setServiceFilter(f); setShowAll(false) }} />
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -392,26 +370,14 @@ export default function PortfolioPage() {
       <section className="pt-6 pb-20 px-6">
         <div className="max-w-5xl mx-auto">
           {filteredCases.length === 0 ? (
-            <motion.div
-              variants={fadeInUp}
-              initial="hidden"
-              animate="visible"
-              className="text-center py-16 text-muted-foreground"
-            >
+            <div className="text-center py-16 text-muted-foreground">
               해당 조건의 사례가 없습니다. 필터를 변경해 보세요.
-            </motion.div>
+            </div>
           ) : (
-            <motion.div
-              key={`${industryFilter}-${serviceFilter}`}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7"
-              variants={stagger}
-              initial="hidden"
-              animate="visible"
-            >
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
               {displayedCases.map(c => (
-                <motion.div
+                <div
                   key={c.id}
-                  variants={fadeInUp}
                   className="bg-card border border-border rounded-2xl overflow-hidden"
                 >
                   <BeforeAfterSlider />
@@ -454,9 +420,9 @@ export default function PortfolioPage() {
                       <p className="text-foreground font-bold text-xs mt-1.5">— {c.author}</p>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
+            </div>
           )}
 
           {/* 더 보기 */}
@@ -494,7 +460,7 @@ export default function PortfolioPage() {
 
       <hr className="border-border" />
 
-      {/* ── Section 5 — Mid CTA #2 ── */}
+      {/* ── Section 5 — Mid CTA ── */}
       <section
         className="py-16 px-6 text-center"
         style={{ background: 'radial-gradient(ellipse 60% 80% at 50% 50%, color-mix(in oklch, var(--primary) 10%, transparent), transparent)' }}
@@ -523,31 +489,18 @@ export default function PortfolioPage() {
       {/* ── Section 6 — Process Stepper ── */}
       <section className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <motion.div
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-            className="mb-10"
-          >
+          <div className="mb-10">
             <p className="text-xs font-black uppercase tracking-[0.15em] mb-2" style={{ color: 'var(--primary-light)' }}>
               프로세스
             </p>
             <h2 className="text-3xl md:text-4xl font-black text-foreground mb-2">의뢰부터 납품까지, 5단계</h2>
             <p className="text-muted-foreground max-w-md">처음 의뢰하는 분들도 쉽게 이해할 수 있도록 단계별로 정리했습니다.</p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4"
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-          >
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {processSteps.map(s => (
-              <motion.div
+              <div
                 key={s.num}
-                variants={fadeInUp}
                 className="bg-card border border-border rounded-xl p-5 flex flex-col gap-3 items-start"
               >
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-black"
@@ -564,28 +517,22 @@ export default function PortfolioPage() {
                   <div className="font-black text-foreground text-sm">{s.title}</div>
                   <div className="text-xs text-muted-foreground mt-0.5 leading-snug">{s.sub}</div>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       <hr className="border-border" />
 
-      {/* ── Section 7 — Final CTA #3 + Form ── */}
+      {/* ── Section 7 — Final CTA + Form ── */}
       <section id="cta-form" className="py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
             {/* Left */}
-            <motion.div
-              variants={staggerSlow}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-100px' }}
-              className="flex flex-col gap-5"
-            >
-              <motion.div variants={fadeInUp}>
+            <div className="flex flex-col gap-5">
+              <div>
                 <div className="mb-4">
                   <Mascot pose="cheer" category="emotion" size="sm" className="h-28 w-auto" bubble="URL 하나로 시작해요!" bubbleDir="right" />
                 </div>
@@ -599,27 +546,26 @@ export default function PortfolioPage() {
                 <p className="text-muted-foreground mt-3">
                   비용 없음 · 부담 없음 · IT 지식 불필요<br />전문가가 직접 분석해 드립니다.
                 </p>
-              </motion.div>
+              </div>
 
               {/* Benefit badges */}
-              <motion.div variants={stagger} className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2">
                 {[
                   { icon: '💰', label: '완전 무료' },
                   { icon: '⏱', label: '48시간 내' },
                   { icon: '🔒', label: '개인정보 보호' },
                   { icon: '📋', label: '20항목 체크리스트' },
                 ].map(b => (
-                  <motion.span
+                  <span
                     key={b.label}
-                    variants={fadeInUp}
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-black"
                     style={{ background: 'color-mix(in oklch, var(--accent-green-dark) 20%, transparent)', border: '1px solid color-mix(in oklch, var(--accent-green-dark) 40%, transparent)', color: 'var(--accent-green-text)' }}
                   >
                     {b.icon} {b.label}
-                  </motion.span>
+                  </span>
                 ))}
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
 
             {/* Right — Form */}
             <div className="lg:sticky lg:top-24">

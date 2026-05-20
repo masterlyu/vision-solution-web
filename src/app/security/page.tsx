@@ -107,11 +107,6 @@ const fadeInUp: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' as const } },
 }
 
-const stagger: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-}
-
 const staggerSlow: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.15 } },
@@ -449,95 +444,58 @@ export default function SecurityPage() {
         </div>
       </section>
 
-      {/* ── 공감 체크리스트 (신규) ── */}
+      {/* ── 공감 체크리스트 ── */}
       <section className="py-16 px-6 lg:px-12 bg-secondary">
         <div className="max-w-[1100px] mx-auto">
-          <motion.h2
-            className="text-3xl md:text-4xl font-black text-foreground text-center mb-10"
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-          >
+          <h2 className="text-3xl md:text-4xl font-black text-foreground text-center mb-10">
             혹시 이런 상황이세요?
-          </motion.h2>
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8"
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-          >
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
             {empathyItems.map((item, i) => (
-              <motion.div key={i} variants={fadeInUp} className="bg-card rounded-xl shadow-sm p-5 flex items-start gap-3">
+              <div key={i} className="bg-card rounded-xl shadow-sm p-5 flex items-start gap-3">
                 <span className="text-xl shrink-0">{item.emoji}</span>
                 <span className="text-foreground font-medium text-sm">{item.text}</span>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
-          <motion.div
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-            className="border-l-4 border-destructive bg-destructive/10 px-6 py-4 rounded-r-xl flex items-center justify-between gap-4 flex-wrap"
-          >
+          </div>
+          <div className="border-l-4 border-destructive bg-destructive/10 px-6 py-4 rounded-r-xl flex items-center justify-between gap-4 flex-wrap">
             <p className="text-foreground font-semibold">하나라도 해당된다면, 지금 당장 무료 진단을 받으세요.</p>
             <a href="#cta-form" className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-5 py-2.5 rounded-lg text-sm shrink-0">
               지금 무료 보안 진단 받기 →
             </a>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* ── Stats ── */}
       <section className="py-16 px-6 lg:px-12 border-y border-border bg-foreground/[0.02]">
         <div className="max-w-[1100px] mx-auto">
-          <motion.div
-            className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center"
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-          >
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             {stats.map(s => (
-              <motion.div key={s.desc} variants={fadeInUp} className="flex flex-col items-center gap-2">
+              <div key={s.desc} className="flex flex-col items-center gap-2">
                 <RadialGauge percent={s.gaugePercent} color={s.color} size={80} />
                 <div className="text-5xl font-black text-primary tabular-nums">
                   <CountUpNumber value={s.value} suffix={s.suffix} duration={1.5} />
                 </div>
                 <p className="text-muted-foreground text-sm">{s.desc}</p>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* ── Danger Cases ── */}
       <section className="py-16 px-6 lg:px-12">
         <div className="max-w-[1100px] mx-auto">
-          <motion.h2
-            className="text-3xl md:text-4xl font-black text-foreground text-center mb-10 leading-snug"
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-          >
+          <h2 className="text-3xl md:text-4xl font-black text-foreground text-center mb-10 leading-snug">
             &ldquo;우리 같은 작은 회사는 괜찮아&rdquo;<br />
             <span className="text-[var(--accent-red)]">— 이 생각이 가장 위험합니다</span>
-          </motion.h2>
+          </h2>
 
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-5"
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {dangers.map(d => (
-              <motion.div
+              <div
                 key={d.title}
-                variants={fadeInUp}
                 className={`border rounded-2xl p-6 flex flex-col items-center gap-3 ${dangerColorMap[d.color]}`}
               >
                 {'icon' in d
@@ -547,36 +505,23 @@ export default function SecurityPage() {
                 <div className={`border rounded-xl px-4 py-2 text-xs text-center w-full ${dangerCaseBg[d.color]}`}>
                   📌 {d.case}
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* ── Checklist ── */}
       <section className="py-16 px-6 lg:px-12 border-y border-border bg-foreground/[0.02]">
         <div className="max-w-[1100px] mx-auto">
-          <motion.h2
-            className="text-3xl md:text-4xl font-black text-foreground text-center mb-10"
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-          >
+          <h2 className="text-3xl md:text-4xl font-black text-foreground text-center mb-10">
             무엇을 점검하나요?
-          </motion.h2>
+          </h2>
 
-          <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-4"
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-          >
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {checks.map(c => (
-              <motion.div
+              <div
                 key={c.title}
-                variants={fadeInUp}
                 className="bg-card border border-border rounded-2xl p-5 flex flex-col items-center gap-2.5 text-center hover:border-primary/40 transition-colors"
               >
                 {'icon' in c
@@ -584,13 +529,13 @@ export default function SecurityPage() {
                   : <LottiePlayer src={c.lottie} width={72} height={72} />}
                 <p className="text-primary text-xs font-bold">{c.sub}</p>
                 <h3 className="text-foreground font-bold text-sm leading-snug">{c.title}</h3>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* ── Middle CTA (신규) ── */}
+      {/* ── Middle CTA ── */}
       <section
         className="py-12 px-6 text-center"
         style={{ background: 'radial-gradient(ellipse at 50% 50%, color-mix(in oklch, var(--destructive) 8%, transparent) 0%, transparent 70%)' }}
@@ -608,45 +553,27 @@ export default function SecurityPage() {
       {/* ── Process Stepper ── */}
       <section className="py-16 px-6 lg:px-12">
         <div className="max-w-[1100px] mx-auto">
-          <motion.h2
-            className="text-3xl md:text-4xl font-black text-foreground text-center mb-12"
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-          >
+          <h2 className="text-3xl md:text-4xl font-black text-foreground text-center mb-12">
             신청부터 완료까지
-          </motion.h2>
+          </h2>
 
           {/* Desktop stepper */}
-          <motion.div
-            className="hidden lg:flex items-start justify-between relative"
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-          >
+          <div className="hidden lg:flex items-start justify-between relative">
             <div className="absolute top-6 left-[calc(8.33%+20px)] right-[calc(8.33%+20px)] h-0.5 bg-foreground/8" />
             {steps.map(s => (
-              <motion.div key={s.step} variants={fadeInUp} className="flex flex-col items-center text-center w-[15%] gap-2.5 relative">
+              <div key={s.step} className="flex flex-col items-center text-center w-[15%] gap-2.5 relative">
                 <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground font-black text-sm flex items-center justify-center z-10 shadow-lg shadow-primary/30">
                   {s.step}
                 </div>
                 <h3 className="text-foreground font-bold text-sm leading-snug">{s.title}</h3>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
 
           {/* Mobile stepper */}
-          <motion.div
-            className="flex lg:hidden flex-col gap-0"
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-          >
+          <div className="flex lg:hidden flex-col gap-0">
             {steps.map((s, i) => (
-              <motion.div key={s.step} variants={fadeInUp} className="flex gap-4 items-start">
+              <div key={s.step} className="flex gap-4 items-start">
                 <div className="flex flex-col items-center">
                   <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground font-black text-xs flex items-center justify-center shrink-0 z-10">
                     {s.step}
@@ -661,36 +588,23 @@ export default function SecurityPage() {
                     <Mascot pose={s.pose} category={s.category} size="sm" className="h-14 w-auto" />
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* ── Site Types ── */}
       <section className="py-16 px-6 lg:px-12 border-y border-border bg-foreground/[0.02]">
         <div className="max-w-[700px] mx-auto text-center">
-          <motion.h2
-            className="text-3xl md:text-4xl font-black text-foreground mb-10"
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-          >
+          <h2 className="text-3xl md:text-4xl font-black text-foreground mb-10">
             어떤 사이트에 가능한가요?
-          </motion.h2>
+          </h2>
 
-          <motion.div
-            className="grid grid-cols-3 gap-3.5"
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-          >
+          <div className="grid grid-cols-3 gap-3.5">
             {siteTypes.map(s => (
-              <motion.div
+              <div
                 key={s.label}
-                variants={fadeInUp}
                 className={`bg-card border rounded-2xl py-4 px-3 flex flex-col items-center gap-1.5 ${
                   s.ok === true  ? 'border-[var(--accent-green)]/30' :
                   s.ok === null  ? 'border-[var(--accent-amber)]/30' :
@@ -702,24 +616,18 @@ export default function SecurityPage() {
                 <span className={`text-xl font-bold ${s.ok === true ? 'text-[var(--accent-green)]' : s.ok === null ? 'text-[var(--accent-amber)]' : 'text-[var(--accent-red)]'}`}>
                   {s.ok === true ? '✓' : s.ok === null ? '△' : '✗'}
                 </span>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* ── FAQ (신규) ── */}
+      {/* ── FAQ ── */}
       <section className="py-16 px-6 lg:px-12 bg-secondary">
         <div className="max-w-[800px] mx-auto">
-          <motion.h2
-            className="text-3xl font-black text-foreground text-center mb-10"
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-          >
+          <h2 className="text-3xl font-black text-foreground text-center mb-10">
             보안 진단 FAQ
-          </motion.h2>
+          </h2>
           <div className="space-y-2">
             {securityFaqs.map((faq, i) => (
               <div key={i} className="bg-card rounded-xl border border-border overflow-hidden">
@@ -741,24 +649,13 @@ export default function SecurityPage() {
       {/* ── 가격 안내 ── */}
       <section className="py-16 px-6 lg:px-12 bg-background">
         <div className="max-w-[720px] mx-auto">
-          <motion.div
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-          >
+          <div>
             <h2 className="text-2xl font-bold text-foreground mb-2">취약점 발견 시 개선 비용은?</h2>
             <p className="text-muted-foreground mb-8">진단은 무료. 개선 작업은 범위에 따라 별도 견적입니다.</p>
-          </motion.div>
+          </div>
 
           {/* 탭 바 */}
-          <motion.div
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-            className="flex gap-1.5 mb-5 p-1 bg-secondary rounded-xl"
-          >
+          <div className="flex gap-1.5 mb-5 p-1 bg-secondary rounded-xl">
             {securityPricing.map((p, i) => (
               <button
                 key={i}
@@ -778,7 +675,7 @@ export default function SecurityPage() {
                 )}
               </button>
             ))}
-          </motion.div>
+          </div>
 
           {/* 선택된 패키지 카드 */}
           {securityPricing.map((p, i) =>
@@ -899,19 +796,14 @@ export default function SecurityPage() {
       <section id="cta-form" className="py-16 px-6 lg:px-12">
         <div className="max-w-[1100px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <motion.div
-              variants={staggerSlow}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-100px' }}
-            >
-              <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-black text-foreground mb-6 leading-snug">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6 leading-snug">
                 지금 바로 확인하세요.<br />
                 <span className="text-primary">무료입니다.</span>
-              </motion.h2>
+              </h2>
 
               {/* 무료 리포트 안내 */}
-              <motion.div variants={fadeInUp} className="bg-card border border-primary/20 rounded-2xl p-5 mb-5">
+              <div className="bg-card border border-primary/20 rounded-2xl p-5 mb-5">
                 <p className="text-xs font-bold text-primary uppercase tracking-wider mb-3">📄 무료 리포트에 담기는 내용</p>
                 <ul className="space-y-2.5">
                   {[
@@ -939,10 +831,10 @@ export default function SecurityPage() {
                   ✅ 도메인 이메일로 <strong className="text-foreground">본인 인증</strong> 후 자동 분석 →
                   입력한 이메일로 <strong className="text-foreground">PDF 리포트 + 견적서 발송</strong>
                 </div>
-              </motion.div>
+              </div>
 
               {/* 패키지 안내 */}
-              <motion.div variants={fadeInUp} className="bg-[var(--accent-amber)]/5 border border-[var(--accent-amber)]/20 rounded-xl px-4 py-3.5 mb-5">
+              <div className="bg-[var(--accent-amber)]/5 border border-[var(--accent-amber)]/20 rounded-xl px-4 py-3.5 mb-5">
                 <p className="text-[var(--accent-amber)] text-xs font-bold mb-2">💼 수정까지 원하신다면? 4가지 패키지</p>
                 <div className="space-y-1.5 mb-3">
                   {[
@@ -963,12 +855,12 @@ export default function SecurityPage() {
                   className="inline-block text-xs font-bold text-[var(--accent-amber)] border border-[var(--accent-amber)]/30 px-3 py-1.5 rounded-lg hover:bg-[var(--accent-amber)]/10 transition-colors">
                   전문가 보안 상담 신청 →
                 </a>
-              </motion.div>
+              </div>
 
-              <motion.div variants={fadeInUp} className="flex justify-center">
+              <div className="flex justify-center">
                 <Mascot pose="cheer" category="emotion" size="sm" className="h-28 w-auto" bubble="보안 걱정은 저한테 맡겨요!" bubbleDir="right" />
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
 
             <div className="lg:sticky lg:top-24">
               <UrlAnalysisForm
