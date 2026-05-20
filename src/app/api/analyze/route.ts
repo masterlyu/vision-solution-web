@@ -19,12 +19,12 @@ function domainsMatch(urlHostname: string, emailAddr: string): boolean {
 
 async function signToken(payload: Record<string, unknown>, secret: string): Promise<string> {
   const encoder = new TextEncoder()
+  const data = Buffer.from(JSON.stringify(payload)).toString('base64url')
   const key = await crypto.subtle.importKey(
     'raw', encoder.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign'],
   )
-  const data = btoa(JSON.stringify(payload)).replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '')
   const sigBytes = await crypto.subtle.sign('HMAC', key, encoder.encode(data))
-  const sig = btoa(String.fromCharCode(...new Uint8Array(sigBytes))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '')
+  const sig = Buffer.from(sigBytes).toString('base64url')
   return `${data}.${sig}`
 }
 
@@ -33,8 +33,8 @@ export async function GET() {
     GMAIL_USER:         env.GMAIL_USER         ? '✓ set' : '✗ missing',
     GMAIL_APP_PASSWORD: env.GMAIL_APP_PASSWORD  ? '✓ set' : '✗ missing',
     TELEGRAM_BOT_TOKEN: env.TELEGRAM_BOT_TOKEN  ? '✓ set' : '✗ missing',
-    token_backend: 'hmac-jwt (no redis)',
-    _v: 'hmac-v1',
+    token_backend: 'hmac-jwt-v2 (no redis)',
+    _v: 'hmac-v2',
   })
 }
 

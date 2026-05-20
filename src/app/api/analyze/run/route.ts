@@ -6,10 +6,6 @@ import { env } from '@/lib/env'
 
 export const maxDuration = 60
 
-function pad(s: string) {
-  return s + '='.repeat((4 - (s.length % 4)) % 4)
-}
-
 async function verifyToken(
   token: string,
   secret: string,
@@ -22,13 +18,10 @@ async function verifyToken(
     const key = await crypto.subtle.importKey(
       'raw', encoder.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['verify'],
     )
-    const sig = Uint8Array.from(
-      atob(pad(sigB64.replace(/-/g, '+').replace(/_/g, '/'))),
-      c => c.charCodeAt(0),
-    )
+    const sig = Buffer.from(sigB64, 'base64url')
     const valid = await crypto.subtle.verify('HMAC', key, sig, encoder.encode(data))
     if (!valid) return null
-    const payload = JSON.parse(atob(pad(data.replace(/-/g, '+').replace(/_/g, '/'))))
+    const payload = JSON.parse(Buffer.from(data, 'base64url').toString('utf8'))
     if (payload.exp && Date.now() > payload.exp) return null
     return { url: payload.url, email: payload.email, company: payload.company ?? '' }
   } catch {
