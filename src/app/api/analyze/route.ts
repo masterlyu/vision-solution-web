@@ -21,9 +21,11 @@ function domainsMatch(urlHostname: string, emailAddr: string): boolean {
 }
 
 export async function GET() {
+  const url = env.UPSTASH_REDIS_REST_URL
+  const urlPrefix = url ? url.slice(0, 12) + '...' : '(empty)'
   let redisPing = 'not tested'
   try {
-    const redis = new Redis({ url: env.UPSTASH_REDIS_REST_URL, token: env.UPSTASH_REDIS_REST_TOKEN })
+    const redis = new Redis({ url, token: env.UPSTASH_REDIS_REST_TOKEN })
     const pong = await redis.ping()
     redisPing = `ok: ${pong}`
   } catch (e: any) {
@@ -33,10 +35,10 @@ export async function GET() {
     GMAIL_USER:              env.GMAIL_USER              ? '✓ set' : '✗ missing',
     GMAIL_APP_PASSWORD:      env.GMAIL_APP_PASSWORD       ? '✓ set' : '✗ missing',
     TELEGRAM_BOT_TOKEN:      env.TELEGRAM_BOT_TOKEN       ? '✓ set' : '✗ missing',
-    UPSTASH_REDIS_REST_URL:  env.UPSTASH_REDIS_REST_URL   ? '✓ set' : '✗ missing',
+    UPSTASH_REDIS_REST_URL:  url                          ? `✓ set (${urlPrefix})` : '✗ missing',
     UPSTASH_REDIS_REST_TOKEN:env.UPSTASH_REDIS_REST_TOKEN ? '✓ set' : '✗ missing',
     redis_ping: redisPing,
-    _v: 'debug-step-3',
+    _v: 'debug-step-4',
   })
 }
 
