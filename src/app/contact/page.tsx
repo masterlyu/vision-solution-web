@@ -208,7 +208,7 @@ export default function ContactPage() {
                   <UrlAnalysisForm
                     serviceType="security"
                     title="무료 보안 진단 신청"
-                    notice="URL 입력 후 20~40초 내 자동 분석 → 입력한 이메일로 PDF 리포트 즉시 발송"
+                    notice="도메인 이메일 인증 후 자동 분석 → PDF 리포트 발송 (인증 링크 24시간 유효)"
                     embedded
                   />
                 </>
