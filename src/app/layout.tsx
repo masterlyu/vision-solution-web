@@ -12,6 +12,10 @@ export const metadata: Metadata = {
     template: '%s | Vision Solution',
   },
   description: '고객이 지금도 떠나고 있습니까? URL 하나로 48시간 내 AI 진단. 무료 리포트를 지금 신청하세요.',
+  twitter: {
+    card: 'summary_large_image',
+    site: '@visionc_kr',
+  },
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
