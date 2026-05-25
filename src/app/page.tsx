@@ -11,7 +11,7 @@ import { CtaSection } from '@/components/landing/cta-section'
 export const metadata: Metadata = {
   alternates: { canonical: '/' },
   other: {
-    'naver-site-verification': '5e338ebf5eb269300d0aa61912fa52da896002b4',
+    'naver-site-verification': 'd5eec5a3e6bf5f5921677ffbab525a72c2e739fb',
   },
   openGraph: {
     title: '홈페이지 무료 AI 진단 | Vision Solution',
