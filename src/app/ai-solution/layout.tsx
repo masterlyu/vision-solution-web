@@ -6,7 +6,7 @@ const description = '반복 업무를 AI가 대신합니다. 챗봇·자동화·
 export const metadata: Metadata = {
   title,
   description,
-  keywords: ['AI 챗봇', '중소기업 AI', 'AI 솔루션', '업무 자동화', 'AI 챗봇 도입', '비전솔루션'],
+  keywords: ['AI 챗봇', '중소기업 AI', 'AI 솔루션', '업무 자동화', 'AI 챗봇 도입', '(주)비젼솔루션'],
   alternates: { canonical: '/ai-solution' },
   openGraph: {
     title,

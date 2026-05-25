@@ -6,7 +6,7 @@ const description = '문의 오는 홈페이지를 처음부터 설계합니다.
 export const metadata: Metadata = {
   title,
   description,
-  keywords: ['홈페이지 제작', '중소기업 홈페이지 제작', '홈페이지 제작 비용', '소상공인 홈페이지', '비전솔루션'],
+  keywords: ['홈페이지 제작', '중소기업 홈페이지 제작', '홈페이지 제작 비용', '소상공인 홈페이지', '(주)비젼솔루션'],
   alternates: { canonical: '/new-website' },
   openGraph: {
     title,

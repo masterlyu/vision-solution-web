@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const url = `${BASE}/blog/${slug}`
   const imageUrl = post.image ? `${BASE}${post.image}` : `${BASE}/api/og`
   return {
-    title: `${post.title} | 비전솔루션 블로그`,
+    title: `${post.title} | (주)비젼솔루션 블로그`,
     description: post.summary,
     keywords: post.tags.join(', '),
     alternates: { canonical: url },
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url,
       publishedTime: post.date,
       modifiedTime: post.date,
-      authors: ['비전솔루션'],
+      authors: ['(주)비젼솔루션'],
       images: [{ url: imageUrl, width: 800, height: 420, alt: post.title }],
     },
     twitter: {
@@ -90,12 +90,12 @@ export default async function BlogPostPage({ params }: PageProps) {
     keywords: post.tags.join(', '),
     author: {
       '@type': 'Organization',
-      name: '비전솔루션',
+      name: '(주)비젼솔루션',
       url: BASE,
     },
     publisher: {
       '@type': 'Organization',
-      name: '비전솔루션',
+      name: '(주)비젼솔루션',
       logo: {
         '@type': 'ImageObject',
         url: `${BASE}/logo.svg`,
@@ -162,7 +162,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           <div className="flex items-center gap-3 text-muted-foreground text-sm">
             <time dateTime={post.date}>{post.date}</time>
             <span>·</span>
-            <span>비전솔루션</span>
+            <span>(주)비젼솔루션</span>
             <span>·</span>
             <span>약 {readingMinutes}분</span>
           </div>

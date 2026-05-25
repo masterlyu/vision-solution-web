@@ -28,7 +28,7 @@ const schemaOrg = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
   name: 'Vision Solution',
-  alternateName: '비젼솔루션',
+  alternateName: '(주)비젼솔루션',
   url: 'https://visionc.co.kr',
   logo: 'https://visionc.co.kr/logo.svg',
   description: '홈페이지 무료 AI 진단 전문. 리뉴얼·보안·AI 솔루션 원스톱 제공.',

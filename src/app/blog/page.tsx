@@ -7,14 +7,14 @@ import Mascot from '@/components/Mascot'
 export const metadata: Metadata = {
   title: '홈페이지·보안·AI 인사이트 블로그',
   description: '중소기업 사장님을 위한 홈페이지·보안·AI 실전 가이드. 실제 사례와 수치를 공개합니다.',
-  keywords: ['중소기업 블로그', '홈페이지 보안', 'AI 챗봇 사례', '홈페이지 리뉴얼 사례', '비전솔루션 블로그'],
+  keywords: ['중소기업 블로그', '홈페이지 보안', 'AI 챗봇 사례', '홈페이지 리뉴얼 사례', '(주)비젼솔루션 블로그'],
   alternates: { canonical: '/blog' },
   openGraph: {
     title: '홈페이지·보안·AI 인사이트 블로그 | Vision Solution',
     description: '중소기업 사장님을 위한 홈페이지·보안·AI 실전 가이드. 실제 사례와 수치를 공개합니다.',
     url: 'https://visionc.co.kr/blog',
     siteName: 'Vision Solution',
-    images: [{ url: '/api/og', width: 1200, height: 630, alt: '비전솔루션 블로그' }],
+    images: [{ url: '/api/og', width: 1200, height: 630, alt: '(주)비젼솔루션 블로그' }],
     locale: 'ko_KR',
     type: 'website',
   },

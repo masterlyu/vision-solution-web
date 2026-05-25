@@ -6,7 +6,7 @@ const description = '2020년 창업, 200+ 프로젝트 완료. 연락 두절 없
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
-  keywords: ['비전솔루션', 'Vision Solution', '중소기업 IT', '홈페이지 제작 회사', 'IT 솔루션'],
+  keywords: ['(주)비젼솔루션', 'Vision Solution', '중소기업 IT', '홈페이지 제작 회사', 'IT 솔루션'],
   alternates: { canonical: '/about' },
   openGraph: {
     title,

@@ -9,7 +9,7 @@ export async function GET() {
     .map(p => `- [${p.title}](${BASE}/blog/${p.slug}): ${p.summary}`)
     .join('\n')
 
-  const text = `# (주)비전솔루션 — Vision Solution
+  const text = `# (주)비젼솔루션 — Vision Solution
 
 > 중소기업 홈페이지 보안 진단·AI 챗봇·홈페이지 리뉴얼·앱 개발 전문 IT 솔루션 회사.
 > URL 하나로 48시간 내 AI 보안 진단 무료 제공.
@@ -30,7 +30,7 @@ ${blogLines}
 
 ## 회사 정보
 
-- 상호: (주)비전솔루션
+- 상호: (주)비젼솔루션
 - 서비스: 홈페이지 보안, AI 챗봇, 홈페이지 제작·리뉴얼, 앱 개발, 유지보수
 - 대상 고객: 중소기업, 소상공인
 - 홈페이지: ${BASE}
