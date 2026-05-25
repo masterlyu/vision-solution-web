@@ -2,6 +2,16 @@ import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.visionc.co.kr' }],
+        destination: 'https://visionc.co.kr/:path*',
+        permanent: true,
+      },
+    ]
+  },
   poweredByHeader: false,
   outputFileTracingIncludes: {
     '/api/analyze': ['./public/fonts/**/*'],
