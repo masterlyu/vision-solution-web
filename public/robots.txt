@@ -1,4 +1,30 @@
 User-agent: *
 Allow: /
 
+# LLM crawlers — explicitly allowed
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Gemini-Web
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
 Sitemap: https://visionc.co.kr/sitemap.xml
+Sitemap: https://visionc.co.kr/rss.xml
