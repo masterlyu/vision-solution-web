@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a855f7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)" />
+  <circle cx="700" cy="-50" r="200" fill="white" opacity="0.05"/>
+  <circle cx="750" cy="420" r="150" fill="white" opacity="0.05"/>
+  <!-- 태그 배지 -->
+  <rect x="40" y="40" width="120" height="28" rx="14" fill="white" opacity="0.2"/>
+  <text x="100" y="59" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="white">보안 경고</text>
+  <!-- 우측 카드 -->
+  <rect x="480" y="60" width="280" height="300" rx="20" fill="white" opacity="0.1" stroke="white" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="620" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="80" fill="white" opacity="0.9">&#128737;</text>
+  <text x="620" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.75">랜섬웨어 피해 89.4%</text>
+  <text x="620" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.75">중소기업 집중</text>
+  <text x="620" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.6">KISA 무료 점검 안내 포함</text>
+  <!-- 왼쪽 메인 텍스트 -->
+  <text x="40" y="130" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.75">중소기업 대표·담당자 필독</text>
+  <text x="40" y="178" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">해킹 당하고도</text>
+  <text x="40" y="218" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">평균 106일 모른다</text>
+  <text x="40" y="262" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.75">지금 확인해야 할 5가지 보안 취약점</text>
+  <rect x="40" y="310" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
+  <text x="40" y="345" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.6">(주)비젼솔루션</text>
+</svg>
