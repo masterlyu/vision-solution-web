@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
   other: {
     'naver-site-verification': 'd5eec5a3e6bf5f5921677ffbab525a72c2e739fb',
+    'google-site-verification': 'yNCeYe0TkxzUW9w-HxVyRezpq5bQ2bQTuvOjH6ll35c',
   },
   openGraph: {
     title: '홈페이지 무료 AI 진단 | Vision Solution',
