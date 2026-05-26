@@ -169,6 +169,21 @@ high_risks, telegram_sent, approved, email_sent, created_at
 
 ---
 
+## llms.txt 데이터 파일 구조
+
+`/llms.txt` 엔드포인트는 `content/company/*.json` 파일들을 읽어 자동 생성됩니다.
+**route.ts를 수정하지 말고 아래 JSON 파일만 수정하세요.**
+
+| 파일 | 수정 시점 |
+|------|-----------|
+| `content/company/info.json` | 회사명·위치·이메일·인증 변경 시 |
+| `content/company/services.json` | 서비스 추가·삭제·설명 변경 시 |
+| `content/company/faq.json` | FAQ 항목 추가·수정 시 |
+| `content/company/metrics.json` | 프로젝트 수·성과 수치 갱신 시 |
+| `content/company/clients.json` | 고객사 추가 시 (기존 파일) |
+| `content/blog/*.md` | 블로그 글 추가 시 자동 반영 |
+
+
 ## 배포
 
 ```bash

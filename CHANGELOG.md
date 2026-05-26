@@ -3,6 +3,52 @@
 
 ---
 
+## [2026-05-26] — llms.txt 데이터 분리 및 콘텐츠 강화
+
+### 개요
+`/llms.txt` 엔드포인트를 데이터 주도형 구조로 리팩터링. 하드코딩된 서비스·FAQ·수치·회사정보를
+`content/company/*.json` 파일로 분리하여, 코드 수정 없이 JSON 파일만 편집하면 자동 반영되도록 개선.
+동시에 누락된 서비스(모의해킹, 챗봇 상담, 포트폴리오)·회사 신뢰 정보·FAQ·성과 수치를 추가하여
+AI 검색 엔진(ChatGPT, Perplexity, Claude 등) 노출 품질 향상.
+
+### 커밋
+- `8a70543` feat: enhance llms.txt with full service list, FAQ, and company details
+- `a5a28f2` refactor: make llms.txt data-driven from JSON files
+
+---
+
+### 1. 신규 데이터 파일
+
+**추가 파일:** `content/company/info.json`, `services.json`, `faq.json`, `metrics.json`
+
+| 파일 | 내용 | 업데이트 주체 |
+|------|------|------------|
+| `info.json` | 회사명·설립연도·위치·인증·이메일 | 회사 정보 변경 시 수동 |
+| `services.json` | 서비스 목록·URL·설명·상세 항목 | 서비스 추가·변경 시 수동 |
+| `faq.json` | Q&A 목록 | FAQ 추가·변경 시 수동 |
+| `metrics.json` | 핵심 성과 수치 | 실적 갱신 시 수동 |
+
+### 2. llms.txt 콘텐츠 개선
+
+| 항목 | 이전 | 이후 |
+|------|------|------|
+| 서비스 수 | 7개 | 8개 (모의해킹·챗봇 상담 추가) |
+| 포트폴리오 섹션 | 없음 | 추가 (주요 고객사 목록 포함) |
+| 회사 신뢰 정보 | 없음 | 2007년 설립·247건+·벤처기업·인증 6종 |
+| 성과 수치 | 없음 | 문의 3.2배·CS 70%·PageSpeed 38→91점 등 |
+| 위치 정보 | 없음 | 인천 계양구 (지역 검색 노출 강화) |
+| FAQ | 없음 | 7개 Q&A |
+
+### 3. route.ts 구조 변경
+
+**적용 파일:** `src/app/llms.txt/route.ts`
+
+- 기존: 서비스·FAQ·수치 모두 `route.ts` 내 하드코딩
+- 변경: `fs.readFileSync`로 JSON 파일 읽기 → 템플릿 조립
+- 블로그 목록은 기존과 동일하게 `getAllPosts()` 동적 로딩 유지
+
+
+
 ## [2026-05-18] — 모의해킹 진단 서비스 페이지 신규 추가
 
 ### 개요
