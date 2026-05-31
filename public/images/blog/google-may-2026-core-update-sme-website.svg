@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0d0d16"/>
+  <!-- Background grid decoration -->
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="#1a1a2e" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="#1a1a2e" stroke-width="1"/>
+  <line x1="400" y1="0" x2="400" y2="630" stroke="#1a1a2e" stroke-width="1"/>
+  <line x1="800" y1="0" x2="800" y2="630" stroke="#1a1a2e" stroke-width="1"/>
+  <!-- Alert circle icon -->
+  <circle cx="160" cy="140" r="60" fill="none" stroke="#f4b400" stroke-width="4" opacity="0.8"/>
+  <text x="160" y="155" font-family="Arial, sans-serif" font-size="52" font-weight="bold" fill="#f4b400" text-anchor="middle" opacity="0.9">!</text>
+  <!-- Upward arrow (SEO improvement) -->
+  <polyline points="1050,420 1050,200 1080,230 1050,200 1020,230" fill="none" stroke="#00d4aa" stroke-width="4" opacity="0.7"/>
+  <!-- Checkmark shield -->
+  <path d="M1080 520 L1080 490 Q1080 470 1060 465 L1040 460 L1020 465 Q1000 470 1000 490 L1000 520 Q1000 545 1040 560 Q1080 545 1080 520 Z" fill="none" stroke="#00d4aa" stroke-width="3" opacity="0.6"/>
+  <polyline points="1015,500 1032,517 1065,485" fill="none" stroke="#00d4aa" stroke-width="3" opacity="0.6"/>
+  <!-- Main title -->
+  <text x="600" y="215" font-family="'Noto Sans KR', Arial, sans-serif" font-size="54" font-weight="bold" fill="#ffffff" text-anchor="middle">구글 코어 업데이트</text>
+  <text x="600" y="285" font-family="'Noto Sans KR', Arial, sans-serif" font-size="46" font-weight="bold" fill="#f4b400" text-anchor="middle">중소기업 홈페이지 지금 확인</text>
+  <!-- Subtitle -->
+  <text x="600" y="355" font-family="'Noto Sans KR', Arial, sans-serif" font-size="26" fill="#aaaacc" text-anchor="middle">속도 · HTTPS 보안 · 콘텐츠 품질 · 중소기업 SEO 점검 가이드</text>
+  <!-- 3 check items row -->
+  <rect x="150" y="395" width="260" height="80" rx="12" fill="#1a1a2e" stroke="#4285f4" stroke-width="2" opacity="0.9"/>
+  <text x="280" y="430" font-family="'Noto Sans KR', Arial, sans-serif" font-size="20" font-weight="bold" fill="#4285f4" text-anchor="middle">페이지 속도</text>
+  <text x="280" y="458" font-family="'Noto Sans KR', Arial, sans-serif" font-size="17" fill="#aaaacc" text-anchor="middle">3초 이내 로딩</text>
+  <rect x="470" y="395" width="260" height="80" rx="12" fill="#1a1a2e" stroke="#00d4aa" stroke-width="2" opacity="0.9"/>
+  <text x="600" y="430" font-family="'Noto Sans KR', Arial, sans-serif" font-size="20" font-weight="bold" fill="#00d4aa" text-anchor="middle">HTTPS 보안</text>
+  <text x="600" y="458" font-family="'Noto Sans KR', Arial, sans-serif" font-size="17" fill="#aaaacc" text-anchor="middle">자물쇠 아이콘 확인</text>
+  <rect x="790" y="395" width="260" height="80" rx="12" fill="#1a1a2e" stroke="#f4b400" stroke-width="2" opacity="0.9"/>
+  <text x="920" y="430" font-family="'Noto Sans KR', Arial, sans-serif" font-size="20" font-weight="bold" fill="#f4b400" text-anchor="middle">콘텐츠 품질</text>
+  <text x="920" y="458" font-family="'Noto Sans KR', Arial, sans-serif" font-size="17" fill="#aaaacc" text-anchor="middle">E-E-A-T 기준 준수</text>
+  <!-- Tag badge -->
+  <rect x="410" y="505" width="380" height="50" rx="25" fill="#4285f4" opacity="0.85"/>
+  <text x="600" y="537" font-family="'Noto Sans KR', Arial, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">Vision Solution 홈페이지 제작</text>
+  <!-- Bottom brand -->
+  <text x="600" y="605" font-family="Arial, sans-serif" font-size="20" fill="#555577" text-anchor="middle">visionc.co.kr</text>
+</svg>
