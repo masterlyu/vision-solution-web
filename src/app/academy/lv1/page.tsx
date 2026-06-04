@@ -1,7 +1,5 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
-import Mascot from '@/components/Mascot'
 import AcademyDownloadClient from './AcademyDownloadClient'
 
 export const metadata: Metadata = {
@@ -44,32 +42,27 @@ export default function Lv1Page() {
           <span className="text-primary">LV1 · FOUNDATION</span>
         </nav>
 
-        {/* Hero */}
-        <div className="grid md:grid-cols-[1.4fr_1fr] gap-10 items-center mb-16">
-          <div>
-            <p className="text-xs font-mono font-bold tracking-[0.3em] uppercase text-[var(--accent-cyan-text)] mb-4">
-              Lv1 · Foundation
-            </p>
-            <h1 className="text-4xl md:text-6xl font-black text-foreground mb-6 leading-tight tracking-tight">
-              기초 AI 상식
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-6 leading-relaxed">
-              모든 AI에 통하는 사용 원칙 — <b className="text-foreground">4D 프레임워크</b>
-            </p>
-            <div className="flex flex-wrap gap-2 text-xs font-mono">
-              <span className="px-3 py-1.5 rounded-full bg-primary/15 text-primary">⏱ 60분</span>
-              <span className="px-3 py-1.5 rounded-full bg-muted text-muted-foreground">11 슬라이드</span>
-              <span className="px-3 py-1.5 rounded-full bg-muted text-muted-foreground">초보자 OK</span>
-              <span className="px-3 py-1.5 rounded-full bg-muted text-muted-foreground">FREE</span>
-            </div>
-          </div>
-          <div className="flex justify-center md:justify-end">
-            <Mascot pose="intro" category="situation" size="md" className="h-72 w-auto" alt="Lv1 마스코트" />
+        {/* Hero — 마스코트 없이 깔끔하게 */}
+        <div className="mb-16">
+          <p className="text-xs font-mono font-bold tracking-[0.3em] uppercase text-[var(--accent-cyan-text)] mb-4">
+            Lv1 · Foundation
+          </p>
+          <h1 className="text-4xl md:text-6xl font-black text-foreground mb-6 leading-tight tracking-tight">
+            기초 AI 상식
+          </h1>
+          <p className="text-lg md:text-xl text-muted-foreground mb-6 leading-relaxed">
+            모든 AI에 통하는 사용 원칙 — <b className="text-foreground">4D 프레임워크</b>
+          </p>
+          <div className="flex flex-wrap gap-2 text-xs font-mono">
+            <span className="px-3 py-1.5 rounded-full bg-primary/15 text-primary">⏱ 60분</span>
+            <span className="px-3 py-1.5 rounded-full bg-muted text-muted-foreground">11 슬라이드</span>
+            <span className="px-3 py-1.5 rounded-full bg-muted text-muted-foreground">초보자 OK</span>
+            <span className="px-3 py-1.5 rounded-full bg-muted text-muted-foreground">FREE</span>
           </div>
         </div>
 
         {/* Authority */}
-        <div className="rounded-3xl border border-border bg-card p-7 mb-12">
+        <div className="rounded-3xl border-2 border-foreground/15 bg-card p-7 mb-12">
           <p className="text-xs font-mono font-bold tracking-[0.2em] uppercase text-primary mb-3">Source · 학술 출처</p>
           <p className="text-base md:text-lg text-foreground leading-relaxed">
             본 강의는 <b className="text-primary">Rick Dakan 교수</b>(Ringling College of Art and Design)와 <b className="text-primary">Joseph Feller 교수</b>(University College Cork)가 공동 개발한 <b>AI Fluency 4D Framework</b>를 기반으로 합니다. <b>Anthropic이 공식 채택</b>하여 전 세계 대학·기업의 표준 교육 자료로 사용 중입니다.
@@ -81,7 +74,7 @@ export default function Lv1Page() {
           <h2 className="text-2xl md:text-3xl font-black text-foreground mb-6 tracking-tight">강의 목차</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {TOPICS.map((t) => (
-              <div key={t.num} className="flex items-start gap-4 p-4 rounded-2xl border border-border bg-card hover:border-primary/40 transition-colors">
+              <div key={t.num} className="flex items-start gap-4 p-4 rounded-2xl border-2 border-foreground/15 bg-card hover:border-primary/50 transition-colors">
                 <span className="text-xs font-mono font-bold text-primary mt-1 tracking-wider">{t.num}</span>
                 <div>
                   <h3 className="text-base font-bold text-foreground tracking-tight">{t.title}</h3>
@@ -96,7 +89,7 @@ export default function Lv1Page() {
         <AcademyDownloadClient />
 
         {/* What you learn */}
-        <div className="mt-14 rounded-3xl border border-border bg-card p-8 md:p-10">
+        <div className="mt-14 rounded-3xl border-2 border-foreground/15 bg-card p-8 md:p-10">
           <p className="text-xs font-mono font-bold tracking-[0.2em] uppercase text-[var(--accent-cyan-text)] mb-3">Outcomes</p>
           <h2 className="text-2xl md:text-3xl font-black text-foreground mb-6 tracking-tight">이 강의 듣고 나면</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

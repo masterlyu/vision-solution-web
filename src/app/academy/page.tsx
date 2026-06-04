@@ -107,10 +107,10 @@ export default function AcademyPage() {
     <div className="min-h-screen pt-28 pb-24 bg-background">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
 
-        {/* Hero */}
+        {/* Hero — 마스코트 1개만 */}
         <div className="text-center mb-20">
           <div className="flex justify-center mb-8">
-            <Mascot pose="vision" category="company" size="md" className="h-32 w-auto" alt="visionc Academy 마스코트" />
+            <Mascot pose="cheer" category="emotion" size="md" className="h-32 w-auto" alt="visionc Academy 마스코트" />
           </div>
           <p className="text-primary text-xs font-bold tracking-[0.3em] uppercase mb-4">
             visionc · ACADEMY
@@ -133,7 +133,7 @@ export default function AcademyPage() {
           </div>
         </div>
 
-        {/* Levels grid */}
+        {/* Levels grid — 카드 경계 강화 */}
         <div className="mb-16">
           <div className="flex items-baseline justify-between mb-8">
             <h2 className="text-2xl md:text-3xl font-black text-foreground tracking-tight">전체 코스 로드맵</h2>
@@ -143,10 +143,10 @@ export default function AcademyPage() {
             {LEVELS.map((lv) => {
               const card = (
                 <article
-                  className={`group relative h-full rounded-3xl border p-7 transition-all ${
+                  className={`group relative h-full rounded-3xl border-2 p-7 transition-all ${
                     lv.status === 'available'
-                      ? 'border-primary/40 bg-gradient-to-br from-primary/10 to-transparent hover:border-primary hover:shadow-[0_0_60px_-15px_rgba(118,75,229,0.5)]'
-                      : 'border-border bg-card hover:border-border/80'
+                      ? 'border-primary bg-gradient-to-br from-primary/15 to-card shadow-[0_0_30px_-12px_rgba(118,75,229,0.4)] hover:shadow-[0_0_60px_-12px_rgba(118,75,229,0.7)]'
+                      : 'border-foreground/15 bg-card hover:border-foreground/30 hover:shadow-[0_0_30px_-15px_rgba(255,255,255,0.1)]'
                   }`}
                 >
                   <div className="flex items-start justify-between mb-5">
@@ -176,7 +176,7 @@ export default function AcademyPage() {
         </div>
 
         {/* Why visionc Academy */}
-        <div className="mb-16 rounded-3xl border border-border bg-card p-8 md:p-12">
+        <div className="mb-16 rounded-3xl border-2 border-foreground/15 bg-card p-8 md:p-12">
           <p className="text-xs font-mono font-bold tracking-[0.2em] uppercase text-primary mb-4">Why visionc Academy</p>
           <h2 className="text-2xl md:text-4xl font-black text-foreground mb-8 tracking-tight">왜 이 강의인가</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -202,7 +202,7 @@ export default function AcademyPage() {
         </div>
 
         {/* CTA */}
-        <div className="text-center rounded-3xl border border-primary/30 bg-gradient-to-br from-primary/15 via-[var(--accent)]/10 to-transparent p-10 md:p-14">
+        <div className="text-center rounded-3xl border-2 border-primary/40 bg-gradient-to-br from-primary/15 via-[var(--accent)]/10 to-transparent p-10 md:p-14">
           <p className="text-xs font-mono font-bold tracking-[0.2em] uppercase text-primary mb-4">Consulting</p>
           <h2 className="text-2xl md:text-4xl font-black text-foreground mb-4 tracking-tight">우리 회사에 맞게 적용하고 싶다면</h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
