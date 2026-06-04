@@ -64,7 +64,7 @@ export default function Lv1Page() {
             </div>
           </div>
           <div className="flex justify-center md:justify-end">
-            <Mascot pose="intro" category="situation" size="lg" className="h-72 w-auto" alt="Lv1 마스코트" />
+            <Mascot pose="intro" category="situation" size="md" className="h-72 w-auto" alt="Lv1 마스코트" />
           </div>
         </div>
 
