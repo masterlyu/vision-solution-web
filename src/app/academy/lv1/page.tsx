@@ -4,12 +4,12 @@ import AcademyDownloadClient from './AcademyDownloadClient'
 
 export const metadata: Metadata = {
   title: 'Lv1 · 기초 AI 상식 — visionc Academy',
-  description: '모든 AI에 통하는 사용 원칙 4D 프레임워크. Rick Dakan + Joseph Feller 공동 개발, Anthropic 공식 채택. PPT 슬라이드 무료 다운로드.',
-  keywords: ['AI 기초', '4D Framework', 'AI Fluency', 'Claude 사용법', 'ChatGPT 활용', 'visionc Academy Lv1'],
+  description: '4D 프레임워크 기반 무료 AI 강의 Lv1.',
+  keywords: ['AI 기초', '4D Framework', 'AI Fluency', 'visionc Academy Lv1'],
   alternates: { canonical: '/academy/lv1' },
   openGraph: {
     title: 'Lv1 · 기초 AI 상식 — visionc Academy',
-    description: 'Rick Dakan + Joseph Feller 공동 개발, Anthropic 공식 채택의 4D 프레임워크.',
+    description: '4D 프레임워크 기반 무료 AI 강의 Lv1.',
     url: 'https://visionc.co.kr/academy/lv1',
     siteName: 'Vision Solution',
     locale: 'ko_KR',
@@ -42,36 +42,29 @@ export default function Lv1Page() {
           <span className="text-primary">LV1 · FOUNDATION</span>
         </nav>
 
-        {/* Hero — 마스코트 없이 깔끔하게 */}
-        <div className="mb-16">
-          <p className="text-xs font-mono font-bold tracking-[0.3em] uppercase text-[var(--accent-cyan-text)] mb-4">
+        {/* Hero — 타이틀 + 메타 칩만 */}
+        <div className="mb-10">
+          <p className="text-xs font-mono font-bold tracking-[0.3em] uppercase text-[var(--accent-cyan-text)] mb-3">
             Lv1 · Foundation
           </p>
-          <h1 className="text-4xl md:text-6xl font-black text-foreground mb-6 leading-tight tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-black text-foreground mb-5 leading-tight tracking-tight">
             기초 AI 상식
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground mb-6 leading-relaxed">
-            모든 AI에 통하는 사용 원칙 — <b className="text-foreground">4D 프레임워크</b>
-          </p>
           <div className="flex flex-wrap gap-2 text-xs font-mono">
             <span className="px-3 py-1.5 rounded-full bg-primary/15 text-primary">⏱ 60분</span>
             <span className="px-3 py-1.5 rounded-full bg-muted text-muted-foreground">11 슬라이드</span>
-            <span className="px-3 py-1.5 rounded-full bg-muted text-muted-foreground">초보자 OK</span>
             <span className="px-3 py-1.5 rounded-full bg-muted text-muted-foreground">FREE</span>
           </div>
         </div>
 
-        {/* Authority */}
-        <div className="rounded-3xl border-2 border-foreground/15 bg-card p-7 mb-12">
-          <p className="text-xs font-mono font-bold tracking-[0.2em] uppercase text-primary mb-3">Source · 학술 출처</p>
-          <p className="text-base md:text-lg text-foreground leading-relaxed">
-            본 강의는 <b className="text-primary">Rick Dakan 교수</b>(Ringling College of Art and Design)와 <b className="text-primary">Joseph Feller 교수</b>(University College Cork)가 공동 개발한 <b>AI Fluency 4D Framework</b>를 기반으로 합니다. <b>Anthropic이 공식 채택</b>하여 전 세계 대학·기업의 표준 교육 자료로 사용 중입니다.
-          </p>
-        </div>
+        {/* Authority — 1줄 */}
+        <p className="text-sm text-muted-foreground mb-10 font-mono">
+          출처 · <b className="text-foreground">Rick Dakan</b>(Ringling College) + <b className="text-foreground">Joseph Feller</b>(University College Cork) · Anthropic 공식 채택
+        </p>
 
         {/* Topics */}
-        <div className="mb-14">
-          <h2 className="text-2xl md:text-3xl font-black text-foreground mb-6 tracking-tight">강의 목차</h2>
+        <div className="mb-12">
+          <h2 className="text-xl md:text-2xl font-black text-foreground mb-5 tracking-tight">강의 목차</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {TOPICS.map((t) => (
               <div key={t.num} className="flex items-start gap-4 p-4 rounded-2xl border-2 border-foreground/15 bg-card hover:border-primary/50 transition-colors">
@@ -88,36 +81,13 @@ export default function Lv1Page() {
         {/* Downloads */}
         <AcademyDownloadClient />
 
-        {/* What you learn */}
-        <div className="mt-14 rounded-3xl border-2 border-foreground/15 bg-card p-8 md:p-10">
-          <p className="text-xs font-mono font-bold tracking-[0.2em] uppercase text-[var(--accent-cyan-text)] mb-3">Outcomes</p>
-          <h2 className="text-2xl md:text-3xl font-black text-foreground mb-6 tracking-tight">이 강의 듣고 나면</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div>
-              <p className="text-2xl mb-2">🎯</p>
-              <h3 className="font-bold text-foreground mb-2">어떤 AI든 자신 있게</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">Claude·ChatGPT·Gemini·Perplexity 중 무엇을 만나도 통하는 사용 원칙을 익힙니다.</p>
-            </div>
-            <div>
-              <p className="text-2xl mb-2">✍️</p>
-              <h3 className="font-bold text-foreground mb-2">좋은 결과 얻는 지시문</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">역할·맥락·작업·형식 4요소를 활용해 1분 안에 효과적인 프롬프트 작성.</p>
-            </div>
-            <div>
-              <p className="text-2xl mb-2">🔎</p>
-              <h3 className="font-bold text-foreground mb-2">AI 실수 알아채는 눈</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">할루시네이션·편향·맥락 오류를 검증하는 3단계 점검 기법.</p>
-            </div>
-          </div>
-        </div>
-
-        {/* CTA */}
-        <div className="mt-12 text-center">
+        {/* Back */}
+        <div className="mt-10 text-center">
           <Link
             href="/academy"
             className="inline-flex items-center gap-2 text-sm font-bold text-muted-foreground hover:text-primary transition-colors"
           >
-            ← 전체 코스 로드맵 보기
+            ← 전체 코스
           </Link>
         </div>
       </div>
