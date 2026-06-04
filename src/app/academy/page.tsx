@@ -28,12 +28,13 @@ type LevelCard = {
 
 const LEVELS: LevelCard[] = [
   { tag: 'LV1 · 기초', title: '기초 AI 상식', subtitle: 'Foundation', status: 'available', href: '/academy/lv1' },
-  { tag: 'LV2 · 실용', title: 'AI로 일하는 법', subtitle: 'Practical', status: 'soon' },
-  { tag: 'LV3 · 활용', title: 'Claude Code 입문', subtitle: 'Coding', status: 'planned' },
-  { tag: 'LV4 · 개발', title: 'AI 앱 만들기', subtitle: 'API & MCP', status: 'planned' },
-  { tag: 'LV5 · 고급', title: 'Agents & Skills', subtitle: 'Advanced', status: 'planned' },
-  { tag: 'LV6 · 엔터프라이즈', title: '클라우드 AI', subtitle: 'Enterprise', status: 'planned' },
-  { tag: 'LV7 · 교육', title: '교사·강사를 위한 AI', subtitle: 'Education', status: 'planned' },
+  { tag: 'LV2 · 마스터', title: 'Claude 마스터', subtitle: 'Master', status: 'available', href: '/academy/lv2' },
+  { tag: 'LV3 · 실용', title: 'AI로 일하는 법', subtitle: 'Practical', status: 'soon' },
+  { tag: 'LV4 · 활용', title: 'Claude Code 입문', subtitle: 'Coding', status: 'planned' },
+  { tag: 'LV5 · 개발', title: 'AI 앱 만들기', subtitle: 'API & MCP', status: 'planned' },
+  { tag: 'LV6 · 고급', title: 'Agents & Skills', subtitle: 'Advanced', status: 'planned' },
+  { tag: 'LV7 · 엔터프라이즈', title: '클라우드 AI', subtitle: 'Enterprise', status: 'planned' },
+  { tag: 'LV8 · 교육', title: '교사·강사를 위한 AI', subtitle: 'Education', status: 'planned' },
 ]
 
 function StatusBadge({ status }: { status: LevelCard['status'] }) {
@@ -63,7 +64,6 @@ export default function AcademyPage() {
     <div className="min-h-screen pt-28 pb-24 bg-background">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
 
-        {/* Hero — 마스코트 1개 + 타이틀만 */}
         <div className="text-center mb-16">
           <div className="flex justify-center mb-6">
             <Mascot pose="cheer" category="emotion" size="md" className="h-28 w-auto" alt="visionc Academy" />
@@ -76,7 +76,6 @@ export default function AcademyPage() {
           </h1>
         </div>
 
-        {/* Levels grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {LEVELS.map((lv) => {
             const card = (

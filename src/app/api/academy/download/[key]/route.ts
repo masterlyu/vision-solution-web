@@ -10,6 +10,10 @@ const DOWNLOADS: Record<string, { file: string; filename: string }> = {
     file: 'src/storage/academy/lv1-speaker-notes.pdf',
     filename: 'visionc-academy-lv1-speaker-notes.pdf',
   },
+  'lv2-speaker-notes': {
+    file: 'src/storage/academy/lv2-speaker-notes.pdf',
+    filename: 'visionc-academy-lv2-speaker-notes.pdf',
+  },
 }
 
 export async function GET(
