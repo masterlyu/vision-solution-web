@@ -106,3 +106,11 @@ export async function POST(req: NextRequest) {
   })
   return res
 }
+
+const COOKIE_NAME_FOR_GET = 'visionc_academy_auth'
+
+export function GET(req: NextRequest) {
+  const cookie = req.cookies.get(COOKIE_NAME_FOR_GET)?.value
+  const ok = verifyAcademyCookie(cookie)
+  return NextResponse.json({ authed: ok }, { status: ok ? 200 : 401 })
+}

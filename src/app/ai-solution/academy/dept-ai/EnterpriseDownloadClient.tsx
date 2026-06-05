@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 type AuthState = 'idle' | 'checking' | 'authed' | 'wrong' | 'rate-limited'
 
@@ -21,6 +21,18 @@ export default function EnterpriseDownloadClient({
   const [state, setState] = useState<AuthState>('idle')
   const [message, setMessage] = useState<string | null>(null)
 
+  // mount 시 쿠키 확인 — 이미 인증돼 있으면 즉시 authed
+  useEffect(() => {
+    let cancelled = false
+    fetch('/api/academy/auth', { method: 'GET', credentials: 'include' })
+      .then((res) => {
+        if (cancelled) return
+        if (res.ok) setState('authed')
+      })
+      .catch(() => {})
+    return () => { cancelled = true }
+  }, [])
+
   async function unlock(e: React.FormEvent) {
     e.preventDefault()
     if (state === 'checking') return
@@ -34,7 +46,9 @@ export default function EnterpriseDownloadClient({
       })
       if (res.ok) {
         setState('authed')
-        setMessage('잠금 해제됨. 슬라이드·스피커 노트 다운로드 버튼이 활성화되었습니다.')
+        setMessage('잠금 해제됨. 다운로드 버튼이 활성화되었습니다.')
+        // 다른 EnterpriseDownloadClient들도 갱신되도록 이벤트 발생
+        window.dispatchEvent(new Event('academy-auth-changed'))
       } else if (res.status === 429) {
         setState('rate-limited')
         const data = await res.json().catch(() => ({}))
@@ -49,18 +63,38 @@ export default function EnterpriseDownloadClient({
     }
   }
 
+  // 다른 인스턴스가 인증되면 이 인스턴스도 갱신
+  useEffect(() => {
+    const handler = () => {
+      fetch('/api/academy/auth', { method: 'GET', credentials: 'include' })
+        .then((res) => { if (res.ok) setState('authed') })
+        .catch(() => {})
+    }
+    window.addEventListener('academy-auth-changed', handler)
+    return () => window.removeEventListener('academy-auth-changed', handler)
+  }, [])
+
   const authed = state === 'authed'
 
   return (
     <div className="rounded-2xl border-2 border-primary/40 bg-gradient-to-br from-primary/25 via-[var(--accent)]/10 to-background p-6 md:p-8 shadow-lg">
       <div className="flex items-center gap-3 mb-4">
-        <div className="w-10 h-10 rounded-xl bg-primary/25 flex items-center justify-center text-xl">🔐</div>
+        <div className="w-10 h-10 rounded-xl bg-primary/25 flex items-center justify-center text-xl">{authed ? '🔓' : '🔐'}</div>
         <div>
           <p className="text-xs font-mono font-bold tracking-[0.2em] uppercase text-primary mb-0.5">Downloads</p>
           <h4 className="text-lg md:text-xl font-black text-foreground tracking-tight">강의 자료 다운로드</h4>
         </div>
+        {authed && (
+          <span className="ml-auto text-xs font-mono font-bold bg-[var(--accent-green-text)]/20 text-[var(--accent-green-text)] px-3 py-1.5 rounded-full">
+            ✓ 인증 완료
+          </span>
+        )}
       </div>
-      <p className="text-sm text-foreground/85 font-medium mb-5">사내 출강 강좌. 슬라이드·스피커 노트 모두 비밀번호로 보호됩니다.</p>
+      <p className="text-sm text-foreground/85 font-medium mb-5">
+        {authed
+          ? '인증이 유지되어 모든 편 자료를 바로 다운로드할 수 있습니다 (24시간 유효).'
+          : '사내 출강 강좌. 비밀번호 1회 입력으로 24시간 동안 모든 편 자료 다운로드가 활성화됩니다.'}
+      </p>
 
       {!authed && (
         <form onSubmit={unlock} className="mb-5">
@@ -91,7 +125,6 @@ export default function EnterpriseDownloadClient({
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-        {/* Slides */}
         <div className="rounded-xl border-2 border-border bg-background/80 p-5 flex flex-col">
           <p className={`text-xs font-mono font-bold tracking-wider mb-2 ${authed ? 'text-[var(--accent-green-text)]' : 'text-[var(--accent-amber)]'}`}>
             {authed ? 'UNLOCKED · 다운로드 가능' : 'LOCKED · 비밀번호 필요'}
@@ -112,7 +145,6 @@ export default function EnterpriseDownloadClient({
           )}
         </div>
 
-        {/* Speaker notes */}
         <div className="rounded-xl border-2 border-border bg-background/80 p-5 flex flex-col">
           <p className={`text-xs font-mono font-bold tracking-wider mb-2 ${authed ? 'text-[var(--accent-green-text)]' : 'text-[var(--accent-amber)]'}`}>
             {authed ? 'UNLOCKED · 다운로드 가능' : 'LOCKED · 비밀번호 필요'}
