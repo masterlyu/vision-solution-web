@@ -30,7 +30,7 @@ const solutions = [
 
 const steps = [
   {
-    num: '01', title: '무료 현황 진단', duration: '2일',
+    num: '01', title: '현황 자동 진단', duration: '2일',
     desc: '현재 사이트 속도·검색 노출·화면 분석 결과서. 비용 없음.',
     pose: 'analytics' as const,
     category: 'process' as const,
@@ -167,11 +167,11 @@ export default function RenewalPage() {
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-xl">
               홈페이지가 낡았다는 걸 알지만 어디서부터 시작해야 할지 모르겠다면,<br />
-              URL 하나만 입력하세요. 48시간 내에 무료 진단 리포트를 보내드립니다.
+              URL 하나만 입력하세요. 자동 분석 리포트를 이메일로 발송해 드립니다.
             </p>
             <a href="#diagnosis-form"
               className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all text-base">
-              지금 무료 진단 받기 <ArrowRight className="w-5 h-5" />
+              사이트 현황 자동 분석 <ArrowRight className="w-5 h-5" />
             </a>
           </div>
 
@@ -280,7 +280,7 @@ export default function RenewalPage() {
       <section className="py-20 px-6 bg-background">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-foreground mb-2">기본형 100만원대부터 시작합니다</h2>
-          <p className="text-muted-foreground mb-10">정확한 견적은 무료 상담 후 제공합니다.</p>
+          <p className="text-muted-foreground mb-10">정확한 견적은 도입 상담 후 제공합니다.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {plans.map((p, i) => (
               <div key={i} className={`rounded-2xl p-8 border-2 relative transition-all ${
@@ -306,10 +306,10 @@ export default function RenewalPage() {
             ))}
           </div>
           <div className="text-center">
-            <a href="#diagnosis-form"
+            <Link href="/contact"
               className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all">
-              무료 진단으로 시작하기 <ArrowRight className="w-5 h-5" />
-            </a>
+              💼 도입 상담 신청 <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
         </div>
       </section>
@@ -422,7 +422,7 @@ export default function RenewalPage() {
           </div>
 
           <h2 className="text-3xl md:text-4xl font-black text-foreground mb-3 text-center">
-            무료 홈페이지 운영상태진단
+            홈페이지 운영상태 자동 진단
           </h2>
           <p className="text-muted-foreground text-center mb-8">
             URL 입력 즉시 자동 분석 · 결과 리포트 PDF를 이메일로 발송합니다

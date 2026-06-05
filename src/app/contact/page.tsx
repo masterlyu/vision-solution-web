@@ -55,7 +55,7 @@ export default function ContactPage() {
   const info = [
     { icon: Mail,  title: '이메일',    val: 'biztalktome@gmail.com', href: 'mailto:biztalktome@gmail.com' },
     { icon: Globe, title: '웹사이트',  val: 'visionc.co.kr',         href: null },
-    { icon: Clock, title: '응답 시간', val: '영업일 기준 48시간 내',  href: null },
+    { icon: Clock, title: '응답 시간', val: '영업일 기준 1일 내',  href: null },
   ]
 
   return (
@@ -68,9 +68,9 @@ export default function ContactPage() {
             <Mascot pose="inquiry" category="support" size="md" className="h-56 w-auto" alt="VISIONC 마스코트 — 문의하기" />
           </div>
           <p className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-4">CONTACT</p>
-          <h1 className="text-4xl md:text-5xl font-black text-foreground mb-4">문의하기</h1>
+          <h1 className="text-4xl md:text-5xl font-black text-foreground mb-4">도입 상담 신청</h1>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            견적은 무료입니다.<br />48시간 내 답장드립니다.
+            도입 상담은 무료입니다.<br />영업일 기준 1일 내 답장드립니다.
           </p>
         </div>
 
@@ -128,11 +128,11 @@ export default function ContactPage() {
                       <Mascot pose="cheer" category="emotion" size="sm" className="h-28 w-auto" bubble="문의 접수 완료!" bubbleDir="right" />
                     </div>
                     <h2 className="text-foreground text-2xl font-bold mb-3">문의가 접수됐습니다</h2>
-                    <p className="text-muted-foreground text-sm">영업일 기준 1일 내 이메일로 연락드립니다.</p>
+                    <p className="text-muted-foreground text-sm">영업일 기준 1일 내 이메일로 답장드립니다.</p>
                   </div>
                 ) : (
                   <>
-                    <h2 className="text-foreground text-2xl font-black mb-6">무료 상담 신청</h2>
+                    <h2 className="text-foreground text-2xl font-black mb-6">💼 도입 상담 신청</h2>
                     <form onSubmit={handleSubmit} className="space-y-5">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         <div>
@@ -195,7 +195,7 @@ export default function ContactPage() {
                         className="w-full h-14 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-xl flex items-center justify-center gap-2 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed text-base shadow-lg shadow-primary/40 hover:shadow-primary/60">
                         {loading ? <><Loader2 className="w-5 h-5 animate-spin" />전송 중...</> : '문의 전송 →'}
                       </button>
-                      <p className="text-center text-muted-foreground text-sm">영업일 기준 48시간 내 이메일로 답장드립니다</p>
+                      <p className="text-center text-muted-foreground text-sm">영업일 기준 1일 내 이메일로 답장드립니다</p>
                     </form>
                   </>
                 )
@@ -204,10 +204,10 @@ export default function ContactPage() {
               {/* 보안 점검 */}
               {tab === 'security' && (
                 <>
-                  <h2 className="text-foreground text-2xl font-black mb-6">무료 보안 진단 신청</h2>
+                  <h2 className="text-foreground text-2xl font-black mb-6">사이트 보안 셀프 점검</h2>
                   <UrlAnalysisForm
                     serviceType="security"
-                    title="무료 보안 진단 신청"
+                    title="사이트 보안 셀프 점검"
                     notice="도메인 이메일 인증 후 자동 분석 → PDF 리포트 발송 (인증 링크 24시간 유효)"
                     embedded
                   />
@@ -217,7 +217,7 @@ export default function ContactPage() {
               {/* 홈페이지 진단 */}
               {tab === 'renewal' && (
                 <>
-                  <h2 className="text-foreground text-2xl font-black mb-6">무료 홈페이지 진단 신청</h2>
+                  <h2 className="text-foreground text-2xl font-black mb-6">홈페이지 현황 자동 진단</h2>
                   <RenewalDiagnosisForm />
                 </>
               )}

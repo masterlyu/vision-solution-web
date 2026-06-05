@@ -183,7 +183,7 @@ export default function RenewalDiagnosisForm() {
         type="submit"
         disabled={!!domainError || !consent}
         className="w-full h-14 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-xl transition-all disabled:opacity-40 disabled:cursor-not-allowed text-base shadow-lg shadow-primary/30">
-        무료 진단 시작 →
+        자동 진단 시작 →
       </button>
 
       <p className="text-center text-muted-foreground text-sm">분석 완료 후 입력한 이메일로 PDF 리포트와 견적서가 발송됩니다</p>

@@ -8,9 +8,9 @@ const logosRow1 = clientsData.marqueeRow1
 const logosRow2 = [...clientsData.marqueeRow2, ...clientsData.marqueeRow2]
 
 const trustBadges = [
-  { icon: ShieldCheck, label: '무료 진단 보장' },
-  { icon: Clock,       label: '48h 리포트 발송' },
-  { icon: Wrench,      label: '납품 후 30일 A/S' },
+  { icon: ShieldCheck, label: '도입 상담 무료' },
+  { icon: Clock,       label: '영업일 1일 내 회신' },
+  { icon: Wrench,      label: '납품 후 6개월 A/S' },
   { icon: Lock,        label: '개인정보 비침투 보장' },
   { icon: Gift,        label: '일정 초과 시 전액 환불' },
 ]

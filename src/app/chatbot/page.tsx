@@ -190,7 +190,7 @@ export default function ChatbotPage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/contact"
                   className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-8 py-4 rounded-xl transition-all text-base">
-                  무료 상담 신청 <ArrowRight className="w-5 h-5" />
+                  💼 도입 상담 신청 <ArrowRight className="w-5 h-5" />
                 </Link>
                 <a href="#demo"
                   className="inline-flex items-center justify-center gap-2 border border-foreground/20 hover:border-primary/50 text-foreground/70 hover:text-foreground font-medium px-8 py-4 rounded-xl transition-all text-base">
@@ -385,7 +385,7 @@ export default function ChatbotPage() {
                       ? 'bg-primary text-primary-foreground hover:bg-primary/90'
                       : 'border border-foreground/20 text-foreground/70 hover:border-primary/50 hover:text-foreground'
                   }`}>
-                  무료 상담 신청
+                  💼 도입 상담 신청
                 </Link>
               </div>
             ))}
@@ -437,7 +437,7 @@ export default function ChatbotPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact"
               className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-10 py-4 rounded-xl transition-all text-base">
-              무료 상담 신청 <ArrowRight className="w-5 h-5" />
+              💼 도입 상담 신청 <ArrowRight className="w-5 h-5" />
             </Link>
             <a href="mailto:biztalktome@gmail.com"
               className="inline-flex items-center justify-center gap-2 border border-foreground/20 hover:border-primary/50 text-foreground/70 hover:text-foreground font-medium px-8 py-4 rounded-xl transition-all text-base">

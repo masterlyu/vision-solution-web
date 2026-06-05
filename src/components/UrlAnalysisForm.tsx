@@ -238,7 +238,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice, embedded =
       )}
       <Button type="submit" disabled={(serviceType === 'security' && !agreed) || domainMismatch}
         className="w-full h-14 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground text-base font-bold disabled:opacity-40 shadow-lg shadow-primary/40 hover:shadow-primary/60 transition-all">
-        무료 진단 후 리포트 받기 →
+        자동 점검 후 리포트 받기 →
       </Button>
       <p className="text-center text-muted-foreground text-sm">분석 완료 후 입력한 이메일로 PDF 리포트와 견적서가 발송됩니다</p>
     </form>

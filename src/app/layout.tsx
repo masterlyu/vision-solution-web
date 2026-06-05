@@ -8,10 +8,10 @@ import { FontLoader } from '@/components/font-loader'
 export const metadata: Metadata = {
   metadataBase: new URL('https://visionc.co.kr'),
   title: {
-    default: '홈페이지 무료 AI 진단 | Vision Solution',
+    default: '기업 AI 도입 동반자 | Vision Solution',
     template: '%s | Vision Solution',
   },
-  description: '고객이 지금도 떠나고 있습니까? URL 하나로 48시간 내 AI 진단. 무료 리포트를 지금 신청하세요.',
+  description: '중소기업 AI 도입 동반자. 컨설팅·구축·사내 출강 교육·보안 진단·웹사이트·앱 개발을 한 곳에서. 누적 247건+ 프로젝트.',
   twitter: {
     card: 'summary_large_image',
     site: '@visionc_kr',
@@ -30,7 +30,7 @@ const organizationJsonLd = {
     width: 200,
     height: 60,
   },
-  description: '중소기업 홈페이지 제작·리뉴얼·보안·AI 솔루션 전문 디지털 파트너. URL 하나로 48시간 내 무료 AI 진단.',
+  description: '중소기업 AI 도입 동반자. 컨설팅·구축·사내 출강 교육·보안·웹·앱 개발 통합 트랙. 누적 247건+ 프로젝트.',
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer service',
@@ -59,7 +59,7 @@ const websiteJsonLd = {
   '@type': 'WebSite',
   name: '(주)비젼솔루션',
   url: 'https://visionc.co.kr',
-  description: '중소기업 홈페이지 무료 AI 진단 — URL 하나로 48시간 내 보안·성능·SEO 리포트',
+  description: '중소기업 AI 도입 동반자 — 컨설팅·구축·사내 출강 교육·보안·웹·앱 통합 트랙',
   inLanguage: 'ko-KR',
   potentialAction: {
     '@type': 'SearchAction',

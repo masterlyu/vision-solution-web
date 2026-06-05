@@ -460,7 +460,7 @@ export default function SecurityPage() {
             ))}
           </div>
           <div className="border-l-4 border-destructive bg-destructive/10 px-6 py-4 rounded-r-xl flex items-center justify-between gap-4 flex-wrap">
-            <p className="text-foreground font-semibold">하나라도 해당된다면, 지금 당장 무료 진단을 받으세요.</p>
+            <p className="text-foreground font-semibold">하나라도 해당된다면, 지금 보안 셀프 점검을 받아 보세요.</p>
             <a href="#cta-form" className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-5 py-2.5 rounded-lg text-sm shrink-0">
               지금 무료 보안 진단 받기 →
             </a>
@@ -547,7 +547,7 @@ export default function SecurityPage() {
           href="#cta-form"
           className="inline-block bg-primary text-primary-foreground text-base font-bold px-9 py-3.5 rounded-xl hover:opacity-85 transition-opacity"
         >
-          무료 진단 신청하기 →
+          사이트 보안 셀프 점검 →
         </a>
       </section>
 
@@ -787,7 +787,7 @@ export default function SecurityPage() {
                       ? 'bg-[var(--accent-green)]/10 border border-[var(--accent-green)]/20 text-[var(--accent-green)]'
                       : 'bg-[var(--accent-amber)]/10 border border-[var(--accent-amber)]/20 text-[var(--accent-amber)]'}`}>
                     {p.reportType === 'auto'
-                      ? '📄 이메일 인증 후 무료 진단 → PDF 리포트 발송'
+                      ? '📄 이메일 인증 후 자동 점검 → PDF 리포트 발송'
                       : '📋 전문가 수동 분석 → 개별 리포트 발송'}
                   </div>
                 </div>
@@ -800,7 +800,7 @@ export default function SecurityPage() {
                       className={`block text-center text-sm font-bold py-3 rounded-xl transition-opacity
                         ${p.highlight ? 'bg-primary text-primary-foreground hover:opacity-85' : 'bg-secondary border border-border text-foreground hover:border-primary/40'}`}
                     >
-                      무료 진단 신청하기 →
+                      사이트 보안 셀프 점검 →
                     </a>
                   ) : (
                     <a

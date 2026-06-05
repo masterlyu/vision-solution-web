@@ -112,7 +112,7 @@ export default function AppDevPage() {
             </p>
             <Link href="/contact"
               className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all text-base">
-              어떤 시스템이 필요한지 무료 상담받기 <ArrowRight className="w-5 h-5" />
+              💼 도입 상담 신청 <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
           <div className="hidden lg:flex flex-col justify-center items-center gap-6">

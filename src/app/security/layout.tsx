@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
 
-const title = '홈페이지 보안 취약점 무료 진단'
-const description = '국내 중소기업 73%가 해킹 노출. URL 하나로 보안 취약점 무료 점검. 48시간 내 리포트 발송.'
+const title = '홈페이지 보안 진단 · 패키지 A~D'
+const description = '국내 중소기업 73%가 해킹 노출. URL 보안 셀프 점검 + 패키지 A~D (위생 패치~정기 모니터링). PDF 리포트 자동 발송.'
 
 export const metadata: Metadata = {
   title,
   description,
-  keywords: ['홈페이지 보안', '웹 보안 진단', '홈페이지 해킹 방지', '중소기업 보안', '무료 보안 점검', '(주)비젼솔루션'],
+  keywords: ['홈페이지 보안', '웹 보안 진단', '홈페이지 해킹 방지', '중소기업 보안', '보안 셀프 점검', '(주)비젼솔루션'],
   alternates: { canonical: '/security' },
   openGraph: {
     title,
