@@ -65,11 +65,14 @@ function BlurWord({ word, trigger }: { word: string; trigger: number }) {
         }
         return (
           <span key={gi} className="inline-flex" style={{ whiteSpace: 'nowrap' }}>
-            {g.map(i => (
-              <span key={i} style={{ opacity: letterStates[i].opacity, filter: `blur(${letterStates[i].blur}px)`, display: 'inline-block' }}>
-                {letters[i]}
-              </span>
-            ))}
+            {g.map(i => {
+              const s = letterStates[i] ?? { opacity: 0, blur: 20 }
+              return (
+                <span key={i} style={{ opacity: s.opacity, filter: `blur(${s.blur}px)`, display: 'inline-block' }}>
+                  {letters[i]}
+                </span>
+              )
+            })}
           </span>
         )
       })}
