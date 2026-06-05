@@ -7,37 +7,35 @@ const COOKIE_NAME = 'visionc_academy_auth'
 
 type Entry = { file: string; filename: string; mime: string }
 
+const PPTX_MIME = 'application/vnd.openxmlformats-officedocument.presentationml.presentation'
+const PDF_MIME = 'application/pdf'
+
 const DOWNLOADS: Record<string, Entry> = {
   'lv1-speaker-notes': {
     file: 'src/storage/academy/lv1-speaker-notes.pdf',
     filename: 'visionc-academy-lv1-speaker-notes.pdf',
-    mime: 'application/pdf',
+    mime: PDF_MIME,
   },
   'lv2-speaker-notes': {
     file: 'src/storage/academy/lv2-speaker-notes.pdf',
     filename: 'visionc-academy-lv2-speaker-notes.pdf',
-    mime: 'application/pdf',
+    mime: PDF_MIME,
   },
-  'dept-ai-slides': {
-    file: 'src/storage/academy/dept-ai-slides.pptx',
-    filename: 'visionc-enterprise-dept-ai-slides.pptx',
-    mime: 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+  // === dept-ai (Course 01) — 편별 ===
+  'dept-ai-part1-slides': {
+    file: 'src/storage/academy/dept-ai-part1-slides.pptx',
+    filename: 'visionc-enterprise-dept-ai-part1-slides.pptx',
+    mime: PPTX_MIME,
   },
-  'dept-ai-speaker-notes': {
-    file: 'src/storage/academy/dept-ai-speaker-notes.pdf',
-    filename: 'visionc-enterprise-dept-ai-speaker-notes.pdf',
-    mime: 'application/pdf',
+  'dept-ai-part1-speaker-notes': {
+    file: 'src/storage/academy/dept-ai-part1-speaker-notes.pdf',
+    filename: 'visionc-enterprise-dept-ai-part1-speaker-notes.pdf',
+    mime: PDF_MIME,
   },
-  'build-ai-slides': {
-    file: 'src/storage/academy/build-ai-slides.pptx',
-    filename: 'visionc-enterprise-build-ai-slides.pptx',
-    mime: 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
-  },
-  'build-ai-speaker-notes': {
-    file: 'src/storage/academy/build-ai-speaker-notes.pdf',
-    filename: 'visionc-enterprise-build-ai-speaker-notes.pdf',
-    mime: 'application/pdf',
-  },
+  // === 향후 추가될 키 (자료 업로드 시 활성화) ===
+  // dept-ai-part2-slides, dept-ai-part2-speaker-notes,
+  // dept-ai-part3-slides ... dept-ai-part5-speaker-notes,
+  // build-ai-part1-slides ... build-ai-part11-slides
 }
 
 export async function GET(

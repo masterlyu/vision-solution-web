@@ -17,7 +17,18 @@ export const metadata: Metadata = {
   },
 }
 
-const SECTIONS = [
+type Lesson = [string, string]
+type Section = {
+  part: string
+  title: string
+  desc: string
+  lessons: Lesson[]
+  ready: boolean
+  slidesKey?: string
+  notesKey?: string
+}
+
+const SECTIONS: Section[] = [
   {
     part: '1편',
     title: '기반 다지기',
@@ -26,6 +37,9 @@ const SECTIONS = [
       ['01', '우리 회사가 LLM으로 얻을 수 있는 것 — 도입 ROI 사례'],
       ['02', '프롬프트 기본기 + 데이터·기밀 보안 가이드라인'],
     ],
+    ready: true,
+    slidesKey: 'dept-ai-part1-slides',
+    notesKey: 'dept-ai-part1-speaker-notes',
   },
   {
     part: '2편',
@@ -36,6 +50,7 @@ const SECTIONS = [
       ['04', '데이터·정보 처리 — 엑셀·PDF·매뉴얼 검색·뉴스 요약'],
       ['05', '해외 업무 지원 — 영문 메일·계약서·기술문서 번역·응대'],
     ],
+    ready: false,
   },
   {
     part: '3편',
@@ -47,6 +62,7 @@ const SECTIONS = [
       ['08', '설계·기획 — 사양서·BOM·특허 RAG·변경 이력'],
       ['09', '구매·조달 — 견적 비교·계약 검토·단가 분석'],
     ],
+    ready: false,
   },
   {
     part: '4편',
@@ -58,6 +74,7 @@ const SECTIONS = [
       ['12', '인사/총무 — 채용·교육·사규 Q&A'],
       ['13', '회계·CS — 거래 분류·세무·클레임 응대'],
     ],
+    ready: false,
   },
   {
     part: '5편',
@@ -67,10 +84,12 @@ const SECTIONS = [
       ['14', '견적→설계→납품 통합 파이프라인'],
       ['15', '우리 회사 전용 AI 만들기 — Claude Projects 기초'],
     ],
+    ready: false,
   },
 ]
 
 const totalLessons = SECTIONS.reduce((s, sec) => s + sec.lessons.length, 0)
+const readyLessons = SECTIONS.filter((s) => s.ready).reduce((s, sec) => s + sec.lessons.length, 0)
 
 export default function DeptAiCourse() {
   return (
@@ -99,6 +118,7 @@ export default function DeptAiCourse() {
             <span className="px-3 py-1.5 rounded-full bg-primary/15 text-primary">⏱ 약 4시간</span>
             <span className="px-3 py-1.5 rounded-full bg-muted text-muted-foreground">5편 {totalLessons}강</span>
             <span className="px-3 py-1.5 rounded-full bg-muted text-muted-foreground">사내 출강</span>
+            <span className="px-3 py-1.5 rounded-full bg-[var(--accent-green-text)]/15 text-[var(--accent-green-text)]">자료 공개: {readyLessons}/{totalLessons}강</span>
           </div>
         </div>
 
@@ -107,37 +127,49 @@ export default function DeptAiCourse() {
           기획 · <b className="text-foreground">visionc</b> · 중소기업 도입 사례 + Anthropic Skilljar 한글화 기반
         </p>
 
-        {/* Curriculum */}
+        {/* Curriculum — 편별 카드 + 편별 다운로드 */}
         <div className="mb-16">
           <h2 className="text-xl md:text-2xl font-black text-foreground mb-6 tracking-tight">전체 커리큘럼</h2>
           <div className="space-y-6">
             {SECTIONS.map((sec) => (
-              <div key={sec.part} className="rounded-2xl border-2 border-foreground/15 bg-card p-6">
-                <div className="flex items-baseline gap-3 mb-1">
-                  <span className="text-xs font-mono font-bold text-primary tracking-wider">{sec.part}</span>
-                  <h3 className="text-lg font-black text-foreground tracking-tight">{sec.title}</h3>
+              <div key={sec.part}>
+                {/* 편 카드 */}
+                <div className="rounded-2xl border-2 border-foreground/15 bg-card p-6">
+                  <div className="flex items-baseline gap-3 mb-1 flex-wrap">
+                    <span className="text-xs font-mono font-bold text-primary tracking-wider">{sec.part}</span>
+                    <h3 className="text-lg font-black text-foreground tracking-tight">{sec.title}</h3>
+                    {sec.ready ? (
+                      <span className="text-xs font-mono font-bold text-[var(--accent-green-text)] bg-[var(--accent-green-text)]/10 px-2 py-0.5 rounded-full">📥 자료 공개</span>
+                    ) : (
+                      <span className="text-xs font-mono font-bold text-[var(--accent-amber)] bg-[var(--accent-amber)]/10 px-2 py-0.5 rounded-full">📅 자료 준비 중</span>
+                    )}
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-4">{sec.desc}</p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    {sec.lessons.map(([num, title]) => (
+                      <div key={num} className="flex items-start gap-3 p-3 rounded-xl bg-background/50">
+                        <span className="text-xs font-mono font-bold text-muted-foreground mt-0.5">{num}</span>
+                        <span className="text-sm text-foreground">{title}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <p className="text-sm text-muted-foreground mb-4">{sec.desc}</p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                  {sec.lessons.map(([num, title]) => (
-                    <div key={num} className="flex items-start gap-3 p-3 rounded-xl bg-background/50">
-                      <span className="text-xs font-mono font-bold text-muted-foreground mt-0.5">{num}</span>
-                      <span className="text-sm text-foreground">{title}</span>
-                    </div>
-                  ))}
-                </div>
+
+                {/* 편별 다운로드 — ready인 경우만 */}
+                {sec.ready && sec.slidesKey && sec.notesKey && (
+                  <div className="mt-4 ml-0 md:ml-6">
+                    <EnterpriseDownloadClient
+                      slidesKey={sec.slidesKey}
+                      notesKey={sec.notesKey}
+                      slidesDesc={`${sec.part} 강의용 PPT 슬라이드 (${sec.lessons.length}강 통합).`}
+                      notesDesc={`${sec.part} 강사용 스피커 노트. 강의별 멘트·실습·시간 배분·청중 질문.`}
+                    />
+                  </div>
+                )}
               </div>
             ))}
           </div>
         </div>
-
-        {/* Downloads */}
-        <EnterpriseDownloadClient
-          slidesKey="dept-ai-slides"
-          notesKey="dept-ai-speaker-notes"
-          slidesDesc="5편 15강 강의용 통합 PPT 슬라이드. 부서별 사례·체크리스트·복붙 프롬프트 포함."
-          notesDesc="강사용 상세 가이드. 강의별 멘트·실습 안내·청중 질문 포인트·시간 배분 포함."
-        />
 
         {/* Bottom — back link */}
         <div className="mt-12 text-center">

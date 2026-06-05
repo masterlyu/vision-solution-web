@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import EnterpriseDownloadClient from './EnterpriseDownloadClient'
 
 export const metadata: Metadata = {
   title: 'Course 02 · 사내 AI 구축·운영 종합 가이드 — visionc Enterprise',
@@ -17,20 +16,26 @@ export const metadata: Metadata = {
   },
 }
 
-const SECTIONS = [
+type Lesson = [string, string]
+type Section = {
+  part: string
+  title: string
+  desc: string
+  star?: boolean
+  ready: boolean
+  lessons: Lesson[]
+}
+
+const SECTIONS: Section[] = [
   {
-    part: '1편',
-    title: '의사결정',
-    desc: '도입 전 비교·로드맵',
+    part: '1편', title: '의사결정', desc: '도입 전 비교·로드맵', ready: false,
     lessons: [
       ['01', '클라우드 API vs 온프레미스 — 규모별 손익분기점'],
       ['02', '단계별 도입 로드맵 — 6/12/24개월'],
     ],
   },
   {
-    part: '2편',
-    title: '인프라',
-    desc: '서버·OS·네트워크',
+    part: '2편', title: '인프라', desc: '서버·OS·네트워크', ready: false,
     lessons: [
       ['03', '하드웨어 — GPU 선택, 미니PC/워크스테이션/서버'],
       ['04', 'OS·드라이버·컨테이너 — Ubuntu·NVIDIA·Docker'],
@@ -38,9 +43,7 @@ const SECTIONS = [
     ],
   },
   {
-    part: '3편',
-    title: '모델·추론 엔진',
-    desc: '무료 LLM·한국어·양자화',
+    part: '3편', title: '모델·추론 엔진', desc: '무료 LLM·한국어·양자화', ready: false,
     lessons: [
       ['06', '무료 LLM 비교 — Llama, Qwen, Mistral, DeepSeek, GPT-OSS'],
       ['07', '한국어 특화 — Solar, EXAONE, KULLM, Bllossom'],
@@ -48,9 +51,7 @@ const SECTIONS = [
     ],
   },
   {
-    part: '4편',
-    title: '챗봇·RAG 플랫폼',
-    desc: '사내 직원이 매일 쓰는 UI',
+    part: '4편', title: '챗봇·RAG 플랫폼', desc: '사내 직원이 매일 쓰는 UI', ready: false,
     lessons: [
       ['09', '사내 챗봇 UI — Open WebUI, Dify, LibreChat, AnythingLLM'],
       ['10', 'RAG — LlamaIndex, Qdrant, 사내 문서 학습'],
@@ -58,10 +59,7 @@ const SECTIONS = [
     ],
   },
   {
-    part: '5편',
-    title: '에이전트 기초·생태계',
-    desc: '자율 에이전트 핵심',
-    star: true,
+    part: '5편', title: '에이전트 기초·생태계', desc: '자율 에이전트 핵심', star: true, ready: false,
     lessons: [
       ['12', '에이전트란 무엇인가 — 챗봇과의 차이, 4요소'],
       ['13', '공식 에이전트 Claude Code — 권한·슬래시 커맨드'],
@@ -69,10 +67,7 @@ const SECTIONS = [
     ],
   },
   {
-    part: '6편',
-    title: '하네스 엔지니어링',
-    desc: '회사 정책을 코드로 자동 적용',
-    star: true,
+    part: '6편', title: '하네스 엔지니어링', desc: '회사 정책을 코드로 자동 적용', star: true, ready: false,
     lessons: [
       ['15', 'settings.json — 권한·환경변수·모델·토큰 한도'],
       ['16', 'Hooks — PreToolUse/PostToolUse로 정책 자동 적용'],
@@ -80,10 +75,7 @@ const SECTIONS = [
     ],
   },
   {
-    part: '7편',
-    title: '사내 에이전트 배포·운영',
-    desc: '직원 전체에게 안전하게 배포',
-    star: true,
+    part: '7편', title: '사내 에이전트 배포·운영', desc: '직원 전체에게 안전하게 배포', star: true, ready: false,
     lessons: [
       ['18', '부서별 권한 매트릭스 — 영업/설계/생산 도구·데이터 격리'],
       ['19', '위험 차단 안전장치 — 위험 명령 차단·비용 한도'],
@@ -92,18 +84,14 @@ const SECTIONS = [
     ],
   },
   {
-    part: '8편',
-    title: '자체 에이전트 만들기',
-    desc: '회사 전용 에이전트 개발',
+    part: '8편', title: '자체 에이전트 만들기', desc: '회사 전용 에이전트 개발', ready: false,
     lessons: [
       ['22', 'Claude Agent SDK 기본 — Tool, Memory'],
       ['23', '실전 — 견적 자동화 에이전트 (메일→사양→BOM→견적서)'],
     ],
   },
   {
-    part: '9편',
-    title: '보안·권한·감사',
-    desc: '엔터프라이즈급 보안',
+    part: '9편', title: '보안·권한·감사', desc: '엔터프라이즈급 보안', ready: false,
     lessons: [
       ['24', '데이터 보안 — 분류, PII 마스킹, 데이터 격리'],
       ['25', 'LLM 보안 — 프롬프트 인젝션·데이터 유출·탈옥 방지'],
@@ -111,18 +99,14 @@ const SECTIONS = [
     ],
   },
   {
-    part: '10편',
-    title: '백업·재해 복구',
-    desc: '운영 안정성',
+    part: '10편', title: '백업·재해 복구', desc: '운영 안정성', ready: false,
     lessons: [
       ['27', '백업 — RAG DB·대화 이력·모델·Git'],
       ['28', 'DR 시나리오 — 정전·장애·랜섬웨어·RPO/RTO'],
     ],
   },
   {
-    part: '11편',
-    title: '관리자 운영·효용성·최적화',
-    desc: '도입 후 운영·Fine-tuning',
+    part: '11편', title: '관리자 운영·효용성·최적화', desc: '도입 후 운영·Fine-tuning', ready: false,
     lessons: [
       ['29', '권한·온보딩·KPI — RBAC, SSO, ROI 대시보드'],
       ['30', 'Fine-tuning·비용 모니터링 — LoRA·QLoRA·Unsloth'],
@@ -131,6 +115,7 @@ const SECTIONS = [
 ]
 
 const totalLessons = SECTIONS.reduce((s, sec) => s + sec.lessons.length, 0)
+const readyLessons = SECTIONS.filter((s) => s.ready).reduce((s, sec) => s + sec.lessons.length, 0)
 
 export default function BuildAiCourse() {
   return (
@@ -159,6 +144,7 @@ export default function BuildAiCourse() {
             <span className="px-3 py-1.5 rounded-full bg-primary/15 text-primary">⏱ 약 10시간</span>
             <span className="px-3 py-1.5 rounded-full bg-muted text-muted-foreground">11편 {totalLessons}강</span>
             <span className="px-3 py-1.5 rounded-full bg-muted text-muted-foreground">사내 출강</span>
+            <span className="px-3 py-1.5 rounded-full bg-[var(--accent-amber)]/15 text-[var(--accent-amber)]">자료 준비 중 (0/{totalLessons}강)</span>
           </div>
         </div>
 
@@ -180,6 +166,7 @@ export default function BuildAiCourse() {
                   <span className="text-xs font-mono font-bold text-primary tracking-wider">{sec.part}</span>
                   <h3 className="text-lg font-black text-foreground tracking-tight">{sec.title}</h3>
                   {sec.star && <span className="text-xs text-primary font-bold">⭐ 핵심</span>}
+                  <span className="text-xs font-mono font-bold text-[var(--accent-amber)] bg-[var(--accent-amber)]/10 px-2 py-0.5 rounded-full">📅 자료 준비 중</span>
                 </div>
                 <p className="text-sm text-muted-foreground mb-4">{sec.desc}</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
@@ -195,13 +182,18 @@ export default function BuildAiCourse() {
           </div>
         </div>
 
-        {/* Downloads */}
-        <EnterpriseDownloadClient
-          slidesKey="build-ai-slides"
-          notesKey="build-ai-speaker-notes"
-          slidesDesc="11편 30강 강의용 통합 PPT 슬라이드. 아키텍처 다이어그램·실습 명령어·체크리스트 포함."
-          notesDesc="강사용 상세 가이드. 강의별 멘트·실습 환경 셋업·트러블슈팅·시간 배분 포함."
-        />
+        {/* Coming soon notice */}
+        <div className="rounded-3xl border border-[var(--accent-amber)]/30 bg-gradient-to-br from-[var(--accent-amber)]/10 via-transparent to-transparent p-8 md:p-10 mb-12">
+          <p className="text-xs font-mono font-bold tracking-[0.2em] uppercase text-[var(--accent-amber)] mb-3">Coming Soon</p>
+          <h2 className="text-2xl md:text-3xl font-black text-foreground mb-3 tracking-tight">강의 자료 준비 중</h2>
+          <p className="text-base text-muted-foreground leading-relaxed mb-4">
+            Course 02는 IT 담당자·관리자용 11편 30강 자료를 순차 공개합니다. Course 01 (부서별로 일하는 AI)이 먼저 진행되며, Course 02는 이후 시작됩니다.
+            지금은 커리큘럼 미리보기로 제공됩니다.
+          </p>
+          <Link href="/ai-solution/academy/dept-ai" className="inline-flex items-center gap-1 text-sm text-primary font-bold hover:gap-2 transition-all font-mono">
+            → Course 01 (자료 공개 중)으로
+          </Link>
+        </div>
 
         {/* Bottom — back link */}
         <div className="mt-12 text-center">
