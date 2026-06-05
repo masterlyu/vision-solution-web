@@ -2,7 +2,7 @@
 title: "무료 AI 도구 3가지로 쇼핑몰 상품 사진 10분 만에 프로답게 만들기"
 date: "2026-06-05"
 tag: "AI 활용"
-tags: "AI 활용,상품 사진,소상공인 마케팅"
+tags: "AI 활용,AI 솔루션,홈페이지 제작"
 image: "/images/blog/free-ai-product-photo-guide.svg"
 summary: "상품 사진 스튜디오 비용이 부담스럽다면 무료 AI 도구 3가지로 해결하세요. 미리캔버스·remove.bg·PhotoRoom 실전 사용법과 소상공인이 자주 하는 실수까지 — 오늘 10분 안에 프로 수준 이미지를 만들 수 있습니다."
 ---
