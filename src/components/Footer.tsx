@@ -4,7 +4,8 @@ import LegalModals from '@/components/LegalModals'
 
 const SERVICES = [
   ['기업 AI 도입 및 컨설팅', '/ai-solution'],
-  ['보안 진단·모의해킹', '/security'],
+  ['보안 진단', '/security'],
+  ['모의해킹 진단', '/pentest'],
   ['웹사이트 리뉴얼·운영', '/renewal'],
   ['앱·시스템 개발', '/app-dev'],
   ['🤖 챗봇 설치', '/chatbot'],

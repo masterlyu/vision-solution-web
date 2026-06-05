@@ -6,6 +6,7 @@ import Image from 'next/image'
 const NAV = [
   { label: '기업 AI 도입·컨설팅', href: '/ai-solution', primary: true },
   { label: '보안 진단', href: '/security' },
+  { label: '모의해킹 진단', href: '/pentest' },
   { label: '웹사이트 리뉴얼·운영', href: '/renewal' },
   { label: '앱·시스템 개발', href: '/app-dev' },
   { label: '🤖 챗봇 설치', href: '/chatbot' },

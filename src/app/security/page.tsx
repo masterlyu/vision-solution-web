@@ -1,5 +1,6 @@
 'use client'
 import dynamic from 'next/dynamic'
+import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
 import { motion, useMotionValue, useSpring, useTransform, useInView, type Variants } from 'framer-motion'
 import UrlAnalysisForm from '@/components/UrlAnalysisForm'
@@ -618,6 +619,33 @@ export default function SecurityPage() {
                 </span>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 관련 서비스: 모의해킹 진단 ── */}
+      <section className="py-16 px-6 lg:px-12">
+        <div className="max-w-[900px] mx-auto">
+          <div className="rounded-2xl border-2 border-primary/30 bg-primary/5 p-8 md:p-10 flex flex-col md:flex-row gap-6 items-start md:items-center">
+            <div className="text-5xl shrink-0">🎯</div>
+            <div className="flex-1">
+              <p className="text-xs font-black uppercase tracking-[0.15em] mb-2 text-primary-light">
+                관련 서비스
+              </p>
+              <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2">
+                실제 침투 테스트가 필요하다면 — 모의해킹 진단
+              </h2>
+              <p className="text-muted-foreground leading-relaxed">
+                보안 진단(자동·수동 점검)을 넘어, 실제 공격자 관점에서 시나리오 기반 침투 테스트를 진행합니다.
+                쇼핑몰·개인정보·핀테크 운영 사이트에 권장합니다.
+              </p>
+            </div>
+            <Link
+              href="/pentest"
+              className="shrink-0 inline-flex items-center gap-2 bg-primary text-primary-foreground font-bold px-7 py-3.5 rounded-xl hover:opacity-85 transition-opacity"
+            >
+              모의해킹 진단 보기 →
+            </Link>
           </div>
         </div>
       </section>
