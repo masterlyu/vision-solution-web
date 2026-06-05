@@ -29,7 +29,7 @@ type LevelCard = {
 const LEVELS: LevelCard[] = [
   { tag: 'LV1 · 기초', title: '기초 AI 상식', subtitle: 'Foundation', status: 'available', href: '/academy/lv1' },
   { tag: 'LV2 · 마스터', title: 'Claude 마스터', subtitle: 'Master', status: 'available', href: '/academy/lv2' },
-  { tag: 'LV3 · 실용', title: 'AI로 일하는 법', subtitle: 'Practical', status: 'soon' },
+  { tag: 'LV3 · 실용', title: 'AI로 일하는 법', subtitle: 'Practical', status: 'available', href: '/academy/lv3' },
   { tag: 'LV4 · 활용', title: 'Claude Code 입문', subtitle: 'Coding', status: 'planned' },
   { tag: 'LV5 · 개발', title: 'AI 앱 만들기', subtitle: 'API & MCP', status: 'planned' },
   { tag: 'LV6 · 고급', title: 'Agents & Skills', subtitle: 'Advanced', status: 'planned' },
