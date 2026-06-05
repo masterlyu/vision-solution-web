@@ -42,6 +42,36 @@ const DOWNLOADS: Record<string, Entry> = {
     filename: 'visionc-enterprise-dept-ai-part2-speaker-notes.pdf',
     mime: PDF_MIME,
   },
+  'dept-ai-part3-slides': {
+    file: 'src/storage/academy/dept-ai-part3-slides.pptx',
+    filename: 'visionc-enterprise-dept-ai-part3-slides.pptx',
+    mime: PPTX_MIME,
+  },
+  'dept-ai-part3-speaker-notes': {
+    file: 'src/storage/academy/dept-ai-part3-speaker-notes.pdf',
+    filename: 'visionc-enterprise-dept-ai-part3-speaker-notes.pdf',
+    mime: PDF_MIME,
+  },
+  'dept-ai-part4-slides': {
+    file: 'src/storage/academy/dept-ai-part4-slides.pptx',
+    filename: 'visionc-enterprise-dept-ai-part4-slides.pptx',
+    mime: PPTX_MIME,
+  },
+  'dept-ai-part4-speaker-notes': {
+    file: 'src/storage/academy/dept-ai-part4-speaker-notes.pdf',
+    filename: 'visionc-enterprise-dept-ai-part4-speaker-notes.pdf',
+    mime: PDF_MIME,
+  },
+  'dept-ai-part5-slides': {
+    file: 'src/storage/academy/dept-ai-part5-slides.pptx',
+    filename: 'visionc-enterprise-dept-ai-part5-slides.pptx',
+    mime: PPTX_MIME,
+  },
+  'dept-ai-part5-speaker-notes': {
+    file: 'src/storage/academy/dept-ai-part5-speaker-notes.pdf',
+    filename: 'visionc-enterprise-dept-ai-part5-speaker-notes.pdf',
+    mime: PDF_MIME,
+  },
   // === 향후 추가될 키 (자료 업로드 시 활성화) ===
   // dept-ai-part2-slides, dept-ai-part2-speaker-notes,
   // dept-ai-part3-slides ... dept-ai-part5-speaker-notes,

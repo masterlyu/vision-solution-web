@@ -64,7 +64,9 @@ const SECTIONS: Section[] = [
       ['08', '설계·기획 — 사양서·BOM·특허 RAG·변경 이력'],
       ['09', '구매·조달 — 견적 비교·계약 검토·단가 분석'],
     ],
-    ready: false,
+    ready: true,
+    slidesKey: 'dept-ai-part3-slides',
+    notesKey: 'dept-ai-part3-speaker-notes',
   },
   {
     part: '4편',
@@ -76,7 +78,9 @@ const SECTIONS: Section[] = [
       ['12', '인사/총무 — 채용·교육·사규 Q&A'],
       ['13', '회계·CS — 거래 분류·세무·클레임 응대'],
     ],
-    ready: false,
+    ready: true,
+    slidesKey: 'dept-ai-part4-slides',
+    notesKey: 'dept-ai-part4-speaker-notes',
   },
   {
     part: '5편',
@@ -86,7 +90,9 @@ const SECTIONS: Section[] = [
       ['14', '견적→설계→납품 통합 파이프라인'],
       ['15', '우리 회사 전용 AI 만들기 — Claude Projects 기초'],
     ],
-    ready: false,
+    ready: true,
+    slidesKey: 'dept-ai-part5-slides',
+    notesKey: 'dept-ai-part5-speaker-notes',
   },
 ]
 
