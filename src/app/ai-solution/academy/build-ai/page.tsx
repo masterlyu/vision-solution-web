@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import SectionCard from './SectionCard'
 
 export const metadata: Metadata = {
   title: 'Course 02 · 사내 AI 구축·운영 종합 가이드 — visionc Enterprise',
@@ -27,95 +28,31 @@ type Section = {
 }
 
 const SECTIONS: Section[] = [
-  {
-    part: '1편', title: '의사결정', desc: '도입 전 비교·로드맵', ready: false,
-    lessons: [
-      ['01', '클라우드 API vs 온프레미스 — 규모별 손익분기점'],
-      ['02', '단계별 도입 로드맵 — 6/12/24개월'],
-    ],
-  },
-  {
-    part: '2편', title: '인프라', desc: '서버·OS·네트워크', ready: false,
-    lessons: [
-      ['03', '하드웨어 — GPU 선택, 미니PC/워크스테이션/서버'],
-      ['04', 'OS·드라이버·컨테이너 — Ubuntu·NVIDIA·Docker'],
-      ['05', '네트워크·보안 — 사내망 격리, Reverse Proxy, mTLS'],
-    ],
-  },
-  {
-    part: '3편', title: '모델·추론 엔진', desc: '무료 LLM·한국어·양자화', ready: false,
-    lessons: [
-      ['06', '무료 LLM 비교 — Llama, Qwen, Mistral, DeepSeek, GPT-OSS'],
-      ['07', '한국어 특화 — Solar, EXAONE, KULLM, Bllossom'],
-      ['08', '추론 엔진 — Ollama, vLLM, llama.cpp, TGI + 양자화'],
-    ],
-  },
-  {
-    part: '4편', title: '챗봇·RAG 플랫폼', desc: '사내 직원이 매일 쓰는 UI', ready: false,
-    lessons: [
-      ['09', '사내 챗봇 UI — Open WebUI, Dify, LibreChat, AnythingLLM'],
-      ['10', 'RAG — LlamaIndex, Qdrant, 사내 문서 학습'],
-      ['11', 'MCP — ERP·메일·CAD·문서 시스템 연결'],
-    ],
-  },
-  {
-    part: '5편', title: '에이전트 기초·생태계', desc: '자율 에이전트 핵심', star: true, ready: false,
-    lessons: [
-      ['12', '에이전트란 무엇인가 — 챗봇과의 차이, 4요소'],
-      ['13', '공식 에이전트 Claude Code — 권한·슬래시 커맨드'],
-      ['14', '오픈 에이전트 총망라 — OpenCode, Cline, Aider, Roo Code'],
-    ],
-  },
-  {
-    part: '6편', title: '하네스 엔지니어링', desc: '회사 정책을 코드로 자동 적용', star: true, ready: false,
-    lessons: [
-      ['15', 'settings.json — 권한·환경변수·모델·토큰 한도'],
-      ['16', 'Hooks — PreToolUse/PostToolUse로 정책 자동 적용'],
-      ['17', 'Skills·Slash Commands·MCP — 부서 도메인 지식 패키징'],
-    ],
-  },
-  {
-    part: '7편', title: '사내 에이전트 배포·운영', desc: '직원 전체에게 안전하게 배포', star: true, ready: false,
-    lessons: [
-      ['18', '부서별 권한 매트릭스 — 영업/설계/생산 도구·데이터 격리'],
-      ['19', '위험 차단 안전장치 — 위험 명령 차단·비용 한도'],
-      ['20', '에이전트 백업·감사 — 변경 로깅·스냅샷·롤백'],
-      ['21', '사내 에이전트 카탈로그 — 부서별 봇 마켓플레이스'],
-    ],
-  },
-  {
-    part: '8편', title: '자체 에이전트 만들기', desc: '회사 전용 에이전트 개발', ready: false,
-    lessons: [
-      ['22', 'Claude Agent SDK 기본 — Tool, Memory'],
-      ['23', '실전 — 견적 자동화 에이전트 (메일→사양→BOM→견적서)'],
-    ],
-  },
-  {
-    part: '9편', title: '보안·권한·감사', desc: '엔터프라이즈급 보안', ready: false,
-    lessons: [
-      ['24', '데이터 보안 — 분류, PII 마스킹, 데이터 격리'],
-      ['25', 'LLM 보안 — 프롬프트 인젝션·데이터 유출·탈옥 방지'],
-      ['26', '키 관리·감사 — Vault·sops·ELK/Grafana'],
-    ],
-  },
-  {
-    part: '10편', title: '백업·재해 복구', desc: '운영 안정성', ready: false,
-    lessons: [
-      ['27', '백업 — RAG DB·대화 이력·모델·Git'],
-      ['28', 'DR 시나리오 — 정전·장애·랜섬웨어·RPO/RTO'],
-    ],
-  },
-  {
-    part: '11편', title: '관리자 운영·효용성·최적화', desc: '도입 후 운영·Fine-tuning', ready: false,
-    lessons: [
-      ['29', '권한·온보딩·KPI — RBAC, SSO, ROI 대시보드'],
-      ['30', 'Fine-tuning·비용 모니터링 — LoRA·QLoRA·Unsloth'],
-    ],
-  },
+  { part: '1편', title: '의사결정', desc: '도입 전 비교·로드맵', ready: false,
+    lessons: [['01', '클라우드 API vs 온프레미스 — 규모별 손익분기점'], ['02', '단계별 도입 로드맵 — 6/12/24개월']] },
+  { part: '2편', title: '인프라', desc: '서버·OS·네트워크', ready: false,
+    lessons: [['03', '하드웨어 — GPU 선택, 미니PC/워크스테이션/서버'], ['04', 'OS·드라이버·컨테이너 — Ubuntu·NVIDIA·Docker'], ['05', '네트워크·보안 — 사내망 격리, Reverse Proxy, mTLS']] },
+  { part: '3편', title: '모델·추론 엔진', desc: '무료 LLM·한국어·양자화', ready: false,
+    lessons: [['06', '무료 LLM 비교 — Llama, Qwen, Mistral, DeepSeek, GPT-OSS'], ['07', '한국어 특화 — Solar, EXAONE, KULLM, Bllossom'], ['08', '추론 엔진 — Ollama, vLLM, llama.cpp, TGI + 양자화']] },
+  { part: '4편', title: '챗봇·RAG 플랫폼', desc: '사내 직원이 매일 쓰는 UI', ready: false,
+    lessons: [['09', '사내 챗봇 UI — Open WebUI, Dify, LibreChat, AnythingLLM'], ['10', 'RAG — LlamaIndex, Qdrant, 사내 문서 학습'], ['11', 'MCP — ERP·메일·CAD·문서 시스템 연결']] },
+  { part: '5편', title: '에이전트 기초·생태계', desc: '자율 에이전트 핵심', star: true, ready: false,
+    lessons: [['12', '에이전트란 무엇인가 — 챗봇과의 차이, 4요소'], ['13', '공식 에이전트 Claude Code — 권한·슬래시 커맨드'], ['14', '오픈 에이전트 총망라 — OpenCode, Cline, Aider, Roo Code']] },
+  { part: '6편', title: '하네스 엔지니어링', desc: '회사 정책을 코드로 자동 적용', star: true, ready: false,
+    lessons: [['15', 'settings.json — 권한·환경변수·모델·토큰 한도'], ['16', 'Hooks — PreToolUse/PostToolUse로 정책 자동 적용'], ['17', 'Skills·Slash Commands·MCP — 부서 도메인 지식 패키징']] },
+  { part: '7편', title: '사내 에이전트 배포·운영', desc: '직원 전체에게 안전하게 배포', star: true, ready: false,
+    lessons: [['18', '부서별 권한 매트릭스 — 영업/설계/생산 도구·데이터 격리'], ['19', '위험 차단 안전장치 — 위험 명령 차단·비용 한도'], ['20', '에이전트 백업·감사 — 변경 로깅·스냅샷·롤백'], ['21', '사내 에이전트 카탈로그 — 부서별 봇 마켓플레이스']] },
+  { part: '8편', title: '자체 에이전트 만들기', desc: '회사 전용 에이전트 개발', ready: false,
+    lessons: [['22', 'Claude Agent SDK 기본 — Tool, Memory'], ['23', '실전 — 견적 자동화 에이전트 (메일→사양→BOM→견적서)']] },
+  { part: '9편', title: '보안·권한·감사', desc: '엔터프라이즈급 보안', ready: false,
+    lessons: [['24', '데이터 보안 — 분류, PII 마스킹, 데이터 격리'], ['25', 'LLM 보안 — 프롬프트 인젝션·데이터 유출·탈옥 방지'], ['26', '키 관리·감사 — Vault·sops·ELK/Grafana']] },
+  { part: '10편', title: '백업·재해 복구', desc: '운영 안정성', ready: false,
+    lessons: [['27', '백업 — RAG DB·대화 이력·모델·Git'], ['28', 'DR 시나리오 — 정전·장애·랜섬웨어·RPO/RTO']] },
+  { part: '11편', title: '관리자 운영·효용성·최적화', desc: '도입 후 운영·Fine-tuning', ready: false,
+    lessons: [['29', '권한·온보딩·KPI — RBAC, SSO, ROI 대시보드'], ['30', 'Fine-tuning·비용 모니터링 — LoRA·QLoRA·Unsloth']] },
 ]
 
 const totalLessons = SECTIONS.reduce((s, sec) => s + sec.lessons.length, 0)
-const readyLessons = SECTIONS.filter((s) => s.ready).reduce((s, sec) => s + sec.lessons.length, 0)
 
 export default function BuildAiCourse() {
   return (
@@ -123,81 +60,72 @@ export default function BuildAiCourse() {
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
 
         {/* Breadcrumb */}
-        <nav className="text-xs text-muted-foreground font-mono mb-6 tracking-wider">
+        <nav className="text-sm text-foreground/85 font-mono font-medium mb-6 tracking-wider">
           <Link href="/ai-solution" className="hover:text-primary transition-colors">ENTERPRISE</Link>
-          <span className="mx-2 text-border">·</span>
-          <span className="text-primary">COURSE 02 · BUILD AI</span>
+          <span className="mx-2 text-foreground/40">·</span>
+          <span className="text-primary font-bold">COURSE 02 · BUILD AI</span>
         </nav>
 
         {/* Hero */}
         <div className="mb-10">
-          <p className="text-xs font-mono font-bold tracking-[0.3em] uppercase text-[var(--accent-cyan-text)] mb-3">
+          <p className="text-sm font-mono font-bold tracking-[0.3em] uppercase text-[var(--accent-cyan-text)] mb-3">
             Course 02 · Build AI
           </p>
           <h1 className="text-4xl md:text-5xl font-black text-foreground mb-5 leading-tight tracking-tight">
             사내 AI 구축·운영 종합 가이드
           </h1>
-          <p className="text-lg text-muted-foreground mb-5 max-w-2xl">
+          <p className="text-lg text-foreground/90 font-medium mb-5 max-w-2xl">
             자체 호스팅·에이전트·보안·운영 — IT 담당자·관리자 대상
           </p>
-          <div className="flex flex-wrap gap-2 text-xs font-mono">
-            <span className="px-3 py-1.5 rounded-full bg-primary/15 text-primary">⏱ 약 10시간</span>
-            <span className="px-3 py-1.5 rounded-full bg-muted text-muted-foreground">11편 {totalLessons}강</span>
-            <span className="px-3 py-1.5 rounded-full bg-muted text-muted-foreground">사내 출강</span>
-            <span className="px-3 py-1.5 rounded-full bg-[var(--accent-amber)]/15 text-[var(--accent-amber)]">자료 준비 중 (0/{totalLessons}강)</span>
+          <div className="flex flex-wrap gap-2 text-sm font-mono font-bold">
+            <span className="px-3 py-1.5 rounded-full bg-primary/20 text-primary">⏱ 약 10시간</span>
+            <span className="px-3 py-1.5 rounded-full bg-foreground/10 text-foreground">11편 {totalLessons}강</span>
+            <span className="px-3 py-1.5 rounded-full bg-foreground/10 text-foreground">사내 출강</span>
+            <span className="px-3 py-1.5 rounded-full bg-[var(--accent-amber)]/20 text-[var(--accent-amber)]">자료 준비 중 (0/{totalLessons}강)</span>
           </div>
         </div>
 
         {/* Authority */}
-        <p className="text-sm text-muted-foreground mb-12 font-mono">
-          기획 · <b className="text-foreground">visionc</b> · Claude Code Harness 공식 문서 + 무료 LLM·자율 에이전트 최신 생태계 기반
+        <p className="text-base text-foreground/85 font-medium mb-12 font-mono">
+          기획 · <b className="text-foreground font-black">visionc</b> · Claude Code Harness 공식 문서 + 무료 LLM·자율 에이전트 최신 생태계 기반
         </p>
 
         {/* Curriculum */}
         <div className="mb-16">
-          <h2 className="text-xl md:text-2xl font-black text-foreground mb-6 tracking-tight">전체 커리큘럼</h2>
+          <h2 className="text-2xl md:text-3xl font-black text-foreground mb-6 tracking-tight">전체 커리큘럼</h2>
+          <p className="text-base text-foreground/85 font-medium mb-6">
+            현재 모든 편이 <span className="text-[var(--accent-amber)] font-bold">📅 자료 준비 중</span>입니다. Course 01 (부서별로 일하는 AI)이 먼저 진행되며, Course 02는 이후 시작됩니다.
+          </p>
           <div className="space-y-6">
             {SECTIONS.map((sec) => (
-              <div
+              <SectionCard
                 key={sec.part}
-                className={`rounded-2xl border-2 p-6 ${sec.star ? 'border-primary/40 bg-primary/5' : 'border-foreground/15 bg-card'}`}
-              >
-                <div className="flex items-baseline gap-3 mb-1 flex-wrap">
-                  <span className="text-xs font-mono font-bold text-primary tracking-wider">{sec.part}</span>
-                  <h3 className="text-lg font-black text-foreground tracking-tight">{sec.title}</h3>
-                  {sec.star && <span className="text-xs text-primary font-bold">⭐ 핵심</span>}
-                  <span className="text-xs font-mono font-bold text-[var(--accent-amber)] bg-[var(--accent-amber)]/10 px-2 py-0.5 rounded-full">📅 자료 준비 중</span>
-                </div>
-                <p className="text-sm text-muted-foreground mb-4">{sec.desc}</p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                  {sec.lessons.map(([num, title]) => (
-                    <div key={num} className="flex items-start gap-3 p-3 rounded-xl bg-background/50">
-                      <span className="text-xs font-mono font-bold text-muted-foreground mt-0.5">{num}</span>
-                      <span className="text-sm text-foreground">{title}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+                part={sec.part}
+                title={sec.title}
+                desc={sec.desc}
+                lessons={sec.lessons}
+                ready={sec.ready}
+                star={sec.star}
+              />
             ))}
           </div>
         </div>
 
         {/* Coming soon notice */}
-        <div className="rounded-3xl border border-[var(--accent-amber)]/30 bg-gradient-to-br from-[var(--accent-amber)]/10 via-transparent to-transparent p-8 md:p-10 mb-12">
-          <p className="text-xs font-mono font-bold tracking-[0.2em] uppercase text-[var(--accent-amber)] mb-3">Coming Soon</p>
+        <div className="rounded-3xl border-2 border-[var(--accent-amber)]/40 bg-gradient-to-br from-[var(--accent-amber)]/15 via-transparent to-transparent p-8 md:p-10 mb-12">
+          <p className="text-sm font-mono font-bold tracking-[0.2em] uppercase text-[var(--accent-amber)] mb-3">Coming Soon</p>
           <h2 className="text-2xl md:text-3xl font-black text-foreground mb-3 tracking-tight">강의 자료 준비 중</h2>
-          <p className="text-base text-muted-foreground leading-relaxed mb-4">
-            Course 02는 IT 담당자·관리자용 11편 30강 자료를 순차 공개합니다. Course 01 (부서별로 일하는 AI)이 먼저 진행되며, Course 02는 이후 시작됩니다.
-            지금은 커리큘럼 미리보기로 제공됩니다.
+          <p className="text-base text-foreground/90 font-medium leading-relaxed mb-4">
+            Course 02는 IT 담당자·관리자용 11편 30강 자료를 순차 공개합니다. 지금은 커리큘럼 미리보기로 제공됩니다.
           </p>
-          <Link href="/ai-solution/academy/dept-ai" className="inline-flex items-center gap-1 text-sm text-primary font-bold hover:gap-2 transition-all font-mono">
+          <Link href="/ai-solution/academy/dept-ai" className="inline-flex items-center gap-1 text-base text-primary font-bold hover:gap-2 transition-all font-mono">
             → Course 01 (자료 공개 중)으로
           </Link>
         </div>
 
         {/* Bottom — back link */}
         <div className="mt-12 text-center">
-          <Link href="/ai-solution" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground font-mono">
+          <Link href="/ai-solution" className="inline-flex items-center gap-1 text-base font-bold text-foreground hover:text-primary transition-colors font-mono">
             ← 기업 AI 도입 및 컨설팅으로
           </Link>
         </div>

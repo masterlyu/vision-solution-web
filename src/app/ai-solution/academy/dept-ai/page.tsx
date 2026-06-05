@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import EnterpriseDownloadClient from './EnterpriseDownloadClient'
+import SectionCard from './SectionCard'
 
 export const metadata: Metadata = {
   title: 'Course 01 · 부서별로 일하는 AI — visionc Enterprise',
@@ -97,83 +97,61 @@ export default function DeptAiCourse() {
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
 
         {/* Breadcrumb */}
-        <nav className="text-xs text-muted-foreground font-mono mb-6 tracking-wider">
+        <nav className="text-sm text-foreground/85 font-mono font-medium mb-6 tracking-wider">
           <Link href="/ai-solution" className="hover:text-primary transition-colors">ENTERPRISE</Link>
-          <span className="mx-2 text-border">·</span>
-          <span className="text-primary">COURSE 01 · DEPARTMENT AI</span>
+          <span className="mx-2 text-foreground/40">·</span>
+          <span className="text-primary font-bold">COURSE 01 · DEPARTMENT AI</span>
         </nav>
 
         {/* Hero */}
         <div className="mb-10">
-          <p className="text-xs font-mono font-bold tracking-[0.3em] uppercase text-[var(--accent-cyan-text)] mb-3">
+          <p className="text-sm font-mono font-bold tracking-[0.3em] uppercase text-[var(--accent-cyan-text)] mb-3">
             Course 01 · Department AI
           </p>
           <h1 className="text-4xl md:text-5xl font-black text-foreground mb-5 leading-tight tracking-tight">
             부서별로 일하는 AI
           </h1>
-          <p className="text-lg text-muted-foreground mb-5 max-w-2xl">
+          <p className="text-lg text-foreground/90 font-medium mb-5 max-w-2xl">
             중소기업 LLM 활용법 — 일반 직원·관리자 대상
           </p>
-          <div className="flex flex-wrap gap-2 text-xs font-mono">
-            <span className="px-3 py-1.5 rounded-full bg-primary/15 text-primary">⏱ 약 4시간</span>
-            <span className="px-3 py-1.5 rounded-full bg-muted text-muted-foreground">5편 {totalLessons}강</span>
-            <span className="px-3 py-1.5 rounded-full bg-muted text-muted-foreground">사내 출강</span>
-            <span className="px-3 py-1.5 rounded-full bg-[var(--accent-green-text)]/15 text-[var(--accent-green-text)]">자료 공개: {readyLessons}/{totalLessons}강</span>
+          <div className="flex flex-wrap gap-2 text-sm font-mono font-bold">
+            <span className="px-3 py-1.5 rounded-full bg-primary/20 text-primary">⏱ 약 4시간</span>
+            <span className="px-3 py-1.5 rounded-full bg-foreground/10 text-foreground">5편 {totalLessons}강</span>
+            <span className="px-3 py-1.5 rounded-full bg-foreground/10 text-foreground">사내 출강</span>
+            <span className="px-3 py-1.5 rounded-full bg-[var(--accent-green-text)]/20 text-[var(--accent-green-text)]">자료 공개: {readyLessons}/{totalLessons}강</span>
           </div>
         </div>
 
         {/* Authority */}
-        <p className="text-sm text-muted-foreground mb-12 font-mono">
-          기획 · <b className="text-foreground">visionc</b> · 중소기업 도입 사례 + Anthropic Skilljar 한글화 기반
+        <p className="text-base text-foreground/85 font-medium mb-12 font-mono">
+          기획 · <b className="text-foreground font-black">visionc</b> · 중소기업 도입 사례 + Anthropic Skilljar 한글화 기반
         </p>
 
-        {/* Curriculum — 편별 카드 + 편별 다운로드 */}
+        {/* Curriculum — 편별 카드 + 편별 다운로드 (토글) */}
         <div className="mb-16">
-          <h2 className="text-xl md:text-2xl font-black text-foreground mb-6 tracking-tight">전체 커리큘럼</h2>
+          <h2 className="text-2xl md:text-3xl font-black text-foreground mb-6 tracking-tight">전체 커리큘럼</h2>
+          <p className="text-base text-foreground/85 font-medium mb-6">
+            자료가 공개된 편(<span className="text-[var(--accent-green-text)] font-bold">📥 자료 공개</span>)은 클릭하면 다운로드가 펼쳐집니다.
+          </p>
           <div className="space-y-6">
             {SECTIONS.map((sec) => (
-              <div key={sec.part}>
-                {/* 편 카드 */}
-                <div className="rounded-2xl border-2 border-foreground/15 bg-card p-6">
-                  <div className="flex items-baseline gap-3 mb-1 flex-wrap">
-                    <span className="text-xs font-mono font-bold text-primary tracking-wider">{sec.part}</span>
-                    <h3 className="text-lg font-black text-foreground tracking-tight">{sec.title}</h3>
-                    {sec.ready ? (
-                      <span className="text-xs font-mono font-bold text-[var(--accent-green-text)] bg-[var(--accent-green-text)]/10 px-2 py-0.5 rounded-full">📥 자료 공개</span>
-                    ) : (
-                      <span className="text-xs font-mono font-bold text-[var(--accent-amber)] bg-[var(--accent-amber)]/10 px-2 py-0.5 rounded-full">📅 자료 준비 중</span>
-                    )}
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-4">{sec.desc}</p>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    {sec.lessons.map(([num, title]) => (
-                      <div key={num} className="flex items-start gap-3 p-3 rounded-xl bg-background/50">
-                        <span className="text-xs font-mono font-bold text-muted-foreground mt-0.5">{num}</span>
-                        <span className="text-sm text-foreground">{title}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* 편별 다운로드 — ready인 경우만 */}
-                {sec.ready && sec.slidesKey && sec.notesKey && (
-                  <div className="mt-4 ml-0 md:ml-6">
-                    <EnterpriseDownloadClient
-                      slidesKey={sec.slidesKey}
-                      notesKey={sec.notesKey}
-                      slidesDesc={`${sec.part} 강의용 PPT 슬라이드 (${sec.lessons.length}강 통합).`}
-                      notesDesc={`${sec.part} 강사용 스피커 노트. 강의별 멘트·실습·시간 배분·청중 질문.`}
-                    />
-                  </div>
-                )}
-              </div>
+              <SectionCard
+                key={sec.part}
+                part={sec.part}
+                title={sec.title}
+                desc={sec.desc}
+                lessons={sec.lessons}
+                ready={sec.ready}
+                slidesKey={sec.slidesKey}
+                notesKey={sec.notesKey}
+              />
             ))}
           </div>
         </div>
 
         {/* Bottom — back link */}
         <div className="mt-12 text-center">
-          <Link href="/ai-solution" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground font-mono">
+          <Link href="/ai-solution" className="inline-flex items-center gap-1 text-base font-bold text-foreground hover:text-primary transition-colors font-mono">
             ← 기업 AI 도입 및 컨설팅으로
           </Link>
         </div>

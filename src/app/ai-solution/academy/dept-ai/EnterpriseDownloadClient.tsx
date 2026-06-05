@@ -14,8 +14,8 @@ type Props = {
 export default function EnterpriseDownloadClient({
   slidesKey,
   notesKey,
-  slidesDesc = '강의용 PPT 슬라이드. PowerPoint·Keynote·Google Slides에서 자유 편집 가능.',
-  notesDesc = '강사용 상세 가이드. 슬라이드별 멘트·일화·청중 질문 포인트 포함.',
+  slidesDesc = '강의용 PPT 슬라이드.',
+  notesDesc = '강사용 스피커 노트.',
 }: Props) {
   const [password, setPassword] = useState('')
   const [state, setState] = useState<AuthState>('idle')
@@ -52,13 +52,18 @@ export default function EnterpriseDownloadClient({
   const authed = state === 'authed'
 
   return (
-    <div className="rounded-3xl border border-primary/30 bg-gradient-to-br from-primary/15 via-[var(--accent)]/8 to-transparent p-7 md:p-10">
-      <p className="text-xs font-mono font-bold tracking-[0.2em] uppercase text-primary mb-3">Downloads</p>
-      <h2 className="text-2xl md:text-3xl font-black text-foreground mb-2 tracking-tight">강의 자료 다운로드</h2>
-      <p className="text-sm text-muted-foreground mb-6">사내 출강 강좌. 슬라이드·스피커 노트 모두 비밀번호로 보호됩니다.</p>
+    <div className="rounded-2xl border-2 border-primary/40 bg-gradient-to-br from-primary/25 via-[var(--accent)]/10 to-background p-6 md:p-8 shadow-lg">
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-10 h-10 rounded-xl bg-primary/25 flex items-center justify-center text-xl">🔐</div>
+        <div>
+          <p className="text-xs font-mono font-bold tracking-[0.2em] uppercase text-primary mb-0.5">Downloads</p>
+          <h4 className="text-lg md:text-xl font-black text-foreground tracking-tight">강의 자료 다운로드</h4>
+        </div>
+      </div>
+      <p className="text-sm text-foreground/85 font-medium mb-5">사내 출강 강좌. 슬라이드·스피커 노트 모두 비밀번호로 보호됩니다.</p>
 
       {!authed && (
-        <form onSubmit={unlock} className="mb-6">
+        <form onSubmit={unlock} className="mb-5">
           <div className="flex flex-col sm:flex-row gap-2 max-w-md">
             <input
               type="password"
@@ -67,7 +72,7 @@ export default function EnterpriseDownloadClient({
               placeholder="비밀번호 입력"
               autoComplete="off"
               spellCheck={false}
-              className="flex-1 px-4 py-2.5 rounded-full bg-background border border-input text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
+              className="flex-1 px-4 py-2.5 rounded-full bg-background border border-input text-foreground text-sm font-medium placeholder:text-foreground/50 focus:outline-none focus:border-primary transition-colors"
             />
             <button
               type="submit"
@@ -78,21 +83,21 @@ export default function EnterpriseDownloadClient({
             </button>
           </div>
           {message && (
-            <p className={`text-xs mt-2 font-medium ${state === 'wrong' || state === 'rate-limited' ? 'text-[var(--accent-red)]' : 'text-muted-foreground'}`}>
+            <p className={`text-sm mt-2 font-medium ${state === 'wrong' || state === 'rate-limited' ? 'text-[var(--accent-red)]' : 'text-foreground/85'}`}>
               {message}
             </p>
           )}
         </form>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {/* Slides */}
-        <div className="rounded-2xl border border-border bg-card p-5 flex flex-col">
+        <div className="rounded-xl border-2 border-border bg-background/80 p-5 flex flex-col">
           <p className={`text-xs font-mono font-bold tracking-wider mb-2 ${authed ? 'text-[var(--accent-green-text)]' : 'text-[var(--accent-amber)]'}`}>
             {authed ? 'UNLOCKED · 다운로드 가능' : 'LOCKED · 비밀번호 필요'}
           </p>
-          <h3 className="text-lg font-bold text-foreground mb-1">PPT 슬라이드 (.pptx)</h3>
-          <p className="text-sm text-muted-foreground mb-4 leading-relaxed flex-1">{slidesDesc}</p>
+          <h3 className="text-base font-bold text-foreground mb-1">PPT 슬라이드 (.pptx)</h3>
+          <p className="text-sm text-foreground/85 font-medium mb-4 leading-relaxed flex-1">{slidesDesc}</p>
           {authed ? (
             <a
               href={`/api/academy/download/${slidesKey}`}
@@ -101,19 +106,19 @@ export default function EnterpriseDownloadClient({
               <span>📥</span> PPTX 다운로드
             </a>
           ) : (
-            <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-muted text-muted-foreground text-sm font-medium w-fit cursor-not-allowed">
+            <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-foreground/10 text-foreground/85 text-sm font-medium w-fit cursor-not-allowed">
               🔒 잠금 상태
             </span>
           )}
         </div>
 
         {/* Speaker notes */}
-        <div className="rounded-2xl border border-border bg-card p-5 flex flex-col">
+        <div className="rounded-xl border-2 border-border bg-background/80 p-5 flex flex-col">
           <p className={`text-xs font-mono font-bold tracking-wider mb-2 ${authed ? 'text-[var(--accent-green-text)]' : 'text-[var(--accent-amber)]'}`}>
             {authed ? 'UNLOCKED · 다운로드 가능' : 'LOCKED · 비밀번호 필요'}
           </p>
-          <h3 className="text-lg font-bold text-foreground mb-1">스피커 노트 (.pdf)</h3>
-          <p className="text-sm text-muted-foreground mb-4 leading-relaxed flex-1">{notesDesc}</p>
+          <h3 className="text-base font-bold text-foreground mb-1">스피커 노트 (.pdf)</h3>
+          <p className="text-sm text-foreground/85 font-medium mb-4 leading-relaxed flex-1">{notesDesc}</p>
           {authed ? (
             <a
               href={`/api/academy/download/${notesKey}`}
@@ -122,14 +127,14 @@ export default function EnterpriseDownloadClient({
               <span>📥</span> 스피커 노트 다운로드
             </a>
           ) : (
-            <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-muted text-muted-foreground text-sm font-medium w-fit cursor-not-allowed">
+            <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-foreground/10 text-foreground/85 text-sm font-medium w-fit cursor-not-allowed">
               🔒 잠금 상태
             </span>
           )}
         </div>
       </div>
 
-      <p className="text-xs text-muted-foreground mt-6 leading-relaxed">
+      <p className="text-xs text-foreground/75 font-medium mt-5 leading-relaxed">
         · 자료는 출처 명시(visionc Academy) 후 사내 교육·재강의에 자유롭게 사용하실 수 있습니다.<br />
         · 상업적 재배포는 사전 문의 부탁드립니다.
       </p>
