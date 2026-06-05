@@ -10,6 +10,7 @@ const serviceLinks = [
   { name: '보안 진단·모의해킹', href: '/security' },
   { name: '웹사이트 리뉴얼·운영', href: '/renewal' },
   { name: '앱·시스템 개발', href: '/app-dev' },
+  { name: '🤖 챗봇 설치', href: '/chatbot' },
 ]
 
 const navLinks = [

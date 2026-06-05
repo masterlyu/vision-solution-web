@@ -8,6 +8,7 @@ const NAV = [
   { label: '보안 진단', href: '/security' },
   { label: '웹사이트 리뉴얼·운영', href: '/renewal' },
   { label: '앱·시스템 개발', href: '/app-dev' },
+  { label: '🤖 챗봇 설치', href: '/chatbot' },
   { label: '소개', href: '/about' },
   { label: '포트폴리오', href: '/portfolio' },
   { label: '블로그', href: '/blog' },

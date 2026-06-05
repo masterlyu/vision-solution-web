@@ -7,6 +7,7 @@ const SERVICES = [
   ['보안 진단·모의해킹', '/security'],
   ['웹사이트 리뉴얼·운영', '/renewal'],
   ['앱·시스템 개발', '/app-dev'],
+  ['🤖 챗봇 설치', '/chatbot'],
 ]
 
 export default function Footer() {
