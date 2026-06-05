@@ -10,8 +10,8 @@ const AsciiScene = dynamic(
   { ssr: false, loading: () => null }
 )
 
-// 페인 포인트 → AI 도입 — 회사가 매일 잃고 있는 것
-const words = ['낭비하고', '놓치고', '뒤처지고', '늦어지고']
+// 페인 포인트 → AI 도입 — 회사가 매일 잃고 있는 것 (주어+동사 페어)
+const words = ['업무가 늦어지고', '비용이 새고', '고객을 놓치고']
 
 function BlurWord({ word, trigger }: { word: string; trigger: number }) {
   const letters = word.split('')
@@ -43,14 +43,37 @@ function BlurWord({ word, trigger }: { word: string; trigger: number }) {
     return () => { frames.current.forEach(cancelAnimationFrame); timers.current.forEach(clearTimeout) }
   }, [trigger])
 
+  // 공백을 만나면 단어 경계로 처리 — 단어 내부는 nowrap, 단어 사이는 줄바꿈 허용
+  const groups: number[][] = []
+  let cur: number[] = []
+  letters.forEach((ch, i) => {
+    if (ch === ' ') {
+      if (cur.length) groups.push(cur)
+      groups.push([i])
+      cur = []
+    } else {
+      cur.push(i)
+    }
+  })
+  if (cur.length) groups.push(cur)
+
   return (
-    <span className="inline-flex" style={{ whiteSpace: 'nowrap' }}>
-      {letterStates.map((s, i) => (
-        <span key={i} style={{ opacity: s.opacity, filter: `blur(${s.blur}px)`, display: 'inline-block' }}>
-          {letters[i]}
-        </span>
-      ))}
-    </span>
+    <>
+      {groups.map((g, gi) => {
+        if (g.length === 1 && letters[g[0]] === ' ') {
+          return <span key={`s${gi}`}>{' '}</span>
+        }
+        return (
+          <span key={gi} className="inline-flex" style={{ whiteSpace: 'nowrap' }}>
+            {g.map(i => (
+              <span key={i} style={{ opacity: letterStates[i].opacity, filter: `blur(${letterStates[i].blur}px)`, display: 'inline-block' }}>
+                {letters[i]}
+              </span>
+            ))}
+          </span>
+        )
+      })}
+    </>
   )
 }
 
