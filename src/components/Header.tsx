@@ -9,7 +9,7 @@ const NAV = [
   { label: '보안 진단', href: '/security' },
   { label: '모의해킹', href: '/pentest' },
   { label: '유지보수', href: '/maintenance' },
-  { label: 'AI 솔루션', href: '/ai-solution' },
+  { label: '기업 AI 도입 및 컨설팅', href: '/ai-solution' },
   { label: '블로그', href: '/blog' },
 ]
 

@@ -12,7 +12,7 @@ const serviceLinks = [
   { name: '보안 진단', href: '/security' },
   { name: '모의해킹 진단', href: '/pentest' },
   { name: '앱·시스템 개발', href: '/app-dev' },
-  { name: 'AI 솔루션', href: '/ai-solution' },
+  { name: '기업 AI 도입 및 컨설팅', href: '/ai-solution' },
   { name: '🤖 AI 챗봇 설치', href: '/chatbot' },
 ]
 

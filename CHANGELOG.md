@@ -3,6 +3,58 @@
 
 ---
 
+## [2026-06-05] — "기업 AI 도입 및 컨설팅" 페이지 재구성 + 무료 강좌 트랙 신설
+
+### 개요
+기존 `/ai-solution` 페이지를 "중소기업 AI 솔루션"에서 **"기업 AI 도입 및 컨설팅"**으로 재정의.
+무료 강좌(중소기업 AI 마스터플랜) 트랙과 컨설팅 영업을 한 페이지에 통합하여,
+교육 컨텐츠 → 인지도 확보 → 컨설팅 영업 깔때기 일원화.
+
+### 사령관님 결정 (Telegram, 2026-06-05)
+- 기존 `/academy` LV1~LV8 트랙은 그대로 유지 (개인·일반 학습자 대상)
+- 중소기업 대상 강좌는 별도로 제작 (B2B 의사결정자·도입자 대상)
+- 헤더 메뉴는 변경 없음, "서비스" 메뉴 밑 **"AI 솔루션"을 "기업 AI 도입 및 컨설팅"으로 변경**
+- 트랙명: "중소기업 AI 마스터플랜"
+
+### 변경 사항
+
+#### 1. 메뉴 라벨 변경 (5 파일)
+- `src/components/Header.tsx` — NAV 라벨
+- `src/components/Footer.tsx` — SERVICES 라벨
+- `src/components/landing/navigation.tsx` — name
+- `src/components/landing/footer-section.tsx` — name (서비스 목록)
+- `src/components/landing/features-section.tsx` — 06번 SERVICES 카드 (title + desc + stat)
+
+#### 2. ai-solution 페이지 재구성
+- `src/app/ai-solution/layout.tsx` — title/description/keywords 확장 (강좌 + 컨설팅 강조)
+- `src/app/ai-solution/page.tsx` — 420줄로 재작성
+  - **신규 섹션:** 두 갈래 진입 (🎓 스스로 배우기 / 💼 전문가 도움) + 중소기업 AI 마스터플랜 강좌 트랙
+  - **보존:** 페인 포인트·도입 사례·솔루션 유형·진행 프로세스·가격 3티어
+  - **확장:** FAQ 6개 → 8개 (강좌 관련 2개 추가), 하단 CTA 두 갈래 분기
+
+#### 3. 신규 라우팅 (강좌 트랙)
+- `src/app/ai-solution/academy/dept-ai/page.tsx` — COURSE 01 부서별로 일하는 AI (5편 15강 목록)
+- `src/app/ai-solution/academy/build-ai/page.tsx` — COURSE 02 사내 AI 구축·운영 종합 가이드 (11편 30강 목록)
+
+#### 4. llms.txt 데이터 업데이트
+- `content/company/services.json` — "AI 챗봇 도입" 항목을 "기업 AI 도입 및 컨설팅"으로 확장
+  - 무료 강좌 트랙 정보 (COURSE 01·02 구성)
+  - 수강자 제공 자료 목록 (청사진 PDF, RBAC 매트릭스, 하네스 표준 패키지, 프롬프트 300+개)
+  - 컨설팅 프로세스
+
+### 영향 범위
+- 헤더·푸터·홈 SERVICES 카드 라벨이 모두 "기업 AI 도입 및 컨설팅"으로 통일
+- 기존 `/ai-solution` URL 보존 (SEO 영향 최소화)
+- 신규 URL: `/ai-solution/academy/dept-ai`, `/ai-solution/academy/build-ai`
+- llms.txt 엔드포인트 자동 반영
+
+### 다음 단계
+- 강의별 페이지(`/ai-solution/academy/dept-ai/01` ~ `/15`, `/build-ai/01` ~ `/30`) 콘텐츠 제작
+- YouTube 영상 + PDF 워크북 + 프롬프트 라이브러리 GitHub 배포
+- 도입 진단 신청 폼 통합 (기존 /contact 재활용)
+
+---
+
 ## [2026-05-26] — llms.txt 데이터 분리 및 콘텐츠 강화
 
 ### 개요

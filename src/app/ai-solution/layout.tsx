@@ -1,12 +1,26 @@
 import type { Metadata } from 'next'
 
-const title = '중소기업 AI 솔루션 도입'
-const description = '반복 업무를 AI가 대신합니다. 챗봇·자동화·보고서 생성. 100만원대부터 무료 업무 분석 제공.'
+const title = '기업 AI 도입 및 컨설팅 — 무료 강좌 + 실행 컨설팅'
+const description = '중소기업을 위한 LLM·자율 에이전트 도입 종합 가이드. 무료 강좌 45강(부서별 활용 15강 + 사내 구축 30강) + 도입 컨설팅 100만원대부터. Claude·OpenCode·Open WebUI·RAG·MCP 자율 에이전트 시대 대응.'
 
 export const metadata: Metadata = {
   title,
   description,
-  keywords: ['AI 챗봇', '중소기업 AI', 'AI 솔루션', '업무 자동화', 'AI 챗봇 도입', '(주)비젼솔루션'],
+  keywords: [
+    '기업 AI 도입',
+    '중소기업 AI',
+    'AI 컨설팅',
+    '사내 AI 구축',
+    'LLM 자체 호스팅',
+    'Claude Code 기업',
+    '부서별 AI 활용',
+    'Open WebUI',
+    'RAG',
+    'MCP',
+    '자율 에이전트',
+    '중소기업 AI 마스터플랜',
+    '(주)비젼솔루션',
+  ],
   alternates: { canonical: '/ai-solution' },
   openGraph: {
     title,

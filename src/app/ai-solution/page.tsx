@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useState } from 'react'
-import { ArrowRight, CheckSquare, ChevronDown, ChevronUp } from 'lucide-react'
+import { ArrowRight, CheckSquare, ChevronDown, ChevronUp, GraduationCap, Briefcase } from 'lucide-react'
 import Mascot from '@/components/Mascot'
 
 const checklistItems = [
@@ -42,30 +42,72 @@ const plans = [
   { name: '커스텀 AI 솔루션', price: '500만원대~', items: ['분석 대시보드', '예측 모델링', '커스텀 개발'],           highlight: false },
 ]
 
+const courses = [
+  {
+    badge: 'COURSE 01 · 활용 트랙',
+    href: '/ai-solution/academy/dept-ai',
+    title: '부서별로 일하는 AI',
+    subtitle: '중소기업 LLM 활용법 — 일반 직원·관리자 대상',
+    meta: ['📚 5편 15강', '⏱ 약 4시간', '🎯 30일 안에 시간 30% 절감'],
+    chapters: [
+      '1편. 기반 다지기 (2강)',
+      '2편. 전 부서 공통 실전 활용 (3강)',
+      '3편. 코어 부서 — 업종별 적용 (4강)',
+      '4편. 지원 부서 (4강)',
+      '5편. 수주형 비즈니스 통합 흐름 (2강)',
+    ],
+    highlight: false,
+  },
+  {
+    badge: 'COURSE 02 · 구축 트랙',
+    href: '/ai-solution/academy/build-ai',
+    title: '사내 AI 구축·운영 종합 가이드',
+    subtitle: '자체 호스팅·에이전트·보안·운영 — IT 담당자·관리자 대상',
+    meta: ['📚 11편 30강', '⏱ 약 10시간', '🎯 90일 안에 사내 AI 인프라 1차 가동'],
+    chapters: [
+      '1~4편. 인프라·모델·플랫폼 (11강)',
+      '5~6편. 에이전트·하네스 엔지니어링 (6강) ⭐',
+      '7편. 사내 에이전트 배포·운영 (4강) ⭐',
+      '8편. 자체 에이전트 만들기 (2강)',
+      '9~11편. 보안·백업·관리자 운영 (7강)',
+    ],
+    highlight: true,
+  },
+]
+
+const academyBenefits = [
+  '사내 AI 도입 청사진 PDF (30/100/300명 규모별)',
+  'RBAC 권한 매트릭스 템플릿',
+  '하네스 표준 패키지 (settings.json + hooks + skills)',
+  '부서별 프롬프트 라이브러리 300+개',
+  '견적·8D·설계 RAG 에이전트 샘플 코드',
+  '수료증 + 도입 진단 1시간 무료',
+]
+
 const faqs = [
+  { q: '강좌만 듣고 직접 구축하면 컨설팅 안 받아도 되나요?', a: '네. 무료 강좌만으로 1차 도입이 가능하도록 설계했습니다. 설계도면·고객 데이터·MES 연동 등 보안·신뢰성이 중요한 영역만 컨설팅을 권장합니다.' },
+  { q: '강좌 수강 후 컨설팅 받으면 할인되나요?', a: '강좌 수료증 보유 시 도입 진단 1시간이 무료로 제공되며, 본 컨설팅 계약 시 진단 결과 기준 10% 할인됩니다.' },
   { q: 'IT 전문 지식이 없어도 사용할 수 있나요?', a: '네. 완성 후 사용법은 영상 가이드와 직접 교육으로 제공합니다. 클릭 몇 번으로 운영할 수 있도록 설계합니다.' },
   { q: '도입하면 직원을 줄여야 하나요?', a: '반복 업무를 없애는 것이지 사람을 대체하는 게 아닙니다. 직원들이 더 중요한 일에 집중할 수 있게 됩니다.' },
-  { q: '우리 회사 데이터가 외부에 유출되지 않나요?', a: '구축한 AI는 독립 서버에서 운영되며, 외부 AI 서비스에 데이터를 전달하지 않도록 설계 가능합니다. 보안 요구사항은 상담 시 협의합니다.' },
-  { q: '어떤 업무가 자동화 가능한지 모르는데 어떻게 시작하나요?', a: '현재 업무 목록을 공유해 주시면, 무료로 자동화 가능 영역을 분석해드립니다. 상담에서 다 정리해드립니다.' },
+  { q: '우리 회사 데이터가 외부에 유출되지 않나요?', a: '구축한 AI는 독립 서버에서 운영되며, 외부 AI 서비스에 데이터를 전달하지 않도록 설계 가능합니다. 강좌의 LV6 구축 트랙에서 자체 호스팅·보안·백업 전 과정을 다룹니다.' },
+  { q: '어떤 업무가 자동화 가능한지 모르는데 어떻게 시작하나요?', a: '현재 업무 목록을 공유해 주시면, 무료로 자동화 가능 영역을 분석해드립니다. 강좌의 LV3 부서별 활용 트랙을 먼저 보시면 직접 식별도 가능합니다.' },
   { q: '완성 후 AI가 잘못된 답변을 하면 어떻게 되나요?', a: '납품 전 100건 이상의 테스트를 진행합니다. 운영 중 오류 발생 시 즉시 수정합니다. 30일 무상 AS가 포함됩니다.' },
-  { q: '월 비용이 추가로 발생하나요?', a: '구축 비용 외에 서버·API 사용료가 월별로 발생할 수 있습니다. 규모에 따라 월 5~30만원 수준이며, 상담 시 정확히 안내합니다.' },
+  { q: '월 비용이 추가로 발생하나요?', a: '구축 비용 외에 서버·API 사용료가 월별로 발생할 수 있습니다. 규모에 따라 월 5~30만원 수준이며, 상담 시 정확히 안내합니다. 자체 호스팅 선택 시 API 비용 0원도 가능합니다.' },
 ]
 
 function AiHeroIllust() {
   return (
     <div className="relative">
       <svg width="320" height="280" viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg">
-        {/* Central AI brain circle */}
         <circle cx="160" cy="130" r="70" fill="rgba(var(--primary-rgb),.06)" stroke="rgba(var(--primary-rgb),.25)" strokeWidth="1.5" />
         <circle cx="160" cy="130" r="50" fill="rgba(var(--primary-rgb),.08)" stroke="rgba(var(--primary-rgb),.2)" strokeWidth="1" />
         <circle cx="160" cy="130" r="28" fill="rgba(var(--primary-rgb),.15)" />
         <text x="160" y="138" textAnchor="middle" fontSize="24" fill="var(--primary)">🤖</text>
-        {/* Orbiting nodes */}
         {[0, 60, 120, 180, 240, 300].map((deg, i) => {
           const rad = (deg * Math.PI) / 180
           const cx = 160 + 70 * Math.cos(rad)
           const cy = 130 + 70 * Math.sin(rad)
-          const icons = ['📊','✉️','📝','🔄','📈','💬']
+          const icons = ['🎓','💼','🔐','🤝','📈','💬']
           return (
             <g key={i}>
               <circle cx={cx} cy={cy} r="18" fill="rgba(var(--primary-rgb),.12)" stroke="rgba(var(--primary-rgb),.3)" strokeWidth="1.5" />
@@ -73,7 +115,6 @@ function AiHeroIllust() {
             </g>
           )
         })}
-        {/* Connection lines */}
         {[0, 60, 120, 180, 240, 300].map((deg, i) => {
           const rad = (deg * Math.PI) / 180
           const x = 160 + 42 * Math.cos(rad)
@@ -82,14 +123,12 @@ function AiHeroIllust() {
           const y2 = 130 + 52 * Math.sin(rad)
           return <line key={i} x1={x} y1={y} x2={x2} y2={y2} stroke="rgba(var(--primary-rgb),.4)" strokeWidth="1.5" />
         })}
-        {/* Sparkles */}
         <text x="38" y="45" fontSize="16" fill="var(--primary)" opacity={0.7}>✦</text>
         <text x="275" y="55" fontSize="12" fill="var(--primary-light)" opacity={0.6}>✦</text>
         <text x="290" y="200" fontSize="10" fill="var(--primary)" opacity={0.5}>✦</text>
       </svg>
-      {/* VISI small, bottom-right */}
       <div className="absolute -bottom-4 -right-4">
-        <Mascot pose="happy" category="emotion" size="sm" className="h-24 w-auto" bubble="자동화 완료!" bubbleDir="left" />
+        <Mascot pose="happy" category="emotion" size="sm" className="h-24 w-auto" bubble="배우고 도입하고!" bubbleDir="left" />
       </div>
     </div>
   )
@@ -104,29 +143,120 @@ export default function AiSolutionPage() {
       <section className="pt-28 pb-20 px-6 bg-background" style={{ background: 'radial-gradient(ellipse at top right, color-mix(in oklch, var(--primary) 20%, transparent) 0%, var(--background) 60%)' }}>
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block bg-primary/20 border border-primary/40 text-primary text-xs font-bold px-3 py-1 rounded-full mb-6">중소기업 AI 솔루션</span>
+            <span className="inline-block bg-primary/20 border border-primary/40 text-primary text-xs font-bold px-3 py-1 rounded-full mb-6">기업 AI 도입 · 무료 강좌 + 컨설팅</span>
             <h1 className="text-4xl md:text-5xl font-black text-foreground leading-tight mb-6 max-w-2xl">
-              직원이 하루 2시간씩 반복 업무를 하고 있다면,<br />
-              <span className="text-primary">AI가 대신할 수 있습니다</span>
+              기업 AI 도입 및 컨설팅
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-xl">
-              고객 문의 자동 응답, 주문 집계, 보고서 작성—<br />
-              지금 당장 없애도 되는 반복 업무가 있다면, 100만원대부터 시작합니다.
+              무료 강좌로 배우고, 컨설팅으로 실행합니다.<br />
+              부서별 LLM 활용부터 사내 자체 에이전트 구축까지 — 중소기업에 맞춰 단계별로 안내합니다.
             </p>
-            <Link href="/contact"
-              className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all text-base">
-              무료 AI 도입 가능 영역 분석받기 <ArrowRight className="w-5 h-5" />
-            </Link>
+            <div className="flex flex-wrap gap-3">
+              <Link href="#academy"
+                className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-7 py-4 rounded-xl transition-all text-base">
+                <GraduationCap className="w-5 h-5" /> 무료 강좌 시작하기
+              </Link>
+              <Link href="/contact"
+                className="inline-flex items-center gap-2 bg-card border-2 border-primary text-primary hover:bg-primary/5 font-semibold px-7 py-4 rounded-xl transition-all text-base">
+                <Briefcase className="w-5 h-5" /> 도입 컨설팅 신청
+              </Link>
+            </div>
+            <p className="mt-4 text-xs text-muted-foreground">강좌·진단 모두 무료 · 신용카드 불필요 · 100만원대부터 컨설팅</p>
           </div>
           <div className="hidden lg:flex flex-col justify-center items-center gap-6">
-            <Mascot pose="develop" category="process" size="md" className="h-48 w-auto min-w-[140px]" alt="VISIONC 마스코트 — AI 솔루션" />
+            <Mascot pose="develop" category="process" size="md" className="h-48 w-auto min-w-[140px]" alt="VISIONC 마스코트 — 기업 AI 도입 및 컨설팅" />
             <AiHeroIllust />
           </div>
         </div>
       </section>
 
+      {/* Two Paths */}
+      <section className="py-20 px-6 bg-background">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-3">두 가지 방법으로 시작하세요</h2>
+          <p className="text-muted-foreground text-center mb-12">스스로 배우거나, 전문가와 함께 실행하거나 — 어느 쪽이든 무료부터 시작합니다.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-card rounded-2xl border-2 border-border p-8">
+              <div className="text-4xl mb-4">🎓</div>
+              <h3 className="text-xl font-bold text-foreground mb-2">스스로 배우고 싶다</h3>
+              <p className="text-muted-foreground mb-6">무료 공개 강좌로 우리 회사에 맞는 AI 도입 방법을 체계적으로 학습</p>
+              <ul className="space-y-2 mb-8">
+                <li className="text-sm text-foreground flex items-start gap-2"><span className="text-primary font-bold">✓</span> 부서별 LLM 활용법 15강</li>
+                <li className="text-sm text-foreground flex items-start gap-2"><span className="text-primary font-bold">✓</span> 사내 AI 구축 종합 가이드 30강</li>
+                <li className="text-sm text-foreground flex items-start gap-2"><span className="text-primary font-bold">✓</span> 300+ 한국어 프롬프트 라이브러리</li>
+                <li className="text-sm text-foreground flex items-start gap-2"><span className="text-primary font-bold">✓</span> 수료증 발급</li>
+              </ul>
+              <Link href="#academy" className="inline-flex items-center gap-1 text-primary font-semibold hover:gap-2 transition-all">
+                강좌 둘러보기 <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            <div className="bg-primary/5 rounded-2xl border-2 border-primary p-8 relative">
+              <span className="absolute -top-3 left-8 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full">추천</span>
+              <div className="text-4xl mb-4">💼</div>
+              <h3 className="text-xl font-bold text-foreground mb-2">전문가 도움이 필요하다</h3>
+              <p className="text-muted-foreground mb-6">강좌 내용을 우리 회사에 직접 구축·운영하는 풀서비스 컨설팅</p>
+              <ul className="space-y-2 mb-8">
+                <li className="text-sm text-foreground flex items-start gap-2"><span className="text-primary font-bold">✓</span> 도입 가능 영역 무료 진단 1시간</li>
+                <li className="text-sm text-foreground flex items-start gap-2"><span className="text-primary font-bold">✓</span> 맞춤 솔루션 설계 → 구축 → 인수인계</li>
+                <li className="text-sm text-foreground flex items-start gap-2"><span className="text-primary font-bold">✓</span> 사내 직원 교육 포함</li>
+                <li className="text-sm text-foreground flex items-start gap-2"><span className="text-primary font-bold">✓</span> 운영 후 30일 A/S</li>
+              </ul>
+              <Link href="/contact" className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold px-5 py-3 rounded-xl hover:bg-primary/90 transition-all">
+                무료 진단 신청 <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Academy Tracks */}
+      <section id="academy" className="py-20 px-6 bg-secondary">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="inline-block bg-primary/20 border border-primary/40 text-primary text-xs font-bold px-3 py-1 rounded-full mb-4">중소기업 AI 마스터플랜</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">무료 강좌 트랙</h2>
+            <p className="text-muted-foreground">중소기업에 특화된 한국어 LLM·에이전트 도입 종합 교육. 영상·워크북·프롬프트 라이브러리 모두 무료.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            {courses.map((c, i) => (
+              <div key={i} className={`rounded-2xl p-8 ${c.highlight ? 'bg-primary/5 border-2 border-primary' : 'bg-card border-2 border-border'}`}>
+                <div className="text-xs font-bold text-primary mb-3">{c.badge}</div>
+                <h3 className="text-xl font-bold text-foreground mb-2">{c.title}</h3>
+                <p className="text-sm text-muted-foreground mb-5">{c.subtitle}</p>
+                <div className="flex flex-wrap gap-2 mb-5">
+                  {c.meta.map((m, j) => (
+                    <span key={j} className="text-xs bg-foreground/5 text-foreground px-2.5 py-1 rounded-full">{m}</span>
+                  ))}
+                </div>
+                <ul className="space-y-2 mb-6">
+                  {c.chapters.map((ch, j) => (
+                    <li key={j} className="text-sm text-foreground/80 flex items-start gap-2">
+                      <span className="text-primary mt-0.5">▸</span> {ch}
+                    </li>
+                  ))}
+                </ul>
+                <Link href={c.href} className="inline-flex items-center gap-1 text-primary font-semibold hover:gap-2 transition-all">
+                  전체 커리큘럼 보기 <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            ))}
+          </div>
+          <div className="bg-card rounded-2xl p-8 border border-border">
+            <h4 className="text-lg font-bold text-foreground mb-4">강좌 수강 시 제공 자료</h4>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {academyBenefits.map((b, i) => (
+                <li key={i} className="text-sm text-foreground flex items-start gap-2">
+                  <span className="text-primary font-bold">✓</span> {b}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* Checklist */}
-      <section className="py-20 px-6 bg-secondary">
+      <section className="py-20 px-6 bg-background">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">혹시 이런 상황이세요?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
@@ -138,7 +268,7 @@ export default function AiSolutionPage() {
             ))}
           </div>
           <div className="border-l-4 border-primary bg-card px-6 py-4 rounded-r-xl">
-            <p className="text-foreground font-semibold">2개 이상 해당된다면, AI가 실질적으로 도움이 될 수 있습니다.</p>
+            <p className="text-foreground font-semibold">2개 이상 해당된다면, 강좌부터 시작해보거나 무료 진단을 신청하세요.</p>
           </div>
         </div>
       </section>
@@ -167,7 +297,10 @@ export default function AiSolutionPage() {
       {/* AI Types */}
       <section className="py-20 px-6 bg-background">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-bold text-foreground text-center mb-10">어떤 AI가 내 업무에 맞을까요?</h2>
+          <div className="text-center mb-10">
+            <h2 className="text-2xl font-bold text-foreground mb-2">어떤 AI가 내 업무에 맞을까요?</h2>
+            <p className="text-muted-foreground text-sm">강좌만으로 부족하다면, 아래 영역을 직접 구축해드립니다.</p>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {aiTypes.map((t, i) => (
               <div key={i} className="bg-card rounded-xl p-6 hover:border-primary border-2 border-transparent transition-all">
@@ -183,7 +316,7 @@ export default function AiSolutionPage() {
       {/* Process */}
       <section className="py-20 px-6 bg-secondary">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-bold text-foreground mb-10">진행 프로세스</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-10">진행 프로세스 (컨설팅 기준)</h2>
           <div className="space-y-4">
             {steps.map((s, i) => (
               <div key={i} className="flex gap-4 items-start">
@@ -265,16 +398,21 @@ export default function AiSolutionPage() {
             <div className="relative">
               <Mascot pose="cheer" category="emotion" size="sm" className="h-28 w-auto" />
               <div className="absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-full bg-card text-foreground text-sm font-bold px-4 py-2 rounded-2xl shadow-lg whitespace-nowrap">
-                어떤 업무든 자동화할 수 있어요!
+                배우거나, 맡기거나!
                 <span className="absolute left-1/2 -translate-x-1/2 top-full border-8 border-transparent border-t-card" />
               </div>
             </div>
           </div>
-          <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">어떤 업무를 자동화할 수 있을지 지금 알아보세요</h2>
-          <p className="text-muted-foreground text-lg mb-8">도입 안 해도 분석 결과는 드립니다.</p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-10 py-4 rounded-xl transition-all text-lg">
-            무료 AI 도입 분석 신청하기 <ArrowRight className="w-5 h-5" />
-          </Link>
+          <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">지금 시작하세요</h2>
+          <p className="text-muted-foreground text-lg mb-8">강좌·진단 모두 무료. 신용카드 없이 바로 시작할 수 있습니다.</p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link href="#academy" className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-8 py-4 rounded-xl transition-all text-lg">
+              <GraduationCap className="w-5 h-5" /> 무료 강좌 시작
+            </Link>
+            <Link href="/contact" className="inline-flex items-center gap-2 bg-card border-2 border-primary text-primary hover:bg-primary/5 font-bold px-8 py-4 rounded-xl transition-all text-lg">
+              <Briefcase className="w-5 h-5" /> 무료 도입 진단 신청
+            </Link>
+          </div>
         </div>
       </section>
     </div>

@@ -12,7 +12,7 @@ const services = [
   { number: '03', mascot: { pose: 'svc_maintain', category: 'service' as MascotCategory }, href: '/maintenance', title: '유지보수',          stat: { value: '4h',    label: '장애 대응' },      price: { prefix: '월',    value: '15만원~'  }, desc: '콘텐츠 업데이트, 보안 패치, 장애 대응을 책임집니다.' },
   { number: '04', mascot: { pose: 'svc_security', category: 'service' as MascotCategory }, href: '/security',    title: '보안 진단',         stat: { value: '23개',  label: '평균 취약점 발견' }, price: { prefix: '시작가', value: '30만원~'  }, desc: 'SSL·보안헤더·취약점을 진단하고 조치 가이드를 제공합니다.' },
   { number: '05', mascot: { pose: 'svc_custom',   category: 'service' as MascotCategory }, href: '/app-dev',     title: '앱·시스템 개발',    stat: { value: '120건+',label: '납품 실적' },      price: { prefix: '시작가', value: '300만원~' }, desc: '모바일 앱부터 사내 업무 시스템까지 풀스택으로 구축합니다.' },
-  { number: '06', mascot: { pose: 'ui_loading',   category: 'ui'      as MascotCategory }, href: '/ai-solution', title: 'AI 솔루션',         stat: { value: '85%',   label: '업무 자동화' },    price: { prefix: '시작가', value: '200만원~' }, desc: 'AI 챗봇·자동화·데이터 분석을 중소기업 규모에 맞게 도입합니다.' },
+  { number: '06', mascot: { pose: 'ui_loading',   category: 'ui'      as MascotCategory }, href: '/ai-solution', title: '기업 AI 도입 및 컨설팅', stat: { value: '45강',   label: '무료 강좌' },    price: { prefix: '시작가', value: '200만원~' }, desc: 'LLM·자율 에이전트 도입부터 사내 인프라 구축까지, 무료 강좌로 학습하고 컨설팅으로 실행합니다.' },
 ]
 
 export function FeaturesSection() {

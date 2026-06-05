@@ -8,7 +8,7 @@ const SERVICES = [
   ['보안 진단', '/security'],
   ['유지보수', '/maintenance'],
   ['앱 개발', '/app-dev'],
-  ['AI 솔루션', '/ai-solution'],
+  ['기업 AI 도입 및 컨설팅', '/ai-solution'],
 ]
 
 export default function Footer() {
