@@ -4,12 +4,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 const NAV = [
-  { label: '웹 리뉴얼', href: '/renewal' },
-  { label: '신규 제작', href: '/new-website' },
+  { label: '기업 AI 도입·컨설팅', href: '/ai-solution', primary: true },
   { label: '보안 진단', href: '/security' },
-  { label: '모의해킹', href: '/pentest' },
-  { label: '유지보수', href: '/maintenance' },
-  { label: '기업 AI 도입 및 컨설팅', href: '/ai-solution' },
+  { label: '웹사이트 리뉴얼·운영', href: '/renewal' },
+  { label: '앱·시스템 개발', href: '/app-dev' },
+  { label: '소개', href: '/about' },
+  { label: '포트폴리오', href: '/portfolio' },
   { label: '블로그', href: '/blog' },
 ]
 
@@ -33,19 +33,19 @@ export default function Header() {
         <nav className="hidden md:flex items-center gap-1">
           {NAV.map(n => (
             <Link key={n.href} href={n.href}
-              className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground rounded-lg hover:bg-foreground/5 transition-all">
+              className={`px-3 py-2 text-sm font-medium rounded-lg hover:bg-foreground/5 transition-all ${n.primary ? 'text-primary font-bold' : 'text-foreground/85 hover:text-foreground'}`}>
               {n.label}
             </Link>
           ))}
         </nav>
 
         <div className="hidden md:block">
-          <Link href="/renewal" className="btn-red">
-            무료 진단 받기
+          <Link href="/contact" className="btn-red">
+            💼 도입 상담
           </Link>
         </div>
 
-        <button onClick={() => setOpen(!open)} className="md:hidden p-2 flex flex-col gap-1.5">
+        <button onClick={() => setOpen(!open)} className="md:hidden p-2 flex flex-col gap-1.5 min-w-[44px] min-h-[44px] items-center justify-center">
           <span className={`block w-5 h-0.5 bg-foreground transition-all ${open ? 'rotate-45 translate-y-2' : ''}`} />
           <span className={`block w-5 h-0.5 bg-foreground transition-all ${open ? 'opacity-0' : ''}`} />
           <span className={`block w-5 h-0.5 bg-foreground transition-all ${open ? '-rotate-45 -translate-y-2' : ''}`} />
@@ -56,12 +56,12 @@ export default function Header() {
         <div className="absolute top-16 left-0 right-0 bg-background border-b border-border px-5 py-4 md:hidden">
           {NAV.map(n => (
             <Link key={n.href} href={n.href} onClick={() => setOpen(false)}
-              className="block py-3 text-muted-foreground hover:text-foreground border-b border-border text-sm transition-colors">
+              className={`block py-4 border-b border-border text-base font-medium transition-colors ${n.primary ? 'text-primary font-bold' : 'text-foreground hover:text-primary'}`}>
               {n.label}
             </Link>
           ))}
-          <Link href="/renewal" onClick={() => setOpen(false)} className="btn-red mt-4 w-full justify-center">
-            무료 진단 받기
+          <Link href="/contact" onClick={() => setOpen(false)} className="btn-red mt-4 w-full justify-center h-12 text-base">
+            💼 도입 상담
           </Link>
         </div>
       )}

@@ -10,6 +10,10 @@ const nextConfig: NextConfig = {
         destination: 'https://visionc.co.kr/:path*',
         permanent: true,
       },
+      // Phase 1: 신규 사이트 페이지 폐기 → 웹사이트 리뉴얼·운영으로 통합
+      { source: '/new-website', destination: '/renewal', permanent: true },
+      // Phase 1: 유지보수 페이지 → 웹사이트 리뉴얼·운영으로 통합
+      { source: '/maintenance', destination: '/renewal', permanent: true },
     ]
   },
   poweredByHeader: false,

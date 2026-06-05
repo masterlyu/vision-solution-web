@@ -7,12 +7,10 @@ import Mascot from '@/components/Mascot'
 type MascotCategory = 'emotion' | 'situation' | 'company' | 'service' | 'process' | 'support' | 'ui' | 'misc'
 
 const services = [
-  { number: '01', mascot: { pose: 'svc_renewal',  category: 'service' as MascotCategory }, href: '/renewal',     title: '홈페이지 리뉴얼',  stat: { value: '67%',   label: '평균 로딩 개선' },  price: { prefix: '시작가', value: '80만원~'  }, desc: '오래된 사이트를 속도·디자인·SEO 전부 새로 만듭니다.' },
-  { number: '02', mascot: { pose: 'svc_newbuild', category: 'service' as MascotCategory }, href: '/new-website', title: '신규 사이트 구축',  stat: { value: '2.4배', label: '전환율 향상' },     price: { prefix: '시작가', value: '150만원~' }, desc: '기획·디자인·개발·배포를 원스톱으로 진행합니다.' },
-  { number: '03', mascot: { pose: 'svc_maintain', category: 'service' as MascotCategory }, href: '/maintenance', title: '유지보수',          stat: { value: '4h',    label: '장애 대응' },      price: { prefix: '월',    value: '15만원~'  }, desc: '콘텐츠 업데이트, 보안 패치, 장애 대응을 책임집니다.' },
-  { number: '04', mascot: { pose: 'svc_security', category: 'service' as MascotCategory }, href: '/security',    title: '보안 진단',         stat: { value: '23개',  label: '평균 취약점 발견' }, price: { prefix: '시작가', value: '30만원~'  }, desc: 'SSL·보안헤더·취약점을 진단하고 조치 가이드를 제공합니다.' },
-  { number: '05', mascot: { pose: 'svc_custom',   category: 'service' as MascotCategory }, href: '/app-dev',     title: '앱·시스템 개발',    stat: { value: '120건+',label: '납품 실적' },      price: { prefix: '시작가', value: '300만원~' }, desc: '모바일 앱부터 사내 업무 시스템까지 풀스택으로 구축합니다.' },
-  { number: '06', mascot: { pose: 'ui_loading',   category: 'ui'      as MascotCategory }, href: '/ai-solution', title: '기업 AI 도입 및 컨설팅', stat: { value: '45강',   label: '무료 강좌' },    price: { prefix: '시작가', value: '200만원~' }, desc: 'LLM·자율 에이전트 도입부터 사내 인프라 구축까지, 무료 강좌로 학습하고 컨설팅으로 실행합니다.' },
+  { number: '01', mascot: { pose: 'ui_loading',   category: 'ui'      as MascotCategory }, href: '/ai-solution', title: '기업 AI 도입 및 컨설팅', stat: { value: '45강',   label: '사내 출강 강좌' }, price: { prefix: '시작가', value: '100만원~' }, desc: '컨설팅·구축·사내 출강 교육을 한 곳에서. LLM·자율 에이전트 도입부터 사내 인프라 구축까지.' },
+  { number: '02', mascot: { pose: 'svc_security', category: 'service' as MascotCategory }, href: '/security',    title: '보안 진단·모의해킹',     stat: { value: '23개',  label: '평균 취약점 발견' }, price: { prefix: '시작가', value: '30만원~'  }, desc: 'SSL·보안헤더·취약점 진단 + 실제 침투 테스트.' },
+  { number: '03', mascot: { pose: 'svc_renewal',  category: 'service' as MascotCategory }, href: '/renewal',     title: '웹사이트 리뉴얼·운영',   stat: { value: '67%',   label: '평균 로딩 개선' },  price: { prefix: '시작가', value: '80만원~'  }, desc: '오래된 사이트 속도·디자인·SEO 신규화 + 유지보수·운영.' },
+  { number: '04', mascot: { pose: 'svc_custom',   category: 'service' as MascotCategory }, href: '/app-dev',     title: '앱·시스템 개발',         stat: { value: '120건+',label: '납품 실적' },        price: { prefix: '시작가', value: '300만원~' }, desc: '모바일 앱부터 사내 업무 시스템까지 풀스택 구축.' },
 ]
 
 export function FeaturesSection() {
@@ -31,7 +29,7 @@ export function FeaturesSection() {
         <div className={`mb-16 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <p className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-4">SERVICES</p>
           <h2 className="text-4xl md:text-5xl font-black text-foreground mb-4">필요한 것만, 정확하게</h2>
-          <p className="text-muted-foreground text-lg max-w-xl">작은 유지보수부터 AI 도입까지 단일 파트너로 해결합니다.</p>
+          <p className="text-foreground/90 text-lg font-medium max-w-xl">중소기업 AI 도입부터 보안·웹·앱까지 단일 파트너로 해결합니다.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
