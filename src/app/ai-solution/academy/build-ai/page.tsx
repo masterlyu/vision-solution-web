@@ -1,187 +1,215 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowLeft, Clock, Briefcase, ShieldCheck } from 'lucide-react'
+import EnterpriseDownloadClient from './EnterpriseDownloadClient'
 
 export const metadata: Metadata = {
-  title: '사내 AI 구축·운영 종합 가이드 — 자체 호스팅·에이전트·보안 (30강) | Vision Solution',
-  description: '중소기업 IT 담당자·관리자용 사내 AI 인프라 구축 30강. 무료 LLM·Open WebUI·RAG·MCP·Claude Code 하네스·에이전트 운영·보안·백업·관리자 권한까지.',
+  title: 'Course 02 · 사내 AI 구축·운영 종합 가이드 — visionc Enterprise',
+  description: '사내 출강 강좌. IT 담당자·관리자 대상 자체 호스팅·에이전트·하네스·보안·관리자 운영 (11편 30강). 90일 안에 사내 AI 인프라 1차 가동.',
+  keywords: ['사내 AI 구축', 'LLM 자체 호스팅', 'Claude Code 기업', '자율 에이전트', '하네스 엔지니어링', 'Open WebUI', 'RAG', 'MCP'],
   alternates: { canonical: '/ai-solution/academy/build-ai' },
   openGraph: {
-    title: '사내 AI 구축·운영 종합 가이드 (30강)',
-    description: '중소기업 사내 AI 인프라 구축·운영 종합 트랙. 무료 LLM·에이전트·하네스·보안 30강.',
+    title: 'Course 02 · 사내 AI 구축·운영 종합 가이드',
+    description: '사내 출강 강좌. 자체 호스팅·에이전트·보안·운영 (11편 30강).',
     url: 'https://visionc.co.kr/ai-solution/academy/build-ai',
     siteName: 'Vision Solution',
-    images: [{ url: '/api/og', width: 1200, height: 630, alt: '사내 AI 구축·운영 종합 가이드' }],
     locale: 'ko_KR',
     type: 'website',
   },
 }
 
-const sections = [
+const SECTIONS = [
   {
-    title: '1편. 의사결정',
-    desc: '도입 전 반드시 짚어야 할 비교·로드맵',
+    part: '1편',
+    title: '의사결정',
+    desc: '도입 전 비교·로드맵',
     lessons: [
-      { id: '01', title: '클라우드 API vs 온프레미스 — 규모별 손익분기점', dur: 18 },
-      { id: '02', title: '단계별 도입 로드맵 — 6/12/24개월', dur: 15 },
+      ['01', '클라우드 API vs 온프레미스 — 규모별 손익분기점'],
+      ['02', '단계별 도입 로드맵 — 6/12/24개월'],
     ],
   },
   {
-    title: '2편. 인프라',
-    desc: '서버·OS·네트워크 기반',
+    part: '2편',
+    title: '인프라',
+    desc: '서버·OS·네트워크',
     lessons: [
-      { id: '03', title: '하드웨어 — GPU 선택, 미니PC/워크스테이션/서버', dur: 17 },
-      { id: '04', title: 'OS·드라이버·컨테이너 — Ubuntu 24.04, NVIDIA, Docker', dur: 16 },
-      { id: '05', title: '네트워크·보안 — 사내망 격리, Reverse Proxy, mTLS, VPN', dur: 18 },
+      ['03', '하드웨어 — GPU 선택, 미니PC/워크스테이션/서버'],
+      ['04', 'OS·드라이버·컨테이너 — Ubuntu·NVIDIA·Docker'],
+      ['05', '네트워크·보안 — 사내망 격리, Reverse Proxy, mTLS'],
     ],
   },
   {
-    title: '3편. 모델·추론 엔진',
-    desc: '무료 LLM 총망라 + 한국어 특화 + 양자화',
+    part: '3편',
+    title: '모델·추론 엔진',
+    desc: '무료 LLM·한국어·양자화',
     lessons: [
-      { id: '06', title: '무료 LLM 비교 — Llama 3.3, Qwen 2.5, Mistral, DeepSeek, GPT-OSS', dur: 19 },
-      { id: '07', title: '한국어 특화 — Solar, EXAONE, KULLM, Bllossom', dur: 15 },
-      { id: '08', title: '추론 엔진 — Ollama, vLLM, llama.cpp, TGI + 양자화', dur: 18 },
+      ['06', '무료 LLM 비교 — Llama, Qwen, Mistral, DeepSeek, GPT-OSS'],
+      ['07', '한국어 특화 — Solar, EXAONE, KULLM, Bllossom'],
+      ['08', '추론 엔진 — Ollama, vLLM, llama.cpp, TGI + 양자화'],
     ],
   },
   {
-    title: '4편. 챗봇·RAG 플랫폼',
-    desc: '사내 직원이 매일 쓰는 UI 구축',
+    part: '4편',
+    title: '챗봇·RAG 플랫폼',
+    desc: '사내 직원이 매일 쓰는 UI',
     lessons: [
-      { id: '09', title: '사내 챗봇 UI — Open WebUI, Dify, LibreChat, AnythingLLM', dur: 17 },
-      { id: '10', title: 'RAG — LlamaIndex, Qdrant, 사내 문서 학습', dur: 18 },
-      { id: '11', title: 'MCP — ERP·메일·CAD·문서 시스템 연결', dur: 16 },
+      ['09', '사내 챗봇 UI — Open WebUI, Dify, LibreChat, AnythingLLM'],
+      ['10', 'RAG — LlamaIndex, Qdrant, 사내 문서 학습'],
+      ['11', 'MCP — ERP·메일·CAD·문서 시스템 연결'],
     ],
   },
   {
-    title: '5편. 에이전트 기초·생태계',
-    desc: 'Claude Code·OpenCode·Cline 등 자율 에이전트',
+    part: '5편',
+    title: '에이전트 기초·생태계',
+    desc: '자율 에이전트 핵심',
     star: true,
     lessons: [
-      { id: '12', title: '에이전트란 무엇인가 — 챗봇과의 차이, 4요소(도구·자율·메모리·하네스)', dur: 14 },
-      { id: '13', title: '공식 에이전트 Claude Code — 권한 모드, 슬래시 커맨드, 일상 활용', dur: 17 },
-      { id: '14', title: '오픈 에이전트 총망라 — OpenCode, Cline, Aider, Roo Code, Continue.dev 비교', dur: 18 },
+      ['12', '에이전트란 무엇인가 — 챗봇과의 차이, 4요소'],
+      ['13', '공식 에이전트 Claude Code — 권한·슬래시 커맨드'],
+      ['14', '오픈 에이전트 총망라 — OpenCode, Cline, Aider, Roo Code'],
     ],
   },
   {
-    title: '6편. 하네스 엔지니어링',
+    part: '6편',
+    title: '하네스 엔지니어링',
     desc: '회사 정책을 코드로 자동 적용',
     star: true,
     lessons: [
-      { id: '15', title: 'settings.json — 권한·환경변수·모델·토큰 한도', dur: 14 },
-      { id: '16', title: 'Hooks — PreToolUse/PostToolUse/Stop/UserPromptSubmit으로 정책 자동 적용', dur: 17 },
-      { id: '17', title: 'Skills·Slash Commands·MCP — 부서 도메인 지식 패키징', dur: 16 },
+      ['15', 'settings.json — 권한·환경변수·모델·토큰 한도'],
+      ['16', 'Hooks — PreToolUse/PostToolUse로 정책 자동 적용'],
+      ['17', 'Skills·Slash Commands·MCP — 부서 도메인 지식 패키징'],
     ],
   },
   {
-    title: '7편. 사내 에이전트 배포·운영',
-    desc: '직원 전체에게 에이전트를 안전하게 배포',
+    part: '7편',
+    title: '사내 에이전트 배포·운영',
+    desc: '직원 전체에게 안전하게 배포',
     star: true,
     lessons: [
-      { id: '18', title: '부서별 권한 매트릭스 — 영업/설계/생산 부서별 도구·데이터 격리', dur: 16 },
-      { id: '19', title: '위험 차단 안전장치 — git push·rm·DB DROP 금지 hook, 비용 한도', dur: 15 },
-      { id: '20', title: '에이전트 백업·감사 — 모든 변경 로깅, 30분 단위 스냅샷, 롤백', dur: 16 },
-      { id: '21', title: '사내 에이전트 카탈로그 — 견적·8D·설계 RAG·번역 봇 마켓플레이스', dur: 17 },
+      ['18', '부서별 권한 매트릭스 — 영업/설계/생산 도구·데이터 격리'],
+      ['19', '위험 차단 안전장치 — 위험 명령 차단·비용 한도'],
+      ['20', '에이전트 백업·감사 — 변경 로깅·스냅샷·롤백'],
+      ['21', '사내 에이전트 카탈로그 — 부서별 봇 마켓플레이스'],
     ],
   },
   {
-    title: '8편. 자체 에이전트 만들기',
-    desc: 'Claude Agent SDK로 회사 전용 에이전트 개발',
+    part: '8편',
+    title: '자체 에이전트 만들기',
+    desc: '회사 전용 에이전트 개발',
     lessons: [
-      { id: '22', title: 'Claude Agent SDK 기본 — Tool definition, Memory', dur: 18 },
-      { id: '23', title: '실전 — 견적 자동화 에이전트 (수주 메일 → 사양 → BOM → 견적서)', dur: 22 },
+      ['22', 'Claude Agent SDK 기본 — Tool, Memory'],
+      ['23', '실전 — 견적 자동화 에이전트 (메일→사양→BOM→견적서)'],
     ],
   },
   {
-    title: '9편. 보안·권한·감사',
-    desc: '엔터프라이즈급 보안 적용',
+    part: '9편',
+    title: '보안·권한·감사',
+    desc: '엔터프라이즈급 보안',
     lessons: [
-      { id: '24', title: '데이터 보안 — 공개/내부/기밀/극비 분류, PII 마스킹, 데이터 격리', dur: 17 },
-      { id: '25', title: 'LLM 보안 — 프롬프트 인젝션 방어, 데이터 유출 차단, 모델 탈옥 방지', dur: 18 },
-      { id: '26', title: '키 관리·감사 — Vault, sops, API 키 로테이션, ELK/Grafana 감사', dur: 16 },
+      ['24', '데이터 보안 — 분류, PII 마스킹, 데이터 격리'],
+      ['25', 'LLM 보안 — 프롬프트 인젝션·데이터 유출·탈옥 방지'],
+      ['26', '키 관리·감사 — Vault·sops·ELK/Grafana'],
     ],
   },
   {
-    title: '10편. 백업·재해 복구',
+    part: '10편',
+    title: '백업·재해 복구',
     desc: '운영 안정성',
     lessons: [
-      { id: '27', title: '백업 — RAG DB 스냅샷, 대화 이력, 모델·가중치, Git', dur: 15 },
-      { id: '28', title: 'DR 시나리오 — 정전·장애·랜섬웨어 대응, RPO/RTO', dur: 16 },
+      ['27', '백업 — RAG DB·대화 이력·모델·Git'],
+      ['28', 'DR 시나리오 — 정전·장애·랜섬웨어·RPO/RTO'],
     ],
   },
   {
-    title: '11편. 관리자 운영·효용성·최적화',
-    desc: '도입 후 운영 KPI·Fine-tuning',
+    part: '11편',
+    title: '관리자 운영·효용성·최적화',
+    desc: '도입 후 운영·Fine-tuning',
     lessons: [
-      { id: '29', title: '권한·온보딩·KPI — RBAC, SSO, 신규 직원 자동 셋업, ROI 대시보드', dur: 17 },
-      { id: '30', title: 'Fine-tuning·비용 모니터링 — LoRA·QLoRA·Unsloth, 토큰·GPU 비용 추적', dur: 19 },
+      ['29', '권한·온보딩·KPI — RBAC, SSO, ROI 대시보드'],
+      ['30', 'Fine-tuning·비용 모니터링 — LoRA·QLoRA·Unsloth'],
     ],
   },
 ]
 
-const totalLessons = sections.reduce((s, sec) => s + sec.lessons.length, 0)
-const totalMins = sections.reduce((s, sec) => s + sec.lessons.reduce((a, l) => a + l.dur, 0), 0)
+const totalLessons = SECTIONS.reduce((s, sec) => s + sec.lessons.length, 0)
 
 export default function BuildAiCourse() {
   return (
-    <div className="min-h-screen bg-background">
-      <section className="pt-28 pb-12 px-6 bg-background" style={{ background: 'radial-gradient(ellipse at top right, color-mix(in oklch, var(--primary) 18%, transparent) 0%, var(--background) 60%)' }}>
-        <div className="max-w-5xl mx-auto">
-          <Link href="/ai-solution" className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground text-sm mb-6">
-            <ArrowLeft className="w-4 h-4" /> 기업 AI 도입 및 컨설팅으로
-          </Link>
-          <div className="text-xs font-bold text-primary mb-3">COURSE 02 · 구축 트랙</div>
-          <h1 className="text-3xl md:text-4xl font-black text-foreground mb-4 leading-tight">
+    <div className="min-h-screen pt-28 pb-24 bg-background">
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
+
+        {/* Breadcrumb */}
+        <nav className="text-xs text-muted-foreground font-mono mb-6 tracking-wider">
+          <Link href="/ai-solution" className="hover:text-primary transition-colors">ENTERPRISE</Link>
+          <span className="mx-2 text-border">·</span>
+          <span className="text-primary">COURSE 02 · BUILD AI</span>
+        </nav>
+
+        {/* Hero */}
+        <div className="mb-10">
+          <p className="text-xs font-mono font-bold tracking-[0.3em] uppercase text-[var(--accent-cyan-text)] mb-3">
+            Course 02 · Build AI
+          </p>
+          <h1 className="text-4xl md:text-5xl font-black text-foreground mb-5 leading-tight tracking-tight">
             사내 AI 구축·운영 종합 가이드
           </h1>
-          <p className="text-lg text-muted-foreground mb-6">자체 호스팅·에이전트·보안·운영 — IT 담당자·관리자 대상</p>
-          <div className="flex flex-wrap gap-2">
-            <span className="text-sm bg-foreground/5 text-foreground px-3 py-1.5 rounded-full">📚 11편 {totalLessons}강</span>
-            <span className="text-sm bg-foreground/5 text-foreground px-3 py-1.5 rounded-full">⏱ 약 {Math.round(totalMins/60*10)/10}시간</span>
-            <span className="text-sm bg-foreground/5 text-foreground px-3 py-1.5 rounded-full">🎯 90일 안에 사내 AI 인프라 1차 가동</span>
-            <span className="text-sm bg-primary/10 text-primary px-3 py-1.5 rounded-full">무료 · 신용카드 불필요</span>
+          <p className="text-lg text-muted-foreground mb-5 max-w-2xl">
+            자체 호스팅·에이전트·보안·운영 — IT 담당자·관리자 대상
+          </p>
+          <div className="flex flex-wrap gap-2 text-xs font-mono">
+            <span className="px-3 py-1.5 rounded-full bg-primary/15 text-primary">⏱ 약 10시간</span>
+            <span className="px-3 py-1.5 rounded-full bg-muted text-muted-foreground">11편 {totalLessons}강</span>
+            <span className="px-3 py-1.5 rounded-full bg-muted text-muted-foreground">사내 출강</span>
           </div>
         </div>
-      </section>
 
-      <section className="py-12 px-6 bg-background">
-        <div className="max-w-5xl mx-auto space-y-8">
-          {sections.map((sec, i) => (
-            <div key={i} className={`rounded-2xl p-8 border ${sec.star ? 'bg-primary/5 border-primary/30' : 'bg-card border-border'}`}>
-              <div className="flex items-baseline gap-2 mb-1">
-                <h2 className="text-xl font-bold text-foreground">{sec.title}</h2>
-                {sec.star && <span className="text-xs text-primary font-bold">⭐ 핵심</span>}
+        {/* Authority */}
+        <p className="text-sm text-muted-foreground mb-12 font-mono">
+          기획 · <b className="text-foreground">visionc</b> · Claude Code Harness 공식 문서 + 무료 LLM·자율 에이전트 최신 생태계 기반
+        </p>
+
+        {/* Curriculum */}
+        <div className="mb-16">
+          <h2 className="text-xl md:text-2xl font-black text-foreground mb-6 tracking-tight">전체 커리큘럼</h2>
+          <div className="space-y-6">
+            {SECTIONS.map((sec) => (
+              <div
+                key={sec.part}
+                className={`rounded-2xl border-2 p-6 ${sec.star ? 'border-primary/40 bg-primary/5' : 'border-foreground/15 bg-card'}`}
+              >
+                <div className="flex items-baseline gap-3 mb-1 flex-wrap">
+                  <span className="text-xs font-mono font-bold text-primary tracking-wider">{sec.part}</span>
+                  <h3 className="text-lg font-black text-foreground tracking-tight">{sec.title}</h3>
+                  {sec.star && <span className="text-xs text-primary font-bold">⭐ 핵심</span>}
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">{sec.desc}</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                  {sec.lessons.map(([num, title]) => (
+                    <div key={num} className="flex items-start gap-3 p-3 rounded-xl bg-background/50">
+                      <span className="text-xs font-mono font-bold text-muted-foreground mt-0.5">{num}</span>
+                      <span className="text-sm text-foreground">{title}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <p className="text-sm text-muted-foreground mb-5">{sec.desc}</p>
-              <ul className="divide-y divide-border">
-                {sec.lessons.map((l, j) => (
-                  <li key={j} className="py-4 flex items-center justify-between gap-4">
-                    <div className="flex items-center gap-4 min-w-0">
-                      <span className="text-xs font-bold text-muted-foreground w-8 shrink-0">{l.id}</span>
-                      <span className="text-foreground text-sm">{l.title}</span>
-                    </div>
-                    <div className="flex items-center gap-3 shrink-0">
-                      <span className="text-xs text-muted-foreground flex items-center gap-1"><Clock className="w-3 h-3" /> {l.dur}분</span>
-                      <span className="text-xs bg-foreground/5 text-muted-foreground px-2 py-0.5 rounded-full">곧 공개</span>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </section>
 
-      <section className="py-20 px-6 bg-secondary">
-        <div className="max-w-3xl mx-auto text-center">
-          <ShieldCheck className="w-12 h-12 text-primary mx-auto mb-4" />
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">자체 구축 컨설팅이 필요하다면</h2>
-          <p className="text-muted-foreground mb-8">강좌만으로도 충분히 1차 도입 가능합니다. 도면·고객 데이터·MES 연동 등 보안·신뢰성이 중요하다면 풀서비스 컨설팅을 권장합니다.</p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all">
-            <Briefcase className="w-5 h-5" /> 무료 도입 진단 신청
+        {/* Downloads */}
+        <EnterpriseDownloadClient
+          slidesKey="build-ai-slides"
+          notesKey="build-ai-speaker-notes"
+          slidesDesc="11편 30강 강의용 통합 PPT 슬라이드. 아키텍처 다이어그램·실습 명령어·체크리스트 포함."
+          notesDesc="강사용 상세 가이드. 강의별 멘트·실습 환경 셋업·트러블슈팅·시간 배분 포함."
+        />
+
+        {/* Bottom — back link */}
+        <div className="mt-12 text-center">
+          <Link href="/ai-solution" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground font-mono">
+            ← 기업 AI 도입 및 컨설팅으로
           </Link>
         </div>
-      </section>
+      </div>
     </div>
   )
 }

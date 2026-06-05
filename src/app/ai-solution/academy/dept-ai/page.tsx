@@ -1,130 +1,151 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowLeft, Clock, GraduationCap } from 'lucide-react'
+import EnterpriseDownloadClient from './EnterpriseDownloadClient'
 
 export const metadata: Metadata = {
-  title: '부서별로 일하는 AI — 중소기업 LLM 활용법 (15강) | Vision Solution',
-  description: '중소기업 부서별 LLM 활용 완성 가이드. 영업·마케팅·생산·품질·설계·인사·회계까지 일상 업무 30% 시간 절감. 무료 5편 15강.',
+  title: 'Course 01 · 부서별로 일하는 AI — visionc Enterprise',
+  description: '사내 출강 강좌. 중소기업 부서별 LLM 활용법 (5편 15강). 영업·마케팅·생산·품질·설계·인사·회계 부서별 일상 업무 30% 시간 절감.',
+  keywords: ['기업 AI 도입', '사내 AI 강좌', '부서별 AI 활용', 'LLM 사내 출강', '중소기업 AI 교육'],
   alternates: { canonical: '/ai-solution/academy/dept-ai' },
   openGraph: {
-    title: '부서별로 일하는 AI — 중소기업 LLM 활용법 (15강)',
-    description: '중소기업 부서별 LLM 활용 완성 가이드. 무료 5편 15강. 부서별 프롬프트 300+개 포함.',
+    title: 'Course 01 · 부서별로 일하는 AI',
+    description: '사내 출강 강좌. 중소기업 부서별 LLM 활용법 (5편 15강).',
     url: 'https://visionc.co.kr/ai-solution/academy/dept-ai',
     siteName: 'Vision Solution',
-    images: [{ url: '/api/og', width: 1200, height: 630, alt: '부서별로 일하는 AI' }],
     locale: 'ko_KR',
     type: 'website',
   },
 }
 
-const sections = [
+const SECTIONS = [
   {
-    title: '1편. 기반 다지기',
+    part: '1편',
+    title: '기반 다지기',
     desc: '전 직원 공통 — AI 도입의 첫걸음',
     lessons: [
-      { id: '01', title: '우리 회사가 LLM으로 얻을 수 있는 것 — 도입 ROI 사례', dur: 14 },
-      { id: '02', title: '프롬프트 기본기 + 데이터·기밀 보안 가이드라인', dur: 16 },
+      ['01', '우리 회사가 LLM으로 얻을 수 있는 것 — 도입 ROI 사례'],
+      ['02', '프롬프트 기본기 + 데이터·기밀 보안 가이드라인'],
     ],
   },
   {
-    title: '2편. 전 부서 공통 실전 활용',
-    desc: '도입 첫 주에 효과 체감되는 가장 강력한 영역',
+    part: '2편',
+    title: '전 부서 공통 실전 활용',
+    desc: '도입 첫 주에 효과 체감되는 영역',
     lessons: [
-      { id: '03', title: '문서 자동화 — 회의록·보고서·이메일·업무 일지', dur: 15 },
-      { id: '04', title: '데이터·정보 처리 — 엑셀·PDF·매뉴얼 검색·뉴스 요약', dur: 14 },
-      { id: '05', title: '해외 업무 지원 — 영문 메일·계약서·기술문서 번역·응대', dur: 13 },
+      ['03', '문서 자동화 — 회의록·보고서·이메일·업무 일지'],
+      ['04', '데이터·정보 처리 — 엑셀·PDF·매뉴얼 검색·뉴스 요약'],
+      ['05', '해외 업무 지원 — 영문 메일·계약서·기술문서 번역·응대'],
     ],
   },
   {
-    title: '3편. 코어 부서 — 업종별 적용',
+    part: '3편',
+    title: '코어 부서 — 업종별 적용',
     desc: '제조·유통·서비스·IT 사례 박스 포함',
     lessons: [
-      { id: '06', title: '생산·운영 — SOP·일보·트러블슈팅', dur: 17 },
-      { id: '07', title: '품질·검수 — 8D·5 Why·FMEA·클레임 분류', dur: 16 },
-      { id: '08', title: '설계·기획 — 사양서·BOM·특허 RAG·변경 이력', dur: 18 },
-      { id: '09', title: '구매·조달 — 견적 비교·계약 검토·단가 분석', dur: 14 },
+      ['06', '생산·운영 — SOP·일보·트러블슈팅'],
+      ['07', '품질·검수 — 8D·5 Why·FMEA·클레임 분류'],
+      ['08', '설계·기획 — 사양서·BOM·특허 RAG·변경 이력'],
+      ['09', '구매·조달 — 견적 비교·계약 검토·단가 분석'],
     ],
   },
   {
-    title: '4편. 지원 부서',
+    part: '4편',
+    title: '지원 부서',
     desc: '모든 회사 공통 — 즉시 도입 가능',
     lessons: [
-      { id: '10', title: '영업 — B2B 견적·제안서·CRM 응대', dur: 15 },
-      { id: '11', title: '마케팅 — 카탈로그·콘텐츠·SEO', dur: 14 },
-      { id: '12', title: '인사/총무 — 채용·교육·사규 Q&A', dur: 13 },
-      { id: '13', title: '회계·CS — 거래 분류·세무·클레임 응대', dur: 14 },
+      ['10', '영업 — B2B 견적·제안서·CRM 응대'],
+      ['11', '마케팅 — 카탈로그·콘텐츠·SEO'],
+      ['12', '인사/총무 — 채용·교육·사규 Q&A'],
+      ['13', '회계·CS — 거래 분류·세무·클레임 응대'],
     ],
   },
   {
-    title: '5편. 수주형 비즈니스 통합 흐름',
-    desc: '견적→설계→납품 전 과정을 AI로 통합',
+    part: '5편',
+    title: '수주형 비즈니스 통합 흐름',
+    desc: '견적→설계→납품 전 과정 AI 통합',
     lessons: [
-      { id: '14', title: '견적→설계→납품 통합 파이프라인', dur: 18 },
-      { id: '15', title: '우리 회사 전용 AI 만들기 — Claude Projects 기초', dur: 16 },
+      ['14', '견적→설계→납품 통합 파이프라인'],
+      ['15', '우리 회사 전용 AI 만들기 — Claude Projects 기초'],
     ],
   },
 ]
 
-const totalLessons = sections.reduce((s, sec) => s + sec.lessons.length, 0)
-const totalMins = sections.reduce((s, sec) => s + sec.lessons.reduce((a, l) => a + l.dur, 0), 0)
+const totalLessons = SECTIONS.reduce((s, sec) => s + sec.lessons.length, 0)
 
 export default function DeptAiCourse() {
   return (
-    <div className="min-h-screen bg-background">
-      <section className="pt-28 pb-12 px-6 bg-background" style={{ background: 'radial-gradient(ellipse at top right, color-mix(in oklch, var(--primary) 18%, transparent) 0%, var(--background) 60%)' }}>
-        <div className="max-w-5xl mx-auto">
-          <Link href="/ai-solution" className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground text-sm mb-6">
-            <ArrowLeft className="w-4 h-4" /> 기업 AI 도입 및 컨설팅으로
-          </Link>
-          <div className="text-xs font-bold text-primary mb-3">COURSE 01 · 활용 트랙</div>
-          <h1 className="text-3xl md:text-4xl font-black text-foreground mb-4 leading-tight">
+    <div className="min-h-screen pt-28 pb-24 bg-background">
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
+
+        {/* Breadcrumb */}
+        <nav className="text-xs text-muted-foreground font-mono mb-6 tracking-wider">
+          <Link href="/ai-solution" className="hover:text-primary transition-colors">ENTERPRISE</Link>
+          <span className="mx-2 text-border">·</span>
+          <span className="text-primary">COURSE 01 · DEPARTMENT AI</span>
+        </nav>
+
+        {/* Hero */}
+        <div className="mb-10">
+          <p className="text-xs font-mono font-bold tracking-[0.3em] uppercase text-[var(--accent-cyan-text)] mb-3">
+            Course 01 · Department AI
+          </p>
+          <h1 className="text-4xl md:text-5xl font-black text-foreground mb-5 leading-tight tracking-tight">
             부서별로 일하는 AI
           </h1>
-          <p className="text-lg text-muted-foreground mb-6">중소기업 LLM 활용법 — 일반 직원·관리자 대상</p>
-          <div className="flex flex-wrap gap-2">
-            <span className="text-sm bg-foreground/5 text-foreground px-3 py-1.5 rounded-full">📚 5편 {totalLessons}강</span>
-            <span className="text-sm bg-foreground/5 text-foreground px-3 py-1.5 rounded-full">⏱ 약 {Math.round(totalMins/60*10)/10}시간</span>
-            <span className="text-sm bg-foreground/5 text-foreground px-3 py-1.5 rounded-full">🎯 도입 30일 안에 시간 30% 절감</span>
-            <span className="text-sm bg-primary/10 text-primary px-3 py-1.5 rounded-full">무료 · 신용카드 불필요</span>
+          <p className="text-lg text-muted-foreground mb-5 max-w-2xl">
+            중소기업 LLM 활용법 — 일반 직원·관리자 대상
+          </p>
+          <div className="flex flex-wrap gap-2 text-xs font-mono">
+            <span className="px-3 py-1.5 rounded-full bg-primary/15 text-primary">⏱ 약 4시간</span>
+            <span className="px-3 py-1.5 rounded-full bg-muted text-muted-foreground">5편 {totalLessons}강</span>
+            <span className="px-3 py-1.5 rounded-full bg-muted text-muted-foreground">사내 출강</span>
           </div>
         </div>
-      </section>
 
-      <section className="py-12 px-6 bg-background">
-        <div className="max-w-5xl mx-auto space-y-8">
-          {sections.map((sec, i) => (
-            <div key={i} className="bg-card rounded-2xl border border-border p-8">
-              <h2 className="text-xl font-bold text-foreground mb-1">{sec.title}</h2>
-              <p className="text-sm text-muted-foreground mb-5">{sec.desc}</p>
-              <ul className="divide-y divide-border">
-                {sec.lessons.map((l, j) => (
-                  <li key={j} className="py-4 flex items-center justify-between gap-4">
-                    <div className="flex items-center gap-4 min-w-0">
-                      <span className="text-xs font-bold text-muted-foreground w-8 shrink-0">{l.id}</span>
-                      <span className="text-foreground text-sm truncate">{l.title}</span>
+        {/* Authority */}
+        <p className="text-sm text-muted-foreground mb-12 font-mono">
+          기획 · <b className="text-foreground">visionc</b> · 중소기업 도입 사례 + Anthropic Skilljar 한글화 기반
+        </p>
+
+        {/* Curriculum */}
+        <div className="mb-16">
+          <h2 className="text-xl md:text-2xl font-black text-foreground mb-6 tracking-tight">전체 커리큘럼</h2>
+          <div className="space-y-6">
+            {SECTIONS.map((sec) => (
+              <div key={sec.part} className="rounded-2xl border-2 border-foreground/15 bg-card p-6">
+                <div className="flex items-baseline gap-3 mb-1">
+                  <span className="text-xs font-mono font-bold text-primary tracking-wider">{sec.part}</span>
+                  <h3 className="text-lg font-black text-foreground tracking-tight">{sec.title}</h3>
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">{sec.desc}</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                  {sec.lessons.map(([num, title]) => (
+                    <div key={num} className="flex items-start gap-3 p-3 rounded-xl bg-background/50">
+                      <span className="text-xs font-mono font-bold text-muted-foreground mt-0.5">{num}</span>
+                      <span className="text-sm text-foreground">{title}</span>
                     </div>
-                    <div className="flex items-center gap-3 shrink-0">
-                      <span className="text-xs text-muted-foreground flex items-center gap-1"><Clock className="w-3 h-3" /> {l.dur}분</span>
-                      <span className="text-xs bg-foreground/5 text-muted-foreground px-2 py-0.5 rounded-full">곧 공개</span>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-      </section>
 
-      <section className="py-20 px-6 bg-secondary">
-        <div className="max-w-3xl mx-auto text-center">
-          <GraduationCap className="w-12 h-12 text-primary mx-auto mb-4" />
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">강좌 공개 알림 받기</h2>
-          <p className="text-muted-foreground mb-8">1편(2강)부터 순차 공개됩니다. 공개 일정 알림과 도입 진단 1시간 무료 혜택을 함께 받으시려면 문의 주세요.</p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all">
-            문의하기
+        {/* Downloads */}
+        <EnterpriseDownloadClient
+          slidesKey="dept-ai-slides"
+          notesKey="dept-ai-speaker-notes"
+          slidesDesc="5편 15강 강의용 통합 PPT 슬라이드. 부서별 사례·체크리스트·복붙 프롬프트 포함."
+          notesDesc="강사용 상세 가이드. 강의별 멘트·실습 안내·청중 질문 포인트·시간 배분 포함."
+        />
+
+        {/* Bottom — back link */}
+        <div className="mt-12 text-center">
+          <Link href="/ai-solution" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground font-mono">
+            ← 기업 AI 도입 및 컨설팅으로
           </Link>
         </div>
-      </section>
+      </div>
     </div>
   )
 }

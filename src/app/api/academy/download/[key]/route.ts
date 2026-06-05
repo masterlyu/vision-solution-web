@@ -5,14 +5,38 @@ import { verifyAcademyCookie } from '../../auth/route'
 
 const COOKIE_NAME = 'visionc_academy_auth'
 
-const DOWNLOADS: Record<string, { file: string; filename: string }> = {
+type Entry = { file: string; filename: string; mime: string }
+
+const DOWNLOADS: Record<string, Entry> = {
   'lv1-speaker-notes': {
     file: 'src/storage/academy/lv1-speaker-notes.pdf',
     filename: 'visionc-academy-lv1-speaker-notes.pdf',
+    mime: 'application/pdf',
   },
   'lv2-speaker-notes': {
     file: 'src/storage/academy/lv2-speaker-notes.pdf',
     filename: 'visionc-academy-lv2-speaker-notes.pdf',
+    mime: 'application/pdf',
+  },
+  'dept-ai-slides': {
+    file: 'src/storage/academy/dept-ai-slides.pptx',
+    filename: 'visionc-enterprise-dept-ai-slides.pptx',
+    mime: 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+  },
+  'dept-ai-speaker-notes': {
+    file: 'src/storage/academy/dept-ai-speaker-notes.pdf',
+    filename: 'visionc-enterprise-dept-ai-speaker-notes.pdf',
+    mime: 'application/pdf',
+  },
+  'build-ai-slides': {
+    file: 'src/storage/academy/build-ai-slides.pptx',
+    filename: 'visionc-enterprise-build-ai-slides.pptx',
+    mime: 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+  },
+  'build-ai-speaker-notes': {
+    file: 'src/storage/academy/build-ai-speaker-notes.pdf',
+    filename: 'visionc-enterprise-build-ai-speaker-notes.pdf',
+    mime: 'application/pdf',
   },
 }
 
@@ -37,7 +61,7 @@ export async function GET(
     return new NextResponse(new Uint8Array(data), {
       status: 200,
       headers: {
-        'Content-Type': 'application/pdf',
+        'Content-Type': entry.mime,
         'Content-Disposition': `attachment; filename="${entry.filename}"`,
         'Cache-Control': 'private, no-store',
       },

@@ -3,6 +3,57 @@
 
 ---
 
+## [2026-06-05] — "기업 AI 도입 및 컨설팅" 페이지 단순화 + 사내 출강 강좌 자료 잠금
+
+### 개요
+2026-06-05 1차 작업("무료 강좌" 톤으로 추가)이 사령관님 의도와 어긋난 부분을 정정.
+- /academy LV1~LV8 = 무료 강의 (기존 유지)
+- /ai-solution = **유료 컨설팅·사내 출강 영업 페이지**
+- 사내 출강 강좌는 커리큘럼만 공개, **PPT·스피커 노트는 비밀번호로 보호 다운로드**
+
+### 변경 사항
+
+#### 1. ai-solution 페이지 단순화
+- "두 갈래 진입" 섹션 제거 (강좌/컨설팅 분리 안 함)
+- 무료/수료증/신용카드 표현 모두 제거
+- 강좌 트랙 섹션을 단순 카드 2개(커리큘럼 보기 링크)로 축약
+- 히어로 CTA를 "무료 AI 도입 분석 신청" 단일로 단순화
+- FAQ에서 강좌-컨설팅 관계 명시 (별도 운영, 함께 진행 시 할인)
+- layout 메타데이터 단순화 ("무료 강좌 + 실행 컨설팅" 톤 제거)
+
+#### 2. dept-ai, build-ai 페이지를 academy/lv1·lv2 스타일로 재작성
+- breadcrumb (mono font): ENTERPRISE · COURSE 01·02
+- 큰 영문 라벨 + 큰 한글 h1 + 메타 칩
+- 편 단위 섹션 카드 + 강의 그리드 (15강·30강 전체 커리큘럼 공개)
+- 하단에 EnterpriseDownloadClient (잠금 다운로드)
+
+#### 3. 잠금 다운로드 구조 — PPT도 비밀번호 필요
+- `src/app/api/academy/download/[key]/route.ts`: 키 4개 추가 + content-type 분기
+  - `dept-ai-slides` (.pptx), `dept-ai-speaker-notes` (.pdf)
+  - `build-ai-slides` (.pptx), `build-ai-speaker-notes` (.pdf)
+- `src/app/ai-solution/academy/{dept-ai,build-ai}/EnterpriseDownloadClient.tsx` (신규)
+  - academy/lv1 AcademyDownloadClient와 동일 패턴 (POST /api/academy/auth 인증 후 다운로드)
+  - 차이점: **PPT도 비밀번호 잠금** (lv1·lv2는 PPT는 공개)
+  - 패스워드: env.ACADEMY_PASSWORD 또는 기본값 "visioncDown"
+
+#### 4. services.json (llms.txt 데이터) 정정
+- "무료 강좌" 표현 제거 → "사내 출강 강좌(커리큘럼 공개, 자료는 비밀번호 보호)"로 정정
+- 솔루션 범위·기술 스택 등 컨설팅 영업 관점에서 재정리
+
+### 파일 추가 (자료 업로드 대기)
+- `src/storage/academy/dept-ai-slides.pptx` ← 업로드 필요
+- `src/storage/academy/dept-ai-speaker-notes.pdf` ← 업로드 필요
+- `src/storage/academy/build-ai-slides.pptx` ← 업로드 필요
+- `src/storage/academy/build-ai-speaker-notes.pdf` ← 업로드 필요
+- 자료 부재 시 다운로드 시도하면 500 "file not available" 반환 (현재 상태)
+
+### 영향
+- /ai-solution URL 보존 (SEO 영향 없음)
+- /ai-solution/academy/dept-ai, /build-ai URL 보존
+- 메뉴 라벨("기업 AI 도입 및 컨설팅")은 그대로 유지
+
+---
+
 ## [2026-06-05] — "기업 AI 도입 및 컨설팅" 페이지 재구성 + 무료 강좌 트랙 신설
 
 ### 개요
