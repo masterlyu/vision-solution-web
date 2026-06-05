@@ -44,7 +44,7 @@ function BlurWord({ word, trigger }: { word: string; trigger: number }) {
   }, [trigger])
 
   return (
-    <span className="inline-flex">
+    <span className="inline-flex" style={{ whiteSpace: 'nowrap' }}>
       {letterStates.map((s, i) => (
         <span key={i} style={{ opacity: s.opacity, filter: `blur(${s.blur}px)`, display: 'inline-block' }}>
           {letters[i]}

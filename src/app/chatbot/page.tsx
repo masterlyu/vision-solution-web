@@ -250,7 +250,7 @@ export default function ChatbotPage() {
           </div>
 
           {/* 코드 미리보기 */}
-          <div className="mt-10 bg-[var(--code-bg,theme(colors.zinc.900))] border border-border rounded-2xl p-6">
+          <div className="mt-10 bg-[var(--code-bg,theme(colors.zinc.900))] border border-border rounded-2xl p-6 overflow-x-auto">
             <p className="text-xs text-muted-foreground mb-3 font-mono">// 받은 코드를 여기에 붙여넣기만 하면 끝 (홈페이지 관리자에게 전달)</p>
             <div className="font-mono text-sm space-y-1">
               <p><span className="text-muted-foreground/70">&lt;script&gt;</span></p>
