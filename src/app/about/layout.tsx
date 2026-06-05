@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
 
-const title = 'Vision Solution 소개 | 중소기업 IT 파트너'
-const description = '2020년 창업, 200+ 프로젝트 완료. 연락 두절 없는 IT 파트너. 48시간 안에 리포트로 먼저 드립니다.'
+const title = '회사 소개 — AI 도입 동반자 | Vision Solution'
+const description = '2007년 설립, 누적 247건+ 프로젝트. 중소기업 AI 도입·컨설팅·사내 출강 교육·구축·운영을 한 곳에서. 부서별 LLM 활용부터 사내 인프라 구축까지.'
 
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
-  keywords: ['(주)비젼솔루션', 'Vision Solution', '중소기업 IT', '홈페이지 제작 회사', 'IT 솔루션'],
+  keywords: ['(주)비젼솔루션', 'Vision Solution', '중소기업 AI 도입', 'AI 컨설팅', 'AI 사내 출강', 'visionc Enterprise Academy', 'LLM 도입', 'IT 솔루션'],
   alternates: { canonical: '/about' },
   openGraph: {
     title,
