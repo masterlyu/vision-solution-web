@@ -3,7 +3,6 @@ import dynamic from 'next/dynamic'
 import { useState, useEffect, useRef } from 'react'
 import { motion, useMotionValue, useSpring, useTransform, useInView } from 'framer-motion'
 import Link from 'next/link'
-import RenewalRequestForm from '@/components/RenewalRequestForm'
 import historyData from '../../../content/company/history.json'
 import clientsData from '../../../content/company/clients.json'
 import certificationsData from '../../../content/company/certifications.json'
@@ -622,7 +621,7 @@ export default function AboutPage() {
           <FadeInSection>
             {/* VISI cheering */}
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 24 }}>
-              <Mascot pose="cheer" category="emotion" size="sm" className="h-32 w-auto" bubble="48시간 안에 리포트 드려요!" bubbleDir="left" />
+              <Mascot pose="cheer" category="emotion" size="sm" className="h-32 w-auto" bubble="AI 도입, 같이 시작해요!" bubbleDir="left" />
             </div>
 
             {/* Urgency badge */}
@@ -635,7 +634,7 @@ export default function AboutPage() {
                 border: '1px solid color-mix(in oklch, var(--primary) 40%, transparent)',
               }}>
                 <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--primary-light)', display: 'inline-block' }} />
-                지금 이 순간도
+                지금 시작하세요
               </span>
             </div>
 
@@ -643,21 +642,14 @@ export default function AboutPage() {
               fontSize: 'clamp(1.6rem, 4vw, 2.6rem)', fontWeight: 900, letterSpacing: '-0.02em',
               maxWidth: 700, margin: '0 auto 18px',
             }}>
-              경쟁사 홈페이지가<br />
-              <span style={{ color: 'var(--primary-light)' }}>고객을 가로채고 있을 수 있습니다.</span>
+              AI 도입, 어디부터 시작할지<br />
+              <span style={{ color: 'var(--primary-light)' }}>막막하지 않으셔도 됩니다.</span>
             </h2>
 
-            <p style={{ color: 'var(--muted-foreground)', maxWidth: 520, margin: '0 auto 44px', fontSize: '1.05rem', lineHeight: 1.7 }}>
-              무료 상담으로 우리 사이트의 문제점부터 진단받으세요.<br />
-              <strong style={{ color: 'var(--foreground)' }}>48시간 안에 리포트를 드립니다.</strong>
+            <p style={{ color: 'var(--muted-foreground)', maxWidth: 560, margin: '0 auto 44px', fontSize: '1.05rem', lineHeight: 1.7 }}>
+              업무 진단부터 도입 우선순위 설계까지 — 1시간 상담으로 우리 회사에 맞는 AI 로드맵을 그려 드립니다.<br />
+              <strong style={{ color: 'var(--foreground)' }}>컨설팅·구축·사내 출강 교육</strong>을 한 팀이 끝까지 책임집니다.
             </p>
-
-            <div style={{ marginBottom: 28 }}>
-              <RenewalRequestForm
-                title="무료 상담 신청"
-                notice="전문가가 직접 검토 후 48시간 내 이메일로 연락드립니다."
-              />
-            </div>
 
             {/* CTA #3 */}
             <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 28 }}>
@@ -667,21 +659,21 @@ export default function AboutPage() {
                 padding: '16px 40px', borderRadius: 10,
                 fontSize: '1.05rem', fontWeight: 700, textDecoration: 'none',
               }}>
-                무료 상담 신청하기 →
+                💼 도입 상담 신청 →
               </Link>
-              <Link href="/" style={{
+              <Link href="/ai-solution/academy/dept-ai" style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8,
                 background: 'transparent', color: 'var(--primary-light)',
                 padding: '16px 40px', borderRadius: 10,
                 fontSize: '1.05rem', fontWeight: 700, textDecoration: 'none',
                 border: '1.5px solid color-mix(in oklch, var(--primary) 55%, transparent)',
               }}>
-                서비스 둘러보기
+                🎓 사내 출강 강좌 보기
               </Link>
             </div>
 
             <p style={{ fontSize: '0.84rem', color: 'var(--muted-foreground)' }}>
-              📞 평일 09:00~18:00 &nbsp;|&nbsp; 카카오톡 문의 가능 &nbsp;|&nbsp; 주말 응급 연락 가능
+              📞 평일 09:00~18:00 &nbsp;|&nbsp; 카카오톡 문의 가능 &nbsp;|&nbsp; biztalktome@gmail.com
             </p>
           </FadeInSection>
         </div>
