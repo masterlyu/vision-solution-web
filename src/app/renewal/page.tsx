@@ -314,6 +314,71 @@ export default function RenewalPage() {
         </div>
       </section>
 
+      {/* ── 운영·유지보수 플랜 (구 /maintenance 통합) ── */}
+      <section id="maintenance" className="py-20 px-6 bg-card scroll-mt-24">
+        <div className="max-w-6xl mx-auto">
+          <p className="text-xs font-black uppercase tracking-[0.15em] mb-2 text-primary">
+            Maintenance
+          </p>
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">납품 이후의 운영·유지보수 플랜</h2>
+          <p className="text-muted-foreground mb-10 max-w-2xl">
+            리뉴얼·신규 제작 후 6개월 무상 유지보수 + 월정액 운영 플랜. 콘텐츠 수정·보안 패치·모니터링·월간 리포트까지 담당자 1명이 끝까지 관리합니다.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            {[
+              { name: 'Basic',    price: '월 99,000원',  highlight: false, items: ['월 3회 콘텐츠 수정', '보안 패치 월 1회', '이메일 지원', '월간 리포트'] },
+              { name: 'Standard', price: '월 199,000원', highlight: true,  items: ['무제한 콘텐츠 수정', '보안 패치 즉시 적용', '카카오톡 채널 지원', '주간 리포트', '업타임 모니터링'] },
+              { name: 'Premium',  price: '월 399,000원', highlight: false, items: ['무제한 수정', '24시간 모니터링', '전화·카톡 우선 지원', '월간 성과 리포트', '소규모 기능 추가'] },
+            ].map((p, i) => (
+              <div key={i} className={`rounded-2xl p-7 border-2 relative transition-all ${
+                p.highlight ? 'border-primary bg-primary/5' : 'border-border'
+              }`}>
+                {p.highlight && (
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full">
+                    추천
+                  </span>
+                )}
+                <h3 className="text-xl font-bold text-foreground mb-1">{p.name}</h3>
+                <p className={`text-2xl font-black mb-5 ${p.highlight ? 'text-primary' : 'text-muted-foreground'}`}>
+                  {p.price}
+                </p>
+                <ul className="space-y-2">
+                  {p.items.map((item, j) => (
+                    <li key={j} className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <span className="text-primary font-bold">✓</span> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            {[
+              { icon: '🛡', title: '보안 패치',          desc: '취약점 발견 시 즉시 업데이트' },
+              { icon: '✏️', title: '콘텐츠 수정',         desc: '요청 후 영업일 1일 내 처리' },
+              { icon: '👁', title: '24시간 모니터링',     desc: '사이트 다운 시 담당자가 먼저 연락' },
+              { icon: '📊', title: '월간 리포트',         desc: '방문자·속도·보안 상태 정리 발송' },
+            ].map((s, i) => (
+              <div key={i} className="bg-background border border-border rounded-xl p-5">
+                <div className="text-2xl mb-2">{s.icon}</div>
+                <div className="font-bold text-foreground text-sm mb-1">{s.title}</div>
+                <div className="text-xs text-muted-foreground leading-snug">{s.desc}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link href="/contact"
+              className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all">
+              💼 운영·유지보수 상담 신청 <ArrowRight className="w-5 h-5" />
+            </Link>
+            <p className="text-xs text-muted-foreground mt-3">최소 계약 3개월 · 한 달 전 통보 시 해지 가능 · 위약금 없음</p>
+          </div>
+        </div>
+      </section>
+
       {/* ── FAQ ── */}
       <section className="py-20 px-6 bg-secondary">
         <div className="max-w-3xl mx-auto">
