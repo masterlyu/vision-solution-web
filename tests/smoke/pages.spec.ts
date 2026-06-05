@@ -1,7 +1,7 @@
 import { test, expect, type Page, type ConsoleMessage } from "@playwright/test";
 
 const pages = [
-  { path: "/", name: "홈", keyword: "홈페이지를" },
+  { path: "/", name: "홈", keyword: "AI 도입으로" },
   { path: "/security", name: "보안", keyword: "해킹 시도 중" },
   { path: "/ai-solution", name: "AI 솔루션", keyword: "기업 AI 도입" },
   { path: "/app-dev", name: "앱 개발", keyword: "앱·시스템 개발" },
