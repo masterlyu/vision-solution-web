@@ -8,28 +8,28 @@ const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } 
 
 const reviews = [
   {
-    quote: <>홈페이지가 단순 회사 소개 수준이라 문의가 거의 없었어요. Vision Solution이 리뉴얼해준 뒤 한 달 만에 온라인 견적 문의가 <strong className="font-bold text-primary">5배</strong> 늘었습니다. 바이어들이 '홈페이지 보고 신뢰가 생겼다'고 직접 말할 정도예요.</>,
-    name: '박성준', role: '대표이사 · (주)한국정밀기계', stars: 5,
+    quote: <>고객 문의 하루 2시간 수동 응대를 AI 챗봇으로 자동화했어요. <strong className="font-bold text-primary">85% 자동 처리</strong>, 야간·주말 응대율 <strong className="font-bold text-primary">0%→100%</strong>, 영업 점수도 올라갔습니다. 도입 비용 3개월 안에 회수.</>,
+    name: '제조사 대표', role: '자동차 부품 1차 협력사 · 직원 30명', stars: 5,
   },
   {
-    quote: <>고객 문의가 하루에도 수십 건씩 들어오는데 일일이 답하기가 벅찼어요. AI 상담 챗봇 도입 후 <strong className="font-bold text-primary">고객 응대 시간이 70% 줄었고</strong>, 야간·주말에도 리드를 놓치지 않게 됐습니다. 팀이 핵심 업무에만 집중할 수 있게 됐어요.</>,
-    name: '김민지', role: 'CMO · 페이링크(주)', stars: 5,
+    quote: <>상품 설명 건당 30분 걸리던 작업이 <strong className="font-bold text-primary">AI 자동 생성 1분</strong>으로 줄었어요. 월 300건 처리하던 마케터 시간이 풀려서 신규 카테고리 기획·인플루언서 콜라보까지 — 매출이 오히려 늘었습니다.</>,
+    name: '온라인몰 대표', role: '패션 자체 브랜드 · 직원 12명', stars: 5,
   },
   {
-    quote: <>포트폴리오 사진만 올려뒀던 구식 홈페이지를 새로 만들었는데, 구글 검색 유입이 <strong className="font-bold text-primary">3배</strong> 늘고 상담 전환율이 <strong className="font-bold text-primary">12%에서 31%로 올랐습니다</strong>. 이제는 광고비를 줄여도 문의가 더 많이 들어와요.</>,
-    name: '이수현', role: '대표 · 모던하우스 인테리어', stars: 5,
+    quote: <>매일 아침 1.5시간 수작업 보고서가 <strong className="font-bold text-primary">자동 생성·메일 발송 0분</strong>으로. PM 시간 주 7.5시간 회수로 신규 현장 견적까지. 임원 회의도 9시 정시 시작이 가능해졌습니다.</>,
+    name: '서비스업 원장', role: '인테리어 시공사 · 직원 45명', stars: 5,
   },
   {
-    quote: <>전화 예약 업무에 직원이 거의 반나절을 쏟고 있었어요. 앱 하나로 예약·알림·차트 연동이 자동화되고 나서 <strong className="font-bold text-primary">전화 예약이 80% 줄었습니다</strong>. 직원들이 환자 케어에 집중할 수 있게 됐고, 전분기 대비 매출도 <strong className="font-bold text-primary">23% 올랐어요</strong>.</>,
-    name: '정우진', role: '원장 · 서울스마일치과', stars: 5,
+    quote: <>설계자 2명이 사양→BOM에 5일씩 걸리던 견적 사이클을 AI로 <strong className="font-bold text-primary">7일→2일</strong>로 단축. 응답 가능 견적이 월 25건→50건이 되니 <strong className="font-bold text-primary">수주율도 +22%</strong> 올랐어요.</>,
+    name: '전자부품 대표', role: '커스텀 PCBA · 직원 35명', stars: 5,
   },
   {
-    quote: <>학원 운영하면서 홈페이지는 거의 방치하고 블로그만 했는데, Vision Solution이 커리큘럼·후기·상담 신청을 한 곳에 정리해주니까 <strong className="font-bold text-primary">신규 상담 신청이 2배 넘게</strong> 늘었어요. '어떻게 알고 오셨냐'고 물으면 요즘은 절반 이상이 '홈페이지 보고'라고 해요.</>,
-    name: '최은영', role: '원장 · 영재사고력수학학원', stars: 5,
+    quote: <>해외 영업 1명에 의존해서 휴가만 가면 응대 정지였는데, DeepL+Claude 콤보로 내근 직원 누구나 영문·일문 응대 가능. 통역 외주 <strong className="font-bold text-primary">월 200만원→20만원</strong>, 수출 매출 <strong className="font-bold text-primary">+38%</strong>.</>,
+    name: '화학 중기 대표', role: '화학 첨가제 · 직원 45명', stars: 5,
   },
   {
-    quote: <>자사몰 구축 전에는 외부 플랫폼 수수료만 매달 수백만 원이었어요. Vision Solution이 만든 쇼핑몰로 이전 후 <strong className="font-bold text-primary">수수료 비용이 90% 절감</strong>됐고, 고객 데이터를 직접 관리하게 되면서 재구매율도 <strong className="font-bold text-primary">40% 올랐습니다</strong>.</>,
-    name: '강현우', role: '대표 · 로컬푸드 온라인몰', stars: 5,
+    quote: <>HR 1명이 분기 채용 100~200건 이력서 직접 스크리닝하느라 2주 소요. AI 1차 스크리닝 도입으로 <strong className="font-bold text-primary">2일</strong>로 단축. 면접 도달 후보 품질도 <strong className="font-bold text-primary">+40%</strong>.</>,
+    name: 'IT 서비스 인사팀', role: '직원 60명 · 분기 채용 8~12명', stars: 5,
   },
 ]
 
@@ -37,7 +37,6 @@ export function TestimonialsSection() {
   return (
     <section className="py-24 lg:py-32">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-        {/* Header */}
         <motion.div
           className="mb-16 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-8"
           variants={stagger}
@@ -46,16 +45,15 @@ export function TestimonialsSection() {
           viewport={{ once: true, margin: '-100px' }}
         >
           <div>
-            <motion.p variants={fadeInUp} className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-4">TESTIMONIALS</motion.p>
-            <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-black text-foreground">실제 고객이 경험한 변화</motion.h2>
-            <motion.p variants={fadeInUp} className="text-muted-foreground mt-4 text-lg">비슷한 고민을 가진 기업이 먼저 결과를 냈습니다.</motion.p>
+            <motion.p variants={fadeInUp} className="text-primary text-sm font-bold tracking-[0.2em] uppercase mb-4">TESTIMONIALS · AI 도입 사례</motion.p>
+            <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-black text-foreground tracking-tight">실제 도입 결과</motion.h2>
+            <motion.p variants={fadeInUp} className="text-foreground/90 mt-4 text-lg font-medium">한국 중소기업 6곳 — 시간·비용·매출 모두 개선했습니다.</motion.p>
           </div>
           <motion.div variants={fadeInUp} className="shrink-0 hidden sm:block">
-            <Mascot pose="cheer" category="emotion" size="sm" className="h-28 w-auto" bubble="실제 고객 후기예요!" bubbleDir="left" />
+            <Mascot pose="cheer" category="emotion" size="sm" className="h-28 w-auto" bubble="실제 도입 사례예요!" bubbleDir="left" />
           </motion.div>
         </motion.div>
 
-        {/* Cards */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           variants={stagger}
@@ -67,17 +65,17 @@ export function TestimonialsSection() {
             <motion.div
               key={r.name}
               variants={fadeInUp}
-              className="bg-card border border-border rounded-2xl p-8 flex flex-col gap-6 hover:border-primary/40 transition-colors duration-300"
+              className="bg-card border-2 border-foreground/10 rounded-2xl p-8 flex flex-col gap-6 hover:border-primary/50 transition-colors duration-300"
             >
               <div className="flex gap-1">
                 {Array.from({ length: r.stars }).map((_, j) => (
                   <Star key={j} className="w-4 h-4 fill-primary text-primary" />
                 ))}
               </div>
-              <p className="text-muted-foreground text-sm leading-relaxed flex-1">&ldquo;{r.quote}&rdquo;</p>
+              <p className="text-foreground/90 text-base font-medium leading-relaxed flex-1">&ldquo;{r.quote}&rdquo;</p>
               <div>
-                <div className="text-foreground font-bold text-sm">{r.name}</div>
-                <div className="text-muted-foreground text-xs mt-0.5">{r.role}</div>
+                <div className="text-foreground font-bold text-base">{r.name}</div>
+                <div className="text-foreground/85 text-sm font-medium mt-0.5">{r.role}</div>
               </div>
             </motion.div>
           ))}

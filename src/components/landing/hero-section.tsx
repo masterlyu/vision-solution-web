@@ -98,7 +98,7 @@ export function HeroSection() {
           </Button>
           <Button asChild size="lg" variant="outline"
             className="h-14 px-7 rounded-full border-2 border-primary text-primary hover:bg-primary/10 font-bold text-base gap-2 transition-all">
-            <Link href="/ai-solution/academy/dept-ai"><GraduationCap className="w-4 h-4" /> 사내 출강 강좌 보기</Link>
+            <Link href="/academy"><GraduationCap className="w-4 h-4" /> 사내 출강 강좌 보기</Link>
           </Button>
         </div>
         <p className="text-foreground/85 text-sm font-medium mt-4">100만원대부터 시작 · 도입 사례 247건+ · 재의뢰율 97%</p>

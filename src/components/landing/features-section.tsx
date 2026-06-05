@@ -11,6 +11,7 @@ const services = [
   { number: '02', mascot: { pose: 'svc_security', category: 'service' as MascotCategory }, href: '/security',    title: '보안 진단·모의해킹',     stat: { value: '23개',  label: '평균 취약점 발견' }, price: { prefix: '시작가', value: '30만원~'  }, desc: 'SSL·보안헤더·취약점 진단 + 실제 침투 테스트.' },
   { number: '03', mascot: { pose: 'svc_renewal',  category: 'service' as MascotCategory }, href: '/renewal',     title: '웹사이트 리뉴얼·운영',   stat: { value: '67%',   label: '평균 로딩 개선' },  price: { prefix: '시작가', value: '80만원~'  }, desc: '오래된 사이트 속도·디자인·SEO 신규화 + 유지보수·운영.' },
   { number: '04', mascot: { pose: 'svc_custom',   category: 'service' as MascotCategory }, href: '/app-dev',     title: '앱·시스템 개발',         stat: { value: '120건+',label: '납품 실적' },        price: { prefix: '시작가', value: '300만원~' }, desc: '모바일 앱부터 사내 업무 시스템까지 풀스택 구축.' },
+  { number: '05', mascot: { pose: 'svc_chatbot',  category: 'service' as MascotCategory }, href: '/chatbot',    title: '🤖 AI 챗봇 설치',       stat: { value: '월 5.9만~',label: '유지비' },          price: { prefix: '시작가', value: '50만원~'  }, desc: '반복 문의 70% 자동화 — 24시간 응대 + 정부 지원금 활용.' },
 ]
 
 export function FeaturesSection() {

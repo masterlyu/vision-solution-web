@@ -64,7 +64,7 @@ export function CtaSection() {
                   <Link href="/contact">💼 도입 상담 신청 <ArrowRight className="w-4 h-4" /></Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="h-14 px-7 rounded-xl border-2 border-primary text-primary hover:bg-primary/10 font-bold gap-2 transition-all">
-                  <Link href="/ai-solution/academy/dept-ai"><GraduationCap className="w-4 h-4" /> 사내 출강 강좌 보기</Link>
+                  <Link href="/academy"><GraduationCap className="w-4 h-4" /> 사내 출강 강좌 보기</Link>
                 </Button>
               </motion.div>
 
