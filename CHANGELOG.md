@@ -3,6 +3,61 @@
 
 ---
 
+## [2026-06-06] — Academy Lv8 출시 + 스피커 노트 출처 전수 검증
+
+### 개요
+visionc Academy에 **Lv8 (Education) 신설** — "AI 시대 교육의 철학".
+- 분량: **45 슬라이드 · 4~5시간 · 5 블록** (종전 Lv 평균 12장의 4배)
+- 강사 노트: HTML 3,157줄 / PDF 4.3 MB (100p+)
+- 대상: 교사·강사·학생·학부모·교육 행정가
+- 구조: 철학(왜) → 원리(어떻게 작동) → 실무(어떻게 쓸 것인가) 3축 융합
+
+출시 직후 사령관님 지시로 **스피커 노트 전수 출처 검증** 수행 → 가상 사례 78건 일괄 수정 + 검증 사례로 대체 (Mata v. Avianca, Pew Research, 덴마크 교육부, Khan Academy, 한국 딥페이크 남양주 사건 등 검증된 출처 명시).
+
+### 변경 사항
+
+#### 1. Lv8 콘텐츠 작성 — 5 블록 45 슬라이드
+- Block A 거시 10 / B 본질 10 / C 교사 실무 10 / D 학생 실무 10 / E 미래 5
+- 사상가 14명 인용 (Harari 4편 + Dewey + Freire + Vygotsky + Gardner + Dweck + Bloom + Anthropic + 한국 교육 비판가 6명)
+- 실전 프롬프트 90+ / 핵심 비유 50+ / 토론 주제 8선
+
+#### 2. 신규 산출물 (3 파일)
+- `public/academy/lv8-slides.pptx` (4.8 MB) — FREE 공개 다운로드
+- `public/academy/lv8-slides.pdf` (3.5 MB) — FREE 공개 다운로드
+- `src/storage/academy/lv8-speaker-notes.pdf` (4.3 MB) — 비밀번호 보호 (`visioncDown`)
+
+#### 3. 신규 코드·라우팅
+- `src/app/academy/lv8/page.tsx` (9 KB, 신규) — 5블록 45슬라이드 목차 + 다운로드 UI
+- `src/app/academy/lv8/AcademyDownloadClient.tsx` (신규) — Lv7 패턴 복사·치환
+- `src/app/academy/page.tsx` — Lv8 카드 `planned` → `available` 활성화
+- `src/app/api/academy/download/[key]/route.ts` — `lv8-speaker-notes` 키 등록
+
+#### 4. ★ 스피커 노트 출처 전수 검증 (82건 일괄 수정)
+- **삭제**: 박OO/김OO 가상 한국 교사·학생 사례 8건+, 87%/62% 가상 통계, 미확인 한국 사례(강원·서울·경기 90%/70%/50% 등) 다수
+- **검증 사례로 대체**: Mata v. Avianca (2023 SDNY, 판사 Castel $5,000), 덴마크 AI 시험 (Tesfaye 장관, The Local 2024-04), 한국 딥페이크 (남양주 2024.10 Korea Herald), Pew Research 미국 청소년 26% (2025-01-15), Khanmigo 사용자 70만 (Khan Academy SY24-25)
+- **사상가 원전 인용**: Vygotsky ZPD → Mind in Society 1978, p. 86 / Freire → Pedagogy 30th Anniversary Edition, p. 80 / Dewey → My Pedagogic Creed 1897 원전과 격언 의역 분리 / Harari → 책 원문 인용 통일
+- **한국 사상가 "의역" → "입장 요약" 분리**: 김누리(5건)·이오덕(4건)·김상봉(2건)·정여울(2건)·채사장(1건)·이혜정(2건) — 모두 본인 저서 명시 + 일반 입장 요약 형태로 재작성, 또는 "강사용 재구성" 명확 표기
+- **강사용 시나리오 명확 표기**: "(가상)" → "(강사용 예시 시나리오)" / "(추정 시나리오)" / "(제안 예시)"
+
+### 통계
+- 검증된 출처 인용 (책·논문·연도): **54개**
+- `(출처: …)` 명시 형태: **23개**
+- 강사용 예시 명확 표기: **21개**
+
+### 라이브 URL
+- `/academy/lv8` — Lv8 페이지 (HTTP 200)
+- `/academy/lv8-slides.pptx` — 슬라이드 공개 다운로드 (HTTP 200, 4.8 MB)
+- `/api/academy/download/lv8-speaker-notes` — 강사 노트 (비밀번호 `visioncDown`)
+
+### 커밋
+- `5b47b17` (2026-06-05): feat(academy): Lv8 — AI 시대 교육의 철학 (45슬라이드 5블록 통합 강좌)
+- `c6e4f75` (2026-06-06): fix(academy): Lv8 스피커 노트 출처 검증 — 가상 사례 삭제·검증 사례로 대체
+
+### 상세 릴리스 노트
+`docs/releases/2026-06-06-academy-lv8-launch.md`
+
+---
+
 ## [2026-06-05] — "기업 AI 도입 및 컨설팅" 페이지 단순화 + 사내 출강 강좌 자료 잠금
 
 ### 개요
