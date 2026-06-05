@@ -26,6 +26,26 @@ const DOWNLOADS: Record<string, Entry> = {
     filename: 'visionc-academy-lv3-speaker-notes.pdf',
     mime: PDF_MIME,
   },
+  'lv4-speaker-notes': {
+    file: 'src/storage/academy/lv4-speaker-notes.pdf',
+    filename: 'visionc-academy-lv4-speaker-notes.pdf',
+    mime: PDF_MIME,
+  },
+  'lv5-speaker-notes': {
+    file: 'src/storage/academy/lv5-speaker-notes.pdf',
+    filename: 'visionc-academy-lv5-speaker-notes.pdf',
+    mime: PDF_MIME,
+  },
+  'lv6-speaker-notes': {
+    file: 'src/storage/academy/lv6-speaker-notes.pdf',
+    filename: 'visionc-academy-lv6-speaker-notes.pdf',
+    mime: PDF_MIME,
+  },
+  'lv7-speaker-notes': {
+    file: 'src/storage/academy/lv7-speaker-notes.pdf',
+    filename: 'visionc-academy-lv7-speaker-notes.pdf',
+    mime: PDF_MIME,
+  },
   // === dept-ai (Course 01) — 편별 ===
   'dept-ai-part1-slides': {
     file: 'src/storage/academy/dept-ai-part1-slides.pptx',
