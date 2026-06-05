@@ -50,7 +50,9 @@ const SECTIONS: Section[] = [
       ['04', '데이터·정보 처리 — 엑셀·PDF·매뉴얼 검색·뉴스 요약'],
       ['05', '해외 업무 지원 — 영문 메일·계약서·기술문서 번역·응대'],
     ],
-    ready: false,
+    ready: true,
+    slidesKey: 'dept-ai-part2-slides',
+    notesKey: 'dept-ai-part2-speaker-notes',
   },
   {
     part: '3편',
