@@ -46,6 +46,11 @@ const DOWNLOADS: Record<string, Entry> = {
     filename: 'visionc-academy-lv7-speaker-notes.pdf',
     mime: PDF_MIME,
   },
+  'lv8-speaker-notes': {
+    file: 'src/storage/academy/lv8-speaker-notes.pdf',
+    filename: 'visionc-academy-lv8-speaker-notes.pdf',
+    mime: PDF_MIME,
+  },
   // === dept-ai (Course 01) — 편별 ===
   'dept-ai-part1-slides': {
     file: 'src/storage/academy/dept-ai-part1-slides.pptx',

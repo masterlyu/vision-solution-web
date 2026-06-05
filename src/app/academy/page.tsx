@@ -34,7 +34,7 @@ const LEVELS: LevelCard[] = [
   { tag: 'LV5 · 개발', title: 'AI 앱 만들기', subtitle: 'API & MCP', status: 'available', href: '/academy/lv5' },
   { tag: 'LV6 · 고급', title: 'Agents & Skills', subtitle: 'Advanced', status: 'available', href: '/academy/lv6' },
   { tag: 'LV7 · 엔터프라이즈', title: '클라우드 AI', subtitle: 'Enterprise', status: 'available', href: '/academy/lv7' },
-  { tag: 'LV8 · 교육', title: '교사·강사를 위한 AI', subtitle: 'Education', status: 'planned' },
+  { tag: 'LV8 · 교육', title: 'AI 시대 교육의 철학', subtitle: 'Education', status: 'available', href: '/academy/lv8' },
 ]
 
 function StatusBadge({ status }: { status: LevelCard['status'] }) {
