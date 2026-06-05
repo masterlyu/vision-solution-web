@@ -3,10 +3,9 @@ import { test, expect, type Page, type ConsoleMessage } from "@playwright/test";
 const pages = [
   { path: "/", name: "홈", keyword: "홈페이지를" },
   { path: "/security", name: "보안", keyword: "해킹 시도 중" },
-  { path: "/ai-solution", name: "AI 솔루션", keyword: "AI 솔루션" },
+  { path: "/ai-solution", name: "AI 솔루션", keyword: "기업 AI 도입" },
   { path: "/app-dev", name: "앱 개발", keyword: "앱·시스템 개발" },
-  { path: "/new-website", name: "신규 사이트", keyword: "신규 홈페이지 구축" },
-  { path: "/renewal", name: "리뉴얼", keyword: "홈페이지 리뉴얼" },
+  { path: "/renewal", name: "리뉴얼", keyword: "리뉴얼" },
   { path: "/pentest", name: "모의해킹", keyword: "모의해킹 신청" },
   { path: "/privacy", name: "개인정보처리방침", keyword: "개인정보처리방침" },
   { path: "/terms", name: "이용약관", keyword: "이용약관" },
