@@ -1,13 +1,15 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Briefcase, GraduationCap } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Mascot from '@/components/Mascot'
 import Link from 'next/link'
 
 const fadeInUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const } } }
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.12 } } }
+
+void Briefcase
 
 export function CtaSection() {
   const [mouse, setMouse] = useState({ x: 50, y: 50 })
@@ -21,7 +23,7 @@ export function CtaSection() {
     <section className="relative py-24 lg:py-32">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <motion.div
-          className="relative border border-foreground/20 rounded-2xl overflow-hidden"
+          className="relative border-2 border-foreground/15 rounded-2xl overflow-hidden"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
@@ -31,7 +33,6 @@ export function CtaSection() {
             setMouse({ x: ((e.clientX - r.left) / r.width) * 100, y: ((e.clientY - r.top) / r.height) * 100 })
           }}
         >
-          {/* Mouse glow */}
           <div className="absolute inset-0 opacity-20 pointer-events-none"
             style={{ background: `radial-gradient(600px circle at ${mouse.x}% ${mouse.y}%, rgba(${primaryRgb},0.3), transparent 50%)` }} />
 
@@ -43,33 +44,36 @@ export function CtaSection() {
               whileInView="visible"
               viewport={{ once: true, margin: '-100px' }}
             >
-              {/* VISI mascot */}
               <motion.div variants={fadeInUp} className="mb-6">
-                <Mascot pose="cheer" category="emotion" size="sm" className="h-32 w-auto" bubble="48시간 안에 답이 와요!" bubbleDir="right" />
+                <Mascot pose="cheer" category="emotion" size="sm" className="h-32 w-auto" bubble="함께 시작해요!" bubbleDir="right" />
               </motion.div>
 
-              <motion.p variants={fadeInUp} className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-6">지금 시작하세요</motion.p>
+              <motion.p variants={fadeInUp} className="text-primary text-sm font-bold tracking-[0.2em] uppercase mb-6">지금 시작하세요</motion.p>
 
               <motion.h2 variants={fadeInUp} className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight mb-6 leading-[1.05]">
-                48시간 안에<br />답이 옵니다
+                중소기업 AI 도입<br />지금 시작하세요
               </motion.h2>
 
-              <motion.p variants={fadeInUp} className="text-muted-foreground text-lg mb-10 max-w-lg">
-                지금 바로 URL을 입력하세요.<br />분석·리포트·상담 전부 무료입니다.
+              <motion.p variants={fadeInUp} className="text-foreground/90 text-lg md:text-xl font-medium mb-10 max-w-xl leading-relaxed">
+                100만원대부터 단계별로. 어떤 부서·어떤 업무가 적합한지<br className="hidden md:block" />
+                <b className="text-foreground">VISIONC와 함께 정합니다.</b>
               </motion.p>
 
-              <motion.div variants={fadeInUp} className="mb-6">
+              <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-3 mb-6">
                 <Button asChild size="lg" className="h-14 px-8 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-bold gap-2 shadow-lg shadow-primary/50 hover:shadow-primary/70 transition-all">
-                  <Link href="/contact">무료 진단 <ArrowRight className="w-4 h-4" /></Link>
+                  <Link href="/contact">💼 도입 상담 신청 <ArrowRight className="w-4 h-4" /></Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="h-14 px-7 rounded-xl border-2 border-primary text-primary hover:bg-primary/10 font-bold gap-2 transition-all">
+                  <Link href="/ai-solution/academy/dept-ai"><GraduationCap className="w-4 h-4" /> 사내 출강 강좌 보기</Link>
                 </Button>
               </motion.div>
 
-              <motion.div variants={fadeInUp} className="flex items-center justify-center gap-6 text-sm text-muted-foreground">
-                <Link href="/contact" className="hover:text-foreground transition-colors">문의하기</Link>
+              <motion.div variants={fadeInUp} className="flex items-center justify-center gap-6 text-sm text-foreground/85 font-medium">
+                <Link href="/portfolio" className="hover:text-primary transition-colors font-bold">📂 도입 사례</Link>
                 <span>·</span>
-                <Link href="/blog" className="hover:text-foreground transition-colors">사례 보기</Link>
+                <Link href="/blog" className="hover:text-primary transition-colors font-bold">📰 인사이트 블로그</Link>
                 <span>·</span>
-                <span>신용카드 불필요</span>
+                <span>247건+ 누적</span>
               </motion.div>
             </motion.div>
           </div>

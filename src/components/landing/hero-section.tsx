@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState, useRef } from 'react'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, GraduationCap } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import dynamic from 'next/dynamic'
 
@@ -10,17 +10,8 @@ const AsciiScene = dynamic(
   { ssr: false, loading: () => null }
 )
 
-// Primary A/B 후보 (현재 적용): 고객 이탈 고통 → 공감 즉시
-const words = ['이탈하고', '포기하고', '외면하고', '떠나고']
-
-// A/B 후보 B: 광고비 낭비 고통
-// const words = ['광고비가', '기회가', '고객이', '매출이']
-// H1: "매달 [광고비가/기회가/고객이/매출이] 사라지는 이유"
-// Sub: "홈페이지가 광고비를 낭비하는지, AI가 48시간 안에 알려드립니다."
-
-// A/B 후보 C: 3초 법칙 고통
-// H1: "당신 홈페이지, / 3초 안에 / 고객을 잡나요?"
-// Sub: "3초 안에 잡지 못하는 사이트는 광고비를 낭비합니다. 지금 URL 입력으로 확인하세요."
+// 페인 포인트 → AI 도입 — 회사가 매일 잃고 있는 것
+const words = ['낭비하고', '놓치고', '뒤처지고', '늦어지고']
 
 function BlurWord({ word, trigger }: { word: string; trigger: number }) {
   const letters = word.split('')
@@ -83,30 +74,34 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/40 to-background z-[1]" />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 text-center">
-        <div className="inline-flex items-center gap-2 border border-primary/30 bg-primary/10 text-primary text-sm px-4 py-1.5 rounded-full mb-8">
+        <div className="inline-flex items-center gap-2 border border-primary/40 bg-primary/15 text-primary text-sm font-bold px-4 py-1.5 rounded-full mb-8">
           <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-          무료 AI 진단 · 48시간 안에 결과 이메일
+          기업 AI 도입 · 컨설팅 · 사내 출강
         </div>
 
-        {/* Hero Headline — 고객 고통 우선 (VISIONC_PRINCIPLES 준수) */}
+        {/* Hero — 페인 포인트 (AI 도입 안 하면 매일 잃는 것) */}
         <h1 className="text-5xl md:text-7xl lg:text-[88px] font-black tracking-tight text-foreground leading-[1.05] mb-6">
-          고객이 지금도<br />
+          중소기업은 지금도<br />
           <BlurWord word={words[wordIdx]} trigger={trigger} /><br />
           있습니다
         </h1>
 
-        <p className="text-lg md:text-xl text-foreground/60 mb-12 max-w-2xl mx-auto leading-relaxed">
-          홈페이지가 문제인지 모르는 것이 더 큰 문제입니다.<br />
-          URL 하나로 지금 바로 무료 진단합니다 — 48시간 내 리포트 발송.
+        <p className="text-lg md:text-xl text-foreground/90 font-medium mb-12 max-w-2xl mx-auto leading-relaxed">
+          직원이 매일 2시간씩 반복 업무를 합니다.<br />
+          AI 도입으로 <b className="text-primary">시간 35% · 비용 42% 절감</b>하세요.
         </p>
 
-        <div className="flex justify-center">
+        <div className="flex flex-wrap justify-center gap-3">
           <Button asChild size="lg"
             className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-base gap-2 shadow-lg shadow-primary/50 hover:shadow-primary/70 transition-all">
-            <Link href="/contact">지금 무료 진단받기 <ArrowRight className="w-4 h-4" /></Link>
+            <Link href="/contact">💼 도입 상담 신청 <ArrowRight className="w-4 h-4" /></Link>
+          </Button>
+          <Button asChild size="lg" variant="outline"
+            className="h-14 px-7 rounded-full border-2 border-primary text-primary hover:bg-primary/10 font-bold text-base gap-2 transition-all">
+            <Link href="/ai-solution/academy/dept-ai"><GraduationCap className="w-4 h-4" /> 사내 출강 강좌 보기</Link>
           </Button>
         </div>
-        <p className="text-foreground/30 text-sm mt-4">신용카드 불필요 · 48시간 내 이메일 수신 · 결과 받은 후 결정하세요</p>
+        <p className="text-foreground/85 text-sm font-medium mt-4">100만원대부터 시작 · 도입 사례 247건+ · 재의뢰율 97%</p>
       </div>
 
       {/* Scroll indicator */}
