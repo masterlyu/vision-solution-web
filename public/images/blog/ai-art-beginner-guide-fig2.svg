@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">좋은 프롬프트 만드는 3단계</text>
+  <rect x="40" y="65" width="200" height="90" rx="12" fill="#0f766e"/>
+  <text x="140" y="103" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">① 주제 설정</text>
+  <text x="140" y="128" text-anchor="middle" font-size="12" fill="#a7f3d0">무엇을 그릴지 정하기</text>
+  <text x="140" y="146" text-anchor="middle" font-size="11" fill="#a7f3d0">예: 고양이, 서울 야경</text>
+  <text x="263" y="118" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <rect x="300" y="65" width="200" height="90" rx="12" fill="#0891b2"/>
+  <text x="400" y="103" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">② 스타일 추가</text>
+  <text x="400" y="128" text-anchor="middle" font-size="12" fill="#cffafe">분위기·화풍 지정</text>
+  <text x="400" y="146" text-anchor="middle" font-size="11" fill="#cffafe">예: 수채화, 따뜻한 색감</text>
+  <text x="523" y="118" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <rect x="560" y="65" width="200" height="90" rx="12" fill="#22d3ee"/>
+  <text x="660" y="103" text-anchor="middle" font-size="16" font-weight="800" fill="#083344">③ 확인·수정</text>
+  <text x="660" y="128" text-anchor="middle" font-size="12" fill="#083344">결과 보고 단어 조정</text>
+  <text x="660" y="146" text-anchor="middle" font-size="11" fill="#083344">마음에 들 때까지 반복</text>
+</svg>
