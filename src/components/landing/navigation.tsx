@@ -104,7 +104,7 @@ export function Navigation() {
                       href={link.href}
                       onClick={() => setIsServicesOpen(false)}
                       className={`block px-4 py-3 text-base font-medium transition-colors hover:bg-foreground/5 ${
-                        isActive(link.href) ? 'text-primary font-bold' : link.primary ? 'text-primary font-bold hover:text-primary' : 'text-foreground/85 hover:text-foreground'
+                        isActive(link.href) ? 'text-primary font-bold' : 'text-foreground/85 hover:text-foreground'
                       }`}
                     >
                       {link.primary && '★ '}{link.name}
@@ -159,7 +159,7 @@ export function Navigation() {
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={`text-xl font-bold transition-colors py-2 ${
-                        isActive(link.href) ? 'text-primary' : link.primary ? 'text-primary' : 'text-foreground/85 hover:text-foreground'
+                        isActive(link.href) ? 'text-primary' : 'text-foreground/85 hover:text-foreground'
                       }`}
                     >
                       {link.primary && '★ '}{link.name}
