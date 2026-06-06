@@ -140,6 +140,10 @@ export async function GET(request: Request) {
       width: 1200,
       height: 630,
       fonts: [{ name: 'NotoSansKR', data: fontData, style: 'normal', weight: 400 }],
+      headers: {
+        // 결정적 결과(title,tag 동일 시 동일) — CDN/브라우저 캐시로 재렌더·폰트재요청 비용·악용 부담 완화
+        'Cache-Control': 'public, max-age=86400, s-maxage=604800, immutable',
+      },
     }
   )
 }
