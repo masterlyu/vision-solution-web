@@ -21,7 +21,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const post = getPostBySlug(slug)
   if (!post) return {}
   const url = `${BASE}/blog/${slug}`
-  const imageUrl = post.image ? `${BASE}${post.image}` : `${BASE}/api/og`
+  // SNS/LLM 공유 미리보기: SVG는 카카오·페북·X가 렌더 못 하므로 PNG(OG 라우트) 사용 — 글 제목·태그 주입
+  const ogImage = `${BASE}/api/og?title=${encodeURIComponent(post.title)}&tag=${encodeURIComponent(post.tag)}`
   return {
     title: `${post.title} | (주)비젼솔루션 블로그`,
     description: post.summary,
@@ -35,13 +36,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       publishedTime: post.date,
       modifiedTime: post.date,
       authors: ['(주)비젼솔루션'],
-      images: [{ url: imageUrl, width: 800, height: 420, alt: post.title }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: post.title }],
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.summary,
-      images: [imageUrl],
+      images: [ogImage],
     },
   }
 }

@@ -22,8 +22,13 @@ async function loadMascot(): Promise<string> {
   return `data:image/png;base64,${Buffer.from(buf).toString('base64')}`
 }
 
-export async function GET() {
+export async function GET(request: Request) {
   const [fontData, mascotSrc] = await Promise.all([loadFont(), loadMascot()])
+
+  const { searchParams } = new URL(request.url)
+  const rawTitle = (searchParams.get('title') || '').trim()
+  const title = rawTitle.length > 46 ? rawTitle.slice(0, 45) + '…' : rawTitle
+  const tag = (searchParams.get('tag') || '').trim()
 
   return new ImageResponse(
     (
@@ -74,22 +79,33 @@ export async function GET() {
               paddingTop: 8, paddingBottom: 8, paddingLeft: 22, paddingRight: 22,
               fontSize: 16, color: '#c4b5fd',
             }}>
-              무료 AI 진단
+              {title ? (tag || 'VISIONC 블로그') : '무료 AI 진단'}
             </div>
           </div>
 
-          {/* 메인 카피 */}
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <div style={{ fontSize: 56, color: '#ffffff', lineHeight: 1.15, display: 'flex' }}>
-              홈페이지가 고객을
+          {/* 메인 카피 — title 있으면 글 제목, 없으면 기본 */}
+          {title ? (
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <div style={{ fontSize: 50, color: '#ffffff', lineHeight: 1.25, display: 'flex', maxWidth: 620, marginBottom: 24 }}>
+                {title}
+              </div>
+              <div style={{ fontSize: 20, color: 'rgba(255,255,255,0.6)', display: 'flex' }}>
+                (주)비젼솔루션 블로그 · 중소기업 AI 도입 가이드
+              </div>
             </div>
-            <div style={{ fontSize: 56, color: '#a78bfa', lineHeight: 1.15, display: 'flex', marginBottom: 24 }}>
-              놓치고 있습니까?
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <div style={{ fontSize: 56, color: '#ffffff', lineHeight: 1.15, display: 'flex' }}>
+                홈페이지가 고객을
+              </div>
+              <div style={{ fontSize: 56, color: '#a78bfa', lineHeight: 1.15, display: 'flex', marginBottom: 24 }}>
+                놓치고 있습니까?
+              </div>
+              <div style={{ fontSize: 20, color: 'rgba(255,255,255,0.6)', display: 'flex' }}>
+                URL 하나로 48시간 내 AI 진단 · 리뉴얼·보안·AI 솔루션 원스톱
+              </div>
             </div>
-            <div style={{ fontSize: 20, color: 'rgba(255,255,255,0.6)', display: 'flex' }}>
-              URL 하나로 48시간 내 AI 진단 · 리뉴얼·보안·AI 솔루션 원스톱
-            </div>
-          </div>
+          )}
 
           {/* 하단 도메인 */}
           <div style={{ display: 'flex', alignItems: 'center' }}>
