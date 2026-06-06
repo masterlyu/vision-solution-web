@@ -11,7 +11,7 @@ const serviceLinks = [
   { name: '모의해킹 진단', href: '/pentest' },
   { name: '웹사이트 리뉴얼·운영', href: '/renewal' },
   { name: '앱·시스템 개발', href: '/app-dev' },
-  { name: '🤖 챗봇 설치', href: '/chatbot' },
+  { name: '챗봇 설치', href: '/chatbot' },
 ]
 
 const navLinks = [
@@ -107,7 +107,7 @@ export function Navigation() {
                         isActive(link.href) ? 'text-primary font-bold' : 'text-foreground/85 hover:text-foreground'
                       }`}
                     >
-                      {link.primary && '★ '}{link.name}
+                      {link.name}
                     </Link>
                   ))}
                 </div>
@@ -162,7 +162,7 @@ export function Navigation() {
                         isActive(link.href) ? 'text-primary' : 'text-foreground/85 hover:text-foreground'
                       }`}
                     >
-                      {link.primary && '★ '}{link.name}
+                      {link.name}
                     </Link>
                   ))}
                 </div>
