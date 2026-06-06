@@ -1,5 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import fs from 'fs'
+import path from 'path'
+import { markdownToHtml } from '@/lib/markdownToHtml'
 import SectionCard from './SectionCard'
 
 export const metadata: Metadata = {
@@ -55,6 +58,11 @@ const SECTIONS: Section[] = [
 const totalLessons = SECTIONS.reduce((s, sec) => s + sec.lessons.length, 0)
 
 export default function BuildAiCourse() {
+  // 1편 1강 강의 내용 (마크다운 → HTML) — 펼치기로 표시
+  const lesson01Html = markdownToHtml(
+    fs.readFileSync(path.join(process.cwd(), 'content/academy/build-ai-01.md'), 'utf-8'),
+  )
+
   return (
     <div className="min-h-screen pt-28 pb-24 bg-background">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
@@ -94,7 +102,7 @@ export default function BuildAiCourse() {
         <div className="mb-16">
           <h2 className="text-2xl md:text-3xl font-black text-foreground mb-6 tracking-tight">전체 커리큘럼</h2>
           <p className="text-base text-foreground/85 font-medium mb-6">
-            현재 모든 편이 <span className="text-[var(--accent-amber)] font-bold">📅 자료 준비 중</span>입니다. Course 01 (부서별로 일하는 AI)이 먼저 진행되며, Course 02는 이후 시작됩니다.
+            <span className="text-[var(--accent-green-text)] font-bold">1편이 먼저 공개</span>됐습니다 — <b>편 카드를 클릭하면 강의 내용이 펼쳐집니다.</b> 나머지 편은 <span className="text-[var(--accent-amber)] font-bold">📅 자료 준비 중</span>으로 순차 공개됩니다.
           </p>
           <div className="space-y-6">
             {SECTIONS.map((sec) => (
@@ -104,8 +112,9 @@ export default function BuildAiCourse() {
                 title={sec.title}
                 desc={sec.desc}
                 lessons={sec.lessons}
-                ready={sec.ready}
+                ready={sec.part === '1편' ? true : sec.ready}
                 star={sec.star}
+                contentHtml={sec.part === '1편' ? lesson01Html : undefined}
               />
             ))}
           </div>
