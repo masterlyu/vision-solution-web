@@ -59,9 +59,29 @@ function StatusBadge({ status }: { status: LevelCard['status'] }) {
   )
 }
 
+// 검색·LLM 구조화 데이터 — 강좌 목록(Course)
+const courseListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'visionc Academy — 무료 AI 강의',
+  itemListElement: LEVELS.map((lv, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'Course',
+      name: `${lv.tag.replace(/ ·.*/, '')} ${lv.title}`,
+      description: `${lv.title} (${lv.subtitle})`,
+      provider: { '@type': 'Organization', name: '(주)비젼솔루션', sameAs: 'https://visionc.co.kr' },
+      ...(lv.href ? { url: `https://visionc.co.kr${lv.href}` } : {}),
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'KRW', category: 'Free' },
+    },
+  })),
+}
+
 export default function AcademyPage() {
   return (
     <div className="min-h-screen pt-28 pb-24 bg-background">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseListSchema) }} />
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
 
         <div className="text-center mb-16">
