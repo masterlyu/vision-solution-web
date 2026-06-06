@@ -1,8 +1,5 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import fs from 'fs'
-import path from 'path'
-import { markdownToHtml } from '@/lib/markdownToHtml'
 import SectionCard from './SectionCard'
 
 export const metadata: Metadata = {
@@ -27,11 +24,14 @@ type Section = {
   desc: string
   star?: boolean
   ready: boolean
+  slidesKey?: string
+  notesKey?: string
   lessons: Lesson[]
 }
 
 const SECTIONS: Section[] = [
-  { part: '1편', title: '의사결정', desc: '도입 전 비교·로드맵', ready: false,
+  { part: '1편', title: '의사결정', desc: '도입 전 비교·로드맵', ready: true,
+    slidesKey: 'build-ai-part1-slides', notesKey: 'build-ai-part1-speaker-notes',
     lessons: [['01', '클라우드 API vs 온프레미스 — 규모별 손익분기점'], ['02', '단계별 도입 로드맵 — 6/12/24개월']] },
   { part: '2편', title: '인프라', desc: '서버·OS·네트워크', ready: false,
     lessons: [['03', '하드웨어 — GPU 선택, 미니PC/워크스테이션/서버'], ['04', 'OS·드라이버·컨테이너 — Ubuntu·NVIDIA·Docker'], ['05', '네트워크·보안 — 사내망 격리, Reverse Proxy, mTLS']] },
@@ -56,13 +56,9 @@ const SECTIONS: Section[] = [
 ]
 
 const totalLessons = SECTIONS.reduce((s, sec) => s + sec.lessons.length, 0)
+const readyCount = SECTIONS.filter((s) => s.ready).reduce((s, sec) => s + sec.lessons.length, 0)
 
 export default function BuildAiCourse() {
-  // 1편 1강 강의 내용 (마크다운 → HTML) — 펼치기로 표시
-  const lesson01Html = markdownToHtml(
-    fs.readFileSync(path.join(process.cwd(), 'content/academy/build-ai-01.md'), 'utf-8'),
-  )
-
   return (
     <div className="min-h-screen pt-28 pb-24 bg-background">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
@@ -89,7 +85,7 @@ export default function BuildAiCourse() {
             <span className="px-3 py-1.5 rounded-full bg-primary/20 text-primary">⏱ 약 10시간</span>
             <span className="px-3 py-1.5 rounded-full bg-foreground/10 text-foreground">11편 {totalLessons}강</span>
             <span className="px-3 py-1.5 rounded-full bg-foreground/10 text-foreground">사내 출강</span>
-            <span className="px-3 py-1.5 rounded-full bg-[var(--accent-amber)]/20 text-[var(--accent-amber)]">자료 준비 중 (0/{totalLessons}강)</span>
+            <span className="px-3 py-1.5 rounded-full bg-[var(--accent-green-text)]/20 text-[var(--accent-green-text)]">📥 1편 자료 공개 ({readyCount}/{totalLessons}강)</span>
           </div>
         </div>
 
@@ -102,7 +98,7 @@ export default function BuildAiCourse() {
         <div className="mb-16">
           <h2 className="text-2xl md:text-3xl font-black text-foreground mb-6 tracking-tight">전체 커리큘럼</h2>
           <p className="text-base text-foreground/85 font-medium mb-6">
-            <span className="text-[var(--accent-green-text)] font-bold">1편이 먼저 공개</span>됐습니다 — <b>편 카드를 클릭하면 강의 내용이 펼쳐집니다.</b> 나머지 편은 <span className="text-[var(--accent-amber)] font-bold">📅 자료 준비 중</span>으로 순차 공개됩니다.
+            <span className="text-[var(--accent-green-text)] font-bold">1편이 먼저 공개</span>됐습니다 — <b>편 카드를 클릭하면 PPT 슬라이드와 강사용 스피커 노트를 내려받을 수 있습니다.</b> 나머지 편은 <span className="text-[var(--accent-amber)] font-bold">📅 자료 준비 중</span>으로 순차 공개됩니다.
           </p>
           <div className="space-y-6">
             {SECTIONS.map((sec) => (
@@ -112,9 +108,10 @@ export default function BuildAiCourse() {
                 title={sec.title}
                 desc={sec.desc}
                 lessons={sec.lessons}
-                ready={sec.part === '1편' ? true : sec.ready}
+                ready={sec.ready}
                 star={sec.star}
-                contentHtml={sec.part === '1편' ? lesson01Html : undefined}
+                slidesKey={sec.slidesKey}
+                notesKey={sec.notesKey}
               />
             ))}
           </div>
@@ -123,9 +120,9 @@ export default function BuildAiCourse() {
         {/* Coming soon notice */}
         <div className="rounded-3xl border-2 border-[var(--accent-amber)]/40 bg-gradient-to-br from-[var(--accent-amber)]/15 via-transparent to-transparent p-8 md:p-10 mb-12">
           <p className="text-sm font-mono font-bold tracking-[0.2em] uppercase text-[var(--accent-amber)] mb-3">Coming Soon</p>
-          <h2 className="text-2xl md:text-3xl font-black text-foreground mb-3 tracking-tight">강의 자료 준비 중</h2>
+          <h2 className="text-2xl md:text-3xl font-black text-foreground mb-3 tracking-tight">2편부터 순차 공개</h2>
           <p className="text-base text-foreground/90 font-medium leading-relaxed mb-4">
-            Course 02는 IT 담당자·관리자용 11편 30강 자료를 순차 공개합니다. 지금은 커리큘럼 미리보기로 제공됩니다.
+            Course 02는 IT 담당자·관리자용 11편 30강 자료를 순차 공개합니다. 1편(의사결정)은 지금 내려받을 수 있고, 2편(인프라)부터 이어집니다.
           </p>
           <Link href="/ai-solution/academy/dept-ai" className="inline-flex items-center gap-1 text-base text-primary font-bold hover:gap-2 transition-all font-mono">
             → Course 01 (자료 공개 중)으로

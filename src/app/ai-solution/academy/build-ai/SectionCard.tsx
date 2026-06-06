@@ -15,10 +15,9 @@ type Props = {
   star?: boolean
   slidesKey?: string
   notesKey?: string
-  contentHtml?: string
 }
 
-export default function SectionCard({ part, title, desc, lessons, ready, star, slidesKey, notesKey, contentHtml }: Props) {
+export default function SectionCard({ part, title, desc, lessons, ready, star, slidesKey, notesKey }: Props) {
   const [expanded, setExpanded] = useState(false)
 
   const cardBase = star
@@ -64,18 +63,6 @@ export default function SectionCard({ part, title, desc, lessons, ready, star, s
         </div>
       </div>
 
-      {/* 강의 내용 — 펼쳐졌을 때, 렌더된 본문 표시 */}
-      {ready && expanded && contentHtml && (
-        <div className="mt-3 ml-4 md:ml-10 relative pl-6 md:pl-10">
-          <div className="absolute left-0 top-0 bottom-8 w-px bg-gradient-to-b from-primary via-primary/50 to-transparent"></div>
-          <div className="absolute left-0 top-6 w-6 md:w-10 h-px bg-primary/50"></div>
-          <article
-            className="academy-content rounded-2xl border border-foreground/15 bg-card p-6 md:p-8"
-            dangerouslySetInnerHTML={{ __html: contentHtml }}
-          />
-        </div>
-      )}
-
       {/* 다운로드 — 펼쳐졌을 때만, 시각적으로 카드와 구분 */}
       {ready && expanded && slidesKey && notesKey && (
         <div className="mt-3 ml-4 md:ml-10 relative pl-6 md:pl-10">
@@ -86,7 +73,7 @@ export default function SectionCard({ part, title, desc, lessons, ready, star, s
             slidesKey={slidesKey}
             notesKey={notesKey}
             slidesDesc={`${part} 강의용 PPT 슬라이드 (${lessons.length}강 통합).`}
-            notesDesc={`${part} 강사용 스피커 노트. 강의별 멘트·실습·시간 배분·청중 질문 포함.`}
+            notesDesc={`${part} 강사용 스피커 노트. 슬라이드별 멘트·실습·시간 배분·청중 질문 포함.`}
           />
         </div>
       )}
