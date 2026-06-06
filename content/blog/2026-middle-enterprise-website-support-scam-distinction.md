@@ -77,7 +77,7 @@ Vision Solution은 단순한 홈페이지 제작을 넘어, 정부 지원사업 
 
 > **Vision Solution 홈페이지 제작 서비스 문의**:  
 > 📧 biztalktome@gmail.com  
-> 🌐 [https://www.visionc.co.kr/new-website](https://www.visionc.co.kr/new-website)
+> 🌐 [https://www.visionc.co.kr/renewal](https://www.visionc.co.kr/renewal)
 
 ---
 
