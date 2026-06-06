@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <text x="40" y="42" font-size="20" font-weight="800" fill="#1f2937">클라우드 AI vs 로컬 AI — 내 자료는 어디에?</text>
+
+  <!-- 클라우드 카드 -->
+  <rect x="40" y="70" width="340" height="200" rx="14" fill="#fef2f2" stroke="#fecaca"/>
+  <text x="64" y="108" font-size="17" font-weight="800" fill="#b91c1c">☁ 클라우드 AI (ChatGPT 등)</text>
+  <text x="64" y="146" font-size="14" fill="#374151">· 질문·자료가 외부 서버로 전송</text>
+  <text x="64" y="178" font-size="14" fill="#374151">· 회사 기밀 유출 우려</text>
+  <text x="64" y="210" font-size="14" fill="#374151">· 매달 사용료(토큰비) 발생</text>
+  <text x="64" y="242" font-size="14" fill="#374151">· 인터넷 필요</text>
+
+  <!-- 로컬 카드 -->
+  <rect x="420" y="70" width="340" height="200" rx="14" fill="#ecfeff" stroke="#a5f3fc"/>
+  <text x="444" y="108" font-size="17" font-weight="800" fill="#0e7490">💻 로컬 AI (Ollama)</text>
+  <text x="444" y="146" font-size="14" fill="#374151">· 자료가 내 PC 밖으로 안 나감</text>
+  <text x="444" y="178" font-size="14" fill="#374151">· 회사 기밀·고객정보 안심</text>
+  <text x="444" y="210" font-size="14" fill="#374151">· 사용료 0원 (무료)</text>
+  <text x="444" y="242" font-size="14" fill="#374151">· 인터넷 없이도 작동</text>
+</svg>
