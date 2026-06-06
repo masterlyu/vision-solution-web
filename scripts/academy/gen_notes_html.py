@@ -42,8 +42,8 @@ html,body{margin:0;padding:0;font-family:'NotoKR','NotoEmoji',sans-serif;color:#
 .shead{display:flex;justify-content:space-between;align-items:baseline;
   border-bottom:1.6px solid #111;padding-bottom:2mm;margin-bottom:5mm;
   font-size:9.5pt;font-weight:800;letter-spacing:.12em;color:#111;}
-.slide{page-break-inside:avoid;margin-bottom:7mm;}
-.sumbox{border:1.4px solid #111;border-radius:3mm;padding:5mm 6mm;}
+.slide{margin-bottom:7mm;}
+.sumbox{border:1.4px solid #111;border-radius:3mm;padding:5mm 6mm;page-break-inside:avoid;break-inside:avoid;}
 .sumbox .cat{font-size:8.5pt;font-weight:800;letter-spacing:.16em;color:#555;}
 .sumbox .htitle{font-size:17pt;font-weight:800;margin:1.5mm 0 1mm;line-height:1.2;}
 .sumbox .ssub{font-size:10pt;color:#444;font-weight:600;}
@@ -51,7 +51,8 @@ html,body{margin:0;padding:0;font-family:'NotoKR','NotoEmoji',sans-serif;color:#
 .sumbox .bul li{font-size:9.5pt;color:#333;margin:.6mm 0;line-height:1.4;}
 .time{margin:4mm 0 4mm;font-size:9.5pt;font-weight:700;color:#111;
   border-bottom:1px solid #ddd;padding-bottom:2mm;}
-.note{border:1.2px solid #111;border-radius:2.5mm;padding:3.5mm 4.5mm;margin:3mm 0;}
+.note{border:1.2px solid #111;border-radius:2.5mm;padding:3.5mm 4.5mm;margin:3mm 0;page-break-inside:avoid;break-inside:avoid;}
+.shead{page-break-after:avoid;}
 .note.dashed{border-style:dashed;background:#fafafa;}
 .note .chip{display:inline-block;border:1.2px solid #111;border-radius:1.5mm;
   font-size:8pt;font-weight:800;letter-spacing:.1em;padding:.6mm 2.2mm;margin-bottom:2.2mm;}
@@ -60,12 +61,29 @@ html,body{margin:0;padding:0;font-family:'NotoKR','NotoEmoji',sans-serif;color:#
 .legend{font-size:8.5pt;color:#666;margin:4mm 0 6mm;line-height:1.5;}
 """ % (FONT, EMOJI)
 
+def summary_items(sl):
+    """레이아웃에 따라 슬라이드 핵심을 PDF 요약 글머리로 변환."""
+    lay = sl.get("lay","bullets")
+    items=[]
+    if sl.get("bullets"):
+        items += [esc(b) for b in sl["bullets"]]
+    if lay=="compare":
+        items += [f'<b>{esc(t)}</b> ({esc(l)}) — {esc(bd)}' for (l,t,bd,_c) in sl.get("cards",[])]
+    elif lay=="stats":
+        items += [f'<b>{esc(n)} {esc(l)}</b> — {esc(c)}' for (n,l,c) in sl.get("stats",[])]
+    elif lay=="table":
+        cols=sl.get("cols",[])
+        for r in sl.get("rows",[]):
+            cells=" · ".join(f'{esc(c)}' for c in r)
+            items.append(cells)
+    return items
+
 def slide_html(sl):
     parts=['<div class="slide">']
     parts.append(
         f'<div class="shead"><span>VISIONC · ENT · {esc(sl["lesson"])}</span>'
         f'<span>SLIDE {sl["no"]:02d} / {TOTAL}</span></div>')
-    bul="".join(f'<li>{esc(b)}</li>' for b in sl["bullets"])
+    bul="".join(f'<li>{b}</li>' for b in summary_items(sl))
     ssub=f'<div class="ssub">{esc(sl["sub"])}</div>' if sl.get("sub") else ""
     parts.append(
         f'<div class="sumbox"><div class="cat">{esc(sl["cat"])}</div>'
