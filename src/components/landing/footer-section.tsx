@@ -6,12 +6,12 @@ void ArrowUpRight
 
 const links = {
   '서비스': [
-    { name: '기업 AI 도입 및 컨설팅', href: '/ai-solution', primary: true },
+    { name: '기업 AI 도입 및 컨설팅', href: '/ai-solution' },
     { name: '보안 진단', href: '/security' },
     { name: '모의해킹 진단', href: '/pentest' },
     { name: '웹사이트 리뉴얼·운영', href: '/renewal' },
     { name: '앱·시스템 개발', href: '/app-dev' },
-    { name: '🤖 챗봇 설치', href: '/chatbot' },
+    { name: '챗봇 설치', href: '/chatbot' },
   ],
   '회사': [
     { name: '소개', href: '/about' },
@@ -51,9 +51,7 @@ export function FooterSection() {
               <ul className="space-y-4">
                 {items.map(item => (
                   <li key={item.name}>
-                    <Link href={item.href} className={`text-sm font-medium hover:text-primary transition-colors ${
-                      'primary' in item && item.primary ? 'text-primary font-bold' : 'text-foreground/90'
-                    }`}>
+                    <Link href={item.href} className="text-sm font-medium text-foreground/90 hover:text-primary transition-colors">
                       {item.name}
                     </Link>
                   </li>
