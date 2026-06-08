@@ -79,7 +79,7 @@ export async function GET(request: Request) {
               paddingTop: 8, paddingBottom: 8, paddingLeft: 22, paddingRight: 22,
               fontSize: 16, color: '#c4b5fd',
             }}>
-              {title ? (tag || 'VISIONC 블로그') : '무료 AI 진단'}
+              {title ? (tag || 'VISIONC 블로그') : '기업 AI 도입 동반자'}
             </div>
           </div>
 
@@ -96,13 +96,13 @@ export async function GET(request: Request) {
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <div style={{ fontSize: 56, color: '#ffffff', lineHeight: 1.15, display: 'flex' }}>
-                홈페이지가 고객을
+                AI 도입으로
               </div>
-              <div style={{ fontSize: 56, color: '#a78bfa', lineHeight: 1.15, display: 'flex', marginBottom: 24 }}>
-                놓치고 있습니까?
+              <div style={{ fontSize: 50, color: '#a78bfa', lineHeight: 1.15, display: 'flex', marginBottom: 24 }}>
+                시간 35%·비용 42% 절감
               </div>
               <div style={{ fontSize: 20, color: 'rgba(255,255,255,0.6)', display: 'flex' }}>
-                URL 하나로 48시간 내 AI 진단 · 리뉴얼·보안·AI 솔루션 원스톱
+                컨설팅·구축·사내 출강 교육·보안·웹·앱 · 누적 247건+
               </div>
             </div>
           )}

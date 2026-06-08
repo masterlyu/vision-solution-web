@@ -33,7 +33,7 @@ const schemaOrg = {
   alternateName: '(주)비젼솔루션',
   url: 'https://visionc.co.kr',
   logo: 'https://visionc.co.kr/logo.svg',
-  description: '홈페이지 무료 AI 진단 전문. 리뉴얼·보안·AI 솔루션 원스톱 제공.',
+  description: '중소기업 AI 도입 동반자. 컨설팅·구축·사내 출강 교육·보안·웹·앱 개발 원스톱. 누적 247건+ 프로젝트.',
   email: 'biztalktome@gmail.com',
   address: {
     '@type': 'PostalAddress',
