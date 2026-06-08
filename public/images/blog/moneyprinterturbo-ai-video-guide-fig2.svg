@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">외주 제작 vs AI 자동 생성 비교</text>
+  <!-- 카드 3개 -->
+  <rect x="40" y="64" width="220" height="110" rx="12" fill="#fef2f2"/>
+  <text x="150" y="118" text-anchor="middle" font-size="30" font-weight="900" fill="#dc2626">수십만원~</text>
+  <text x="150" y="148" text-anchor="middle" font-size="13" fill="#6b7280">외주 영상 제작 비용</text>
+  <rect x="290" y="64" width="220" height="110" rx="12" fill="#eff6ff"/>
+  <text x="400" y="118" text-anchor="middle" font-size="30" font-weight="900" fill="#2563eb">30분~</text>
+  <text x="400" y="148" text-anchor="middle" font-size="13" fill="#6b7280">AI 영상 생성 소요 시간</text>
+  <rect x="540" y="64" width="220" height="110" rx="12" fill="#f0fdf4"/>
+  <text x="650" y="118" text-anchor="middle" font-size="30" font-weight="900" fill="#16a34a">무료</text>
+  <text x="650" y="148" text-anchor="middle" font-size="13" fill="#6b7280">오픈소스 라이선스</text>
+</svg>
