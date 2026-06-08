@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">한국 중소기업 무료 AI 마케팅 시작 3단계</text>
+  <rect x="40" y="70" width="200" height="90" rx="12" fill="#0f766e"/>
+  <text x="140" y="108" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">① 검색 등록</text>
+  <text x="140" y="130" text-anchor="middle" font-size="12" fill="#a7f3d0">구글 서치콘솔</text>
+  <text x="140" y="148" text-anchor="middle" font-size="12" fill="#a7f3d0">네이버 서치어드바이저</text>
+  <text x="265" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <rect x="300" y="70" width="200" height="90" rx="12" fill="#0891b2"/>
+  <text x="400" y="108" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">② 사이트 점검</text>
+  <text x="400" y="130" text-anchor="middle" font-size="12" fill="#cffafe">Google Lighthouse</text>
+  <text x="400" y="148" text-anchor="middle" font-size="12" fill="#cffafe">F12 → Lighthouse 탭</text>
+  <text x="525" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <rect x="560" y="70" width="200" height="90" rx="12" fill="#22d3ee"/>
+  <text x="660" y="108" text-anchor="middle" font-size="15" font-weight="800" fill="#083344">③ 콘텐츠 작성</text>
+  <text x="660" y="130" text-anchor="middle" font-size="12" fill="#083344">ChatGPT / Claude 무료</text>
+  <text x="660" y="148" text-anchor="middle" font-size="12" fill="#083344">초안 생성 → 사람 검수</text>
+</svg>
