@@ -33,7 +33,8 @@ const SECTIONS: Section[] = [
   { part: '1편', title: '의사결정', desc: '도입 전 비교·로드맵', ready: true,
     slidesKey: 'build-ai-part1-slides', notesKey: 'build-ai-part1-speaker-notes',
     lessons: [['01', '클라우드 API vs 온프레미스 — 규모별 손익분기점'], ['02', '단계별 도입 로드맵 — 6/12/24개월']] },
-  { part: '2편', title: '인프라', desc: '서버·OS·네트워크', ready: false,
+  { part: '2편', title: '인프라', desc: '서버·OS·네트워크', ready: true,
+    slidesKey: 'build-ai-part2-slides', notesKey: 'build-ai-part2-speaker-notes',
     lessons: [['03', '하드웨어 — GPU 선택, 미니PC/워크스테이션/서버'], ['04', 'OS·드라이버·컨테이너 — Ubuntu·NVIDIA·Docker'], ['05', '네트워크·보안 — 사내망 격리, Reverse Proxy, mTLS']] },
   { part: '3편', title: '모델·추론 엔진', desc: '무료 LLM·한국어·양자화', ready: false,
     lessons: [['06', '무료 LLM 비교 — Llama, Qwen, Mistral, DeepSeek, GPT-OSS'], ['07', '한국어 특화 — Solar, EXAONE, KULLM, Bllossom'], ['08', '추론 엔진 — Ollama, vLLM, llama.cpp, TGI + 양자화']] },
@@ -120,9 +121,9 @@ export default function BuildAiCourse() {
         {/* Coming soon notice */}
         <div className="rounded-3xl border-2 border-[var(--accent-amber)]/40 bg-gradient-to-br from-[var(--accent-amber)]/15 via-transparent to-transparent p-8 md:p-10 mb-12">
           <p className="text-sm font-mono font-bold tracking-[0.2em] uppercase text-[var(--accent-amber)] mb-3">Coming Soon</p>
-          <h2 className="text-2xl md:text-3xl font-black text-foreground mb-3 tracking-tight">2편부터 순차 공개</h2>
+          <h2 className="text-2xl md:text-3xl font-black text-foreground mb-3 tracking-tight">3편부터 순차 공개</h2>
           <p className="text-base text-foreground/90 font-medium leading-relaxed mb-4">
-            Course 02는 IT 담당자·관리자용 11편 30강 자료를 순차 공개합니다. 1편(의사결정)은 지금 내려받을 수 있고, 2편(인프라)부터 이어집니다.
+            Course 02는 IT 담당자·관리자용 11편 30강 자료를 순차 공개합니다. 1편(의사결정)·2편(인프라)을 지금 내려받을 수 있고, 3편(모델·추론)부터 이어집니다.
           </p>
           <Link href="/ai-solution/academy/dept-ai" className="inline-flex items-center gap-1 text-base text-primary font-bold hover:gap-2 transition-all font-mono">
             → Course 01 (자료 공개 중)으로
