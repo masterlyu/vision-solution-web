@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">AgentGPT 작동 원리 — 목표 하나로 3단계 자동 실행</text>
+  <rect x="40" y="70" width="200" height="90" rx="12" fill="#0f766e"/>
+  <text x="140" y="108" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">① 목표 입력</text>
+  <text x="140" y="132" text-anchor="middle" font-size="12" fill="#a7f3d0">원하는 작업을</text>
+  <text x="140" y="150" text-anchor="middle" font-size="12" fill="#a7f3d0">한 문장으로</text>
+  <text x="265" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <rect x="300" y="70" width="200" height="90" rx="12" fill="#0891b2"/>
+  <text x="400" y="108" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">② 자동 계획 수립</text>
+  <text x="400" y="132" text-anchor="middle" font-size="12" fill="#cffafe">AI가 순서와</text>
+  <text x="400" y="150" text-anchor="middle" font-size="12" fill="#cffafe">방법을 결정</text>
+  <text x="525" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <rect x="560" y="70" width="200" height="90" rx="12" fill="#22d3ee"/>
+  <text x="660" y="108" text-anchor="middle" font-size="15" font-weight="800" fill="#083344">③ 단계별 실행</text>
+  <text x="660" y="132" text-anchor="middle" font-size="12" fill="#083344">결과물을 자동으로</text>
+  <text x="660" y="150" text-anchor="middle" font-size="12" fill="#083344">완성해 전달</text>
+</svg>
