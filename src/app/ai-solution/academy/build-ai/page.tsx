@@ -60,7 +60,8 @@ const SECTIONS: Section[] = [
   { part: '10편', title: '백업·재해 복구', desc: '운영 안정성', star: true, ready: true,
     slidesKey: 'build-ai-part10-slides', notesKey: 'build-ai-part10-speaker-notes',
     lessons: [['27', '백업 — RAG DB·대화 이력·모델·Git'], ['28', 'DR 시나리오 — 정전·장애·랜섬웨어·RPO/RTO']] },
-  { part: '11편', title: '관리자 운영·효용성·최적화', desc: '도입 후 운영·Fine-tuning', ready: false,
+  { part: '11편', title: '관리자 운영·효용성·최적화', desc: '도입 후 운영·Fine-tuning', star: true, ready: true,
+    slidesKey: 'build-ai-part11-slides', notesKey: 'build-ai-part11-speaker-notes',
     lessons: [['29', '권한·온보딩·KPI — RBAC, SSO, ROI 대시보드'], ['30', 'Fine-tuning·비용 모니터링 — LoRA·QLoRA·Unsloth']] },
 ]
 

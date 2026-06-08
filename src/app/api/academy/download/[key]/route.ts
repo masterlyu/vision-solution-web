@@ -202,6 +202,16 @@ const DOWNLOADS: Record<string, Entry> = {
     filename: 'visionc-enterprise-build-ai-part10-speaker-notes.pdf',
     mime: PDF_MIME,
   },
+  'build-ai-part11-slides': {
+    file: 'src/storage/academy/build-ai-part11-slides.pptx',
+    filename: 'visionc-enterprise-build-ai-part11-slides.pptx',
+    mime: PPTX_MIME,
+  },
+  'build-ai-part11-speaker-notes': {
+    file: 'src/storage/academy/build-ai-part11-speaker-notes.pdf',
+    filename: 'visionc-enterprise-build-ai-part11-speaker-notes.pdf',
+    mime: PDF_MIME,
+  },
   // === 향후 추가될 키 (자료 업로드 시 활성화) ===
   // dept-ai-part2-slides, dept-ai-part2-speaker-notes,
   // dept-ai-part3-slides ... dept-ai-part5-speaker-notes,
