@@ -39,7 +39,8 @@ const SECTIONS: Section[] = [
   { part: '3편', title: '모델·추론 엔진', desc: '무료 LLM·한국어·양자화', ready: true,
     slidesKey: 'build-ai-part3-slides', notesKey: 'build-ai-part3-speaker-notes',
     lessons: [['06', '무료 LLM 비교 — Llama, Qwen, Mistral, DeepSeek, GPT-OSS'], ['07', '한국어 특화 — Solar, EXAONE, KULLM, Bllossom'], ['08', '추론 엔진 — Ollama, vLLM, llama.cpp, TGI + 양자화']] },
-  { part: '4편', title: '챗봇·RAG 플랫폼', desc: '사내 직원이 매일 쓰는 UI', ready: false,
+  { part: '4편', title: '챗봇·RAG 플랫폼', desc: '사내 직원이 매일 쓰는 UI', ready: true,
+    slidesKey: 'build-ai-part4-slides', notesKey: 'build-ai-part4-speaker-notes',
     lessons: [['09', '사내 챗봇 UI — Open WebUI, Dify, LibreChat, AnythingLLM'], ['10', 'RAG — LlamaIndex, Qdrant, 사내 문서 학습'], ['11', 'MCP — ERP·메일·CAD·문서 시스템 연결']] },
   { part: '5편', title: '에이전트 기초·생태계', desc: '자율 에이전트 핵심', star: true, ready: false,
     lessons: [['12', '에이전트란 무엇인가 — 챗봇과의 차이, 4요소'], ['13', '공식 에이전트 Claude Code — 권한·슬래시 커맨드'], ['14', '오픈 에이전트 총망라 — OpenCode, Cline, Aider, Roo Code']] },
@@ -122,9 +123,9 @@ export default function BuildAiCourse() {
         {/* Coming soon notice */}
         <div className="rounded-3xl border-2 border-[var(--accent-amber)]/40 bg-gradient-to-br from-[var(--accent-amber)]/15 via-transparent to-transparent p-8 md:p-10 mb-12">
           <p className="text-sm font-mono font-bold tracking-[0.2em] uppercase text-[var(--accent-amber)] mb-3">Coming Soon</p>
-          <h2 className="text-2xl md:text-3xl font-black text-foreground mb-3 tracking-tight">4편부터 순차 공개</h2>
+          <h2 className="text-2xl md:text-3xl font-black text-foreground mb-3 tracking-tight">5편부터 순차 공개</h2>
           <p className="text-base text-foreground/90 font-medium leading-relaxed mb-4">
-            Course 02는 IT 담당자·관리자용 11편 30강 자료를 순차 공개합니다. 1편(의사결정)·2편(인프라)·3편(모델·추론)을 지금 내려받을 수 있고, 4편(챗봇·RAG)부터 이어집니다.
+            Course 02는 IT 담당자·관리자용 11편 30강 자료를 순차 공개합니다. 1편~4편을 지금 내려받을 수 있고, 5편(에이전트 기초)부터 이어집니다.
           </p>
           <Link href="/ai-solution/academy/dept-ai" className="inline-flex items-center gap-1 text-base text-primary font-bold hover:gap-2 transition-all font-mono">
             → Course 01 (자료 공개 중)으로
