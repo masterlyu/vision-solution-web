@@ -45,7 +45,8 @@ const SECTIONS: Section[] = [
   { part: '5편', title: '에이전트 기초·생태계', desc: '자율 에이전트 핵심', star: true, ready: true,
     slidesKey: 'build-ai-part5-slides', notesKey: 'build-ai-part5-speaker-notes',
     lessons: [['12', '에이전트란 무엇인가 — 챗봇과의 차이, 4요소'], ['13', '공식 에이전트 Claude Code — 권한·슬래시 커맨드'], ['14', '오픈 에이전트 총망라 — OpenCode, Cline, Aider, Roo Code']] },
-  { part: '6편', title: '하네스 엔지니어링', desc: '회사 정책을 코드로 자동 적용', star: true, ready: false,
+  { part: '6편', title: '하네스 엔지니어링', desc: '회사 정책을 코드로 자동 적용', star: true, ready: true,
+    slidesKey: 'build-ai-part6-slides', notesKey: 'build-ai-part6-speaker-notes',
     lessons: [['15', 'settings.json — 권한·환경변수·모델·토큰 한도'], ['16', 'Hooks — PreToolUse/PostToolUse로 정책 자동 적용'], ['17', 'Skills·Slash Commands·MCP — 부서 도메인 지식 패키징']] },
   { part: '7편', title: '사내 에이전트 배포·운영', desc: '직원 전체에게 안전하게 배포', star: true, ready: false,
     lessons: [['18', '부서별 권한 매트릭스 — 영업/설계/생산 도구·데이터 격리'], ['19', '위험 차단 안전장치 — 위험 명령 차단·비용 한도'], ['20', '에이전트 백업·감사 — 변경 로깅·스냅샷·롤백'], ['21', '사내 에이전트 카탈로그 — 부서별 봇 마켓플레이스']] },
@@ -124,9 +125,9 @@ export default function BuildAiCourse() {
         {/* Coming soon notice */}
         <div className="rounded-3xl border-2 border-[var(--accent-amber)]/40 bg-gradient-to-br from-[var(--accent-amber)]/15 via-transparent to-transparent p-8 md:p-10 mb-12">
           <p className="text-sm font-mono font-bold tracking-[0.2em] uppercase text-[var(--accent-amber)] mb-3">Coming Soon</p>
-          <h2 className="text-2xl md:text-3xl font-black text-foreground mb-3 tracking-tight">6편부터 순차 공개</h2>
+          <h2 className="text-2xl md:text-3xl font-black text-foreground mb-3 tracking-tight">7편부터 순차 공개</h2>
           <p className="text-base text-foreground/90 font-medium leading-relaxed mb-4">
-            Course 02는 IT 담당자·관리자용 11편 30강 자료를 순차 공개합니다. 1편~5편을 지금 내려받을 수 있고, 6편(하네스 엔지니어링)부터 이어집니다.
+            Course 02는 IT 담당자·관리자용 11편 30강 자료를 순차 공개합니다. 1편~6편을 지금 내려받을 수 있고, 7편(사내 에이전트 배포)부터 이어집니다.
           </p>
           <Link href="/ai-solution/academy/dept-ai" className="inline-flex items-center gap-1 text-base text-primary font-bold hover:gap-2 transition-all font-mono">
             → Course 01 (자료 공개 중)으로
