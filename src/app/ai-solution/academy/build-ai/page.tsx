@@ -48,7 +48,8 @@ const SECTIONS: Section[] = [
   { part: '6편', title: '하네스 엔지니어링', desc: '회사 정책을 코드로 자동 적용', star: true, ready: true,
     slidesKey: 'build-ai-part6-slides', notesKey: 'build-ai-part6-speaker-notes',
     lessons: [['15', 'settings.json — 권한·환경변수·모델·토큰 한도'], ['16', 'Hooks — PreToolUse/PostToolUse로 정책 자동 적용'], ['17', 'Skills·Slash Commands·MCP — 부서 도메인 지식 패키징']] },
-  { part: '7편', title: '사내 에이전트 배포·운영', desc: '직원 전체에게 안전하게 배포', star: true, ready: false,
+  { part: '7편', title: '사내 에이전트 배포·운영', desc: '직원 전체에게 안전하게 배포', star: true, ready: true,
+    slidesKey: 'build-ai-part7-slides', notesKey: 'build-ai-part7-speaker-notes',
     lessons: [['18', '부서별 권한 매트릭스 — 영업/설계/생산 도구·데이터 격리'], ['19', '위험 차단 안전장치 — 위험 명령 차단·비용 한도'], ['20', '에이전트 백업·감사 — 변경 로깅·스냅샷·롤백'], ['21', '사내 에이전트 카탈로그 — 부서별 봇 마켓플레이스']] },
   { part: '8편', title: '자체 에이전트 만들기', desc: '회사 전용 에이전트 개발', ready: false,
     lessons: [['22', 'Claude Agent SDK 기본 — Tool, Memory'], ['23', '실전 — 견적 자동화 에이전트 (메일→사양→BOM→견적서)']] },
@@ -125,9 +126,9 @@ export default function BuildAiCourse() {
         {/* Coming soon notice */}
         <div className="rounded-3xl border-2 border-[var(--accent-amber)]/40 bg-gradient-to-br from-[var(--accent-amber)]/15 via-transparent to-transparent p-8 md:p-10 mb-12">
           <p className="text-sm font-mono font-bold tracking-[0.2em] uppercase text-[var(--accent-amber)] mb-3">Coming Soon</p>
-          <h2 className="text-2xl md:text-3xl font-black text-foreground mb-3 tracking-tight">7편부터 순차 공개</h2>
+          <h2 className="text-2xl md:text-3xl font-black text-foreground mb-3 tracking-tight">8편부터 순차 공개</h2>
           <p className="text-base text-foreground/90 font-medium leading-relaxed mb-4">
-            Course 02는 IT 담당자·관리자용 11편 30강 자료를 순차 공개합니다. 1편~6편을 지금 내려받을 수 있고, 7편(사내 에이전트 배포)부터 이어집니다.
+            Course 02는 IT 담당자·관리자용 11편 30강 자료를 순차 공개합니다. 1편~7편을 지금 내려받을 수 있고, 8편(자체 에이전트)부터 이어집니다.
           </p>
           <Link href="/ai-solution/academy/dept-ai" className="inline-flex items-center gap-1 text-base text-primary font-bold hover:gap-2 transition-all font-mono">
             → Course 01 (자료 공개 중)으로
