@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 260" width="800" height="260" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="260" fill="#ffffff"/>
+  <text x="40" y="44" font-size="18" font-weight="800" fill="#1f2937">baoyu-design 시작 3단계</text>
+  <line x1="60" y1="145" x2="740" y2="145" stroke="#cbd5e1" stroke-width="3"/>
+  <!-- 단계 1 -->
+  <circle cx="150" cy="145" r="22" fill="#0f766e"/>
+  <text x="150" y="151" text-anchor="middle" font-size="16" font-weight="800" fill="white">1</text>
+  <text x="150" y="100" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">설치 (30초)</text>
+  <text x="150" y="185" text-anchor="middle" font-size="12" fill="#6b7280">npx skills add</text>
+  <text x="150" y="203" text-anchor="middle" font-size="12" fill="#6b7280">JimLiu/baoyu-design</text>
+  <!-- 단계 2 -->
+  <circle cx="400" cy="145" r="22" fill="#0f766e"/>
+  <text x="400" y="151" text-anchor="middle" font-size="16" font-weight="800" fill="white">2</text>
+  <text x="400" y="100" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">프롬프트 입력</text>
+  <text x="400" y="185" text-anchor="middle" font-size="12" fill="#6b7280">Claude Code에서</text>
+  <text x="400" y="203" text-anchor="middle" font-size="12" fill="#6b7280">"UI 목업 만들어줘"</text>
+  <!-- 단계 3 -->
+  <circle cx="650" cy="145" r="22" fill="#06b6d4"/>
+  <text x="650" y="151" text-anchor="middle" font-size="16" font-weight="800" fill="white">3</text>
+  <text x="650" y="100" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">HTML로 결과 확인</text>
+  <text x="650" y="185" text-anchor="middle" font-size="12" fill="#6b7280">designs/ 폴더에 저장</text>
+  <text x="650" y="203" text-anchor="middle" font-size="12" fill="#6b7280">브라우저에서 바로 열기</text>
+</svg>

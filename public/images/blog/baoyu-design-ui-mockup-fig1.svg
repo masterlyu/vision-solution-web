@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 260" width="800" height="260" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="260" fill="#ffffff"/>
+  <text x="40" y="44" font-size="18" font-weight="800" fill="#1f2937">Claude Design 공개 흐름 — 같은 날 두 버전이 나왔다</text>
+  <line x1="60" y1="145" x2="740" y2="145" stroke="#cbd5e1" stroke-width="3"/>
+  <!-- 마디 1 -->
+  <circle cx="120" cy="145" r="10" fill="#0f766e"/>
+  <text x="120" y="105" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">2026.04.17</text>
+  <text x="120" y="175" text-anchor="middle" font-size="12" fill="#6b7280">Anthropic</text>
+  <text x="120" y="193" text-anchor="middle" font-size="12" fill="#6b7280">Claude Design</text>
+  <text x="120" y="211" text-anchor="middle" font-size="11" fill="#9ca3af">공식 출시</text>
+  <!-- 마디 2 -->
+  <circle cx="400" cy="145" r="10" fill="#0f766e"/>
+  <text x="400" y="105" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">2026.04.17</text>
+  <text x="400" y="175" text-anchor="middle" font-size="12" fill="#6b7280">JimLiu</text>
+  <text x="400" y="193" text-anchor="middle" font-size="12" fill="#6b7280">baoyu-design</text>
+  <text x="400" y="211" text-anchor="middle" font-size="11" fill="#9ca3af">오픈소스 공개</text>
+  <!-- 마디 3 -->
+  <circle cx="680" cy="145" r="10" fill="#06b6d4"/>
+  <text x="680" y="105" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">지금</text>
+  <text x="680" y="175" text-anchor="middle" font-size="12" fill="#6b7280">API 키만 있으면</text>
+  <text x="680" y="193" text-anchor="middle" font-size="12" fill="#6b7280">무료로 사용 가능</text>
+  <text x="680" y="211" text-anchor="middle" font-size="11" fill="#9ca3af">515 GitHub stars</text>
+</svg>
