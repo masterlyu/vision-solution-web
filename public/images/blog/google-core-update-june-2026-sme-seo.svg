@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d0d16;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4285f4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#34a853;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)" />
+  <!-- Background circles -->
+  <circle cx="720" cy="-30" r="250" fill="#4285f4" opacity="0.04"/>
+  <circle cx="-30" cy="450" r="200" fill="#34a853" opacity="0.04"/>
+  <!-- Tag badge -->
+  <rect x="40" y="40" width="120" height="28" rx="14" fill="#4285f4" opacity="0.18"/>
+  <text x="100" y="59" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#7bb3ff">홈페이지 제작</text>
+  <!-- Right panel: Google G + Core Update indicator -->
+  <rect x="490" y="55" width="270" height="310" rx="18" fill="white" opacity="0.04" stroke="#4285f4" stroke-opacity="0.2" stroke-width="1"/>
+  <!-- Google colors -->
+  <text x="625" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="58" font-weight="900" fill="#4285f4">G</text>
+  <!-- Update bars -->
+  <rect x="515" y="180" width="220" height="14" rx="7" fill="#1f1f3a"/>
+  <rect x="515" y="180" width="180" height="14" rx="7" fill="#ea4335" opacity="0.8"/>
+  <text x="625" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white" opacity="0.5">Core Update 완료</text>
+  <rect x="515" y="228" width="220" height="14" rx="7" fill="#1f1f3a"/>
+  <rect x="515" y="228" width="140" height="14" rx="7" fill="#fbbc05" opacity="0.8"/>
+  <text x="625" y="263" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white" opacity="0.5">랭킹 변동 강도</text>
+  <rect x="515" y="276" width="220" height="14" rx="7" fill="#1f1f3a"/>
+  <rect x="515" y="276" width="195" height="14" rx="7" fill="#34a853" opacity="0.8"/>
+  <text x="625" y="311" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white" opacity="0.5">영향 업종 수</text>
+  <!-- 11일 badge -->
+  <rect x="540" y="320" width="170" height="32" rx="8" fill="#4285f4" opacity="0.15"/>
+  <text x="625" y="341" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#7bb3ff">11일 21시간 롤아웃 완료</text>
+  <!-- Main text -->
+  <text x="40" y="128" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="white" opacity="0.6">구글 알고리즘 업데이트</text>
+  <text x="40" y="178" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">홈페이지 순위</text>
+  <text x="40" y="218" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">왜 떨어졌나?</text>
+  <text x="40" y="258" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">May 2026 Core Update 완료</text>
+  <!-- Accent line -->
+  <rect x="40" y="278" width="60" height="4" rx="2" fill="url(#accent)" opacity="0.9"/>
+  <!-- Date -->
+  <text x="40" y="310" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.45">2026.06.10</text>
+  <!-- Footer -->
+  <text x="40" y="370" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.4">visionc.co.kr</text>
+</svg>
