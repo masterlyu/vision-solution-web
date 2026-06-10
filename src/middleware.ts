@@ -5,6 +5,7 @@ import { NextRequest, NextResponse } from 'next/server'
  *
  * 1. CSP nonce 생성 및 동적 보안 헤더 처리 (VIS-13)
  * 2. CSRF 방어: 공개 폼 제출 API에 Origin 헤더 검증 (VIS-16)
+ * 3. 요청 ID 주입 — x-request-id 헤더로 모든 요청에 고유 ID 부여 (VISA-4)
  */
 
 function buildSecurityHeaders(nonce: string): Record<string, string> {
@@ -73,17 +74,24 @@ export function middleware(req: NextRequest) {
     }
   }
 
-  // 3. 보안 헤더 적용 — btoa(randomUUID()) : Edge Runtime 호환
+  // 3. 요청 ID 생성 — 로그 추적용 (VISA-4)
+  // 업스트림(로드밸런서 등)이 이미 주입했으면 그대로 재사용
+  const requestId = req.headers.get('x-request-id') ?? crypto.randomUUID()
+
+  // 4. 보안 헤더 적용 — btoa(randomUUID()) : Edge Runtime 호환
   const nonce = btoa(crypto.randomUUID())
   const securityHeaders = buildSecurityHeaders(nonce)
 
   const requestHeaders = new Headers(req.headers)
   requestHeaders.set('x-nonce', nonce)
+  requestHeaders.set('x-request-id', requestId)
 
   const response = NextResponse.next({ request: { headers: requestHeaders } })
   for (const [key, value] of Object.entries(securityHeaders)) {
     response.headers.set(key, value)
   }
+  // Echo request-id back on the response so clients can correlate
+  response.headers.set('x-request-id', requestId)
   response.headers.delete('X-Powered-By')
   return response
 }

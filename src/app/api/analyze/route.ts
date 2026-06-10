@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { sendVerificationEmail } from '@/lib/emailSender'
 import { env } from '@/lib/env'
+import { reportError } from '@/lib/errorReporter'
 
 const ADMIN_EMAILS = ['biztalktome@gmail.com']
 
@@ -78,8 +79,10 @@ export async function POST(req: NextRequest) {
     }).catch(() => {})
 
     return NextResponse.json({ ok: true, pending: true })
-  } catch (e: any) {
-    console.error('[analyze]', e)
-    return NextResponse.json({ error: e.message }, { status: 500 })
+  } catch (e: unknown) {
+    const requestId = req.headers.get('x-request-id') ?? undefined
+    await reportError(e, { requestId, path: '/api/analyze', method: 'POST' })
+    const msg = e instanceof Error ? e.message : 'Internal server error'
+    return NextResponse.json({ error: msg }, { status: 500 })
   }
 }

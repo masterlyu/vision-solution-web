@@ -27,6 +27,14 @@ const envSchema = z.object({
   // OWASP ZAP — 자동화 스캔 데몬 (Phase 2, 선택)
   ZAP_API_URL: z.string().optional().default('http://localhost:8080'),
   ZAP_API_KEY: z.string().optional().default('changeme'),
+
+  // 관찰가능성 (VISA-4)
+  // 로그 레벨: debug | info | warn | error (기본: info)
+  LOG_LEVEL: z.enum(['debug', 'info', 'warn', 'error']).optional().default('info'),
+  // Sentry DSN — 설정 시 에러가 Sentry로도 전송됨 (선택, @sentry/nextjs 패키지 필요)
+  SENTRY_DSN: z.string().optional(),
+  // 앱 버전 — /api/health 응답에 포함됨 (선택)
+  NEXT_PUBLIC_APP_VERSION: z.string().optional().default('0.1.0'),
 })
 
 const skipValidation = process.env.SKIP_ENV_VALIDATION === '1'
