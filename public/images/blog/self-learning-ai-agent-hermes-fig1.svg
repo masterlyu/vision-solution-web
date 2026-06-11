@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <text x="400" y="40" text-anchor="middle" font-size="18" font-weight="800" fill="#1f2937">일반 AI vs Hermes Agent — 반복 사용할수록 어떻게 달라지나</text>
+
+  <!-- Column headers -->
+  <rect x="40" y="60" width="340" height="38" rx="8" fill="#e2e8f0"/>
+  <text x="210" y="84" text-anchor="middle" font-size="15" font-weight="700" fill="#6b7280">일반 AI (ChatGPT 등)</text>
+
+  <rect x="420" y="60" width="340" height="38" rx="8" fill="#0f766e"/>
+  <text x="590" y="84" text-anchor="middle" font-size="15" font-weight="700" fill="white">Hermes Agent</text>
+
+  <!-- Row 1 -->
+  <rect x="40" y="108" width="340" height="44" rx="4" fill="#f8fafc"/>
+  <text x="210" y="135" text-anchor="middle" font-size="13" fill="#6b7280">1번째 사용 — 그냥 써볼 만한 수준</text>
+  <rect x="420" y="108" width="340" height="44" rx="4" fill="#f0fdf9"/>
+  <text x="590" y="135" text-anchor="middle" font-size="13" fill="#0f766e">1번째 사용 — 그냥 써볼 만한 수준</text>
+
+  <!-- Row 2 -->
+  <rect x="40" y="162" width="340" height="44" rx="4" fill="#f8fafc"/>
+  <text x="210" y="189" text-anchor="middle" font-size="13" fill="#6b7280">10번째 사용 — 여전히 똑같은 수준</text>
+  <rect x="420" y="162" width="340" height="44" rx="4" fill="#ccfbf1"/>
+  <text x="590" y="189" text-anchor="middle" font-size="13" fill="#0f766e" font-weight="700">10번째 사용 — 스킬 파일 자동 축적 시작</text>
+
+  <!-- Row 3 -->
+  <rect x="40" y="216" width="340" height="44" rx="4" fill="#f8fafc"/>
+  <text x="210" y="243" text-anchor="middle" font-size="13" fill="#6b7280">30번째 사용 — 매번 처음부터 설명 반복</text>
+  <rect x="420" y="216" width="340" height="44" rx="4" fill="#0f766e"/>
+  <text x="590" y="243" text-anchor="middle" font-size="13" fill="white" font-weight="700">30번째 사용 — 맥락 파악 → 더 빠르게 처리</text>
+
+  <!-- Source note -->
+  <text x="40" y="285" font-size="11" fill="#9ca3af">개념 출처: github.com/NousResearch/hermes-agent README ("learning loop")</text>
+</svg>

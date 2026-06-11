@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 260" width="800" height="260" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="260" fill="#ffffff"/>
+  <text x="400" y="40" text-anchor="middle" font-size="18" font-weight="800" fill="#1f2937">Hermes Agent 스킬 축적 과정</text>
+
+  <!-- Timeline line -->
+  <line x1="80" y1="150" x2="720" y2="150" stroke="#cbd5e1" stroke-width="3"/>
+
+  <!-- Step 1 -->
+  <circle cx="120" cy="150" r="12" fill="#0f766e"/>
+  <text x="120" y="105" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">1번째 업무</text>
+  <text x="120" y="122" text-anchor="middle" font-size="12" fill="#6b7280">처음 시작</text>
+  <text x="120" y="185" text-anchor="middle" font-size="12" fill="#6b7280">일반적인 수준으로</text>
+  <text x="120" y="200" text-anchor="middle" font-size="12" fill="#6b7280">처리</text>
+
+  <!-- Step 2 -->
+  <circle cx="400" cy="150" r="12" fill="#0f766e"/>
+  <text x="400" y="105" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">5번째 이후</text>
+  <text x="400" y="122" text-anchor="middle" font-size="12" fill="#6b7280">스킬 파일 생성</text>
+  <text x="400" y="185" text-anchor="middle" font-size="12" fill="#0f766e" font-weight="700">절차·주의사항 자동 저장</text>
+  <text x="400" y="200" text-anchor="middle" font-size="12" fill="#0f766e">(백그라운드 Curator 작동)</text>
+
+  <!-- Step 3 -->
+  <circle cx="680" cy="150" r="14" fill="#06b6d4"/>
+  <text x="680" y="105" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">10번 이상 누적</text>
+  <text x="680" y="122" text-anchor="middle" font-size="12" fill="#6b7280">패턴 파악 완료</text>
+  <text x="680" y="185" text-anchor="middle" font-size="12" fill="#06b6d4" font-weight="700">맥락 자동 적용</text>
+  <text x="680" y="200" text-anchor="middle" font-size="12" fill="#06b6d4">같은 업무 더 빠르게 처리</text>
+
+  <!-- Arrows -->
+  <polygon points="250,146 270,150 250,154" fill="#cbd5e1"/>
+  <polygon points="530,146 550,150 530,154" fill="#cbd5e1"/>
+
+  <!-- Source note -->
+  <text x="40" y="248" font-size="11" fill="#9ca3af">출처: github.com/NousResearch/hermes-agent README (learning loop 동작 원리)</text>
+</svg>
