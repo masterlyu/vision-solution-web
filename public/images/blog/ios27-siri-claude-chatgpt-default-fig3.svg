@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">iOS 27 기본 AI 설정 3단계</text>
+  <rect x="40" y="70" width="200" height="90" rx="12" fill="#0f766e"/>
+  <text x="140" y="112" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">① 앱 설치</text>
+  <text x="140" y="138" text-anchor="middle" font-size="12" fill="#a7f3d0">App Store에서 무료 설치</text>
+  <text x="265" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <rect x="300" y="70" width="200" height="90" rx="12" fill="#0891b2"/>
+  <text x="400" y="112" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">② 설정 진입</text>
+  <text x="400" y="138" text-anchor="middle" font-size="12" fill="#cffafe">Apple Intelligence &amp; Siri</text>
+  <text x="525" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <rect x="560" y="70" width="200" height="90" rx="12" fill="#22d3ee"/>
+  <text x="660" y="112" text-anchor="middle" font-size="16" font-weight="800" fill="#083344">③ AI 선택</text>
+  <text x="660" y="138" text-anchor="middle" font-size="12" fill="#083344">Default AI Service 선택</text>
+</svg>

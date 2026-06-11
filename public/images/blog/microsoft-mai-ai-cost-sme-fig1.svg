@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 260" width="800" height="260" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="260" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">마이크로소프트-OpenAI 관계 변화</text>
+  <line x1="60" y1="150" x2="740" y2="150" stroke="#cbd5e1" stroke-width="3"/>
+  <!-- 마디 3개 -->
+  <circle cx="120" cy="150" r="10" fill="#0f766e"/>
+  <text x="120" y="110" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2937">2019년</text>
+  <text x="120" y="185" text-anchor="middle" font-size="13" fill="#6b7280">OpenAI에</text>
+  <text x="120" y="203" text-anchor="middle" font-size="13" fill="#6b7280">10억달러 투자</text>
+  <circle cx="400" cy="150" r="10" fill="#0891b2"/>
+  <text x="400" y="110" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2937">2023년</text>
+  <text x="400" y="185" text-anchor="middle" font-size="13" fill="#6b7280">GPT-4 탑재</text>
+  <text x="400" y="203" text-anchor="middle" font-size="13" fill="#6b7280">Bing·Copilot 출시</text>
+  <circle cx="680" cy="150" r="12" fill="#22d3ee"/>
+  <text x="680" y="110" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2937">2026년</text>
+  <text x="680" y="185" text-anchor="middle" font-size="13" font-weight="700" fill="#0f766e">MAI 7종 자체 출시</text>
+  <text x="680" y="203" text-anchor="middle" font-size="13" fill="#0f766e">OpenAI 독립 선언</text>
+</svg>

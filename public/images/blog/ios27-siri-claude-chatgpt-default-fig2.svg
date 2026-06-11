@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">업무 요청 응답 — 시리 vs Claude</text>
+  <!-- Before: Siri -->
+  <rect x="80" y="80" width="160" height="160" rx="6" fill="#e2e8f0"/>
+  <text x="160" y="148" text-anchor="middle" font-size="32" fill="#94a3b8">😑</text>
+  <text x="160" y="188" text-anchor="middle" font-size="18" font-weight="800" fill="#6b7280">시리</text>
+  <text x="160" y="258" text-anchor="middle" font-size="13" fill="#6b7280">"웹에서 검색해 드릴까요?"</text>
+  <!-- After: Claude -->
+  <rect x="560" y="80" width="160" height="160" rx="6" fill="#0f766e"/>
+  <text x="640" y="148" text-anchor="middle" font-size="32" fill="#ffffff">✍️</text>
+  <text x="640" y="188" text-anchor="middle" font-size="18" font-weight="800" fill="#ffffff">Claude</text>
+  <text x="640" y="258" text-anchor="middle" font-size="13" fill="#1f2937">답변 초안을 작성해 드릴까요?</text>
+  <!-- Arrow + label -->
+  <text x="400" y="170" text-anchor="middle" font-size="32" fill="#94a3b8">→</text>
+  <text x="400" y="210" text-anchor="middle" font-size="14" font-weight="700" fill="#0f766e">iOS 27 설정 변경</text>
+</svg>
