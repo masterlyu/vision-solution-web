@@ -184,7 +184,7 @@ function RenewalReport({ r }: { r: RenewalAnalysisResult }) {
         {/* Score cards */}
         <View style={[s.row, { marginBottom: 16 }]}>
           {[
-            { label: '총점', val: `${r.totalScore}/100`, color: gradeColor(r.grade) },
+            { label: '총점', val: `${r.totalScore}/100`, color: C.dark },
             { label: '즉시 개선', val: `${[...r.axes.technical.items,...r.axes.ux.items,...r.axes.modern.items].filter(i=>i.status==='red').length}건`, color: C.red },
             { label: '개선 권장', val: `${[...r.axes.technical.items,...r.axes.ux.items,...r.axes.modern.items].filter(i=>i.status==='yellow').length}건`, color: C.amber },
             { label: '양호', val: `${[...r.axes.technical.items,...r.axes.ux.items,...r.axes.modern.items].filter(i=>i.status==='green').length}건`, color: C.green },
