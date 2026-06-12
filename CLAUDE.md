@@ -138,6 +138,68 @@ high_risks, telegram_sent, approved, email_sent, created_at
 
 ---
 
+## 핵심 플로우 3 — 홈페이지 리뉴얼 진단
+
+### 개요
+고객이 URL + 이메일을 입력하면 이메일 인증 없이 **즉시 분석** 후 PDF 리포트를 이메일로 발송한다.
+보안 진단과 달리 도메인 소유 인증 단계가 없으며, 이메일 도메인이 URL 도메인과 일치해야 한다.
+
+### 단계별 흐름
+
+```
+고객 입력 (URL + 이메일)
+    ↓
+POST /api/renewal-analyze
+    ├─ 도메인 일치 검증 (이메일 도메인 ↔ URL 도메인)
+    ├─ analyzeRenewal(url) — 즉시 분석 (이메일 인증 없음)
+    ├─ generateRenewalPdf() — PDF 생성
+    ├─ sendRenewalReport() — PDF 이메일 발송
+    └─ Telegram 알림 전송
+```
+
+### 핵심 파일
+
+| 파일 | 역할 |
+|------|------|
+| `src/app/api/renewal-analyze/route.ts` | 도메인 검증 → 분석 → PDF → 이메일 |
+| `src/lib/renewalAnalyzer.ts` | 홈페이지 분석 로직 (기술·UX·현대성 3축) |
+| `src/lib/renewalPdfReport.tsx` | PDF 리포트 생성 |
+| `src/lib/renewalEmailSender.ts` | 이메일 HTML + 발송 |
+| `src/components/RenewalDiagnosisForm.tsx` | /contact 페이지 진단 폼 |
+
+### 도메인 검증 규칙
+
+```typescript
+const ADMIN_EMAILS = ['biztalktome@gmail.com']
+// ADMIN_EMAILS는 모든 도메인 진단 가능
+// 일반 사용자: 이메일 도메인 === URL 도메인이어야 진단 가능
+```
+
+### HTTP/HTTPS 처리 동작
+
+`analyzeRenewal()`은 HTTPS를 먼저 시도하고, 실패 시 HTTP로 자동 폴백한다.
+HTTP 전용 사이트(HTTPS 443포트 미운영)도 정상 진단된다.
+
+```typescript
+// renewalAnalyzer.ts — analyzeRenewal()
+const httpsUrl = `https://${base}`
+const httpUrl  = `http://${base}`
+let main = await fetchSafe(httpsUrl)
+const url = main ? httpsUrl : httpUrl   // 실제 접속된 URL 추적
+if (!main) main = await fetchSafe(httpUrl)
+if (!main) throw new Error('사이트에 접근할 수 없습니다. URL을 확인해 주세요.')
+```
+
+### 보안진단 vs 홈페이지진단 — HTTP 전용 사이트 처리 비교
+
+| | 보안진단 (`siteAnalyzer.ts`) | 홈페이지진단 (`renewalAnalyzer.ts`) |
+|---|---|---|
+| HTTPS 실패 시 | HTTP로 접속 후 분석 진행, ssl.valid=false 기록 | HTTP로 자동 폴백 후 분석 진행 |
+| 완전 접속 불가 시 | F 등급 결과 반환 (에러 throw 없음) | "사이트에 접근할 수 없습니다" 에러 |
+| HTTPS 없음 패널티 | HSTS 헤더 -30점, SEO -18점 | 기술 점수에서 HTTPS 미사용 감점 |
+
+---
+
 ## 환경변수 전체 목록
 
 ### Vercel (프로덕션 필수)
