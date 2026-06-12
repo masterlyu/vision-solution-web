@@ -11,7 +11,7 @@ const C = {
   red: '#111827', redBg: '#f3f4f6',
   amber: '#374151', amberBg: '#f3f4f6',
   green: '#374151', greenBg: '#f9fafb',
-  gray: '#374151', grayLight: '#f3f4f6', grayBorder: '#d1d5db',
+  gray: '#1f2937', grayLight: '#f3f4f6', grayBorder: '#9ca3af',
   dark: '#000000', ink: '#111827', white: '#ffffff',
 }
 
@@ -32,7 +32,7 @@ function timingLabel(t: string) {
 }
 
 const s = StyleSheet.create({
-  page: { fontFamily: 'NotoKR', backgroundColor: C.white, paddingHorizontal: 40, paddingVertical: 36, fontSize: 9, color: C.ink },
+  page: { fontFamily: 'NotoKR', backgroundColor: C.white, paddingHorizontal: 40, paddingVertical: 36, fontSize: 9, color: C.ink, fontWeight: 400 },
   // Cover
   coverBg: { backgroundColor: C.darkBlue, borderRadius: 12, padding: '28 32', marginBottom: 20 },
   coverTitle: { fontSize: 20, fontWeight: 700, color: C.white, marginBottom: 4 },
@@ -43,10 +43,10 @@ const s = StyleSheet.create({
   gradeSub: { fontSize: 7, color: 'rgba(255,255,255,0.9)', marginTop: 2 },
   gradeScore: { fontSize: 16, fontWeight: 700, color: C.white, marginTop: 4 },
   // Common
-  sectionTitle: { fontSize: 11, fontWeight: 700, color: C.dark, borderBottom: `1.5 solid ${C.grayBorder}`, paddingBottom: 6, marginBottom: 10, marginTop: 18 },
+  sectionTitle: { fontSize: 11, fontWeight: 700, color: '#000000', borderBottom: `1.5 solid ${C.grayBorder}`, paddingBottom: 6, marginBottom: 10, marginTop: 18 },
   row: { flexDirection: 'row', gap: 8 },
   card: { backgroundColor: C.grayLight, borderRadius: 6, padding: '10 12', flex: 1, border: `1 solid ${C.grayBorder}` },
-  cardNum: { fontSize: 20, fontWeight: 700, lineHeight: 1, marginTop: 4 },
+  cardNum: { fontSize: 20, fontWeight: 700, lineHeight: 1, marginTop: 4, color: C.ink },
   cardLbl: { fontSize: 7, color: C.gray, marginTop: 2 },
   // Site type
   typeBox: { backgroundColor: C.lightBlue, borderRadius: 8, padding: '10 14', marginBottom: 14, border: `1 solid ${C.grayBorder}` },
@@ -55,33 +55,33 @@ const s = StyleSheet.create({
   typeConf: { fontSize: 8, color: C.gray, marginTop: 2 },
   // Axis
   axisRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: '8 10', borderBottom: `1 solid ${C.grayBorder}` },
-  axisName: { fontSize: 10, fontWeight: 700, flex: 1 },
+  axisName: { fontSize: 10, fontWeight: 700, flex: 1, color: C.ink },
   axisBar: { width: 100, height: 6, backgroundColor: C.grayBorder, borderRadius: 3, overflow: 'hidden' },
   axisBarFill: { height: 6, borderRadius: 3 },
-  axisScore: { fontSize: 14, fontWeight: 700, width: 50, textAlign: 'right' },
+  axisScore: { fontSize: 14, fontWeight: 700, width: 50, textAlign: 'right', color: C.ink },
   // Check items
   checkRow: { flexDirection: 'row', padding: '7 10', borderBottom: `1 solid ${C.grayBorder}`, gap: 8 },
   checkDot: { fontSize: 9, width: 14, marginTop: 1 },
   checkBody: { flex: 1 },
-  checkTitle: { fontSize: 9, fontWeight: 700, marginBottom: 2 },
-  checkCurrent: { fontSize: 8, color: C.gray, marginBottom: 2 },
-  checkTobe: { fontSize: 8, color: C.blue, backgroundColor: C.lightBlue, padding: '3 6', borderRadius: 4, marginTop: 3 },
+  checkTitle: { fontSize: 9, fontWeight: 700, marginBottom: 2, color: C.ink },
+  checkCurrent: { fontSize: 8, color: C.ink, marginBottom: 2 },
+  checkTobe: { fontSize: 8, color: C.ink, backgroundColor: C.lightBlue, padding: '3 6', borderRadius: 4, marginTop: 3 },
   impactBadge: { fontSize: 7, fontWeight: 700, padding: '1 6', borderRadius: 10 },
   // Tech stack
   techRow: { flexDirection: 'row', justifyContent: 'space-between', padding: '7 10', borderBottom: `1 solid ${C.grayBorder}` },
-  techLbl: { fontSize: 9, fontWeight: 700, flex: 1 },
-  techVal: { fontSize: 9, color: C.gray, flex: 2 },
+  techLbl: { fontSize: 9, fontWeight: 700, flex: 1, color: C.ink },
+  techVal: { fontSize: 9, color: C.ink, flex: 2 },
   techConf: { fontSize: 7, fontWeight: 700, padding: '1 6', borderRadius: 8 },
   // Priority table
   prioRow: { flexDirection: 'row', padding: '8 10', borderBottom: `1 solid ${C.grayBorder}`, gap: 8, alignItems: 'flex-start' },
   prioRank: { width: 20, height: 20, borderRadius: 10, alignItems: 'center', justifyContent: 'center', flexShrink: 0 },
   prioRankTxt: { fontSize: 9, fontWeight: 700 },
-  prioTitle: { fontSize: 9, fontWeight: 700, marginBottom: 3 },
-  prioDesc: { fontSize: 8, color: C.gray },
+  prioTitle: { fontSize: 9, fontWeight: 700, marginBottom: 3, color: C.ink },
+  prioDesc: { fontSize: 8, color: C.ink },
   prioTiming: { fontSize: 8, fontWeight: 700, width: 42, textAlign: 'center', padding: '2 0', flexShrink: 0 },
   // Footer
   footer: { borderTop: `1 solid ${C.grayBorder}`, paddingTop: 8, marginTop: 20, flexDirection: 'row', justifyContent: 'space-between' },
-  footerTxt: { fontSize: 7, color: C.gray },
+  footerTxt: { fontSize: 7, color: C.ink },
 })
 
 function AxisBar({ score, max }: { score: number; max: number }) {
@@ -175,7 +175,7 @@ function RenewalReport({ r }: { r: RenewalAnalysisResult }) {
               <View key={ax.name} style={s.axisRow}>
                 <Text style={s.axisName}>{ax.name}</Text>
                 <AxisBar score={ax.result.score} max={ax.result.maxScore} />
-                <Text style={[s.axisScore, { color }]}>{ax.result.score}<Text style={{ fontSize: 8, color: C.gray }}>/{ax.result.maxScore}</Text></Text>
+                <Text style={[s.axisScore, { color }]}>{ax.result.score}<Text style={{ fontSize: 8, color: C.ink }}>/{ax.result.maxScore}</Text></Text>
               </View>
             )
           })}
@@ -271,7 +271,7 @@ function RenewalReport({ r }: { r: RenewalAnalysisResult }) {
 
         {/* AI disclaimer */}
         <View style={{ backgroundColor: C.grayLight, borderRadius: 6, padding: '8 12', marginTop: 12 }}>
-          <Text style={{ fontSize: 7.5, color: C.gray, lineHeight: 1.6 }}>
+          <Text style={{ fontSize: 7.5, color: C.ink, lineHeight: 1.6 }}>
             ⚠ 본 리포트는 AI가 공개 접근 가능한 정보를 자동 분석한 결과입니다. 서버 내부 접근 없이 외부 신호만을 기반으로 하므로 일부 항목은 실제와 다를 수 있습니다. 최종 판단은 반드시 전문가 검토를 통해 확인하시기 바랍니다.
           </Text>
         </View>
