@@ -14,23 +14,23 @@ Font.register({
 })
 
 const C = {
-  primary: '#7C3AED',
+  primary: '#111827',
   bg: '#ffffff',
-  surface: '#f8f7ff',
-  border: '#e5e3f0',
+  surface: '#f3f4f6',
+  border: '#d1d5db',
   text: '#111827',
-  muted: '#6B7280',
-  red: '#EF4444',
-  amber: '#F59E0B',
-  green: '#22C55E',
-  blue: '#3B82F6',
-  orange: '#f97316',
-  dangerBg: '#fef2f2',
-  successBg: '#f0fdf4',
+  muted: '#374151',
+  red: '#111827',
+  amber: '#374151',
+  green: '#374151',
+  blue: '#4b5563',
+  orange: '#374151',
+  dangerBg: '#f3f4f6',
+  successBg: '#f9fafb',
   neutralBg: '#f9fafb',
-  warningBg: '#fffbeb',
-  lime: '#84cc16',
-  primaryTint: '#faf8ff',
+  warningBg: '#f3f4f6',
+  lime: '#374151',
+  primaryTint: '#f9fafb',
 }
 
 const s = StyleSheet.create({
@@ -57,11 +57,11 @@ const s = StyleSheet.create({
   footerTxt:    { fontSize: 7, color: C.muted },
 })
 
-function gradeColor(g: string) {
-  return { A: C.green, B: C.lime, C: C.amber, D: C.orange, F: C.red }[g] ?? C.text
+function gradeColor(_g: string) {
+  return '#111827'
 }
 function severityColor(sev: string) {
-  return { HIGH: C.red, MEDIUM: C.amber, LOW: C.blue }[sev] ?? C.muted
+  return { HIGH: '#000000', MEDIUM: '#374151', LOW: '#6b7280' }[sev] ?? C.muted
 }
 
 const HEADER_BEGINNER: Record<string, string> = {

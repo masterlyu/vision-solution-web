@@ -7,19 +7,19 @@ const fontPath = path.join(process.cwd(), 'public/fonts/NotoSansKR-Regular.ttf')
 Font.register({ family: 'NotoKR', fonts: [{ src: fontPath, fontWeight: 400 }, { src: fontPath, fontWeight: 700 }] })
 
 const C = {
-  blue: '#1e40af', darkBlue: '#1e3a5f', lightBlue: '#eff6ff',
-  red: '#ef4444', redBg: '#fef2f2',
-  amber: '#f59e0b', amberBg: '#fffbeb',
-  green: '#10b981', greenBg: '#ecfdf5',
-  gray: '#6b7280', grayLight: '#f9fafb', grayBorder: '#e5e7eb',
-  dark: '#111827', ink: '#374151', white: '#ffffff',
+  blue: '#111827', darkBlue: '#111827', lightBlue: '#f3f4f6',
+  red: '#111827', redBg: '#f3f4f6',
+  amber: '#374151', amberBg: '#f3f4f6',
+  green: '#374151', greenBg: '#f9fafb',
+  gray: '#374151', grayLight: '#f3f4f6', grayBorder: '#d1d5db',
+  dark: '#000000', ink: '#111827', white: '#ffffff',
 }
 
-function gradeColor(g: string) {
-  return { A: C.green, B: '#84cc16', 'C+': C.amber, D: '#f97316', F: C.red }[g] ?? C.gray
+function gradeColor(_g: string) {
+  return C.white
 }
 function statusColor(s: string) {
-  return { red: C.red, yellow: C.amber, green: C.green }[s] ?? C.gray
+  return { red: '#111827', yellow: '#374151', green: '#4b5563' }[s] ?? C.gray
 }
 function statusDot(s: string) {
   return { red: '●', yellow: '●', green: '●' }[s] ?? '●'
@@ -36,11 +36,11 @@ const s = StyleSheet.create({
   // Cover
   coverBg: { backgroundColor: C.darkBlue, borderRadius: 12, padding: '28 32', marginBottom: 20 },
   coverTitle: { fontSize: 20, fontWeight: 700, color: C.white, marginBottom: 4 },
-  coverSub: { fontSize: 9, color: 'rgba(255,255,255,0.6)', marginBottom: 16 },
-  coverMeta: { fontSize: 9, color: 'rgba(255,255,255,0.8)', marginBottom: 2 },
-  gradeBox: { position: 'absolute', top: 28, right: 32, alignItems: 'center', backgroundColor: 'rgba(255,255,255,0.15)', borderRadius: 10, padding: '16 20' },
+  coverSub: { fontSize: 9, color: 'rgba(255,255,255,0.9)', marginBottom: 16 },
+  coverMeta: { fontSize: 9, color: 'rgba(255,255,255,0.95)', marginBottom: 2 },
+  gradeBox: { position: 'absolute', top: 28, right: 32, alignItems: 'center', backgroundColor: 'rgba(255,255,255,0.25)', borderRadius: 10, padding: '16 20' },
   gradeNum: { fontSize: 40, fontWeight: 700, lineHeight: 1 },
-  gradeSub: { fontSize: 7, color: 'rgba(255,255,255,0.6)', marginTop: 2 },
+  gradeSub: { fontSize: 7, color: 'rgba(255,255,255,0.9)', marginTop: 2 },
   gradeScore: { fontSize: 16, fontWeight: 700, color: C.white, marginTop: 4 },
   // Common
   sectionTitle: { fontSize: 11, fontWeight: 700, color: C.dark, borderBottom: `1.5 solid ${C.grayBorder}`, paddingBottom: 6, marginBottom: 10, marginTop: 18 },
@@ -49,10 +49,10 @@ const s = StyleSheet.create({
   cardNum: { fontSize: 20, fontWeight: 700, lineHeight: 1, marginTop: 4 },
   cardLbl: { fontSize: 7, color: C.gray, marginTop: 2 },
   // Site type
-  typeBox: { backgroundColor: C.lightBlue, borderRadius: 8, padding: '10 14', marginBottom: 14, border: `1 solid #bfdbfe` },
-  typeLbl: { fontSize: 8, fontWeight: 700, color: C.blue, marginBottom: 2 },
-  typeVal: { fontSize: 13, fontWeight: 700, color: C.darkBlue },
-  typeConf: { fontSize: 8, color: C.blue, marginTop: 2 },
+  typeBox: { backgroundColor: C.lightBlue, borderRadius: 8, padding: '10 14', marginBottom: 14, border: `1 solid ${C.grayBorder}` },
+  typeLbl: { fontSize: 8, fontWeight: 700, color: C.ink, marginBottom: 2 },
+  typeVal: { fontSize: 13, fontWeight: 700, color: C.dark },
+  typeConf: { fontSize: 8, color: C.gray, marginTop: 2 },
   // Axis
   axisRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: '8 10', borderBottom: `1 solid ${C.grayBorder}` },
   axisName: { fontSize: 10, fontWeight: 700, flex: 1 },
@@ -114,8 +114,8 @@ function CheckItems({ items }: { items: RenewalAnalysisResult['axes']['technical
               <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 2 }}>
                 <Text style={s.checkTitle}>{item.title}</Text>
                 <Text style={[s.impactBadge, {
-                  backgroundColor: item.impact === 'high' ? '#fecaca' : item.impact === 'mid' ? '#fde68a' : '#d1fae5',
-                  color: item.impact === 'high' ? '#b91c1c' : item.impact === 'mid' ? '#92400e' : '#065f46',
+                  backgroundColor: item.impact === 'high' ? '#d1d5db' : item.impact === 'mid' ? '#e5e7eb' : '#f3f4f6',
+                  color: item.impact === 'high' ? '#000000' : item.impact === 'mid' ? '#374151' : '#6b7280',
                 }]}>영향 {impactLabel(item.impact)}</Text>
               </View>
               <Text style={s.checkCurrent}>{item.currentState}</Text>
@@ -206,8 +206,8 @@ function RenewalReport({ r }: { r: RenewalAnalysisResult }) {
                   <Text style={s.techLbl}>{sig.label}</Text>
                   <Text style={s.techVal}>{sig.value}</Text>
                   <Text style={[s.techConf, {
-                    backgroundColor: sig.confidence === 'confirmed' ? '#dcfce7' : '#fef9c3',
-                    color: sig.confidence === 'confirmed' ? '#065f46' : '#854d0e',
+                    backgroundColor: '#f3f4f6',
+                    color: '#374151',
                   }]}>{sig.confidence === 'confirmed' ? '확인됨' : '추정됨'}</Text>
                 </View>
               ))}
@@ -243,19 +243,19 @@ function RenewalReport({ r }: { r: RenewalAnalysisResult }) {
           {r.priorityActions.map((a, i) => (
             <View key={a.rank} style={s.prioRow}>
               <View style={[s.prioRank, {
-                backgroundColor: i < 2 ? '#fecaca' : i < 4 ? '#fde68a' : '#bbf7d0',
+                backgroundColor: i < 2 ? '#d1d5db' : i < 4 ? '#e5e7eb' : '#f3f4f6',
               }]}>
-                <Text style={[s.prioRankTxt, { color: i < 2 ? '#b91c1c' : i < 4 ? '#92400e' : '#065f46' }]}>{a.rank}</Text>
+                <Text style={[s.prioRankTxt, { color: i < 2 ? '#000000' : i < 4 ? '#374151' : '#6b7280' }]}>{a.rank}</Text>
               </View>
               <View style={{ flex: 1, flexDirection: 'column' }}>
                 <Text style={s.prioTitle}>{a.title}</Text>
                 <Text style={s.prioDesc}>{a.description}</Text>
               </View>
               <View style={[{ width: 42, flexShrink: 0, borderRadius: 8,
-                backgroundColor: a.timing === 'now' ? '#fef2f2' : a.timing === '1m' ? '#fffbeb' : '#f0fdf4',
+                backgroundColor: '#f3f4f6',
               }]}>
                 <Text style={[s.prioTiming, {
-                  color: a.timing === 'now' ? '#b91c1c' : a.timing === '1m' ? '#92400e' : '#065f46',
+                  color: a.timing === 'now' ? '#000000' : a.timing === '1m' ? '#374151' : '#6b7280',
                 }]}>{timingLabel(a.timing)}</Text>
               </View>
             </View>
@@ -265,7 +265,7 @@ function RenewalReport({ r }: { r: RenewalAnalysisResult }) {
         {/* CTA box */}
         <View style={{ backgroundColor: C.darkBlue, borderRadius: 10, padding: '18 24', alignItems: 'center' }}>
           <Text style={{ fontSize: 13, fontWeight: 700, color: C.white, marginBottom: 6 }}>30분 무료 상담으로 개선 순서를 잡아드립니다</Text>
-          <Text style={{ fontSize: 9, color: 'rgba(255,255,255,0.7)', marginBottom: 10 }}>견적은 상담 후 제시  ·  의무 계약 없음  ·  48시간 내 답변</Text>
+          <Text style={{ fontSize: 9, color: 'rgba(255,255,255,0.9)', marginBottom: 10 }}>견적은 상담 후 제시  ·  의무 계약 없음  ·  48시간 내 답변</Text>
           <Text style={{ fontSize: 10, fontWeight: 700, color: C.white, backgroundColor: C.blue, padding: '6 20', borderRadius: 20 }}>visionc.co.kr/renewal</Text>
         </View>
 
