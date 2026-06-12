@@ -905,10 +905,13 @@ function buildPriorityActions(
 
 export async function analyzeRenewal(rawUrl: string): Promise<RenewalAnalysisResult> {
   const base = extractBaseDomain(rawUrl)
-  const url = `https://${base}`
+  const httpsUrl = `https://${base}`
+  const httpUrl = `http://${base}`
 
   const start = Date.now()
-  const main = await fetchSafe(url)
+  let main = await fetchSafe(httpsUrl)
+  const url = main ? httpsUrl : httpUrl
+  if (!main) main = await fetchSafe(httpUrl)
   const loadMs = Date.now() - start
 
   if (!main) throw new Error('사이트에 접근할 수 없습니다. URL을 확인해 주세요.')
