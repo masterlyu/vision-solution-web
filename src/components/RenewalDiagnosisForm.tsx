@@ -112,7 +112,7 @@ export default function RenewalDiagnosisForm() {
           value={url}
           onChange={e => { setUrl(e.target.value); setDomainError('') }}
           onBlur={validateDomain}
-          placeholder="https://www.your-company.co.kr"
+          placeholder="www.your-company.co.kr"
           required
           className={inputCls}
         />

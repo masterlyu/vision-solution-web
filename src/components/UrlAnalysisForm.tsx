@@ -193,7 +193,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice, embedded =
           type="text"
           value={url}
           onChange={e => setUrl(e.target.value)}
-          placeholder="example.com 또는 https://example.com"
+          placeholder="www.example.com 또는 example.com"
           required
           className={inputCls}
         />
