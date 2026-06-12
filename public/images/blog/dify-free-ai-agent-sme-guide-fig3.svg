@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">Dify Cloud 5분 시작 — 설치 없이 바로</text>
+
+  <!-- 단계 1 -->
+  <rect x="40" y="65" width="200" height="95" rx="12" fill="#0f766e"/>
+  <text x="140" y="107" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">① 회원가입</text>
+  <text x="140" y="130" text-anchor="middle" font-size="12" fill="#a7f3d0">dify.ai 접속</text>
+  <text x="140" y="150" text-anchor="middle" font-size="12" fill="#a7f3d0">신용카드 불필요</text>
+
+  <text x="262" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+
+  <!-- 단계 2 -->
+  <rect x="300" y="65" width="200" height="95" rx="12" fill="#0891b2"/>
+  <text x="400" y="107" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">② 챗봇 만들기</text>
+  <text x="400" y="130" text-anchor="middle" font-size="12" fill="#cffafe">Create App</text>
+  <text x="400" y="150" text-anchor="middle" font-size="12" fill="#cffafe">Chatbot 선택</text>
+
+  <text x="522" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+
+  <!-- 단계 3 -->
+  <rect x="560" y="65" width="200" height="95" rx="12" fill="#22d3ee"/>
+  <text x="660" y="107" text-anchor="middle" font-size="16" font-weight="800" fill="#083344">③ 문서 업로드</text>
+  <text x="660" y="130" text-anchor="middle" font-size="12" fill="#083344">FAQ PDF 올리기</text>
+  <text x="660" y="150" text-anchor="middle" font-size="12" fill="#083344">바로 질문 가능</text>
+</svg>

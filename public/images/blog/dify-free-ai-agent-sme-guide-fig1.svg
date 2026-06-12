@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">Dify 핵심 지표 — 2026년 6월 기준</text>
+  <!-- 카드 3개 -->
+  <rect x="40" y="60" width="220" height="110" rx="12" fill="#f0fdfa"/>
+  <text x="150" y="115" text-anchor="middle" font-size="36" font-weight="900" fill="#0f766e">138K</text>
+  <text x="150" y="148" text-anchor="middle" font-size="14" fill="#6b7280">GitHub 별 (⭐)</text>
+
+  <rect x="290" y="60" width="220" height="110" rx="12" fill="#f0fdfa"/>
+  <text x="400" y="115" text-anchor="middle" font-size="36" font-weight="900" fill="#0f766e">MIT</text>
+  <text x="400" y="148" text-anchor="middle" font-size="14" fill="#6b7280">라이선스 · 무료 상용</text>
+
+  <rect x="540" y="60" width="220" height="110" rx="12" fill="#f0fdfa"/>
+  <text x="650" y="115" text-anchor="middle" font-size="28" font-weight="900" fill="#0f766e">$0~</text>
+  <text x="650" y="148" text-anchor="middle" font-size="14" fill="#6b7280">Cloud 무료 플랜 제공</text>
+</svg>
