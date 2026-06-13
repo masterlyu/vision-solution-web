@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">HyperFrames 작동 원리</text>
+  <!-- 단계 1 -->
+  <rect x="40" y="70" width="200" height="90" rx="12" fill="#0f766e"/>
+  <text x="140" y="108" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">① HTML 설계</text>
+  <text x="140" y="134" text-anchor="middle" font-size="12" fill="#a7f3d0">AI가 코드 작성</text>
+  <text x="265" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- 단계 2 -->
+  <rect x="300" y="70" width="200" height="90" rx="12" fill="#0891b2"/>
+  <text x="400" y="108" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">② 렌더링</text>
+  <text x="400" y="134" text-anchor="middle" font-size="12" fill="#cffafe">헤드리스 Chrome</text>
+  <text x="525" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- 단계 3 -->
+  <rect x="560" y="70" width="200" height="90" rx="12" fill="#22d3ee"/>
+  <text x="660" y="108" text-anchor="middle" font-size="16" font-weight="800" fill="#083344">③ MP4 출력</text>
+  <text x="660" y="134" text-anchor="middle" font-size="12" fill="#083344">FFmpeg 인코딩</text>
+</svg>

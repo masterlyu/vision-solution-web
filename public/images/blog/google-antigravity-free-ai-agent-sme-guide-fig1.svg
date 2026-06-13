@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" width="800" height="320" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="320" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">Gemini CLI vs Antigravity — 핵심 차이</text>
+
+  <!-- Gemini CLI 컬럼 -->
+  <rect x="60" y="70" width="310" height="200" rx="12" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="215" y="105" text-anchor="middle" font-size="15" font-weight="700" fill="#6b7280">Gemini CLI (종료 예정)</text>
+  <line x1="80" y1="115" x2="350" y2="115" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="215" y="148" text-anchor="middle" font-size="13" fill="#374151">명령 → 즉시 실행</text>
+  <text x="215" y="172" text-anchor="middle" font-size="13" fill="#374151">GitHub ⭐ 10만 · 오픈소스</text>
+  <text x="215" y="196" text-anchor="middle" font-size="13" fill="#374151">단순 작업 단위 처리</text>
+  <text x="215" y="220" text-anchor="middle" font-size="13" fill="#ef4444">6월 18일 서비스 종료</text>
+  <text x="215" y="250" text-anchor="middle" font-size="22" font-weight="800" fill="#9ca3af">⛔</text>
+
+  <!-- 화살표 -->
+  <text x="400" y="170" text-anchor="middle" font-size="30" fill="#4f46e5">→</text>
+
+  <!-- Antigravity 컬럼 -->
+  <rect x="430" y="70" width="310" height="200" rx="12" fill="#eef2ff" stroke="#818cf8" stroke-width="2"/>
+  <text x="585" y="105" text-anchor="middle" font-size="15" font-weight="700" fill="#4f46e5">Antigravity (신규)</text>
+  <line x1="450" y1="115" x2="720" y2="115" stroke="#c7d2fe" stroke-width="1"/>
+  <text x="585" y="148" text-anchor="middle" font-size="13" fill="#1e3a8a">목표 제시 → AI가 계획·실행·검증</text>
+  <text x="585" y="172" text-anchor="middle" font-size="13" fill="#1e3a8a">비공개 소스 · 클라우드</text>
+  <text x="585" y="196" text-anchor="middle" font-size="13" fill="#1e3a8a">프로젝트 단위 업무 자동화</text>
+  <text x="585" y="220" text-anchor="middle" font-size="13" fill="#059669">Individual 요금제 무료</text>
+  <text x="585" y="250" text-anchor="middle" font-size="22" font-weight="800" fill="#4f46e5">✅</text>
+
+  <!-- 출처 -->
+  <text x="40" y="305" font-size="11" fill="#9ca3af">출처: Google Developers Blog · 2026년 6월</text>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">월 구독료 비교 — 회의록 AI 도구</text>
+
+  <!-- Meetily: 0원 -->
+  <rect x="100" y="220" width="120" height="10" rx="6" fill="#0f766e"/>
+  <text x="160" y="205" text-anchor="middle" font-size="22" font-weight="800" fill="#0f766e">0원</text>
+  <text x="160" y="265" text-anchor="middle" font-size="14" fill="#1f2937">Meetily</text>
+  <text x="160" y="283" text-anchor="middle" font-size="12" fill="#6b7280">로컬 · MIT 오픈소스</text>
+
+  <!-- Otter.ai: 11,000원 -->
+  <rect x="320" y="100" width="120" height="130" rx="6" fill="#cbd5e1"/>
+  <text x="380" y="85" text-anchor="middle" font-size="22" font-weight="800" fill="#6b7280">11,000원</text>
+  <text x="380" y="265" text-anchor="middle" font-size="14" fill="#1f2937">Otter.ai</text>
+  <text x="380" y="283" text-anchor="middle" font-size="12" fill="#6b7280">클라우드 · 영어 위주</text>
+
+  <!-- Granola.ai: 24,000원 -->
+  <rect x="540" y="40" width="120" height="190" rx="6" fill="#cbd5e1"/>
+  <text x="600" y="25" text-anchor="middle" font-size="22" font-weight="800" fill="#6b7280">24,000원</text>
+  <text x="600" y="265" text-anchor="middle" font-size="14" fill="#1f2937">Granola.ai</text>
+  <text x="600" y="283" text-anchor="middle" font-size="12" fill="#6b7280">클라우드 · macOS 전용</text>
+
+  <!-- 바닥선 -->
+  <line x1="60" y1="230" x2="740" y2="230" stroke="#e5e7eb" stroke-width="2"/>
+</svg>
