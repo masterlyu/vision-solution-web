@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <!-- 제목 -->
+  <text x="40" y="44" font-size="18" font-weight="800" fill="#1f2937">API 입력 가격 비교 (100만 토큰 기준)</text>
+  <text x="40" y="66" font-size="13" fill="#6b7280">표준 가격 기준 · 단위: USD/백만 토큰</text>
+
+  <!-- 막대 1: M3 프로모 $0.30 -->
+  <!-- 최대 높이 150 기준, Claude $5.00 = 150px, M3 프로모 $0.30 = 9px -->
+  <rect x="100" y="241" width="110" height="9" rx="4" fill="#22d3ee"/>
+  <text x="155" y="232" text-anchor="middle" font-size="15" font-weight="800" fill="#0f766e">$0.30</text>
+  <text x="155" y="278" text-anchor="middle" font-size="12" fill="#1f2937">M3 (프로모)</text>
+  <text x="155" y="294" text-anchor="middle" font-size="11" fill="#6b7280">런칭 50% 할인</text>
+
+  <!-- 막대 2: M3 표준 $0.60 -->
+  <rect x="280" y="232" width="110" height="18" rx="4" fill="#0f766e"/>
+  <text x="335" y="222" text-anchor="middle" font-size="15" font-weight="800" fill="#0f766e">$0.60</text>
+  <text x="335" y="278" text-anchor="middle" font-size="12" fill="#1f2937">M3 (표준)</text>
+  <text x="335" y="294" text-anchor="middle" font-size="11" fill="#6b7280">정식 가격</text>
+
+  <!-- 막대 3: Claude Opus $5.00 -->
+  <rect x="460" y="100" width="110" height="150" rx="4" fill="#cbd5e1"/>
+  <text x="515" y="90" text-anchor="middle" font-size="15" font-weight="800" fill="#6b7280">$5.00</text>
+  <text x="515" y="278" text-anchor="middle" font-size="12" fill="#1f2937">Claude Opus</text>
+  <text x="515" y="294" text-anchor="middle" font-size="11" fill="#6b7280">비교 기준</text>
+
+  <!-- 배율 강조 텍스트 -->
+  <rect x="640" y="100" width="140" height="72" rx="10" fill="#f0fdf4" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="710" y="128" text-anchor="middle" font-size="28" font-weight="900" fill="#0f766e">1/8</text>
+  <text x="710" y="152" text-anchor="middle" font-size="12" fill="#1f2937">Claude Opus 대비</text>
+  <text x="710" y="168" text-anchor="middle" font-size="12" fill="#6b7280">표준가 기준</text>
+
+  <!-- 바닥선 -->
+  <line x1="60" y1="250" x2="760" y2="250" stroke="#e5e7eb" stroke-width="1"/>
+</svg>
