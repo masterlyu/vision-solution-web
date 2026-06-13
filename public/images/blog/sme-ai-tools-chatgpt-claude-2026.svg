@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#0d0d16"/>
+
+  <!-- Background grid lines -->
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="#1a1a2e" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="#1a1a2e" stroke-width="1"/>
+  <line x1="400" y1="0" x2="400" y2="630" stroke="#1a1a2e" stroke-width="1"/>
+  <line x1="800" y1="0" x2="800" y2="630" stroke="#1a1a2e" stroke-width="1"/>
+
+  <!-- Decorative circles -->
+  <circle cx="100" cy="100" r="80" fill="none" stroke="#7c3aed" stroke-width="1" opacity="0.3"/>
+  <circle cx="1100" cy="530" r="100" fill="none" stroke="#10b981" stroke-width="1" opacity="0.3"/>
+  <circle cx="600" cy="315" r="300" fill="none" stroke="#1e1e3a" stroke-width="2"/>
+
+  <!-- Accent line top -->
+  <rect x="0" y="0" width="1200" height="4" fill="#10b981"/>
+
+  <!-- Samsung badge -->
+  <rect x="80" y="50" width="220" height="44" rx="8" fill="#1a1a2e" stroke="#10b981" stroke-width="1.5"/>
+  <text x="190" y="78" font-family="'Pretendard', 'Noto Sans KR', sans-serif" font-size="17" font-weight="700" fill="#34d399" text-anchor="middle">삼성전자 공식 도입</text>
+
+  <!-- Main title line 1 -->
+  <text x="600" y="195" font-family="'Pretendard', 'Noto Sans KR', sans-serif" font-size="52" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="-1">AI 업무 도구</text>
+
+  <!-- Main title line 2 -->
+  <text x="600" y="263" font-family="'Pretendard', 'Noto Sans KR', sans-serif" font-size="36" font-weight="700" fill="#10b981" text-anchor="middle">ChatGPT · 클로드</text>
+
+  <!-- Subtitle -->
+  <text x="600" y="320" font-family="'Pretendard', 'Noto Sans KR', sans-serif" font-size="22" font-weight="400" fill="#94a3b8" text-anchor="middle">중소기업도 무료로 시작하는 법</text>
+
+  <!-- Three tool cards -->
+  <!-- Card 1: ChatGPT -->
+  <rect x="80" y="360" width="310" height="140" rx="12" fill="#1a1a2e" stroke="#10b981" stroke-width="1.5"/>
+  <circle cx="135" cy="410" r="22" fill="#10b981" opacity="0.15"/>
+  <text x="135" y="416" font-family="sans-serif" font-size="20" font-weight="700" fill="#10b981" text-anchor="middle">G</text>
+  <text x="235" y="400" font-family="'Pretendard', 'Noto Sans KR', sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">ChatGPT</text>
+  <text x="235" y="425" font-family="'Pretendard', 'Noto Sans KR', sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">문서 작성 · 번역 · 요약</text>
+  <rect x="100" y="450" width="270" height="30" rx="6" fill="#10b981" opacity="0.12"/>
+  <text x="235" y="470" font-family="'Pretendard', 'Noto Sans KR', sans-serif" font-size="13" fill="#34d399" text-anchor="middle">무료 플랜 제공</text>
+
+  <!-- Card 2: Claude -->
+  <rect x="445" y="360" width="310" height="140" rx="12" fill="#1a1a2e" stroke="#7c3aed" stroke-width="1.5"/>
+  <circle cx="500" cy="410" r="22" fill="#7c3aed" opacity="0.15"/>
+  <text x="500" y="416" font-family="sans-serif" font-size="20" font-weight="700" fill="#a78bfa" text-anchor="middle">C</text>
+  <text x="600" y="400" font-family="'Pretendard', 'Noto Sans KR', sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">Claude (클로드)</text>
+  <text x="600" y="425" font-family="'Pretendard', 'Noto Sans KR', sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">장문 분석 · 보고서 · 코딩</text>
+  <rect x="465" y="450" width="270" height="30" rx="6" fill="#7c3aed" opacity="0.12"/>
+  <text x="600" y="470" font-family="'Pretendard', 'Noto Sans KR', sans-serif" font-size="13" fill="#a78bfa" text-anchor="middle">무료 플랜 제공</text>
+
+  <!-- Card 3: Gemini -->
+  <rect x="810" y="360" width="310" height="140" rx="12" fill="#1a1a2e" stroke="#2563eb" stroke-width="1.5"/>
+  <circle cx="865" cy="410" r="22" fill="#2563eb" opacity="0.15"/>
+  <text x="865" y="416" font-family="sans-serif" font-size="20" font-weight="700" fill="#60a5fa" text-anchor="middle">G</text>
+  <text x="965" y="400" font-family="'Pretendard', 'Noto Sans KR', sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">Gemini (제미나이)</text>
+  <text x="965" y="425" font-family="'Pretendard', 'Noto Sans KR', sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle">검색 통합 · Google Workspace</text>
+  <rect x="830" y="450" width="270" height="30" rx="6" fill="#2563eb" opacity="0.12"/>
+  <text x="965" y="470" font-family="'Pretendard', 'Noto Sans KR', sans-serif" font-size="13" fill="#60a5fa" text-anchor="middle">무료 플랜 제공</text>
+
+  <!-- Bottom CTA -->
+  <rect x="400" y="530" width="400" height="44" rx="22" fill="#10b981" opacity="0.9"/>
+  <text x="600" y="558" font-family="'Pretendard', 'Noto Sans KR', sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">중소기업 AI 도입 5단계 가이드</text>
+
+  <!-- Source note -->
+  <text x="600" y="608" font-family="'Pretendard', 'Noto Sans KR', sans-serif" font-size="12" fill="#475569" text-anchor="middle">출처: 디지털데일리, AI타임스 (2026-06-09)</text>
+</svg>
