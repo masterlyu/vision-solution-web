@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" width="900" height="380">
+  <defs>
+    <linearGradient id="instruct-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8f4fd;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#d0eaf9;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="plan-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f3e8ff;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#e8d5ff;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="380" fill="#f8f9fa" rx="16"/>
+
+  <!-- Title -->
+  <text x="450" y="45" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1a1a2e" text-anchor="middle">Aion 1.0 두 모델 한눈에 비교</text>
+
+  <!-- === Aion Instruct Card === -->
+  <rect x="30" y="70" width="395" height="285" rx="14" fill="url(#instruct-bg)" stroke="#0078d4" stroke-width="2"/>
+
+  <!-- Header -->
+  <rect x="30" y="70" width="395" height="60" rx="14" fill="#0078d4"/>
+  <rect x="30" y="110" width="395" height="20" fill="#0078d4"/>
+  <text x="228" y="108" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">Aion 1.0 Instruct</text>
+
+  <!-- Tags -->
+  <rect x="55" y="147" width="90" height="26" rx="13" fill="#0078d4" opacity="0.15"/>
+  <text x="100" y="165" font-family="Arial, sans-serif" font-size="13" fill="#0056a3" text-anchor="middle" font-weight="bold">일상 업무</text>
+
+  <rect x="160" y="147" width="100" height="26" rx="13" fill="#0078d4" opacity="0.15"/>
+  <text x="210" y="165" font-family="Arial, sans-serif" font-size="13" fill="#0056a3" text-anchor="middle" font-weight="bold">지금 체험 가능</text>
+
+  <!-- Items -->
+  <text x="55" y="210" font-family="Arial, sans-serif" font-size="15" fill="#1a1a2e">📝  문서 요약 · 이메일 초안 작성</text>
+  <text x="55" y="240" font-family="Arial, sans-serif" font-size="15" fill="#1a1a2e">✏️  문구 다듬기 · 번역 보조</text>
+  <text x="55" y="270" font-family="Arial, sans-serif" font-size="15" fill="#1a1a2e">🌐  Edge 브라우저 사이드바 통합</text>
+  <text x="55" y="300" font-family="Arial, sans-serif" font-size="15" fill="#1a1a2e">📦  7월 Hugging Face 오픈 웨이트 공개</text>
+
+  <!-- Status badge -->
+  <rect x="55" y="322" width="150" height="20" rx="10" fill="#22c55e" opacity="0.2"/>
+  <text x="130" y="336" font-family="Arial, sans-serif" font-size="12" fill="#15803d" text-anchor="middle" font-weight="bold">✓ Edge Insider 지금 체험</text>
+
+  <!-- === Aion Plan Card === -->
+  <rect x="475" y="70" width="395" height="285" rx="14" fill="url(#plan-bg)" stroke="#7c3aed" stroke-width="2"/>
+
+  <!-- Header -->
+  <rect x="475" y="70" width="395" height="60" rx="14" fill="#7c3aed"/>
+  <rect x="475" y="110" width="395" height="20" fill="#7c3aed"/>
+  <text x="672" y="108" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">Aion 1.0 Plan</text>
+
+  <!-- Tags -->
+  <rect x="500" y="147" width="100" height="26" rx="13" fill="#7c3aed" opacity="0.15"/>
+  <text x="550" y="165" font-family="Arial, sans-serif" font-size="13" fill="#5b21b6" text-anchor="middle" font-weight="bold">에이전트 AI</text>
+
+  <rect x="615" y="147" width="110" height="26" rx="13" fill="#7c3aed" opacity="0.15"/>
+  <text x="670" y="165" font-family="Arial, sans-serif" font-size="13" fill="#5b21b6" text-anchor="middle" font-weight="bold">14B 파라미터</text>
+
+  <!-- Items -->
+  <text x="500" y="210" font-family="Arial, sans-serif" font-size="15" fill="#1a1a2e">🤖  파일 열기·수정·이동 자동 처리</text>
+  <text x="500" y="240" font-family="Arial, sans-serif" font-size="15" fill="#1a1a2e">🔗  32K 컨텍스트 (긴 계약서도 OK)</text>
+  <text x="500" y="270" font-family="Arial, sans-serif" font-size="15" fill="#1a1a2e">⚡  복잡한 다단계 작업 계획·실행</text>
+  <text x="500" y="300" font-family="Arial, sans-serif" font-size="15" fill="#1a1a2e">💻  NPU 40 TOPS 이상 PC 필요</text>
+
+  <!-- Status badge -->
+  <rect x="500" y="322" width="170" height="20" rx="10" fill="#f59e0b" opacity="0.2"/>
+  <text x="585" y="336" font-family="Arial, sans-serif" font-size="12" fill="#b45309" text-anchor="middle" font-weight="bold">⏳ 코파일럿+ PC 하반기 출시 예정</text>
+
+  <!-- Common footer -->
+  <text x="450" y="373" font-family="Arial, sans-serif" font-size="13" fill="#6b7280" text-anchor="middle">두 모델 모두 완전 로컬 처리 — 입력 데이터가 외부로 나가지 않습니다</text>
+</svg>
