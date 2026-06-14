@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">Dreamina로 홍보영상 만드는 3단계</text>
+  <!-- 단계 1 -->
+  <rect x="40" y="65" width="200" height="90" rx="12" fill="#0f766e"/>
+  <text x="140" y="102" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">① 입력</text>
+  <text x="140" y="124" text-anchor="middle" font-size="11" fill="#a7f3d0">텍스트 또는 사진</text>
+  <text x="140" y="142" text-anchor="middle" font-size="11" fill="#a7f3d0">프롬프트 작성</text>
+  <text x="265" y="117" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- 단계 2 -->
+  <rect x="300" y="65" width="200" height="90" rx="12" fill="#0891b2"/>
+  <text x="400" y="102" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">② AI 생성</text>
+  <text x="400" y="124" text-anchor="middle" font-size="11" fill="#cffafe">2~5분 대기</text>
+  <text x="400" y="142" text-anchor="middle" font-size="11" fill="#cffafe">2K 영상 자동 완성</text>
+  <text x="525" y="117" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- 단계 3 -->
+  <rect x="560" y="65" width="200" height="90" rx="12" fill="#22d3ee"/>
+  <text x="660" y="102" text-anchor="middle" font-size="14" font-weight="800" fill="#083344">③ 활용</text>
+  <text x="660" y="124" text-anchor="middle" font-size="11" fill="#083344">다운로드 후</text>
+  <text x="660" y="142" text-anchor="middle" font-size="11" fill="#083344">SNS·유튜브 업로드</text>
+</svg>

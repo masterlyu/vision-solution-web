@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="800" height="240" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="240" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">ChatGPT for Excel vs SheetAI — 주요 차이</text>
+
+  <!-- Header row -->
+  <rect x="40" y="58" width="200" height="36" rx="8" fill="#f1f5f9"/>
+  <text x="140" y="81" text-anchor="middle" font-size="13" font-weight="700" fill="#64748b">항목</text>
+  <rect x="260" y="58" width="230" height="36" rx="8" fill="#0f766e"/>
+  <text x="375" y="81" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">ChatGPT for Excel/Sheets</text>
+  <rect x="510" y="58" width="250" height="36" rx="8" fill="#1e40af"/>
+  <text x="635" y="81" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">SheetAI (오픈소스)</text>
+
+  <!-- Row 1 -->
+  <rect x="40" y="100" width="200" height="32" rx="4" fill="#f8fafc"/>
+  <text x="140" y="121" text-anchor="middle" font-size="13" fill="#374151">비용</text>
+  <rect x="260" y="100" width="230" height="32" rx="4" fill="#f0fdf4"/>
+  <text x="375" y="121" text-anchor="middle" font-size="13" fill="#166534">무료 플랜 포함 (추가 결제 없음)</text>
+  <rect x="510" y="100" width="250" height="32" rx="4" fill="#eff6ff"/>
+  <text x="635" y="121" text-anchor="middle" font-size="13" fill="#1e40af">무료 (자체 서버 운영 필요)</text>
+
+  <!-- Row 2 -->
+  <rect x="40" y="138" width="200" height="32" rx="4" fill="#f8fafc"/>
+  <text x="140" y="159" text-anchor="middle" font-size="13" fill="#374151">데이터 보안</text>
+  <rect x="260" y="138" width="230" height="32" rx="4" fill="#fff7ed"/>
+  <text x="375" y="159" text-anchor="middle" font-size="13" fill="#9a3412">OpenAI 서버 전송 (주의 필요)</text>
+  <rect x="510" y="138" width="250" height="32" rx="4" fill="#f0fdf4"/>
+  <text x="635" y="159" text-anchor="middle" font-size="13" fill="#166534">외부 전송 없음 (로컬 처리)</text>
+
+  <!-- Row 3 -->
+  <rect x="40" y="176" width="200" height="32" rx="4" fill="#f8fafc"/>
+  <text x="140" y="197" text-anchor="middle" font-size="13" fill="#374151">설치 난이도</text>
+  <rect x="260" y="176" width="230" height="32" rx="4" fill="#f0fdf4"/>
+  <text x="375" y="197" text-anchor="middle" font-size="13" fill="#166534">쉬움 (추가 기능 검색 후 설치)</text>
+  <rect x="510" y="176" width="250" height="32" rx="4" fill="#fff7ed"/>
+  <text x="635" y="197" text-anchor="middle" font-size="13" fill="#9a3412">복잡 (자체 서버 설정 필요)</text>
+</svg>
