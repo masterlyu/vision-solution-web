@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">Google Translate 앱 — 실시간 통역 시작 3단계</text>
+  <rect x="40" y="70" width="200" height="90" rx="12" fill="#0f766e"/>
+  <text x="140" y="112" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">① 앱 설치</text>
+  <text x="140" y="138" text-anchor="middle" font-size="12" fill="#a7f3d0">앱스토어 / 구글플레이</text>
+  <text x="265" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <rect x="300" y="70" width="200" height="90" rx="12" fill="#0891b2"/>
+  <text x="400" y="112" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">② 대화 모드 ON</text>
+  <text x="400" y="138" text-anchor="middle" font-size="12" fill="#cffafe">마이크 → 대화 탭 선택</text>
+  <text x="525" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <rect x="560" y="70" width="200" height="90" rx="12" fill="#22d3ee"/>
+  <text x="660" y="112" text-anchor="middle" font-size="16" font-weight="800" fill="#083344">③ 실시간 통역</text>
+  <text x="660" y="138" text-anchor="middle" font-size="12" fill="#083344">말하면 즉시 번역</text>
+</svg>

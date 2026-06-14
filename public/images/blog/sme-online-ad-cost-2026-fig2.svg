@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">같은 예산 14만원 — 타겟팅이 결과를 가른다</text>
+  <!-- 왼쪽: 실패 (전국 타겟) -->
+  <rect x="80" y="80" width="140" height="160" rx="6" fill="#fecaca"/>
+  <text x="150" y="72" text-anchor="middle" font-size="13" font-weight="700" fill="#dc2626">전국 타겟</text>
+  <text x="150" y="148" text-anchor="middle" font-size="28" font-weight="900" fill="#dc2626">0명</text>
+  <text x="150" y="178" text-anchor="middle" font-size="13" fill="#6b7280">실 방문객</text>
+  <text x="150" y="260" text-anchor="middle" font-size="13" fill="#1f2937">도달 15,000명</text>
+  <text x="150" y="280" text-anchor="middle" font-size="12" fill="#dc2626">14만원 낭비</text>
+
+  <!-- 화살표 및 설명 -->
+  <text x="400" y="170" text-anchor="middle" font-size="32" fill="#94a3b8">→</text>
+  <text x="400" y="200" text-anchor="middle" font-size="13" font-weight="700" fill="#16a34a">타겟을 좁히면?</text>
+
+  <!-- 오른쪽: 성공 (지역 타겟) -->
+  <rect x="520" y="130" width="140" height="110" rx="6" fill="#dcfce7"/>
+  <text x="590" y="122" text-anchor="middle" font-size="13" font-weight="700" fill="#16a34a">반경 5km 타겟</text>
+  <text x="590" y="185" text-anchor="middle" font-size="28" font-weight="900" fill="#16a34a">지역 고객</text>
+  <text x="590" y="210" text-anchor="middle" font-size="13" fill="#6b7280">실제 방문 가능한 사람</text>
+  <text x="590" y="260" text-anchor="middle" font-size="13" fill="#1f2937">같은 예산 14만원</text>
+  <text x="590" y="280" text-anchor="middle" font-size="12" fill="#16a34a">전환율 대폭 개선</text>
+</svg>

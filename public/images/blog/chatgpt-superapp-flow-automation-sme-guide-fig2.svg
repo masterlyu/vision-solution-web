@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">ChatGPT Flow 자동화 시작 3단계</text>
+  <!-- 단계 1 -->
+  <rect x="40" y="70" width="200" height="90" rx="12" fill="#0f766e"/>
+  <text x="140" y="112" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">① 업무 선택</text>
+  <text x="140" y="138" text-anchor="middle" font-size="12" fill="#a7f3d0">자동화할 반복업무 하나</text>
+  <!-- 화살표 -->
+  <text x="265" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- 단계 2 -->
+  <rect x="300" y="70" width="200" height="90" rx="12" fill="#0891b2"/>
+  <text x="400" y="112" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">② Flow 설계</text>
+  <text x="400" y="138" text-anchor="middle" font-size="12" fill="#cffafe">드래그&amp;드롭 워크플로우</text>
+  <!-- 화살표 -->
+  <text x="525" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- 단계 3 -->
+  <rect x="560" y="70" width="200" height="90" rx="12" fill="#22d3ee"/>
+  <text x="660" y="112" text-anchor="middle" font-size="16" font-weight="800" fill="#083344">③ 앱 연동 &amp; 실행</text>
+  <text x="660" y="138" text-anchor="middle" font-size="12" fill="#083344">승인 후 자동 작동</text>
+</svg>
