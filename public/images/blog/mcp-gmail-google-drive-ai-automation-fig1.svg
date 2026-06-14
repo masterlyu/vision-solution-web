@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">MCP 작동 원리 — AI가 내 업무 도구에 직접 접근하는 방법</text>
+  <!-- 단계 1: 사용자 질문 -->
+  <rect x="40" y="70" width="200" height="90" rx="12" fill="#0f766e"/>
+  <text x="140" y="110" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">① 사용자 질문</text>
+  <text x="140" y="132" text-anchor="middle" font-size="12" fill="#a7f3d0">"메일 요약해줘"</text>
+  <text x="140" y="150" text-anchor="middle" font-size="11" fill="#a7f3d0">AI에게 요청</text>
+  <!-- 화살표 -->
+  <text x="265" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- 단계 2: MCP 서버 -->
+  <rect x="300" y="70" width="200" height="90" rx="12" fill="#0891b2"/>
+  <text x="400" y="105" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">② MCP 서버</text>
+  <text x="400" y="127" text-anchor="middle" font-size="12" fill="#cffafe">google-docs-mcp</text>
+  <text x="400" y="148" text-anchor="middle" font-size="11" fill="#cffafe">연결 중개 역할</text>
+  <!-- 화살표 -->
+  <text x="525" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- 단계 3: Google Workspace -->
+  <rect x="560" y="70" width="200" height="90" rx="12" fill="#22d3ee"/>
+  <text x="660" y="105" text-anchor="middle" font-size="15" font-weight="800" fill="#083344">③ Google Workspace</text>
+  <text x="660" y="127" text-anchor="middle" font-size="12" fill="#083344">Gmail · Drive · Calendar</text>
+  <text x="660" y="148" text-anchor="middle" font-size="11" fill="#083344">AI가 직접 읽고 처리</text>
+</svg>

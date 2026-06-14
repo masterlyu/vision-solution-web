@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f766e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.05" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)" />
+  <circle cx="700" cy="-50" r="200" fill="white" opacity="0.05"/>
+  <circle cx="750" cy="420" r="150" fill="white" opacity="0.05"/>
+  <!-- 태그 배지 -->
+  <rect x="40" y="40" width="100" height="28" rx="14" fill="white" opacity="0.2"/>
+  <text x="90" y="59" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="white">AI 활용</text>
+  <!-- 우측 아이콘 카드 -->
+  <rect x="480" y="60" width="280" height="300" rx="20" fill="url(#card1)" stroke="white" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="620" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="72" fill="white" opacity="0.9">🔌</text>
+  <text x="620" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.8">Gmail · Drive · Calendar</text>
+  <text x="620" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.6">AI가 직접 연결합니다</text>
+  <text x="620" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="800" fill="white" opacity="0.9">MCP</text>
+  <text x="620" y="316" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.5">Model Context Protocol</text>
+  <!-- 좌측 메인 텍스트 -->
+  <text x="40" y="130" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="white" opacity="0.8">AI 업무 자동화</text>
+  <text x="40" y="178" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">AI로 Gmail·드라이브</text>
+  <text x="40" y="218" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">자동화 — 5분 시작</text>
+  <text x="40" y="268" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.75">코딩 없이, 무료로, 지금 바로 연결합니다</text>
+  <rect x="40" y="310" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
+  <text x="40" y="345" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">(주)비젼솔루션</text>
+</svg>
