@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">AI 코칭 서비스 월 이용료 비교</text>
+  <!-- Card 1: Cluely -->
+  <rect x="40" y="64" width="220" height="110" rx="12" fill="#fee2e2"/>
+  <text x="150" y="120" text-anchor="middle" font-size="34" font-weight="900" fill="#dc2626">$20/월</text>
+  <text x="150" y="152" text-anchor="middle" font-size="13" fill="#6b7280">Cluely</text>
+  <!-- Card 2: Final Round AI -->
+  <rect x="290" y="64" width="220" height="110" rx="12" fill="#fee2e2"/>
+  <text x="400" y="120" text-anchor="middle" font-size="34" font-weight="900" fill="#dc2626">$149/월</text>
+  <text x="400" y="152" text-anchor="middle" font-size="13" fill="#6b7280">Final Round AI</text>
+  <!-- Card 3: Natively FREE -->
+  <rect x="540" y="64" width="220" height="110" rx="12" fill="#d1fae5"/>
+  <text x="650" y="120" text-anchor="middle" font-size="34" font-weight="900" fill="#059669">FREE</text>
+  <text x="650" y="152" text-anchor="middle" font-size="13" fill="#6b7280">Natively (오픈소스)</text>
+</svg>
