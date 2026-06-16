@@ -97,3 +97,12 @@ Cookbook 메뉴 → 내 PC 사양 자동 감지 → 추천 모델 선택 → 설
 > **Vision Solution AI 솔루션 문의**:  
 > 📧 biztalktome@gmail.com  
 > 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
+
+
+<!-- related-links -->
+
+## 함께 보면 좋은 글
+
+- [나레이션 외주 끊는 법 — AI 음성 5분 만들기](/blog/ai-voice-narration-microsoft-vibevoice)
+- [경쟁사 조사 2시간→5분 — DeerFlow 자동화 실습](/blog/deerflow-competitor-analysis-automation)
+- [윈도우에 AI가 내장됐다 — 마이크로소프트 Aion 무료 체험](/blog/aion-windows-ai-free-sme-guide)
