@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">Browser-Use 핵심 수치</text>
+  <!-- Card 1 -->
+  <rect x="40" y="64" width="220" height="110" rx="12" fill="#ecfdf5"/>
+  <text x="150" y="120" text-anchor="middle" font-size="36" font-weight="900" fill="#0f766e">9.9만+</text>
+  <text x="150" y="150" text-anchor="middle" font-size="13" fill="#6b7280">GitHub 스타 수</text>
+  <!-- Card 2 -->
+  <rect x="290" y="64" width="220" height="110" rx="12" fill="#ecfdf5"/>
+  <text x="400" y="120" text-anchor="middle" font-size="36" font-weight="900" fill="#0891b2">6종</text>
+  <text x="400" y="150" text-anchor="middle" font-size="13" fill="#6b7280">지원 AI (OpenAI·Claude 등)</text>
+  <!-- Card 3 -->
+  <rect x="540" y="64" width="220" height="110" rx="12" fill="#ecfdf5"/>
+  <text x="650" y="120" text-anchor="middle" font-size="36" font-weight="900" fill="#06b6d4">20분</text>
+  <text x="650" y="150" text-anchor="middle" font-size="13" fill="#6b7280">Docker 설치 소요 시간</text>
+</svg>
