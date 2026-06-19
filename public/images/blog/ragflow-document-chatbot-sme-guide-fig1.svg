@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="800" height="240" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="240" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">문서 AI 도구 비교 — RAGFlow vs 주요 대안</text>
+  <!-- 헤더 -->
+  <rect x="40" y="55" width="720" height="32" rx="6" fill="#f1f5f9"/>
+  <text x="140" y="76" text-anchor="middle" font-size="13" font-weight="700" fill="#6b7280">도구</text>
+  <text x="290" y="76" text-anchor="middle" font-size="13" font-weight="700" fill="#6b7280">비용</text>
+  <text x="440" y="76" text-anchor="middle" font-size="13" font-weight="700" fill="#6b7280">데이터 저장</text>
+  <text x="590" y="76" text-anchor="middle" font-size="13" font-weight="700" fill="#6b7280">설치 난이도</text>
+  <text x="720" y="76" text-anchor="middle" font-size="13" font-weight="700" fill="#6b7280">PDF 정밀도</text>
+  <!-- RAGFlow 행 -->
+  <rect x="40" y="90" width="720" height="40" rx="0" fill="#ecfdf5"/>
+  <text x="140" y="115" text-anchor="middle" font-size="14" font-weight="800" fill="#0f766e">RAGFlow</text>
+  <text x="290" y="115" text-anchor="middle" font-size="14" fill="#16a34a">무료</text>
+  <text x="440" y="115" text-anchor="middle" font-size="14" fill="#16a34a">내 서버 (보안 ✓)</text>
+  <text x="590" y="115" text-anchor="middle" font-size="14" fill="#6b7280">중간 (Docker)</text>
+  <text x="720" y="115" text-anchor="middle" font-size="14" fill="#16a34a">높음 ★★★</text>
+  <!-- Dify 행 -->
+  <rect x="40" y="133" width="720" height="40" rx="0" fill="#ffffff"/>
+  <text x="140" y="158" text-anchor="middle" font-size="14" fill="#1f2937">Dify</text>
+  <text x="290" y="158" text-anchor="middle" font-size="14" fill="#16a34a">무료</text>
+  <text x="440" y="158" text-anchor="middle" font-size="14" fill="#16a34a">내 서버 (보안 ✓)</text>
+  <text x="590" y="158" text-anchor="middle" font-size="14" fill="#16a34a">쉬움</text>
+  <text x="720" y="158" text-anchor="middle" font-size="14" fill="#6b7280">중간 ★★☆</text>
+  <!-- 클라우드 서비스 행 -->
+  <rect x="40" y="176" width="720" height="40" rx="0" fill="#fafafa"/>
+  <text x="140" y="201" text-anchor="middle" font-size="14" fill="#1f2937">클라우드 챗봇</text>
+  <text x="290" y="201" text-anchor="middle" font-size="14" fill="#dc2626">월 유료</text>
+  <text x="440" y="201" text-anchor="middle" font-size="14" fill="#dc2626">외부 서버 (보안 △)</text>
+  <text x="590" y="201" text-anchor="middle" font-size="14" fill="#16a34a">매우 쉬움</text>
+  <text x="720" y="201" text-anchor="middle" font-size="14" fill="#6b7280">중간 ★★☆</text>
+  <line x1="40" y1="88" x2="760" y2="88" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="40" y1="130" x2="760" y2="130" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="40" y1="173" x2="760" y2="173" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="40" y1="216" x2="760" y2="216" stroke="#e2e8f0" stroke-width="1"/>
+</svg>
