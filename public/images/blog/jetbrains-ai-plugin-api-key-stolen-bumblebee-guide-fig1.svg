@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 260" width="800" height="260" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="260" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">2026년 6월, AI 도구 공급망 공격 타임라인</text>
+  <line x1="60" y1="150" x2="740" y2="150" stroke="#cbd5e1" stroke-width="3"/>
+  <!-- 마디 1 -->
+  <circle cx="120" cy="150" r="10" fill="#7c3aed"/>
+  <text x="120" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">5월 23일</text>
+  <text x="120" y="125" text-anchor="middle" font-size="11" fill="#6b7280">Bumblebee</text>
+  <text x="120" y="185" text-anchor="middle" font-size="12" fill="#6b7280">Perplexity AI</text>
+  <text x="120" y="202" text-anchor="middle" font-size="12" fill="#6b7280">오픈소스 공개</text>
+  <!-- 마디 2 -->
+  <circle cx="400" cy="150" r="10" fill="#dc2626"/>
+  <text x="400" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">6월 16일</text>
+  <text x="400" y="125" text-anchor="middle" font-size="11" fill="#6b7280">JetBrains 사건</text>
+  <text x="400" y="185" text-anchor="middle" font-size="12" fill="#6b7280">악성 플러그인 15개</text>
+  <text x="400" y="202" text-anchor="middle" font-size="12" fill="#6b7280">API 키 70,000건 도난</text>
+  <!-- 마디 3 -->
+  <circle cx="620" cy="150" r="10" fill="#dc2626"/>
+  <text x="620" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">같은 주</text>
+  <text x="620" y="125" text-anchor="middle" font-size="11" fill="#6b7280">npm @mastra</text>
+  <text x="620" y="185" text-anchor="middle" font-size="12" fill="#6b7280">패키지 144개</text>
+  <text x="620" y="202" text-anchor="middle" font-size="12" fill="#6b7280">백도어 발견</text>
+  <!-- 마디 4 -->
+  <circle cx="740" cy="150" r="10" fill="#a855f7"/>
+  <text x="740" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">지금</text>
+  <text x="740" y="185" text-anchor="middle" font-size="12" fill="#7c3aed">Bumblebee로</text>
+  <text x="740" y="202" text-anchor="middle" font-size="12" fill="#7c3aed">30초 점검 가능</text>
+</svg>

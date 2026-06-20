@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220" width="800" height="220" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="220" rx="16" fill="#1e3a5f"/>
+  <text x="56" y="96" font-size="90" font-weight="900" fill="#38bdf8" opacity="0.5">"</text>
+  <text x="110" y="92" font-size="20" font-weight="700" fill="#ffffff">보안은 사후 대응이 아니라 사전 설계다.</text>
+  <text x="110" y="126" font-size="20" font-weight="700" fill="#ffffff">한번 유출된 키는 되돌릴 수 없다.</text>
+  <text x="110" y="170" font-size="14" fill="#94a3b8">— (주)비젼솔루션 대표 · AI 보안 컨설팅 현장에서</text>
+</svg>
