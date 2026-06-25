@@ -122,6 +122,6 @@ Lovable은 빠르지만 **한계가 있습니다.**
 
 ![center](/mascot/md/emotion/cat_grateful.png)
 
-> **Vision Solution 앱·시스템 개발 문의**:  
+> **(주)비젼솔루션 앱·시스템 개발 문의**:  
 > 📧 biztalktome@gmail.com  
 > 🌐 [https://www.visionc.co.kr/app-dev](https://www.visionc.co.kr/app-dev)
