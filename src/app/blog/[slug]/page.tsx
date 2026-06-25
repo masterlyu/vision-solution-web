@@ -16,21 +16,36 @@ export async function generateStaticParams() {
 
 const BASE = 'https://visionc.co.kr'
 
+// 네이버 검색 최적화: meta description은 80자 이내여야 노출이 안정적이고,
+// og:description은 meta description과 정확히 일치해야 한다(네이버 서치어드바이저 권고).
+// → meta/og/twitter는 80자 이내로 통일하고, 더 긴 설명은 JSON-LD(BlogPosting)가 담아 구글에 제공한다.
+function naverDesc(summary: string): string {
+  if (summary.length <= 80) return summary
+  const win = summary.slice(0, 80)
+  // 80자 이내 마지막 문장 끝(. ! ? 。)에서 자연스럽게 끊기
+  const sent = win.match(/^[\s\S]*[.!?。]/)
+  if (sent && sent[0].length >= 40) return sent[0].trim()
+  // 없으면 마지막 공백, 그것도 없으면 하드컷
+  const sp = win.lastIndexOf(' ')
+  return (sp >= 40 ? win.slice(0, sp) : win).trim()
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params
   const post = getPostBySlug(slug)
   if (!post) return {}
   const url = `${BASE}/blog/${slug}`
+  const desc = naverDesc(post.summary)   // meta/og/twitter 공통 (네이버 80자 + 정확 일치)
   // SNS/LLM 공유 미리보기: SVG는 카카오·페북·X가 렌더 못 하므로 PNG(OG 라우트) 사용 — 글 제목·태그 주입
   const ogImage = `${BASE}/api/og?title=${encodeURIComponent(post.title)}&tag=${encodeURIComponent(post.tag)}`
   return {
     title: `${post.title} | (주)비젼솔루션 블로그`,
-    description: post.summary,
+    description: desc,
     keywords: post.tags.join(', '),
     alternates: { canonical: url },
     openGraph: {
       title: post.title,
-      description: post.summary,
+      description: desc,
       type: 'article',
       url,
       publishedTime: post.date,
@@ -41,7 +56,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     twitter: {
       card: 'summary_large_image',
       title: post.title,
-      description: post.summary,
+      description: desc,
       images: [ogImage],
     },
   }
