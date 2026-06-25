@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="760" height="320">
+  <defs>
+    <linearGradient id="header" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#b45309;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="760" height="320" rx="16" fill="#1c1917"/>
+
+  <!-- 제목 -->
+  <rect x="0" y="0" width="760" height="56" rx="16" fill="url(#header)"/>
+  <rect x="0" y="40" width="760" height="16" fill="url(#header)"/>
+  <text x="380" y="36" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="white">Lovable (AI 앱 빌더) vs 외주 개발 비교</text>
+
+  <!-- 헤더 행 -->
+  <rect x="20" y="70" width="220" height="36" rx="8" fill="#292524"/>
+  <rect x="255" y="70" width="220" height="36" rx="8" fill="#92400e"/>
+  <rect x="490" y="70" width="250" height="36" rx="8" fill="#1d4ed8"/>
+
+  <text x="130" y="93" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#a8a29e">항목</text>
+  <text x="365" y="93" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="white">Lovable 무료 플랜</text>
+  <text x="615" y="93" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="white">외주 개발</text>
+
+  <!-- 행 1: 비용 -->
+  <rect x="20" y="116" width="720" height="38" rx="6" fill="#292524"/>
+  <text x="130" y="139" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#d6d3d1">비용</text>
+  <text x="365" y="139" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#fbbf24">0원 (무료 플랜)</text>
+  <text x="615" y="139" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#d6d3d1">500만원~</text>
+
+  <!-- 행 2: 완성 시간 -->
+  <rect x="20" y="162" width="720" height="38" rx="6" fill="#1c1917"/>
+  <text x="130" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#d6d3d1">완성 시간</text>
+  <text x="365" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#fbbf24">30분~수 시간</text>
+  <text x="615" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#d6d3d1">2~8주</text>
+
+  <!-- 행 3: 코딩 필요 여부 -->
+  <rect x="20" y="208" width="720" height="38" rx="6" fill="#292524"/>
+  <text x="130" y="231" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#d6d3d1">코딩 지식</text>
+  <text x="365" y="231" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#fbbf24">불필요 (한국어 입력)</text>
+  <text x="615" y="231" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#d6d3d1">개발사 필요</text>
+
+  <!-- 행 4: DB 포함 -->
+  <rect x="20" y="254" width="720" height="38" rx="6" fill="#1c1917"/>
+  <text x="130" y="277" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#d6d3d1">데이터베이스</text>
+  <text x="365" y="277" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#fbbf24">Supabase 자동 연결</text>
+  <text x="615" y="277" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#d6d3d1">별도 구축·비용</text>
+
+  <!-- 출처 -->
+  <text x="380" y="308" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#78716c">출처: lovable.dev 공식 플랜 페이지 · (주)비젼솔루션 정리</text>
+</svg>
