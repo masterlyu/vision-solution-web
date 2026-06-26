@@ -142,6 +142,6 @@ headroom proxy --port 8080
 
 ## 함께 보면 좋은 글
 
-- [영상 외주비 0원 — AI가 혼자 만드는 홍보영상](/blog/openmontage-ai-video-agent-sme-guide)
+- [마이크로소프트 AI 7종 — 중소기업 비용 10배 절감](/blog/microsoft-mai-ai-cost-sme)
 - [SNS 자동화 — Postiz 20분으로 AI가 대신 포스팅](/blog/postiz-sns-ai-scheduler-free-guide)
 - [AI 챗봇 30분 완성 — RAGFlow 무료 실습](/blog/ragflow-document-chatbot-sme-guide)
