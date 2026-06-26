@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">토큰 비용 Before / After</text>
+  <!-- Before 막대 (높음 = 100%) -->
+  <rect x="160" y="80" width="120" height="170" rx="6" fill="#cbd5e1"/>
+  <text x="220" y="65" text-anchor="middle" font-size="22" font-weight="800" fill="#6b7280">100%</text>
+  <text x="220" y="275" text-anchor="middle" font-size="14" fill="#1f2937">기존 방식 · 적용 전</text>
+  <!-- After 막대 (낮음 = 10~40%) -->
+  <rect x="520" y="216" width="120" height="34" rx="6" fill="#0891b2"/>
+  <text x="580" y="201" text-anchor="middle" font-size="22" font-weight="800" fill="#0891b2">10~40%</text>
+  <text x="580" y="275" text-anchor="middle" font-size="14" fill="#1f2937">Headroom 적용 · 후</text>
+  <!-- 변화 화살표/레이블 -->
+  <text x="400" y="155" text-anchor="middle" font-size="18" font-weight="700" fill="#0f766e">60~90% ↓</text>
+  <line x1="280" y1="165" x2="360" y2="165" stroke="#0f766e" stroke-width="2" stroke-dasharray="4,3"/>
+  <line x1="440" y1="165" x2="520" y2="233" stroke="#0f766e" stroke-width="2" stroke-dasharray="4,3"/>
+</svg>
