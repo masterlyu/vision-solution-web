@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">텍스트 생성 속도 비교 (RTX 5090 기준)</text>
+
+  <!-- 기존 AI 막대 (175 t/s = 25% of max) -->
+  <rect x="160" y="188" width="140" height="62" rx="6" fill="#cbd5e1"/>
+  <text x="230" y="174" text-anchor="middle" font-size="22" font-weight="800" fill="#6b7280">~175</text>
+  <text x="230" y="152" text-anchor="middle" font-size="13" fill="#9ca3af">토큰/초</text>
+  <text x="230" y="275" text-anchor="middle" font-size="15" fill="#1f2937">기존 자동회귀 AI</text>
+
+  <!-- 화살표 -->
+  <text x="390" y="195" text-anchor="middle" font-size="30" fill="#0f766e" font-weight="900">→</text>
+  <text x="390" y="225" text-anchor="middle" font-size="13" fill="#0f766e" font-weight="700">최대 4배</text>
+
+  <!-- DiffusionGemma 막대 (700 t/s = 100%) -->
+  <rect x="500" y="50" width="140" height="200" rx="6" fill="#0f766e"/>
+  <text x="570" y="36" text-anchor="middle" font-size="22" font-weight="800" fill="#0f766e">700</text>
+  <text x="570" y="16" text-anchor="middle" font-size="13" fill="#9ca3af">토큰/초</text>
+  <text x="570" y="275" text-anchor="middle" font-size="15" fill="#1f2937">DiffusionGemma</text>
+  <text x="570" y="295" text-anchor="middle" font-size="12" fill="#6b7280">(26B · 4비트 양자화)</text>
+
+  <!-- 바닥선 -->
+  <line x1="100" y1="250" x2="700" y2="250" stroke="#e5e7eb" stroke-width="2"/>
+</svg>

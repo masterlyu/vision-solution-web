@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">DiffusionGemma 핵심 수치 (Google DeepMind · 2026.06.10)</text>
+
+  <!-- 카드 1: 속도 -->
+  <rect x="30" y="60" width="165" height="110" rx="12" fill="#f0fdfa" stroke="#0f766e" stroke-width="1.5"/>
+  <text x="113" y="105" text-anchor="middle" font-size="30" font-weight="900" fill="#0f766e">700</text>
+  <text x="113" y="128" text-anchor="middle" font-size="13" fill="#0f766e">토큰/초</text>
+  <text x="113" y="152" text-anchor="middle" font-size="12" fill="#6b7280">RTX 5090 기준</text>
+
+  <!-- 카드 2: 동시 생성 -->
+  <rect x="215" y="60" width="165" height="110" rx="12" fill="#f0fdfa" stroke="#0f766e" stroke-width="1.5"/>
+  <text x="298" y="105" text-anchor="middle" font-size="30" font-weight="900" fill="#0f766e">256</text>
+  <text x="298" y="128" text-anchor="middle" font-size="13" fill="#0f766e">토큰 동시 생성</text>
+  <text x="298" y="152" text-anchor="middle" font-size="12" fill="#6b7280">병렬 확산 방식</text>
+
+  <!-- 카드 3: 파라미터 -->
+  <rect x="400" y="60" width="165" height="110" rx="12" fill="#f0fdfa" stroke="#0f766e" stroke-width="1.5"/>
+  <text x="483" y="105" text-anchor="middle" font-size="30" font-weight="900" fill="#0f766e">26B</text>
+  <text x="483" y="128" text-anchor="middle" font-size="13" fill="#0f766e">파라미터 (MoE)</text>
+  <text x="483" y="152" text-anchor="middle" font-size="12" fill="#6b7280">실사용 3.8B</text>
+
+  <!-- 카드 4: 비용 -->
+  <rect x="585" y="60" width="185" height="110" rx="12" fill="#f0fdfa" stroke="#0f766e" stroke-width="1.5"/>
+  <text x="677" y="105" text-anchor="middle" font-size="26" font-weight="900" fill="#0f766e">무료</text>
+  <text x="677" y="128" text-anchor="middle" font-size="13" fill="#0f766e">Apache 2.0</text>
+  <text x="677" y="152" text-anchor="middle" font-size="12" fill="#6b7280">상업용 사용 가능</text>
+</svg>
