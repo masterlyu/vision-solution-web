@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">Screenpipe 동작 원리</text>
+  <!-- 단계 1 -->
+  <rect x="40" y="68" width="200" height="90" rx="12" fill="#0f766e"/>
+  <text x="140" y="107" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">① 자동 캡처</text>
+  <text x="140" y="133" text-anchor="middle" font-size="12" fill="#a7f3d0">화면·음성 24시간</text>
+  <!-- 화살표 1 -->
+  <text x="258" y="120" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- 단계 2 -->
+  <rect x="300" y="68" width="200" height="90" rx="12" fill="#0891b2"/>
+  <text x="400" y="107" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">② 로컬 AI 처리</text>
+  <text x="400" y="133" text-anchor="middle" font-size="12" fill="#cffafe">내 PC 안에서만</text>
+  <!-- 화살표 2 -->
+  <text x="518" y="120" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- 단계 3 -->
+  <rect x="560" y="68" width="200" height="90" rx="12" fill="#22d3ee"/>
+  <text x="660" y="107" text-anchor="middle" font-size="15" font-weight="800" fill="#083344">③ AI 검색·요약</text>
+  <text x="660" y="133" text-anchor="middle" font-size="12" fill="#083344">질문하면 바로 답변</text>
+</svg>
