@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">영수증 1장 처리 시간 — 수동 vs AI 자동화</text>
+  <!-- Before bar: 4분, 막대 높이 proportional (4분:30초 = 8:1) -->
+  <rect x="140" y="110" width="150" height="140" rx="6" fill="#e2e8f0"/>
+  <text x="215" y="95" text-anchor="middle" font-size="26" font-weight="800" fill="#6b7280">4분</text>
+  <text x="215" y="270" text-anchor="middle" font-size="15" fill="#1f2937">수동 입력</text>
+  <text x="215" y="155" text-anchor="middle" font-size="13" fill="#6b7280">영수증 촬영</text>
+  <text x="215" y="175" text-anchor="middle" font-size="13" fill="#6b7280">항목 직접 입력</text>
+  <text x="215" y="195" text-anchor="middle" font-size="13" fill="#6b7280">결재 요청</text>
+  <!-- After bar: 30초 (8배 짧음) -->
+  <rect x="510" y="232" width="150" height="18" rx="6" fill="#0f766e"/>
+  <text x="585" y="217" text-anchor="middle" font-size="26" font-weight="800" fill="#0f766e">30초</text>
+  <text x="585" y="270" text-anchor="middle" font-size="15" fill="#1f2937">TaxHacker AI</text>
+  <!-- Arrow -->
+  <text x="390" y="175" text-anchor="middle" font-size="36" fill="#cbd5e1">→</text>
+  <!-- Source note -->
+  <text x="40" y="295" font-size="11" fill="#9ca3af">출처: Lido.app OCR 자동화 사례 (4분→30초) / TaxHacker GitHub README</text>
+</svg>
