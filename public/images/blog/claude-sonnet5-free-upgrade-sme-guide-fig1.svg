@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">AI 처리 방식 비교 — 기존 vs Sonnet 5 에이전틱</text>
+
+  <!-- 기존 방식 (왼쪽) -->
+  <rect x="60" y="70" width="300" height="190" rx="12" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="210" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#6b7280">기존 방식</text>
+  <text x="210" y="125" text-anchor="middle" font-size="13" fill="#64748b">① "요약해줘" → 답변</text>
+  <text x="210" y="148" text-anchor="middle" font-size="13" fill="#64748b">② "분류해줘" → 답변</text>
+  <text x="210" y="171" text-anchor="middle" font-size="13" fill="#64748b">③ "표 만들어줘" → 답변</text>
+  <text x="210" y="194" text-anchor="middle" font-size="13" fill="#64748b">④ "보고서 써줘" → 답변</text>
+  <text x="210" y="232" text-anchor="middle" font-size="15" font-weight="800" fill="#dc2626">4번 입력 필요</text>
+
+  <!-- 화살표 -->
+  <text x="400" y="170" text-anchor="middle" font-size="32" fill="#94a3b8">→</text>
+
+  <!-- Sonnet 5 에이전틱 (오른쪽) -->
+  <rect x="440" y="70" width="300" height="190" rx="12" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="1"/>
+  <text x="590" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#0f766e">Sonnet 5 에이전틱</text>
+  <text x="590" y="130" text-anchor="middle" font-size="13" fill="#065f46">"요약·분류·표 만들기·</text>
+  <text x="590" y="152" text-anchor="middle" font-size="13" fill="#065f46">보고서까지 해줘" → 1번</text>
+  <text x="590" y="185" text-anchor="middle" font-size="20" fill="#059669">AI가 단계별 자동 처리</text>
+  <text x="590" y="232" text-anchor="middle" font-size="15" font-weight="800" fill="#0f766e">1번 입력으로 완료</text>
+</svg>
