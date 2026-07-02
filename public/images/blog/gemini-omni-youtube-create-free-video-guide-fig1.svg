@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">영상 광고 제작 비용 비교</text>
+  <!-- Before 막대 (높이=130, y=120) -->
+  <rect x="160" y="100" width="120" height="150" rx="6" fill="#cbd5e1"/>
+  <text x="220" y="84" text-anchor="middle" font-size="18" font-weight="800" fill="#6b7280">100~200만원</text>
+  <text x="220" y="270" text-anchor="middle" font-size="14" fill="#1f2937">에이전시 의뢰</text>
+  <text x="220" y="288" text-anchor="middle" font-size="12" fill="#6b7280">제작 기간 1~2주</text>
+  <!-- After 막대 (높이=30, y=220) -->
+  <rect x="520" y="220" width="120" height="30" rx="6" fill="#0f766e"/>
+  <text x="580" y="204" text-anchor="middle" font-size="18" font-weight="800" fill="#0f766e">월 2.8만원</text>
+  <text x="580" y="270" text-anchor="middle" font-size="14" fill="#1f2937">YouTube AI</text>
+  <text x="580" y="288" text-anchor="middle" font-size="12" fill="#6b7280">제작 시간 5분</text>
+  <!-- 변화 요약 -->
+  <text x="400" y="160" text-anchor="middle" font-size="15" font-weight="700" fill="#16a34a">비용 98%↓ · 시간 99%↓</text>
+</svg>
