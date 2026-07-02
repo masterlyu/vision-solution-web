@@ -7,7 +7,7 @@ image: "/images/blog/natively-ai-realtime-coach-free-guide.svg"
 summary: "유료 AI 영업·면접 코치가 월 $20~$149인 시대. 오픈소스 Natively는 0원으로 내 PC에서 실시간 AI 코칭을 제공합니다. 기업 기밀 유출 없는 로컬 실행, 7가지 모드(영업·채용·팀미팅)와 Windows·Mac 5분 설치 가이드."
 ---
 
-![center](/mascot/md/emotion/cat_happy.png)
+![center](/mascot/md/emotion/cat_happy.webp)
 
 오후 3시, 영업 담당자 K씨가 전화기를 듭니다.
 
@@ -55,7 +55,7 @@ Natively는 다릅니다. 핵심은 **'지금 이 순간'**입니다.
 
 ## 솔직한 사양·비용·한계
 
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 GitHub 트렌딩 진입이라도 내 PC에서 돌아가는지가 먼저입니다.
 
@@ -132,7 +132,7 @@ Natively GitHub에 따르면 유사 서비스는 Cluely($20/월), LockedIn AI($7
 
 ## Windows에서 5분에 시작하기
 
-![center](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_cheer.webp)
 
 Windows 10/11 기준입니다. Mac도 동일한 흐름입니다.
 

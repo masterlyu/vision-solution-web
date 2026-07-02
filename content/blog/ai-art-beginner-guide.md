@@ -19,7 +19,7 @@ SNS 게시물을 올릴 때마다 이미지 때문에 골치였습니다.
 입력창에 "커피숍 창가, 따뜻한 분위기, 수채화 스타일" 딱 한 줄.  
 30초 후 이미지 4장이 화면에 떴습니다.
 
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 A씨는 그 이미지를 그날 바로 SNS에 올렸습니다.  
 "좋아요가 평소보다 두 배 달렸어요. 제가 만든 건데 정말 신기했어요."
@@ -49,7 +49,7 @@ AI에게 "이런 이미지 만들어줘"라고 **글로 시키는 것**입니다
 초보자에게 맞는 도구 기준은 두 가지입니다.  
 무료이고, 한국어 사용자가 쓰기 편해야 합니다.
 
-![center](/mascot/md/process/cat_education.png)
+![center](/mascot/md/process/cat_education.webp)
 
 ### 1. Bing Image Creator (빙 이미지 크리에이터)
 
@@ -97,7 +97,7 @@ SNS 광고나 상업용 콘텐츠에 쓰려는 분에게 특히 유용합니다.
 도구를 찾았는데 막상 뭘 써야 할지 모르는 분이 많습니다.  
 처음엔 다들 그렇습니다.
 
-![center](/mascot/md/process/cat_design.png)
+![center](/mascot/md/process/cat_design.webp)
 
 **프롬프트 기본 공식: 주제 + 스타일 + 분위기**
 
@@ -134,7 +134,7 @@ SNS 광고나 상업용 콘텐츠에 쓰려는 분에게 특히 유용합니다.
 
 ## 오늘 당장 해볼 수 있는 5분 실습
 
-![center](/mascot/md/emotion/cat_happy.png)
+![center](/mascot/md/emotion/cat_happy.webp)
 
 지금 바로 따라 해보세요.
 
@@ -166,7 +166,7 @@ AI 이미지 생성은 그림 실력이 필요하지 않습니다.
 "밝은 색감" 대신 "어둡고 신비로운 분위기"도 넣어보세요.  
 조금씩 바꿔보다 보면 어느새 자기만의 스타일이 생깁니다.
 
-![center](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_cheer.webp)
 
 1주일만 써보면 확실히 달라집니다.
 

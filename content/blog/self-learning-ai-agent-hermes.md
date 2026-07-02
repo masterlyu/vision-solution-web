@@ -20,7 +20,7 @@ README 첫 설명이 단박에 눈에 들어왔습니다.
 
 스스로 개선하는 AI입니다. 이 한 줄이 다른 에이전트와의 차이입니다.
 
-![center](/mascot/md/emotion/cat_surprised.png)
+![center](/mascot/md/emotion/cat_surprised.webp)
 
 ---
 
@@ -49,7 +49,7 @@ README에 이렇게 적혀 있어요:
 
 *(출처: github.com/NousResearch/hermes-agent)*
 
-![center](/mascot/md/service/cat_svc_ai.png)
+![center](/mascot/md/service/cat_svc_ai.webp)
 
 ---
 
@@ -86,7 +86,7 @@ README에 이렇게 적혀 있어요:
 
 고객 데이터, 계약서, 직원 정보처럼 외부로 나가면 안 되는 데이터를 다루는 회사라면 Hermes의 로컬 방식이 유리합니다.
 
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 ---
 
@@ -119,7 +119,7 @@ Slack과 연동하면 분류 결과가 바로 채널에 뜹니다.
 초기 설정 수준은 직접 도전해볼 수 있어요.
 그 이상 — 기존 업무 시스템과의 연결, 자동화 워크플로 구성 — 은 전문가 도움을 받으면 시간이 많이 줄어듭니다.
 
-![center](/mascot/md/process/cat_analytics.png)
+![center](/mascot/md/process/cat_analytics.webp)
 
 ---
 
@@ -162,7 +162,7 @@ OpenAI, Anthropic, OpenRouter API 키가 있으면 그것도 됩니다.
 
 공식 문서: [hermes-agent.org](https://hermes-agent.org) | GitHub: [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)
 
-![center](/mascot/md/process/cat_develop.png)
+![center](/mascot/md/process/cat_develop.webp)
 
 ---
 

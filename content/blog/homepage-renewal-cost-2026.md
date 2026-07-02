@@ -8,7 +8,7 @@ summary: "2026년 기준 홈페이지 리뉴얼 비용은 100만 원부터 1,200
 ---
 
 ## 🤔 사장님, 혹시 이런 상황이신가요?
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 - 홈페이지가 만들어진 지 3년이 넘었다
 - 스마트폰으로 보면 글씨가 너무 작거나 레이아웃이 깨진다
@@ -24,7 +24,7 @@ summary: "2026년 기준 홈페이지 리뉴얼 비용은 100만 원부터 1,200
 ---
 
 ## 💰 홈페이지 리뉴얼 비용, 왜 이렇게 다들 다른가요?
-![center](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_cheer.webp)
 
 견적을 받아보면 업체마다 가격이 천차만별입니다. 어떤 곳은 100만 원, 어떤 곳은 1,000만 원. 같은 홈페이지 리뉴얼인데 왜 이렇게 차이가 날까요?
 
@@ -49,7 +49,7 @@ summary: "2026년 기준 홈페이지 리뉴얼 비용은 100만 원부터 1,200
 ---
 
 ## 📊 2026년 홈페이지 리뉴얼 비용 범위
-![center](/mascot/md/emotion/cat_happy.png)
+![center](/mascot/md/emotion/cat_happy.webp)
 
 | 유형 | 예상 비용 | 특징 |
 |------|----------|------|
@@ -63,7 +63,7 @@ summary: "2026년 기준 홈페이지 리뉴얼 비용은 100만 원부터 1,200
 ---
 
 ## ⚠️ "싼 게 비지떡"이 되는 이유
-![center](/mascot/md/emotion/cat_worried.png)
+![center](/mascot/md/emotion/cat_worried.webp)
 
 100만 원짜리 리뉴얼을 맡겼다가 낭패를 보는 경우가 많습니다. 이유를 알면 예방할 수 있어요!
 

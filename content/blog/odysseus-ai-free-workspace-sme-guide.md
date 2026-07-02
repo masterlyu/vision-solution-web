@@ -13,7 +13,7 @@ summary: "직원이 ChatGPT에 고객 정보를 붙여넣을 때마다 데이터
 
 자체 호스팅 AI 워크스페이스입니다. 내 서버에 설치하면 대화 내용이 외부로 나가지 않고, 월 구독료도 0원입니다.
 
-![center](/mascot/md/emotion/cat_happy.png)
+![center](/mascot/md/emotion/cat_happy.webp)
 
 ## Odysseus, 이게 정확히 뭔데
 
@@ -27,7 +27,7 @@ summary: "직원이 ChatGPT에 고객 정보를 붙여넣을 때마다 데이터
 
 비슷한 도구로 Open WebUI + Ollama 조합이 있지만, Odysseus는 에이전트·딥리서치·문서 편집이 처음부터 통합되어 있어 설치 한 번으로 더 많은 기능을 씁니다.
 
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 ## 중소기업에 왜 좋은가 — 솔직한 장단점
 
@@ -52,7 +52,7 @@ Odysseus는 이 두 가지를 동시에 해결합니다. 데이터는 내 서버
 
 GPU 없이도 쓸 수 있지만 응답 속도가 느립니다. 빠른 속도가 필요하면 OpenAI API 키를 연결하면 됩니다(이 경우 API 비용은 발생하지만 구독료보다 저렴합니다). 단점도 있습니다. 설치와 관리를 직접 해야 하고, 고성능 로컬 AI는 PC 사양이 받쳐줘야 합니다.
 
-![center](/mascot/md/emotion/cat_surprised.png)
+![center](/mascot/md/emotion/cat_surprised.webp)
 
 ## 내 회사에 붙이는 방법
 
@@ -90,7 +90,7 @@ docker compose up -d
 
 Cookbook 메뉴 → 내 PC 사양 자동 감지 → 추천 모델 선택 → 설치 버튼. 10~20분 후 바로 사용할 수 있습니다.
 
-![center](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_cheer.webp)
 
 설치가 어렵거나 회사 데이터를 연결하고 싶다면, 아래로 연락 주세요.
 

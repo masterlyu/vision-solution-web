@@ -7,7 +7,7 @@ image: "/images/blog/baoyu-design-ui-mockup.svg"
 summary: "Anthropic Claude Design의 UI 시안 생성 기능을 로컬에서 무료로 쓰는 오픈소스 도구 baoyu-design. 디자이너 없이도 목업·프로토타입·데크를 HTML로 만드는 법을 초보자도 따라할 수 있게 단계별로 안내합니다."
 ---
 
-![center](/mascot/md/emotion/cat_surprised.png)
+![center](/mascot/md/emotion/cat_surprised.webp)
 
 ## "이게 된다고?" — GitHub에서 개발자들이 난리 난 이유
 
@@ -40,7 +40,7 @@ baoyu-design은 이 기능을 여러분 컴퓨터에서 바로 실행할 수 있
 
 ---
 
-![center](/mascot/md/process/cat_design.png)
+![center](/mascot/md/process/cat_design.webp)
 
 ## baoyu-design이 실제로 할 수 있는 것들
 
@@ -85,7 +85,7 @@ baoyu-design은 이 기능을 여러분 컴퓨터에서 바로 실행할 수 있
 
 ---
 
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 ## 중소기업이 이걸 어디에 쓸 수 있을까
 
@@ -117,7 +117,7 @@ baoyu-design은 다릅니다. API를 거치지만, 결과물(HTML 파일)은 내
 
 ---
 
-![center](/mascot/md/process/cat_develop.png)
+![center](/mascot/md/process/cat_develop.webp)
 
 ## 직접 해보기 — 설치부터 첫 시안까지 3단계
 
@@ -162,7 +162,7 @@ UI 목업 만들어줘.
 
 ---
 
-![center](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_cheer.webp)
 
 ## 결론 — 말로 하던 기획이 화면으로 바뀌는 순간
 

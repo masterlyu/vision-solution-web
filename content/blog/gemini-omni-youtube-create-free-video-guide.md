@@ -19,7 +19,7 @@ summary: "구글이 YouTube Shorts·Create 앱에 AI 영상 생성을 무료로 
 
 ## 유튜브 앱이 영상을 대신 만들어준다
 
-![center](/mascot/md/emotion/cat_happy.png)
+![center](/mascot/md/emotion/cat_happy.webp)
 
 **Gemini Omni**는 텍스트·이미지·영상을 동시에 이해하는 멀티모달 AI 모델입니다. 쉽게 말하면 — "카페 음료를 밝고 상쾌하게 보여주는 10초 클립"이라고 입력하면 AI가 영상을 뽑아줍니다. 제품 사진을 넣으면 그 사진에서 자연스러운 움직임을 만들어내기도 합니다.
 
@@ -31,7 +31,7 @@ summary: "구글이 YouTube Shorts·Create 앱에 AI 영상 생성을 무료로 
 
 ## 무료로 뭘 얼마나 — 솔직한 차이
 
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 ![YouTube AI 영상 생성 무료·유료 비교](/images/blog/gemini-omni-youtube-create-free-video-guide-fig2.svg)
 *▲ YouTube AI 영상 생성 무료·유료 핵심 수치 · 출처: Google Blog, Gemini Omni 발표자료*
@@ -58,7 +58,7 @@ summary: "구글이 YouTube Shorts·Create 앱에 AI 영상 생성을 무료로 
 
 ## 직접 해보기 — 5분 실습
 
-![center](/mascot/md/emotion/cat_surprised.png)
+![center](/mascot/md/emotion/cat_surprised.webp)
 
 ![YouTube AI 영상 제작 3단계](/images/blog/gemini-omni-youtube-create-free-video-guide-fig3.svg)
 *▲ YouTube AI 영상 생성 실습 단계 · 출처: Google YouTube Create 공식 가이드*

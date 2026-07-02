@@ -8,7 +8,7 @@ summary: "Core Web Vitals 점수를 38점에서 94점으로 끌어올린 실전 
 ---
 
 ## 📉 홈페이지 점수가 낮으면 손님을 잃고 있는 겁니다
-![center](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_cheer.webp)
 
 혹시 이런 경험 있으신가요? 홈페이지를 만들었는데 방문자가 들어오자마자 나가버리는 상황. 이유는 단 하나일 수 있습니다 — **홈페이지가 느리기 때문**입니다.
 
@@ -17,7 +17,7 @@ summary: "Core Web Vitals 점수를 38점에서 94점으로 끌어올린 실전 
 ---
 
 ## 📊 Core Web Vitals란 무엇인가요?
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 구글이 검색 순위에 직접 반영하는 3가지 성능 지표입니다.
 
@@ -35,7 +35,7 @@ summary: "Core Web Vitals 점수를 38점에서 94점으로 끌어올린 실전 
 ---
 
 ## ⚡ 5가지 개선 방법
-![center](/mascot/md/emotion/cat_happy.png)
+![center](/mascot/md/emotion/cat_happy.webp)
 
 ### 1. 🖼️ Next.js Image 컴포넌트 사용
 
@@ -138,7 +138,7 @@ async function ProductList() {
 ---
 
 ## 🏆 실측 결과
-![center](/mascot/md/emotion/cat_worried.png)
+![center](/mascot/md/emotion/cat_worried.webp)
 
 이 5가지를 모두 적용한 고객사의 실제 결과입니다.
 

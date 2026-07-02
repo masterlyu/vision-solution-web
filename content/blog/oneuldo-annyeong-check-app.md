@@ -8,7 +8,7 @@ summary: "중국에서 화제가 된 생존신고 앱 '죽었니'의 한국판 '
 ---
 
 ## 중국에서 수백만이 다운로드한 '죽었니' 앱, 아시나요?
-![center](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_cheer.webp)
 
 2024년 말 중국에서 이상한 앱이 바이럴됐습니다. 이름은 **"죽었니?"**
 
@@ -24,7 +24,7 @@ summary: "중국에서 화제가 된 생존신고 앱 '죽었니'의 한국판 '
 ---
 
 ## 한국판으로 다시 태어난 '오늘도 안녕'
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 비전솔루션이 이 개념을 가져와 **처음부터 다시 만들었습니다**.
 

@@ -15,7 +15,7 @@ summary: "KISA가 2026년 개정 발간한 중소기업 보안 취약 사례별 
 
 과기정통부와 KISA(한국인터넷진흥원)는 이 상황을 심각하게 보고, 2026년 중소기업 개발·운영 환경에서 발생하는 보안 취약 사례와 대응방안을 담은 가이드 **개정판을 새로 발간**했습니다(보안뉴스, 2026).
 
-![center](/mascot/md/emotion/cat_worried.png)
+![center](/mascot/md/emotion/cat_worried.webp)
 
 ## KISA 가이드가 지목한 중소기업 5대 취약점
 
@@ -36,7 +36,7 @@ FTP(21번), 원격 데스크톱 RDP(3389번), 텔넷(23번) 등 인터넷에서 
 **⑤ 퇴직자 계정 미삭제**
 퇴직 후에도 살아있는 직원 이메일, 내부 시스템 계정은 해커가 활용하는 진입로입니다. 계정 관리 절차 없이 운영하는 중소기업이 많습니다.
 
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 ## 지역정보보호지원센터 무료 지원 활용법
 
@@ -52,7 +52,7 @@ KISA는 2026년 보안 사각지대 해소를 위해 **전국 10개 지역정보
 
 단, 지원 인원이 한정돼 있고, 신청부터 점검까지 수개월 대기가 생길 수 있습니다. 빠른 점검이 필요하다면 민간 전문 업체 [보안 진단 서비스](/security)를 병행 검토하는 것이 현실적입니다.
 
-![center](/mascot/md/emotion/cat_surprised.png)
+![center](/mascot/md/emotion/cat_surprised.webp)
 
 ## 보안 점검, 직접 먼저 해볼 수 있는 무료 방법
 
@@ -64,7 +64,7 @@ KISA는 2026년 보안 사각지대 해소를 위해 **전국 10개 지역정보
 
 이 세 가지만 해도 큰 취약점이 발견될 수 있습니다. 비전솔루션의 [홈페이지 보안 진단](/security)을 통하면 더 깊은 취약점 분석을 받을 수 있습니다.
 
-![center](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_cheer.webp)
 
 ## 비전솔루션과 함께 지금 보안을 점검하세요
 

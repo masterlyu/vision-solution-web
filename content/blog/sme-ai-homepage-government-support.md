@@ -8,7 +8,7 @@ summary: "중소기업 AI 홈페이지 제작에 정부 지원금(최대 400만 
 
 최근 중소기업 경쟁력의 핵심은 디지털 전환에 있으며, 그 중심에 AI 홈페이지가 자리 잡고 있습니다. 단순한 정보 제공을 넘어 방문자와 실시간 소통하고, 맞춤형 서비스를 제공하는 AI 기반 홈페이지는 이제 선택이 아닌 필수 요소가 되었습니다.
 
-![center](/mascot/md/emotion/cat_happy.png)
+![center](/mascot/md/emotion/cat_happy.webp)
 
 특히 정부에서는 "디지털 뉴딜" 및 "스마트 중소기업 지원사업" 등을 통해 AI 홈페이지 구축 비용의 **최대 70%까지 지원**하고 있어, 초기 투자 부담을 크게 줄일 수 있습니다.
 
@@ -16,12 +16,12 @@ AI 홈페이지의 가장 큰 장점은 24시간 작동하는 AI 챗봇입니다
 
 구축 과정은 다음과 같습니다.
 
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 먼저 사업 목표와 타겟 고객을 정의하고, 정부 지원사업 자격 요건을 확인합니다. 이후 요구사항 분석, 디자인 프로토타입, AI 챗봇 통합 및 테스트, 최종 배포 및 교육 단계를 거칩니다. 특히 Vision Solution은 중소기업 맞춤형 솔루션에 특화되어 있어, 정부 지원금 신청 서류 작성부터 사후 관리까지 원스톱으로 지원합니다.
 
 결론적으로, AI 홈페이지는 단순한 웹사이트를 넘어 영업 및 고객 서비스의 핵심 채널로 진화하고 있습니다. 정부 지원사업을 적극 활용하여 지금 바로 AI 기반 디지털 전환을 시작한다면, 향후 3년 내 시장 경쟁력을 크게 높일 수 있을 것입니다.
 
-![center](/mascot/md/emotion/cat_grateful.png)
+![center](/mascot/md/emotion/cat_grateful.webp)
 
 지금 바로 무료 컨설팅을 신청하고, 정부 지원사업 자격 요건을 확인해 보세요. [무료 상담 신청 →](https://visionc.co.kr/contact)

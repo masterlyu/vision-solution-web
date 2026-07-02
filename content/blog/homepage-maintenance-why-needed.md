@@ -8,7 +8,7 @@ summary: "홈페이지를 만들고 방치하면 보안 취약점 누적·검색
 ---
 
 ## 😱 "홈페이지 만들어놨는데 그냥 두면 안 되나요?"
-![center](/mascot/md/emotion/cat_worried.png)
+![center](/mascot/md/emotion/cat_worried.webp)
 
 안됩니다. 정확히 말하면 — **두면 절대 안 됩니다!**
 
@@ -21,7 +21,7 @@ summary: "홈페이지를 만들고 방치하면 보안 취약점 누적·검색
 ---
 
 ## ⚠️ 방치하면 생기는 문제 3가지
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 ### 🔓 문제 1: 해킹 — 갑자기 내 홈페이지가 이상해진다
 
@@ -73,7 +73,7 @@ summary: "홈페이지를 만들고 방치하면 보안 취약점 누적·검색
 ---
 
 ## 💰 유지보수 비용 vs. 방치 비용
-![center](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_cheer.webp)
 
 | 항목 | 유지보수 비용 | 방치 후 복구 비용 |
 |------|------------|---------------|
@@ -86,7 +86,7 @@ summary: "홈페이지를 만들고 방치하면 보안 취약점 누적·검색
 ---
 
 ## 🙋 유지보수, 직접 할 수 있나요?
-![center](/mascot/md/emotion/cat_happy.png)
+![center](/mascot/md/emotion/cat_happy.webp)
 
 가능한 부분도 있습니다.
 

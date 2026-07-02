@@ -17,7 +17,7 @@ A씨만이 아닙니다. 미용실 원장 B씨, 학원 원장 C씨도 비슷한 
 
 세 사람의 이야기를 함께 살펴보겠습니다.
 
-![center](/mascot/md/emotion/cat_worried.png)
+![center](/mascot/md/emotion/cat_worried.webp)
 
 ---
 
@@ -37,7 +37,7 @@ A씨만이 아닙니다. 미용실 원장 B씨, 학원 원장 C씨도 비슷한 
 
 솔직히 말씀드리면, 지원사업은 공고가 자주 바뀝니다. 그래서 정확한 금액보다 "어디서 찾아야 하는지"를 아는 게 더 중요합니다.
 
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 현재 운영 중이거나 정기적으로 공고가 나오는 주요 사업들입니다.
 
@@ -80,7 +80,7 @@ A씨만이 아닙니다. 미용실 원장 B씨, 학원 원장 C씨도 비슷한 
 
 ## Before-After: 3가지 실제 사례
 
-![center](/mascot/md/emotion/cat_happy.png)
+![center](/mascot/md/emotion/cat_happy.webp)
 
 ### 사례 1. 반찬가게 A씨 — 자체 주문 앱으로 배달 수수료 절반 줄이기
 
@@ -158,7 +158,7 @@ C씨는 "처음에는 앱이 우리 학원에 맞겠냐 싶었는데, 지금은 
 
 ## 시작하기 전에 전문가와 한 번 이야기해보세요
 
-![center](/mascot/md/emotion/cat_grateful.png)
+![center](/mascot/md/emotion/cat_grateful.webp)
 
 지원사업 공고를 처음 보면 용어도 생소하고, 어떤 사업이 우리 가게에 맞는지 판단하기 어렵습니다.
 
