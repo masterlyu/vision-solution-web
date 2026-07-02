@@ -65,7 +65,7 @@ After:  Next.js 15 + Tailwind CSS (2024년 최신 기술)
 
 ## 🏆 결과 (3개월 후)
 
-![리뉴얼 전후 문의량 변화 — 찔끔에서 문의 폭발로](/images/blog/renewal-case-3x-inquiry-fig1.png)
+![리뉴얼 전후 문의량 변화 — 찔끔에서 문의 폭발로](/images/blog/renewal-case-3x-inquiry-fig1.webp)
 
 | 지표 | Before | After | 변화 |
 |------|--------|-------|------|
