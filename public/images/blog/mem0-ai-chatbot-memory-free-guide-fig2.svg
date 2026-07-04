@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">Mem0 주요 지표 (공개 데이터 기준)</text>
+  <!-- 카드 1: GitHub 스타 -->
+  <rect x="40" y="64" width="220" height="110" rx="12" fill="#ecfdf5"/>
+  <text x="150" y="116" text-anchor="middle" font-size="32" font-weight="900" fill="#0f766e">59,500+</text>
+  <text x="150" y="148" text-anchor="middle" font-size="14" fill="#6b7280">GitHub 스타</text>
+  <!-- 카드 2: 토큰 효율 (검증된 수치) -->
+  <rect x="290" y="64" width="220" height="110" rx="12" fill="#eff6ff"/>
+  <text x="400" y="110" text-anchor="middle" font-size="28" font-weight="900" fill="#2563eb">3~4x</text>
+  <text x="400" y="140" text-anchor="middle" font-size="13" fill="#6b7280">토큰 효율 (전체 컨텍스트 대비)</text>
+  <!-- 카드 3: 평균 검색 토큰 -->
+  <rect x="540" y="64" width="220" height="110" rx="12" fill="#fef3c7"/>
+  <text x="650" y="110" text-anchor="middle" font-size="24" font-weight="900" fill="#b45309">~7,000</text>
+  <text x="650" y="140" text-anchor="middle" font-size="13" fill="#6b7280">평균 검색당 토큰 수</text>
+</svg>
