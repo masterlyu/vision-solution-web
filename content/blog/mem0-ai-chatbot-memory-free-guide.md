@@ -122,6 +122,8 @@ print(memories)
 
 자체 서버에 설치하는 방법은 [GitHub 저장소](https://github.com/mem0ai/mem0) README의 Docker Compose 예제를 참고하세요.
 
+![center](/mascot/md/service/cat_svc_ai.webp)
+
 ---
 
 **Q. Mem0를 쓰면 고객 데이터가 외부로 나가나요?**  
