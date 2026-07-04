@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">MiMo API 5분 시작법</text>
+  <!-- 단계 1 -->
+  <rect x="40" y="65" width="200" height="100" rx="12" fill="#0f766e"/>
+  <text x="140" y="107" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">① 가입</text>
+  <text x="140" y="128" text-anchor="middle" font-size="12" fill="#a7f3d0">mimo.mi.com 접속</text>
+  <text x="140" y="148" text-anchor="middle" font-size="12" fill="#a7f3d0">API 키 발급</text>
+  <!-- 화살표 -->
+  <text x="258" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- 단계 2 -->
+  <rect x="300" y="65" width="200" height="100" rx="12" fill="#0891b2"/>
+  <text x="400" y="107" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">② 코딩 요청</text>
+  <text x="400" y="128" text-anchor="middle" font-size="12" fill="#cffafe">영어로 프롬프트 입력</text>
+  <text x="400" y="148" text-anchor="middle" font-size="12" fill="#cffafe">코드 생성 확인</text>
+  <!-- 화살표 -->
+  <text x="518" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- 단계 3 -->
+  <rect x="560" y="65" width="200" height="100" rx="12" fill="#22d3ee"/>
+  <text x="660" y="107" text-anchor="middle" font-size="16" font-weight="800" fill="#083344">③ 코드 적용</text>
+  <text x="660" y="128" text-anchor="middle" font-size="12" fill="#083344">홈페이지에 붙이기</text>
+  <text x="660" y="148" text-anchor="middle" font-size="12" fill="#083344">즉시 동작 확인</text>
+</svg>
