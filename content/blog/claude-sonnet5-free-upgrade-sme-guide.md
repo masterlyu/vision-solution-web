@@ -1,5 +1,5 @@
 ---
-title: "무료 Claude 대업그레이드 — Sonnet 5가 바꾼 3가지"
+title: "Claude Sonnet 5 무료 — 바뀐 3가지"
 date: "2026-07-03"
 tag: "AI 활용"
 tags: "AI 활용,업무 자동화,클로드,중소기업 AI,에이전틱"
