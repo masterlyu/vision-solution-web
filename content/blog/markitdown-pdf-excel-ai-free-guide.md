@@ -1,5 +1,5 @@
 ---
-title: "사내 문서를 AI가 읽는다 — MS MarkItDown 5분 실습"
+title: "MarkItDown: PDF·엑셀 AI 읽기 5분 실습"
 date: "2026-07-06"
 tag: "AI 활용"
 tags: "AI 활용,문서 변환,중소기업 AI,MarkItDown,로컬 AI"
