@@ -16,7 +16,7 @@ ChatGPT, Claude API 월 구독이 부담되셨나요? 샤오미가 코딩 특화
 
 ## MiMo V2.5-Pro, 쉽게 설명하면
 
-![center](/mascot/md/emotion/cat_happy.png)
+![center](/mascot/md/emotion/cat_happy.webp)
 
 MiMo는 코딩과 업무 자동화에 특화된 AI 에이전트 모델입니다. "에이전트"가 낯설다면 "AI 직원"으로 이해하면 됩니다. 코드를 짜고, 오류를 고치고, 자동화 스크립트를 만들어주는 AI입니다.
 
@@ -33,7 +33,7 @@ MIT 라이선스라는 점도 중요합니다. 법적으로 상업적 이용이 
 
 솔직하게 얘기하겠습니다. MiMo V2.5-Pro는 두 가지 방식으로 접근할 수 있고, 상황에 따라 선택이 달라집니다.
 
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 **방법 1 — MiMo API 사용 (초보자 권장)**
 
@@ -75,7 +75,7 @@ MiMo가 잘하는 것은 코드 생성과 자동화입니다.
 
 자사 시스템과 연결하거나 더 복잡한 자동화 구조를 원한다면, 그 단계부터는 설계 전문가가 필요합니다.
 
-![center](/mascot/md/process/cat_develop.png)
+![center](/mascot/md/process/cat_develop.webp)
 
 ---
 
@@ -116,7 +116,7 @@ Style it cleanly with CSS so it works well on mobile devices.
 
 생성된 HTML 코드를 홈페이지 담당자에게 전달하거나, 직접 홈페이지 파일에 붙여넣으면 됩니다. 수정 없이도 바로 작동합니다.
 
-![center](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_cheer.webp)
 
 ### 자주 묻는 질문
 
@@ -129,7 +129,7 @@ A. API 방식은 입력한 내용이 샤오미 서버를 거칩니다. 고객 �
 **Q. Claude나 ChatGPT를 완전히 대체할 수 있나요?**
 A. 코딩·자동화 스크립트 생성에서는 충분한 대안입니다. 마케팅 카피 작성, 아이디어 발굴, 자유로운 대화형 업무는 범용 AI가 여전히 강점입니다. 용도에 맞게 병행 사용하는 것이 현실적입니다.
 
-![center](/mascot/md/situation/cat_guide.png)
+![center](/mascot/md/situation/cat_guide.webp)
 
 ---
 
