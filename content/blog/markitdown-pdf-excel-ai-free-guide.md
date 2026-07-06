@@ -146,3 +146,12 @@ A. 수식의 계산된 결과값은 가져옵니다. 수식 자체(=SUM(A1:A10))
 > **(주)비젼솔루션 AI 솔루션 문의**:  
 > 📧 biztalktome@gmail.com  
 > 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
+
+
+<!-- related-links -->
+
+## 함께 보면 좋은 글
+
+- [샤오미 무료 AI가 Claude를 능가? 5분 실습](/blog/xiaomi-mimo-v25-pro-free-coding-agent)
+- [대화 끝나도 AI가 기억한다 — Mem0 5분 실습](/blog/mem0-ai-chatbot-memory-free-guide)
+- [Claude Sonnet 5 무료 — 바뀐 3가지](/blog/claude-sonnet5-free-upgrade-sme-guide)
