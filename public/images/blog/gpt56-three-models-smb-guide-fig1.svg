@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">GPT-5.6 API 입력 가격 비교 (1M 토큰 기준)</text>
+  <!-- Sol 카드 -->
+  <rect x="40" y="60" width="220" height="110" rx="12" fill="#eff6ff"/>
+  <text x="150" y="108" text-anchor="middle" font-size="34" font-weight="900" fill="#2563eb">$5.00</text>
+  <text x="150" y="134" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2937">Sol</text>
+  <text x="150" y="155" text-anchor="middle" font-size="12" fill="#6b7280">최고 성능 · ultra 모드</text>
+  <!-- Terra 카드 -->
+  <rect x="290" y="60" width="220" height="110" rx="12" fill="#ecfdf5"/>
+  <text x="400" y="108" text-anchor="middle" font-size="34" font-weight="900" fill="#059669">$2.50</text>
+  <text x="400" y="134" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2937">Terra</text>
+  <text x="400" y="155" text-anchor="middle" font-size="12" fill="#6b7280">Sol 대비 50% 절약</text>
+  <!-- Luna 카드 -->
+  <rect x="540" y="60" width="220" height="110" rx="12" fill="#f0fdfa"/>
+  <text x="650" y="108" text-anchor="middle" font-size="34" font-weight="900" fill="#0f766e">$1.00</text>
+  <text x="650" y="134" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2937">Luna</text>
+  <text x="650" y="155" text-anchor="middle" font-size="12" fill="#6b7280">Sol 대비 80% 절약</text>
+</svg>
