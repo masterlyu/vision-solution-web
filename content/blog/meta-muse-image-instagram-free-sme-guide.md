@@ -26,7 +26,7 @@ Midjourney, DALL-E, Adobe Firefly 같은 서비스가 이미 있었습니다. �
 
 메타가 공개한 뮤즈 이미지는 **30가지 이상의 이미지 스타일 효과**를 제공합니다. Night Flash, Disposable, Puffer, Paper Doll, IG Charms 등 메타 공식 효과를 골라 쓸 수 있습니다. 나아가 인스타그램 Advantage+ 광고 시스템과 연동도 예고된 상태입니다. 광고 소재를 직접 만들어 캠페인에 바로 연결하는 방식으로 발전할 예정입니다.
 
-![center](/mascot/md/emotion/cat_happy.png)
+![center](/mascot/md/emotion/cat_happy.webp)
 
 ---
 
@@ -63,7 +63,7 @@ Midjourney, DALL-E, Adobe Firefly 같은 서비스가 이미 있었습니다. �
 > **내 사업에 맞는 AI 도구 조합이 궁금하시다면:**  
 > [(주)비젼솔루션 AI 솔루션 페이지 →](https://www.visionc.co.kr/ai-solution)
 
-![center](/mascot/md/process/cat_plan.png)
+![center](/mascot/md/process/cat_plan.webp)
 
 ---
 
@@ -90,7 +90,7 @@ Meta Advantage+ 연동이 완성되면 뮤즈 이미지로 만든 소재를 광�
 
 고객 개인정보나 기밀이 포함된 내용은 입력하지 않는 게 좋습니다. 제품 이미지, 일반 홍보 콘텐츠 용도라면 대부분 문제없는 수준입니다.
 
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 **(주)비젼솔루션이 보는 관점:**  
 도구가 쏟아지는 속도보다 중요한 건 선택의 기준입니다. 뮤즈 이미지는 소상공인의 시간과 비용을 줄여주는 분명한 도구입니다. 그런데 "좋은 도구가 나왔다"보다 더 중요한 질문은 "내 사업의 어떤 업무에, 어디까지 연결할 것인가"입니다. 무료 도구도 결국 시간 투자입니다. 어떤 작업에 쓸지, 어디서 멈출지 먼저 정하고 시작하는 편이 낫습니다.
@@ -113,7 +113,7 @@ Meta Advantage+ 연동이 완성되면 뮤즈 이미지로 만든 소재를 광�
 
 처음엔 프롬프트가 어색할 수 있습니다. 핵심은 간결하게 시작하는 겁니다. "흰 배경, 제품, 깔끔한" 같은 단어 조합부터 시작해서 점점 구체화해 나가면 됩니다.
 
-![center](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_cheer.webp)
 
 ---
 
@@ -128,7 +128,7 @@ A. 네. 인스타그램과 Meta AI 앱에서도 이용 가능합니다. 왓츠�
 **Q. 생성한 이미지를 광고에 상업적으로 써도 되나요?**  
 A. 메타 AI 이용약관 내에서 가능합니다. 단, 실존 인물이나 타인의 저작물을 묘사하는 이미지 생성은 피해야 합니다. 상업 활용 전 최신 약관을 한 번 확인하는 편을 권장합니다.
 
-![center](/mascot/md/emotion/cat_grateful.png)
+![center](/mascot/md/emotion/cat_grateful.webp)
 
 ---
 

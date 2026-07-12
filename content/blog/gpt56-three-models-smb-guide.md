@@ -21,7 +21,7 @@ ChatGPT 요금이 부담스러우셨나요? 상황이 달라졌습니다.
 
 스마트폰 요금제를 고를 때 전화만 하는 사람이 무제한 데이터 요금제를 살 필요가 없는 것처럼, AI도 이제 용도에 맞게 고를 수 있습니다.
 
-![center](/mascot/md/emotion/cat_happy.png)
+![center](/mascot/md/emotion/cat_happy.webp)
 
 GPT-5.6은 하나의 AI가 아닙니다. OpenAI가 성능과 가격에 따라 세 가지로 나눈 것입니다.
 
@@ -40,7 +40,7 @@ Terra는 GPT-5.5 대비 가격이 절반입니다. Luna는 Sol 대비 80% 저렴
 
 ## 솔직한 비교 — 무료로도 되나요?
 
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 ChatGPT 플랜 기준으로 정리합니다.
 
@@ -71,7 +71,7 @@ ChatGPT 플랜 기준으로 정리합니다.
 ![GPT-5.6 모델 선택 흐름도](/images/blog/gpt56-three-models-smb-guide-fig2.svg)
 *▲ 중소기업 업무 유형별 GPT-5.6 모델 선택 흐름 · 출처: (주)비젼솔루션*
 
-![center](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_cheer.webp)
 
 선택 기준은 단순합니다. 업무의 **복잡도**와 **처리 건수**, 두 가지면 됩니다.
 
@@ -91,7 +91,7 @@ API를 활용하면 회사 제품 목록, 가격표, 고객 FAQ를 AI에 넣고 
 
 ## (주)비젼솔루션의 관점
 
-![center](/mascot/md/emotion/cat_grateful.png)
+![center](/mascot/md/emotion/cat_grateful.webp)
 
 AI 도구의 티어 분리는 진입장벽을 낮추는 신호입니다. "비싸서 못 쓴다"는 이유가 사라진 자리에 새로운 질문이 남습니다. "어떤 작업에 어떤 모델을 붙일 것인가." 도구가 저렴해진다고 자동으로 효과가 나지는 않습니다. 회사의 반복 업무를 파악하고, 어디에 AI를 연결할지 설계하는 것이 먼저입니다. GPT-5.6의 세 가지 모델은 선택지가 늘었다는 의미이지, 알아서 골라준다는 의미가 아닙니다.
 
@@ -99,7 +99,7 @@ AI 도구의 티어 분리는 진입장벽을 낮추는 신호입니다. "비싸
 
 ## 지금 바로 써보기 — ChatGPT Terra·Sol 5분 실습
 
-![center](/mascot/md/emotion/cat_surprised.png)
+![center](/mascot/md/emotion/cat_surprised.webp)
 
 가입만 되어 있으면 바로 시작할 수 있습니다. 준비물: ChatGPT 계정(무료 또는 Plus).
 
