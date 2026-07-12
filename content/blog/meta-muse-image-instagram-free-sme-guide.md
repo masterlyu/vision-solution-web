@@ -63,6 +63,8 @@ Midjourney, DALL-E, Adobe Firefly 같은 서비스가 이미 있었습니다. �
 > **내 사업에 맞는 AI 도구 조합이 궁금하시다면:**  
 > [(주)비젼솔루션 AI 솔루션 페이지 →](https://www.visionc.co.kr/ai-solution)
 
+![center](/mascot/md/process/cat_plan.png)
+
 ---
 
 ## 소상공인 실전 시나리오 3가지
@@ -125,6 +127,8 @@ A. 네. 인스타그램과 Meta AI 앱에서도 이용 가능합니다. 왓츠�
 
 **Q. 생성한 이미지를 광고에 상업적으로 써도 되나요?**  
 A. 메타 AI 이용약관 내에서 가능합니다. 단, 실존 인물이나 타인의 저작물을 묘사하는 이미지 생성은 피해야 합니다. 상업 활용 전 최신 약관을 한 번 확인하는 편을 권장합니다.
+
+![center](/mascot/md/emotion/cat_grateful.png)
 
 ---
 
