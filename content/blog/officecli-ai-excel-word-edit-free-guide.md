@@ -17,7 +17,7 @@ AI한테 엑셀 파일 고쳐 달라고 했더니 이런 말 받아본 적 있�
 
 ## AI가 엑셀을 못 고치는 진짜 이유
 
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 ChatGPT든 Claude든, Office 파일을 못 만지는 건 능력 문제가 아닙니다. 파일 시스템에 직접 접근할 "손"이 없기 때문입니다.
 
@@ -79,7 +79,7 @@ AI 연동 없이 간단한 파일 조작만 필요하면 python-docx도 충분�
 
 ## 중소기업에서 쓰는 방법 — 실제 시나리오
 
-![center](/mascot/md/emotion/cat_happy.png)
+![center](/mascot/md/emotion/cat_happy.webp)
 
 ### 시나리오 1 — 월간 보고서 자동 생성
 
@@ -107,7 +107,7 @@ AI 연동 없이 간단한 파일 조작만 필요하면 python-docx도 충분�
 
 ## 3분 실습 — 지금 바로 설치하기
 
-![center](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_cheer.webp)
 
 ### 설치 요구사항
 

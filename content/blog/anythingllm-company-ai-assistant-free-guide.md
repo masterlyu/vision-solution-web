@@ -13,7 +13,7 @@ ChatGPT Plus 월 20달러, 직원 5명이 쓰면 연간 120만 원입니다. 게
 
 **AnythingLLM**은 이 두 문제를 동시에 해결합니다. 회사 문서를 내 PC에 올려두고, 인터넷 연결 없이도 AI와 대화할 수 있는 완전 무료 오픈소스 도구입니다. GitHub 별 6만 개를 넘긴 검증된 프로젝트로, 지금 바로 설치해서 쓸 수 있습니다.
 
-![center](/mascot/md/emotion/cat_surprised.png)
+![center](/mascot/md/emotion/cat_surprised.webp)
 
 ## ChatGPT와 결정적으로 다른 점
 
@@ -66,7 +66,7 @@ AnythingLLM은 다르게 작동합니다. 문서를 한 번 업로드하면 AI�
 
 Dify와 비교하면 AnythingLLM은 설치가 압도적으로 단순합니다. Dify는 Docker와 서버 환경 지식이 필요한 반면, AnythingLLM은 윈도우 설치 파일 하나로 끝납니다.
 
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 ## 우리 회사라면 이렇게 씁니다
 
@@ -92,7 +92,7 @@ AI 도구 선택에서 가장 자주 놓치는 질문이 있습니다 — "내 �
 
 ---
 
-![center](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_cheer.webp)
 
 ## 5단계 설치 — 지금 바로 해보세요
 
