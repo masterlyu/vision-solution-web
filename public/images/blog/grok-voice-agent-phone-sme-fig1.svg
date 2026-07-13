@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220" width="800" height="220" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="220" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">AI 도입 전 vs 후 — 하루 평균 전화 처리</text>
+  <!-- Before 카드 -->
+  <rect x="40" y="60" width="330" height="130" rx="12" fill="#fef2f2"/>
+  <text x="55" y="90" font-size="13" font-weight="700" fill="#dc2626">도입 전</text>
+  <!-- 막대: 놓친 전화 -->
+  <rect x="90" y="105" width="80" height="60" rx="6" fill="#fca5a5"/>
+  <text x="130" y="98" text-anchor="middle" font-size="22" font-weight="900" fill="#dc2626">5건</text>
+  <text x="130" y="180" text-anchor="middle" font-size="12" fill="#6b7280">놓친 전화</text>
+  <rect x="210" y="125" width="80" height="40" rx="6" fill="#fca5a5" opacity="0.6"/>
+  <text x="250" y="118" text-anchor="middle" font-size="18" font-weight="900" fill="#dc2626">3건</text>
+  <text x="250" y="180" text-anchor="middle" font-size="12" fill="#6b7280">콜백 포기</text>
+  <!-- After 카드 -->
+  <rect x="430" y="60" width="330" height="130" rx="12" fill="#f0fdf4"/>
+  <text x="445" y="90" font-size="13" font-weight="700" fill="#16a34a">AI 도입 후</text>
+  <!-- 막대: 처리된 전화 -->
+  <rect x="480" y="110" width="80" height="55" rx="6" fill="#86efac"/>
+  <text x="520" y="103" text-anchor="middle" font-size="22" font-weight="900" fill="#16a34a">8건</text>
+  <text x="520" y="180" text-anchor="middle" font-size="12" fill="#6b7280">AI 자동 응대</text>
+  <rect x="600" y="145" width="80" height="20" rx="6" fill="#86efac" opacity="0.5"/>
+  <text x="640" y="138" text-anchor="middle" font-size="18" font-weight="900" fill="#16a34a">0건</text>
+  <text x="640" y="180" text-anchor="middle" font-size="12" fill="#6b7280">놓친 전화</text>
+  <!-- 출처 캡션 -->
+  <text x="400" y="210" text-anchor="middle" font-size="11" fill="#9ca3af">* 소상공인 평균 추정치 기반 시나리오</text>
+</svg>

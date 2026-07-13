@@ -1,6 +1,6 @@
 ---
 title: "Claude 오피스 AI — 아웃룩·엑셀 5분 설치"
-date: "2026-07-13"
+date: "2026-07-14"
 tag: "AI 솔루션"
 tags: "Microsoft 365,아웃룩 AI,오피스 비서,마이크로소프트,AI 통합"
 image: "/images/blog/claude-microsoft365-office-ai-guide.svg"
@@ -128,3 +128,12 @@ Word에서 제안서 작성 중 막혔을 때:
 AI 활용을 업무 프로세스에 연결하는 방법이 궁금하시다면 [무료 상담](/contact)으로 편하게 물어보세요.
 
 > 이 글이 도움이 되셨나요? AI 궁금해하는 분 계시면 공유해 주세요. 댓글로 질문하시면 성심껏 답변드릴게요!
+
+
+<!-- related-links -->
+
+## 함께 보면 좋은 글
+
+- [AI가 엑셀·워드 직접 편집 — 3분 설치 무료](/blog/officecli-ai-excel-word-edit-free-guide)
+- [삼성전자도 ChatGPT·클로드 허용했다 — 중소기업 AI 업무 도구 무료로 시작하는 법](/blog/sme-ai-tools-chatgpt-claude-2026)
+- [AI 도입해도 성과 없는 중소기업, 공통 실수 3가지](/blog/ai-adoption-failure-sme-3-strategies)

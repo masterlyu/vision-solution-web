@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f766e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.05" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)" />
+  <circle cx="700" cy="-30" r="200" fill="white" opacity="0.04"/>
+  <circle cx="760" cy="430" r="160" fill="white" opacity="0.04"/>
+  <!-- 태그 배지 -->
+  <rect x="40" y="40" width="110" height="28" rx="14" fill="white" opacity="0.2"/>
+  <text x="95" y="59" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="white">AI 음성 에이전트</text>
+  <!-- 우측 시각 카드 -->
+  <rect x="480" y="60" width="280" height="300" rx="20" fill="url(#card1)" stroke="white" stroke-opacity="0.15" stroke-width="1"/>
+  <!-- 전화 아이콘 시각화 -->
+  <rect x="540" y="95" width="55" height="90" rx="10" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  <rect x="550" y="103" width="35" height="5" rx="2" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="567" cy="170" r="5" fill="rgba(255,255,255,0.4)"/>
+  <!-- 전화 울림 파문 -->
+  <circle cx="612" cy="112" r="7" fill="none" stroke="#f87171" stroke-width="2.5"/>
+  <circle cx="612" cy="112" r="14" fill="none" stroke="#f87171" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="612" cy="112" r="21" fill="none" stroke="#f87171" stroke-width="1" opacity="0.3"/>
+  <!-- 화살표 -->
+  <text x="620" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.7)">↓</text>
+  <!-- AI 뇌 원 -->
+  <circle cx="620" cy="250" r="38" fill="rgba(6,182,212,0.4)" stroke="#22d3ee" stroke-width="2"/>
+  <text x="620" y="246" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="800" fill="white">AI</text>
+  <text x="620" y="264" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="rgba(255,255,255,0.8)">자동 응대</text>
+  <!-- 24h 배지 -->
+  <rect x="560" y="300" width="120" height="26" rx="13" fill="rgba(6,182,212,0.5)" stroke="#22d3ee" stroke-width="1"/>
+  <text x="620" y="317" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="white">24시간 · 365일</text>
+  <!-- 좌측 메인 텍스트 -->
+  <text x="40" y="130" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">xAI · 2026년 7월</text>
+  <text x="40" y="190" font-family="Arial, sans-serif" font-size="36" font-weight="900" fill="white">AI가 전화를</text>
+  <text x="40" y="235" font-family="Arial, sans-serif" font-size="36" font-weight="900" fill="white">대신 받습니다</text>
+  <text x="40" y="278" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.75">코딩 없이 2분 설정 · 소상공인 전화 자동화</text>
+  <rect x="40" y="310" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
+  <text x="40" y="345" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">(주)비젼솔루션</text>
+</svg>
