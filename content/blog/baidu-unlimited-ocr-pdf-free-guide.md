@@ -15,7 +15,7 @@ summary: "바이두가 2026년 6월 공개한 Unlimited-OCR은 100페이지 PDF�
 
 ## 기존 OCR과 뭐가 다른가 — 통째로 읽는 구조
 
-![center](/mascot/md/emotion/cat_happy.png)
+![center](/mascot/md/emotion/cat_happy.webp)
 
 대부분의 OCR 도구는 PDF를 페이지 단위 이미지로 변환한 뒤 각 페이지를 따로 처리한다. 이 방식의 문제는 페이지 경계를 넘는 맥락 처리다. 한 조항이 39페이지에서 시작해 40페이지에서 끝나면, 두 처리 결과를 이어붙여야 하고 그 이음새에서 오류가 생긴다.
 
@@ -27,7 +27,7 @@ Unlimited-OCR이 쓴 기술은 **R-SWA(Reference Sliding Window Attention)**다.
 
 ## 내 컴퓨터에서 돌아가나 — 스펙과 현실 요구사항
 
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 ![Unlimited-OCR 핵심 스펙 3가지](/images/blog/baidu-unlimited-ocr-pdf-free-guide-fig1.svg)
 *▲ Unlimited-OCR 핵심 스펙 · 출처: GitHub baidu/Unlimited-OCR*
@@ -57,7 +57,7 @@ RTX 3060 (12GB) 이상이면 FP16 풀 모델을 로컬에서 쓸 수 있다. 8GB
 
 ## 지금 당장 써보기 — HuggingFace 웹 데모 실습
 
-![center](/mascot/md/emotion/cat_surprised.png)
+![center](/mascot/md/emotion/cat_surprised.webp)
 
 ![HuggingFace Space 3단계 실습 순서](/images/blog/baidu-unlimited-ocr-pdf-free-guide-fig2.svg)
 *▲ 설치 없이 브라우저에서 바로 · 출처: HuggingFace baidu/Unlimited-OCR*
@@ -78,7 +78,7 @@ RTX 3060 (12GB) 이상이면 FP16 풀 모델을 로컬에서 쓸 수 있다. 8GB
 
 ## 내 회사에서 실제로 쓰려면 — 로컬 설치와 API 연동
 
-![center](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_cheer.webp)
 
 웹 데모는 편리하지만 기밀 문서를 외부 서버에 올리는 건 조심스럽다. 계약서, 내부 보고서, 고객 데이터가 담긴 파일이라면 로컬 설치가 맞다.
 
