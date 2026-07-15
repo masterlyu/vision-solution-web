@@ -1,10 +1,10 @@
 ---
-title: "100페이지 PDF 무료 OCR — 바이두 오픈소스"
+title: "40페이지 통째 OCR 무료 — 바이두 오픈소스"
 date: "2026-07-15"
 tag: "AI 활용"
 tags: "AI 활용,OCR,PDF 변환,오픈소스 AI,무료 도구"
 image: "/images/blog/baidu-unlimited-ocr-pdf-free-guide.svg"
-summary: "바이두가 2026년 6월 공개한 Unlimited-OCR은 100페이지 PDF를 끊김 없이 통째로 파싱하는 3B 오픈소스 모델입니다. OmniDocBench 93.9점, MIT 무료, HuggingFace 데모에서 설치 없이 바로 써볼 수 있고 로컬 실행은 7GB VRAM이면 됩니다."
+summary: "바이두가 2026년 6월 공개한 Unlimited-OCR은 40+ 페이지 PDF를 한 번에 통째로 파싱하는 3B 오픈소스 모델입니다. OmniDocBench 93.9점, MIT 무료, HuggingFace 데모에서 설치 없이 바로 써볼 수 있고 로컬 실행은 7GB VRAM이면 됩니다."
 ---
 
 거래처 계약서가 60페이지다. 꼭 확인해야 할 위약 조항은 어딘가 끼어 있다. 담당자가 프린트해서 밑줄 치고, 핵심 추려 메모하고, 다시 검토 요청하는 과정이 반복된다. ChatGPT에 올리면 어떨까 — 파일이 길면 중간 내용을 흘려버리거나, 페이지 단위로 잘라 보내야 해서 맥락이 끊긴다.
@@ -19,7 +19,7 @@ summary: "바이두가 2026년 6월 공개한 Unlimited-OCR은 100페이지 PDF�
 
 대부분의 OCR 도구는 PDF를 페이지 단위 이미지로 변환한 뒤 각 페이지를 따로 처리한다. 이 방식의 문제는 페이지 경계를 넘는 맥락 처리다. 한 조항이 39페이지에서 시작해 40페이지에서 끝나면, 두 처리 결과를 이어붙여야 하고 그 이음새에서 오류가 생긴다.
 
-Unlimited-OCR이 쓴 기술은 **R-SWA(Reference Sliding Window Attention)**다. 핵심은 KV 캐시를 평탄하게(flat) 유지하는 것. 문서가 아무리 길어도 모델이 유지해야 할 메모리 크기가 늘지 않는다. 덕분에 100페이지 문서를 처음 페이지처럼 마지막 페이지도 같은 정확도로 처리한다.
+Unlimited-OCR이 쓴 기술은 **R-SWA(Reference Sliding Window Attention)**다. 핵심은 KV 캐시를 평탄하게(flat) 유지하는 것. 문서가 아무리 길어도 모델이 유지해야 할 메모리 크기가 늘지 않는다. 덕분에 40+ 페이지 문서를 처음부터 마지막까지 같은 정확도로 처리합니다.
 
 성능은 수치로 나왔다. OmniDocBench v1.6 기준 **93.9%**, DeepSeek OCR 대비 긴 문서에서 **약 35% 빠른 속도**.
 
@@ -38,7 +38,7 @@ Unlimited-OCR이 쓴 기술은 **R-SWA(Reference Sliding Window Attention)**다.
 | 라이선스 | MIT (상업 사용 무료, 조건 없음) |
 | 로컬 실행 — FP16 | 약 7GB VRAM |
 | 로컬 실행 — INT4 양자화 | 약 2GB VRAM |
-| 클라우드 GPU 최저 비용 | 약 $0.77/시간 |
+| 클라우드 GPU 비용 | 제공사별 상이 (약 $0.5~1.0/시간) |
 
 RTX 3060 (12GB) 이상이면 FP16 풀 모델을 로컬에서 쓸 수 있다. 8GB GPU라면 INT4 양자화 버전으로 실행 가능하다. 그마저도 없다면 아래 HuggingFace 웹 데모로 먼저 테스트해보면 된다.
 
@@ -114,3 +114,12 @@ GitHub 저장소([github.com/baidu/Unlimited-OCR](https://github.com/baidu/Unlim
 > **AI 솔루션 도입 문의 · (주)비젼솔루션**  
 > 📧 biztalktome@gmail.com  
 > 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
+
+
+<!-- related-links -->
+
+## 함께 보면 좋은 글
+
+- [인스타 AI 이미지 무료 — 광고 사진 5분 만들기](/blog/meta-muse-image-instagram-free-sme-guide)
+- [GPT-5.6 3종 출시 — 내 회사에 맞는 모델은?](/blog/gpt56-three-models-smb-guide)
+- [AnythingLLM로 회사 AI 비서 5단계 설치](/blog/anythingllm-company-ai-assistant-free-guide)
