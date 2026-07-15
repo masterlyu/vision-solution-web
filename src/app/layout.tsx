@@ -12,6 +12,13 @@ export const metadata: Metadata = {
     template: '%s | Vision Solution',
   },
   description: '중소기업 AI 도입 동반자. 컨설팅·구축·사내 출강 교육·보안 진단·웹사이트·앱 개발을 한 곳에서. 누적 247건+ 프로젝트.',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '48x48', type: 'image/x-icon' },
+      { url: '/icon.svg', type: 'image/svg+xml', sizes: 'any' },
+    ],
+    shortcut: '/favicon.ico',
+  },
   twitter: {
     card: 'summary_large_image',
     site: '@visionc_kr',
