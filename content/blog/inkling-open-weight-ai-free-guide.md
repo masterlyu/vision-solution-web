@@ -19,7 +19,7 @@ summary: "OpenAI 출신 창업자 미라 무라티가 공개한 오픈웨이트 
 
 ## ChatGPT가 모르는 것, Inkling은 알 수 있습니다
 
-![center](/mascot/md/emotion/cat_happy.png)
+![center](/mascot/md/emotion/cat_happy.webp)
 
 **Inkling**은 OpenAI의 전 CTO 미라 무라티가 창업한 Thinking Machines Lab이 2026년 7월 15일 공개한 오픈웨이트 AI 모델입니다. Bloomberg, TechCrunch, Axios가 동시에 보도할 만큼 AI 업계의 주목을 받았습니다.
 
@@ -42,7 +42,7 @@ Inkling은 다릅니다. **오픈웨이트(Open-Weight) 모델**이기 때문입
 
 ## 지금 당장 써보는 방법 3가지
 
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 난이도 낮은 순서로 정리했습니다.
 
@@ -76,7 +76,7 @@ Together.ai에서 소량의 무료 크레딧을 제공합니다. API로 Inkling�
 
 ## 우리 회사에 어떻게 써먹을 수 있을까요
 
-![center](/mascot/md/emotion/cat_surprised.png)
+![center](/mascot/md/emotion/cat_surprised.webp)
 
 Inkling이 중소기업에 특히 유리한 이유는 1M 토큰 컨텍스트와 오픈웨이트 라이선스 두 가지입니다.
 
@@ -126,7 +126,7 @@ Tinker Playground 기준입니다. 설치가 없어서 가장 빠릅니다.
 
 5분 안에 '우리 회사 정보를 아는 AI'를 직접 경험하실 수 있습니다.
 
-![center](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_cheer.webp)
 
 ---
 

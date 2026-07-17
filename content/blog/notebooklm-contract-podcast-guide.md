@@ -19,7 +19,7 @@ summary: "거래처 계약서 50페이지가 날아왔는데 현장 다니느라
 
 ## NotebookLM이 뭔가요?
 
-![center](/mascot/md/emotion/cat_surprised.png)
+![center](/mascot/md/emotion/cat_surprised.webp)
 
 구글이 2023년에 출시한 **무료 AI 문서 분석 도구**입니다. 쉽게 말하면, 내 문서를 AI한테 맡기면 그 내용을 요약해 주고 질문에도 답해 주는 서비스입니다.
 
@@ -34,7 +34,7 @@ summary: "거래처 계약서 50페이지가 날아왔는데 현장 다니느라
 
 ## 어떤 문서를 올릴 수 있나요?
 
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 NotebookLM이 받을 수 있는 자료는 생각보다 다양합니다. PDF 파일은 물론, 구글 문서(Google Docs), 구글 프레젠테이션, 웹 페이지 URL, 유튜브 영상 URL, 일반 텍스트까지 됩니다.
 
@@ -49,7 +49,7 @@ NotebookLM이 받을 수 있는 자료는 생각보다 다양합니다. PDF 파�
 
 ## 이런 상황에 써보세요
 
-![center](/mascot/md/emotion/cat_happy.png)
+![center](/mascot/md/emotion/cat_happy.webp)
 
 **계약서 1차 검토**: 거래처에서 받은 계약서를 올리고 "납품 지연 시 위약금 조항이 있나요?", "독소 조항이 있다면 알려주세요"라고 물어보세요. 법률 검토를 대체하는 건 아니지만 빠른 1차 확인용으로 씁니다.
 
@@ -88,7 +88,7 @@ AI가 문서를 읽어주는 시대에 주의해야 할 점이 하나 있습니�
 
 **5단계 — 오디오 오버뷰 생성**: 패널에서 **"오디오 오버뷰"** 또는 **"Audio Overview"** 버튼을 클릭합니다. 1~3분 안에 AI 대화 형식의 음성이 생성됩니다. 생성된 음성은 다운로드해서 이동 중에 들을 수 있습니다.
 
-![center](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_cheer.webp)
 
 ---
 
