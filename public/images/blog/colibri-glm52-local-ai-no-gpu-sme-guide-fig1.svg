@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">Colibri + GLM-5.2 핵심 수치</text>
+  <!-- 카드 3개 -->
+  <rect x="40" y="64" width="220" height="110" rx="12" fill="#ecfdf5"/>
+  <text x="150" y="118" text-anchor="middle" font-size="36" font-weight="900" fill="#0f766e">744B</text>
+  <text x="150" y="152" text-anchor="middle" font-size="14" fill="#6b7280">파라미터 (GPT-4급 이상)</text>
+  <rect x="290" y="64" width="220" height="110" rx="12" fill="#ecfdf5"/>
+  <text x="400" y="118" text-anchor="middle" font-size="36" font-weight="900" fill="#0f766e">25GB</text>
+  <text x="400" y="152" text-anchor="middle" font-size="14" fill="#6b7280">RAM만 있으면 실행 가능</text>
+  <rect x="540" y="64" width="220" height="110" rx="12" fill="#ecfdf5"/>
+  <text x="650" y="118" text-anchor="middle" font-size="36" font-weight="900" fill="#0f766e">0원</text>
+  <text x="650" y="152" text-anchor="middle" font-size="14" fill="#6b7280">완전 무료 오픈소스</text>
+</svg>

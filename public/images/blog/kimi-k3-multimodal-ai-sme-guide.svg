@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f766e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.05" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)" />
+  <circle cx="700" cy="-50" r="200" fill="white" opacity="0.05"/>
+  <circle cx="750" cy="420" r="150" fill="white" opacity="0.05"/>
+  <!-- 태그 배지 -->
+  <rect x="40" y="40" width="110" height="28" rx="14" fill="white" opacity="0.2"/>
+  <text x="95" y="59" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="white">오픈소스 AI</text>
+  <!-- 우측 아이콘 카드 -->
+  <rect x="490" y="60" width="270" height="300" rx="20" fill="url(#card1)" stroke="white" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="625" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="72" fill="white" opacity="0.9">🤖</text>
+  <text x="625" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.8">파라미터 2.8조 개</text>
+  <text x="625" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.6">AI 리더보드 세계 3위</text>
+  <text x="625" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.6">MIT 라이선스 · 무료</text>
+  <!-- 좌측 메인 텍스트 -->
+  <text x="40" y="130" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="white" opacity="0.8">세계 최대 오픈소스 AI 공개</text>
+  <text x="40" y="178" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">Kimi K3 무료</text>
+  <text x="40" y="222" font-family="Arial, sans-serif" font-size="26" font-weight="900" fill="white">사진+서류 동시 5분 실습</text>
+  <text x="40" y="268" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.75">kimi.com — 카드 없이 로그인만 하면 바로</text>
+  <rect x="40" y="310" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
+  <text x="40" y="345" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">(주)비젼솔루션</text>
+</svg>

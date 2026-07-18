@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">Colibri 설치 5단계 흐름</text>
+  <!-- 5단계: x 시작값 조정하여 5개 배치 -->
+  <rect x="20" y="65" width="130" height="90" rx="12" fill="#0f766e"/>
+  <text x="85" y="107" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">① clone</text>
+  <text x="85" y="130" text-anchor="middle" font-size="11" fill="#a7f3d0">GitHub 복제</text>
+  <text x="162" y="117" text-anchor="middle" font-size="22" fill="#94a3b8">→</text>
+  <rect x="175" y="65" width="130" height="90" rx="12" fill="#0891b2"/>
+  <text x="240" y="107" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">② make</text>
+  <text x="240" y="130" text-anchor="middle" font-size="11" fill="#cffafe">빌드(컴파일)</text>
+  <text x="317" y="117" text-anchor="middle" font-size="22" fill="#94a3b8">→</text>
+  <rect x="330" y="65" width="130" height="90" rx="12" fill="#0891b2"/>
+  <text x="395" y="100" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">③ download</text>
+  <text x="395" y="123" text-anchor="middle" font-size="11" fill="#cffafe">모델 370GB</text>
+  <text x="395" y="143" text-anchor="middle" font-size="10" fill="#cffafe">다운로드</text>
+  <text x="472" y="117" text-anchor="middle" font-size="22" fill="#94a3b8">→</text>
+  <rect x="485" y="65" width="130" height="90" rx="12" fill="#0891b2"/>
+  <text x="550" y="107" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">④ chat</text>
+  <text x="550" y="130" text-anchor="middle" font-size="11" fill="#cffafe">AI 실행</text>
+  <text x="627" y="117" text-anchor="middle" font-size="22" fill="#94a3b8">→</text>
+  <rect x="640" y="65" width="140" height="90" rx="12" fill="#22d3ee"/>
+  <text x="710" y="100" text-anchor="middle" font-size="14" font-weight="800" fill="#083344">⑤ 채팅 시작</text>
+  <text x="710" y="123" text-anchor="middle" font-size="11" fill="#083344">localhost:8080</text>
+  <text x="710" y="143" text-anchor="middle" font-size="10" fill="#083344">오프라인 작동</text>
+</svg>
