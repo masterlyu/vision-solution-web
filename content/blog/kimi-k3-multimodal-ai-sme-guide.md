@@ -19,7 +19,7 @@ summary: "세계 최대 오픈소스 AI Kimi K3가 무료로 열렸습니다. �
 
 ## 사진이랑 서류를 AI한테 같이 보낼 수 있다고?
 
-![center](/mascot/md/emotion/cat_happy.png)
+![center](/mascot/md/emotion/cat_happy.webp)
 
 식품 회사를 운영하는 분이 있다고 해봅니다. 신제품 포장 사진 5장과 영양 성분표 엑셀 파일이 있는데, 이걸 조합해서 온라인 스토어 상세페이지 문구를 만들고 싶습니다.
 
@@ -48,7 +48,7 @@ Kimi K3는 중국 AI 스타트업 Moonshot AI가 2026년 7월 16~17일에 공개
 
 오픈소스이기도 합니다. **7월 27일 이후 모델 가중치(설계도)가 공개**될 예정이고, MIT 라이선스라 상업적으로도 자유롭게 쓸 수 있습니다. 가중치가 공개되면 자체 서버에 설치해서 외부로 데이터를 내보내지 않고 쓰는 것도 가능해집니다.
 
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 **솔직한 장단점도 짚어드립니다.** kimi.com 무료 버전은 하루 사용량 제한이 있습니다. 대량 작업이나 파일 크기가 큰 경우 유료 플랜을 검토해야 합니다. ChatGPT Plus($20/월)와 가격대가 비슷하지만, 멀티모달 처리와 컨텍스트 길이에서 현재 Kimi K3가 앞서는 상황입니다.
 
@@ -90,7 +90,7 @@ AI가 사진의 색감·디자인과 텍스트 사양을 동시에 읽어 문구
 
 ## 5분 실습 — kimi.com에서 바로 따라해보세요
 
-![center](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_cheer.webp)
 
 어렵지 않습니다. 지금 손에 상품 사진 1장과 제품 설명 텍스트가 있다면 5분 안에 마케팅 문구를 뽑을 수 있습니다.
 

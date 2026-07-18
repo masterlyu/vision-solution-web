@@ -15,7 +15,7 @@ ChatGPT Plus 월 29달러(약 4만 원), Claude Pro 월 22달러(약 3만 원), 
 
 그런 도구가 2026년 7월 10일, GitHub에 조용히 올라왔습니다.
 
-![center](/mascot/md/emotion/cat_happy.png)
+![center](/mascot/md/emotion/cat_happy.webp)
 
 ## GPU 없이 세계 최강급 AI — Colibri가 왜 화제인가
 
@@ -28,7 +28,7 @@ Colibri(콜리브리)는 개발자 JustVugg가 순수 C 언어 2,400줄로 만�
 
 "이 정도 AI면 슈퍼컴퓨터가 있어야 하는 거 아닌가?" 싶으시죠? 그게 Colibri의 핵심 비결입니다.
 
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 ## 냉장고 대신 창고에서 꺼낸다 — 스트리밍 방식이 핵심
 
@@ -84,7 +84,7 @@ make
 ![Colibri 설치 5단계](/images/blog/colibri-glm52-local-ai-no-gpu-sme-guide-fig2.svg)
 *▲ Colibri 설치 → 실행 흐름 · 출처: github.com/JustVugg/colibri*
 
-![center](/mascot/md/emotion/cat_surprised.png)
+![center](/mascot/md/emotion/cat_surprised.webp)
 
 ## 중소기업이 바로 써먹는 활용 예시 4가지
 
@@ -107,7 +107,7 @@ Colibri를 설치하면 사내에서만 돌아가는 전용 AI 어시스턴트�
 
 AI 도구의 진짜 가치를 결정하는 건 성능보다 "누가 데이터를 쥐느냐"입니다. 클라우드 AI는 쓰기 쉽지만, 계약서·고객 정보·내부 노하우가 외부 서버를 거칩니다. 로컬 AI는 반대입니다 — 내 서버 안에서만 돌고, 아무것도 밖으로 나가지 않습니다. 중소기업일수록 데이터 주권이 생존과 직결됩니다. Colibri 같은 도구가 이 선택지를 처음으로 현실로 만들어줬다고 저희는 봅니다.
 
-![center](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_cheer.webp)
 
 ## 한번 설치하면 무제한 — 월 구독료 0원
 
