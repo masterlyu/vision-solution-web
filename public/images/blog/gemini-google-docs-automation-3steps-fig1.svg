@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">주간 보고서 작성 시간 Before vs After</text>
+  <!-- Before 막대 (높이 큼 = 시간 많음) -->
+  <rect x="160" y="80" width="140" height="170" rx="6" fill="#cbd5e1"/>
+  <text x="230" y="65" text-anchor="middle" font-size="30" font-weight="900" fill="#6b7280">2시간</text>
+  <text x="230" y="48" text-anchor="middle" font-size="13" fill="#9ca3af">수동 작업</text>
+  <text x="230" y="275" text-anchor="middle" font-size="15" fill="#374151">Before (매주 반복)</text>
+  <!-- After 막대 (높이 작음 = 시간 적음) -->
+  <rect x="500" y="220" width="140" height="30" rx="6" fill="#0f766e"/>
+  <text x="570" y="200" text-anchor="middle" font-size="30" font-weight="900" fill="#0f766e">5분</text>
+  <text x="570" y="183" text-anchor="middle" font-size="13" fill="#0f766e">Gemini 자동화</text>
+  <text x="570" y="275" text-anchor="middle" font-size="15" fill="#374151">After (Gemini CLI)</text>
+  <!-- 감소율 표시 -->
+  <text x="400" y="155" text-anchor="middle" font-size="18" font-weight="800" fill="#16a34a">96% 시간 절감</text>
+  <text x="400" y="180" text-anchor="middle" font-size="13" fill="#6b7280">시나리오 기준</text>
+</svg>
