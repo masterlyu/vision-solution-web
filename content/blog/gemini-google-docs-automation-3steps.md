@@ -13,6 +13,10 @@ summary: "매주 월요일 2시간씩 쓰던 주간 보고서, 구글 Gemini AI�
 
 맞습니다. 이미 됩니다. 지금 당장 쓸 수 있는 무료 도구로요.
 
+> **업무 자동화를 회사에 맞게 구축하고 싶다면** → **[(주)비젼솔루션 AI 솔루션 무료 상담](https://www.visionc.co.kr/ai-solution)** (지금 신청 가능)
+
+---
+
 ## 구글이 발표한 것 — AI가 직접 문서를 고친다
 
 2026년 7월 15일, 구글은 **Gemini Spark Workspace 업그레이드**를 발표했습니다.
@@ -21,7 +25,7 @@ summary: "매주 월요일 2시간씩 쓰던 주간 보고서, 구글 Gemini AI�
 
 "AI 에이전트가 문서 내부로 들어온다"는 말이 기업용 거대 시스템 얘기처럼 들릴 수 있습니다. 그런데 같은 Gemini 기술을 **완전 무료**로 쓸 수 있는 오픈소스 도구가 이미 GitHub에 공개돼 있습니다.
 
-![center](/mascot/md/emotion/cat_happy.png)
+![center](/mascot/md/emotion/cat_happy.webp)
 
 ## Gemini CLI — 오픈소스, 완전 무료, 지금 쓸 수 있습니다
 
@@ -50,7 +54,7 @@ summary: "매주 월요일 2시간씩 쓰던 주간 보고서, 구글 Gemini AI�
 
 단점도 있습니다. 터미널(명령 프롬프트) 사용에 익숙하지 않으면 처음 설치에서 막힐 수 있습니다. 아래 실습 단계를 천천히 따라오면 30분이면 돌아갑니다.
 
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 ![Gemini 주간 보고서 Before vs After](/images/blog/gemini-google-docs-automation-3steps-fig1.svg)
 *▲ 주간 보고서 작성 Before-After 비교 · 출처: (주)비젼솔루션 시나리오 분석*
@@ -86,7 +90,7 @@ Gemini가 데이터를 읽고 요약 단락을 생성합니다. 수치 계산과
 
 회사 내부 ERP나 자체 프로그램에서 CSV 내보내기가 된다면 곧바로 연결 가능합니다. 내보내기가 안 되는 경우엔, 스프레드시트에 수동으로 붙여넣기 → CSV 저장 → Gemini 처리 순서로도 충분히 시간 절감이 됩니다.
 
-![center](/mascot/md/emotion/cat_surprised.png)
+![center](/mascot/md/emotion/cat_surprised.webp)
 
 ## 직접 따라하기 — 오늘 30분이면 됩니다
 
@@ -157,7 +161,7 @@ Gemini가 데이터를 분석해 보고서 초안을 생성합니다. 처음엔 
 
 다만 우리가 보기엔 지금 당장 "AI가 검토 없이 자동 발송"까지 가려는 건 무리입니다. 검증되지 않은 AI 요약이 그대로 보고서로 나가면 오히려 신뢰를 잃습니다. "AI가 초안을 잡고 사람이 10분 검토하는" 방식이 지금 시점에서 중소기업이 AI를 도입하는 가장 현실적인 경로입니다. 자동화는 단계적으로, 검증은 사람이 — 이 원칙이 흔들리면 자동화가 오히려 리스크가 됩니다.
 
-![center](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_cheer.webp)
 
 ## 시작점은 지금 있는 데이터에서
 
