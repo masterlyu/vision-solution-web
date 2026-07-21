@@ -20,7 +20,7 @@
   <text x="625" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="75" fill="white" opacity="0.9">📄</text>
   <text x="625" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.8">Gemini CLI</text>
   <text x="625" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.6">Google AI Studio 무료</text>
-  <text x="625" y="278" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.5">Apache 2.0 · ⭐ 30K+</text>
+  <text x="625" y="278" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.5">Apache 2.0 · ⭐ 100K+</text>
   <!-- 좌측 메인 텍스트 -->
   <text x="40" y="130" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="white" opacity="0.8">업무 자동화</text>
   <text x="40" y="178" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">직원 대신 구글 AI가</text>

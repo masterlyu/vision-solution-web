@@ -10,7 +10,7 @@
   <rect x="500" y="220" width="140" height="30" rx="6" fill="#0f766e"/>
   <text x="570" y="200" text-anchor="middle" font-size="30" font-weight="900" fill="#0f766e">5분</text>
   <text x="570" y="183" text-anchor="middle" font-size="13" fill="#0f766e">Gemini 자동화</text>
-  <text x="570" y="275" text-anchor="middle" font-size="15" fill="#374151">After (Gemini CLI)</text>
+  <text x="570" y="275" text-anchor="middle" font-size="15" fill="#374151">After (Google AI Studio)</text>
   <!-- 감소율 표시 -->
   <text x="400" y="155" text-anchor="middle" font-size="18" font-weight="800" fill="#16a34a">96% 시간 절감</text>
   <text x="400" y="180" text-anchor="middle" font-size="13" fill="#6b7280">시나리오 기준</text>
