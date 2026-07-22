@@ -25,7 +25,7 @@ ChatGPT에 회사 자료를 붙여넣을 때 한 번이라도 멈칫한 적 있�
 
 결과는 **3.9GB**. 요즘 스마트폰 앱 하나 크기입니다.
 
-![center](/mascot/md/emotion/cat_happy.png)
+![center](/mascot/md/emotion/cat_happy.webp)
 
 2026년 7월 14일, PrismML이 Bonsai 27B를 Apache 2.0 라이선스로 공개했습니다. 상업적 이용도 가능하고 구독료도 없습니다. 기반 모델은 Qwen3.6 27B이며, 멀티모달(텍스트·사진·문서·스크린샷)을 지원하고 262K 토큰 컨텍스트로 긴 문서를 한번에 처리합니다.
 
@@ -38,7 +38,7 @@ ChatGPT에 회사 자료를 붙여넣을 때 한 번이라도 멈칫한 적 있�
 
 좋은 것만 얘기하면 나중에 실망합니다. 솔직하게 정리해 드리겠습니다.
 
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 ### 두 버전 비교
 
@@ -67,7 +67,7 @@ ChatGPT에 회사 자료를 붙여넣을 때 한 번이라도 멈칫한 적 있�
 
 클라우드 AI 도입을 꺼리는 가장 큰 이유는 하나입니다 — 내부 자료가 외부로 나간다는 불안감. Bonsai 27B는 그 문제를 정면으로 해결합니다.
 
-![center](/mascot/md/emotion/cat_surprised.png)
+![center](/mascot/md/emotion/cat_surprised.webp)
 
 **세무·법무 사무소**: 고객 재무 자료나 계약서를 AI에게 요약·검토 맡기고 싶었지만 클라우드는 부담스러웠습니다. Bonsai 27B를 사무실 PC에 설치하면 인터넷 없이도 문서 분석이 가능합니다.
 

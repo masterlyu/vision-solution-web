@@ -13,7 +13,7 @@ summary: "매달 3만원씩 나가는 ChatGPT 구독료가 아깝다면, 이번 
 
 2026년 7월 17일, 중국 AI 스타트업 Moonshot AI가 'Kimi K3'를 공개했습니다. 파라미터 수 2.8조 개 — 지금까지 나온 오픈웨이트 AI 모델 중 가장 큰 규모입니다.
 
-![center](/mascot/md/emotion/cat_happy.png)
+![center](/mascot/md/emotion/cat_happy.webp)
 
 "오픈웨이트"란 쉽게 말해 모델 구조와 가중치가 공개된 AI입니다. 누구나 가져다 쓸 수 있죠. Kimi K3의 성능은 OpenAI·Anthropic의 유료 플래그십 모델에 맞먹는다는 평가를 받았고, 해외 커뮤니티에서는 "DeepSeek 2.0 모멘트"라는 말이 돌았습니다. 국내 IT 커뮤니티 클리앙에서도 7월 18일 "Kimi가 짱먹음"이라는 제목의 인기글이 빠르게 퍼졌습니다.
 
@@ -25,7 +25,7 @@ summary: "매달 3만원씩 나가는 ChatGPT 구독료가 아깝다면, 이번 
 
 ## Kimi K3 무료 사용법 — 3단계
 
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 Kimi K3는 **kimi.com**에서 무료 계정으로 지금 바로 쓸 수 있습니다.
 
@@ -51,7 +51,7 @@ Kimi K3는 **kimi.com**에서 무료 계정으로 지금 바로 쓸 수 있습�
 
 ## ChatGPT vs Kimi K3 — 솔직한 비교
 
-![center](/mascot/md/emotion/cat_surprised.png)
+![center](/mascot/md/emotion/cat_surprised.webp)
 
 Kimi K3의 가장 큰 강점은 **100만 토큰 처리 능력**입니다. 일반 AI가 A4 몇 장 분량에서 버벅이는 반면, K3는 긴 계약서나 보고서 전체를 한 번에 처리할 수 있습니다.
 
@@ -72,7 +72,7 @@ ChatGPT가 AI의 대명사가 된 것처럼, Kimi K3는 "무료인데 진짜 쓸
 
 ## 지금 바로 5분만 써보세요
 
-![center](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_cheer.webp)
 
 kimi.com에 접속해서 K3 모델을 선택하고, 오늘 처리할 이메일 한 통의 초안을 뽑아보세요. ChatGPT와 나란히 비교하면 5분 안에 차이를 직접 확인할 수 있습니다.
 
