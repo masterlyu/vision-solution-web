@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 310" width="800" height="310" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="310" fill="#ffffff"/>
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" font-size="20" font-weight="800" fill="#1f2937">Slack Pro vs BUZZ — 무엇이 다른가요?</text>
+
+  <!-- Slack column -->
+  <rect x="30" y="58" width="345" height="232" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="202" y="90" text-anchor="middle" font-size="17" font-weight="700" fill="#374151">Slack Pro</text>
+  <line x1="50" y1="100" x2="355" y2="100" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- BUZZ column -->
+  <rect x="425" y="58" width="345" height="232" rx="14" fill="#f0fdf9" stroke="#0d9488" stroke-width="1.5"/>
+  <text x="597" y="90" text-anchor="middle" font-size="17" font-weight="700" fill="#0f766e">BUZZ (오픈소스)</text>
+  <line x1="445" y1="100" x2="750" y2="100" stroke="#d1fae5" stroke-width="1"/>
+
+  <!-- Row 1: Cost -->
+  <text x="95" y="128" text-anchor="middle" font-size="13" fill="#9ca3af">월 비용</text>
+  <text x="260" y="128" text-anchor="middle" font-size="15" font-weight="700" fill="#dc2626">월 11,000원 / 인</text>
+  <text x="490" y="128" text-anchor="middle" font-size="13" fill="#6b7280">월 비용</text>
+  <text x="650" y="128" text-anchor="middle" font-size="15" font-weight="700" fill="#16a34a">완전 무료</text>
+
+  <!-- Divider -->
+  <line x1="50" y1="145" x2="355" y2="145" stroke="#f1f5f9" stroke-width="1"/>
+  <line x1="445" y1="145" x2="750" y2="145" stroke="#ecfdf5" stroke-width="1"/>
+
+  <!-- Row 2: Message history -->
+  <text x="95" y="173" text-anchor="middle" font-size="13" fill="#9ca3af">메시지 보관</text>
+  <text x="260" y="173" text-anchor="middle" font-size="15" font-weight="700" fill="#dc2626">90일 제한</text>
+  <text x="490" y="173" text-anchor="middle" font-size="13" fill="#6b7280">메시지 보관</text>
+  <text x="650" y="173" text-anchor="middle" font-size="15" font-weight="700" fill="#16a34a">무제한</text>
+
+  <!-- Divider -->
+  <line x1="50" y1="190" x2="355" y2="190" stroke="#f1f5f9" stroke-width="1"/>
+  <line x1="445" y1="190" x2="750" y2="190" stroke="#ecfdf5" stroke-width="1"/>
+
+  <!-- Row 3: AI agent -->
+  <text x="95" y="218" text-anchor="middle" font-size="13" fill="#9ca3af">AI 에이전트</text>
+  <text x="260" y="218" text-anchor="middle" font-size="15" font-weight="700" fill="#d97706">별도 앱 연동 필요</text>
+  <text x="490" y="218" text-anchor="middle" font-size="13" fill="#6b7280">AI 에이전트</text>
+  <text x="650" y="218" text-anchor="middle" font-size="15" font-weight="700" fill="#16a34a">기본 내장</text>
+
+  <!-- Divider -->
+  <line x1="50" y1="235" x2="355" y2="235" stroke="#f1f5f9" stroke-width="1"/>
+  <line x1="445" y1="235" x2="750" y2="235" stroke="#ecfdf5" stroke-width="1"/>
+
+  <!-- Row 4: Data storage -->
+  <text x="95" y="263" text-anchor="middle" font-size="13" fill="#9ca3af">데이터 저장</text>
+  <text x="260" y="263" text-anchor="middle" font-size="15" font-weight="700" fill="#d97706">Slack 클라우드</text>
+  <text x="490" y="263" text-anchor="middle" font-size="13" fill="#6b7280">데이터 저장</text>
+  <text x="650" y="263" text-anchor="middle" font-size="15" font-weight="700" fill="#16a34a">자체 서버 설치</text>
+
+  <!-- VS badge in middle -->
+  <circle cx="400" cy="174" r="24" fill="#1f2937"/>
+  <text x="400" y="180" text-anchor="middle" font-size="13" font-weight="800" fill="white">VS</text>
+</svg>

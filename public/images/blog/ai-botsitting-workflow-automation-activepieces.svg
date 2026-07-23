@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f766e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)" />
+  <circle cx="700" cy="-50" r="200" fill="white" opacity="0.05"/>
+  <circle cx="750" cy="420" r="150" fill="white" opacity="0.05"/>
+  <rect x="40" y="40" width="120" height="28" rx="14" fill="white" opacity="0.2"/>
+  <text x="100" y="59" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="white">AI 활용</text>
+  <rect x="480" y="60" width="280" height="300" rx="20" fill="white" opacity="0.1" stroke="white" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="620" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="64" fill="white" opacity="0.9">🤖</text>
+  <text x="620" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.85">Work AI Index 2026</text>
+  <text x="620" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white" opacity="0.9">주 6.4시간</text>
+  <text x="620" y="278" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.7">AI 감시에 낭비되는 시간</text>
+  <text x="620" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.6">6,000명 설문 결과</text>
+  <text x="40" y="130" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.75">중소기업 AI 도입 실무 가이드</text>
+  <text x="40" y="175" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">AI 봇시팅 — 주 6시간</text>
+  <text x="40" y="215" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">낭비 막는 자동화 3단계</text>
+  <text x="40" y="258" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.78">AI 도입했는데 직원이 더 바빠진 이유와</text>
+  <text x="40" y="280" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.78">ActivePieces로 자동화하는 실습 가이드</text>
+  <rect x="40" y="320" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
+  <text x="40" y="355" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.6">(주)비젼솔루션</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">Work AI Index 2026 — 봇시팅 핵심 수치</text>
+  <!-- 카드 1: 6.4시간 -->
+  <rect x="40" y="60" width="220" height="110" rx="12" fill="#f0fdfa"/>
+  <text x="150" y="115" text-anchor="middle" font-size="38" font-weight="900" fill="#0f766e">6.4시간</text>
+  <text x="150" y="148" text-anchor="middle" font-size="13" fill="#6b7280">주당 봇시팅 낭비 시간</text>
+  <!-- 카드 2: 87% -->
+  <rect x="290" y="60" width="220" height="110" rx="12" fill="#eff6ff"/>
+  <text x="400" y="115" text-anchor="middle" font-size="38" font-weight="900" fill="#2563eb">87%</text>
+  <text x="400" y="148" text-anchor="middle" font-size="13" fill="#6b7280">직장인이 AI를 업무에 사용</text>
+  <!-- 카드 3: 13% -->
+  <rect x="540" y="60" width="220" height="110" rx="12" fill="#fef9c3"/>
+  <text x="650" y="115" text-anchor="middle" font-size="38" font-weight="900" fill="#ca8a04">13%</text>
+  <text x="650" y="148" text-anchor="middle" font-size="13" fill="#6b7280">회사 성과가 눈에 띄게 향상</text>
+</svg>
