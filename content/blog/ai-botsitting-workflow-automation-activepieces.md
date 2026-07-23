@@ -15,7 +15,7 @@ summary: "ChatGPT 구독비 냈는데 직원이 더 바빠졌다면? 6,000명 �
 
 "AI 도입했는데 왜 더 바빠진 거죠?" — 중소기업 사장님들이 요즘 가장 많이 하는 말 중 하나입니다. 이 현상에 이름이 생겼습니다. **봇시팅(Botsitting)**입니다.
 
-![center](/mascot/md/emotion/cat_surprised.png)
+![center](/mascot/md/emotion/cat_surprised.webp)
 
 ## 봇시팅이란? — AI를 감시하느라 더 바빠지는 역설
 
@@ -31,14 +31,14 @@ summary: "ChatGPT 구독비 냈는데 직원이 더 바빠졌다면? 6,000명 �
 
 **AI를 비서로 뒀는데, 그 비서 뒷처리를 내가 하게 된 것.** 시간을 아끼려고 도입했더니, 다른 종류의 일이 더 생겨버린 역설입니다.
 
-![center](/mascot/md/process/cat_analytics.png)
+![center](/mascot/md/process/cat_analytics.webp)
 
 ## 봇시팅이 생기는 3가지 이유
 
 봇시팅은 AI가 나쁜 게 아닙니다. 구조 문제입니다. 대부분의 회사에서 AI는 이런 방식으로 쓰입니다.
 
-![AI 봇시팅 핵심 통계 — Work AI Index 2026](/images/blog/ai-botsitting-workflow-automation-activepieces-fig1.svg)
-*▲ Work AI Index 2026 (Glean, Stanford/UC Berkeley 공동 연구, 6,000명 설문)*
+![AI 봇시팅 핵심 수치](/images/blog/ai-botsitting-workflow-automation-activepieces-fig1.svg)
+*▲ 봇시팅 통계: Work AI Index 2026 (Glean, Stanford/UC Berkeley, 6,000명 설문) / 해결 도구: ActivePieces (2026년 기준)*
 
 **① AI가 만든 결과물을 사람이 검토해야 합니다**
 ChatGPT 답변을 그대로 쓸 수 있는 경우는 많지 않습니다. 숫자가 틀리거나, 맥락이 빠지거나, 우리 회사 어투와 달라서 매번 손이 갑니다.
@@ -76,7 +76,7 @@ n8n도 많이 쓰이는 자동화 도구지만, 코딩 지식이 어느 정도 �
 
 Zapier·Make 같은 SaaS 서비스와 비교하면, 클라우드 서비스는 월 이용료가 발생하고 회사 데이터가 외부 서버를 거칩니다. ActivePieces는 직접 서버에 설치하면 데이터가 밖으로 나가지 않아 보안 측면에서 유리합니다.
 
-![center](/mascot/md/process/cat_develop.png)
+![center](/mascot/md/process/cat_develop.webp)
 
 ## 우리 회사에 붙이는 방법 — 3가지 시나리오
 
@@ -115,7 +115,7 @@ SNS 댓글 수집 → ChatGPT: 감성 분류 → 부정이면 카카오 알림
 
 > **(주)비젼솔루션 관점** — 봇시팅은 AI 품질 문제가 아닙니다. 도구를 구독한 것과 업무 흐름 속에 녹아드는 것은 전혀 다른 이야기입니다. AI가 어디서 시작해서 어디에 결과를 내야 하는지 설계하는 것, 그게 AI 도입의 실제 작업입니다. "ChatGPT 샀는데 아직 쓸 일이 없어요"라는 말은 대부분 이 설계가 빠진 경우입니다.*
 
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 ## 실습 — ActivePieces 3단계 시작하기
 
@@ -165,7 +165,7 @@ AI 자동화 설계가 막막하다면 [(주)비젼솔루션 무료 상담](/con
 
 이 글이 도움이 되셨나요? AI 도입 고민 중인 사장님께 공유해 주세요. 댓글로 질문하시면 성심껏 답변드릴게요!
 
-![center](/mascot/md/emotion/cat_cheer.png)
+![center](/mascot/md/emotion/cat_cheer.webp)
 
 
 <!-- related-links -->
