@@ -146,3 +146,12 @@ GPT-Live는 '써야 할 이유'를 찾는 도구가 아닙니다. 스마트폰�
 > **AI 업무 도입을 검토하고 계신다면 먼저 이야기 나눠보세요:**  
 > 📧 biztalktome@gmail.com  
 > 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
+
+
+<!-- related-links -->
+
+## 함께 보면 좋은 글
+
+- [아이폰에서 27B AI 무료로 5분 실습](/blog/bonsai-27b-smartphone-ai)
+- [보고서 2시간을 5분으로 — Gemini AI 무료 자동화](/blog/gemini-google-docs-automation-3steps)
+- [섀도AI — 직원 64%가 몰래 씁니다, 해법 3가지](/blog/shadow-ai-litellm-sme-guide)
