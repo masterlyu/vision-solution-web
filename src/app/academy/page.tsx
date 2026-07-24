@@ -102,7 +102,7 @@ export default function AcademyPage() {
               <article
                 className={`group relative h-full rounded-3xl border-2 p-7 transition-all ${
                   lv.status === 'available'
-                    ? 'border-primary bg-gradient-to-br from-primary/15 to-card shadow-[0_0_30px_-12px_rgba(118,75,229,0.4)] hover:shadow-[0_0_60px_-12px_rgba(118,75,229,0.7)]'
+                    ? 'border-primary bg-gradient-to-br from-primary/15 to-card shadow-[0_0_30px_-12px_rgba(var(--primary-rgb),0.4)] hover:shadow-[0_0_60px_-12px_rgba(var(--primary-rgb),0.7)]'
                     : 'border-foreground/15 bg-card hover:border-foreground/30'
                 }`}
               >
