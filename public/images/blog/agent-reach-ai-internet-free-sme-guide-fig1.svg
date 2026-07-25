@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <text x="40" y="44" font-size="19" font-weight="800" fill="#1f2937">Agent-Reach 주요 플랫폼 지원 현황</text>
+
+  <!-- Left column: 바로 사용 가능 -->
+  <rect x="30" y="60" width="355" height="220" rx="12" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="207" y="90" text-anchor="middle" font-size="13" font-weight="700" fill="#166534">✅ 바로 사용 가능 (설정 불필요)</text>
+  <text x="60" y="120" font-size="14" fill="#1f2937">🌐  일반 웹페이지 읽기</text>
+  <text x="60" y="150" font-size="14" fill="#1f2937">📺  YouTube 자막 추출 · 검색</text>
+  <text x="60" y="180" font-size="14" fill="#1f2937">📦  GitHub 공개 저장소 분석</text>
+  <text x="60" y="210" font-size="14" fill="#1f2937">📡  RSS 뉴스피드 구독</text>
+  <text x="60" y="240" font-size="14" fill="#1f2937">🔍  전체 웹 검색</text>
+
+  <!-- Right column: 설정 후 사용 -->
+  <rect x="415" y="60" width="355" height="220" rx="12" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="592" y="90" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">⚙️ 설정 후 사용 (AI가 단계별 안내)</text>
+  <text x="445" y="120" font-size="14" fill="#1f2937">🐦  Twitter/X 검색 · 타임라인</text>
+  <text x="445" y="150" font-size="14" fill="#1f2937">📖  Reddit 게시물 · 댓글</text>
+  <text x="445" y="180" font-size="14" fill="#1f2937">📷  Instagram 프로필 · 게시물</text>
+  <text x="445" y="210" font-size="14" fill="#1f2937">💼  LinkedIn 기업 · 직무 정보</text>
+  <text x="445" y="240" font-size="14" fill="#1f2937">📘  Facebook 그룹 · 페이지</text>
+</svg>
