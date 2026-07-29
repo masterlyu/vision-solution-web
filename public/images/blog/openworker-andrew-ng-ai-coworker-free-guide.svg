@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f766e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.05" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)" />
+  <circle cx="700" cy="-50" r="200" fill="white" opacity="0.05"/>
+  <circle cx="750" cy="420" r="150" fill="white" opacity="0.05"/>
+  <circle cx="100" cy="380" r="120" fill="white" opacity="0.03"/>
+  <!-- 태그 배지 -->
+  <rect x="40" y="40" width="90" height="28" rx="14" fill="white" opacity="0.2"/>
+  <text x="85" y="59" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="white">AI 활용</text>
+  <!-- 우측 아이콘 카드 -->
+  <rect x="490" y="65" width="270" height="295" rx="20" fill="url(#card1)" stroke="white" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="625" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="80" fill="white" opacity="0.9">🤖</text>
+  <text x="625" y="238" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="white" opacity="0.85">GitHub ★ 3,300개 · 5일</text>
+  <text x="625" y="263" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.6">MIT 라이선스 · 무료</text>
+  <text x="625" y="288" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.6">앤드류 응(Andrew Ng)</text>
+  <!-- 좌측 메인 텍스트 -->
+  <text x="40" y="130" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="white" opacity="0.8">오픈소스 AI 에이전트 · 5분 설치 가이드</text>
+  <text x="40" y="182" font-family="Arial, sans-serif" font-size="36" font-weight="900" fill="white">월급 0원 AI 직원</text>
+  <text x="40" y="226" font-family="Arial, sans-serif" font-size="26" font-weight="800" fill="white" opacity="0.95">OpenWorker</text>
+  <text x="40" y="268" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.8">채팅 답변 대신 완성된 업무물을 전달합니다</text>
+  <text x="40" y="295" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.65">Slack · Gmail · Notion 등 25개 이상 연동</text>
+  <rect x="40" y="318" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
+  <text x="40" y="352" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">(주)비젼솔루션</text>
+</svg>
