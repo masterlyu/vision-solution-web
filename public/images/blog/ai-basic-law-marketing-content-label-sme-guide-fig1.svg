@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 260" width="800" height="260" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="260" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">AI 기본법 주요 일정</text>
+  <line x1="60" y1="150" x2="740" y2="150" stroke="#cbd5e1" stroke-width="3"/>
+  <!-- 마디 1: 시행령 개정 -->
+  <circle cx="140" cy="150" r="10" fill="#7c3aed"/>
+  <text x="140" y="105" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">2026.07.14</text>
+  <text x="140" y="185" text-anchor="middle" font-size="12" fill="#6b7280">시행령 개정</text>
+  <!-- 마디 2: 전면 시행 -->
+  <circle cx="400" cy="150" r="12" fill="#7c3aed"/>
+  <text x="400" y="100" text-anchor="middle" font-size="14" font-weight="800" fill="#7c3aed">2026.07.21</text>
+  <text x="400" y="120" text-anchor="middle" font-size="12" font-weight="700" fill="#7c3aed">⚠ 전면 시행</text>
+  <text x="400" y="185" text-anchor="middle" font-size="12" fill="#6b7280">딥페이크 즉시 처벌</text>
+  <text x="400" y="203" text-anchor="middle" font-size="11" fill="#6b7280">일반 AI 계도기간 시작</text>
+  <!-- 마디 3: 계도 종료 -->
+  <circle cx="660" cy="150" r="10" fill="#38bdf8"/>
+  <text x="660" y="105" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">2026년 하반기</text>
+  <text x="660" y="185" text-anchor="middle" font-size="12" fill="#6b7280">계도기간 종료</text>
+  <text x="660" y="203" text-anchor="middle" font-size="11" fill="#6b7280">전면 제재 시작</text>
+</svg>

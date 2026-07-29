@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">AI 생성 표시 — 무료 방법 3단계</text>
+  <rect x="40" y="60" width="200" height="100" rx="12" fill="#7c3aed"/>
+  <text x="140" y="103" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">① 텍스트 표시</text>
+  <text x="140" y="128" text-anchor="middle" font-size="11" fill="#e9d5ff">캡션에 직접 기재</text>
+  <text x="140" y="145" text-anchor="middle" font-size="10" fill="#e9d5ff">지금 바로 가능</text>
+  <text x="265" y="115" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <rect x="300" y="60" width="200" height="100" rx="12" fill="#0891b2"/>
+  <text x="400" y="103" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">② Adobe C2PA</text>
+  <text x="400" y="128" text-anchor="middle" font-size="11" fill="#cffafe">웹브라우저에서</text>
+  <text x="400" y="145" text-anchor="middle" font-size="10" fill="#cffafe">메타데이터 삽입</text>
+  <text x="525" y="115" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <rect x="560" y="60" width="200" height="100" rx="12" fill="#22d3ee"/>
+  <text x="660" y="103" text-anchor="middle" font-size="15" font-weight="800" fill="#083344">③ c2pa-python</text>
+  <text x="660" y="128" text-anchor="middle" font-size="11" fill="#083344">개발자용 일괄처리</text>
+  <text x="660" y="145" text-anchor="middle" font-size="10" fill="#083344">GitHub MIT 무료</text>
+</svg>
