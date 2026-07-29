@@ -4,7 +4,7 @@ date: "2026-07-29"
 tag: "AI 활용"
 tags: "AI 활용,오픈소스 AI,업무 자동화,중소기업 AI,AI 에이전트"
 image: "/images/blog/openworker-andrew-ng-ai-coworker-free-guide.svg"
-summary: "앤드류 응(Andrew Ng)이 만든 오픈소스 AI 에이전트 OpenWorker. 채팅 답변 대신 완성된 업무물을 돌려줍니다. Slack·Gmail·Notion 등 25개 이상 연동, 데이터는 내 기기에만. Mac에서 5분이면 시작할 수 있는 실습 가이드입니다."
+summary: "앤드류 응(Andrew Ng)이 만든 오픈소스 AI 에이전트 OpenWorker. 채팅 답변 대신 완성된 업무물을 돌려줍니다. Slack·Gmail·Notion 등 25개 이상 연동, 데이터는 내 기기에만. macOS·Windows 모두 설치 가능한 실습 가이드입니다."
 ---
 
 "슬랙 요약해줘"라고 AI한테 부탁해보셨나요?
@@ -13,7 +13,7 @@ summary: "앤드류 응(Andrew Ng)이 만든 오픈소스 AI 에이전트 OpenWo
 
 AI 도입을 시도했다가 포기하는 가장 흔한 이유가 바로 이겁니다. "설명만 해주고, 정작 일은 내가 한다."
 
-이 방정식을 뒤집은 도구가 이번 주 GitHub 트렌딩 3위를 달리고 있습니다.
+이 방정식을 뒤집은 도구가 공개 직후 GitHub 트렌딩에 오르며 주목받고 있습니다.
 
 ---
 
@@ -21,7 +21,7 @@ AI 도입을 시도했다가 포기하는 가장 흔한 이유가 바로 이겁�
 
 ![center](/mascot/md/emotion/cat_happy.png)
 
-앤드류 응(Andrew Ng)은 AI 교육 분야에서 가장 신뢰받는 이름 중 하나입니다. Coursera 공동창업자이자, 전 Google Brain 책임자, 전 Baidu AI 수장. 그가 2026년 7월 23일 GitHub에 공개한 오픈소스 AI 에이전트가 **OpenWorker**입니다. MIT 라이선스로 무료이며, 공개 5일 만에 GitHub 별 3,300개를 받았습니다.
+앤드류 응(Andrew Ng)은 AI 교육 분야에서 가장 신뢰받는 이름 중 하나입니다. Coursera 공동창업자이자, 전 Google Brain 책임자, 전 Baidu AI 수장. 그가 2026년 7월 23일 GitHub에 공개한 오픈소스 AI 에이전트가 **OpenWorker**입니다. MIT 라이선스로 무료이며, 2026년 7월 기준 GitHub 별 10,000개 이상을 받았습니다.
 
 기존 AI 도구와 비교하면 차이가 명확합니다.
 
@@ -61,11 +61,11 @@ OpenWorker 자체는 무료입니다. 하지만 AI 모델은 별도입니다.
 | RAM | 8GB (느림) | 16GB 이상 |
 | 저장공간 | 10GB 이상 여유 | 20GB |
 | GPU | 없어도 작동 | 있으면 훨씬 빠름 |
-| OS | macOS 14 이상 | macOS 14 이상 |
+| OS | macOS 12+ 또는 Windows 10/11 x64 | macOS 12+ 권장 |
 
 **솔직한 단점:**
 
-지금 당장 Windows에서는 쓸 수 없습니다. Mac 전용이고, Windows 지원은 "예정"입니다. Ollama 로컬 모델은 한국어 답변이 부자연스러울 수 있습니다. GPT나 Claude 쪽이 한국어는 훨씬 자연스럽습니다. 복잡한 다단계 업무에서 AI가 중간에 막히는 경우도 있습니다.
+Windows 10/11 x64 빌드도 제공되지만, 아직 코드 서명이 진행 중이어서 설치 시 SmartScreen 경고가 뜰 수 있습니다. Ollama 로컬 모델은 한국어 답변이 부자연스러울 수 있습니다. GPT나 Claude 쪽이 한국어는 훨씬 자연스럽습니다. 복잡한 다단계 업무에서 AI가 중간에 막히는 경우도 있습니다.
 
 **다른 자동화 도구와 비교:**
 
@@ -121,7 +121,7 @@ ChatGPT·Gemini 같은 강력한 도구들은 내 데이터가 외부 서버를 
 
 ## 5분 설치 따라하기
 
-현재 macOS 전용입니다. Python 3.10 이상이 필요합니다.
+macOS(12+)와 Windows 10/11 x64를 지원합니다. Python 3.10 이상이 필요합니다.
 
 **1단계 — Python 버전 확인**
 
