@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">AI 환각이 특히 위험한 영역과 무료 대응 방법</text>
+  <!-- 카드 3개 -->
+  <rect x="40" y="64" width="220" height="110" rx="12" fill="#fef2f2"/>
+  <text x="150" y="108" text-anchor="middle" font-size="15" font-weight="800" fill="#b91c1c">⚠ 법률·세금·지원사업</text>
+  <text x="150" y="130" text-anchor="middle" font-size="13" fill="#6b7280">AI 학습 이후 바뀐 고시·</text>
+  <text x="150" y="148" text-anchor="middle" font-size="13" fill="#6b7280">조건은 반영 안 됨</text>
+  <text x="150" y="166" text-anchor="middle" font-size="11" fill="#9ca3af">가장 위험한 영역</text>
+  <rect x="290" y="64" width="220" height="110" rx="12" fill="#fff7ed"/>
+  <text x="400" y="108" text-anchor="middle" font-size="15" font-weight="800" fill="#c2410c">⚠ 논문·보고서 인용</text>
+  <text x="400" y="130" text-anchor="middle" font-size="13" fill="#6b7280">존재하지 않는 논문 제목·</text>
+  <text x="400" y="148" text-anchor="middle" font-size="13" fill="#6b7280">저자를 그럴듯하게 생성</text>
+  <text x="400" y="166" text-anchor="middle" font-size="11" fill="#9ca3af">실제 사례 다수 보고</text>
+  <rect x="540" y="64" width="220" height="110" rx="12" fill="#ecfdf5"/>
+  <text x="650" y="108" text-anchor="middle" font-size="15" font-weight="800" fill="#0f766e">✓ 무료 대응: Perplexity</text>
+  <text x="650" y="130" text-anchor="middle" font-size="13" fill="#6b7280">모든 답변에 출처 링크</text>
+  <text x="650" y="148" text-anchor="middle" font-size="13" fill="#6b7280">클릭 한 번으로 교차 확인</text>
+  <text x="650" y="166" text-anchor="middle" font-size="11" fill="#9ca3af">perplexity.ai — 완전 무료</text>
+</svg>
