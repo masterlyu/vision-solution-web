@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">중소기업이 바로 쓸 수 있는 업무 3가지</text>
+  <rect x="40" y="66" width="200" height="100" rx="12" fill="#0f766e"/>
+  <text x="140" y="107" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">① 계약서 분석</text>
+  <text x="140" y="130" text-anchor="middle" font-size="12" fill="#a7f3d0">PDF 올리고 요약·위험 조항 확인</text>
+  <text x="258" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <rect x="300" y="66" width="200" height="100" rx="12" fill="#0891b2"/>
+  <text x="400" y="107" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">② 업무 자동화</text>
+  <text x="400" y="130" text-anchor="middle" font-size="12" fill="#cffafe">여러 단계를 한 번에 처리</text>
+  <text x="518" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <rect x="560" y="66" width="200" height="100" rx="12" fill="#22d3ee"/>
+  <text x="660" y="107" text-anchor="middle" font-size="15" font-weight="800" fill="#083344">③ 전문 문서 해석</text>
+  <text x="660" y="130" text-anchor="middle" font-size="12" fill="#083344">공문·규제를 사장님 언어로</text>
+</svg>
