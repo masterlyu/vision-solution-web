@@ -15,7 +15,7 @@ A씨는 그 내용대로 서류를 준비해 접수했습니다. 그리고 반�
 
 그게 함정이었습니다.
 
-![center](/mascot/md/emotion/cat_thinking.png)
+![center](/mascot/md/emotion/cat_thinking.webp)
 
 ## AI가 왜 이렇게 자신 있게 틀리는 걸까요?
 
@@ -32,7 +32,7 @@ A씨는 그 내용대로 서류를 준비해 접수했습니다. 그리고 반�
 ![AI 환각 고위험 영역과 대응 방법](/images/blog/ai-hallucination-verification-free-guide-fig1.svg)
 *▲ AI 환각이 특히 위험한 영역과 무료 대응 도구 · 출처: (주)비젼솔루션 정리*
 
-![center](/mascot/md/process/cat_analytics.png)
+![center](/mascot/md/process/cat_analytics.webp)
 
 ## 이 상황이 제일 위험합니다
 
@@ -44,7 +44,7 @@ A씨는 그 내용대로 서류를 준비해 접수했습니다. 그리고 반�
 
 요약하면, **중요한 결정 앞에 AI 답변을 그대로 믿으면 안 된다**는 겁니다. 특히 돈이 걸렸거나 공식 문서를 써야 할 때는요.
 
-![center](/mascot/md/emotion/cat_worried.png)
+![center](/mascot/md/emotion/cat_worried.webp)
 
 ## 3분이면 됩니다 — 무료 검증 도구 3가지
 
@@ -96,7 +96,7 @@ ChatGPT에 "2026년 중소기업 설비투자 지원사업 신청 조건"을 물
 
 *(주)비젼솔루션 관점: AI 환각은 기술적 결함이 아니라 LLM의 작동 방식 자체에서 나오는 특성입니다. LLM(대규모 언어 모델)은 '가장 그럴듯한 다음 단어'를 예측하도록 설계돼 있어요. 정확한 사실을 저장했다가 꺼내는 데이터베이스가 아닙니다. 중소기업이 AI를 도입할 때 이 차이를 이해하는 것이 출발점입니다. AI는 유능한 조수지만 최종 확인은 사람이 해야 합니다 — 이 원칙 하나만 지켜도 피해의 대부분은 막을 수 있습니다.*
 
-![center](/mascot/md/process/cat_education.png)
+![center](/mascot/md/process/cat_education.webp)
 
 ## 지금 바로 따라할 수 있는 1분 검증 습관
 
@@ -121,7 +121,7 @@ AI에게 중요한 정보를 물어볼 때는 이 세 단계를 기억하세요.
 **Q. 이런 검증 작업을 자동화할 수는 없나요?**
 어느 정도 규모가 되면 가능합니다. AI 도입이 진행된 회사라면 [AI 하네스 엔지니어링](/blog/harness-engineering-ai-agent-guide) 방식으로 시스템 차원에서 환각을 관리하는 접근도 있습니다.
 
-![center](/mascot/md/emotion/cat_happy.png)
+![center](/mascot/md/emotion/cat_happy.webp)
 
 AI를 쓰지 말라는 말이 아닙니다. "AI가 자신 있게 말했으니 맞겠지"라는 믿음 하나만 내려놓으면, AI는 훨씬 안전하고 유용한 도구가 됩니다. 오늘 Perplexity 한 번만 써보세요.
 
