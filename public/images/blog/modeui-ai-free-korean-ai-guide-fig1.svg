@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 260" width="800" height="260" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="260" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">'모두의 AI' 출시 로드맵</text>
+  <line x1="60" y1="145" x2="740" y2="145" stroke="#cbd5e1" stroke-width="3"/>
+  <!-- 마디 1: 8월 -->
+  <circle cx="90" cy="145" r="12" fill="#0f766e"/>
+  <text x="90" y="102" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">2026년 8월</text>
+  <text x="90" y="178" text-anchor="middle" font-size="12" fill="#6b7280">민간기업</text>
+  <text x="90" y="196" text-anchor="middle" font-size="12" fill="#6b7280">2~3개사 선정</text>
+  <!-- 마디 2: 9월 -->
+  <circle cx="310" cy="145" r="12" fill="#0891b2"/>
+  <text x="310" y="102" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">2026년 9월</text>
+  <text x="310" y="178" text-anchor="middle" font-size="12" fill="#6b7280">베타 서비스</text>
+  <text x="310" y="196" text-anchor="middle" font-size="12" fill="#6b7280">시작</text>
+  <!-- 마디 3: 12월 (강조) -->
+  <circle cx="530" cy="145" r="15" fill="#06b6d4"/>
+  <text x="530" y="96" text-anchor="middle" font-size="14" font-weight="800" fill="#0f766e">2026년 12월</text>
+  <text x="530" y="176" text-anchor="middle" font-size="13" font-weight="700" fill="#0f766e">'모두의 AI'</text>
+  <text x="530" y="196" text-anchor="middle" font-size="12" fill="#0f766e">본 서비스 출시</text>
+  <!-- 마디 4: 2027년 -->
+  <circle cx="720" cy="145" r="12" fill="#22d3ee"/>
+  <text x="720" y="102" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">2027년~</text>
+  <text x="720" y="178" text-anchor="middle" font-size="12" fill="#6b7280">1인 1</text>
+  <text x="720" y="196" text-anchor="middle" font-size="12" fill="#6b7280">AI 에이전트</text>
+</svg>
