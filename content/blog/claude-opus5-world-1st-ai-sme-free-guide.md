@@ -1,5 +1,5 @@
 ---
-title: "세계 1위 AI 됐다 — Claude Opus 5 중소기업 무료 5분법"
+title: "Claude Opus 5 — 중소기업 무료 5분법"
 date: "2026-07-31"
 tag: "AI 활용"
 tags: "AI 활용,클로드,중소기업 AI,에이전틱,무료 AI"
@@ -79,8 +79,6 @@ Claude Opus 5에 이런 공문을 올리면 "우리 회사가 해야 할 행동�
 
 **현실적 평가**: 하루 계약서 2~3건 검토, 주간 보고서 초안 작성 정도라면 월 $20는 충분히 회수됩니다. 한 달 써보고 판단하는 게 가장 현실적입니다.
 
-⚠️ **가격 참고**: Anthropic은 2026년 8월 31일 이후 일부 플랜 가격 조정을 예고한 상태입니다. 지금 Pro로 전환하면 현재 가격이 유지됩니다.
-
 ### 선택지 2: Google Cloud 신규 가입 크레딧
 
 Google Cloud 계정을 처음 만들면 **$300 무료 크레딧**을 제공합니다. Google Cloud의 Vertex AI를 통해 Claude Opus 5 API를 이용할 수 있습니다.
@@ -89,7 +87,7 @@ Google Cloud 계정을 처음 만들면 **$300 무료 크레딧**을 제공합�
 
 ### 선택지 3: AI API 중개 서비스 크레딧
 
-AgentRouter 같은 AI API 중개 서비스에 가입하면 여러 AI 모델을 테스트해볼 수 있는 크레딧을 제공합니다. Claude Opus 5 API도 포함됩니다. 단, 플랫폼마다 조건이 달라지므로 가입 전 최신 조건을 반드시 확인하세요.
+[AgentRouter](https://agentrouter.org) 같은 AI API 중개 서비스에 가입하면 여러 AI 모델을 테스트해볼 수 있는 크레딧을 제공합니다. Claude Opus 5 API도 포함됩니다. 단, 플랫폼마다 조건이 달라지므로 가입 전 최신 조건을 반드시 확인하세요.
 
 **솔직한 비교**:
 
@@ -163,3 +161,12 @@ AI를 실제 업무에 연결하는 방법이 궁금하다면 편하게 문의�
 > **(주)비젼솔루션 AI 솔루션 문의**:  
 > 📧 biztalktome@gmail.com  
 > 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
+
+
+<!-- related-links -->
+
+## 함께 보면 좋은 글
+
+- [AI 환각 — 3분에 잡는 무료 도구 3가지](/blog/ai-hallucination-verification-free-guide)
+- [월급 0원 AI 직원 — OpenWorker 실습](/blog/openworker-andrew-ng-ai-coworker-free-guide)
+- [ChatGPT 구독비 0원 — 290개 AI 무료 연결법](/blog/omniroute-free-ai-gateway-chatgpt-cost-zero)
