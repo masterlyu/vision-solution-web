@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">기존 방식 vs FLUX 3 — 마케팅 콘텐츠 제작 비교</text>
+
+  <!-- 구분선 -->
+  <line x1="400" y1="65" x2="400" y2="280" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- 왼쪽: 기존 방식 -->
+  <rect x="40" y="65" width="320" height="200" rx="12" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="200" y="95" text-anchor="middle" font-size="15" font-weight="700" fill="#6b7280">기존 방식</text>
+
+  <!-- 3개 박스 -->
+  <rect x="60" y="108" width="82" height="48" rx="8" fill="#e5e7eb"/>
+  <text x="101" y="128" text-anchor="middle" font-size="11" font-weight="600" fill="#374151">Midjourney</text>
+  <text x="101" y="146" text-anchor="middle" font-size="11" fill="#6b7280">이미지</text>
+
+  <rect x="159" y="108" width="82" height="48" rx="8" fill="#e5e7eb"/>
+  <text x="200" y="128" text-anchor="middle" font-size="11" font-weight="600" fill="#374151">Runway</text>
+  <text x="200" y="146" text-anchor="middle" font-size="11" fill="#6b7280">영상</text>
+
+  <rect x="258" y="108" width="82" height="48" rx="8" fill="#e5e7eb"/>
+  <text x="299" y="128" text-anchor="middle" font-size="11" font-weight="600" fill="#374151">Suno</text>
+  <text x="299" y="146" text-anchor="middle" font-size="11" fill="#6b7280">BGM</text>
+
+  <!-- 기존 방식 요약 -->
+  <text x="200" y="190" text-anchor="middle" font-size="13" fill="#6b7280">3개 서비스 개별 구독</text>
+  <text x="200" y="212" text-anchor="middle" font-size="13" fill="#6b7280">각각 가격 · 학습 · 전환 필요</text>
+  <text x="200" y="240" text-anchor="middle" font-size="14" font-weight="700" fill="#ef4444">콘텐츠 1건 = 3곳 작업</text>
+
+  <!-- 오른쪽: FLUX 3 -->
+  <rect x="440" y="65" width="320" height="200" rx="12" fill="#f0fdfc" stroke="#0f766e" stroke-width="1.5"/>
+  <text x="600" y="95" text-anchor="middle" font-size="15" font-weight="700" fill="#0f766e">FLUX 3</text>
+
+  <!-- 하나의 큰 박스 -->
+  <rect x="480" y="108" width="240" height="48" rx="8" fill="#0f766e"/>
+  <text x="600" y="128" text-anchor="middle" font-size="13" font-weight="700" fill="white">FLUX 3 — 단일 모델</text>
+  <text x="600" y="146" text-anchor="middle" font-size="12" fill="white" opacity="0.85">이미지 · 영상 · BGM 통합 생성</text>
+
+  <!-- FLUX 3 요약 -->
+  <text x="600" y="190" text-anchor="middle" font-size="13" fill="#0f766e">1개 모델, MIT 라이선스 무료</text>
+  <text x="600" y="212" text-anchor="middle" font-size="13" fill="#0f766e">온라인 테스트: flux-ai.io</text>
+  <text x="600" y="240" text-anchor="middle" font-size="14" font-weight="700" fill="#0f766e">콘텐츠 1건 = 1곳에서 완성</text>
+</svg>
