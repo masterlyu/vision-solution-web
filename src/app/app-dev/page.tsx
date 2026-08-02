@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { ArrowRight, CheckSquare, ChevronDown, ChevronUp } from 'lucide-react'
 import Mascot from '@/components/Mascot'
+import { faqs } from './faqs'
 
 const checklistItems = [
   '재고·주문·고객 데이터를 아직도 엑셀로 관리한다',
@@ -41,14 +42,6 @@ const plans = [
   { name: '풀스택 플랫폼',      price: '1,000만원대~', items: ['회원 시스템', '결제', '대시보드'],   highlight: false },
 ]
 
-const faqs = [
-  { q: '아직 아이디어 단계인데 상담해도 되나요?', a: '네. 대부분의 프로젝트가 아이디어 단계에서 시작합니다. "이런 기능이 있으면 좋겠다"부터 말씀해주시면 기술 검토부터 함께 해드립니다.' },
-  { q: '개발 중에 기능을 바꿀 수 있나요?', a: '스프린트 방식으로 진행하므로 2주마다 방향 조정이 가능합니다. 단, 이미 완료된 모듈 변경은 추가 비용이 발생할 수 있으며, 사전에 안내합니다.' },
-  { q: '완성 후 소스 코드를 받을 수 있나요?', a: '네. 납품 시 전체 소스 코드를 제공합니다. 이후 다른 개발자가 유지보수해도 됩니다.' },
-  { q: '완성 후 유지보수는 어떻게 되나요?', a: '납품 후 30일 무상 버그 수정을 제공합니다. 이후 기능 추가·유지보수는 별도 계약으로 진행합니다.' },
-  { q: '개발 진행 상황을 어떻게 확인할 수 있나요?', a: '2주마다 스프린트 결과물을 시연하고, 진행 현황은 프로젝트 관리 도구에서 실시간 확인 가능합니다.' },
-  { q: '비슷한 업종의 개발 경험이 있나요?', a: '제조·유통·서비스·의료·교육 등 다양한 업종에서 시스템을 개발했습니다. 상담 시 업종을 알려주시면 관련 사례를 공유합니다.' },
-]
 
 function AppDevHeroIllust() {
   return (
@@ -235,13 +228,16 @@ export default function AppDevPage() {
               <div key={i} className="bg-card rounded-xl border border-border overflow-hidden">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  aria-expanded={openFaq === i}
                   className="w-full flex items-center justify-between p-5 text-left font-semibold text-foreground">
                   {faq.q}
                   {openFaq === i ? <ChevronUp className="w-5 h-5 text-primary shrink-0" /> : <ChevronDown className="w-5 h-5 text-muted-foreground shrink-0" />}
                 </button>
-                {openFaq === i && (
+                <div className={`grid transition-all duration-200 ${openFaq === i ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
+                  <div className="overflow-hidden">
                   <div className="px-5 pb-5 text-muted-foreground text-sm leading-relaxed border-t border-border pt-4">{faq.a}</div>
-                )}
+                  </div>
+                </div>
               </div>
             ))}
           </div>

@@ -110,9 +110,6 @@ ${faqBlock}
 
 ${blogBlock}
 
-## Optional
-
-- [llms-full.txt](${BASE}/llms-full.txt): 전체 블로그 콘텐츠 및 상세 서비스 정보
 `
 
   return new Response(text, {

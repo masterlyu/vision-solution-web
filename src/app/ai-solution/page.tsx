@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { ArrowRight, ChevronDown, ChevronUp, MessageCircleQuestion, GraduationCap, Wrench, Briefcase, HelpCircle, Shield, Users, AlertTriangle, BotMessageSquare } from 'lucide-react'
 import Mascot from '@/components/Mascot'
+import ServiceJsonLd from '@/components/ServiceJsonLd'
+import { faqs } from './faqs'
 
 const problems = [
   {
@@ -135,19 +137,19 @@ const courses = [
   },
 ]
 
-const faqs = [
-  { q: '강좌(사내 출강)와 컨설팅·구축은 어떻게 다른가요?', a: '강좌는 직원 교육이고, 컨설팅·구축은 실제 도입·운영을 대행합니다. 강좌만 듣고 직접 도입하거나, 강좌 없이 컨설팅·구축만 의뢰하셔도 됩니다. 함께 진행 시 할인 적용됩니다.' },
-  { q: 'IT 전문 지식이 없어도 운영할 수 있나요?', a: '네. 구축 후 사용법은 영상 가이드와 직접 교육으로 제공합니다. 클릭 몇 번으로 운영할 수 있도록 설계하며, 30일 무상 A/S 동안 모든 문의에 즉시 대응합니다.' },
-  { q: '우리 회사 데이터가 외부에 유출되지 않나요?', a: '구축한 AI는 독립 서버에서 운영하며, 외부 AI 서비스에 데이터를 전달하지 않도록 설계 가능합니다. 보안이 매우 중요한 경우 자체 호스팅 옵션으로 외부 송출 0% 환경을 구성합니다.' },
-  { q: '도입하면 직원을 줄여야 하나요?', a: '반복 업무를 없애는 것이지 사람을 대체하는 게 아닙니다. 실제 사례 모두 인원 그대로 매출·고객만족도가 상승했습니다. 회수된 시간은 고부가 업무로 재배치됩니다.' },
-  { q: '월 비용이 추가로 발생하나요?', a: '구축 비용 외에 서버·API 사용료가 월별로 발생할 수 있습니다. 규모에 따라 월 5~30만원 수준이며, 자체 호스팅 선택 시 API 비용 0원도 가능합니다. 상담 시 정확히 안내합니다.' },
-  { q: '실패 사례가 있나요?', a: '소규모 파일럿으로 시작해 단계별로 확대하기 때문에 큰 실패를 막습니다. 베이스라인 KPI를 미충족하면 환불 정책을 적용합니다. 상담 시 솔직하게 안내드립니다.' },
-]
 
 export default function AiSolutionPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
   return (
+    <>
+      <ServiceJsonLd
+          name="기업 AI 도입 및 컨설팅"
+          description="중소기업 AI 도입 컨설팅·구축·사내 출강 교육. 100만원대부터, 무료 분석 후 맞춤 설계."
+          url="https://visionc.co.kr/ai-solution"
+          serviceType="AI 도입 컨설팅·구축·교육"
+          faqs={faqs}
+        />
     <div className="min-h-screen bg-background">
       {/* === HERO === */}
       <section className="pt-28 pb-20 px-6 bg-background" style={{ background: 'radial-gradient(ellipse at top right, color-mix(in oklch, var(--primary) 22%, transparent) 0%, var(--background) 60%)' }}>
@@ -371,13 +373,16 @@ export default function AiSolutionPage() {
               <div key={i} className="bg-card border-2 border-foreground/15 rounded-2xl overflow-hidden">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  aria-expanded={openFaq === i}
                   className="w-full flex items-center justify-between p-5 md:p-6 text-left text-base md:text-lg font-bold text-foreground">
                   {faq.q}
                   {openFaq === i ? <ChevronUp className="w-5 h-5 text-primary shrink-0 ml-3" /> : <ChevronDown className="w-5 h-5 text-foreground/70 shrink-0 ml-3" />}
                 </button>
-                {openFaq === i && (
+                <div className={`grid transition-all duration-200 ${openFaq === i ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
+                  <div className="overflow-hidden">
                   <div className="px-5 md:px-6 pb-5 md:pb-6 text-base text-foreground/90 font-medium leading-relaxed border-t border-foreground/10 pt-4">{faq.a}</div>
-                )}
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -403,5 +408,6 @@ export default function AiSolutionPage() {
         </div>
       </section>
     </div>
+    </>
   )
 }

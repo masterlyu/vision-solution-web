@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: '이용약관 | Vision Solution',
+  title: '이용약관',
   description: '(주)비젼솔루션 이용약관 - 서비스 이용 조건 및 절차, 회원·권리·의무 및 책임사항을 안내합니다.',
 }
 

@@ -8,6 +8,7 @@ import { CheckCircle, XCircle, AlertTriangle, CheckSquare, ChevronDown, ChevronU
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 import Mascot from '@/components/Mascot'
+import { securityFaqs } from './faqs'
 
 // ── Lottie Player ──────────────────────────────────────────────────────────
 function LottiePlayer({ src, width = 200, height = 200, loop = true, className = '' }: {
@@ -205,16 +206,6 @@ const empathyItems = [
   { emoji: '🚨', text: '어느 날 갑자기 사이트가 이상한 페이지로 바뀐 적 있다' },
 ]
 
-const securityFaqs = [
-  { q: '진단이 진짜 무료인가요? 나중에 비용이 청구되지 않나요?', a: '보안 진단 결과서는 완전 무료입니다. 결과를 받은 후 취약점 개선 작업을 의뢰하실지는 전적으로 선택이며, 강요하지 않습니다.' },
-  { q: 'URL만 입력하면 되나요? 관리자 계정이나 서버 접근이 필요한가요?', a: '밖에서 볼 수 있는 공개된 보안 요소만 분석합니다. 관리자 계정, 비밀번호, 서버 접근 정보는 전혀 필요하지 않습니다.' },
-  { q: '진단 중에 사이트가 느려지거나 오류가 생기지 않나요?', a: '사이트 운영에 전혀 영향을 주지 않는 방식으로 분석합니다. 방문자도 아무것도 느끼지 못합니다.' },
-  { q: '결과 보고서에는 어떤 내용이 담기나요?', a: '① HTTPS·SSL Labs 등급 ② 보안 헤더 13종 점검 (HSTS·CSP·XFO 등) ③ 쿠키 보안 플래그 (HttpOnly·Secure·SameSite) ④ CORS 설정 오류 탐지 ⑤ 이메일 보안 레코드 (SPF·DMARC) ⑥ 민감 파일 30경로 노출 점검 (.env·.git·DB 백업 등) ⑦ 악성코드·블랙리스트 탐지 (Sucuri 연동) ⑧ CMS·서버 버전 정보 노출 ⑨ SEO 노출도 ⑩ Google PageSpeed 성능 점수 — 10가지 항목의 등급·취약 원인·개선 방법이 PDF로 발송됩니다.' },
-  { q: '결과를 받고 나서 어떻게 해야 하나요?', a: '항목별 우선순위와 직접 조치 방법이 함께 제공됩니다. 직접 수정이 어렵다면 개선 작업을 의뢰할 수 있으며, 별도 견적을 드립니다.' },
-  { q: 'WordPress가 아닌 사이트도 진단되나요?', a: '네. WordPress, Cafe24, 자체 개발 사이트 등 플랫폼에 관계없이 URL 기반으로 분석합니다.' },
-  { q: '이미 보안이 잘 되어 있는 사이트도 진단하면 의미가 있나요?', a: '네. 진단 결과 "이상 없음"이 나오면 그것 자체가 증거입니다. 결과서를 고객 신뢰 자료로 활용하는 분들도 있습니다.' },
-  { q: '진단 후 영업 연락이 오나요?', a: '원하지 않으시면 연락드리지 않습니다. 이메일 주소를 입력하시면 결과서만 발송됩니다. 추가 연락 여부는 선택 사항입니다.' },
-]
 
 const securityPricing = [
   {
@@ -661,13 +652,16 @@ export default function SecurityPage() {
               <div key={i} className="bg-card rounded-xl border border-border overflow-hidden">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  aria-expanded={openFaq === i}
                   className="w-full flex items-center justify-between p-5 text-left font-semibold text-foreground">
                   {faq.q}
                   {openFaq === i ? <ChevronUp className="w-5 h-5 text-primary shrink-0" /> : <ChevronDown className="w-5 h-5 text-muted-foreground shrink-0" />}
                 </button>
-                {openFaq === i && (
+                <div className={`grid transition-all duration-200 ${openFaq === i ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
+                  <div className="overflow-hidden">
                   <div className="px-5 pb-5 text-muted-foreground text-sm leading-relaxed border-t border-border pt-4">{faq.a}</div>
-                )}
+                  </div>
+                </div>
               </div>
             ))}
           </div>

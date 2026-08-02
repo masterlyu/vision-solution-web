@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: '개인정보처리방침 | Vision Solution',
+  title: '개인정보처리방침',
   description: '(주)비젼솔루션 개인정보처리방침 - 개인정보의 처리 목적, 수집 항목, 보유 기간, 위탁·국외이전 등을 안내합니다.',
 }
 

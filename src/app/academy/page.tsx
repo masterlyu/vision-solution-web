@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Mascot from '@/components/Mascot'
 
 export const metadata: Metadata = {
-  title: 'visionc Academy — 무료 AI 강의 | Vision Solution',
+  title: 'visionc Academy — 무료 AI 강의',
   description: 'AI를 가장 빠르게 익히는 한국어 강의 플랫폼.',
   keywords: ['AI 강의', 'Claude 강의', 'ChatGPT 강의', '4D 프레임워크', 'AI Fluency', 'visionc Academy'],
   alternates: { canonical: '/academy' },

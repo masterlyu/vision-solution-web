@@ -12,6 +12,16 @@ export const metadata: Metadata = {
     template: '%s | Vision Solution',
   },
   description: '중소기업 AI 도입 동반자. 컨설팅·구축·사내 출강 교육·보안 진단·웹사이트·앱 개발을 한 곳에서. 누적 247건+ 프로젝트.',
+  openGraph: {
+    // ★기본값 — 페이지가 자기 openGraph를 안 두면 이걸 상속한다(카톡·슬랙 공유 썸네일).
+    type: 'website',
+    locale: 'ko_KR',
+    siteName: 'Vision Solution',
+    url: 'https://visionc.co.kr',
+    title: '기업 AI 도입 동반자 | Vision Solution',
+    description: '중소기업 AI 도입 동반자. 컨설팅·구축·사내 출강 교육·보안 진단·웹사이트·앱 개발을 한 곳에서. 누적 247건+ 프로젝트.',
+    images: [{ url: '/api/og', width: 1200, height: 630, alt: 'Vision Solution' }],
+  },
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '48x48', type: 'image/x-icon' },
@@ -22,6 +32,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@visionc_kr',
+    images: ['/api/og'],
   },
 }
 

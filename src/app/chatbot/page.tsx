@@ -405,16 +405,19 @@ export default function ChatbotPage() {
               <div key={i} className="bg-card border border-border rounded-xl overflow-hidden">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  aria-expanded={openFaq === i}
                   className="w-full flex items-center justify-between px-5 py-4 text-left"
                 >
                   <span className="text-sm font-semibold text-foreground pr-4">{f.q}</span>
                   <ChevronDown className={`w-4 h-4 text-muted-foreground shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`} />
                 </button>
-                {openFaq === i && (
+                <div className={`grid transition-all duration-200 ${openFaq === i ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
+                  <div className="overflow-hidden">
                   <div className="px-5 pb-5">
                     <p className="text-sm text-muted-foreground leading-relaxed">{f.a}</p>
                   </div>
-                )}
+                  </div>
+                </div>
               </div>
             ))}
           </div>

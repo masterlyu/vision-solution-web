@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { ArrowRight, CheckSquare, ChevronDown, ChevronUp, Zap, Smartphone, Target, Search } from 'lucide-react'
 import Mascot from '@/components/Mascot'
 import RenewalDiagnosisForm from '@/components/RenewalDiagnosisForm'
+import { faqs } from './faqs'
 
 const checklistItems = [
   '홈페이지를 만든 지 3년이 넘었다',
@@ -65,14 +66,6 @@ const plans = [
   { name: '확장형', price: '300만원대~', items: ['표준형 전체', '콘텐츠 전략', '분석 도구 연동'], highlight: false },
 ]
 
-const faqs = [
-  { q: '리뉴얼하면 기존 고객 데이터나 구글 검색 순위가 날아가지 않나요?', a: '기존 주소 구조를 최대한 유지하고, 이전 주소를 새 주소로 자동 연결하는 기술 처리로 검색 순위를 보전합니다. 고객 DB와 게시물 데이터는 이전 전에 전체 백업 후 옮깁니다.' },
-  { q: '기간이 얼마나 걸리나요?', a: '규모에 따라 다르지만, 일반 기업 홈페이지는 평균 4~5주입니다. 착수 전에 정확한 일정표를 드립니다. 일정 초과 시 사전에 반드시 말씀드립니다.' },
-  { q: '완성 후 수정이 필요하면 어떻게 하나요?', a: '납품 후 30일은 무상 수정을 제공합니다. 이후에는 유지보수 플랜(월 99,000원~)으로 계속 관리할 수 있습니다.' },
-  { q: '리뉴얼 중에도 기존 사이트를 계속 운영할 수 있나요?', a: '네. 별도 개발 환경에서 작업 후 완료 시 도메인만 전환하므로, 리뉴얼 기간 동안 기존 사이트는 정상 운영됩니다.' },
-  { q: '어떤 업종의 사이트를 많이 만드셨나요?', a: '제조업, 서비스업, 요식업, 병원/클리닉, IT 스타트업 등 다양한 업종을 경험했습니다. 업종별 전환율 높은 패턴을 적용합니다.' },
-  { q: '계약금은 얼마나 되나요?', a: '계약금 30%, 중도금 40%, 잔금 30% 구조입니다. 잔금은 완성물 확인 후 납부하시면 됩니다.' },
-]
 
 // ── Before/After 브라우저 일러스트 ──────────────────────────────
 function RenewalHeroIllust() {
@@ -388,17 +381,20 @@ export default function RenewalPage() {
               <div key={i} className="bg-card rounded-xl border border-border overflow-hidden">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  aria-expanded={openFaq === i}
                   className="w-full flex items-center justify-between p-5 text-left font-semibold text-foreground">
                   {faq.q}
                   {openFaq === i
                     ? <ChevronUp className="w-5 h-5 text-primary shrink-0" />
                     : <ChevronDown className="w-5 h-5 text-muted-foreground shrink-0" />}
                 </button>
-                {openFaq === i && (
+                <div className={`grid transition-all duration-200 ${openFaq === i ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
+                  <div className="overflow-hidden">
                   <div className="px-5 pb-5 text-muted-foreground text-sm leading-relaxed border-t border-border pt-4">
                     {faq.a}
                   </div>
-                )}
+                  </div>
+                </div>
               </div>
             ))}
           </div>
