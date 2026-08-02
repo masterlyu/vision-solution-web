@@ -1,7 +1,8 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import Image from 'next/image'
+import { ArrowRight, ExternalLink } from 'lucide-react'
 import Mascot from '@/components/Mascot'
 
 type MascotCategory = 'emotion' | 'situation' | 'company' | 'service' | 'process' | 'support' | 'ui' | 'misc'
@@ -32,6 +33,58 @@ export function FeaturesSection() {
           <p className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-4">SERVICES</p>
           <h2 className="text-4xl md:text-5xl font-black text-foreground mb-4">필요한 것만, 정확하게</h2>
           <p className="text-foreground/90 text-lg font-medium max-w-xl">중소기업 AI 도입부터 보안·웹·앱까지 단일 파트너로 해결합니다.</p>
+        </div>
+
+        {/* 주력 제품 플래그십 카드 */}
+        <div
+          className={`group relative bg-card border border-primary/30 rounded-2xl mb-4 overflow-hidden
+            hover:border-primary hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300
+            ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+        >
+          <div className="grid lg:grid-cols-2">
+            <div className="p-8 lg:p-10 flex flex-col justify-center gap-4">
+              <Link href="/factorylens" className="flex flex-col gap-4">
+                <span className="inline-flex items-center gap-1.5 text-primary text-xs font-bold tracking-[0.15em] uppercase w-fit">
+                  주력 제품 · FactoryLens
+                </span>
+                <h3 className="text-2xl lg:text-3xl font-black text-foreground leading-snug">
+                  표준 온톨로지 + 설명가능 AI<br className="hidden lg:block" /> 제조 생산관리 솔루션
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed max-w-lg">
+                  MES·ERP·엑셀을 하나의 지식 그래프로 통합하고, 모든 판단에 근거를 함께 보여줍니다.
+                  수금·출하 통제부터 불량 역추적·적정재고·예지보전·납기·병목·공급사 평가·지식 전수까지 7종 봇 제공.
+                </p>
+                <div className="flex flex-wrap items-center gap-3 mt-1">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary/[0.08] border border-primary/20 rounded-full text-sm font-semibold text-primary w-fit">
+                    <span className="text-[10px] font-medium text-muted-foreground">시작</span>
+                    약 2주 온보딩
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary/[0.08] border border-primary/20 rounded-full text-sm font-semibold text-primary w-fit">
+                    <span className="text-[10px] font-medium text-muted-foreground">비용</span>
+                    협의
+                  </span>
+                </div>
+              </Link>
+              <div className="flex flex-wrap gap-3 mt-2">
+                <Link href="/factorylens"
+                  className="inline-flex items-center gap-1.5 text-primary text-sm font-semibold hover:gap-2.5 transition-all">
+                  자세히 보기 <ArrowRight className="w-4 h-4" />
+                </Link>
+                <a href="https://factorylens.visionc.co.kr" target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground text-sm font-semibold transition-colors">
+                  라이브 데모 <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+            <Link href="/factorylens" className="relative min-h-[220px] lg:min-h-full bg-secondary/30 block">
+              <Image
+                src="/factorylens/factorylens-dashboard-viewport.png"
+                alt="FactoryLens 커맨드센터 대시보드 실화면"
+                fill
+                className="object-cover object-left-top"
+              />
+            </Link>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

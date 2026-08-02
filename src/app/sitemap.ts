@@ -28,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     { url: BASE,                        lastModified: new Date(), changeFrequency: 'weekly',  priority: 1.0 },
+    { url: `${BASE}/factorylens`,       lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE}/ai-solution`,       lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE}/renewal`,           lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE}/security`,          lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },

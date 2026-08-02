@@ -183,6 +183,19 @@ export default function AiSolutionPage() {
         </div>
       </section>
 
+      {/* === 제조업 교차 유도 배너 === */}
+      <section className="py-8 px-6 bg-secondary/40 border-y border-border">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-sm font-medium text-foreground/85">
+            <span className="text-primary font-bold">제조업이라면</span> — MES·ERP 데이터를 표준 온톨로지로 통합하는 FactoryLens를 확인해보세요.
+          </p>
+          <Link href="/factorylens"
+            className="inline-flex items-center gap-1.5 text-primary text-sm font-bold shrink-0 hover:gap-2.5 transition-all">
+            FactoryLens 알아보기 <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </section>
+
       {/* === §2 PROBLEM === */}
       <section className="py-20 px-6 bg-background">
         <div className="max-w-6xl mx-auto">

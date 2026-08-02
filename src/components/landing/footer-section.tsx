@@ -6,6 +6,7 @@ void ArrowUpRight
 
 const links = {
   '서비스': [
+    { name: 'FactoryLens', href: '/factorylens' },
     { name: '기업 AI 도입 및 컨설팅', href: '/ai-solution' },
     { name: '보안 진단', href: '/security' },
     { name: '모의해킹 진단', href: '/pentest' },

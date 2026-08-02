@@ -154,6 +154,7 @@ export default function ContactPage() {
                           className={`${inputCls} appearance-none`}
                           style={{ colorScheme: 'dark' }}>
                           <option value="" disabled>어떤 서비스가 필요하신가요?</option>
+                          <option value="factorylens">FactoryLens</option>
                           <option value="ai-solution">기업 AI 도입 및 컨설팅</option>
                           <option value="security">보안 진단</option>
                           <option value="pentest">모의해킹 진단 (29만원)</option>

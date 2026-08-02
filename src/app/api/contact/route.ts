@@ -39,6 +39,7 @@ export async function POST(req: NextRequest) {
   const { name, email, company, service, message } = await req.json()
 
   const serviceLabel: Record<string, string> = {
+    factorylens:  'FactoryLens',
     renewal:      '홈페이지 리뉴얼',
     'new-website':'신규 사이트 구축',
     maintenance:  '유지보수',

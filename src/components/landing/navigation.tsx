@@ -6,7 +6,8 @@ import { Button } from '@/components/ui/button'
 import { Menu, X, ChevronDown } from 'lucide-react'
 
 const serviceLinks = [
-  { name: '기업 AI 도입 및 컨설팅', href: '/ai-solution', primary: true },
+  { name: 'FactoryLens', href: '/factorylens', primary: true },
+  { name: '기업 AI 도입 및 컨설팅', href: '/ai-solution' },
   { name: '보안 진단', href: '/security' },
   { name: '모의해킹 진단', href: '/pentest' },
   { name: '웹사이트 리뉴얼·운영', href: '/renewal' },
@@ -81,6 +82,12 @@ export function Navigation() {
           </Link>
 
           <div className="hidden md:flex items-center gap-10">
+            <Link href="/factorylens" onClick={handleClick}
+              className={`text-base font-black transition-colors duration-200 relative group ${isActive('/factorylens') ? 'text-primary' : 'text-primary/90 hover:text-primary'}`}>
+              FactoryLens
+              <span className={underlineCls(isActive('/factorylens'))} />
+            </Link>
+
             {/* Services Dropdown */}
             <div ref={servicesRef} className="relative">
               <button
@@ -140,6 +147,11 @@ export function Navigation() {
       <div className={`md:hidden fixed inset-0 bg-background z-40 transition-all duration-500 ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
         <div className="flex flex-col h-full px-8 pt-28 pb-8 overflow-y-auto">
           <div className="flex-1 flex flex-col justify-center gap-2">
+
+            <Link href="/factorylens" onClick={handleClick}
+              className={`text-3xl md:text-4xl font-black transition-all duration-500 py-3 text-primary ${isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+              FactoryLens
+            </Link>
 
             <div>
               <button
