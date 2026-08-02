@@ -112,3 +112,12 @@ AGPL-3.0 오픈소스 라이선스로 공개되어 있어 무료 사용이 법�
 > **Vision Solution AI 솔루션 문의**:  
 > 📧 biztalktome@gmail.com  
 > 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
+
+
+<!-- related-links -->
+
+## 함께 보면 좋은 글
+
+- [챗GPT 구독 그만, 무료 국산 AI 12월 나온다](/blog/modeui-ai-free-korean-ai-guide)
+- [Claude Opus 5 — 중소기업 무료 5분법](/blog/claude-opus5-world-1st-ai-sme-free-guide)
+- [AI 환각 — 3분에 잡는 무료 도구 3가지](/blog/ai-hallucination-verification-free-guide)
