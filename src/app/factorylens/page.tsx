@@ -318,11 +318,11 @@ export default function FactoryLensPage() {
                   <span className="text-sm font-semibold text-foreground pr-4">{f.q}</span>
                   <ChevronDown className={`w-4 h-4 text-muted-foreground shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`} />
                 </button>
-                {openFaq === i && (
-                  <div className="px-5 pb-5">
+                <div className={`grid transition-all duration-200 ${openFaq === i ? 'grid-rows-[1fr] pb-5' : 'grid-rows-[0fr]'}`}>
+                  <div className="overflow-hidden px-5">
                     <p className="text-sm text-muted-foreground leading-relaxed">{f.a}</p>
                   </div>
-                )}
+                </div>
               </div>
             ))}
           </div>
