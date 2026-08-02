@@ -18,7 +18,7 @@
   <!-- 우측 아이콘 카드 -->
   <rect x="480" y="60" width="280" height="300" rx="20" fill="url(#card1)" stroke="white" stroke-opacity="0.15" stroke-width="1"/>
   <text x="620" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="80" fill="white" opacity="0.9">🌍</text>
-  <text x="620" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.7">GitHub ⭐ 65,500+</text>
+  <text x="620" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.7">GitHub ⭐ 77,800+</text>
   <text x="620" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.5">가입 없이 바로 시작</text>
   <!-- 좌측 메인 텍스트 -->
   <text x="40" y="130" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">오픈소스 AI 뉴스 대시보드</text>
