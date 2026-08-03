@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">Chatterbox 설치 3단계</text>
+  <rect x="40" y="62" width="200" height="100" rx="12" fill="#0f766e"/>
+  <text x="140" y="104" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">① pip 설치</text>
+  <text x="140" y="128" text-anchor="middle" font-size="12" fill="#a7f3d0">터미널에 한 줄</text>
+  <text x="140" y="148" text-anchor="middle" font-size="11" fill="#6ee7b7">pip install chatterbox-tts</text>
+  <text x="262" y="118" text-anchor="middle" font-size="26" fill="#94a3b8">&#x2192;</text>
+  <rect x="300" y="62" width="200" height="100" rx="12" fill="#0891b2"/>
+  <text x="400" y="104" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">② 음성 파일 준비</text>
+  <text x="400" y="128" text-anchor="middle" font-size="12" fill="#cffafe">5초 이상 WAV 녹음</text>
+  <text x="400" y="148" text-anchor="middle" font-size="11" fill="#a5f3fc">복제할 목소리 원본</text>
+  <text x="522" y="118" text-anchor="middle" font-size="26" fill="#94a3b8">&#x2192;</text>
+  <rect x="560" y="62" width="200" height="100" rx="12" fill="#22d3ee"/>
+  <text x="660" y="104" text-anchor="middle" font-size="15" font-weight="800" fill="#083344">③ 코드 실행</text>
+  <text x="660" y="128" text-anchor="middle" font-size="12" fill="#083344">세 줄로 음성 생성</text>
+  <text x="660" y="148" text-anchor="middle" font-size="11" fill="#164e63">WAV 파일 저장 완료</text>
+</svg>
