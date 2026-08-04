@@ -231,7 +231,7 @@ export default function ChatbotPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {STEPS.map((s, i) => (
-              <div key={s.num} className="relative bg-card border border-border rounded-2xl p-6">
+              <div key={s.num} className="relative bg-card border border-border rounded-xl p-6">
                 {i < STEPS.length - 1 && (
                   <div className="hidden md:block absolute top-10 -right-3 w-6 h-px bg-primary/40 z-10" />
                 )}
@@ -250,7 +250,7 @@ export default function ChatbotPage() {
           </div>
 
           {/* 코드 미리보기 */}
-          <div className="mt-10 bg-[var(--code-bg,theme(colors.zinc.900))] border border-border rounded-2xl p-6 overflow-x-auto">
+          <div className="mt-10 bg-[var(--code-bg,theme(colors.zinc.900))] border border-border rounded-xl p-6 overflow-x-auto">
             <p className="text-xs text-muted-foreground mb-3 font-mono">// 받은 코드를 여기에 붙여넣기만 하면 끝 (홈페이지 관리자에게 전달)</p>
             <div className="font-mono text-sm space-y-1">
               <p><span className="text-muted-foreground/70">&lt;script&gt;</span></p>
@@ -299,7 +299,7 @@ export default function ChatbotPage() {
             {CASES.map((c) => {
               const Icon = c.icon
               return (
-                <div key={c.type} className={`rounded-2xl bg-gradient-to-br ${c.color} border border-border p-6`}>
+                <div key={c.type} className={`rounded-xl bg-gradient-to-br ${c.color} border border-border p-6`}>
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-xl bg-background/50 flex items-center justify-center">
                       <Icon className="w-5 h-5 text-foreground" />
@@ -333,7 +333,7 @@ export default function ChatbotPage() {
             이 페이지 우측 하단의 <strong className="text-primary">보라색 버튼</strong>을 눌러보세요.<br />
             VISIONC에 도입된 실제 챗봇을 바로 체험할 수 있습니다.
           </p>
-          <div className="inline-flex items-center gap-3 bg-primary/10 border border-primary/30 rounded-2xl px-6 py-4">
+          <div className="inline-flex items-center gap-3 bg-primary/10 border border-primary/30 rounded-xl px-6 py-4">
             <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center animate-pulse">
               <MessageCircle className="w-5 h-5 text-primary-foreground" />
             </div>
@@ -356,7 +356,7 @@ export default function ChatbotPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {PLANS.map((p) => (
-              <div key={p.name} className={`rounded-2xl p-6 border relative flex flex-col ${
+              <div key={p.name} className={`rounded-xl p-6 border relative flex flex-col ${
                 p.highlight
                   ? 'bg-primary/10 border-primary shadow-lg shadow-primary/10'
                   : 'bg-card border-border'

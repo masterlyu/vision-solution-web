@@ -50,7 +50,7 @@ export default function Mascot({
         className={className}
         priority={size === 'lg'}
       />
-      <div className={`relative mb-4 max-w-[160px] rounded-2xl bg-primary/10 border border-primary/20 px-3 py-2 text-xs font-medium text-primary leading-snug ${
+      <div className={`relative mb-4 max-w-[160px] rounded-xl bg-primary/10 border border-primary/20 px-3 py-2 text-xs font-medium text-primary leading-snug ${
         bubbleDir === 'left'
           ? 'after:absolute after:right-[-8px] after:bottom-3 after:border-4 after:border-transparent after:border-l-primary/20'
           : 'after:absolute after:left-[-8px] after:bottom-3 after:border-4 after:border-transparent after:border-r-primary/20'

@@ -70,7 +70,7 @@ export function Navigation() {
     <header className={`fixed z-50 transition-all duration-500 ${isScrolled ? 'top-4 left-4 right-4' : 'top-0 left-0 right-0'}`}>
       <nav className={`mx-auto transition-all duration-500 ${
         isScrolled || isMobileMenuOpen
-          ? 'bg-background/80 backdrop-blur-xl border border-foreground/10 rounded-2xl shadow-lg max-w-[1200px]'
+          ? 'bg-background/80 backdrop-blur-xl border border-foreground/10 rounded-xl shadow-lg max-w-[1200px]'
           : 'bg-transparent max-w-[1400px]'
       }`}>
         <div className={`flex items-center justify-between px-6 lg:px-8 transition-all duration-500 ${isScrolled ? 'h-14' : 'h-20'}`}>

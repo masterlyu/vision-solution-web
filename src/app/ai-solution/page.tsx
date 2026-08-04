@@ -210,7 +210,7 @@ export default function AiSolutionPage() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {problems.map((p) => (
-              <div key={p.tag} className="rounded-2xl border-2 border-foreground/15 bg-card p-7">
+              <div key={p.tag} className="rounded-xl border-2 border-foreground/15 bg-card p-7">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-14 h-14 rounded-xl bg-primary/15 flex items-center justify-center text-primary">{p.icon}</div>
                   <div>
@@ -243,7 +243,7 @@ export default function AiSolutionPage() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {solutions.map((s) => (
-              <div key={s.badge} className={`rounded-2xl p-7 border-2 relative ${s.highlight ? 'border-primary bg-primary/8' : 'border-foreground/15 bg-card'}`}>
+              <div key={s.badge} className={`rounded-xl p-7 border-2 relative ${s.highlight ? 'border-primary bg-primary/8' : 'border-foreground/15 bg-card'}`}>
                 {s.highlight && <span className="absolute -top-3 left-7 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full">추천</span>}
                 <div className="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center text-primary mb-4">{s.icon}</div>
                 <p className="text-sm font-mono font-bold text-primary tracking-wider mb-2">{s.badge}</p>
@@ -283,7 +283,7 @@ export default function AiSolutionPage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
             {cases.map((c) => (
-              <div key={c.tag} className="bg-card border-2 border-foreground/10 rounded-2xl p-6">
+              <div key={c.tag} className="bg-card border-2 border-foreground/10 rounded-xl p-6">
                 <span className="text-sm font-bold text-primary bg-primary/15 px-3 py-1 rounded-full">{c.tag}</span>
                 <div className="mt-4 flex flex-col gap-3">
                   <div className="bg-[var(--accent-red)]/10 rounded-lg px-5 py-4 text-[var(--accent-red)] text-base font-medium">
@@ -301,7 +301,7 @@ export default function AiSolutionPage() {
           {/* KPI summary */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {kpi.map((k) => (
-              <div key={k.label} className="bg-card border-2 border-foreground/15 rounded-2xl p-6 text-center">
+              <div key={k.label} className="bg-card border-2 border-foreground/15 rounded-xl p-6 text-center">
                 <p className="text-4xl md:text-5xl font-black text-primary mb-1 tracking-tight">{k.big}</p>
                 <p className="text-base font-bold text-foreground">{k.label}</p>
               </div>
@@ -323,7 +323,7 @@ export default function AiSolutionPage() {
           </p>
           <div className="space-y-4">
             {safety.map((s, i) => (
-              <div key={i} className="bg-card border-2 border-foreground/15 rounded-2xl p-6 flex items-start gap-5">
+              <div key={i} className="bg-card border-2 border-foreground/15 rounded-xl p-6 flex items-start gap-5">
                 <div className="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center text-primary shrink-0">{s.icon}</div>
                 <div>
                   <h3 className="text-xl font-black text-foreground mb-2 tracking-tight">{s.q}</h3>
@@ -348,7 +348,7 @@ export default function AiSolutionPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {courses.map((c) => (
               <Link key={c.href} href={c.href}
-                className="group rounded-2xl border-2 border-foreground/15 bg-card p-7 hover:border-primary/50 transition-colors">
+                className="group rounded-xl border-2 border-foreground/15 bg-card p-7 hover:border-primary/50 transition-colors">
                 <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
                   <p className="text-sm font-mono font-bold text-primary tracking-wider">{c.badge}</p>
                   <span className={`text-xs font-mono font-bold px-2.5 py-1 rounded-full ${c.statusColor === 'green' ? 'bg-[var(--accent-green-text)]/15 text-[var(--accent-green-text)]' : 'bg-[var(--accent-amber)]/15 text-[var(--accent-amber)]'}`}>{c.status}</span>
@@ -370,7 +370,7 @@ export default function AiSolutionPage() {
           <h2 className="text-3xl md:text-4xl font-black text-foreground text-center mb-12 tracking-tight">자주 묻는 질문</h2>
           <div className="space-y-3">
             {faqs.map((faq, i) => (
-              <div key={i} className="bg-card border-2 border-foreground/15 rounded-2xl overflow-hidden">
+              <div key={i} className="bg-card border-2 border-foreground/15 rounded-xl overflow-hidden">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   aria-expanded={openFaq === i}

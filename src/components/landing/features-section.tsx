@@ -37,7 +37,7 @@ export function FeaturesSection() {
 
         {/* 주력 제품 플래그십 카드 */}
         <div
-          className={`group relative bg-card border border-primary/30 rounded-2xl mb-4 overflow-hidden
+          className={`group relative bg-card border border-primary/30 rounded-xl mb-4 overflow-hidden
             hover:border-primary hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300
             ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
         >
@@ -92,7 +92,7 @@ export function FeaturesSection() {
             <Link
               key={s.title}
               href={s.href}
-              className={`group relative bg-card border border-border rounded-2xl p-8 flex flex-col gap-6
+              className={`group relative bg-card border border-border rounded-xl p-8 flex flex-col gap-6
                 hover:bg-primary hover:border-primary hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/30
                 transition-all duration-300
                 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}

@@ -28,7 +28,7 @@ export default function SectionCard({ part, title, desc, lessons, ready, star, s
     <div>
       {/* 편 카드 — ready면 클릭 가능 */}
       <div
-        className={`rounded-2xl border-2 p-6 transition-colors ${cardBase} ${ready ? 'cursor-pointer hover:border-primary/50' : ''}`}
+        className={`rounded-xl border-2 p-6 transition-colors ${cardBase} ${ready ? 'cursor-pointer hover:border-primary/50' : ''}`}
         onClick={ready ? () => setExpanded((v) => !v) : undefined}
         role={ready ? 'button' : undefined}
         aria-expanded={ready ? expanded : undefined}

@@ -105,7 +105,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice, embedded =
 
   // ── Analyzing ──
   if (step === 'analyzing') return (
-    <div className="bg-card border border-border rounded-2xl p-8 text-center space-y-6">
+    <div className="bg-card border border-border rounded-xl p-8 text-center space-y-6">
       <div className="w-14 h-14 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto">
         <Loader2 className="w-7 h-7 text-primary animate-spin" />
       </div>
@@ -139,7 +139,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice, embedded =
 
   // ── Done ──
   if (step === 'done') return (
-    <div className="bg-card border border-border rounded-2xl p-8 text-center space-y-5">
+    <div className="bg-card border border-border rounded-xl p-8 text-center space-y-5">
       <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto">
         <CheckCircle className="w-8 h-8 text-primary" />
       </div>
@@ -171,7 +171,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice, embedded =
 
   // ── Error ──
   if (step === 'error') return (
-    <div className="bg-card border border-border rounded-2xl p-8 text-center space-y-4">
+    <div className="bg-card border border-border rounded-xl p-8 text-center space-y-4">
       <p className="text-foreground font-bold">요청 처리 중 오류가 발생했습니다</p>
       {errorMsg && <p className="text-destructive text-sm font-medium">{errorMsg}</p>}
       <p className="text-muted-foreground text-sm">잠시 후 다시 시도하거나, 이메일로 직접 문의해주세요.</p>
@@ -182,7 +182,7 @@ export default function UrlAnalysisForm({ serviceType, title, notice, embedded =
 
   // ── Form ──
   return (
-    <form onSubmit={handleSubmit} className={embedded ? 'space-y-5' : 'relative bg-card border-2 border-primary/60 rounded-2xl p-7 space-y-5 shadow-[0_4px_40px_rgba(var(--primary-rgb),0.25)]'}>
+    <form onSubmit={handleSubmit} className={embedded ? 'space-y-5' : 'relative bg-card border-2 border-primary/60 rounded-xl p-7 space-y-5 shadow-[0_4px_40px_rgba(var(--primary-rgb),0.25)]'}>
       {!embedded && <div className="absolute inset-x-0 top-0 h-[3px] bg-primary rounded-t-2xl pointer-events-none" />}
       {!embedded && <h3 className="text-foreground font-black text-2xl mb-2">{title}</h3>}
       <div>

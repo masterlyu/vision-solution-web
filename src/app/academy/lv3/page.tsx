@@ -66,7 +66,7 @@ export default function Lv3Page() {
           <h2 className="text-xl md:text-2xl font-black text-foreground mb-5 tracking-tight">강의 목차</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {TOPICS.map((t) => (
-              <div key={t.num} className="flex items-start gap-4 p-4 rounded-2xl border-2 border-foreground/15 bg-card hover:border-primary/50 transition-colors">
+              <div key={t.num} className="flex items-start gap-4 p-4 rounded-xl border-2 border-foreground/15 bg-card hover:border-primary/50 transition-colors">
                 <span className="text-xs font-mono font-bold text-primary mt-1 tracking-wider">{t.num}</span>
                 <div>
                   <h3 className="text-base font-bold text-foreground tracking-tight">{t.title}</h3>

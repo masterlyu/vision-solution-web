@@ -33,7 +33,7 @@ export default function ScanVerifyClient({ token }: { token: string }) {
       .catch((e) => { setErrMsg(e?.message ?? 'Network error'); setStep('error') })
   }, [token])
 
-  const card = 'max-w-md mx-auto mt-24 bg-card border border-border rounded-2xl p-10 text-center space-y-5 shadow-xl'
+  const card = 'max-w-md mx-auto mt-24 bg-card border border-border rounded-xl p-10 text-center space-y-5 shadow-xl'
 
   if (step === 'scanning') return (
     <div className={card}>

@@ -23,7 +23,7 @@ export function CtaSection() {
     <section className="relative py-24 lg:py-32">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <motion.div
-          className="relative border-2 border-foreground/15 rounded-2xl overflow-hidden"
+          className="relative border-2 border-foreground/15 rounded-xl overflow-hidden"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}

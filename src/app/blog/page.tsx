@@ -151,7 +151,7 @@ export default async function BlogPage({ searchParams }: PageProps) {
         )}
 
         {/* CTA */}
-        <div className="mt-20 bg-primary/5 border border-primary/20 rounded-2xl p-8 md:p-12 text-center">
+        <div className="mt-20 bg-primary/5 border border-primary/20 rounded-xl p-8 md:p-12 text-center">
           <h2 className="text-2xl md:text-3xl font-black text-foreground mb-3">
             내 사이트도 개선할 수 있을까요?
           </h2>

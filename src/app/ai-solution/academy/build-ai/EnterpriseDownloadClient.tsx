@@ -77,7 +77,7 @@ export default function EnterpriseDownloadClient({
   const authed = state === 'authed'
 
   return (
-    <div className="rounded-2xl border-2 border-primary/40 bg-gradient-to-br from-primary/25 via-[var(--accent)]/10 to-background p-6 md:p-8 shadow-lg">
+    <div className="rounded-xl border-2 border-primary/40 bg-gradient-to-br from-primary/25 via-[var(--accent)]/10 to-background p-6 md:p-8 shadow-lg">
       <div className="flex items-center gap-3 mb-4">
         <div className="w-10 h-10 rounded-xl bg-primary/25 flex items-center justify-center text-xl">{authed ? '🔓' : '🔐'}</div>
         <div>

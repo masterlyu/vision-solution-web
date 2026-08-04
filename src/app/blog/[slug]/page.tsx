@@ -157,7 +157,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
         {/* Hero Image */}
         {post.image && (
-          <div className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden mb-10 bg-muted">
+          <div className="relative w-full h-64 md:h-80 rounded-xl overflow-hidden mb-10 bg-muted">
             <Image
               src={post.image}
               alt={post.title}
@@ -204,7 +204,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         {/* Table of Contents */}
         {headings.length > 0 && (
           <details
-            className="mb-10 bg-muted/40 border border-border rounded-2xl overflow-hidden"
+            className="mb-10 bg-muted/40 border border-border rounded-xl overflow-hidden"
             open
           >
             <summary className="cursor-pointer px-6 py-4 font-bold text-foreground text-sm flex items-center justify-between select-none list-none">
@@ -234,7 +234,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         />
 
         {/* CTA Section — auto-inserted */}
-        <div className="mt-16 bg-primary/5 border border-primary/20 rounded-2xl p-8 text-center">
+        <div className="mt-16 bg-primary/5 border border-primary/20 rounded-xl p-8 text-center">
           <h2 className="text-xl md:text-2xl font-black text-foreground mb-3">
             우리 회사도 이렇게 할 수 있을까요?
           </h2>

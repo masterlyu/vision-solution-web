@@ -197,7 +197,7 @@ export default function AppDevPage() {
           <p className="text-muted-foreground mb-10">"이 정도 기능이면 얼마나 나올까요?" — 상담에서 솔직하게 말씀드립니다.</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             {plans.map((p, i) => (
-              <div key={i} className={`rounded-2xl p-6 border-2 relative ${p.highlight ? 'border-primary bg-primary/5' : 'border-border'}`}>
+              <div key={i} className={`rounded-xl p-6 border-2 relative ${p.highlight ? 'border-primary bg-primary/5' : 'border-border'}`}>
                 {p.highlight && <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full">추천</span>}
                 <h3 className="font-bold text-foreground mb-1 text-sm">{p.name}</h3>
                 <p className={`text-xl font-black mb-4 ${p.highlight ? 'text-primary' : 'text-muted-foreground'}`}>{p.price}</p>
@@ -250,7 +250,7 @@ export default function AppDevPage() {
           <div className="flex justify-center mb-6">
             <div className="relative">
               <Mascot pose="cheer" category="emotion" size="sm" className="h-28 w-auto" />
-              <div className="absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-full bg-card text-foreground text-sm font-bold px-4 py-2 rounded-2xl shadow-lg whitespace-nowrap">
+              <div className="absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-full bg-card text-foreground text-sm font-bold px-4 py-2 rounded-xl shadow-lg whitespace-nowrap">
                 모바일부터 사내 시스템까지 다 만들어드려요!
                 <span className="absolute left-1/2 -translate-x-1/2 top-full border-8 border-transparent border-t-card" />
               </div>

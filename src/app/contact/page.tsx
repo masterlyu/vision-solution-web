@@ -96,7 +96,7 @@ export default function ContactPage() {
           </div>
 
           {/* Right: tabbed forms */}
-          <div className="lg:col-span-2 relative bg-card border-2 border-primary/60 rounded-2xl shadow-[0_4px_40px_rgba(var(--primary-rgb),0.25)] overflow-hidden">
+          <div className="lg:col-span-2 relative bg-card border-2 border-primary/60 rounded-xl shadow-[0_4px_40px_rgba(var(--primary-rgb),0.25)] overflow-hidden">
             <div className="absolute inset-x-0 top-0 h-[3px] bg-primary pointer-events-none" />
 
             {/* Tab bar */}

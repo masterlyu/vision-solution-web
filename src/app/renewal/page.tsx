@@ -200,7 +200,7 @@ export default function RenewalPage() {
           <h2 className="text-2xl font-bold text-foreground text-center mb-10">수치로 보는 현실</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((s, i) => (
-              <div key={i} className="text-center p-6 bg-card rounded-2xl">
+              <div key={i} className="text-center p-6 bg-card rounded-xl">
                 <div className="text-4xl font-black text-primary mb-2">{s.value}</div>
                 <div className="text-muted-foreground text-sm leading-snug">{s.label}</div>
               </div>
@@ -276,7 +276,7 @@ export default function RenewalPage() {
           <p className="text-muted-foreground mb-10">정확한 견적은 도입 상담 후 제공합니다.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {plans.map((p, i) => (
-              <div key={i} className={`rounded-2xl p-8 border-2 relative transition-all ${
+              <div key={i} className={`rounded-xl p-8 border-2 relative transition-all ${
                 p.highlight ? 'border-primary bg-primary/5' : 'border-border'
               }`}>
                 {p.highlight && (
@@ -324,7 +324,7 @@ export default function RenewalPage() {
               { name: 'Standard', price: '월 199,000원', highlight: true,  items: ['무제한 콘텐츠 수정', '보안 패치 즉시 적용', '카카오톡 채널 지원', '주간 리포트', '업타임 모니터링'] },
               { name: 'Premium',  price: '월 399,000원', highlight: false, items: ['무제한 수정', '24시간 모니터링', '전화·카톡 우선 지원', '월간 성과 리포트', '소규모 기능 추가'] },
             ].map((p, i) => (
-              <div key={i} className={`rounded-2xl p-7 border-2 relative transition-all ${
+              <div key={i} className={`rounded-xl p-7 border-2 relative transition-all ${
                 p.highlight ? 'border-primary bg-primary/5' : 'border-border'
               }`}>
                 {p.highlight && (
@@ -409,7 +409,7 @@ export default function RenewalPage() {
             <div className="relative">
               <Mascot pose="cheer" category="emotion" size="sm" className="h-28 w-auto" />
               <div className="absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-full
-                bg-card text-foreground text-sm font-bold px-4 py-2 rounded-2xl shadow-lg whitespace-nowrap">
+                bg-card text-foreground text-sm font-bold px-4 py-2 rounded-xl shadow-lg whitespace-nowrap">
                 URL과 회사 이메일만 입력하면 자동 분석됩니다!
                 <span className="absolute left-1/2 -translate-x-1/2 top-full
                   border-8 border-transparent border-t-card" />
@@ -424,7 +424,7 @@ export default function RenewalPage() {
             URL 입력 즉시 자동 분석 · 결과 리포트 PDF를 이메일로 발송합니다
           </p>
 
-          <div className="bg-background border border-border rounded-2xl p-8 shadow-sm">
+          <div className="bg-background border border-border rounded-xl p-8 shadow-sm">
             <RenewalDiagnosisForm />
           </div>
 

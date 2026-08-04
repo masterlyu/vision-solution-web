@@ -43,7 +43,7 @@ export default function AcademyDownloadClient() {
       <h2 className="text-2xl md:text-3xl font-black text-foreground mb-6 tracking-tight">자료 다운로드</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="rounded-2xl border border-border bg-card p-5 flex flex-col">
+        <div className="rounded-xl border border-border bg-card p-5 flex flex-col">
           <p className="text-xs font-mono text-[var(--accent-green-text)] font-bold tracking-wider mb-2">FREE · 누구나 다운로드</p>
           <h3 className="text-lg font-bold text-foreground mb-1">PPT 슬라이드 (.pptx)</h3>
           <p className="text-sm text-muted-foreground mb-4 leading-relaxed flex-1">
@@ -67,7 +67,7 @@ export default function AcademyDownloadClient() {
           </div>
         </div>
 
-        <div className="rounded-2xl border border-border bg-card p-5 flex flex-col">
+        <div className="rounded-xl border border-border bg-card p-5 flex flex-col">
           <p className="text-xs font-mono text-[var(--accent-amber)] font-bold tracking-wider mb-2">LOCKED · 비밀번호 필요</p>
           <h3 className="text-lg font-bold text-foreground mb-1">스피커 노트 (.pdf)</h3>
           <p className="text-sm text-muted-foreground mb-4 leading-relaxed flex-1">

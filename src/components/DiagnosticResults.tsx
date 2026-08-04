@@ -88,7 +88,7 @@ export default function DiagnosticResults({ result, email, company, onReport, re
       </div>
 
       {/* Report content (this gets captured for PDF) */}
-      <div ref={reportRef} className="bg-background rounded-2xl p-6 space-y-6">
+      <div ref={reportRef} className="bg-background rounded-xl p-6 space-y-6">
 
         {/* Header */}
         <div className="border-b border-border pb-5">

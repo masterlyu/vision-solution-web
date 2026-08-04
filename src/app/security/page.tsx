@@ -488,7 +488,7 @@ export default function SecurityPage() {
             {dangers.map(d => (
               <div
                 key={d.title}
-                className={`border rounded-2xl p-6 flex flex-col items-center gap-3 ${dangerColorMap[d.color]}`}
+                className={`border rounded-xl p-6 flex flex-col items-center gap-3 ${dangerColorMap[d.color]}`}
               >
                 {'icon' in d
                   ? <div className="text-6xl h-[100px] flex items-center justify-center">{d.icon}</div>
@@ -514,7 +514,7 @@ export default function SecurityPage() {
             {checks.map(c => (
               <div
                 key={c.title}
-                className="bg-card border border-border rounded-2xl p-5 flex flex-col items-center gap-2.5 text-center hover:border-primary/40 transition-colors"
+                className="bg-card border border-border rounded-xl p-5 flex flex-col items-center gap-2.5 text-center hover:border-primary/40 transition-colors"
               >
                 {'icon' in c
                   ? <div className="text-4xl h-[72px] flex items-center justify-center">{c.icon}</div>
@@ -597,7 +597,7 @@ export default function SecurityPage() {
             {siteTypes.map(s => (
               <div
                 key={s.label}
-                className={`bg-card border rounded-2xl py-4 px-3 flex flex-col items-center gap-1.5 ${
+                className={`bg-card border rounded-xl py-4 px-3 flex flex-col items-center gap-1.5 ${
                   s.ok === true  ? 'border-[var(--accent-green)]/30' :
                   s.ok === null  ? 'border-[var(--accent-amber)]/30' :
                   'border-[var(--accent-red)]/20 opacity-55'
@@ -617,7 +617,7 @@ export default function SecurityPage() {
       {/* ── 관련 서비스: 모의해킹 진단 ── */}
       <section className="py-16 px-6 lg:px-12">
         <div className="max-w-[900px] mx-auto">
-          <div className="rounded-2xl border-2 border-primary/30 bg-primary/5 p-8 md:p-10 flex flex-col md:flex-row gap-6 items-start md:items-center">
+          <div className="rounded-xl border-2 border-primary/30 bg-primary/5 p-8 md:p-10 flex flex-col md:flex-row gap-6 items-start md:items-center">
             <div className="text-5xl shrink-0">🎯</div>
             <div className="flex-1">
               <p className="text-xs font-black uppercase tracking-[0.15em] mb-2 text-primary-light">
@@ -707,7 +707,7 @@ export default function SecurityPage() {
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.18 }}
-                className={`rounded-2xl border-2 flex flex-col ${p.highlight ? 'border-primary bg-primary/5' : 'border-border bg-card'}`}
+                className={`rounded-xl border-2 flex flex-col ${p.highlight ? 'border-primary bg-primary/5' : 'border-border bg-card'}`}
               >
                 {/* 헤더 */}
                 <div className="p-6 pb-5 border-b border-border/50">
@@ -825,7 +825,7 @@ export default function SecurityPage() {
               </h2>
 
               {/* 무료 리포트 안내 */}
-              <div className="bg-card border border-primary/20 rounded-2xl p-5 mb-5">
+              <div className="bg-card border border-primary/20 rounded-xl p-5 mb-5">
                 <p className="text-xs font-bold text-primary uppercase tracking-wider mb-3">📄 무료 리포트에 담기는 내용</p>
                 <ul className="space-y-2.5">
                   {[

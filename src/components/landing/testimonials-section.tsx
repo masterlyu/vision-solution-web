@@ -65,7 +65,7 @@ export function TestimonialsSection() {
             <motion.div
               key={r.name}
               variants={fadeInUp}
-              className="bg-card border-2 border-foreground/10 rounded-2xl p-8 flex flex-col gap-6 hover:border-primary/50 transition-colors duration-300"
+              className="bg-card border-2 border-foreground/10 rounded-xl p-8 flex flex-col gap-6 hover:border-primary/50 transition-colors duration-300"
             >
               <div className="flex gap-1">
                 {Array.from({ length: r.stars }).map((_, j) => (

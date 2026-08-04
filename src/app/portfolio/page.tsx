@@ -169,7 +169,7 @@ export default function PortfolioPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {industries.map(i => (
               <div key={i.label}
-                className="bg-card border border-border rounded-2xl p-6 flex gap-4 items-start">
+                className="bg-card border border-border rounded-xl p-6 flex gap-4 items-start">
                 <div className="text-3xl shrink-0">{i.icon}</div>
                 <div>
                   <div className="font-black text-foreground mb-1">{i.label}</div>
@@ -199,7 +199,7 @@ export default function PortfolioPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {services.map(s => (
               <div key={s.title}
-                className="bg-background border border-border rounded-2xl p-6 flex gap-4 items-start">
+                className="bg-background border border-border rounded-xl p-6 flex gap-4 items-start">
                 <div className="text-3xl shrink-0">{s.icon}</div>
                 <div>
                   <div className="font-black text-foreground mb-1">{s.title}</div>
@@ -216,7 +216,7 @@ export default function PortfolioPage() {
       {/* ── Section 5 — 사례 비공개 안내 ── */}
       <section className="py-14 px-6">
         <div className="max-w-3xl mx-auto">
-          <div className="bg-card border border-border rounded-2xl p-7 flex flex-col sm:flex-row gap-5 items-start">
+          <div className="bg-card border border-border rounded-xl p-7 flex flex-col sm:flex-row gap-5 items-start">
             <div className="text-3xl shrink-0">🔒</div>
             <div className="flex-1">
               <div className="font-black text-foreground mb-2">개별 사례는 비공개 운영입니다</div>

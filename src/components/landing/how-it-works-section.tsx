@@ -71,7 +71,7 @@ export function HowItWorksSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="relative h-[400px] lg:h-[460px] rounded-2xl bg-card border-2 border-foreground/10 overflow-hidden flex flex-col items-center justify-center"
+            className="relative h-[400px] lg:h-[460px] rounded-xl bg-card border-2 border-foreground/10 overflow-hidden flex flex-col items-center justify-center"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/3 pointer-events-none" />
 
