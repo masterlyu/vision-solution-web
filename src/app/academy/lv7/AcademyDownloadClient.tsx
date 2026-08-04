@@ -38,7 +38,7 @@ export default function AcademyDownloadClient() {
   }
 
   return (
-    <div className="rounded-3xl border border-primary/30 bg-gradient-to-br from-primary/15 via-[var(--accent)]/8 to-transparent p-7 md:p-10">
+    <div className="rounded-xl border border-primary/30 bg-gradient-to-br from-primary/15 via-[var(--accent)]/8 to-transparent p-7 md:p-10">
       <p className="text-xs font-mono font-bold tracking-[0.2em] uppercase text-primary mb-3">Downloads</p>
       <h2 className="text-2xl md:text-3xl font-black text-foreground mb-6 tracking-tight">자료 다운로드</h2>
 

@@ -128,7 +128,7 @@ export default function BuildAiCourse() {
         </div>
 
         {/* Coming soon notice */}
-        <div className="rounded-3xl border-2 border-[var(--accent-amber)]/40 bg-gradient-to-br from-[var(--accent-amber)]/15 via-transparent to-transparent p-8 md:p-10 mb-12">
+        <div className="rounded-xl border-2 border-[var(--accent-amber)]/40 bg-gradient-to-br from-[var(--accent-amber)]/15 via-transparent to-transparent p-8 md:p-10 mb-12">
           <p className="text-sm font-mono font-bold tracking-[0.2em] uppercase text-[var(--accent-amber)] mb-3">Coming Soon</p>
           <h2 className="text-2xl md:text-3xl font-black text-foreground mb-3 tracking-tight">8편부터 순차 공개</h2>
           <p className="text-base text-foreground/90 font-medium leading-relaxed mb-4">
