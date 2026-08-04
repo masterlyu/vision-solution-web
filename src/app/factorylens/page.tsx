@@ -127,7 +127,7 @@ export default function FactoryLensPage() {
                 </Link>
               </div>
             </div>
-            <div className="rounded-2xl overflow-hidden border border-border shadow-2xl shadow-primary/10">
+            <div className="rounded-xl overflow-hidden border border-border shadow-2xl shadow-primary/10">
               <Image
                 src="/factorylens/factorylens-dashboard-viewport.png"
                 alt="FactoryLens 커맨드센터 대시보드 — 봇 운영 요약 실화면"
@@ -151,7 +151,7 @@ export default function FactoryLensPage() {
             {PROBLEMS.map((p) => {
               const Icon = p.icon
               return (
-                <div key={p.title} className="bg-card border border-border rounded-2xl p-6">
+                <div key={p.title} className="bg-card border border-border rounded-xl p-6">
                   <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                     <Icon className="w-5 h-5 text-primary" />
                   </div>
@@ -175,7 +175,7 @@ export default function FactoryLensPage() {
             {STRUCTURE.map((s, i) => {
               const Icon = s.icon
               return (
-                <div key={s.title} className="relative bg-card border border-border rounded-2xl p-6">
+                <div key={s.title} className="relative bg-card border border-border rounded-xl p-6">
                   {i < STRUCTURE.length - 1 && (
                     <div className="hidden md:block absolute top-10 -right-3 w-6 h-px bg-primary/40 z-10" />
                   )}
@@ -227,7 +227,7 @@ export default function FactoryLensPage() {
             <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">말이 아니라, 지금 돌아가는 화면</h2>
             <p className="text-muted-foreground">아래는 라이브 데모의 실제 화면입니다. 표시된 수치는 데모 데이터 기준 실측값입니다.</p>
           </div>
-          <div className="rounded-2xl overflow-hidden border border-border shadow-xl mb-6">
+          <div className="rounded-xl overflow-hidden border border-border shadow-xl mb-6">
             <Image
               src="/factorylens/factorylens-cash-detail.png"
               alt="FactoryLens 수금·출하 통제 봇 실화면 — 미수금 연령 구간 그래프"
@@ -269,7 +269,7 @@ export default function FactoryLensPage() {
             {TRUST.map((t) => {
               const Icon = t.icon
               return (
-                <div key={t.title} className="bg-card border border-border rounded-2xl p-6">
+                <div key={t.title} className="bg-card border border-border rounded-xl p-6">
                   <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                     <Icon className="w-5 h-5 text-primary" />
                   </div>
