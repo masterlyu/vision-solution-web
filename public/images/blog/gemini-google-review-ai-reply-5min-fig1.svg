@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">Gemini 소상공인 기능 — 3단계 흐름</text>
+  <rect x="40" y="70" width="200" height="90" rx="12" fill="#0f766e"/>
+  <text x="140" y="107" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">① 비즈니스 프로필 연결</text>
+  <text x="140" y="133" text-anchor="middle" font-size="12" fill="#a7f3d0">Gemini 앱 — 탭 하나로 연결</text>
+  <text x="265" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <rect x="300" y="70" width="200" height="90" rx="12" fill="#0891b2"/>
+  <text x="400" y="107" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">② AI 리뷰 자동 분석</text>
+  <text x="400" y="133" text-anchor="middle" font-size="12" fill="#cffafe">리뷰·질문 내용 파악</text>
+  <text x="525" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <rect x="560" y="70" width="200" height="90" rx="12" fill="#22d3ee"/>
+  <text x="660" y="107" text-anchor="middle" font-size="15" font-weight="800" fill="#083344">③ 답변 초안 완성</text>
+  <text x="660" y="133" text-anchor="middle" font-size="12" fill="#083344">수정 후 바로 전송</text>
+</svg>
