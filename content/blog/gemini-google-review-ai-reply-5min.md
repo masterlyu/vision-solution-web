@@ -113,7 +113,7 @@ A. 기존 구글 계정이 있으면 Gemini 앱 기본 기능은 무료입니다
 
 ---
 
-> **Vision Solution AI 솔루션 문의**:  
+> **(주)비젼솔루션 AI 솔루션 문의**:  
 > 📧 biztalktome@gmail.com  
 > 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
 
