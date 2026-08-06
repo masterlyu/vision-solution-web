@@ -132,3 +132,12 @@ A. Apache 2.0 오픈소스라 소스 코드를 직접 확인할 수 있습니다
 > **(주)비젼솔루션 AI 솔루션 문의**:  
 > 📧 biztalktome@gmail.com  
 > 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
+
+
+<!-- related-links -->
+
+## 함께 보면 좋은 글
+
+- [구글 지도 리뷰 AI 답변 — Gemini 5분 설정](/blog/gemini-google-review-ai-reply-5min)
+- [ElevenLabs 대신 무료 AI 목소리 복제 5분 실습](/blog/chatterbox-free-voice-clone-sme-guide)
+- [경쟁사 정보 월 0원 — AI 뉴스 5분 자동 요약](/blog/worldmonitor-ai-news-dashboard-free-guide)
