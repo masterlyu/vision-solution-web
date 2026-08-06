@@ -9,6 +9,7 @@ import certificationsData from '../../../content/company/certifications.json'
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 import Mascot from '@/components/Mascot'
+import { Rocket, Zap, Star, Users, Target, Bot, GraduationCap, Lock } from 'lucide-react'
 
 // ── LottiePlayer ──────────────────────────────────────────────────────────
 function LottiePlayer({ src, width = 120, height = 120, loop = true }: {
@@ -226,7 +227,7 @@ export default function AboutPage() {
                 position: 'relative', overflow: 'hidden', height: '100%',
               }}>
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--primary), var(--primary-alt))' }} />
-                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18, fontSize: '3rem', lineHeight: 1 }}>🚀</div>
+                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}><Rocket size={44} style={{ color: 'var(--primary-light)' }} /></div>
                 <div style={{ fontSize: 'clamp(2.8rem, 6vw, 4rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--primary-light)', lineHeight: 1 }}>
                   <CountUpNumber value={247} suffix="+" />
                 </div>
@@ -243,7 +244,7 @@ export default function AboutPage() {
                 position: 'relative', overflow: 'hidden', height: '100%',
               }}>
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--accent-green), var(--accent-green-alt))' }} />
-                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18, fontSize: '3rem', lineHeight: 1 }}>⚡</div>
+                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}><Zap size={44} style={{ color: 'var(--accent-green)' }} /></div>
                 <div style={{ fontSize: 'clamp(2.8rem, 6vw, 4rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--accent-green)', lineHeight: 1 }}>
                   <CountUpNumber value={30} suffix="일" />
                 </div>
@@ -260,7 +261,7 @@ export default function AboutPage() {
                 position: 'relative', overflow: 'hidden', height: '100%',
               }}>
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--accent-amber), var(--accent-amber-alt))' }} />
-                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18, fontSize: '3rem', lineHeight: 1 }}>⭐</div>
+                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}><Star size={44} style={{ color: 'var(--accent-amber)' }} /></div>
                 <div style={{ fontSize: 'clamp(2.8rem, 6vw, 4rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--accent-amber)', lineHeight: 1 }}>
                   <CountUpNumber value={4.9} suffix="" decimals={1} />
                 </div>
@@ -277,7 +278,7 @@ export default function AboutPage() {
                 position: 'relative', overflow: 'hidden', height: '100%',
               }}>
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--accent-cyan), var(--accent-blue))' }} />
-                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18, fontSize: '3rem', lineHeight: 1 }}>🤝</div>
+                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}><Users size={44} style={{ color: 'var(--accent-cyan-text)' }} /></div>
                 <div style={{ fontSize: 'clamp(2.8rem, 6vw, 4rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--accent-cyan-text)', lineHeight: 1 }}>
                   <CountUpNumber value={97} suffix="%" />
                 </div>
@@ -379,12 +380,12 @@ export default function AboutPage() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 18 }}>
             {[
-              { icon: '🎯', title: 'AI 컨설팅', tagline: '"우리 회사에 맞는 AI는?"부터 시작', desc: <>업무 진단 → 도입 우선순위 설계 → ROI 추정 → 단계별 도입 로드맵 제시</> },
-              { icon: '🤖', title: 'AI 구축', tagline: 'LLM·자동화·자율 에이전트', desc: <>챗봇·RAG·자체 에이전트까지. 고객사 상황에 맞춰 운영 비용 <strong style={{ color: 'var(--accent-green)' }}>30% 절감</strong> 사례</> },
-              { icon: '🎓', title: '사내 출강 강좌', tagline: 'visionc Enterprise Academy', desc: <>부서별 AI 활용 <strong style={{ color: 'var(--accent-green)' }}>15강</strong> + 사내 AI 구축 <strong style={{ color: 'var(--accent-green)' }}>30강</strong> 사내 출강 트랙</> },
-              { icon: '🔒', title: '보안 진단·모의해킹', tagline: 'AI 도입의 첫 관문은 보안', desc: <>SSL·보안헤더·취약점 진단 + 실제 침투 테스트. 납품 전 <strong style={{ color: 'var(--accent-green)' }}>20개 보안 항목</strong> 필수 통과</> },
-              { icon: '⚡', title: '웹·앱 개발', tagline: '모바일 앱부터 사내 시스템까지', desc: <>풀스택 구축 + Google Core Web Vitals 기준 통과 납품. 누적 <strong style={{ color: 'var(--accent-green)' }}>120건+</strong> 납품 실적</> },
-              { icon: '🤝', title: '사후 관리·운영', tagline: '납품 후가 진짜 시작입니다', desc: <><strong style={{ color: 'var(--accent-green)' }}>6개월 무상 유지보수</strong> + 월 관리 플랜 + AI 모델·인프라 운영 대행</> },
+              { icon: <Target size={32} style={{ color: 'var(--primary-light)' }} />, title: 'AI 컨설팅', tagline: '"우리 회사에 맞는 AI는?"부터 시작', desc: <>업무 진단 → 도입 우선순위 설계 → ROI 추정 → 단계별 도입 로드맵 제시</> },
+              { icon: <Bot size={32} style={{ color: 'var(--primary-light)' }} />, title: 'AI 구축', tagline: 'LLM·자동화·자율 에이전트', desc: <>챗봇·RAG·자체 에이전트까지. 고객사 상황에 맞춰 운영 비용 <strong style={{ color: 'var(--accent-green)' }}>30% 절감</strong> 사례</> },
+              { icon: <GraduationCap size={32} style={{ color: 'var(--primary-light)' }} />, title: '사내 출강 강좌', tagline: 'visionc Enterprise Academy', desc: <>부서별 AI 활용 <strong style={{ color: 'var(--accent-green)' }}>15강</strong> + 사내 AI 구축 <strong style={{ color: 'var(--accent-green)' }}>30강</strong> 사내 출강 트랙</> },
+              { icon: <Lock size={32} style={{ color: 'var(--primary-light)' }} />, title: '보안 진단·모의해킹', tagline: 'AI 도입의 첫 관문은 보안', desc: <>SSL·보안헤더·취약점 진단 + 실제 침투 테스트. 납품 전 <strong style={{ color: 'var(--accent-green)' }}>20개 보안 항목</strong> 필수 통과</> },
+              { icon: <Zap size={32} style={{ color: 'var(--primary-light)' }} />, title: '웹·앱 개발', tagline: '모바일 앱부터 사내 시스템까지', desc: <>풀스택 구축 + Google Core Web Vitals 기준 통과 납품. 누적 <strong style={{ color: 'var(--accent-green)' }}>120건+</strong> 납품 실적</> },
+              { icon: <Users size={32} style={{ color: 'var(--primary-light)' }} />, title: '사후 관리·운영', tagline: '납품 후가 진짜 시작입니다', desc: <><strong style={{ color: 'var(--accent-green)' }}>6개월 무상 유지보수</strong> + 월 관리 플랜 + AI 모델·인프라 운영 대행</> },
             ].map((item, i) => (
               <FadeInSection key={item.title} delay={i * 0.05}>
                 <div style={{
@@ -392,7 +393,7 @@ export default function AboutPage() {
                   borderRadius: 14, padding: '28px 24px', position: 'relative', overflow: 'hidden', height: '100%',
                 }}>
                   <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--primary), var(--primary-alt))' }} />
-                  <div style={{ fontSize: '2rem', marginBottom: 14 }}>{item.icon}</div>
+                  <div style={{ marginBottom: 14 }}>{item.icon}</div>
                   <div style={{ fontSize: '1.05rem', fontWeight: 800, marginBottom: 6 }}>{item.title}</div>
                   <div style={{ fontSize: '0.82rem', color: 'var(--primary-light)', fontWeight: 700, marginBottom: 10 }}>{item.tagline}</div>
                   <p style={{ fontSize: '0.84rem', color: 'var(--muted-foreground)', lineHeight: 1.55 }}>{item.desc}</p>

@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
 import { motion, useMotionValue, useSpring, useTransform, useInView, type Variants } from 'framer-motion'
 import UrlAnalysisForm from '@/components/UrlAnalysisForm'
-import { CheckCircle, XCircle, AlertTriangle, CheckSquare, ChevronDown, ChevronUp } from 'lucide-react'
+import { CheckCircle, XCircle, AlertTriangle, CheckSquare, ChevronDown, ChevronUp, Target } from 'lucide-react'
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 import Mascot from '@/components/Mascot'
@@ -618,7 +618,7 @@ export default function SecurityPage() {
       <section className="py-16 px-6 lg:px-12">
         <div className="max-w-[900px] mx-auto">
           <div className="rounded-xl border-2 border-primary/30 bg-primary/5 p-8 md:p-10 flex flex-col md:flex-row gap-6 items-start md:items-center">
-            <div className="text-5xl shrink-0">🎯</div>
+            <Target className="w-12 h-12 text-primary shrink-0" />
             <div className="flex-1">
               <p className="text-xs font-black uppercase tracking-[0.15em] mb-2 text-primary-light">
                 관련 서비스
