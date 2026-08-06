@@ -2,6 +2,11 @@
 import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { motion, useMotionValue, useSpring, useTransform, useInView, type Variants } from 'framer-motion'
+import {
+  Factory, Hospital, ShoppingCart,
+  Building2, Utensils, GraduationCap,
+  Bot, Lock, Monitor, Smartphone, Settings, Handshake,
+} from 'lucide-react'
 import Mascot from '@/components/Mascot'
 
 // ── CountUpNumber ─────────────────────────────────────────────────────────
@@ -38,22 +43,24 @@ const stats = [
   { value: 97,  suffix: '%',  decimals: 0, label: '재의뢰율',      sub: '한 번 함께하면 계속 함께' },
 ]
 
+const ICN = 'w-7 h-7 text-primary shrink-0'
+
 const industries = [
-  { icon: '🏭', label: '제조·B2B',          desc: 'MES·ERP·그룹웨어 등 사내 인프라' },
-  { icon: '🏥', label: '병원·의원',         desc: '비영리기관 그룹웨어·예약·CRM' },
-  { icon: '🛒', label: '쇼핑몰·유통',       desc: '쇼핑몰·유통 ERP·재고 관리' },
-  { icon: '🏛️', label: '공공기관',          desc: '경기도·서울시 산하 웹접근성 사이트' },
-  { icon: '🍴', label: '음식점·서비스업',   desc: '예약·주문·고객 응대 자동화' },
-  { icon: '🎓', label: '교육·학원',         desc: '학원 관리·온라인 강좌·LMS' },
+  { icon: <Factory className={ICN} />,      label: '제조·B2B',          desc: 'MES·ERP·그룹웨어 등 사내 인프라' },
+  { icon: <Hospital className={ICN} />,     label: '병원·의원',         desc: '비영리기관 그룹웨어·예약·CRM' },
+  { icon: <ShoppingCart className={ICN} />, label: '쇼핑몰·유통',       desc: '쇼핑몰·유통 ERP·재고 관리' },
+  { icon: <Building2 className={ICN} />,    label: '공공기관',          desc: '경기도·서울시 산하 웹접근성 사이트' },
+  { icon: <Utensils className={ICN} />,     label: '음식점·서비스업',   desc: '예약·주문·고객 응대 자동화' },
+  { icon: <GraduationCap className={ICN} />, label: '교육·학원',        desc: '학원 관리·온라인 강좌·LMS' },
 ]
 
 const services = [
-  { icon: '🤖', title: '기업 AI 도입',      desc: '컨설팅 → 구축 → 사내 출강 교육. LLM·자율 에이전트·RAG 챗봇' },
-  { icon: '🔒', title: '보안 진단·모의해킹', desc: 'SSL·보안헤더·취약점 진단 + 실제 침투 테스트' },
-  { icon: '💻', title: '웹사이트·리뉴얼',    desc: '신규 제작·리뉴얼·웹접근성. Core Web Vitals 기준 통과' },
-  { icon: '📱', title: '앱·시스템 개발',     desc: '모바일 앱·사내 업무 시스템·그룹웨어·ERP 풀스택 구축' },
-  { icon: '⚙️', title: '인프라·운영',        desc: '서버 구축·온프레미스·프라이빗 클라우드·SaaS 운영' },
-  { icon: '🤝', title: '사후 관리',          desc: '6개월 무상 + 월정액 유지보수·운영 대행' },
+  { icon: <Bot className={ICN} />,        title: '기업 AI 도입',      desc: '컨설팅 → 구축 → 사내 출강 교육. LLM·자율 에이전트·RAG 챗봇' },
+  { icon: <Lock className={ICN} />,       title: '보안 진단·모의해킹', desc: 'SSL·보안헤더·취약점 진단 + 실제 침투 테스트' },
+  { icon: <Monitor className={ICN} />,    title: '웹사이트·리뉴얼',    desc: '신규 제작·리뉴얼·웹접근성. Core Web Vitals 기준 통과' },
+  { icon: <Smartphone className={ICN} />, title: '앱·시스템 개발',     desc: '모바일 앱·사내 업무 시스템·그룹웨어·ERP 풀스택 구축' },
+  { icon: <Settings className={ICN} />,   title: '인프라·운영',        desc: '서버 구축·온프레미스·프라이빗 클라우드·SaaS 운영' },
+  { icon: <Handshake className={ICN} />,  title: '사후 관리',          desc: '6개월 무상 + 월정액 유지보수·운영 대행' },
 ]
 
 const processSteps = [
@@ -115,7 +122,7 @@ export default function PortfolioPage() {
                     color: 'var(--primary-light)',
                     border: '1.5px solid color-mix(in oklch, var(--primary) 60%, transparent)',
                   }}>
-                  🎓 사내 출강 강좌 보기
+                  <GraduationCap className="w-5 h-5" /> 사내 출강 강좌 보기
                 </Link>
               </motion.div>
             </motion.div>
@@ -170,7 +177,7 @@ export default function PortfolioPage() {
             {industries.map(i => (
               <div key={i.label}
                 className="bg-card border border-border rounded-xl p-6 flex gap-4 items-start">
-                <div className="text-3xl shrink-0">{i.icon}</div>
+                {i.icon}
                 <div>
                   <div className="font-black text-foreground mb-1">{i.label}</div>
                   <div className="text-sm text-muted-foreground leading-snug">{i.desc}</div>
@@ -200,7 +207,7 @@ export default function PortfolioPage() {
             {services.map(s => (
               <div key={s.title}
                 className="bg-background border border-border rounded-xl p-6 flex gap-4 items-start">
-                <div className="text-3xl shrink-0">{s.icon}</div>
+                {s.icon}
                 <div>
                   <div className="font-black text-foreground mb-1">{s.title}</div>
                   <div className="text-sm text-muted-foreground leading-snug">{s.desc}</div>
@@ -217,7 +224,7 @@ export default function PortfolioPage() {
       <section className="py-14 px-6">
         <div className="max-w-3xl mx-auto">
           <div className="bg-card border border-border rounded-xl p-7 flex flex-col sm:flex-row gap-5 items-start">
-            <div className="text-3xl shrink-0">🔒</div>
+            <Lock className="w-7 h-7 text-muted-foreground shrink-0" />
             <div className="flex-1">
               <div className="font-black text-foreground mb-2">개별 사례는 비공개 운영입니다</div>
               <p className="text-sm text-muted-foreground leading-relaxed">
