@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">AI 토큰 사용량 — 기억 허브 도입 전후</text>
+  <!-- 도입 전 막대 (100%, 회색) -->
+  <rect x="160" y="120" width="120" height="130" rx="6" fill="#cbd5e1"/>
+  <text x="220" y="105" text-anchor="middle" font-size="22" font-weight="800" fill="#6b7280">100%</text>
+  <text x="220" y="275" text-anchor="middle" font-size="15" fill="#1f2937">도입 전 · 기준</text>
+  <!-- 도입 후 막대 (38.62%, 청록) -->
+  <rect x="520" y="200" width="120" height="50" rx="6" fill="#0f766e"/>
+  <text x="580" y="185" text-anchor="middle" font-size="22" font-weight="800" fill="#0f766e">38.62%</text>
+  <text x="580" y="275" text-anchor="middle" font-size="15" fill="#1f2937">도입 후 · 절감</text>
+  <!-- 중간 변화 표시 -->
+  <text x="400" y="170" text-anchor="middle" font-size="18" font-weight="700" fill="#0f766e">61.38% ↓</text>
+  <text x="400" y="195" text-anchor="middle" font-size="13" fill="#6b7280">토큰 사용량 감소</text>
+  <!-- 화살표 -->
+  <line x1="300" y1="182" x2="360" y2="182" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="440" y1="182" x2="510" y2="220" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,3"/>
+</svg>
