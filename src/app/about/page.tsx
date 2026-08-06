@@ -223,7 +223,7 @@ export default function AboutPage() {
             <FadeInSection delay={0.05}>
               <div style={{
                 background: 'var(--card)', border: '1px solid var(--border)',
-                borderRadius: 16, padding: '36px 24px', textAlign: 'center',
+                borderRadius: 12, padding: '36px 24px', textAlign: 'center',
                 position: 'relative', overflow: 'hidden', height: '100%',
               }}>
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--primary), var(--primary-alt))' }} />
@@ -240,7 +240,7 @@ export default function AboutPage() {
             <FadeInSection delay={0.10}>
               <div style={{
                 background: 'var(--card)', border: '1px solid var(--border)',
-                borderRadius: 16, padding: '36px 24px', textAlign: 'center',
+                borderRadius: 12, padding: '36px 24px', textAlign: 'center',
                 position: 'relative', overflow: 'hidden', height: '100%',
               }}>
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--accent-green), var(--accent-green-alt))' }} />
@@ -257,7 +257,7 @@ export default function AboutPage() {
             <FadeInSection delay={0.15}>
               <div style={{
                 background: 'var(--card)', border: '1px solid var(--border)',
-                borderRadius: 16, padding: '36px 24px', textAlign: 'center',
+                borderRadius: 12, padding: '36px 24px', textAlign: 'center',
                 position: 'relative', overflow: 'hidden', height: '100%',
               }}>
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--accent-amber), var(--accent-amber-alt))' }} />
@@ -274,7 +274,7 @@ export default function AboutPage() {
             <FadeInSection delay={0.20}>
               <div style={{
                 background: 'var(--card)', border: '1px solid var(--border)',
-                borderRadius: 16, padding: '36px 24px', textAlign: 'center',
+                borderRadius: 12, padding: '36px 24px', textAlign: 'center',
                 position: 'relative', overflow: 'hidden', height: '100%',
               }}>
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--accent-cyan), var(--accent-blue))' }} />
@@ -317,7 +317,7 @@ export default function AboutPage() {
             <FadeInSection delay={0.1}>
               <div style={{
                 border: '1px solid color-mix(in oklch, var(--primary) 35%, transparent)',
-                borderRadius: 14,
+                borderRadius: 12,
                 background: 'color-mix(in oklch, var(--primary) 8%, transparent)',
                 padding: '32px 36px',
               }}>
@@ -390,7 +390,7 @@ export default function AboutPage() {
               <FadeInSection key={item.title} delay={i * 0.05}>
                 <div style={{
                   background: 'var(--card)', border: '1px solid var(--border)',
-                  borderRadius: 14, padding: '28px 24px', position: 'relative', overflow: 'hidden', height: '100%',
+                  borderRadius: 12, padding: '28px 24px', position: 'relative', overflow: 'hidden', height: '100%',
                 }}>
                   <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--primary), var(--primary-alt))' }} />
                   <div style={{ marginBottom: 14 }}>{item.icon}</div>
@@ -436,7 +436,7 @@ export default function AboutPage() {
               <FadeInSection key={item.num} delay={i * 0.07}>
                 <div style={{
                   background: 'var(--card)', border: '1px solid var(--border)',
-                  borderRadius: 16, padding: '32px 28px', height: '100%',
+                  borderRadius: 12, padding: '32px 28px', height: '100%',
                 }}>
                   <div style={{ fontSize: '2.8rem', fontWeight: 900, color: 'color-mix(in oklch, var(--primary) 35%, transparent)', letterSpacing: '-0.04em', marginBottom: 8 }}>{item.num}</div>
                   <div style={{ fontSize: '1.1rem', fontWeight: 800, marginBottom: 10 }}>{item.title}</div>
@@ -535,7 +535,7 @@ export default function AboutPage() {
                 { body: '가격을 처음부터 명확하게 알려줘서 믿음이 갔습니다. 다른 업체들은 추가 비용이 계속 나왔거든요.', author: '경기도 소재 서비스업 대표 ⭐⭐⭐⭐⭐' },
                 { body: 'AI 챗봇 도입 후 고객 문의 응대 시간이 60% 줄었습니다. IT를 전혀 모르는 저도 쉽게 사용할 수 있어요.', author: '부산 소재 소매업 대표 ⭐⭐⭐⭐⭐' },
               ].map((review, i) => (
-                <div key={i} style={{ background: 'var(--card)', border: '1px solid var(--border)', borderRadius: 14, padding: 28 }}>
+                <div key={i} style={{ background: 'var(--card)', border: '1px solid var(--border)', borderRadius: 12, padding: 28 }}>
                   <div style={{ fontSize: '1.6rem', color: 'var(--primary-light)', marginBottom: 10, lineHeight: 1 }}>"</div>
                   <p style={{ fontSize: '0.93rem', lineHeight: 1.65, fontStyle: 'italic', marginBottom: 16 }}>{review.body}</p>
                   <p style={{ fontSize: '0.82rem', color: 'var(--muted-foreground)', fontWeight: 600 }}>— {review.author}</p>
