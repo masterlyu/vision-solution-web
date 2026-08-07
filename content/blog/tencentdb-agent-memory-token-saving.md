@@ -4,12 +4,12 @@ date: "2026-08-07"
 tag: "AI 활용"
 tags: "TencentDB Agent Memory,토큰 절약,AI 에이전트 메모리,GitHub 트렌딩,중소기업 AI"
 image: "/images/blog/tencentdb-agent-memory-token-saving.svg"
-summary: "텐센트가 공개한 무료 AI 기억 창고 TencentDB Agent Memory. GitHub 트렌딩 1위에 오른 이 오픈소스로 AI 토큰 비용을 61.38% 줄이고, 중소기업에서 직접 써보는 실습법을 소개합니다."
+summary: "텐센트가 공개한 무료 AI 기억 창고 TencentDB Agent Memory. 이 오픈소스로 AI 토큰 비용을 61.38% 줄이고, 중소기업에서 직접 써보는 실습법을 소개합니다."
 ---
 
 월 AI 구독비를 꼬박꼬박 내고 있는데, 이상합니다. 지난주에 분명히 제품 목록을 다 알려줬는데 오늘 AI는 또 처음 본 것처럼 물어봅니다. 그 사이 토큰은 계속 빠져나가고 있습니다.
 
-2026년 8월, 텐센트가 이 문제를 무료 오픈소스로 해결했습니다. GitHub 트렌딩 1위를 달리는 **TencentDB Agent Memory**입니다.
+2026년 8월, 텐센트가 이 문제를 무료 오픈소스로 해결했습니다. 폭발적인 속도로 GitHub 스타를 모으고 있는 **TencentDB Agent Memory**입니다.
 
 ![center](/mascot/md/emotion/cat_happy.png)
 
@@ -55,11 +55,11 @@ OpenClaw 통합 테스트 기준으로 **토큰 사용량이 61.38% 감소**합�
 
 **장점**: 완전 무료(MIT 라이선스), 팀 내 여러 AI가 같은 메모리 공유 가능, Docker 지원으로 팀 서버 배포 수월.
 
-**단점**: 처음 지식 베이스를 구성하는 데 시간이 걸립니다. Python 환경이 처음이라면 초기 설정에 30~60분 정도 필요합니다.
+**단점**: 처음 지식 베이스를 구성하는 데 시간이 걸립니다. Docker나 Node.js 환경이 처음이라면 초기 설정에 30~60분 정도 필요합니다.
 
 **클라우드 대안과 비교**: Azure AI Memory나 AWS Bedrock의 유사 기능은 사용량에 따라 월정액이 붙습니다. TencentDB Agent Memory는 서버만 있으면 추가 비용이 없습니다. 초기 설정 부담이 있지만 장기 운영 비용은 훨씬 낮습니다.
 
-**필요 사양**: Python 3.9 이상, RAM 4GB 이상. GPU는 필요 없습니다.
+**필요 사양**: Node.js 22.16 이상, Docker 필수, RAM 4GB 이상 권장. GPU는 필요 없습니다.
 
 그렇다면 실제 사무실에서는 어떻게 쓸 수 있을까요?
 
@@ -84,47 +84,46 @@ OpenClaw 통합 테스트 기준으로 **토큰 사용량이 61.38% 감소**합�
 
 ## 10분 실습 — 오늘 바로 써보기
 
-Python이 설치된 PC라면 지금 시작할 수 있습니다.
+Node.js 22.16 이상과 Docker가 설치된 PC라면 지금 시작할 수 있습니다.
 
 ![center](/mascot/md/emotion/cat_cheer.png)
 
-**1단계 — 패키지 설치**
+**1단계 — 저장소 클론**
 
 ```bash
-pip install tencentdb-agent-memory
+git clone https://github.com/TencentCloud/TencentDB-Agent-Memory.git
 ```
 
-**2단계 — 업무 지식 저장 (기본 예시)**
-
-아래는 개념을 보여주는 예시입니다. 실제 API 호출 방법은 GitHub README에서 확인하세요.
-
-```python
-from tencentdb_agent_memory import MemoryHub
-
-hub = MemoryHub()
-# 회사 FAQ를 LLM-Wiki 계층에 저장
-hub.save_wiki("product_faq", "Q: 납기는 얼마나 걸리나요? A: 주문 후 영업일 5일...")
-```
-
-**3단계 — 저장한 내용 꺼내 쓰기**
-
-```python
-# AI 에이전트가 답변 생성 시 자동으로 참조
-answer = hub.retrieve("납기 관련 고객 문의 답변해줘")
-print(answer)
-```
-
-**4단계 — Docker로 팀 서버에 배포**
+**2단계 — 환경 파일 설정**
 
 ```bash
-# docker-compose 파일은 GitHub 저장소에서 제공
-docker compose up -d
+cd TencentDB-Agent-Memory/deploy/global-images
+cp .env.example .env
 ```
 
-팀 서버에 올리면 전 직원의 AI 에이전트가 하나의 기억 창고를 씁니다. 자세한 에이전트 연동 예제와 설정 방법은 [공식 GitHub 저장소](https://github.com/TencentCloud/TencentDB-Agent-Memory)에서 확인하세요.
+`.env` 파일을 열어 `PROXY_UPSTREAM_URL`(LLM 엔드포인트)과 API 키를 입력합니다.
 
-기존 사내 ERP나 재고 시스템과 직접 연결하거나, 업무 자동화 흐름에 맞게 구성하려면 전문적인 설정이 필요합니다. 자사 환경에 맞는 맞춤 구성이 필요하시다면 비젼솔루션에 문의해 주세요.
+**3단계 — 전체 실행**
 
-> **Vision Solution AI 솔루션 문의**:  
-> 📧 biztalktome@gmail.com  
-> 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
+```bash
+./start-all.sh
+```
+
+메모리 서버와 관리 패널이 함께 올라옵니다.
+
+**4단계 — 관리 패널 접속**
+
+브라우저에서 `http://localhost:8125`로 접속합니다. 팀을 만들고 에이전트를 추가한 뒤 메모리 자산(회사 FAQ, 제품 규격, 거래처 조건 등)을 적재하세요.
+
+팀 서버에 올리면 전 직원의 AI 에이전트가 하나의 기억 창고를 씁니다. Python SDK(`MemoryClient` 클래스)를 통한 코드 연동 방법은 [공식 GitHub 저장소](https://github.com/TencentCloud/TencentDB-Agent-Memory)에서 확인하세요.
+
+기존 사내 ERP나 재고 시스템과 직접 연결하거나, 업무 자동화 흐름에 맞게 구성하려면 전문적인 설정이 필요합니다. 기업 환경에 맞는 맞춤 구성이 필요하시다면 [(주)비젼솔루션](https://www.visionc.co.kr/ai-solution)에 문의해 주세요.
+
+
+<!-- related-links -->
+
+## 함께 보면 좋은 글
+
+- [무료 AI 오피스 GenOffice — 10분 실습 가이드](/blog/genoffice-free-ai-office-suite-guide)
+- [구글 지도 리뷰 AI 답변 — Gemini 5분 설정](/blog/gemini-google-review-ai-reply-5min)
+- [ElevenLabs 대신 무료 AI 목소리 복제 5분 실습](/blog/chatterbox-free-voice-clone-sme-guide)
