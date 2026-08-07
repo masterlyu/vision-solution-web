@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
-import { Menu, X, ChevronDown } from 'lucide-react'
+import { Menu, X, ChevronDown, Briefcase } from 'lucide-react'
 
 const serviceLinks = [
   { name: 'FactoryLens', href: '/factorylens', primary: true },
@@ -132,7 +132,7 @@ export function Navigation() {
           <div className="hidden md:flex items-center">
             <Button size="sm" asChild
               className={`rounded-full transition-all duration-500 ${isScrolled ? 'bg-primary hover:bg-primary/90 text-primary-foreground px-5 h-9 text-sm font-bold' : 'bg-primary hover:bg-primary/90 text-primary-foreground px-6 h-10 text-base font-bold'}`}>
-              <Link href="/contact">💼 도입 상담</Link>
+              <Link href="/contact"><Briefcase className="w-4 h-4" /> 도입 상담</Link>
             </Button>
           </div>
 
@@ -198,7 +198,7 @@ export function Navigation() {
               <Link href="/portfolio">포트폴리오</Link>
             </Button>
             <Button className="flex-1 bg-primary text-primary-foreground rounded-full h-14 text-base font-bold" asChild onClick={() => setIsMobileMenuOpen(false)}>
-              <Link href="/contact">💼 도입 상담</Link>
+              <Link href="/contact"><Briefcase className="w-4 h-4" /> 도입 상담</Link>
             </Button>
           </div>
         </div>

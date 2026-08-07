@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { Briefcase } from 'lucide-react'
 
 const NAV = [
   { label: '기업 AI 도입·컨설팅', href: '/ai-solution', primary: true },
@@ -43,7 +44,7 @@ export default function Header() {
 
         <div className="hidden md:block">
           <Link href="/contact" className="btn-red">
-            💼 도입 상담
+            <Briefcase className="w-4 h-4" /> 도입 상담
           </Link>
         </div>
 
@@ -63,7 +64,7 @@ export default function Header() {
             </Link>
           ))}
           <Link href="/contact" onClick={() => setOpen(false)} className="btn-red mt-4 w-full justify-center h-12 text-base">
-            💼 도입 상담
+            <Briefcase className="w-4 h-4" /> 도입 상담
           </Link>
         </div>
       )}

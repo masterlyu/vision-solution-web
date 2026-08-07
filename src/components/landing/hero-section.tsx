@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState, useRef } from 'react'
 import Link from 'next/link'
-import { ArrowRight, GraduationCap } from 'lucide-react'
+import { ArrowRight, GraduationCap, Briefcase } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import dynamic from 'next/dynamic'
 
@@ -120,7 +120,7 @@ export function HeroSection() {
         <div className="flex flex-wrap justify-center gap-3">
           <Button asChild size="lg"
             className="h-14 px-8 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-base gap-2 shadow-lg shadow-primary/50 hover:shadow-primary/70 transition-all">
-            <Link href="/contact">💼 도입 상담 신청 <ArrowRight className="w-4 h-4" /></Link>
+            <Link href="/contact"><Briefcase className="w-5 h-5" /> 도입 상담 신청 <ArrowRight className="w-4 h-4" /></Link>
           </Button>
           <Button asChild size="lg" variant="outline"
             className="h-14 px-7 rounded-full border-2 border-primary text-primary hover:bg-primary/10 font-bold text-base gap-2 transition-all">

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import LegalModals from '@/components/LegalModals'
+import { Briefcase } from 'lucide-react'
 
 const SERVICES = [
   ['기업 AI 도입 및 컨설팅', '/ai-solution'],
@@ -43,8 +44,8 @@ export default function Footer() {
               ))}
             </div>
             <div className="mt-8">
-              <Link href="/contact" className="btn-red w-full justify-center text-center block">
-                💼 도입 상담 신청 →
+              <Link href="/contact" className="btn-red w-full justify-center text-center flex items-center gap-2">
+                <Briefcase className="w-4 h-4" /> 도입 상담 신청 →
               </Link>
             </div>
           </div>

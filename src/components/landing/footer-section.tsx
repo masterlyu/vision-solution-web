@@ -1,8 +1,6 @@
 'use client'
-import { ArrowUpRight } from 'lucide-react'
+import { Briefcase } from 'lucide-react'
 import Link from 'next/link'
-
-void ArrowUpRight
 
 const links = {
   '서비스': [
@@ -42,8 +40,8 @@ export function FooterSection() {
             <a href="mailto:biztalktome@gmail.com" className="text-base font-medium text-primary hover:underline block mb-1">
               biztalktome@gmail.com
             </a>
-            <Link href="/contact" className="text-sm text-foreground/85 font-medium hover:text-primary transition-colors">
-              💼 도입 상담 신청 →
+            <Link href="/contact" className="inline-flex items-center gap-1.5 text-sm text-foreground/85 font-medium hover:text-primary transition-colors">
+              <Briefcase className="w-4 h-4" /> 도입 상담 신청 →
             </Link>
           </div>
           {Object.entries(links).map(([title, items]) => (

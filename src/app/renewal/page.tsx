@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useState } from 'react'
-import { ArrowRight, CheckSquare, ChevronDown, ChevronUp, Zap, Smartphone, Target, Search } from 'lucide-react'
+import { ArrowRight, CheckSquare, ChevronDown, ChevronUp, Zap, Smartphone, Target, Search, Briefcase } from 'lucide-react'
 import Mascot from '@/components/Mascot'
 import RenewalDiagnosisForm from '@/components/RenewalDiagnosisForm'
 import { faqs } from './faqs'
@@ -301,7 +301,7 @@ export default function RenewalPage() {
           <div className="text-center">
             <Link href="/contact"
               className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all">
-              💼 도입 상담 신청 <ArrowRight className="w-5 h-5" />
+              <Briefcase className="w-5 h-5" /> 도입 상담 신청 <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
         </div>
@@ -365,7 +365,7 @@ export default function RenewalPage() {
           <div className="text-center">
             <Link href="/contact"
               className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all">
-              💼 운영·유지보수 상담 신청 <ArrowRight className="w-5 h-5" />
+              <Briefcase className="w-5 h-5" /> 운영·유지보수 상담 신청 <ArrowRight className="w-5 h-5" />
             </Link>
             <p className="text-xs text-muted-foreground mt-3">최소 계약 3개월 · 한 달 전 통보 시 해지 가능 · 위약금 없음</p>
           </div>
