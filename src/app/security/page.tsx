@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
 import { motion, useMotionValue, useSpring, useTransform, useInView, type Variants } from 'framer-motion'
 import UrlAnalysisForm from '@/components/UrlAnalysisForm'
-import { CheckCircle, XCircle, AlertTriangle, CheckSquare, ChevronDown, ChevronUp, Target } from 'lucide-react'
+import { CheckCircle, XCircle, AlertTriangle, CheckSquare, ChevronDown, ChevronUp, Target, Briefcase } from 'lucide-react'
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 import Mascot from '@/components/Mascot'
@@ -857,7 +857,7 @@ export default function SecurityPage() {
 
               {/* 패키지 안내 */}
               <div className="bg-[var(--accent-amber)]/5 border border-[var(--accent-amber)]/20 rounded-xl px-4 py-3.5 mb-5">
-                <p className="text-[var(--accent-amber)] text-xs font-bold mb-2">💼 수정까지 원하신다면? 4가지 패키지</p>
+                <p className="text-[var(--accent-amber)] text-xs font-bold mb-2"><Briefcase size={12} className="inline align-middle mr-1" />수정까지 원하신다면? 4가지 패키지</p>
                 <div className="space-y-1.5 mb-3">
                   {[
                     ['A', '보안 위생 패치',    '₩299,000',   '헤더·SSL·쿠키 설정 수정'],
