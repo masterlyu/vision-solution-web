@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { LockOpen } from 'lucide-react'
 
 type AuthState = 'idle' | 'checking' | 'authed' | 'wrong' | 'rate-limited'
 
@@ -93,7 +94,7 @@ export default function AcademyDownloadClient() {
                   disabled={state === 'checking' || !password}
                   className="w-full sm:w-auto shrink-0 inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-foreground text-background text-sm font-bold whitespace-nowrap hover:bg-foreground/85 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 >
-                  {state === 'checking' ? '확인 중…' : '🔓 잠금 해제'}
+                  {state === 'checking' ? '확인 중…' : <><LockOpen className="h-4 w-4" /> 잠금 해제</>}
                 </button>
               </div>
               {message && (

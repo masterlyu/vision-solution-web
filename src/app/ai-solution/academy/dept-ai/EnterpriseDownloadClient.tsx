@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { Lock, LockOpen } from 'lucide-react'
 
 type AuthState = 'idle' | 'checking' | 'authed' | 'wrong' | 'rate-limited'
 
@@ -79,7 +80,7 @@ export default function EnterpriseDownloadClient({
   return (
     <div className="rounded-xl border-2 border-primary/40 bg-gradient-to-br from-primary/25 via-[var(--accent)]/10 to-background p-6 md:p-8 shadow-lg">
       <div className="flex items-center gap-3 mb-4">
-        <div className="w-10 h-10 rounded-xl bg-primary/25 flex items-center justify-center text-xl">{authed ? '🔓' : '🔐'}</div>
+        <div className="w-10 h-10 rounded-xl bg-primary/25 flex items-center justify-center">{authed ? <LockOpen className="h-5 w-5 text-primary" /> : <Lock className="h-5 w-5 text-primary" />}</div>
         <div>
           <p className="text-xs font-mono font-bold tracking-[0.2em] uppercase text-primary mb-0.5">Downloads</p>
           <h4 className="text-lg md:text-xl font-black text-foreground tracking-tight">강의 자료 다운로드</h4>
@@ -113,7 +114,7 @@ export default function EnterpriseDownloadClient({
               disabled={state === 'checking' || !password}
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-foreground text-background text-sm font-bold hover:bg-foreground/85 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
-              {state === 'checking' ? '확인 중…' : '🔓 잠금 해제'}
+              {state === 'checking' ? '확인 중…' : <><LockOpen className="h-4 w-4" /> 잠금 해제</>}
             </button>
           </div>
           {message && (
@@ -140,7 +141,7 @@ export default function EnterpriseDownloadClient({
             </a>
           ) : (
             <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-foreground/10 text-foreground/85 text-sm font-medium w-fit cursor-not-allowed">
-              🔒 잠금 상태
+              <Lock className="h-4 w-4" /> 잠금 상태
             </span>
           )}
         </div>
@@ -160,7 +161,7 @@ export default function EnterpriseDownloadClient({
             </a>
           ) : (
             <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-foreground/10 text-foreground/85 text-sm font-medium w-fit cursor-not-allowed">
-              🔒 잠금 상태
+              <Lock className="h-4 w-4" /> 잠금 상태
             </span>
           )}
         </div>

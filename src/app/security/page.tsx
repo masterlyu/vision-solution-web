@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
 import { motion, useMotionValue, useSpring, useTransform, useInView, type Variants } from 'framer-motion'
 import UrlAnalysisForm from '@/components/UrlAnalysisForm'
-import { CheckCircle, XCircle, AlertTriangle, CheckSquare, ChevronDown, ChevronUp, Target, Briefcase } from 'lucide-react'
+import { CheckCircle, XCircle, AlertTriangle, CheckSquare, ChevronDown, ChevronUp, Target, Briefcase, Shield, Lock, Globe, Mail, FolderOpen, Bug, Ban, Key, Search, type LucideIcon } from 'lucide-react'
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 import Mascot from '@/components/Mascot'
@@ -162,17 +162,17 @@ const dangerCaseBg: Record<string, string> = {
   blue:   'bg-[var(--accent-blue)]/10 border-[var(--accent-blue)]/20 text-[var(--accent-blue)]',
 }
 
-const checks = [
+const checks: Array<{ lottie: string; sub: string; title: string } | { Icon: LucideIcon; sub: string; title: string }> = [
   { lottie: '/lottie/lock.json',  sub: 'SSL/TLS A+~F 등급',       title: '암호화가 안전한가요?' },
-  { icon: '🛡️',                  sub: '보안 헤더 13종',            title: '해킹 차단막이 있나요?' },
-  { icon: '🍪',                   sub: '쿠키 보안 플래그',          title: '세션이 보호되나요?' },
-  { icon: '🌐',                   sub: 'CORS 설정 오류',            title: '데이터가 새고 있나요?' },
-  { icon: '📧',                   sub: '이메일 보안 DNS',           title: '피싱 메일 차단됐나요?' },
-  { icon: '📁',                   sub: '민감 파일 30경로',          title: '소스코드가 노출됐나요?' },
-  { icon: '🦠',                   sub: '악성코드 탐지',             title: '바이러스가 숨어 있나요?' },
-  { icon: '🚫',                   sub: '구글·보안기관 블랙리스트',  title: '검색에서 차단됐나요?' },
+  { Icon: Shield,      sub: '보안 헤더 13종',            title: '해킹 차단막이 있나요?' },
+  { Icon: Lock,        sub: '쿠키 보안 플래그',          title: '세션이 보호되나요?' },
+  { Icon: Globe,       sub: 'CORS 설정 오류',            title: '데이터가 새고 있나요?' },
+  { Icon: Mail,        sub: '이메일 보안 DNS',           title: '피싱 메일 차단됐나요?' },
+  { Icon: FolderOpen,  sub: '민감 파일 30경로',          title: '소스코드가 노출됐나요?' },
+  { Icon: Bug,         sub: '악성코드 탐지',             title: '바이러스가 숨어 있나요?' },
+  { Icon: Ban,         sub: '구글·보안기관 블랙리스트',  title: '검색에서 차단됐나요?' },
   { lottie: '/lottie/scan.json',  sub: 'CMS·서버 버전 노출',       title: '해커에게 힌트 주고 있나요?' },
-  { icon: '🔑',                   sub: '관리자 접근 보안',          title: '뒷문이 열려 있나요?' },
+  { Icon: Key,         sub: '관리자 접근 보안',          title: '뒷문이 열려 있나요?' },
   { lottie: '/lottie/alert.json', sub: 'SEO·신뢰도',               title: '구글이 경고하나요?' },
   { lottie: '/lottie/check.json', sub: '속도·성능',                title: '3초 안에 열리나요?' },
 ]
@@ -516,8 +516,8 @@ export default function SecurityPage() {
                 key={c.title}
                 className="bg-card border border-border rounded-xl p-5 flex flex-col items-center gap-2.5 text-center hover:border-primary/40 transition-colors"
               >
-                {'icon' in c
-                  ? <div className="text-4xl h-[72px] flex items-center justify-center">{c.icon}</div>
+                {'Icon' in c
+                  ? <div className="h-[72px] flex items-center justify-center">{(() => { const I = c.Icon; return <I className="h-9 w-9 text-foreground/60" /> })()}</div>
                   : <LottiePlayer src={c.lottie} width={72} height={72} />}
                 <p className="text-primary text-xs font-bold">{c.sub}</p>
                 <h3 className="text-foreground font-bold text-sm leading-snug">{c.title}</h3>
@@ -828,7 +828,7 @@ export default function SecurityPage() {
               <div className="bg-card border border-primary/20 rounded-xl p-5 mb-5">
                 <p className="text-xs font-bold text-primary uppercase tracking-wider mb-3">📄 무료 리포트에 담기는 내용</p>
                 <ul className="space-y-2.5">
-                  {[
+                  {([
                     ['🔒', 'SSL/TLS 등급 (A+~F)', 'SSL Labs 기준 상세 등급 · 취약 프로토콜 탐지'],
                     ['🛡️', '보안 헤더 13종 점검', 'HSTS·CSP·XFO·쿠키플래그 등 전체 확인'],
                     ['🍪', '쿠키 보안 플래그', 'HttpOnly·Secure·SameSite 설정 여부'],
@@ -839,9 +839,12 @@ export default function SecurityPage() {
                     ['🖥️', 'CMS·서버 버전 노출', '워드프레스·서버 기술 스택 정보 유출'],
                     ['🔍', 'SEO·페이지 속도', '구글 신뢰도·PageSpeed 성능 등급'],
                     ['💰', '자동 견적서 포함', '발견된 취약점 기준 패키지별 예상 비용'],
-                  ].map(([icon, title, desc]) => (
+                  ] as [string, string, string][]).map(([icon, title, desc]) => (
                     <li key={title} className="flex items-start gap-2.5">
-                      <span className="text-base shrink-0 mt-0.5">{icon}</span>
+                      {icon === '🔒' ? <Lock className="h-[18px] w-[18px] shrink-0 mt-0.5 text-foreground/60" />
+                        : icon === '🛡️' ? <Shield className="h-[18px] w-[18px] shrink-0 mt-0.5 text-foreground/60" />
+                        : icon === '🔍' ? <Search className="h-[18px] w-[18px] shrink-0 mt-0.5 text-foreground/60" />
+                        : <span className="text-base shrink-0 mt-0.5">{icon}</span>}
                       <div>
                         <span className="text-foreground font-semibold text-sm">{title}</span>
                         <span className="text-muted-foreground text-xs ml-2">— {desc}</span>
