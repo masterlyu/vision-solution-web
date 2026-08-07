@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { Mail, Globe, Clock, Loader2, MessageSquare, Shield, MonitorCheck } from 'lucide-react'
+import { Mail, Globe, Clock, Loader2, MessageSquare, Shield, MonitorCheck, Briefcase } from 'lucide-react'
 import Mascot from '@/components/Mascot'
 import UrlAnalysisForm from '@/components/UrlAnalysisForm'
 import RenewalDiagnosisForm from '@/components/RenewalDiagnosisForm'
@@ -132,7 +132,7 @@ export default function ContactPage() {
                   </div>
                 ) : (
                   <>
-                    <h2 className="text-foreground text-2xl font-black mb-6">💼 도입 상담 신청</h2>
+                    <h2 className="flex items-center gap-2 text-foreground text-2xl font-black mb-6"><Briefcase className="w-5 h-5" /> 도입 상담 신청</h2>
                     <form onSubmit={handleSubmit} className="space-y-5">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         <div>

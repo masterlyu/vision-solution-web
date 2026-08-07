@@ -5,7 +5,7 @@ import { motion, useMotionValue, useSpring, useTransform, useInView, type Varian
 import {
   Factory, Hospital, ShoppingCart,
   Building2, Utensils, GraduationCap,
-  Bot, Lock, Monitor, Smartphone, Settings, Handshake,
+  Bot, Lock, Monitor, Smartphone, Settings, Handshake, Briefcase,
 } from 'lucide-react'
 import Mascot from '@/components/Mascot'
 
@@ -113,7 +113,7 @@ export default function PortfolioPage() {
                 <Link href="/contact"
                   className="inline-flex items-center gap-2 text-primary-foreground font-bold px-8 py-3.5 rounded-xl hover:opacity-85 transition-opacity"
                   style={{ background: 'var(--primary)' }}>
-                  💼 도입 상담 신청 →
+                  <Briefcase className="w-5 h-5" /> 도입 상담 신청 →
                 </Link>
                 <Link href="/ai-solution/academy/dept-ai"
                   className="inline-flex items-center gap-2 font-bold px-8 py-3.5 rounded-xl transition-all"
@@ -298,7 +298,7 @@ export default function PortfolioPage() {
             <Link href="/contact"
               className="inline-flex items-center gap-2 text-primary-foreground font-bold px-10 py-4 rounded-xl hover:opacity-85 transition-opacity text-base"
               style={{ background: 'var(--primary)' }}>
-              💼 도입 상담 신청 →
+              <Briefcase className="w-5 h-5" /> 도입 상담 신청 →
             </Link>
             <Link href="/ai-solution"
               className="inline-flex items-center gap-2 font-bold px-10 py-4 rounded-xl transition-all text-base"

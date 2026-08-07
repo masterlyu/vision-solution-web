@@ -9,7 +9,7 @@ import certificationsData from '../../../content/company/certifications.json'
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 import Mascot from '@/components/Mascot'
-import { Rocket, Zap, Star, Users, Target, Bot, GraduationCap, Lock } from 'lucide-react'
+import { Rocket, Zap, Star, Users, Target, Bot, GraduationCap, Lock, Briefcase } from 'lucide-react'
 
 // ── LottiePlayer ──────────────────────────────────────────────────────────
 function LottiePlayer({ src, width = 120, height = 120, loop = true }: {
@@ -167,7 +167,7 @@ export default function AboutPage() {
                     padding: '15px 36px', borderRadius: 10,
                     fontSize: '1rem', fontWeight: 700, textDecoration: 'none',
                   }}>
-                    💼 도입 상담 신청 →
+                    <Briefcase className="w-5 h-5" /> 도입 상담 신청 →
                   </Link>
                   <Link href="/ai-solution/academy/dept-ai" style={{
                     display: 'inline-flex', alignItems: 'center', gap: 8,
@@ -176,7 +176,7 @@ export default function AboutPage() {
                     fontSize: '1rem', fontWeight: 700, textDecoration: 'none',
                     border: '1.5px solid color-mix(in oklch, var(--primary) 55%, transparent)',
                   }}>
-                    🎓 사내 출강 강좌 보기
+                    <GraduationCap className="w-5 h-5" /> 사내 출강 강좌 보기
                   </Link>
                 </div>
 
@@ -660,7 +660,7 @@ export default function AboutPage() {
                 padding: '16px 40px', borderRadius: 10,
                 fontSize: '1.05rem', fontWeight: 700, textDecoration: 'none',
               }}>
-                💼 도입 상담 신청 →
+                <Briefcase className="w-5 h-5" /> 도입 상담 신청 →
               </Link>
               <Link href="/ai-solution/academy/dept-ai" style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8,
@@ -669,7 +669,7 @@ export default function AboutPage() {
                 fontSize: '1.05rem', fontWeight: 700, textDecoration: 'none',
                 border: '1.5px solid color-mix(in oklch, var(--primary) 55%, transparent)',
               }}>
-                🎓 사내 출강 강좌 보기
+                <GraduationCap className="w-5 h-5" /> 사내 출강 강좌 보기
               </Link>
             </div>
 

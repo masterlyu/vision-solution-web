@@ -716,8 +716,8 @@ export default function SecurityPage() {
                       <h3 className="text-lg font-bold text-foreground mb-1">{p.name}</h3>
                       <p className={`text-3xl font-black ${p.highlight ? 'text-primary' : 'text-foreground'}`}>{p.price}</p>
                     </div>
-                    <p className="text-xs text-muted-foreground bg-secondary px-3 py-1.5 rounded-lg self-start mt-0.5">
-                      🎯 {p.target}
+                    <p className="flex items-center gap-1.5 text-xs text-muted-foreground bg-secondary px-3 py-1.5 rounded-lg self-start mt-0.5">
+                      <Target className="w-3.5 h-3.5 shrink-0" /> {p.target}
                     </p>
                   </div>
                 </div>

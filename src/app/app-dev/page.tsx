@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useState } from 'react'
-import { ArrowRight, CheckSquare, ChevronDown, ChevronUp } from 'lucide-react'
+import { ArrowRight, CheckSquare, ChevronDown, ChevronUp, Briefcase } from 'lucide-react'
 import Mascot from '@/components/Mascot'
 import { faqs } from './faqs'
 
@@ -105,7 +105,7 @@ export default function AppDevPage() {
             </p>
             <Link href="/contact"
               className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 rounded-xl transition-all text-base">
-              💼 도입 상담 신청 <ArrowRight className="w-5 h-5" />
+              <Briefcase className="w-5 h-5" /> 도입 상담 신청 <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
           <div className="hidden lg:flex flex-col justify-center items-center gap-6">

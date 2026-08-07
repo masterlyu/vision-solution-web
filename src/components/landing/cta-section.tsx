@@ -9,8 +9,6 @@ import Link from 'next/link'
 const fadeInUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const } } }
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.12 } } }
 
-void Briefcase
-
 export function CtaSection() {
   const [mouse, setMouse] = useState({ x: 50, y: 50 })
   const [primaryRgb, setPrimaryRgb] = useState('139,92,246')
@@ -61,7 +59,7 @@ export function CtaSection() {
 
               <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-3 mb-6">
                 <Button asChild size="lg" className="h-14 px-8 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-bold gap-2 shadow-lg shadow-primary/50 hover:shadow-primary/70 transition-all">
-                  <Link href="/contact">💼 도입 상담 신청 <ArrowRight className="w-4 h-4" /></Link>
+                  <Link href="/contact"><Briefcase className="w-5 h-5" /> 도입 상담 신청 <ArrowRight className="w-4 h-4" /></Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="h-14 px-7 rounded-xl border-2 border-primary text-primary hover:bg-primary/10 font-bold gap-2 transition-all">
                   <Link href="/academy"><GraduationCap className="w-4 h-4" /> 사내 출강 강좌 보기</Link>
