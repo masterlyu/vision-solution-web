@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { ClipboardList } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
@@ -208,7 +209,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             open
           >
             <summary className="cursor-pointer px-6 py-4 font-bold text-foreground text-sm flex items-center justify-between select-none list-none">
-              <span>📋 목차</span>
+              <span><ClipboardList className="inline h-4 w-4 mr-1.5" />목차</span>
               <span className="text-xs text-muted-foreground font-normal">클릭하여 접기/펼치기</span>
             </summary>
             <ol className="px-6 pb-5 pt-1 space-y-2">

@@ -5,7 +5,7 @@ import { motion, useMotionValue, useSpring, useTransform, useInView, type Varian
 import {
   Factory, Hospital, ShoppingCart,
   Building2, Utensils, GraduationCap,
-  Bot, Lock, Monitor, Smartphone, Settings, Handshake, Briefcase,
+  Bot, Lock, Monitor, Smartphone, Settings, Handshake, Briefcase, Phone,
 } from 'lucide-react'
 import Mascot from '@/components/Mascot'
 
@@ -312,7 +312,7 @@ export default function PortfolioPage() {
           </div>
 
           <p className="text-xs text-muted-foreground pt-2">
-            📞 평일 09:00~18:00 &nbsp;|&nbsp; 카카오톡 문의 가능 &nbsp;|&nbsp; biztalktome@gmail.com
+            <Phone className="inline h-3.5 w-3.5 mr-1" /> 평일 09:00~18:00 &nbsp;|&nbsp; 카카오톡 문의 가능 &nbsp;|&nbsp; biztalktome@gmail.com
           </p>
         </div>
       </section>

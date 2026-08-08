@@ -9,7 +9,7 @@ import certificationsData from '../../../content/company/certifications.json'
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 import Mascot from '@/components/Mascot'
-import { Rocket, Zap, Star, Users, Target, Bot, GraduationCap, Lock, Briefcase } from 'lucide-react'
+import { Rocket, Zap, Star, Users, Target, Bot, GraduationCap, Lock, Briefcase, Phone } from 'lucide-react'
 
 // ── LottiePlayer ──────────────────────────────────────────────────────────
 function LottiePlayer({ src, width = 120, height = 120, loop = true }: {
@@ -674,7 +674,7 @@ export default function AboutPage() {
             </div>
 
             <p style={{ fontSize: '0.84rem', color: 'var(--muted-foreground)' }}>
-              📞 평일 09:00~18:00 &nbsp;|&nbsp; 카카오톡 문의 가능 &nbsp;|&nbsp; biztalktome@gmail.com
+              <Phone className="inline h-3.5 w-3.5 mr-1" /> 평일 09:00~18:00 &nbsp;|&nbsp; 카카오톡 문의 가능 &nbsp;|&nbsp; biztalktome@gmail.com
             </p>
           </FadeInSection>
         </div>
