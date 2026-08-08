@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
 import { motion, useMotionValue, useSpring, useTransform, useInView, type Variants } from 'framer-motion'
 import UrlAnalysisForm from '@/components/UrlAnalysisForm'
-import { CheckCircle, XCircle, AlertTriangle, CheckSquare, ChevronDown, ChevronUp, Target, Briefcase, Shield, Lock, Globe, Mail, FolderOpen, Bug, Ban, Key, Search, type LucideIcon } from 'lucide-react'
+import { CheckCircle, XCircle, AlertTriangle, CheckSquare, ChevronDown, ChevronUp, Target, Briefcase, Shield, Lock, Globe, Mail, FolderOpen, Bug, Ban, Key, Search, Monitor, DollarSign, type LucideIcon } from 'lucide-react'
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 import Mascot from '@/components/Mascot'
@@ -841,10 +841,15 @@ export default function SecurityPage() {
                     ['💰', '자동 견적서 포함', '발견된 취약점 기준 패키지별 예상 비용'],
                   ] as [string, string, string][]).map(([icon, title, desc]) => (
                     <li key={title} className="flex items-start gap-2.5">
-                      {icon === '🔒' ? <Lock className="h-[18px] w-[18px] shrink-0 mt-0.5 text-foreground/60" />
-                        : icon === '🛡️' ? <Shield className="h-[18px] w-[18px] shrink-0 mt-0.5 text-foreground/60" />
-                        : icon === '🔍' ? <Search className="h-[18px] w-[18px] shrink-0 mt-0.5 text-foreground/60" />
-                        : <span className="text-base shrink-0 mt-0.5">{icon}</span>}
+                      {(() => {
+                        const ICON_MAP: Record<string, LucideIcon> = {
+                          '🔒': Lock, '🛡️': Shield, '🔍': Search,
+                          '🌐': Globe, '📧': Mail, '📁': FolderOpen,
+                          '🦠': Bug, '🖥️': Monitor, '🍪': Shield, '💰': DollarSign,
+                        }
+                        const I = ICON_MAP[icon]
+                        return I ? <I className="h-[18px] w-[18px] shrink-0 mt-0.5 text-foreground/60" /> : <span className="text-base shrink-0 mt-0.5">{icon}</span>
+                      })()}
                       <div>
                         <span className="text-foreground font-semibold text-sm">{title}</span>
                         <span className="text-muted-foreground text-xs ml-2">— {desc}</span>
