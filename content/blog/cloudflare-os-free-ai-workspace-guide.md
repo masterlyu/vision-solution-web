@@ -117,3 +117,12 @@ A. Cloudflare Workers 무료 플랜은 하루 10만 요청까지 비용이 없�
 > **Vision Solution AI 솔루션 문의**:  
 > 📧 biztalktome@gmail.com  
 > 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
+
+
+<!-- related-links -->
+
+## 함께 보면 좋은 글
+
+- [AI 비용 61% 줄여주는 텐센트 무료 실습](/blog/tencentdb-agent-memory-token-saving)
+- [무료 AI 오피스 GenOffice — 10분 실습 가이드](/blog/genoffice-free-ai-office-suite-guide)
+- [구글 지도 리뷰 AI 답변 — Gemini 5분 설정](/blog/gemini-google-review-ai-reply-5min)
