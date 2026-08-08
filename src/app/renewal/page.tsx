@@ -1,7 +1,8 @@
 'use client'
 import Link from 'next/link'
 import { useState } from 'react'
-import { ArrowRight, CheckSquare, ChevronDown, ChevronUp, Zap, Smartphone, Target, Search, Briefcase } from 'lucide-react'
+import { ArrowRight, CheckSquare, ChevronDown, ChevronUp, Zap, Smartphone, Target, Search, Briefcase, Shield, Pencil, Eye, BarChart2 } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import Mascot from '@/components/Mascot'
 import RenewalDiagnosisForm from '@/components/RenewalDiagnosisForm'
 import { faqs } from './faqs'
@@ -348,18 +349,23 @@ export default function RenewalPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-            {[
-              { icon: '🛡', title: '보안 패치',          desc: '취약점 발견 시 즉시 업데이트' },
-              { icon: '✏️', title: '콘텐츠 수정',         desc: '요청 후 영업일 1일 내 처리' },
-              { icon: '👁', title: '24시간 모니터링',     desc: '사이트 다운 시 담당자가 먼저 연락' },
-              { icon: '📊', title: '월간 리포트',         desc: '방문자·속도·보안 상태 정리 발송' },
-            ].map((s, i) => (
-              <div key={i} className="bg-background border border-border rounded-xl p-5">
-                <div className="text-2xl mb-2">{s.icon}</div>
-                <div className="font-bold text-foreground text-sm mb-1">{s.title}</div>
-                <div className="text-xs text-muted-foreground leading-snug">{s.desc}</div>
-              </div>
-            ))}
+            {(
+              [
+                { icon: Shield,    title: '보안 패치',      desc: '취약점 발견 시 즉시 업데이트' },
+                { icon: Pencil,    title: '콘텐츠 수정',    desc: '요청 후 영업일 1일 내 처리' },
+                { icon: Eye,       title: '24시간 모니터링', desc: '사이트 다운 시 담당자가 먼저 연락' },
+                { icon: BarChart2, title: '월간 리포트',     desc: '방문자·속도·보안 상태 정리 발송' },
+              ] as { icon: LucideIcon; title: string; desc: string }[]
+            ).map((s, i) => {
+              const Icon = s.icon
+              return (
+                <div key={i} className="bg-background border border-border rounded-xl p-5">
+                  <div className="mb-2"><Icon className="h-6 w-6 text-primary" /></div>
+                  <div className="font-bold text-foreground text-sm mb-1">{s.title}</div>
+                  <div className="text-xs text-muted-foreground leading-snug">{s.desc}</div>
+                </div>
+              )
+            })}
           </div>
 
           <div className="text-center">

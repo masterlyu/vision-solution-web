@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ChevronDown, ChevronUp, Calendar } from 'lucide-react'
+import { ChevronDown, ChevronUp, Calendar, Download, Star } from 'lucide-react'
 import EnterpriseDownloadClient from './EnterpriseDownloadClient'
 
 type Lesson = [string, string]
@@ -36,10 +36,10 @@ export default function SectionCard({ part, title, desc, lessons, ready, star, s
         <div className="flex items-baseline gap-3 mb-2 flex-wrap">
           <span className="text-sm font-mono font-bold text-primary tracking-wider">{part}</span>
           <h3 className="text-xl font-black text-foreground tracking-tight">{title}</h3>
-          {star && <span className="text-xs text-primary font-bold">⭐ 핵심</span>}
+          {star && <span className="text-xs text-primary font-bold"><Star className="inline w-3 h-3 mr-0.5 -mt-0.5" /> 핵심</span>}
           {ready ? (
             <span className="text-xs font-mono font-bold text-[var(--accent-green-text)] bg-[var(--accent-green-text)]/15 px-2.5 py-1 rounded-full">
-              📥 자료 공개
+              <Download className="inline w-3 h-3 mr-0.5 -mt-0.5" /> 자료 공개
             </span>
           ) : (
             <span className="text-xs font-mono font-bold text-[var(--accent-amber)] bg-[var(--accent-amber)]/15 px-2.5 py-1 rounded-full">

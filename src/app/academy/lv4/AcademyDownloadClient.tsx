@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { LockOpen } from 'lucide-react'
+import { LockOpen, Download, FileText } from 'lucide-react'
 
 type AuthState = 'idle' | 'checking' | 'authed' | 'wrong' | 'rate-limited'
 
@@ -56,14 +56,14 @@ export default function AcademyDownloadClient() {
               download
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-bold hover:bg-primary/90 transition-colors"
             >
-              <span>📥</span> PPTX 다운로드
+              <Download className="h-4 w-4" /> PPTX 다운로드
             </a>
             <a
               href="/academy/lv4-slides.pdf"
               download
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border text-foreground text-sm font-bold hover:border-primary/50 transition-colors"
             >
-              <span>📄</span> PDF
+              <FileText className="h-4 w-4" /> PDF
             </a>
           </div>
         </div>
@@ -107,7 +107,7 @@ export default function AcademyDownloadClient() {
                 href="/api/academy/download/lv4-speaker-notes"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-bold hover:bg-primary/90 transition-colors w-fit"
               >
-                <span>📥</span> 스피커 노트 다운로드
+                <Download className="h-4 w-4" /> 스피커 노트 다운로드
               </a>
               {message && (
                 <p className="text-xs text-[var(--accent-green-text)] font-medium">{message}</p>
