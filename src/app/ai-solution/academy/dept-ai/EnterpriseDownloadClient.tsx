@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Lock, LockOpen } from 'lucide-react'
+import { Lock, LockOpen, Download } from 'lucide-react'
 
 type AuthState = 'idle' | 'checking' | 'authed' | 'wrong' | 'rate-limited'
 
@@ -137,7 +137,7 @@ export default function EnterpriseDownloadClient({
               href={`/api/academy/download/${slidesKey}`}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-bold hover:bg-primary/90 transition-colors w-fit"
             >
-              <span>📥</span> PPTX 다운로드
+              <Download className="h-4 w-4" /> PPTX 다운로드
             </a>
           ) : (
             <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-foreground/10 text-foreground/85 text-sm font-medium w-fit cursor-not-allowed">
@@ -157,7 +157,7 @@ export default function EnterpriseDownloadClient({
               href={`/api/academy/download/${notesKey}`}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-bold hover:bg-primary/90 transition-colors w-fit"
             >
-              <span>📥</span> 스피커 노트 다운로드
+              <Download className="h-4 w-4" /> 스피커 노트 다운로드
             </a>
           ) : (
             <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-foreground/10 text-foreground/85 text-sm font-medium w-fit cursor-not-allowed">

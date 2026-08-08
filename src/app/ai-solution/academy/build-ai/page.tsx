@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { Clock, Download, Calendar } from 'lucide-react'
 import SectionCard from './SectionCard'
 
 export const metadata: Metadata = {
@@ -92,10 +93,10 @@ export default function BuildAiCourse() {
             자체 호스팅·에이전트·보안·운영 — IT 담당자·관리자 대상
           </p>
           <div className="flex flex-wrap gap-2 text-sm font-mono font-bold">
-            <span className="px-3 py-1.5 rounded-full bg-primary/20 text-primary">⏱ 약 10시간</span>
+            <span className="px-3 py-1.5 rounded-full bg-primary/20 text-primary"><Clock className="inline h-3.5 w-3.5 mr-1 -mt-0.5" />약 10시간</span>
             <span className="px-3 py-1.5 rounded-full bg-foreground/10 text-foreground">11편 {totalLessons}강</span>
             <span className="px-3 py-1.5 rounded-full bg-foreground/10 text-foreground">사내 출강</span>
-            <span className="px-3 py-1.5 rounded-full bg-[var(--accent-green-text)]/20 text-[var(--accent-green-text)]">📥 1편 자료 공개 ({readyCount}/{totalLessons}강)</span>
+            <span className="px-3 py-1.5 rounded-full bg-[var(--accent-green-text)]/20 text-[var(--accent-green-text)]"><Download className="inline h-3.5 w-3.5 mr-1 -mt-0.5" />1편 자료 공개 ({readyCount}/{totalLessons}강)</span>
           </div>
         </div>
 
@@ -108,7 +109,7 @@ export default function BuildAiCourse() {
         <div className="mb-16">
           <h2 className="text-2xl md:text-3xl font-black text-foreground mb-6 tracking-tight">전체 커리큘럼</h2>
           <p className="text-base text-foreground/85 font-medium mb-6">
-            <span className="text-[var(--accent-green-text)] font-bold">1편이 먼저 공개</span>됐습니다 — <b>편 카드를 클릭하면 PPT 슬라이드와 강사용 스피커 노트를 내려받을 수 있습니다.</b> 나머지 편은 <span className="text-[var(--accent-amber)] font-bold">📅 자료 준비 중</span>으로 순차 공개됩니다.
+            <span className="text-[var(--accent-green-text)] font-bold">1편이 먼저 공개</span>됐습니다 — <b>편 카드를 클릭하면 PPT 슬라이드와 강사용 스피커 노트를 내려받을 수 있습니다.</b> 나머지 편은 <span className="text-[var(--accent-amber)] font-bold"><Calendar className="inline h-3.5 w-3.5 mr-0.5 -mt-0.5" />자료 준비 중</span>으로 순차 공개됩니다.
           </p>
           <div className="space-y-6">
             {SECTIONS.map((sec) => (

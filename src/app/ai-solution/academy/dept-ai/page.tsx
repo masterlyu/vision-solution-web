@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { Clock, Download } from 'lucide-react'
 import SectionCard from './SectionCard'
 
 export const metadata: Metadata = {
@@ -123,7 +124,7 @@ export default function DeptAiCourse() {
             중소기업 LLM 활용법 — 일반 직원·관리자 대상
           </p>
           <div className="flex flex-wrap gap-2 text-sm font-mono font-bold">
-            <span className="px-3 py-1.5 rounded-full bg-primary/20 text-primary">⏱ 약 4시간</span>
+            <span className="px-3 py-1.5 rounded-full bg-primary/20 text-primary"><Clock className="inline h-3.5 w-3.5 mr-1 -mt-0.5" />약 4시간</span>
             <span className="px-3 py-1.5 rounded-full bg-foreground/10 text-foreground">5편 {totalLessons}강</span>
             <span className="px-3 py-1.5 rounded-full bg-foreground/10 text-foreground">사내 출강</span>
             <span className="px-3 py-1.5 rounded-full bg-[var(--accent-green-text)]/20 text-[var(--accent-green-text)]">자료 공개: {readyLessons}/{totalLessons}강</span>
@@ -139,7 +140,7 @@ export default function DeptAiCourse() {
         <div className="mb-16">
           <h2 className="text-2xl md:text-3xl font-black text-foreground mb-6 tracking-tight">전체 커리큘럼</h2>
           <p className="text-base text-foreground/85 font-medium mb-6">
-            자료가 공개된 편(<span className="text-[var(--accent-green-text)] font-bold">📥 자료 공개</span>)은 클릭하면 다운로드가 펼쳐집니다.
+            자료가 공개된 편(<span className="text-[var(--accent-green-text)] font-bold"><Download className="inline h-3.5 w-3.5 mr-0.5 -mt-0.5" />자료 공개</span>)은 클릭하면 다운로드가 펼쳐집니다.
           </p>
           <div className="space-y-6">
             {SECTIONS.map((sec) => (

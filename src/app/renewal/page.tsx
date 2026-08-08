@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useState } from 'react'
-import { ArrowRight, CheckSquare, ChevronDown, ChevronUp, Zap, Smartphone, Target, Search, Briefcase, Shield, Pencil, Eye, BarChart2 } from 'lucide-react'
+import { ArrowRight, CheckSquare, ChevronDown, ChevronUp, Zap, Smartphone, Target, Search, Briefcase, Shield, Pencil, Eye, BarChart2, MessageCircle } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import Mascot from '@/components/Mascot'
 import RenewalDiagnosisForm from '@/components/RenewalDiagnosisForm'
@@ -257,7 +257,7 @@ export default function RenewalPage() {
                     <p className="text-muted-foreground text-sm">{s.desc}</p>
                     {/* VISI 말풍선 텍스트 (모바일) */}
                     <p className="text-primary text-xs mt-2 sm:hidden font-medium">
-                      💬 {s.bubble}
+                      <MessageCircle className="inline h-3.5 w-3.5 mr-1 -mt-0.5" />{s.bubble}
                     </p>
                   </div>
                 </div>
