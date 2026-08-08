@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
 import { motion, useMotionValue, useSpring, useTransform, useInView, type Variants } from 'framer-motion'
 import UrlAnalysisForm from '@/components/UrlAnalysisForm'
-import { CheckCircle, XCircle, AlertTriangle, CheckSquare, ChevronDown, ChevronUp, Target, Briefcase, Shield, Lock, Globe, Mail, FolderOpen, Bug, Ban, Key, Search, Monitor, DollarSign, type LucideIcon } from 'lucide-react'
+import { CheckCircle, XCircle, AlertTriangle, CheckSquare, ChevronDown, ChevronUp, Target, Briefcase, Shield, Lock, Globe, Mail, FolderOpen, Bug, Ban, Key, Search, Monitor, DollarSign, CreditCard, Skull, Pin, Phone, CircleHelp, Plug, Clock, Home, ShoppingCart, Store, Wrench, FileText, ClipboardList, type LucideIcon } from 'lucide-react'
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 import Mascot from '@/components/Mascot'
@@ -122,15 +122,19 @@ const stats = [
   { value: 95,   suffix: '%',   gaugePercent: 0.95, color: 'red',    desc: '구글 위험 경고 시 즉시 이탈' },
 ]
 
-const dangers = [
+type DangerItem =
+  | { Icon: LucideIcon; title: string; case: string; color: string }
+  | { lottie: string; title: string; case: string; color: string }
+
+const dangers: DangerItem[] = [
   {
-    icon: '💳',
+    Icon: CreditCard,
     title: '고객 카드정보가 통째로 빠져나갑니다',
     case: '국내 쇼핑몰 2,300명 카드 유출 → 3개월 만에 폐업.',
     color: 'red',
   },
   {
-    icon: '☠️',
+    Icon: Skull,
     title: '내 사이트가 범죄 도구로 쓰입니다',
     case: '소규모 병원 홈페이지 악성코드 유포지 → 구글 완전 차단.',
     color: 'orange',
@@ -187,23 +191,23 @@ const steps = [
 ]
 
 const siteTypes = [
-  { emoji: '🌐', label: '워드프레스',      ok: true  },
-  { emoji: '🏠', label: '일반 홈페이지',   ok: true  },
-  { emoji: '🛒', label: '쇼핑몰',          ok: true  },
-  { emoji: '🖥️', label: '커스텀 서버',     ok: true  },
-  { emoji: '🏪', label: '카페24 / 아임웹', ok: null  },
-  { emoji: '🏬', label: '스마트스토어',    ok: false },
+  { Icon: Globe,        label: '워드프레스',      ok: true  },
+  { Icon: Home,         label: '일반 홈페이지',   ok: true  },
+  { Icon: ShoppingCart, label: '쇼핑몰',          ok: true  },
+  { Icon: Monitor,      label: '커스텀 서버',     ok: true  },
+  { Icon: Store,        label: '카페24 / 아임웹', ok: null  },
+  { Icon: Store,        label: '스마트스토어',    ok: false },
 ]
 
 // ── Security-specific data ─────────────────────────────────────────────────
 const empathyItems = [
-  { emoji: '🔒', text: '주소창에 자물쇠(🔒) 표시가 없다' },
-  { emoji: '⏰', text: '마지막으로 보안 점검을 한 게 언제인지 모른다' },
-  { emoji: '📞', text: '홈페이지를 만든 업체와 연락이 끊겼다' },
-  { emoji: '❓', text: '고객이 "이 사이트 안전한가요?"라고 물어본 적 있다' },
-  { emoji: '🔑', text: '비밀번호를 한 번도 바꾼 적 없는 관리자 계정이 있다' },
-  { emoji: '🔌', text: '워드프레스나 플러그인 업데이트를 오래 안 했다' },
-  { emoji: '🚨', text: '어느 날 갑자기 사이트가 이상한 페이지로 바뀐 적 있다' },
+  { Icon: Lock,          text: '주소창에 자물쇠 표시가 없다' },
+  { Icon: Clock,         text: '마지막으로 보안 점검을 한 게 언제인지 모른다' },
+  { Icon: Phone,         text: '홈페이지를 만든 업체와 연락이 끊겼다' },
+  { Icon: CircleHelp,    text: '고객이 "이 사이트 안전한가요?"라고 물어본 적 있다' },
+  { Icon: Key,           text: '비밀번호를 한 번도 바꾼 적 없는 관리자 계정이 있다' },
+  { Icon: Plug,          text: '워드프레스나 플러그인 업데이트를 오래 안 했다' },
+  { Icon: AlertTriangle, text: '어느 날 갑자기 사이트가 이상한 페이지로 바뀐 적 있다' },
 ]
 
 
@@ -443,12 +447,15 @@ export default function SecurityPage() {
             혹시 이런 상황이세요?
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-            {empathyItems.map((item, i) => (
-              <div key={i} className="bg-card rounded-xl shadow-sm p-5 flex items-start gap-3">
-                <span className="text-xl shrink-0">{item.emoji}</span>
-                <span className="text-foreground font-medium text-sm">{item.text}</span>
-              </div>
-            ))}
+            {empathyItems.map((item, i) => {
+              const I = item.Icon
+              return (
+                <div key={i} className="bg-card rounded-xl shadow-sm p-5 flex items-start gap-3">
+                  <I className="w-5 h-5 shrink-0 text-foreground/60 mt-0.5" />
+                  <span className="text-foreground font-medium text-sm">{item.text}</span>
+                </div>
+              )
+            })}
           </div>
           <div className="border-l-4 border-destructive bg-destructive/10 px-6 py-4 rounded-r-xl flex items-center justify-between gap-4 flex-wrap">
             <p className="text-foreground font-semibold">하나라도 해당된다면, 지금 보안 셀프 점검을 받아 보세요.</p>
@@ -485,20 +492,22 @@ export default function SecurityPage() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {dangers.map(d => (
+            {dangers.map(d => {
+              const DangerIcon = 'Icon' in d ? d.Icon : null
+              return (
               <div
                 key={d.title}
                 className={`border rounded-xl p-6 flex flex-col items-center gap-3 ${dangerColorMap[d.color]}`}
               >
-                {'icon' in d
-                  ? <div className="text-6xl h-[100px] flex items-center justify-center">{d.icon}</div>
-                  : <LottiePlayer src={d.lottie} width={100} height={100} />}
+                {DangerIcon
+                  ? <div className="h-[100px] flex items-center justify-center"><DangerIcon className="h-14 w-14 text-foreground/70" /></div>
+                  : <LottiePlayer src={(d as { lottie: string }).lottie} width={100} height={100} />}
                 <h3 className="text-foreground font-bold text-base text-center">{d.title}</h3>
-                <div className={`border rounded-xl px-4 py-2 text-xs text-center w-full ${dangerCaseBg[d.color]}`}>
-                  📌 {d.case}
+                <div className={`border rounded-xl px-4 py-2 text-xs text-center w-full flex items-center justify-center gap-1 ${dangerCaseBg[d.color]}`}>
+                  <Pin className="inline w-3 h-3 shrink-0" />{d.case}
                 </div>
               </div>
-            ))}
+            )})}
           </div>
         </div>
       </section>
@@ -594,22 +603,25 @@ export default function SecurityPage() {
           </h2>
 
           <div className="grid grid-cols-3 gap-3.5">
-            {siteTypes.map(s => (
-              <div
-                key={s.label}
-                className={`bg-card border rounded-xl py-4 px-3 flex flex-col items-center gap-1.5 ${
-                  s.ok === true  ? 'border-[var(--accent-green)]/30' :
-                  s.ok === null  ? 'border-[var(--accent-amber)]/30' :
-                  'border-[var(--accent-red)]/20 opacity-55'
-                }`}
-              >
-                <span className="text-3xl">{s.emoji}</span>
-                <span className="text-foreground font-bold text-sm">{s.label}</span>
-                <span className={`text-xl font-bold ${s.ok === true ? 'text-[var(--accent-green)]' : s.ok === null ? 'text-[var(--accent-amber)]' : 'text-[var(--accent-red)]'}`}>
-                  {s.ok === true ? '✓' : s.ok === null ? '△' : '✗'}
-                </span>
-              </div>
-            ))}
+            {siteTypes.map(s => {
+              const I = s.Icon
+              return (
+                <div
+                  key={s.label}
+                  className={`bg-card border rounded-xl py-4 px-3 flex flex-col items-center gap-1.5 ${
+                    s.ok === true  ? 'border-[var(--accent-green)]/30' :
+                    s.ok === null  ? 'border-[var(--accent-amber)]/30' :
+                    'border-[var(--accent-red)]/20 opacity-55'
+                  }`}
+                >
+                  <I className="w-7 h-7 text-foreground/60" />
+                  <span className="text-foreground font-bold text-sm">{s.label}</span>
+                  <span className={`text-xl font-bold ${s.ok === true ? 'text-[var(--accent-green)]' : s.ok === null ? 'text-[var(--accent-amber)]' : 'text-[var(--accent-red)]'}`}>
+                    {s.ok === true ? '✓' : s.ok === null ? '△' : '✗'}
+                  </span>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -755,7 +767,7 @@ export default function SecurityPage() {
                         <ul className="space-y-1.5">
                           {p.checkItems.map((item, j) => (
                             <li key={j} className="flex items-start gap-2 text-sm text-foreground/70">
-                              <span className="text-[var(--accent-blue)] shrink-0 mt-0.5 text-xs">🔍</span>
+                              <Search className="w-3.5 h-3.5 text-[var(--accent-blue)] shrink-0 mt-0.5" />
                               <span>{item}</span>
                             </li>
                           ))}
@@ -766,7 +778,7 @@ export default function SecurityPage() {
                         <ul className="space-y-1.5">
                           {p.fixItems.map((item, j) => (
                             <li key={j} className="flex items-start gap-2 text-sm text-foreground/70">
-                              <span className="text-[var(--accent-green)] shrink-0 mt-0.5 text-xs">🔧</span>
+                              <Wrench className="w-3.5 h-3.5 text-[var(--accent-green)] shrink-0 mt-0.5" />
                               <span>{item}</span>
                             </li>
                           ))}
@@ -781,8 +793,8 @@ export default function SecurityPage() {
                       ? 'bg-[var(--accent-green)]/10 border border-[var(--accent-green)]/20 text-[var(--accent-green)]'
                       : 'bg-[var(--accent-amber)]/10 border border-[var(--accent-amber)]/20 text-[var(--accent-amber)]'}`}>
                     {p.reportType === 'auto'
-                      ? '📄 이메일 인증 후 자동 점검 → PDF 리포트 발송'
-                      : '📋 전문가 수동 분석 → 개별 리포트 발송'}
+                      ? <><FileText className="inline w-3.5 h-3.5 mr-1" />이메일 인증 후 자동 점검 → PDF 리포트 발송</>
+                      : <><ClipboardList className="inline w-3.5 h-3.5 mr-1" />전문가 수동 분석 → 개별 리포트 발송</>}
                   </div>
                 </div>
 
@@ -826,7 +838,7 @@ export default function SecurityPage() {
 
               {/* 무료 리포트 안내 */}
               <div className="bg-card border border-primary/20 rounded-xl p-5 mb-5">
-                <p className="text-xs font-bold text-primary uppercase tracking-wider mb-3">📄 무료 리포트에 담기는 내용</p>
+                <p className="text-xs font-bold text-primary uppercase tracking-wider mb-3"><FileText className="inline w-3.5 h-3.5 mr-1" />무료 리포트에 담기는 내용</p>
                 <ul className="space-y-2.5">
                   {([
                     ['🔒', 'SSL/TLS 등급 (A+~F)', 'SSL Labs 기준 상세 등급 · 취약 프로토콜 탐지'],
@@ -858,7 +870,7 @@ export default function SecurityPage() {
                   ))}
                 </ul>
                 <div className="mt-4 pt-3 border-t border-border/50 text-xs text-muted-foreground">
-                  ✅ 도메인 이메일로 <strong className="text-foreground">본인 인증</strong> 후 자동 분석 →
+                  <CheckCircle className="inline w-3.5 h-3.5 mr-1 text-[var(--accent-green)]" /> 도메인 이메일로 <strong className="text-foreground">본인 인증</strong> 후 자동 분석 →
                   입력한 이메일로 <strong className="text-foreground">PDF 리포트 + 견적서 발송</strong>
                 </div>
               </div>
