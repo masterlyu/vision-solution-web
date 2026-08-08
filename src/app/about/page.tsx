@@ -9,7 +9,11 @@ import certificationsData from '../../../content/company/certifications.json'
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 import Mascot from '@/components/Mascot'
-import { Rocket, Zap, Star, Users, Target, Bot, GraduationCap, Lock, Briefcase, Phone } from 'lucide-react'
+import { Rocket, Zap, Star, Users, Target, Bot, GraduationCap, Lock, Briefcase, Phone, ScrollText, Coffee, BadgeCheck, Building2, type LucideProps } from 'lucide-react'
+
+const CERT_ICON_MAP: Record<string, React.ComponentType<LucideProps>> = {
+  Rocket, ScrollText, Lock, Coffee, BadgeCheck, Building2,
+}
 
 // ── LottiePlayer ──────────────────────────────────────────────────────────
 function LottiePlayer({ src, width = 120, height = 120, loop = true }: {
@@ -516,7 +520,9 @@ export default function AboutPage() {
                   background: 'var(--card)', border: '1px solid var(--border)',
                   borderRadius: 12, padding: '20px 22px', display: 'flex', alignItems: 'center', gap: 14,
                 }}>
-                  <div style={{ fontSize: '1.8rem', flexShrink: 0 }}>{badge.icon}</div>
+                  <div style={{ flexShrink: 0 }}>
+                    {(() => { const Icon = CERT_ICON_MAP[badge.icon]; return Icon ? <Icon size={28} style={{ color: 'var(--primary-light)' }} /> : null })()}
+                  </div>
                   <div>
                     <strong style={{ display: 'block', fontSize: '0.9rem', fontWeight: 800, marginBottom: 2 }}>{badge.title}</strong>
                     <span style={{ fontSize: '0.78rem', color: 'var(--muted-foreground)' }}>{badge.sub}</span>
