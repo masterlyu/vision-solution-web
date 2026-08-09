@@ -25,7 +25,7 @@ function CountUpNumber({ value, suffix = '', decimals = 0, duration = 1.5 }: {
   useEffect(() => { setMounted(true) }, [])
   useEffect(() => { if (isInView) motionVal.set(value) }, [isInView, value, motionVal])
 
-  if (!mounted) return <span ref={ref}>{decimals > 0 ? value.toFixed(decimals) : value.toLocaleString()}{suffix}</span>
+  if (!mounted) return <span ref={ref}>{`${decimals > 0 ? value.toFixed(decimals) : value.toLocaleString()}${suffix}`}</span>
   return <motion.span ref={ref}>{display}</motion.span>
 }
 

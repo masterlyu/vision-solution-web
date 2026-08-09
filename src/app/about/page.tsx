@@ -50,7 +50,7 @@ function CountUpNumber({ value, suffix = '', prefix = '', decimals = 0, duration
     if (isInView) motionVal.set(value)
   }, [isInView, value, motionVal])
 
-  if (!mounted) return <span ref={ref}>{prefix}{decimals > 0 ? value.toFixed(decimals) : value.toLocaleString()}{suffix}</span>
+  if (!mounted) return <span ref={ref}>{`${prefix}${decimals > 0 ? value.toFixed(decimals) : value.toLocaleString()}${suffix}`}</span>
   return <motion.span ref={ref}>{display}</motion.span>
 }
 
