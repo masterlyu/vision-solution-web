@@ -43,14 +43,15 @@ function CountUpNumber({ value, suffix = '', prefix = '', decimals = 0, duration
   const display = useTransform(springVal, v =>
     `${prefix}${decimals > 0 ? v.toFixed(decimals) : Math.round(v).toLocaleString()}${suffix}`
   )
+  const [mounted, setMounted] = useState(false)
 
+  useEffect(() => { setMounted(true) }, [])
   useEffect(() => {
     if (isInView) motionVal.set(value)
   }, [isInView, value, motionVal])
 
-  // suppressHydrationWarning: server renders display.get() as text node, but client-side
-  // framer-motion handles MotionValue children via direct DOM mutation (renders empty span).
-  return <motion.span ref={ref} suppressHydrationWarning>{display}</motion.span>
+  if (!mounted) return <span ref={ref}>{prefix}{decimals > 0 ? value.toFixed(decimals) : value.toLocaleString()}{suffix}</span>
+  return <motion.span ref={ref}>{display}</motion.span>
 }
 
 // ── FadeInSection ──────────────────────────────────────────────────────────

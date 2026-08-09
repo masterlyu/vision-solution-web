@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { motion, useMotionValue, useSpring, useTransform, useInView, type Variants } from 'framer-motion'
 import {
@@ -20,10 +20,13 @@ function CountUpNumber({ value, suffix = '', decimals = 0, duration = 1.5 }: {
   const display = useTransform(spring, v =>
     decimals > 0 ? `${v.toFixed(decimals)}${suffix}` : `${Math.round(v).toLocaleString()}${suffix}`
   )
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => { setMounted(true) }, [])
   useEffect(() => { if (isInView) motionVal.set(value) }, [isInView, value, motionVal])
-  // suppressHydrationWarning: server renders display.get() as text node, but client-side
-  // framer-motion handles MotionValue children via direct DOM mutation (renders empty span).
-  return <motion.span ref={ref} suppressHydrationWarning>{display}</motion.span>
+
+  if (!mounted) return <span ref={ref}>{decimals > 0 ? value.toFixed(decimals) : value.toLocaleString()}{suffix}</span>
+  return <motion.span ref={ref}>{display}</motion.span>
 }
 
 // ── Animation Variants ────────────────────────────────────────────────────
