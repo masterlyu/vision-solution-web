@@ -21,7 +21,9 @@ function CountUpNumber({ value, suffix = '', decimals = 0, duration = 1.5 }: {
     decimals > 0 ? `${v.toFixed(decimals)}${suffix}` : `${Math.round(v).toLocaleString()}${suffix}`
   )
   useEffect(() => { if (isInView) motionVal.set(value) }, [isInView, value, motionVal])
-  return <motion.span ref={ref}>{display}</motion.span>
+  // suppressHydrationWarning: server renders display.get() as text node, but client-side
+  // framer-motion handles MotionValue children via direct DOM mutation (renders empty span).
+  return <motion.span ref={ref} suppressHydrationWarning>{display}</motion.span>
 }
 
 // ── Animation Variants ────────────────────────────────────────────────────
