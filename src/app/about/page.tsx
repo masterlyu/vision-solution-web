@@ -1,7 +1,6 @@
 'use client'
 import dynamic from 'next/dynamic'
 import { useState, useEffect, useRef } from 'react'
-import { useInView } from 'framer-motion'
 import Link from 'next/link'
 import historyData from '../../../content/company/history.json'
 import clientsData from '../../../content/company/clients.json'
@@ -68,9 +67,21 @@ function CountUpNumber({ value, suffix = '', prefix = '', decimals = 0, duration
 }
 
 // ── FadeInSection ──────────────────────────────────────────────────────────
+function usePlainInView(ref: React.RefObject<HTMLElement | null>): boolean {
+  const [inView, setInView] = useState(false)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setInView(true); obs.disconnect() } }, { rootMargin: '-60px' })
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [ref])
+  return inView
+}
+
 function FadeInSection({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { once: true, margin: '-60px' })
+  const isInView = usePlainInView(ref)
   return (
     <div
       ref={ref}

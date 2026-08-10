@@ -115,9 +115,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <main>{children}</main>
         <FooterSection />
         <FontLoader />
-        {/* VISIONC 챗봇 */}
+        {/* VISIONC 챗봇 — suppressHydrationWarning: 브라우저가 nonce 속성을 파싱 후 제거하므로 SSR/CSR nonce 불일치는 정상 */}
         <script
           nonce={nonce}
+          suppressHydrationWarning
           dangerouslySetInnerHTML={{
             __html: `window.difyChatbotConfig={token:'PCt1VlRbyvKH4dX3',baseUrl:'https://chatbot.visionc.co.kr'}`
           }}
