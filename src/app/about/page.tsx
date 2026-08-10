@@ -1,7 +1,7 @@
 'use client'
 import dynamic from 'next/dynamic'
 import { useState, useEffect, useRef } from 'react'
-import { motion, useMotionValue, useSpring, useTransform, useInView } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
 import historyData from '../../../content/company/history.json'
 import clientsData from '../../../content/company/clients.json'
@@ -37,21 +37,34 @@ function CountUpNumber({ value, suffix = '', prefix = '', decimals = 0, duration
   value: number; suffix?: string; prefix?: string; decimals?: number; duration?: number
 }) {
   const ref = useRef<HTMLSpanElement>(null)
-  const isInView = useInView(ref, { once: true, margin: '-80px' })
-  const motionVal = useMotionValue(0)
-  const springVal = useSpring(motionVal, { duration: duration * 1000, bounce: 0 })
-  const display = useTransform(springVal, v =>
-    `${prefix}${decimals > 0 ? v.toFixed(decimals) : Math.round(v).toLocaleString()}${suffix}`
-  )
-  const [mounted, setMounted] = useState(false)
 
-  useEffect(() => { setMounted(true) }, [])
   useEffect(() => {
-    if (isInView) motionVal.set(value)
-  }, [isInView, value, motionVal])
+    const el = ref.current
+    if (!el) return
+    let rafId: number
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return
+      observer.disconnect()
+      const startTime = performance.now()
+      const durationMs = duration * 1000
+      const tick = (now: number) => {
+        const progress = Math.min((now - startTime) / durationMs, 1)
+        const eased = 1 - Math.pow(1 - progress, 4)
+        const v = value * eased
+        el.textContent = `${prefix}${decimals > 0 ? v.toFixed(decimals) : Math.round(v).toLocaleString()}${suffix}`
+        if (progress < 1) rafId = requestAnimationFrame(tick)
+      }
+      rafId = requestAnimationFrame(tick)
+    }, { rootMargin: '-80px' })
+    observer.observe(el)
+    return () => { observer.disconnect(); cancelAnimationFrame(rafId) }
+  }, [value, suffix, prefix, decimals, duration])
 
-  if (!mounted) return <span ref={ref}>{`${prefix}${decimals > 0 ? value.toFixed(decimals) : value.toLocaleString()}${suffix}`}</span>
-  return <motion.span ref={ref}>{display}</motion.span>
+  return (
+    <span ref={ref} suppressHydrationWarning>
+      {`${prefix}${decimals > 0 ? value.toFixed(decimals) : String(value)}${suffix}`}
+    </span>
+  )
 }
 
 // ── FadeInSection ──────────────────────────────────────────────────────────

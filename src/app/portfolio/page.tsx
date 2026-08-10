@@ -1,7 +1,7 @@
 'use client'
-import { useState, useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { motion, useMotionValue, useSpring, useTransform, useInView, type Variants } from 'framer-motion'
+import { motion, type Variants } from 'framer-motion'
 import {
   Factory, Hospital, ShoppingCart,
   Building2, Utensils, GraduationCap,
@@ -14,19 +14,34 @@ function CountUpNumber({ value, suffix = '', decimals = 0, duration = 1.5 }: {
   value: number; suffix?: string; decimals?: number; duration?: number
 }) {
   const ref = useRef<HTMLSpanElement>(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
-  const motionVal = useMotionValue(0)
-  const spring = useSpring(motionVal, { duration: duration * 1000, bounce: 0 })
-  const display = useTransform(spring, v =>
-    decimals > 0 ? `${v.toFixed(decimals)}${suffix}` : `${Math.round(v).toLocaleString()}${suffix}`
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    let rafId: number
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return
+      observer.disconnect()
+      const startTime = performance.now()
+      const durationMs = duration * 1000
+      const tick = (now: number) => {
+        const progress = Math.min((now - startTime) / durationMs, 1)
+        const eased = 1 - Math.pow(1 - progress, 4)
+        const v = value * eased
+        el.textContent = decimals > 0 ? `${v.toFixed(decimals)}${suffix}` : `${Math.round(v).toLocaleString()}${suffix}`
+        if (progress < 1) rafId = requestAnimationFrame(tick)
+      }
+      rafId = requestAnimationFrame(tick)
+    }, { rootMargin: '-100px' })
+    observer.observe(el)
+    return () => { observer.disconnect(); cancelAnimationFrame(rafId) }
+  }, [value, suffix, decimals, duration])
+
+  return (
+    <span ref={ref} suppressHydrationWarning>
+      {`${decimals > 0 ? value.toFixed(decimals) : String(value)}${suffix}`}
+    </span>
   )
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => { setMounted(true) }, [])
-  useEffect(() => { if (isInView) motionVal.set(value) }, [isInView, value, motionVal])
-
-  if (!mounted) return <span ref={ref}>{`${decimals > 0 ? value.toFixed(decimals) : value.toLocaleString()}${suffix}`}</span>
-  return <motion.span ref={ref}>{display}</motion.span>
 }
 
 // ── Animation Variants ────────────────────────────────────────────────────
