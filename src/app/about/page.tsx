@@ -701,7 +701,9 @@ export default function AboutPage() {
             </div>
 
             <p style={{ fontSize: '0.84rem', color: 'var(--muted-foreground)' }}>
-              <Phone className="inline h-3.5 w-3.5 mr-1" /> 평일 09:00~18:00 &nbsp;|&nbsp; 카카오톡 문의 가능 &nbsp;|&nbsp; biztalktome@gmail.com
+              <Phone className="inline h-3.5 w-3.5 mr-1" /> 평일 09:00~18:00 &nbsp;|&nbsp; 카카오톡 문의 가능 &nbsp;|&nbsp;{' '}
+              {/* ponytail: dangerouslySetInnerHTML으로 Cloudflare email obfuscation 우회 — CF가 text node를 <a>로 교체해 React #418 유발 */}
+              <span dangerouslySetInnerHTML={{ __html: '<!--email_off-->biztalktome@gmail.com<!--/email_off-->' }} />
             </p>
           </FadeInSection>
         </div>
