@@ -1,7 +1,7 @@
 'use client'
 import dynamic from 'next/dynamic'
 import { useState, useEffect, useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { useInView } from 'framer-motion'
 import Link from 'next/link'
 import historyData from '../../../content/company/history.json'
 import clientsData from '../../../content/company/clients.json'
@@ -72,14 +72,16 @@ function FadeInSection({ children, delay = 0 }: { children: React.ReactNode; del
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: '-60px' })
   return (
-    <motion.div
+    <div
       ref={ref}
-      initial={{ opacity: 0, y: 24 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.55, delay, ease: [0.25, 0.1, 0.25, 1] }}
+      style={{
+        opacity: isInView ? 1 : 0,
+        transform: isInView ? 'none' : 'translateY(24px)',
+        transition: `opacity 0.55s cubic-bezier(0.25,0.1,0.25,1) ${delay}s, transform 0.55s cubic-bezier(0.25,0.1,0.25,1) ${delay}s`,
+      }}
     >
       {children}
-    </motion.div>
+    </div>
   )
 }
 

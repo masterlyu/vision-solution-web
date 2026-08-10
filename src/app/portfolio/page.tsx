@@ -1,7 +1,6 @@
 'use client'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import { motion, type Variants } from 'framer-motion'
 import {
   Factory, Hospital, ShoppingCart,
   Building2, Utensils, GraduationCap,
@@ -44,17 +43,6 @@ function CountUpNumber({ value, suffix = '', decimals = 0, duration = 1.5 }: {
   )
 }
 
-// ── Animation Variants ────────────────────────────────────────────────────
-const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' as const } },
-}
-
-const staggerSlow: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.15 } },
-}
-
 // ── Data ──────────────────────────────────────────────────────────────────
 const stats = [
   { value: 247, suffix: '+',  decimals: 0, label: '완료 프로젝트', sub: '2007년 이후 누적' },
@@ -93,6 +81,15 @@ const processSteps = [
 
 // ── Page ──────────────────────────────────────────────────────────────────
 export default function PortfolioPage() {
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => { setMounted(true) }, [])
+
+  const fi = (delay: number): React.CSSProperties => ({
+    opacity: mounted ? 1 : 0,
+    transform: mounted ? 'none' : 'translateY(24px)',
+    transition: `opacity 0.5s ease-out ${delay}s, transform 0.5s ease-out ${delay}s`,
+  })
+
   return (
     <div className="min-h-screen bg-background">
 
@@ -103,33 +100,25 @@ export default function PortfolioPage() {
       >
         <div className="max-w-[1100px] mx-auto">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
-            <motion.div
-              className="flex flex-col gap-5"
-              variants={staggerSlow}
-              initial="hidden"
-              animate="visible"
-            >
-              <motion.div variants={fadeInUp}>
+            <div className="flex flex-col gap-5">
+              <div style={fi(0)}>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest"
                   style={{ background: 'color-mix(in oklch, var(--primary) 20%, transparent)', color: 'var(--primary-bright)', border: '1px solid color-mix(in oklch, var(--primary) 40%, transparent)' }}>
                   Portfolio
                 </span>
-              </motion.div>
+              </div>
 
-              <motion.h1
-                variants={fadeInUp}
-                className="text-4xl md:text-5xl font-black leading-tight tracking-tight"
-              >
+              <h1 style={fi(0.15)} className="text-4xl md:text-5xl font-black leading-tight tracking-tight">
                 다양한 산업의<br />
                 <span style={{ color: 'var(--primary-light)' }}>디지털 전환을 함께해 왔습니다</span>
-              </motion.h1>
+              </h1>
 
-              <motion.p variants={fadeInUp} className="text-muted-foreground text-lg leading-relaxed">
+              <p style={fi(0.3)} className="text-muted-foreground text-lg leading-relaxed">
                 2007년 설립 이후 누적 247건+ 프로젝트.<br />
                 중소기업·공공기관·소상공인 대상 <strong className="text-foreground">그룹웨어·ERP·홈페이지·앱·AI 솔루션</strong> 전 영역.
-              </motion.p>
+              </p>
 
-              <motion.div variants={fadeInUp} className="flex gap-3 flex-wrap pt-2">
+              <div style={fi(0.45)} className="flex gap-3 flex-wrap pt-2">
                 <Link href="/contact"
                   className="inline-flex items-center gap-2 text-primary-foreground font-bold px-8 py-3.5 rounded-xl hover:opacity-85 transition-opacity"
                   style={{ background: 'var(--primary)' }}>
@@ -144,17 +133,12 @@ export default function PortfolioPage() {
                   }}>
                   <GraduationCap className="w-5 h-5" /> 사내 출강 강좌 보기
                 </Link>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
 
-            <motion.div
-              variants={fadeInUp}
-              initial="hidden"
-              animate="visible"
-              className="flex justify-center items-center"
-            >
+            <div style={fi(0.3)} className="flex justify-center items-center">
               <Mascot pose="portfolio" category="service" size="md" className="h-56 w-auto" alt="VISIONC 마스코트 — 포트폴리오" />
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
