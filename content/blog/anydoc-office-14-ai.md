@@ -35,12 +35,12 @@ Word 파일 내부는 텍스트와 서식, 그림, 레이아웃 정보가 뒤섞
 
 ![center](/mascot/md/emotion/cat_surprised.png)
 
-[anydoc](https://github.com/firecrawl/anydoc)의 가장 눈에 띄는 수치는 속도입니다. Word 파일 하나를 Markdown으로 바꾸는 데 **평균 4.4ms(밀리초)** — 1밀리초는 1/1000초입니다. 사람 눈 깜짝하는 시간(약 300ms)보다 68배 짧습니다.
+[anydoc](https://github.com/firecrawl/anydoc)의 가장 눈에 띄는 수치는 속도입니다. Word 파일 하나를 Markdown으로 바꾸는 데 **중앙값(median) 4.4ms** — 1밀리초는 1/1000초입니다. 사람 눈 깜짝하는 시간(약 300ms)보다 68배 짧습니다.
 
 ![문서 변환 속도 비교](/images/blog/anydoc-office-14-ai-fig1.svg)
 *▲ 문서 변환 속도 비교 (100개 실제 문서 기준) · 출처: firecrawl.dev/blog/anydoc-and-pdf-inspector*
 
-대체 도구들이 52ms에서 1,130ms까지 걸리는 것과 비교하면 **최대 256배** 빠릅니다. Microsoft가 오픈소스로 공개한 MarkItDown보다 약 28배, 기업용으로 널리 쓰이는 Unstructured보다 약 122배 빠릅니다.
+대체 도구들이 52ms에서 1,130ms까지 걸리는 것과 비교하면 **최대 256배** 빠릅니다. Microsoft가 오픈소스로 공개한 MarkItDown보다 약 31배, 기업용으로 널리 쓰이는 Unstructured보다 약 130배 빠릅니다.
 
 **왜 이렇게 빠를까요?** 비결은 단순함에 있습니다. anydoc은 머신러닝 모델을 전혀 쓰지 않습니다. 복잡한 AI 추론 없이 문서 구조를 직접 파싱해서 텍스트를 뽑아냅니다. 외부 의존성도 거의 없고, Node.js 하나만 있으면 바로 실행됩니다.
 
@@ -159,3 +159,12 @@ npx @firecrawl/anydoc ./계약서폴더
 > **Vision Solution AI 활용 문의**:  
 > 📧 biztalktome@gmail.com  
 > 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
+
+
+<!-- related-links -->
+
+## 함께 보면 좋은 글
+
+- [AI CRM 무료 공개 — 영업 자동화 5단계](/blog/ai-crm-agentic-open-source-trycompai)
+- [Cloudflare OS로 AI 사무실 — 5분 실습](/blog/cloudflare-os-free-ai-workspace-guide)
+- [AI 비용 61% 줄여주는 텐센트 무료 실습](/blog/tencentdb-agent-memory-token-saving)
