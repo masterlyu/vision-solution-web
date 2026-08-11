@@ -273,9 +273,9 @@ export default function AboutPage() {
               borderRadius: 12, padding: '36px 24px', textAlign: 'center',
               position: 'relative', overflow: 'hidden',
             }}>
-              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--accent-green), var(--accent-green-alt))' }} />
-              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}><Zap size={44} style={{ color: 'var(--accent-green)' }} /></div>
-              <div style={{ fontSize: 'clamp(2.8rem, 6vw, 4rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--accent-green)', lineHeight: 1 }}>
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--primary), var(--primary-alt))' }} />
+              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}><Zap size={44} style={{ color: 'var(--primary-light)' }} /></div>
+              <div style={{ fontSize: 'clamp(2.8rem, 6vw, 4rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--primary-light)', lineHeight: 1 }}>
                 <CountUpNumber value={30} suffix="일" />
               </div>
               <div style={{ fontSize: '1rem', fontWeight: 700, margin: '8px 0 6px' }}>평균 납기 기간</div>
@@ -288,9 +288,9 @@ export default function AboutPage() {
               borderRadius: 12, padding: '36px 24px', textAlign: 'center',
               position: 'relative', overflow: 'hidden',
             }}>
-              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--accent-amber), var(--accent-amber-alt))' }} />
-              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}><Star size={44} style={{ color: 'var(--accent-amber)' }} /></div>
-              <div style={{ fontSize: 'clamp(2.8rem, 6vw, 4rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--accent-amber)', lineHeight: 1 }}>
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--primary), var(--primary-alt))' }} />
+              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}><Star size={44} style={{ color: 'var(--primary-light)' }} /></div>
+              <div style={{ fontSize: 'clamp(2.8rem, 6vw, 4rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--primary-light)', lineHeight: 1 }}>
                 <CountUpNumber value={4.9} suffix="" decimals={1} />
               </div>
               <div style={{ fontSize: '1rem', fontWeight: 700, margin: '8px 0 6px' }}>고객 만족도</div>
@@ -303,9 +303,9 @@ export default function AboutPage() {
               borderRadius: 12, padding: '36px 24px', textAlign: 'center',
               position: 'relative', overflow: 'hidden',
             }}>
-              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--accent-cyan), var(--accent-blue))' }} />
-              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}><Users size={44} style={{ color: 'var(--accent-cyan-text)' }} /></div>
-              <div style={{ fontSize: 'clamp(2.8rem, 6vw, 4rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--accent-cyan-text)', lineHeight: 1 }}>
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--primary), var(--primary-alt))' }} />
+              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}><Users size={44} style={{ color: 'var(--primary-light)' }} /></div>
+              <div style={{ fontSize: 'clamp(2.8rem, 6vw, 4rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--primary-light)', lineHeight: 1 }}>
                 <CountUpNumber value={97} suffix="%" />
               </div>
               <div style={{ fontSize: '1rem', fontWeight: 700, margin: '8px 0 6px' }}>재의뢰율</div>
@@ -558,11 +558,17 @@ export default function AboutPage() {
             <p style={{ fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--muted-foreground)', marginBottom: 20, textAlign: 'center' }}>실제 고객 후기</p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 18 }}>
               {[
-                { body: '처음엔 반신반의했는데, 약속한 날짜에 딱 납품해줬습니다. 지금까지 제가 만난 업체 중 유일하게 전화를 바로 받아요.', author: '서울 소재 제조업 대표 ⭐⭐⭐⭐⭐' },
-                { body: '가격을 처음부터 명확하게 알려줘서 믿음이 갔습니다. 다른 업체들은 추가 비용이 계속 나왔거든요.', author: '경기도 소재 서비스업 대표 ⭐⭐⭐⭐⭐' },
-                { body: 'AI 챗봇 도입 후 고객 문의 응대 시간이 60% 줄었습니다. IT를 전혀 모르는 저도 쉽게 사용할 수 있어요.', author: '부산 소재 소매업 대표 ⭐⭐⭐⭐⭐' },
+                { body: '처음엔 반신반의했는데, 약속한 날짜에 딱 납품해줬습니다. 지금까지 제가 만난 업체 중 유일하게 전화를 바로 받아요.', author: '서울 소재 제조업 대표', rating: 5 },
+                { body: '가격을 처음부터 명확하게 알려줘서 믿음이 갔습니다. 다른 업체들은 추가 비용이 계속 나왔거든요.', author: '경기도 소재 서비스업 대표', rating: 5 },
+                { body: 'AI 챗봇 도입 후 고객 문의 응대 시간이 60% 줄었습니다. IT를 전혀 모르는 저도 쉽게 사용할 수 있어요.', author: '부산 소재 소매업 대표', rating: 5 },
               ].map((review, i) => (
                 <div key={i} style={{ background: 'var(--card)', border: '1px solid var(--border)', borderRadius: 12, padding: 28 }}>
+                  <div style={{ display: 'flex', gap: 3, alignItems: 'center', marginBottom: 12 }}>
+                    {Array.from({ length: review.rating }, (_, j) => (
+                      <Star key={j} size={16} style={{ fill: 'var(--accent-amber)', color: 'var(--accent-amber)' }} />
+                    ))}
+                    <span style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--accent-amber)', marginLeft: 6 }}>{review.rating}.0 / 5.0</span>
+                  </div>
                   <div style={{ fontSize: '1.6rem', color: 'var(--primary-light)', marginBottom: 10, lineHeight: 1 }}>"</div>
                   <p style={{ fontSize: '0.93rem', lineHeight: 1.65, fontStyle: 'italic', marginBottom: 16 }}>{review.body}</p>
                   <p style={{ fontSize: '0.82rem', color: 'var(--muted-foreground)', fontWeight: 600 }}>— {review.author}</p>
