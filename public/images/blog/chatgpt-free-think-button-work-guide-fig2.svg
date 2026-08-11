@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">Think 버튼 업무 활용 3단계</text>
+  <rect x="40" y="70" width="200" height="90" rx="12" fill="#0f766e"/>
+  <text x="140" y="107" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">① 접속 및 로그인</text>
+  <text x="140" y="130" text-anchor="middle" font-size="12" fill="#a7f3d0">chat.openai.com</text>
+  <text x="265" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <rect x="300" y="70" width="200" height="90" rx="12" fill="#0891b2"/>
+  <text x="400" y="107" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">② Think 버튼 활성화</text>
+  <text x="400" y="130" text-anchor="middle" font-size="12" fill="#cffafe">입력창 아래 💡 버튼 클릭</text>
+  <text x="525" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <rect x="560" y="70" width="200" height="90" rx="12" fill="#22d3ee"/>
+  <text x="660" y="107" text-anchor="middle" font-size="15" font-weight="800" fill="#083344">③ 업무 프롬프트 입력</text>
+  <text x="660" y="130" text-anchor="middle" font-size="12" fill="#083344">업종·인원·목표 구체적으로</text>
+</svg>

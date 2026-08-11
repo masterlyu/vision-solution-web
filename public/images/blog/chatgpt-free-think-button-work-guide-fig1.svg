@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">ChatGPT 무료 vs Plus — Think 기능 비교</text>
+  <!-- 무료 카드 (왼쪽) -->
+  <rect x="40" y="70" width="330" height="200" rx="14" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5"/>
+  <text x="205" y="105" text-anchor="middle" font-size="16" font-weight="800" fill="#15803d">무료 (Free)</text>
+  <text x="205" y="135" text-anchor="middle" font-size="28" font-weight="900" fill="#16a34a">GPT-5.6 Luna</text>
+  <text x="205" y="165" text-anchor="middle" font-size="14" fill="#4b5563">텍스트 채팅 무제한</text>
+  <text x="205" y="188" text-anchor="middle" font-size="14" fill="#4b5563">Think 버튼 (켜기/끄기)</text>
+  <text x="205" y="211" text-anchor="middle" font-size="13" fill="#6b7280">파일·이미지 한도 있음</text>
+  <text x="205" y="252" text-anchor="middle" font-size="22" font-weight="900" fill="#16a34a">무료</text>
+  <!-- 화살표 -->
+  <text x="395" y="178" text-anchor="middle" font-size="28" fill="#94a3b8">vs</text>
+  <!-- Plus 카드 (오른쪽) -->
+  <rect x="430" y="70" width="330" height="200" rx="14" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="595" y="105" text-anchor="middle" font-size="16" font-weight="800" fill="#1d4ed8">유료 (Plus)</text>
+  <text x="595" y="135" text-anchor="middle" font-size="28" font-weight="900" fill="#2563eb">GPT-5.6 Sol</text>
+  <text x="595" y="165" text-anchor="middle" font-size="14" fill="#4b5563">텍스트 채팅 무제한</text>
+  <text x="595" y="188" text-anchor="middle" font-size="14" fill="#4b5563">Think 슬라이더 (세밀 조절)</text>
+  <text x="595" y="211" text-anchor="middle" font-size="13" fill="#6b7280">파일·이미지 더 많은 한도</text>
+  <text x="595" y="252" text-anchor="middle" font-size="22" font-weight="900" fill="#2563eb">월 2만 9천 원</text>
+</svg>
