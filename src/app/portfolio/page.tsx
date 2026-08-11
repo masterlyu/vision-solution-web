@@ -108,7 +108,7 @@ export default function PortfolioPage() {
                 </span>
               </div>
 
-              <h1 style={fi(0.15)} className="text-4xl md:text-5xl font-black leading-tight tracking-tight">
+              <h1 style={fi(0.15)} className="text-4xl md:text-5xl font-black leading-tight tracking-tight break-keep">
                 다양한 산업의<br />
                 <span style={{ color: 'var(--primary-light)' }}>디지털 전환을 함께해 왔습니다</span>
               </h1>
