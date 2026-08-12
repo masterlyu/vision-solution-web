@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, Briefcase, GraduationCap } from 'lucide-react'
+import { ArrowRight, Briefcase, FolderOpen, GraduationCap, Newspaper } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Mascot from '@/components/Mascot'
 import Link from 'next/link'
@@ -67,9 +67,9 @@ export function CtaSection() {
               </motion.div>
 
               <motion.div variants={fadeInUp} className="flex items-center justify-center gap-6 text-sm text-foreground/85 font-medium">
-                <Link href="/portfolio" className="hover:text-primary transition-colors font-bold">📂 도입 사례</Link>
+                <Link href="/portfolio" className="inline-flex items-center gap-1.5 hover:text-primary transition-colors font-bold"><FolderOpen className="w-3.5 h-3.5" /> 도입 사례</Link>
                 <span>·</span>
-                <Link href="/blog" className="hover:text-primary transition-colors font-bold">📰 인사이트 블로그</Link>
+                <Link href="/blog" className="inline-flex items-center gap-1.5 hover:text-primary transition-colors font-bold"><Newspaper className="w-3.5 h-3.5" /> 인사이트 블로그</Link>
                 <span>·</span>
                 <span>247건+ 누적</span>
               </motion.div>
