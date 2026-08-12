@@ -13,7 +13,7 @@ const services = [
   { number: '03', mascot: { pose: 'svc_hacker',   category: 'service' as MascotCategory }, href: '/pentest',     title: '모의해킹 진단',          stat: { value: '1~2일',  label: '소요 일수' },       price: { prefix: '단일가', value: '29만원'   }, desc: '실제 해커 관점의 시나리오 침투 + 권한·결제 우회 등 비즈니스 로직 결함 수동 검증.' },
   { number: '04', mascot: { pose: 'svc_renewal',  category: 'service' as MascotCategory }, href: '/renewal',     title: '웹사이트 리뉴얼·운영',   stat: { value: '67%',   label: '평균 로딩 개선' },  price: { prefix: '시작가', value: '80만원~'  }, desc: '오래된 사이트 속도·디자인·SEO 신규화 + 유지보수·운영.' },
   { number: '05', mascot: { pose: 'svc_custom',   category: 'service' as MascotCategory }, href: '/app-dev',     title: '앱·시스템 개발',         stat: { value: '120건+',label: '납품 실적' },        price: { prefix: '시작가', value: '300만원~' }, desc: '모바일 앱부터 사내 업무 시스템까지 풀스택 구축.' },
-  { number: '06', mascot: { pose: 'cheer',        category: 'emotion' as MascotCategory }, href: '/chatbot',    title: '🤖 AI 챗봇 설치',       stat: { value: '월 5.9만~',label: '유지비' },          price: { prefix: '시작가', value: '50만원~'  }, desc: '반복 문의 70% 자동화 — 24시간 응대 + 정부 지원금 활용.' },
+  { number: '06', mascot: { pose: 'cheer',        category: 'emotion' as MascotCategory }, href: '/chatbot',    title: 'AI 챗봇 설치',       stat: { value: '월 5.9만~',label: '유지비' },          price: { prefix: '시작가', value: '50만원~'  }, desc: '반복 문의 70% 자동화 — 24시간 응대 + 정부 지원금 활용.' },
 ]
 
 export function FeaturesSection() {
