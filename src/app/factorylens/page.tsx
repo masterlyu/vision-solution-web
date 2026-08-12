@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
 import Mascot from '@/components/Mascot'
+import { ScrollReveal } from '@/components/motion/ScrollReveal'
 import {
   ArrowRight, Check, ChevronDown, ExternalLink,
   Database, Workflow, GitBranch, Eye, ShieldCheck, Lock,
@@ -142,6 +143,7 @@ export default function FactoryLensPage() {
       </section>
 
       {/* ── 문제 3연 ── */}
+      <ScrollReveal>
       <section className="py-16 px-6 bg-secondary/40">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
@@ -163,8 +165,10 @@ export default function FactoryLensPage() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* ── 제품 구조 3열 ── */}
+      <ScrollReveal>
       <section className="py-20 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
@@ -193,8 +197,10 @@ export default function FactoryLensPage() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* ── 7대 봇 메뉴판 ── */}
+      <ScrollReveal>
       <section className="py-20 px-6 bg-secondary/30">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
@@ -219,8 +225,10 @@ export default function FactoryLensPage() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* ── 라이브 데모 ── */}
+      <ScrollReveal>
       <section id="demo" className="py-20 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
@@ -258,8 +266,10 @@ export default function FactoryLensPage() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* ── 신뢰(차별점) ── */}
+      <ScrollReveal>
       <section className="py-20 px-6 bg-secondary/40">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
@@ -281,8 +291,10 @@ export default function FactoryLensPage() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* ── 도입 과정 ── */}
+      <ScrollReveal>
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-14">
@@ -303,8 +315,10 @@ export default function FactoryLensPage() {
           <p className="text-center text-xs text-muted-foreground mt-8">국제표준(AAS·ISA-95) 호환으로 설계되어, 임의 커스텀이 아닌 표준 데이터 모델을 따릅니다.</p>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* ── FAQ ── */}
+      <ScrollReveal>
       <section className="py-20 px-6 bg-secondary/30">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-black text-foreground text-center mb-10">자주 묻는 질문</h2>
@@ -328,8 +342,10 @@ export default function FactoryLensPage() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* ── 최종 CTA ── */}
+      <ScrollReveal>
       <section className="py-24 px-6">
         <div className="max-w-2xl mx-auto text-center">
           <div className="flex justify-center mb-6">
@@ -354,6 +370,7 @@ export default function FactoryLensPage() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
     </div>
   )

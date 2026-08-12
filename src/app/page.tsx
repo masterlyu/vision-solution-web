@@ -7,6 +7,7 @@ import { HowItWorksSection } from '@/components/landing/how-it-works-section'
 import { MetricsSection } from '@/components/landing/metrics-section'
 import { TestimonialsSection } from '@/components/landing/testimonials-section'
 import { CtaSection } from '@/components/landing/cta-section'
+import { ScrollReveal } from '@/components/motion/ScrollReveal'
 
 export const metadata: Metadata = {
   alternates: { canonical: '/' },
@@ -57,12 +58,12 @@ export default function Home() {
       <div className="flex justify-center py-8 bg-background">
         <MascotVideo src="/mascot/lg/company/cat_bow_web.mp4" className="h-52 w-auto" pauseSeconds={3} />
       </div>
-      <TrustSection />
-      <MetricsSection />
-      <FeaturesSection />
-      <HowItWorksSection />
-      <TestimonialsSection />
-      <CtaSection />
+      <ScrollReveal><TrustSection /></ScrollReveal>
+      <ScrollReveal><MetricsSection /></ScrollReveal>
+      <ScrollReveal><FeaturesSection /></ScrollReveal>
+      <ScrollReveal><HowItWorksSection /></ScrollReveal>
+      <ScrollReveal><TestimonialsSection /></ScrollReveal>
+      <ScrollReveal><CtaSection /></ScrollReveal>
     </div>
   )
 }
