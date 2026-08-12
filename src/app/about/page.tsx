@@ -259,7 +259,6 @@ export default function AboutPage() {
               position: 'relative', overflow: 'hidden',
             }}>
               <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--primary), var(--primary-alt))' }} />
-              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}><Rocket size={44} style={{ color: 'var(--primary-light)' }} /></div>
               <div style={{ fontSize: 'clamp(2.8rem, 6vw, 4rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--primary-light)', lineHeight: 1 }}>
                 <CountUpNumber value={247} suffix="+" />
               </div>
@@ -274,7 +273,6 @@ export default function AboutPage() {
               position: 'relative', overflow: 'hidden',
             }}>
               <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--primary), var(--primary-alt))' }} />
-              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}><Zap size={44} style={{ color: 'var(--primary-light)' }} /></div>
               <div style={{ fontSize: 'clamp(2.8rem, 6vw, 4rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--primary-light)', lineHeight: 1 }}>
                 <CountUpNumber value={30} suffix="일" />
               </div>
@@ -289,7 +287,6 @@ export default function AboutPage() {
               position: 'relative', overflow: 'hidden',
             }}>
               <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--primary), var(--primary-alt))' }} />
-              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}><Star size={44} style={{ color: 'var(--primary-light)' }} /></div>
               <div style={{ fontSize: 'clamp(2.8rem, 6vw, 4rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--primary-light)', lineHeight: 1 }}>
                 <CountUpNumber value={4.9} suffix="" decimals={1} />
               </div>
@@ -304,7 +301,6 @@ export default function AboutPage() {
               position: 'relative', overflow: 'hidden',
             }}>
               <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--primary), var(--primary-alt))' }} />
-              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}><Users size={44} style={{ color: 'var(--primary-light)' }} /></div>
               <div style={{ fontSize: 'clamp(2.8rem, 6vw, 4rem)', fontWeight: 900, letterSpacing: '-0.04em', color: 'var(--primary-light)', lineHeight: 1 }}>
                 <CountUpNumber value={97} suffix="%" />
               </div>

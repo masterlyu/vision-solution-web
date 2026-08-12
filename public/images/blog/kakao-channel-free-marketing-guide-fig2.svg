@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">2026 카카오비즈니스 파트너센터 3대 변화</text>
+  <!-- 단계 1 -->
+  <rect x="40" y="65" width="200" height="95" rx="12" fill="#92400e"/>
+  <text x="140" y="105" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">① 챗봇 무료화</text>
+  <text x="140" y="128" text-anchor="middle" font-size="12" fill="#fde68a">월 2~5만원 → 0원</text>
+  <text x="140" y="148" text-anchor="middle" font-size="11" fill="#fde68a">자동 응답 기본 제공</text>
+  <!-- 화살표 1 -->
+  <text x="255" y="122" text-anchor="middle" font-size="28" fill="#d1d5db">→</text>
+  <!-- 단계 2 -->
+  <rect x="280" y="65" width="200" height="95" rx="12" fill="#b45309"/>
+  <text x="380" y="105" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">② 신규 30만원</text>
+  <text x="380" y="128" text-anchor="middle" font-size="12" fill="#fde68a">신규 사업자 무상 캐시</text>
+  <text x="380" y="148" text-anchor="middle" font-size="11" fill="#fde68a">광고·메시지 즉시 사용</text>
+  <!-- 화살표 2 -->
+  <text x="495" y="122" text-anchor="middle" font-size="28" fill="#d1d5db">→</text>
+  <!-- 단계 3 -->
+  <rect x="520" y="65" width="240" height="95" rx="12" fill="#f59e0b"/>
+  <text x="640" y="105" text-anchor="middle" font-size="15" font-weight="800" fill="#1f2937">③ 통합 대시보드</text>
+  <text x="640" y="128" text-anchor="middle" font-size="12" fill="#451a03">채널·광고·통계 한 화면</text>
+  <text x="640" y="148" text-anchor="middle" font-size="11" fill="#451a03">처음도 길 안 잃는 UI</text>
+</svg>
