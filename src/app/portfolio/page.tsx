@@ -76,7 +76,7 @@ const processSteps = [
   { num: '02', title: '솔루션 설계',  sub: '요구사항 정리 + 기술 스택·일정·범위',  pose: 'guide' as const, category: 'situation' as const },
   { num: '03', title: '구축·학습',    sub: '개발·구축 + 사내 인수인계·교육',       pose: 'develop' as const, category: 'process' as const },
   { num: '04', title: '인수·검수',    sub: '실사용 검수 + 보안·성능 점검',         pose: 'analytics' as const, category: 'process' as const },
-  { num: '05', title: '사후 관리',    sub: '6개월 무상 + 월정액 유지보수·운영',    pose: 'cheer' as const, category: 'emotion' as const, highlight: true },
+  { num: '05', title: '사후 관리',    sub: '6개월 무상 + 월정액 유지보수·운영',    pose: 'cheer' as const, category: 'emotion' as const },
 ]
 
 // ── Page ──────────────────────────────────────────────────────────────────
@@ -262,8 +262,8 @@ export default function PortfolioPage() {
               >
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-black"
                   style={{
-                    background: s.highlight ? 'color-mix(in oklch, var(--accent-green-dark) 20%, transparent)' : 'color-mix(in oklch, var(--primary) 20%, transparent)',
-                    color: s.highlight ? 'var(--accent-green-text)' : 'var(--primary-light)',
+                    background: 'color-mix(in oklch, var(--primary) 20%, transparent)',
+                    color: 'var(--primary-light)',
                   }}>
                   {s.num}
                 </div>
