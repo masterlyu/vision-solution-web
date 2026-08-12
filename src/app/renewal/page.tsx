@@ -57,7 +57,7 @@ const steps = [
     desc: '모든 기기에서 최종 점검 후 도메인 무중단 전환.',
     pose: 'cheer' as const,
     category: 'emotion' as const,
-    bubble: '완성! 확인해보세요 😊',
+    bubble: '완성! 확인해보세요',
   },
 ]
 
