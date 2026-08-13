@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">Prime Agent 자기학습 3단계 원리</text>
+  <rect x="40" y="65" width="200" height="100" rx="12" fill="#0f766e"/>
+  <text x="140" y="107" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">① 작업 수행</text>
+  <text x="140" y="133" text-anchor="middle" font-size="12" fill="#a7f3d0">AI가 지시한 일을 합니다</text>
+  <text x="265" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <rect x="300" y="65" width="200" height="100" rx="12" fill="#0891b2"/>
+  <text x="400" y="107" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">② /refine 실행</text>
+  <text x="400" y="133" text-anchor="middle" font-size="12" fill="#cffafe">오늘 일을 스스로 복기</text>
+  <text x="525" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <rect x="560" y="65" width="200" height="100" rx="12" fill="#22d3ee"/>
+  <text x="660" y="107" text-anchor="middle" font-size="16" font-weight="800" fill="#083344">③ 다음엔 더 잘</text>
+  <text x="660" y="133" text-anchor="middle" font-size="12" fill="#083344">같은 일, 더 나은 결과</text>
+</svg>
