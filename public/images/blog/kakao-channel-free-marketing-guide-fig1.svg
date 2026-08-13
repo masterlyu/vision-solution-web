@@ -1,16 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
   <rect width="800" height="200" fill="#ffffff"/>
-  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">카카오채널로 달라지는 숫자 3가지</text>
-  <!-- 카드 1: 구매 전환율 -->
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">카카오채널 vs 문자 — 핵심 차이 3가지</text>
+  <!-- 카드 1: 발신자 표시 -->
   <rect x="40" y="60" width="220" height="110" rx="12" fill="#fef3c7"/>
-  <text x="150" y="118" text-anchor="middle" font-size="36" font-weight="900" fill="#b45309">+40%</text>
-  <text x="150" y="148" text-anchor="middle" font-size="13" fill="#6b7280">쿠폰 발송 후 구매 전환율</text>
-  <!-- 카드 2: 당일 매출 -->
+  <text x="150" y="110" text-anchor="middle" font-size="28" font-weight="900" fill="#b45309">가게 이름</text>
+  <text x="150" y="138" text-anchor="middle" font-size="13" fill="#6b7280">발신자로 표시 (신뢰)</text>
+  <!-- 카드 2: 쿠폰 기능 -->
   <rect x="290" y="60" width="220" height="110" rx="12" fill="#fef3c7"/>
-  <text x="400" y="118" text-anchor="middle" font-size="36" font-weight="900" fill="#b45309">2.4배</text>
-  <text x="400" y="148" text-anchor="middle" font-size="13" fill="#6b7280">메시지 발송 당일 매출</text>
+  <text x="400" y="110" text-anchor="middle" font-size="28" font-weight="900" fill="#b45309">즉시 쿠폰</text>
+  <text x="400" y="138" text-anchor="middle" font-size="13" fill="#6b7280">저장·사용 한 번에 가능</text>
   <!-- 카드 3: 메시지 단가 -->
   <rect x="540" y="60" width="220" height="110" rx="12" fill="#fef3c7"/>
-  <text x="650" y="118" text-anchor="middle" font-size="36" font-weight="900" fill="#b45309">½</text>
-  <text x="650" y="148" text-anchor="middle" font-size="13" fill="#6b7280">문자 대비 메시지 단가</text>
+  <text x="650" y="103" text-anchor="middle" font-size="28" font-weight="900" fill="#b45309">15원~</text>
+  <text x="650" y="128" text-anchor="middle" font-size="12" fill="#b45309">(VAT 별도, 일반 메시지)</text>
+  <text x="650" y="150" text-anchor="middle" font-size="13" fill="#6b7280">이미지·버튼 기본 포함</text>
 </svg>
