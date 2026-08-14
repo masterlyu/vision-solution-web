@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">중소기업 Gemini 3.7 Flash 활용 예시</text>
+  <!-- 단계 1 -->
+  <rect x="40" y="62" width="200" height="102" rx="12" fill="#0f766e"/>
+  <text x="140" y="102" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">① 문의 자동 분류</text>
+  <text x="140" y="126" text-anchor="middle" font-size="11" fill="#a7f3d0">고객 문의 → 카테고리</text>
+  <text x="140" y="144" text-anchor="middle" font-size="11" fill="#a7f3d0">자동 분류 + 초안</text>
+  <text x="265" y="120" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- 단계 2 -->
+  <rect x="300" y="62" width="200" height="102" rx="12" fill="#0891b2"/>
+  <text x="400" y="102" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">② 보고서 초안 작성</text>
+  <text x="400" y="126" text-anchor="middle" font-size="11" fill="#cffafe">수치 입력 → 보고서</text>
+  <text x="400" y="144" text-anchor="middle" font-size="11" fill="#cffafe">형태 자동 정리</text>
+  <text x="525" y="120" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- 단계 3 -->
+  <rect x="560" y="62" width="200" height="102" rx="12" fill="#22d3ee"/>
+  <text x="660" y="102" text-anchor="middle" font-size="15" font-weight="800" fill="#083344">③ 견적 이메일</text>
+  <text x="660" y="126" text-anchor="middle" font-size="11" fill="#083344">요구사항 입력 →</text>
+  <text x="660" y="144" text-anchor="middle" font-size="11" fill="#083344">이메일 문구 자동화</text>
+</svg>
