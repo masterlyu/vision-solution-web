@@ -4,18 +4,18 @@ date: "2026-08-14"
 tag: "AI 활용"
 tags: "Prime Agent,자기학습 AI,AI 에이전트,업무 자동화,중소기업 AI 도구"
 image: "/images/blog/prime-agent-self-improving-ai-sme-guide.svg"
-summary: "공개 5일 만에 GitHub 전 세계 1위에 오른 무료 AI, Prime Agent를 아세요? 쓸수록 스스로 학습해 점점 더 잘하는 자기학습 에이전트입니다. 보고서 자동화·문서 요약·이메일 초안까지, 중소기업 현장에서 바로 써볼 수 있는 5분 설치 실습 가이드를 정리했습니다."
+summary: "공개 이틀(2일) 만에 GitHub 전 세계 1위에 오른 무료 AI, Prime Agent를 아세요? 쓸수록 스스로 학습해 점점 더 잘하는 자기학습 에이전트입니다. 보고서 자동화·문서 요약·이메일 초안까지, 중소기업 현장에서 바로 써볼 수 있는 5분 설치 실습 가이드를 정리했습니다."
 ---
 
 "AI한테 매번 같은 말을 반복해야 하는 게 너무 불편해요."
 
-중소기업 사장님들이 자주 하시는 말씀입니다. ChatGPT에 "보고서 양식은 이렇고, 우리 회사 분위기는 이런데…"를 설명하다 보면 정작 할 일이 더 늘어나는 느낌이죠. 그런데 이걸 해결해주는 AI가 드디어 나왔습니다. 공개 5일 만에 GitHub 전 세계 트렌딩 1위에 오른 **Prime Agent**입니다.
+중소기업 사장님들이 자주 하시는 말씀입니다. ChatGPT에 "보고서 양식은 이렇고, 우리 회사 분위기는 이런데…"를 설명하다 보면 정작 할 일이 더 늘어나는 느낌이죠. 그런데 이걸 해결해주는 AI가 드디어 나왔습니다. 공개 이틀(2일) 만에 GitHub 전 세계 트렌딩 1위에 오른 **Prime Agent**입니다.
 
 ![center](/mascot/md/emotion/cat_happy.png)
 
-## 공개 5일 만에 GitHub 1위 — 어떤 AI인가요?
+## 공개 이틀(2일) 만에 GitHub 1위 — 어떤 AI인가요?
 
-2026년 8월, PrimeIntellect라는 AI 연구 회사가 "Prime Agent"를 완전 무료 오픈소스로 공개했습니다. 그로부터 단 5일 만에 GitHub 전 세계 트렌딩 1위에 오르며 별(Stars) 숫자가 6,600개를 넘었습니다.
+2026년 8월, PrimeIntellect라는 AI 연구 회사가 "Prime Agent"를 완전 무료 오픈소스로 공개했습니다. 그로부터 단 이틀(2일) 만에 GitHub 전 세계 트렌딩 1위에 오르며 별(Stars) 숫자가 6,600개를 넘었습니다.
 
 GitHub에서 별은 개발자들이 "이거 유용하다, 나중에 써봐야지"라며 저장해두는 표시입니다. 6,600개가 5일 만에 쌓였다는 건, 전 세계 수만 명의 IT 전문가들이 동시에 주목했다는 뜻입니다. 보통 좋은 오픈소스 프로젝트가 이 숫자에 도달하려면 몇 달이 걸립니다.
 
@@ -29,7 +29,7 @@ GitHub에서 별은 개발자들이 "이거 유용하다, 나중에 써봐야지
 
 Prime Agent는 다릅니다. 작업이 끝난 뒤 `/refine` 명령을 입력하면, AI가 오늘 자신이 한 일을 스스로 돌아봅니다. 어떤 방식이 잘 통했는지, 어디서 막혔는지를 분석하고 기억하는 겁니다. 그래서 내일 비슷한 일을 시키면 오늘보다 더 잘합니다.
 
-이 방식을 기술 용어로 **RLM(Reinforcement Learning Model, 강화 학습 모델)**이라고 부릅니다. 쉽게 말하면, 신입 직원이 퇴근 후 오늘 일을 돌아보며 "이렇게 하면 더 잘하겠구나"를 정리하는 것과 같습니다. 차이는 AI는 잊어버리지 않는다는 점이죠.
+이 방식을 기술 용어로 **RLM(Recursive Language Model, 재귀 언어 모델)**이라고 부릅니다. 쉽게 말하면, 신입 직원이 퇴근 후 오늘 일을 돌아보며 "이렇게 하면 더 잘하겠구나"를 정리하는 것과 같습니다. 차이는 AI는 잊어버리지 않는다는 점이죠.
 
 ![prime-agent-핵심-지표](/images/blog/prime-agent-self-improving-ai-sme-guide-fig1.svg)
 *▲ Prime Agent 핵심 성과 지표 · 출처: github.com/PrimeIntellect-ai/prime-agent*
@@ -121,3 +121,12 @@ Windows 사용자는 먼저 WSL(Windows Subsystem for Linux)을 설치해 Ubuntu
 > **(주)비젼솔루션 AI 솔루션 문의**:  
 > 📧 biztalktome@gmail.com  
 > 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
+
+
+<!-- related-links -->
+
+## 함께 보면 좋은 글
+
+- [ChatGPT 무료 Think 버튼 3만원 줄이는 법](/blog/chatgpt-free-think-button-2026)
+- [DeepSeek V4, 거의 무료 AI — 5분 실습](/blog/deepseek-v4-chatgpt-free-sme-guide)
+- [오피스 문서 14종 AI에 5분 만에 먹이는 법](/blog/anydoc-office-14-ai)
