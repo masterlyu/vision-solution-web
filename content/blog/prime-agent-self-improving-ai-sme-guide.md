@@ -1,5 +1,5 @@
 ---
-title: "AI가 스스로 배운다 — GitHub 1위 Prime Agent 5분 실습"
+title: "Prime Agent — 자기학습 AI 5분 실습"
 date: "2026-08-14"
 tag: "AI 활용"
 tags: "Prime Agent,자기학습 AI,AI 에이전트,업무 자동화,중소기업 AI 도구"
@@ -17,7 +17,7 @@ summary: "공개 이틀(2일) 만에 GitHub 전 세계 1위에 오른 무료 AI,
 
 2026년 8월, PrimeIntellect라는 AI 연구 회사가 "Prime Agent"를 완전 무료 오픈소스로 공개했습니다. 그로부터 단 이틀(2일) 만에 GitHub 전 세계 트렌딩 1위에 오르며 별(Stars) 숫자가 6,600개를 넘었습니다.
 
-GitHub에서 별은 개발자들이 "이거 유용하다, 나중에 써봐야지"라며 저장해두는 표시입니다. 6,600개가 5일 만에 쌓였다는 건, 전 세계 수만 명의 IT 전문가들이 동시에 주목했다는 뜻입니다. 보통 좋은 오픈소스 프로젝트가 이 숫자에 도달하려면 몇 달이 걸립니다.
+GitHub에서 별은 개발자들이 "이거 유용하다, 나중에 써봐야지"라며 저장해두는 표시입니다. 6,600개가 이틀 만에 쌓였다는 건, 전 세계 수만 명의 IT 전문가들이 동시에 주목했다는 뜻입니다. 보통 좋은 오픈소스 프로젝트가 이 숫자에 도달하려면 몇 달이 걸립니다.
 
 성능도 화제입니다. AI 실력을 측정하는 국제 기준인 ARC-AGI-3 테스트에서 **95.5%**를 기록했습니다. 인간 전문가의 평균 점수 95.4%를 처음으로 넘어선 AI입니다.
 
@@ -87,7 +87,7 @@ macOS는 `Cmd + 스페이스바`를 누르고 "터미널"을 검색해 엽니다
 **2단계 — 설치 명령 입력**
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/PrimeIntellect-ai/prime-agent/main/install.sh | sh
+curl -fsSL https://app.primeintellect.ai/prime-agent/install.sh | sh
 ```
 
 붙여넣고 엔터를 누르면 자동으로 설치됩니다.
