@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">AI 응답 속도 비교 — 초당 토큰 수</text>
+
+  <!-- 일반 GPU 클라우드 바 (137 tok/s) -->
+  <!-- scale: 2600 -> 210px height, 137 -> 11px -->
+  <rect x="140" y="239" width="120" height="11" rx="4" fill="#cbd5e1"/>
+  <text x="200" y="227" text-anchor="middle" font-size="18" font-weight="800" fill="#6b7280">137</text>
+  <text x="200" y="275" text-anchor="middle" font-size="13" fill="#1f2937">일반 GPU 클라우드</text>
+  <text x="200" y="292" text-anchor="middle" font-size="11" fill="#9ca3af">토큰/초</text>
+
+  <!-- Cerebras Llama 4 바 (2,600 tok/s) -->
+  <rect x="480" y="40" width="180" height="210" rx="6" fill="#0f766e"/>
+  <text x="570" y="30" text-anchor="middle" font-size="22" font-weight="900" fill="#0f766e">2,600</text>
+  <text x="570" y="275" text-anchor="middle" font-size="13" fill="#1f2937">Cerebras (Llama 4)</text>
+  <text x="570" y="292" text-anchor="middle" font-size="11" fill="#9ca3af">토큰/초 · 무료 플랜</text>
+
+  <!-- 19배 표시 -->
+  <text x="370" y="155" text-anchor="middle" font-size="15" font-weight="700" fill="#0f766e">19배 ↑</text>
+  <line x1="260" y1="244" x2="340" y2="155" stroke="#0f766e" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="340" y1="155" x2="480" y2="145" stroke="#0f766e" stroke-width="1.5" stroke-dasharray="4,3"/>
+</svg>
