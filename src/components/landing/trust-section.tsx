@@ -21,7 +21,7 @@ const fadeMask = {
 } as React.CSSProperties
 
 export function TrustSection() {
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(true)
   const ref = useRef<HTMLElement>(null)
 
   useEffect(() => {

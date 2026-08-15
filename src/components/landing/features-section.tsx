@@ -17,7 +17,7 @@ const services = [
 ]
 
 export function FeaturesSection() {
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(true)
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {

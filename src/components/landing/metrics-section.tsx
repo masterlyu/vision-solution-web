@@ -26,7 +26,7 @@ function Counter({ end, suffix }: { end: number; suffix: string }) {
 }
 
 export function MetricsSection() {
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(true)
   const ref = useRef<HTMLDivElement>(null)
   useEffect(() => {
     const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true) }, { threshold: 0.1 })

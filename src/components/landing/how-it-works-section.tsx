@@ -1,7 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useIsClient } from '@/hooks/use-is-client'
 import Mascot from '@/components/Mascot'
 
 const fadeInUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const } } }
@@ -15,7 +14,6 @@ const steps = [
 ]
 
 export function HowItWorksSection() {
-  const isClient = useIsClient()
   const [active, setActive] = useState(0)
 
   useEffect(() => {
@@ -27,10 +25,10 @@ export function HowItWorksSection() {
     <section id="process" className="py-24 lg:py-32 bg-card/30">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <motion.div
-          key={isClient ? 'hiw-hdr-c' : 'hiw-hdr-s'}
+          key="hiw-hdr"
           className="mb-16"
           variants={stagger}
-          initial={isClient ? "hidden" : false}
+          initial={false}
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
         >
@@ -40,10 +38,10 @@ export function HowItWorksSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
-            key={isClient ? 'hiw-steps-c' : 'hiw-steps-s'}
+            key="hiw-steps"
             className="space-y-2"
             variants={stagger}
-            initial={isClient ? "hidden" : false}
+            initial={false}
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
           >
@@ -71,11 +69,8 @@ export function HowItWorksSection() {
           </motion.div>
 
           <motion.div
-            key={isClient ? 'hiw-panel-c' : 'hiw-panel-s'}
-            initial={isClient ? { opacity: 0, x: 40 } : false}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
+            key="hiw-panel"
+            initial={false}
             className="relative h-[400px] lg:h-[460px] rounded-xl bg-card border-2 border-foreground/10 overflow-hidden flex flex-col items-center justify-center"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/3 pointer-events-none" />
@@ -90,7 +85,7 @@ export function HowItWorksSection() {
               ))}
             </div>
 
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={active}
                 initial={{ opacity: 0, scale: 0.88, y: 20 }}
