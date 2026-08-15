@@ -41,7 +41,7 @@ AI가 답변을 만들 때, 문장을 단어 조각(토큰)으로 하나씩 조�
 100만 토큰이 어느 정도냐고요? A4 용지 약 3,000장 분량의 글을 읽고 답할 수 있는 양입니다. 중소기업 하루 업무에 넉넉하게 남습니다.
 
 ![Cerebras 무료 플랜 핵심 수치](/images/blog/cerebras-ultrafast-ai-free-5min-fig2.svg)
-*▲ Cerebras 무료 플랜 핵심 수치 · 출처: cloud.cerebras.ai / pricepertoken.com*
+*▲ Cerebras 무료 플랜 핵심 수치 · 출처: cloud.cerebras.ai / cerebras.ai/pricing*
 
 ### 솔직한 장단점 — 다른 도구와 비교하면
 

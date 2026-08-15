@@ -13,9 +13,9 @@
   <text x="400" y="145" text-anchor="middle" font-size="14" fill="#0f766e">토큰/일 무료</text>
   <text x="400" y="163" text-anchor="middle" font-size="12" fill="#6b7280">신용카드 불필요</text>
 
-  <!-- 카드 3: $0.50/M 초과 -->
-  <rect x="540" y="64" width="220" height="110" rx="12" fill="#ecfdf5"/>
-  <text x="650" y="118" text-anchor="middle" font-size="30" font-weight="900" fill="#0f766e">$0.50</text>
-  <text x="650" y="145" text-anchor="middle" font-size="14" fill="#0f766e">/ 백만 토큰</text>
-  <text x="650" y="163" text-anchor="middle" font-size="12" fill="#6b7280">초과 사용 시 추가 요금</text>
+  <!-- 카드 3: 초과 시 유료 -->
+  <rect x="540" y="64" width="220" height="110" rx="12" fill="#fef9c3"/>
+  <text x="650" y="110" text-anchor="middle" font-size="20" font-weight="900" fill="#92400e">초과 시 유료</text>
+  <text x="650" y="138" text-anchor="middle" font-size="13" fill="#92400e">요금은 모델·플랜별</text>
+  <text x="650" y="158" text-anchor="middle" font-size="13" fill="#92400e">상이 (변동 가능)</text>
 </svg>
