@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useIsClient } from '@/hooks/use-is-client'
 import Mascot from '@/components/Mascot'
 
 const fadeInUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const } } }
@@ -14,6 +15,7 @@ const steps = [
 ]
 
 export function HowItWorksSection() {
+  const isClient = useIsClient()
   const [active, setActive] = useState(0)
 
   useEffect(() => {
@@ -25,9 +27,10 @@ export function HowItWorksSection() {
     <section id="process" className="py-24 lg:py-32 bg-card/30">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <motion.div
+          key={isClient ? 'hiw-hdr-c' : 'hiw-hdr-s'}
           className="mb-16"
           variants={stagger}
-          initial="hidden"
+          initial={isClient ? "hidden" : false}
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
         >
@@ -37,9 +40,10 @@ export function HowItWorksSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
+            key={isClient ? 'hiw-steps-c' : 'hiw-steps-s'}
             className="space-y-2"
             variants={stagger}
-            initial="hidden"
+            initial={isClient ? "hidden" : false}
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
           >
@@ -67,7 +71,8 @@ export function HowItWorksSection() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            key={isClient ? 'hiw-panel-c' : 'hiw-panel-s'}
+            initial={isClient ? { opacity: 0, x: 40 } : false}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.7, ease: 'easeOut' }}

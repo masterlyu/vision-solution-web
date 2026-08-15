@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import { useIsClient } from '@/hooks/use-is-client'
 import { ArrowRight, Briefcase, FolderOpen, GraduationCap, Newspaper } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Mascot from '@/components/Mascot'
@@ -10,6 +11,7 @@ const fadeInUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, t
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.12 } } }
 
 export function CtaSection() {
+  const isClient = useIsClient()
   const [mouse, setMouse] = useState({ x: 50, y: 50 })
   const [primaryRgb, setPrimaryRgb] = useState('139,92,246')
 
@@ -21,8 +23,9 @@ export function CtaSection() {
     <section className="relative py-24 lg:py-32">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <motion.div
+          key={isClient ? 'cta-c' : 'cta-s'}
           className="relative border-2 border-foreground/15 rounded-xl overflow-hidden"
-          initial={{ opacity: 0, y: 40 }}
+          initial={isClient ? { opacity: 0, y: 40 } : false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -38,7 +41,7 @@ export function CtaSection() {
             <motion.div
               className="flex flex-col items-center text-center"
               variants={stagger}
-              initial="hidden"
+              initial={isClient ? "hidden" : false}
               whileInView="visible"
               viewport={{ once: true, margin: '-100px' }}
             >

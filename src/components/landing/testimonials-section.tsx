@@ -1,5 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
+import { useIsClient } from '@/hooks/use-is-client'
 import { Star } from 'lucide-react'
 import Mascot from '@/components/Mascot'
 
@@ -34,13 +35,15 @@ const reviews = [
 ]
 
 export function TestimonialsSection() {
+  const isClient = useIsClient()
   return (
     <section className="py-24 lg:py-32">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <motion.div
+          key={isClient ? 'testi-hdr-c' : 'testi-hdr-s'}
           className="mb-16 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-8"
           variants={stagger}
-          initial="hidden"
+          initial={isClient ? "hidden" : false}
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
         >
@@ -55,9 +58,10 @@ export function TestimonialsSection() {
         </motion.div>
 
         <motion.div
+          key={isClient ? 'testi-grid-c' : 'testi-grid-s'}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           variants={stagger}
-          initial="hidden"
+          initial={isClient ? "hidden" : false}
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
         >
