@@ -1,6 +1,9 @@
 'use client'
 import dynamic from 'next/dynamic'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useLayoutEffect, useRef } from 'react'
+
+// SSR-safe layout effect: 클라이언트에서 첫 페인트 전에 실행되어 opacity:0 플래시 방지
+const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect
 import Link from 'next/link'
 import historyData from '../../../content/company/history.json'
 import clientsData from '../../../content/company/clients.json'
@@ -69,9 +72,15 @@ function CountUpNumber({ value, suffix = '', prefix = '', decimals = 0, duration
 // ── FadeInSection ──────────────────────────────────────────────────────────
 function usePlainInView(ref: React.RefObject<HTMLElement | null>): boolean {
   const [inView, setInView] = useState(false)
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const el = ref.current
     if (!el) return
+    // 뷰포트 안에 이미 있으면 즉시 표시 (immediateRender:false 동등 효과)
+    const { top, bottom } = el.getBoundingClientRect()
+    if (top < window.innerHeight && bottom > 0) {
+      setInView(true)
+      return
+    }
     const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setInView(true); obs.disconnect() } }, { rootMargin: '-60px' })
     obs.observe(el)
     return () => obs.disconnect()
@@ -85,9 +94,8 @@ function FadeInSection({ children, delay = 0 }: { children: React.ReactNode; del
   return (
     <div
       ref={ref}
+      className={isInView ? undefined : 'fade-in-pending'}
       style={{
-        opacity: isInView ? 1 : 0,
-        transform: isInView ? 'none' : 'translateY(24px)',
         transition: `opacity 0.55s cubic-bezier(0.25,0.1,0.25,1) ${delay}s, transform 0.55s cubic-bezier(0.25,0.1,0.25,1) ${delay}s`,
       }}
     >

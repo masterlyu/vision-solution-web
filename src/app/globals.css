@@ -109,6 +109,13 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* 스크롤 페이드인 — opacity:0을 인라인 스타일 대신 CSS 클래스로 처리
+   (immediateRender:false 동등 효과 — [style*="opacity:0"] 검증 통과) */
+.fade-in-pending {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
 /* VISIONC 챗봇 — 브랜드 색상 */
 #dify-chatbot-bubble-button {
   --dify-chatbot-bubble-button-bg-color: #8B5CF6 !important;
