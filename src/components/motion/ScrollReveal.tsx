@@ -27,22 +27,19 @@ export function ScrollReveal({ children, className, y = 40, duration = 0.8, dela
 
       mm.add('(prefers-reduced-motion: no-preference)', () => {
         if (!ref.current) return
-        gsap.fromTo(
-          ref.current,
-          { opacity: 0, y },
-          {
-            opacity: 1,
-            y: 0,
-            duration,
-            delay,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: ref.current,
-              start: 'top 85%',
-              toggleActions: 'play none none none',
-            },
-          }
-        )
+        gsap.from(ref.current, {
+          opacity: 0,
+          y,
+          duration,
+          delay,
+          ease: 'power2.out',
+          immediateRender: false,
+          scrollTrigger: {
+            trigger: ref.current,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+          },
+        })
       })
 
       return () => mm.revert()
