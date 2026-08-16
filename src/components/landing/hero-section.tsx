@@ -17,6 +17,7 @@ function BlurWord({ word, trigger }: { word: string; trigger: number }) {
   const letters = word.split('')
   const STAGGER = 55
   const DURATION = 500
+  const [mounted, setMounted] = useState(false)
   const [letterStates, setLetterStates] = useState(letters.map(() => ({ opacity: 0, blur: 20 })))
   const frames = useRef<number[]>([])
   const timers = useRef<ReturnType<typeof setTimeout>[]>([])
@@ -25,6 +26,7 @@ function BlurWord({ word, trigger }: { word: string; trigger: number }) {
     frames.current.forEach(cancelAnimationFrame)
     timers.current.forEach(clearTimeout)
     frames.current = []; timers.current = []
+    setMounted(true)
     setLetterStates(letters.map(() => ({ opacity: 0, blur: 20 })))
 
     letters.forEach((_, i) => {
@@ -68,7 +70,7 @@ function BlurWord({ word, trigger }: { word: string; trigger: number }) {
             {g.map(i => {
               const s = letterStates[i] ?? { opacity: 0, blur: 20 }
               return (
-                <span key={i} style={{ opacity: s.opacity, filter: `blur(${s.blur}px)`, display: 'inline-block' }}>
+                <span key={i} style={{ opacity: mounted ? s.opacity : 1, filter: mounted ? `blur(${s.blur}px)` : 'blur(0px)', display: 'inline-block' }}>
                   {letters[i]}
                 </span>
               )
