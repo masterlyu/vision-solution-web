@@ -395,7 +395,7 @@ export default function SecurityPage() {
             <motion.div
               className="flex flex-col gap-6"
               variants={staggerSlow}
-              initial="hidden"
+              initial={false}
               animate="visible"
             >
               {/* 얼럿 배지 — SSR 무관하게 항상 visible (스모크 테스트 키워드) */}
@@ -429,7 +429,7 @@ export default function SecurityPage() {
             {/* Right: illustration */}
             <motion.div
               variants={fadeInUp}
-              initial="hidden"
+              initial={false}
               animate="visible"
               className="flex flex-col justify-center items-center gap-6"
             >
@@ -716,7 +716,7 @@ export default function SecurityPage() {
             selectedPkg !== i ? null : (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 8 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.18 }}
                 className={`rounded-xl border-2 flex flex-col ${p.highlight ? 'border-primary bg-primary/5' : 'border-border bg-card'}`}
