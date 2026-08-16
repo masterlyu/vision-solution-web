@@ -72,19 +72,28 @@ function CountUpNumber({ value, suffix = '', prefix = '', decimals = 0, duration
 // ── FadeInSection ──────────────────────────────────────────────────────────
 function usePlainInView(ref: React.RefObject<HTMLElement | null>): boolean {
   const [inView, setInView] = useState(false)
+
+  // 폴드 위 요소는 페인트 전에 즉시 표시 (FOIC 방지)
   useIsomorphicLayoutEffect(() => {
     const el = ref.current
     if (!el) return
-    // 뷰포트 안에 이미 있으면 즉시 표시 (immediateRender:false 동등 효과)
     const { top, bottom } = el.getBoundingClientRect()
-    if (top < window.innerHeight && bottom > 0) {
-      setInView(true)
-      return
-    }
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setInView(true); obs.disconnect() } }, { rootMargin: '-60px' })
+    if (top < window.innerHeight && bottom > 0) setInView(true)
+  }, [])
+
+  // 폴드 아래 요소는 페인트 후 IntersectionObserver로 처리
+  useEffect(() => {
+    if (inView) return
+    const el = ref.current
+    if (!el) return
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setInView(true); obs.disconnect() } },
+      { threshold: 0 }
+    )
     obs.observe(el)
     return () => obs.disconnect()
-  }, [ref])
+  }, [inView])
+
   return inView
 }
 
