@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">Qwen 3.8 27B — 핵심 스펙 한눈에</text>
+  <!-- 카드 3개 -->
+  <rect x="40" y="64" width="220" height="110" rx="12" fill="#f0fdfa"/>
+  <text x="150" y="118" text-anchor="middle" font-size="30" font-weight="900" fill="#0f766e">262,144</text>
+  <text x="150" y="148" text-anchor="middle" font-size="13" fill="#6b7280">토큰 컨텍스트 (A4 300p+)</text>
+  <rect x="290" y="64" width="220" height="110" rx="12" fill="#f0fdfa"/>
+  <text x="400" y="118" text-anchor="middle" font-size="30" font-weight="900" fill="#0f766e">0원</text>
+  <text x="400" y="148" text-anchor="middle" font-size="13" fill="#6b7280">Apache 2.0 · 상업적 사용 무료</text>
+  <rect x="540" y="64" width="220" height="110" rx="12" fill="#f0fdfa"/>
+  <text x="650" y="112" text-anchor="middle" font-size="22" font-weight="900" fill="#0f766e">텍스트+이미지</text>
+  <text x="650" y="135" text-anchor="middle" font-size="22" font-weight="900" fill="#0f766e">+영상</text>
+  <text x="650" y="158" text-anchor="middle" font-size="13" fill="#6b7280">멀티모달 동시 분석</text>
+</svg>
