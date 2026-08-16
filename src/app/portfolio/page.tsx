@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import {
   Factory, Hospital, ShoppingCart,
@@ -81,14 +81,7 @@ const processSteps = [
 
 // ── Page ──────────────────────────────────────────────────────────────────
 export default function PortfolioPage() {
-  const [mounted, setMounted] = useState(false)
-  useEffect(() => { setMounted(true) }, [])
-
-  const fi = (delay: number): React.CSSProperties => ({
-    opacity: mounted ? 1 : 0,
-    transform: mounted ? 'none' : 'translateY(24px)',
-    transition: `opacity 0.5s ease-out ${delay}s, transform 0.5s ease-out ${delay}s`,
-  })
+  const fi = (_delay: number) => ({})
 
   return (
     <div className="min-h-screen bg-background">
