@@ -176,3 +176,12 @@ AI 도입이 처음이라면, 우리 회사 업무에 어떤 방식이 맞는지
 > **Vision Solution AI 솔루션 문의**:  
 > 📧 biztalktome@gmail.com  
 > 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
+
+
+<!-- related-links -->
+
+## 함께 보면 좋은 글
+
+- [하루 만에 별 6만 개 — AI 직원 레고 조립법](/blog/deepseek-harness-ai-agent-lego-free-guide)
+- [Prime Agent — 자기학습 AI 5분 실습](/blog/prime-agent-self-improving-ai-sme-guide)
+- [ChatGPT 무료 Think 버튼 3만원 줄이는 법](/blog/chatgpt-free-think-button-2026)
