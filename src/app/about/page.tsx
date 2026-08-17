@@ -72,33 +72,56 @@ function CountUpNumber({ value, suffix = '', prefix = '', decimals = 0, duration
 // ── FadeInSection ──────────────────────────────────────────────────────────
 function usePlainInView(ref: React.RefObject<HTMLElement | null>): boolean {
   const [inView, setInView] = useState(false)
+  const resolvedRef = useRef(false)
 
-  // 폴드 위·이미 지나친 요소: 페인트 전 즉시 표시 (FOIC 방지 + 스크롤 복원 대응)
+  // 폴드 위·이미 지나친 요소: 페인트 전 즉시 표시 (FOIC 방지 + layout-effect 스크롤 복원)
   useIsomorphicLayoutEffect(() => {
     const el = ref.current
     if (!el) return
     const { top } = el.getBoundingClientRect()
-    // top < innerHeight → 뷰포트 안(0≤top<innerHeight) 또는 이미 위로 지나침(top<0) 모두 처리
-    if (top < window.innerHeight) setInView(true)
+    if (top < window.innerHeight) { resolvedRef.current = true; setInView(true) }
   }, [])
 
-  // 폴드 아래 요소: 페인트 후 위치 재확인 + IntersectionObserver
-  // ponytail: useEffect는 Next.js 스크롤 복원(useLayoutEffect 기반) 이후 실행됨
-  // 복원으로 이미 스크롤 위를 지난 요소도 여기서 잡아낸다
+  // 폴드 아래 요소: IO + 스크롤 폴백 (순간 이동·passive-effect 스크롤 복원 대응)
+  // ponytail: 44개 passive scroll listener — getBoundingClientRect 비용 무시 가능
   useEffect(() => {
-    if (inView) return
+    if (resolvedRef.current) return
     const el = ref.current
     if (!el) return
-    // 스크롤 복원 후 이미 뷰포트 위로 올라간 요소 즉시 처리
+
+    const resolve = () => {
+      if (resolvedRef.current) return
+      resolvedRef.current = true
+      setInView(true)
+      // 즉시 정리해서 scroll listener가 쌓이지 않도록
+      obs.disconnect()
+      window.removeEventListener('scroll', onScroll)
+    }
+
+    // passive-effect 스크롤 복원 이후 위치 재확인
     const { top } = el.getBoundingClientRect()
-    if (top < window.innerHeight) { setInView(true); return }
+    if (top < window.innerHeight) { resolve(); return }
+
+    // IO: 일반 스크롤 (가장 효율적)
     const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { setInView(true); obs.disconnect() } },
+      ([e]) => { if (e.isIntersecting) resolve() },
       { threshold: 0 }
     )
     obs.observe(el)
-    return () => obs.disconnect()
-  }, [inView])
+
+    // scroll 폴백: End키·순간 이동·touch 플릭 등 IO가 중간을 건너뛰는 경우
+    const onScroll = () => {
+      if (!ref.current) return
+      const { top } = ref.current.getBoundingClientRect()
+      if (top < window.innerHeight) resolve()
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+
+    return () => {
+      obs.disconnect()
+      window.removeEventListener('scroll', onScroll)
+    }
+  }, [])
 
   return inView
 }
