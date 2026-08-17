@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">VizNow Idea to Video — 핵심 수치</text>
+  <!-- 카드 3개 -->
+  <rect x="40" y="64" width="220" height="110" rx="12" fill="#f0fdfa"/>
+  <text x="150" y="120" text-anchor="middle" font-size="36" font-weight="900" fill="#0f766e">22가지</text>
+  <text x="150" y="150" text-anchor="middle" font-size="14" fill="#6b7280">비주얼 테마 선택</text>
+  <rect x="290" y="64" width="220" height="110" rx="12" fill="#f0fdfa"/>
+  <text x="400" y="120" text-anchor="middle" font-size="36" font-weight="900" fill="#0f766e">8종</text>
+  <text x="400" y="150" text-anchor="middle" font-size="14" fill="#6b7280">AI 목소리 선택</text>
+  <rect x="540" y="64" width="220" height="110" rx="12" fill="#f0fdfa"/>
+  <text x="650" y="112" text-anchor="middle" font-size="30" font-weight="900" fill="#0f766e">90초~</text>
+  <text x="650" y="142" text-anchor="middle" font-size="22" font-weight="700" fill="#0f766e">5분+</text>
+  <text x="650" y="163" text-anchor="middle" font-size="14" fill="#6b7280">영상 길이 선택</text>
+</svg>
