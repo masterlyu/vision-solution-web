@@ -73,19 +73,25 @@ function CountUpNumber({ value, suffix = '', prefix = '', decimals = 0, duration
 function usePlainInView(ref: React.RefObject<HTMLElement | null>): boolean {
   const [inView, setInView] = useState(false)
 
-  // 폴드 위 요소는 페인트 전에 즉시 표시 (FOIC 방지)
+  // 폴드 위·이미 지나친 요소: 페인트 전 즉시 표시 (FOIC 방지 + 스크롤 복원 대응)
   useIsomorphicLayoutEffect(() => {
     const el = ref.current
     if (!el) return
-    const { top, bottom } = el.getBoundingClientRect()
-    if (top < window.innerHeight && bottom > 0) setInView(true)
+    const { top } = el.getBoundingClientRect()
+    // top < innerHeight → 뷰포트 안(0≤top<innerHeight) 또는 이미 위로 지나침(top<0) 모두 처리
+    if (top < window.innerHeight) setInView(true)
   }, [])
 
-  // 폴드 아래 요소는 페인트 후 IntersectionObserver로 처리
+  // 폴드 아래 요소: 페인트 후 위치 재확인 + IntersectionObserver
+  // ponytail: useEffect는 Next.js 스크롤 복원(useLayoutEffect 기반) 이후 실행됨
+  // 복원으로 이미 스크롤 위를 지난 요소도 여기서 잡아낸다
   useEffect(() => {
     if (inView) return
     const el = ref.current
     if (!el) return
+    // 스크롤 복원 후 이미 뷰포트 위로 올라간 요소 즉시 처리
+    const { top } = el.getBoundingClientRect()
+    if (top < window.innerHeight) { setInView(true); return }
     const obs = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { setInView(true); obs.disconnect() } },
       { threshold: 0 }
