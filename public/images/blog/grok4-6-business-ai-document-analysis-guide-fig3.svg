@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">grok.com 계약서 분석 — 3단계</text>
+  <!-- 단계 1 -->
+  <rect x="40" y="65" width="200" height="95" rx="12" fill="#0f766e"/>
+  <text x="140" y="107" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">① grok.com 접속</text>
+  <text x="140" y="133" text-anchor="middle" font-size="12" fill="#a7f3d0">X 계정으로 로그인</text>
+  <!-- 화살표 -->
+  <text x="263" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- 단계 2 -->
+  <rect x="300" y="65" width="200" height="95" rx="12" fill="#0891b2"/>
+  <text x="400" y="107" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">② 문서 붙여넣기</text>
+  <text x="400" y="133" text-anchor="middle" font-size="12" fill="#cffafe">계약서·보고서 텍스트</text>
+  <!-- 화살표 -->
+  <text x="523" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- 단계 3 -->
+  <rect x="560" y="65" width="200" height="95" rx="12" fill="#22d3ee"/>
+  <text x="660" y="107" text-anchor="middle" font-size="15" font-weight="800" fill="#083344">③ 핵심 조항 확인</text>
+  <text x="660" y="133" text-anchor="middle" font-size="12" fill="#083344">5분 안에 요약 완료</text>
+</svg>

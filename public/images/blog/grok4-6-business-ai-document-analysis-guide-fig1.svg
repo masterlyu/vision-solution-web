@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">Harvey LAB 법률 문서 분석 벤치마크</text>
+  <!-- Grok 4.6 bar: 15.8% → height proportional (max=20%, max_h=180) → 142px, y=108 -->
+  <rect x="160" y="108" width="140" height="142" rx="6" fill="#0f766e"/>
+  <text x="230" y="90" text-anchor="middle" font-size="28" font-weight="900" fill="#0f766e">15.8%</text>
+  <text x="230" y="275" text-anchor="middle" font-size="15" fill="#1f2937">Grok 4.6</text>
+  <!-- GPT-5.6 Sol bar: 2.5% → height=22.5px, y=227.5 -->
+  <rect x="480" y="228" width="140" height="22" rx="6" fill="#cbd5e1"/>
+  <text x="550" y="210" text-anchor="middle" font-size="28" font-weight="800" fill="#6b7280">2.5%</text>
+  <text x="550" y="275" text-anchor="middle" font-size="15" fill="#1f2937">GPT-5.6 Sol</text>
+  <!-- baseline -->
+  <line x1="80" y1="250" x2="720" y2="250" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="400" y="145" text-anchor="middle" font-size="16" font-weight="700" fill="#0f766e">6배 이상 앞섬 ↑</text>
+</svg>
