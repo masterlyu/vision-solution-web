@@ -109,11 +109,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* 스크롤 페이드인 — opacity:0을 인라인 스타일 대신 CSS 클래스로 처리
-   (immediateRender:false 동등 효과 — [style*="opacity:0"] 검증 통과) */
-.fade-in-pending {
-  opacity: 0;
-  transform: translateY(24px);
+/* 페이드인 키프레임 — VIS-5373: IO 의존 제거, 클래스 방식 폐기 */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
 }
 
 /* VISIONC 챗봇 — 브랜드 색상 */

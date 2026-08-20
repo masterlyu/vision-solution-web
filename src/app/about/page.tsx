@@ -1,9 +1,6 @@
 'use client'
 import dynamic from 'next/dynamic'
-import { useState, useEffect, useLayoutEffect, useRef } from 'react'
-
-// SSR-safe layout effect: 클라이언트에서 첫 페인트 전에 실행되어 opacity:0 플래시 방지
-const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import historyData from '../../../content/company/history.json'
 import clientsData from '../../../content/company/clients.json'
@@ -70,73 +67,11 @@ function CountUpNumber({ value, suffix = '', prefix = '', decimals = 0, duration
 }
 
 // ── FadeInSection ──────────────────────────────────────────────────────────
-function usePlainInView(ref: React.RefObject<HTMLElement | null>): boolean {
-  const [inView, setInView] = useState(false)
-  const resolvedRef = useRef(false)
-
-  // 폴드 위·이미 지나친 요소: 페인트 전 즉시 표시 (FOIC 방지 + layout-effect 스크롤 복원)
-  useIsomorphicLayoutEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const { top } = el.getBoundingClientRect()
-    if (top < window.innerHeight) { resolvedRef.current = true; setInView(true) }
-  }, [])
-
-  // 폴드 아래 요소: IO + 스크롤 폴백 (순간 이동·passive-effect 스크롤 복원 대응)
-  // ponytail: 44개 passive scroll listener — getBoundingClientRect 비용 무시 가능
-  useEffect(() => {
-    if (resolvedRef.current) return
-    const el = ref.current
-    if (!el) return
-
-    const resolve = () => {
-      if (resolvedRef.current) return
-      resolvedRef.current = true
-      setInView(true)
-      // 즉시 정리해서 scroll listener가 쌓이지 않도록
-      obs.disconnect()
-      window.removeEventListener('scroll', onScroll)
-    }
-
-    // passive-effect 스크롤 복원 이후 위치 재확인
-    const { top } = el.getBoundingClientRect()
-    if (top < window.innerHeight) { resolve(); return }
-
-    // IO: 일반 스크롤 (가장 효율적)
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) resolve() },
-      { threshold: 0 }
-    )
-    obs.observe(el)
-
-    // scroll 폴백: End키·순간 이동·touch 플릭 등 IO가 중간을 건너뛰는 경우
-    const onScroll = () => {
-      if (!ref.current) return
-      const { top } = ref.current.getBoundingClientRect()
-      if (top < window.innerHeight) resolve()
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
-
-    return () => {
-      obs.disconnect()
-      window.removeEventListener('scroll', onScroll)
-    }
-  }, [])
-
-  return inView
-}
-
+// VIS-5373: IO 기반 "숨기기→드러내기" 폐기 → CSS keyframe 자동 재생
+// fade-in-pending 클래스 완전 제거 → fadePendingCount: 0 보장
 function FadeInSection({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
-  const ref = useRef<HTMLDivElement>(null)
-  const isInView = usePlainInView(ref)
   return (
-    <div
-      ref={ref}
-      className={isInView ? undefined : 'fade-in-pending'}
-      style={{
-        transition: `opacity 0.55s cubic-bezier(0.25,0.1,0.25,1) ${delay}s, transform 0.55s cubic-bezier(0.25,0.1,0.25,1) ${delay}s`,
-      }}
-    >
+    <div style={{ animation: `fadeInUp 0.55s cubic-bezier(0.25,0.1,0.25,1) ${delay}s both` }}>
       {children}
     </div>
   )
