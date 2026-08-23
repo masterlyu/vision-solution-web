@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">Eigent 핵심 3가지 — 무료로 가능한 이유</text>
+  <!-- 카드 1 -->
+  <rect x="40" y="64" width="220" height="110" rx="12" fill="#f0fdfa"/>
+  <text x="150" y="120" text-anchor="middle" font-size="36" font-weight="900" fill="#0f766e">0원</text>
+  <text x="150" y="150" text-anchor="middle" font-size="14" fill="#6b7280">구독비 · 기본 사용</text>
+  <!-- 카드 2 -->
+  <rect x="290" y="64" width="220" height="110" rx="12" fill="#f0fdfa"/>
+  <text x="400" y="115" text-anchor="middle" font-size="28" font-weight="900" fill="#0f766e">Apache</text>
+  <text x="400" y="143" text-anchor="middle" font-size="20" font-weight="700" fill="#0891b2">2.0</text>
+  <text x="400" y="163" text-anchor="middle" font-size="13" fill="#6b7280">상업 이용 허용 라이선스</text>
+  <!-- 카드 3 -->
+  <rect x="540" y="64" width="220" height="110" rx="12" fill="#f0fdfa"/>
+  <text x="650" y="120" text-anchor="middle" font-size="36" font-weight="900" fill="#0f766e">병렬</text>
+  <text x="650" y="150" text-anchor="middle" font-size="14" fill="#6b7280">여러 에이전트 동시 처리</text>
+</svg>
