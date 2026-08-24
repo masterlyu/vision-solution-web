@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f766e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.18" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.06" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)" />
+  <circle cx="700" cy="-60" r="220" fill="white" opacity="0.04"/>
+  <circle cx="750" cy="450" r="160" fill="white" opacity="0.04"/>
+  <!-- 태그 배지 -->
+  <rect x="40" y="40" width="76" height="28" rx="14" fill="white" opacity="0.2"/>
+  <text x="78" y="59" text-anchor="middle" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="12" font-weight="700" fill="white">AI 활용</text>
+  <!-- 우측 아이콘 카드 -->
+  <rect x="490" y="55" width="275" height="310" rx="20" fill="url(#card1)" stroke="white" stroke-opacity="0.15" stroke-width="1"/>
+  <!-- GitHub star icon -->
+  <text x="628" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="72" fill="white" opacity="0.9">⭐</text>
+  <text x="628" y="215" text-anchor="middle" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="26" font-weight="900" fill="white">235,000+</text>
+  <text x="628" y="245" text-anchor="middle" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="13" fill="white" opacity="0.7">GitHub 별 수</text>
+  <text x="628" y="285" text-anchor="middle" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="12" fill="white" opacity="0.5">github.com/mattpocock/skills</text>
+  <!-- 좌측 메인 텍스트 -->
+  <text x="40" y="130" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="14" font-weight="600" fill="white" opacity="0.8">GitHub Trending 1위 · AI 스킬 무료 공개</text>
+  <text x="40" y="182" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="34" font-weight="900" fill="white">AI에 직업을 주면</text>
+  <text x="40" y="228" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="34" font-weight="900" fill="white">결과가 달라집니다</text>
+  <text x="40" y="278" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="15" fill="white" opacity="0.75">Matt Pocock의 비법노트 · 복붙으로 5분 실습</text>
+  <rect x="40" y="318" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
+  <text x="40" y="353" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="14" fill="white" opacity="0.6">(주)비젼솔루션</text>
+</svg>
