@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">Data Formulator 현황 (2026년 8월 기준)</text>
+  <!-- 카드 1: GitHub 별 -->
+  <rect x="40" y="64" width="220" height="110" rx="12" fill="#f0fdfa"/>
+  <text x="150" y="115" text-anchor="middle" font-size="30" font-weight="900" fill="#0f766e">16,900+</text>
+  <text x="150" y="148" text-anchor="middle" font-size="13" fill="#6b7280">GitHub 별점</text>
+  <!-- 카드 2: 라이선스 -->
+  <rect x="290" y="64" width="220" height="110" rx="12" fill="#f0fdfa"/>
+  <text x="400" y="115" text-anchor="middle" font-size="30" font-weight="900" fill="#0f766e">MIT</text>
+  <text x="400" y="148" text-anchor="middle" font-size="13" fill="#6b7280">완전 무료 라이선스</text>
+  <!-- 카드 3: 버전 -->
+  <rect x="540" y="64" width="220" height="110" rx="12" fill="#f0fdfa"/>
+  <text x="650" y="108" text-anchor="middle" font-size="24" font-weight="900" fill="#0f766e">v0.8 Beta</text>
+  <text x="650" y="135" text-anchor="middle" font-size="14" font-weight="700" fill="#0891b2">2026.08 공개</text>
+  <text x="650" y="155" text-anchor="middle" font-size="12" fill="#6b7280">Microsoft Research</text>
+</svg>
