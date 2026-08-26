@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <!-- 제목 -->
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">Ox Alpha 핵심 사양 한눈에 보기</text>
+  <!-- 카드 4개 가로 배열 -->
+  <!-- 카드 1: 컨텍스트 -->
+  <rect x="30" y="70" width="170" height="180" rx="12" fill="#f0fdfa" stroke="#0f766e" stroke-width="1.5"/>
+  <text x="115" y="115" text-anchor="middle" font-size="36" fill="#0f766e">📄</text>
+  <text x="115" y="150" text-anchor="middle" font-size="22" font-weight="800" fill="#0f766e">100만</text>
+  <text x="115" y="172" text-anchor="middle" font-size="13" font-weight="700" fill="#0f766e">토큰</text>
+  <text x="115" y="195" text-anchor="middle" font-size="12" fill="#6b7280">A4 750페이지</text>
+  <text x="115" y="213" text-anchor="middle" font-size="12" fill="#6b7280">한 번에 처리</text>
+  <text x="115" y="235" text-anchor="middle" font-size="11" font-weight="700" fill="#0f766e">컨텍스트 창</text>
+  <!-- 카드 2: 입력 유형 -->
+  <rect x="215" y="70" width="170" height="180" rx="12" fill="#f0fdfa" stroke="#0f766e" stroke-width="1.5"/>
+  <text x="300" y="115" text-anchor="middle" font-size="36" fill="#0f766e">🖼️</text>
+  <text x="300" y="152" text-anchor="middle" font-size="15" font-weight="800" fill="#0f766e">텍스트</text>
+  <text x="300" y="172" text-anchor="middle" font-size="15" font-weight="800" fill="#0f766e">이미지</text>
+  <text x="300" y="192" text-anchor="middle" font-size="15" font-weight="800" fill="#0f766e">동영상</text>
+  <text x="300" y="217" text-anchor="middle" font-size="12" fill="#6b7280">멀티모달</text>
+  <text x="300" y="235" text-anchor="middle" font-size="11" font-weight="700" fill="#0f766e">입력 유형</text>
+  <!-- 카드 3: 비용 -->
+  <rect x="400" y="70" width="170" height="180" rx="12" fill="#f0fdfa" stroke="#0f766e" stroke-width="1.5"/>
+  <text x="485" y="115" text-anchor="middle" font-size="36" fill="#0f766e">🆓</text>
+  <text x="485" y="155" text-anchor="middle" font-size="28" font-weight="900" fill="#0f766e">$0</text>
+  <text x="485" y="178" text-anchor="middle" font-size="13" fill="#6b7280">현재 완전 무료</text>
+  <text x="485" y="198" text-anchor="middle" font-size="12" fill="#e11d48">⚠ 기간 종료 임박</text>
+  <text x="485" y="218" text-anchor="middle" font-size="12" fill="#6b7280">8/20~ 약 1주일</text>
+  <text x="485" y="236" text-anchor="middle" font-size="11" font-weight="700" fill="#0f766e">이용 비용</text>
+  <!-- 카드 4: 개발사 -->
+  <rect x="585" y="70" width="185" height="180" rx="12" fill="#f0fdfa" stroke="#0f766e" stroke-width="1.5"/>
+  <text x="677" y="115" text-anchor="middle" font-size="36" fill="#0f766e">🔍</text>
+  <text x="677" y="152" text-anchor="middle" font-size="14" font-weight="800" fill="#0f766e">익명</text>
+  <text x="677" y="172" text-anchor="middle" font-size="12" fill="#6b7280">Z.ai 추정</text>
+  <text x="677" y="192" text-anchor="middle" font-size="12" fill="#6b7280">(GLM-5.3-Flash)</text>
+  <text x="677" y="212" text-anchor="middle" font-size="12" fill="#6b7280">확인되지 않음</text>
+  <text x="677" y="235" text-anchor="middle" font-size="11" font-weight="700" fill="#0f766e">개발사</text>
+</svg>
