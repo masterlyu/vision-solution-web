@@ -125,3 +125,12 @@ AI 도구를 업무에 어떻게 연결할지 고민이라면 부담 없이 문�
 > **Vision Solution AI 솔루션 문의**:  
 > 📧 biztalktome@gmail.com  
 > 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
+
+
+<!-- related-links -->
+
+## 함께 보면 좋은 글
+
+- [사진 올리면 AI가 다 읽는다 — 딥씨크 무료 이미지 분석 5분 실습](/blog/deepseek-vision-image-analysis-free-guide)
+- [엑셀 없이 차트 — MS 무료 AI 5분 실습](/blog/microsoft-data-formulator-ai-chart-guide)
+- [AI 스킬 비법 무료 공개 — 복붙 5분 실습](/blog/mattpocock-skills-ai-agent-free-guide)
