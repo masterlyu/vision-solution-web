@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">중소기업 맞춤 AI 만들기 3단계</text>
+  <!-- 단계 1 -->
+  <rect x="40" y="65" width="200" height="100" rx="12" fill="#0f766e"/>
+  <text x="140" y="108" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">① 데이터 준비</text>
+  <text x="140" y="132" text-anchor="middle" font-size="12" fill="#a7f3d0">FAQ 엑셀 30~50개</text>
+  <!-- 화살표 -->
+  <text x="265" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- 단계 2 -->
+  <rect x="300" y="65" width="200" height="100" rx="12" fill="#0891b2"/>
+  <text x="400" y="108" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">② 모델 선택</text>
+  <text x="400" y="132" text-anchor="middle" font-size="12" fill="#cffafe">Qwen3.8 등 한국어 모델</text>
+  <!-- 화살표 -->
+  <text x="525" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- 단계 3 -->
+  <rect x="560" y="65" width="200" height="100" rx="12" fill="#22d3ee"/>
+  <text x="660" y="108" text-anchor="middle" font-size="15" font-weight="800" fill="#083344">③ 훈련 시작</text>
+  <text x="660" y="132" text-anchor="middle" font-size="12" fill="#083344">클릭 한 번, PC가 알아서</text>
+</svg>

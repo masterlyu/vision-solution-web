@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">Unsloth Desktop 핵심 성능 수치</text>
+  <!-- 카드 1 -->
+  <rect x="40" y="60" width="220" height="110" rx="12" fill="#ecfdf5"/>
+  <text x="150" y="118" text-anchor="middle" font-size="40" font-weight="900" fill="#0f766e">2배</text>
+  <text x="150" y="152" text-anchor="middle" font-size="13" fill="#6b7280">기존 대비 학습 속도</text>
+  <!-- 카드 2 -->
+  <rect x="290" y="60" width="220" height="110" rx="12" fill="#ecfdf5"/>
+  <text x="400" y="118" text-anchor="middle" font-size="40" font-weight="900" fill="#0f766e">60%</text>
+  <text x="400" y="152" text-anchor="middle" font-size="13" fill="#6b7280">GPU 메모리 절감</text>
+  <!-- 카드 3 -->
+  <rect x="540" y="60" width="220" height="110" rx="12" fill="#ecfdf5"/>
+  <text x="650" y="118" text-anchor="middle" font-size="40" font-weight="900" fill="#0f766e">500+</text>
+  <text x="650" y="152" text-anchor="middle" font-size="13" fill="#6b7280">지원 AI 모델 수</text>
+</svg>
