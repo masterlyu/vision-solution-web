@@ -11,9 +11,6 @@ summary: "개발사 정체를 숨긴 AI 'Ox Alpha'가 OpenRouter에서 이번 �
 
 그리고 이 AI, 지금 **완전 무료**입니다. 출시 이후 약 1주일간 무료로 풀렸는데 — 오늘(8월 27일)이 그 마지막 날 언저리입니다. 지금 바로 써볼 수 있습니다.
 
-> **AI 도구 선택에 막히셨다면 먼저 상담부터:**  
-> 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
-
 ## Ox Alpha, 쉽게 설명하면
 
 ![center](/mascot/md/emotion/cat_surprised.webp)
