@@ -1,5 +1,5 @@
 ---
-title: "내 PC에서 AI 직접 훈련 — 코딩 없이 5분 무료 실습"
+title: "내 PC로 AI 직접 훈련 — 무료 5분 실습"
 date: "2026-08-28"
 tag: "AI 활용"
 tags: "AI 훈련,무료 AI 도구,중소기업 AI"
@@ -154,7 +154,7 @@ A. 실행은 됩니다만, 작은 모델(1~3B) 기준으로 훈련에 몇 시간
 A. Unsloth Desktop은 학습까지 담당합니다. 홈페이지 채팅 위젯이나 카카오챗봇에 연결하려면 추가 연동 작업이 필요합니다. 이 부분은 개발사 도움이 필요합니다.
 
 **Q. 상업적으로 써도 되나요?**
-A. Unsloth는 MIT 라이선스입니다. 상업적 활용도 무료로 허용됩니다.
+A. Unsloth 코어는 **Apache 2.0** 라이선스입니다. 상업적 활용도 무료로 허용됩니다. (단, Studio UI 컴포넌트는 AGPL-3.0 적용)
 
 ---
 
@@ -164,3 +164,12 @@ A. Unsloth는 MIT 라이선스입니다. 상업적 활용도 무료로 허용됩
 > 우리 회사 데이터로 맞춤형 AI를 만드는 첫 상담, 30분 무료입니다.
 > 📧 biztalktome@gmail.com
 > 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
+
+
+<!-- related-links -->
+
+## 함께 보면 좋은 글
+
+- [이번 주만 무료 AI — 정체불명인데 성능 1위](/blog/ox-alpha-free-mystery-ai-openrouter-guide)
+- [사진 올리면 AI가 다 읽는다 — 딥씨크 무료 이미지 분석 5분 실습](/blog/deepseek-vision-image-analysis-free-guide)
+- [엑셀 없이 차트 — MS 무료 AI 5분 실습](/blog/microsoft-data-formulator-ai-chart-guide)
