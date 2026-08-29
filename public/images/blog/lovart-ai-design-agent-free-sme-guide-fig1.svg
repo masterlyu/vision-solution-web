@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">Lovart AI vs 오픈소스 — 핵심 비교</text>
+  <!-- 카드 1: 시작 비용 -->
+  <rect x="40" y="60" width="220" height="110" rx="12" fill="#ecfdf5"/>
+  <text x="150" y="110" text-anchor="middle" font-size="28" font-weight="900" fill="#0f766e">무료 시작</text>
+  <text x="150" y="145" text-anchor="middle" font-size="13" fill="#6b7280">Lovart AI 가입 즉시</text>
+  <!-- 카드 2: 오픈소스 지원 모델 -->
+  <rect x="290" y="60" width="220" height="110" rx="12" fill="#ecfdf5"/>
+  <text x="400" y="110" text-anchor="middle" font-size="36" font-weight="900" fill="#0f766e">200+</text>
+  <text x="400" y="145" text-anchor="middle" font-size="13" fill="#6b7280">오픈소스 지원 AI 모델 수</text>
+  <!-- 카드 3: 설치 불필요 -->
+  <rect x="540" y="60" width="220" height="110" rx="12" fill="#ecfdf5"/>
+  <text x="650" y="103" text-anchor="middle" font-size="22" font-weight="900" fill="#0f766e">설치 없이</text>
+  <text x="650" y="130" text-anchor="middle" font-size="22" font-weight="900" fill="#0f766e">브라우저로</text>
+  <text x="650" y="155" text-anchor="middle" font-size="13" fill="#6b7280">Lovart AI 접근 방식</text>
+</svg>
