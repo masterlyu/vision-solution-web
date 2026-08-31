@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" width="800" height="340" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="340" fill="#ffffff"/>
+  <!-- 제목 -->
+  <text x="400" y="38" text-anchor="middle" font-size="18" font-weight="800" fill="#1f2937">AI 실수 패턴 3가지 → CLAUDE.md 4가지 해결 규칙</text>
+  <line x1="40" y1="50" x2="760" y2="50" stroke="#e5e7eb" stroke-width="1"/>
+
+  <!-- 왼쪽: AI 실수 3가지 -->
+  <rect x="40" y="65" width="340" height="240" rx="12" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5"/>
+  <text x="210" y="92" text-anchor="middle" font-size="14" font-weight="800" fill="#dc2626">카파시가 지적한 AI 실수 3가지</text>
+
+  <!-- 실수 1 -->
+  <rect x="60" y="105" width="300" height="56" rx="8" fill="#ffffff" stroke="#fca5a5" stroke-width="1"/>
+  <text x="80" y="127" font-size="22" fill="#dc2626">⚡</text>
+  <text x="112" y="127" font-size="13" font-weight="700" fill="#1f2937">성급한 실행</text>
+  <text x="112" y="147" font-size="12" fill="#6b7280">계획 없이 바로 시작 → 방향 이탈</text>
+
+  <!-- 실수 2 -->
+  <rect x="60" y="170" width="300" height="56" rx="8" fill="#ffffff" stroke="#fca5a5" stroke-width="1"/>
+  <text x="80" y="192" font-size="22" fill="#dc2626">🌀</text>
+  <text x="112" y="192" font-size="13" font-weight="700" fill="#1f2937">과도한 복잡화</text>
+  <text x="112" y="212" font-size="12" fill="#6b7280">"더 좋게" 하다가 오히려 망침</text>
+
+  <!-- 실수 3 -->
+  <rect x="60" y="235" width="300" height="56" rx="8" fill="#ffffff" stroke="#fca5a5" stroke-width="1"/>
+  <text x="80" y="257" font-size="22" fill="#dc2626">📡</text>
+  <text x="112" y="257" font-size="13" font-weight="700" fill="#1f2937">범위 이탈</text>
+  <text x="112" y="277" font-size="12" fill="#6b7280">A만 바꾸라 했는데 B·C·D까지 수정</text>
+
+  <!-- 화살표 -->
+  <text x="395" y="195" text-anchor="middle" font-size="28" fill="#6b7280">→</text>
+
+  <!-- 오른쪽: 4가지 규칙 -->
+  <rect x="420" y="65" width="340" height="240" rx="12" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5"/>
+  <text x="590" y="92" text-anchor="middle" font-size="14" font-weight="800" fill="#16a34a">CLAUDE.md 4가지 해결 규칙</text>
+
+  <!-- 규칙 1 -->
+  <rect x="440" y="105" width="300" height="44" rx="8" fill="#ffffff" stroke="#86efac" stroke-width="1"/>
+  <rect x="440" y="105" width="8" height="44" rx="4" fill="#16a34a"/>
+  <text x="462" y="124" font-size="12" font-weight="700" fill="#16a34a">규칙 1</text>
+  <text x="462" y="141" font-size="12" fill="#1f2937">먼저 생각하게 — 계획부터 말하게 하기</text>
+
+  <!-- 규칙 2 -->
+  <rect x="440" y="158" width="300" height="44" rx="8" fill="#ffffff" stroke="#86efac" stroke-width="1"/>
+  <rect x="440" y="158" width="8" height="44" rx="4" fill="#16a34a"/>
+  <text x="462" y="177" font-size="12" font-weight="700" fill="#16a34a">규칙 2</text>
+  <text x="462" y="194" font-size="12" fill="#1f2937">단순하게 — 가장 쉬운 방법 우선</text>
+
+  <!-- 규칙 3 -->
+  <rect x="440" y="211" width="300" height="44" rx="8" fill="#ffffff" stroke="#86efac" stroke-width="1"/>
+  <rect x="440" y="211" width="8" height="44" rx="4" fill="#16a34a"/>
+  <text x="462" y="230" font-size="12" font-weight="700" fill="#16a34a">규칙 3</text>
+  <text x="462" y="247" font-size="12" fill="#1f2937">꼭 필요한 것만 — 지정 범위만 수정</text>
+
+  <!-- 규칙 4 -->
+  <rect x="440" y="264" width="300" height="30" rx="8" fill="#0f766e" stroke="#0f766e" stroke-width="1"/>
+  <text x="462" y="284" font-size="12" font-weight="700" fill="#ffffff">규칙 4  목표 명확히 — 완료 기준 먼저 합의</text>
+
+  <!-- 하단 출처 -->
+  <text x="400" y="325" text-anchor="middle" font-size="11" fill="#9ca3af">출처: github.com/multica-ai/andrej-karpathy-skills · Andrej Karpathy (Tesla AI · OpenAI 공동창업자) 기반</text>
+</svg>
