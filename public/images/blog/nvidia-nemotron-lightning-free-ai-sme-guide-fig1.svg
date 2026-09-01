@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">Nemotron 3.5 Lightning — 핵심 수치 비교</text>
+  <!-- 동급 모델 막대 (느림 = 낮음) -->
+  <rect x="160" y="200" width="120" height="50" rx="6" fill="#cbd5e1"/>
+  <text x="220" y="185" text-anchor="middle" font-size="22" font-weight="800" fill="#6b7280">1배</text>
+  <text x="220" y="275" text-anchor="middle" font-size="14" fill="#1f2937">기존 동급 모델</text>
+  <text x="220" y="292" text-anchor="middle" font-size="12" fill="#6b7280">처리 속도</text>
+  <!-- Nemotron 막대 (4배 빠름 = 높음) -->
+  <rect x="380" y="50" width="120" height="200" rx="6" fill="#0f766e"/>
+  <text x="440" y="35" text-anchor="middle" font-size="22" font-weight="800" fill="#0f766e">4배 빠름</text>
+  <text x="440" y="275" text-anchor="middle" font-size="14" fill="#1f2937">Nemotron Lightning</text>
+  <text x="440" y="292" text-anchor="middle" font-size="12" fill="#6b7280">30B 전체 / 3B 활성</text>
+  <!-- 컨텍스트 정보 카드 -->
+  <rect x="570" y="80" width="190" height="120" rx="10" fill="#f0fdfa" stroke="#0f766e" stroke-width="1.5"/>
+  <text x="665" y="110" text-anchor="middle" font-size="13" font-weight="700" fill="#0f766e">최대 컨텍스트</text>
+  <text x="665" y="140" text-anchor="middle" font-size="28" font-weight="900" fill="#0f766e">100만</text>
+  <text x="665" y="163" text-anchor="middle" font-size="13" fill="#6b7280">토큰 (A4 약 750장)</text>
+  <text x="665" y="185" text-anchor="middle" font-size="11" fill="#6b7280">라이선스: OpenMDW 1.1 무료</text>
+</svg>
