@@ -102,3 +102,12 @@ AI 모델은 크기가 클수록 더 똑똑하지만 그만큼 느려지는 단�
 > **AI 도입 문의**:  
 > 📧 biztalktome@gmail.com  
 > 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
+
+
+<!-- related-links -->
+
+## 함께 보면 좋은 글
+
+- [AI가 실수하는 이유 4가지 — 5분 무료 해결법](/blog/karpathy-claude-md-ai-4rules-guide)
+- [14MB AI로 공장·매장 자동화 — 설치비 0원](/blog/needle2-offline-ai-14mb-guide)
+- [1백만 뷰 만든 AI — 우리 가게도 포스터 5분이면?](/blog/lovart-ai-design-agent-free-sme-guide)
