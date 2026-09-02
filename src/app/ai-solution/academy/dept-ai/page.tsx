@@ -109,25 +109,27 @@ export default function DeptAiCourse() {
         <nav className="text-sm text-foreground/85 font-mono font-medium mb-6 tracking-wider">
           <Link href="/ai-solution" className="hover:text-primary transition-colors">ENTERPRISE</Link>
           <span className="mx-2 text-foreground/40">·</span>
-          <span className="text-primary font-bold">COURSE 01 · DEPARTMENT AI</span>
+          <Link href="/ai-solution" className="hover:text-primary transition-colors">ACADEMY</Link>
+          <span className="mx-2 text-foreground/40">·</span>
+          <span className="text-primary font-bold">부서별로 일하는 AI</span>
         </nav>
 
         {/* Hero */}
         <div className="mb-10">
-          <p className="text-sm font-mono font-bold tracking-[0.3em] uppercase text-[var(--accent-cyan-text)] mb-3">
-            Course 01 · Department AI
+          <p className="text-xs font-mono font-bold tracking-[0.3em] uppercase text-primary mb-3">
+            COURSE 01 · DEPT AI
           </p>
-          <h1 className="text-4xl md:text-5xl font-black text-foreground mb-5 leading-tight tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-black text-foreground mb-3 leading-tight tracking-tight">
             부서별로 일하는 AI
           </h1>
-          <p className="text-lg text-foreground/90 font-medium mb-5 max-w-2xl">
-            중소기업 LLM 활용법 — 일반 직원·관리자 대상
+          <p className="text-lg md:text-xl text-foreground/70 font-medium mb-6">
+            사내 출강 강좌. 중소기업 부서별 LLM 활용법
           </p>
-          <div className="flex flex-wrap gap-2 text-sm font-mono font-bold">
-            <span className="px-3 py-1.5 rounded-full bg-primary/20 text-primary"><Clock className="inline h-3.5 w-3.5 mr-1 -mt-0.5" />약 4시간</span>
-            <span className="px-3 py-1.5 rounded-full bg-foreground/10 text-foreground">5편 {totalLessons}강</span>
-            <span className="px-3 py-1.5 rounded-full bg-foreground/10 text-foreground">사내 출강</span>
-            <span className="px-3 py-1.5 rounded-full bg-[var(--accent-green-text)]/20 text-[var(--accent-green-text)]">자료 공개: {readyLessons}/{totalLessons}강</span>
+          <div className="flex flex-wrap gap-2 text-xs font-mono mb-5">
+            <span className="px-3 py-1.5 rounded-full bg-primary/15 text-primary"><Clock className="inline h-3.5 w-3.5 mr-1 -mt-0.5" />⏱ 출강</span>
+            <span className="px-3 py-1.5 rounded-full bg-muted text-muted-foreground">5편 {totalLessons}강</span>
+            <span className="px-3 py-1.5 rounded-full bg-muted text-muted-foreground">전 직원</span>
+            <span className="px-3 py-1.5 rounded-full bg-muted text-muted-foreground">30% 시간 절감</span>
           </div>
         </div>
 

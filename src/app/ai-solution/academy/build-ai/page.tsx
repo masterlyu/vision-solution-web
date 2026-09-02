@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Clock, Download, Calendar } from 'lucide-react'
+import { Clock, Calendar } from 'lucide-react'
 import SectionCard from './SectionCard'
 
 export const metadata: Metadata = {
@@ -78,25 +78,27 @@ export default function BuildAiCourse() {
         <nav className="text-sm text-foreground/85 font-mono font-medium mb-6 tracking-wider">
           <Link href="/ai-solution" className="hover:text-primary transition-colors">ENTERPRISE</Link>
           <span className="mx-2 text-foreground/40">·</span>
-          <span className="text-primary font-bold">COURSE 02 · BUILD AI</span>
+          <Link href="/ai-solution" className="hover:text-primary transition-colors">ACADEMY</Link>
+          <span className="mx-2 text-foreground/40">·</span>
+          <span className="text-primary font-bold">사내 AI 구축·운영 종합 가이드</span>
         </nav>
 
         {/* Hero */}
         <div className="mb-10">
-          <p className="text-sm font-mono font-bold tracking-[0.3em] uppercase text-[var(--accent-cyan-text)] mb-3">
-            Course 02 · Build AI
+          <p className="text-xs font-mono font-bold tracking-[0.3em] uppercase text-primary mb-3">
+            COURSE 02 · ENTERPRISE AI
           </p>
-          <h1 className="text-4xl md:text-5xl font-black text-foreground mb-5 leading-tight tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-black text-foreground mb-3 leading-tight tracking-tight">
             사내 AI 구축·운영 종합 가이드
           </h1>
-          <p className="text-lg text-foreground/90 font-medium mb-5 max-w-2xl">
-            자체 호스팅·에이전트·보안·운영 — IT 담당자·관리자 대상
+          <p className="text-lg md:text-xl text-foreground/70 font-medium mb-6">
+            자체 호스팅·에이전트·하네스·보안
           </p>
-          <div className="flex flex-wrap gap-2 text-sm font-mono font-bold">
-            <span className="px-3 py-1.5 rounded-full bg-primary/20 text-primary"><Clock className="inline h-3.5 w-3.5 mr-1 -mt-0.5" />약 10시간</span>
-            <span className="px-3 py-1.5 rounded-full bg-foreground/10 text-foreground">11편 {totalLessons}강</span>
-            <span className="px-3 py-1.5 rounded-full bg-foreground/10 text-foreground">사내 출강</span>
-            <span className="px-3 py-1.5 rounded-full bg-[var(--accent-green-text)]/20 text-[var(--accent-green-text)]"><Download className="inline h-3.5 w-3.5 mr-1 -mt-0.5" />1편 자료 공개 ({readyCount}/{totalLessons}강)</span>
+          <div className="flex flex-wrap gap-2 text-xs font-mono mb-5">
+            <span className="px-3 py-1.5 rounded-full bg-primary/15 text-primary"><Clock className="inline h-3.5 w-3.5 mr-1 -mt-0.5" />⏱ 출강</span>
+            <span className="px-3 py-1.5 rounded-full bg-muted text-muted-foreground">11편 {totalLessons}강</span>
+            <span className="px-3 py-1.5 rounded-full bg-muted text-muted-foreground">IT 담당자·관리자</span>
+            <span className="px-3 py-1.5 rounded-full bg-muted text-muted-foreground">90일 AI 인프라 구축</span>
           </div>
         </div>
 
