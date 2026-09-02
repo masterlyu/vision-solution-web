@@ -19,7 +19,7 @@ AI 반도체 세계 1위 기업 엔비디아가 처음으로 AI 모델을 공짜
 
 AI 모델은 크기가 클수록 더 똑똑하지만 그만큼 느려지는 단점이 있습니다. Nemotron 3.5 Lightning은 이 딜레마를 영리하게 풀었습니다.
 
-전체 크기는 300억(30B) 파라미터짜리 대형 모델인데, 실제로 매 순간 켜지는 건 30억(3B) 파라미터뿐입니다. 나머지는 대기 상태에 있다가 필요한 순간에만 활성화됩니다. 결과적으로 같은 크기의 다른 AI보다 **4배 빠르게** 작동하면서도, 한 번에 처리할 수 있는 문서 분량은 A4 약 750장에 달합니다(최대 100만 토큰).
+전체 크기는 300억(30B) 파라미터짜리 대형 모델인데, 실제로 매 순간 켜지는 건 30억(3B) 파라미터뿐입니다. 나머지는 대기 상태에 있다가 필요한 순간에만 활성화됩니다. 결과적으로 동급 크기 오픈소스 모델(Qwen 계열) 대비 최대 **4배 빠르게** 작동하면서도, 한 번에 처리할 수 있는 문서 분량은 A4 약 750장에 달합니다(최대 100만 토큰).
 
 ![center](/mascot/md/emotion/cat_thinking.png)
 
@@ -99,9 +99,7 @@ AI 모델은 크기가 클수록 더 똑똑하지만 그만큼 느려지는 단�
 
 ---
 
-> **AI 도입 문의**:  
-> 📧 biztalktome@gmail.com  
-> 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
+> **AI 도입 문의**: 📧 biztalktome@gmail.com | 🌐 [visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
 
 
 <!-- related-links -->
