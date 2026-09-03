@@ -1,6 +1,6 @@
 # 레이아웃 명세 — `/ai-solution/academy/[course]` (기업용 강좌 상세 페이지)
 
-> VIS-5989 루틴 산출물 | AI 디자이너 작성 | 2026-09-02
+> VIS-5989 루틴 산출물 | AI 디자이너 작성 | 2026-09-02 | VIS-6042 브레드크럼 정정 (2026-09-03)
 > 적용 대상:
 >   - `/ai-solution/academy/build-ai` — Course 02: 사내 AI 구축·운영
 >   - `/ai-solution/academy/dept-ai` — Course 01: 부서별로 일하는 AI
@@ -36,11 +36,12 @@
 여백: mb-6
 스타일: text-sm text-foreground/85 font-mono font-medium tracking-wider
 
-[ENTERPRISE] — Link href="/ai-solution", hover:text-primary
+[ENTERPRISE] — Link href="/ai-solution", hover:text-primary, transition-colors
 [·]           — text-foreground/40 (mx-2)
-[ACADEMY]     — Link href="/ai-solution" (선택적 중간 경로)
+[ACADEMY]     — Link href="/ai-solution", hover:text-primary, transition-colors
+              (별도 /ai-solution/academy 인덱스 없음 → /ai-solution 링크)
 [·]           — text-foreground/40
-[강좌 제목]   — 현재 페이지 표시 (text-primary 또는 현재 포커스)
+[강좌 제목]   — span (text-primary font-bold, 현재 페이지 표시)
 ```
 
 ---
