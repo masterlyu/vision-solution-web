@@ -1,6 +1,6 @@
 # 레이아웃 명세 — `/` (홈페이지)
 
-> VIS-5975 루틴 산출물 | AI 디자이너 작성 | 2026-09-02
+> VIS-5975 루틴 산출물 | AI 디자이너 작성 | 2026-09-02 | 애니메이션 정정 2026-09-03
 
 ---
 
@@ -10,7 +10,7 @@
 - **색상**: `--primary` 강조, 배경은 `var(--background)` 단색. 수치 강조는 `--primary`. 후기 내 성과치는 `--primary` bold.
 - **타이포**: H1 font-weight 900 / clamp(3.5rem, 10vw, 5.5rem) / tracking-tight, H2 font-weight 900 / text-4xl~5xl, 본문 `text-foreground/90` font-medium.
 - **UI 원칙**: 카드 `rounded-xl`(radius 12). 서비스 카드는 hover 시 `bg-primary`로 반전(배경+텍스트 전환). 섹션 구분은 배경색 교차 최소화 — `background`와 `card/30`으로만 교차.
-- **애니메이션**: Framer Motion `fadeInUp` + stagger (viewport once), IntersectionObserver + requestAnimationFrame 기반 `Counter`. HeroSection 단어 전환은 자체 블러·페이드 keyframe 애니메이션.
+- **애니메이션**: 2계층 구조. ① 섹션 진입: GSAP `<ScrollReveal>` 래퍼 (TrustSection~CtaSection 6개 섹션, Hero·마스코트영상은 제외). ② 컴포넌트 내부: Framer Motion `fadeInUp` + stagger (viewport once) — TestimonialsSection·HowItWorksSection·CtaSection. IntersectionObserver + requestAnimationFrame 기반 `Counter`(MetricsSection). HeroSection 단어 전환은 자체 블러·페이드 keyframe 애니메이션.
 - **모바일 퍼스트**: 서비스 카드 1열 → 2열(md) → 3열(lg), 지표 2×2 → 4열(lg), 후기 1열 → 3열(lg).
 
 ---
