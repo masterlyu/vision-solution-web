@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 260" width="800" height="260" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="260" fill="#ffffff"/>
+  <text x="40" y="44" font-size="18" font-weight="800" fill="#1f2937">OpenMAIC 출시 반응 타임라인</text>
+  <line x1="60" y1="150" x2="740" y2="150" stroke="#cbd5e1" stroke-width="3"/>
+  <!-- 마디 1 -->
+  <circle cx="120" cy="150" r="12" fill="#0f766e"/>
+  <text x="120" y="106" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">2024~2026년</text>
+  <text x="120" y="125" text-anchor="middle" font-size="12" fill="#6b7280">청화대 수업</text>
+  <text x="120" y="187" text-anchor="middle" font-size="13" fill="#6b7280">2년 검증 완료</text>
+  <!-- 마디 2 -->
+  <circle cx="400" cy="150" r="12" fill="#0891b2"/>
+  <text x="400" y="106" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">2026-08-27</text>
+  <text x="400" y="125" text-anchor="middle" font-size="12" fill="#6b7280">v1.0.0 공개</text>
+  <text x="400" y="187" text-anchor="middle" font-size="13" fill="#6b7280">하루 만에 별 2,819개</text>
+  <!-- 마디 3 -->
+  <circle cx="680" cy="150" r="12" fill="#22d3ee"/>
+  <text x="680" y="106" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">2026-09 현재</text>
+  <text x="680" y="125" text-anchor="middle" font-size="12" fill="#6b7280">GitHub 트렌딩 1위</text>
+  <text x="680" y="187" text-anchor="middle" font-size="13" fill="#0f766e" font-weight="800">별 25,975개+</text>
+</svg>
