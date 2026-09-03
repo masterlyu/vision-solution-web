@@ -11,7 +11,7 @@ summary: "월 구독료 내던 AI 회의록 앱, GitHub에서 무료 대안이 �
 
 Otter.ai나 Fireflies.ai 같은 AI 회의록 서비스가 있습니다. 유용한데, 월 구독료가 붙습니다. 게다가 회의 내용이 외부 서버로 올라갑니다. 거래처 이름, 계약 금액, 고객 정보가 담긴 회의라면 신경 쓰이는 부분입니다.
 
-이번 주 GitHub 트렌딩에 다른 선택지가 나타났습니다. 이름은 **Natively**입니다. 설치형, 무료, 오픈소스입니다.
+이번 주 GitHub 트렌딩에 다른 선택지가 나타났습니다. 이름은 **Natively**입니다. 설치형, 개인·비상업용 무료입니다.
 
 > **AI 도구 도입이 어렵게 느껴진다면 먼저 알아보세요:**  
 > 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
@@ -22,9 +22,9 @@ Otter.ai나 Fireflies.ai 같은 AI 회의록 서비스가 있습니다. 유용�
 
 Natively는 내 컴퓨터에서 실행되는 AI 회의록 도구입니다. 마이크로 들어오는 소리를 실시간으로 받아써서 AI가 정리해줍니다. Zoom, 구글 미트, 카카오톡 통화 등 어떤 방식의 회의든 상관없습니다. 소리가 나는 곳이라면 작동합니다.
 
-MIT 라이선스 오픈소스입니다. 상업적으로 사용해도 비용이 없습니다. GitHub에서 코드를 받아 설치하는 방식이라 월정액 구독이 없습니다.
+개인·교육·비상업적 용도는 무료입니다. 단, 상업적 사용은 유료 Pro 플랜이 필요합니다(출처: Natively Personal Use Source License v1.0). GitHub에서 코드를 받아 설치하는 방식이라 월정액 구독이 없습니다(개인·비상업용 기준).
 
-핵심 기능을 정리하면 이렇습니다. 실시간 음성 인식과 텍스트 변환, AI를 통한 회의 요약 자동 생성, 내 회사 문서와 연결하는 로컬 RAG 기능, 그리고 스텔스 모드까지 포함되어 있습니다. 646개 언어를 지원하니 한국어 회의에도 문제없습니다.
+핵심 기능을 정리하면 이렇습니다. 실시간 음성 인식과 텍스트 변환, AI를 통한 회의 요약 자동 생성, 내 회사 문서와 연결하는 로컬 RAG 기능, 그리고 스텔스 모드까지 포함되어 있습니다. 한국어를 포함한 다국어 음성 인식을 지원하니 한국어 회의에도 문제없습니다.
 
 ![Natively 핵심 숫자 3가지](/images/blog/natively-free-ai-meeting-notes-sme-guide-fig1.svg)
 *▲ Natively 핵심 수치 · 출처: Natively GitHub (github.com/Natively-AI-assistant/natively-cluely-ai-assistant)*
@@ -37,7 +37,7 @@ MIT 라이선스 오픈소스입니다. 상업적으로 사용해도 비용이 �
 
 **설치에 필요한 것**
 
-Node.js가 설치된 컴퓨터가 있으면 됩니다. 특별한 GPU나 고성능 서버가 필요하지 않습니다. Windows, macOS, Linux 모두 지원합니다. AI 요약 기능을 사용하려면 OpenAI API 키 또는 Ollama(로컬 AI 실행 도구)가 필요합니다. OpenAI API는 사용한 만큼 과금되는데, 1시간 회의 요약 기준으로 대략 100~200원 수준입니다.
+Node.js가 설치된 컴퓨터가 있으면 됩니다. 특별한 GPU나 고성능 서버가 필요하지 않습니다. Windows, macOS를 지원합니다. (Linux는 현재 미지원) AI 요약 기능을 사용하려면 OpenAI API 키 또는 Ollama(로컬 AI 실행 도구)가 필요합니다. OpenAI API는 사용한 만큼 과금되는데, 1시간 회의 요약 기준으로 대략 100~200원 수준입니다.
 
 **솔직한 장단점**
 
@@ -112,7 +112,7 @@ AI 요약 기능을 사용하려면 설정에서 OpenAI API 키를 입력합니�
 ### 자주 묻는 질문
 
 **Q. 한국어 음성 인식이 잘 되나요?**  
-A. 646개 언어를 지원해 한국어 인식이 가능합니다. 조용한 환경에서 마이크를 가까이 두면 인식률이 높아집니다.
+A. 한국어를 포함한 다국어 음성 인식을 지원합니다. 조용한 환경에서 마이크를 가까이 두면 인식률이 높아집니다.
 
 **Q. Zoom이나 구글 미트 회의에도 쓸 수 있나요?**  
 A. 됩니다. 시스템 오디오를 캡처하도록 설정하면 온라인 회의도 녹음·정리가 가능합니다.
@@ -127,3 +127,12 @@ A. Node.js 설치와 터미널 명령 3줄이면 됩니다. 위 단계를 그대
 > **(주)비젼솔루션 AI 솔루션 문의**:  
 > 📧 biztalktome@gmail.com  
 > 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
+
+
+<!-- related-links -->
+
+## 함께 보면 좋은 글
+
+- [엔비디아 무료 AI — 설치 없이 5분에 계약서 검토](/blog/nvidia-nemotron-lightning-free-ai-sme-guide)
+- [AI가 실수하는 이유 4가지 — 5분 무료 해결법](/blog/karpathy-claude-md-ai-4rules-guide)
+- [14MB AI로 공장·매장 자동화 — 설치비 0원](/blog/needle2-offline-ai-14mb-guide)
