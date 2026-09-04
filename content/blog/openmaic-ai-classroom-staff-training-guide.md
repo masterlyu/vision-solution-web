@@ -89,3 +89,12 @@ https://github.com/THU-MAIC/OpenMAIC
 > **(주)비젼솔루션 AI 솔루션 도입 문의**  
 > 📧 biztalktome@gmail.com  
 > 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
+
+
+<!-- related-links -->
+
+## 함께 보면 좋은 글
+
+- [Buzz 무료 AI 회의록 — 5분 설치 완료](/blog/buzz-ai-meeting-notes-free-guide)
+- [엔비디아 무료 AI — 설치 없이 5분에 계약서 검토](/blog/nvidia-nemotron-lightning-free-ai-sme-guide)
+- [AI가 실수하는 이유 4가지 — 5분 무료 해결법](/blog/karpathy-claude-md-ai-4rules-guide)
