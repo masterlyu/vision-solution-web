@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 260" width="800" height="260" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="260" fill="#ffffff"/>
+  <text x="40" y="44" font-size="18" font-weight="800" fill="#1f2937">72시간 안에 AI 3개가 연속 출시됐습니다</text>
+  <!-- 타임라인 선 -->
+  <line x1="60" y1="150" x2="740" y2="150" stroke="#cbd5e1" stroke-width="3"/>
+  <!-- 마디 1: Claude Fable 5.1 -->
+  <circle cx="130" cy="150" r="11" fill="#6b7280"/>
+  <text x="130" y="105" text-anchor="middle" font-size="13" font-weight="700" fill="#6b7280">9월 1일</text>
+  <text x="130" y="123" text-anchor="middle" font-size="12" fill="#6b7280">Anthropic</text>
+  <text x="130" y="190" text-anchor="middle" font-size="13" font-weight="700" fill="#374151">Claude Fable 5.1</text>
+  <text x="130" y="210" text-anchor="middle" font-size="12" fill="#9ca3af">API 유료</text>
+  <!-- 마디 2: Gemini 3.8 Flash (강조) -->
+  <circle cx="400" cy="150" r="14" fill="#0f766e"/>
+  <circle cx="400" cy="150" r="20" fill="none" stroke="#06b6d4" stroke-width="2" stroke-dasharray="4,3"/>
+  <text x="400" y="100" text-anchor="middle" font-size="13" font-weight="700" fill="#0f766e">9월 2일</text>
+  <text x="400" y="118" text-anchor="middle" font-size="12" fill="#0f766e">Google DeepMind</text>
+  <text x="400" y="190" text-anchor="middle" font-size="14" font-weight="800" fill="#0f766e">Gemini 3.8 Flash</text>
+  <text x="400" y="210" text-anchor="middle" font-size="12" font-weight="700" fill="#06b6d4">★ 무료 사용 가능</text>
+  <!-- 마디 3: GPT-6 Astra -->
+  <circle cx="670" cy="150" r="11" fill="#6b7280"/>
+  <text x="670" y="105" text-anchor="middle" font-size="13" font-weight="700" fill="#6b7280">9월 3일</text>
+  <text x="670" y="123" text-anchor="middle" font-size="12" fill="#6b7280">OpenAI</text>
+  <text x="670" y="190" text-anchor="middle" font-size="13" font-weight="700" fill="#374151">GPT-6 Astra</text>
+  <text x="670" y="210" text-anchor="middle" font-size="12" fill="#9ca3af">API 유료</text>
+</svg>
