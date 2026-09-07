@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <!-- 제목 -->
+  <text x="400" y="44" text-anchor="middle" font-size="20" font-weight="800" fill="#1f2937">허깅페이스 5대 업무 카테고리</text>
+  <text x="400" y="68" text-anchor="middle" font-size="13" fill="#6b7280">중소기업에서 바로 쓸 수 있는 무료 AI 모델 분류</text>
+
+  <!-- 카테고리 카드 5개 -->
+  <!-- 번역 -->
+  <rect x="30" y="90" width="134" height="170" rx="12" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+  <text x="97" y="130" text-anchor="middle" font-size="32">🌐</text>
+  <text x="97" y="158" text-anchor="middle" font-size="14" font-weight="700" fill="#0f766e">번역</text>
+  <text x="97" y="178" text-anchor="middle" font-size="11" fill="#6b7280">한↔영·일·중</text>
+  <text x="97" y="196" text-anchor="middle" font-size="11" fill="#6b7280">계약서·이메일</text>
+  <text x="97" y="228" text-anchor="middle" font-size="12" font-weight="700" fill="#0f766e">Helsinki-NLP</text>
+
+  <!-- 요약 -->
+  <rect x="174" y="90" width="134" height="170" rx="12" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+  <text x="241" y="130" text-anchor="middle" font-size="32">📝</text>
+  <text x="241" y="158" text-anchor="middle" font-size="14" font-weight="700" fill="#0f766e">문서 요약</text>
+  <text x="241" y="178" text-anchor="middle" font-size="11" fill="#6b7280">회의록·보고서</text>
+  <text x="241" y="196" text-anchor="middle" font-size="11" fill="#6b7280">계약서 핵심</text>
+  <text x="241" y="228" text-anchor="middle" font-size="12" font-weight="700" fill="#0f766e">facebook/bart</text>
+
+  <!-- 이미지 생성 -->
+  <rect x="318" y="90" width="164" height="170" rx="12" fill="#ecfdf5" stroke="#059669" stroke-width="2"/>
+  <text x="400" y="125" text-anchor="middle" font-size="32">🎨</text>
+  <text x="400" y="153" text-anchor="middle" font-size="14" font-weight="800" fill="#065f46">이미지 생성</text>
+  <text x="400" y="173" text-anchor="middle" font-size="11" fill="#6b7280">제품 사진·홍보물</text>
+  <text x="400" y="191" text-anchor="middle" font-size="11" fill="#6b7280">배경 제거·편집</text>
+  <rect x="348" y="202" width="104" height="20" rx="10" fill="#059669"/>
+  <text x="400" y="216" text-anchor="middle" font-size="10" fill="white" font-weight="700">가장 많이 쓰임</text>
+  <text x="400" y="240" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">Stable Diffusion</text>
+
+  <!-- 텍스트 분류 -->
+  <rect x="492" y="90" width="134" height="170" rx="12" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+  <text x="559" y="130" text-anchor="middle" font-size="32">🏷️</text>
+  <text x="559" y="158" text-anchor="middle" font-size="14" font-weight="700" fill="#0f766e">텍스트 분류</text>
+  <text x="559" y="178" text-anchor="middle" font-size="11" fill="#6b7280">고객 문의 분류</text>
+  <text x="559" y="196" text-anchor="middle" font-size="11" fill="#6b7280">긍부정 판단</text>
+  <text x="559" y="228" text-anchor="middle" font-size="12" font-weight="700" fill="#0f766e">klue/bert-base</text>
+
+  <!-- 음성 변환 -->
+  <rect x="636" y="90" width="134" height="170" rx="12" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+  <text x="703" y="130" text-anchor="middle" font-size="32">🎙️</text>
+  <text x="703" y="158" text-anchor="middle" font-size="14" font-weight="700" fill="#0f766e">음성→텍스트</text>
+  <text x="703" y="178" text-anchor="middle" font-size="11" fill="#6b7280">회의 자동 기록</text>
+  <text x="703" y="196" text-anchor="middle" font-size="11" fill="#6b7280">전화 상담 정리</text>
+  <text x="703" y="228" text-anchor="middle" font-size="12" font-weight="700" fill="#0f766e">openai/whisper</text>
+
+  <text x="400" y="285" text-anchor="middle" font-size="11" fill="#9ca3af">출처: huggingface.co/models</text>
+</svg>
