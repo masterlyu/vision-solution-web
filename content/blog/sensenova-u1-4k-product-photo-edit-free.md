@@ -4,15 +4,15 @@ date: "2026-09-08"
 tag: "AI 활용"
 tags: "AI 이미지 편집,4K 상품 사진,SenseNova U1,포토샵 대안,오픈소스 AI"
 image: "/images/blog/sensenova-u1-4k-product-photo-edit-free.svg"
-summary: "센스타임이 MIT 오픈소스로 공개한 SenseNova U1.5는 이미지 생성을 넘어 기존 사진의 배경 교체·한글 텍스트 삽입까지 가능합니다. 4K 고화질 출력으로 인쇄물에도 바로 사용. 포토샵 대안을 5분 실습으로 확인하세요."
+summary: "센스타임이 Apache 2.0으로 공개한 SenseNova U1.5는 이미지 생성을 넘어 기존 사진의 배경 교체·한글 텍스트 삽입까지 가능합니다. 4K 고화질 출력으로 인쇄물에도 바로 사용. 포토샵 대안을 5분 실습으로 확인하세요."
 ---
 
-매달 포토샵 구독료가 나갈 때마다 잠깐 멈추게 됩니다. 상품 사진 배경 하나 바꾸려고 월 구독을 유지하는 게 맞나 싶은 순간이 있죠. 2026년 8월, 중국 최대 AI 기업 센스타임(SenseTime)이 그 고민에 구체적인 대안을 내놨습니다. ChatGPT의 이미지 생성 기능(GPT-Image-2)과 동급 성능을 **MIT 라이선스로 무료 공개**했습니다. 이름은 **SenseNova U1.5**.
+매달 포토샵 구독료가 나갈 때마다 잠깐 멈추게 됩니다. 상품 사진 배경 하나 바꾸려고 월 구독을 유지하는 게 맞나 싶은 순간이 있죠. 2026년 8월, 중국 최대 AI 기업 센스타임(SenseTime)이 그 고민에 구체적인 대안을 내놨습니다. **Apache 2.0 라이선스로 무료 공개**했습니다. 이름은 **SenseNova U1.5**.
 
 단순한 이미지 생성기가 아닙니다. 기존에 찍어둔 상품 사진에서 배경만 교체하거나, 특정 영역에 한글 가격표를 정확하게 삽입하거나, 결과물을 **4K 고화질로 출력**하는 기능까지 한 모델에 담겼습니다. 포토샵 없이요.
 
 > **지금 바로 확인하기**: [SenseNova U1 GitHub 바로가기](https://github.com/OpenSenseNova/SenseNova-U1)  
-> 라이선스: MIT(상업 사용 가능) · 모델 크기: 8B 파라미터 · 공개일: 2026년 8월 20일
+> 라이선스: Apache 2.0(상업 사용 가능) · 모델 크기: 8B 파라미터 · 공개일: 2026년 8월 20일
 
 ---
 
@@ -92,7 +92,7 @@ python demo.py
 
 | | 내용 |
 |---|---|
-| ✅ 장점 | MIT 라이선스(상업 무료), 4K 해상도 지원, 한글 텍스트 정확, 기존 사진 편집 가능 |
+| ✅ 장점 | Apache 2.0 라이선스(상업 무료), 4K 해상도 지원, 한글 텍스트 정확, 기존 사진 편집 가능 |
 | ⚠️ 단점 | 로컬 실행에 고사양 GPU 필요, 모바일 앱 없음, 한국어 커뮤니티 아직 작음 |
 | 🔄 현실적 대안 | GPU 없다면 HuggingFace Space 무료 체험 → 자주 쓴다면 클라우드 GPU(시간 단위 과금) 활용 |
 
@@ -110,7 +110,7 @@ python demo.py
 
 **Q. 상업적으로 사용해도 되나요?**
 
-네. MIT 라이선스라 상업적 사용이 허용됩니다. 다만 AI로 편집한 결과물에 타인의 저작권 콘텐츠가 포함되지 않도록 주의하세요.
+네. Apache 2.0 라이선스라 상업적 사용이 허용됩니다. 다만 AI로 편집한 결과물에 타인의 저작권 콘텐츠가 포함되지 않도록 주의하세요.
 
 **Q. GPU 없는 일반 사무용 PC에서도 쓸 수 있나요?**
 
@@ -125,3 +125,12 @@ SenseNova U1.5 같은 오픈소스 도구를 업무 흐름에 연결하는 방�
 > **Vision Solution AI 솔루션 문의**:  
 > 📧 biztalktome@gmail.com  
 > 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
+
+
+<!-- related-links -->
+
+## 함께 보면 좋은 글
+
+- [ElevenLabs 월 22달러 → 0원 — 내 목소리 복제 AI 5분 실습](/blog/chatterbox-voice-clone-free-elevenlabs-alternative)
+- [허깅페이스 300만 무료 AI — 반복업무 없애는 법](/blog/huggingface-3m-free-ai-models-sme-guide)
+- [Gemini 3.8 Flash — 무료 5분 시작](/blog/gemini-38-flash-free-guide-sme)
