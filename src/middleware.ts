@@ -35,7 +35,6 @@ function buildSecurityHeaders(nonce: string): Record<string, string> {
     'Cross-Origin-Embedder-Policy': 'unsafe-none',
     'X-XSS-Protection': '1; mode=block',
     'Expect-CT': 'max-age=86400',
-    'Feature-Policy': "camera 'none'; microphone 'none'; geolocation 'none'; payment 'none'",
   }
 }
 
