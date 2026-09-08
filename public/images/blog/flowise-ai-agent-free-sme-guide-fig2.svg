@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">Flowise 설치 3단계</text>
+  <!-- 1단계 -->
+  <rect x="40" y="60" width="200" height="100" rx="12" fill="#0f766e"/>
+  <text x="140" y="102" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">① Node.js 설치</text>
+  <text x="140" y="128" text-anchor="middle" font-size="12" fill="#a7f3d0">nodejs.org에서</text>
+  <text x="140" y="146" text-anchor="middle" font-size="12" fill="#a7f3d0">LTS 버전 내려받기</text>
+  <!-- 화살표 -->
+  <text x="263" y="118" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- 2단계 -->
+  <rect x="300" y="60" width="200" height="100" rx="12" fill="#0891b2"/>
+  <text x="400" y="102" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">② Flowise 실행</text>
+  <text x="400" y="128" text-anchor="middle" font-size="12" fill="#cffafe">npx flowise start</text>
+  <text x="400" y="146" text-anchor="middle" font-size="12" fill="#cffafe">터미널에 명령 입력</text>
+  <!-- 화살표 -->
+  <text x="523" y="118" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- 3단계 -->
+  <rect x="560" y="60" width="200" height="100" rx="12" fill="#22d3ee"/>
+  <text x="660" y="102" text-anchor="middle" font-size="16" font-weight="800" fill="#083344">③ 브라우저 접속</text>
+  <text x="660" y="128" text-anchor="middle" font-size="12" fill="#083344">localhost:3000</text>
+  <text x="660" y="146" text-anchor="middle" font-size="12" fill="#083344">에이전트 구성 시작</text>
+</svg>
