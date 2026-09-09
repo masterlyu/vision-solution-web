@@ -122,3 +122,12 @@ Flowise는 내 PC에서 실행되므로, 로컬 AI를 사용하면 데이터가 
 > **(주)비젼솔루션 AI 솔루션 도입 문의**:  
 > 📧 biztalktome@gmail.com  
 > 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
+
+
+<!-- related-links -->
+
+## 함께 보면 좋은 글
+
+- [포토샵 구독 끊어도 된다 — 4K AI 상품편집 5분](/blog/sensenova-u1-4k-product-photo-edit-free)
+- [ElevenLabs 월 22달러 → 0원 — 내 목소리 복제 AI 5분 실습](/blog/chatterbox-voice-clone-free-elevenlabs-alternative)
+- [허깅페이스 300만 무료 AI — 반복업무 없애는 법](/blog/huggingface-3m-free-ai-models-sme-guide)
