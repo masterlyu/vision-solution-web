@@ -23,8 +23,8 @@
   <text x="620" y="288" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.4">Apache 2.0 · 무료</text>
   <!-- 좌측 메인 텍스트 -->
   <text x="40" y="130" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">온라인 쇼핑몰 AI 에이전트</text>
-  <text x="40" y="180" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">장바구니 30% 늘리는</text>
-  <text x="40" y="220" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">AI — Anthropic 무료 공개</text>
+  <text x="40" y="180" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">장바구니 35% 키우는</text>
+  <text x="40" y="220" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">AI — 무료 공개</text>
   <text x="40" y="268" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.75">Claude Commerce Agents · 9월 2일 공개</text>
   <rect x="40" y="310" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
   <text x="40" y="345" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">(주)비젼솔루션</text>
