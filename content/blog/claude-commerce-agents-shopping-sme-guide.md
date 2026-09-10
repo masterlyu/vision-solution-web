@@ -1,10 +1,10 @@
 ---
-title: "장바구니 30% 늘리는 AI — Anthropic 무료 공개"
+title: "장바구니 35% 키우는 AI — 무료 공개"
 date: "2026-09-10"
 tag: "AI 활용"
 tags: "AI 에이전트,온라인 쇼핑,Anthropic,오픈소스 AI,매출 자동화"
 image: "/images/blog/claude-commerce-agents-shopping-sme-guide.svg"
-summary: "Anthropic이 9월 2일 무료 공개한 Claude Commerce Agents — 실제 도입사에서 장바구니 크기 30% 증가, 구매완료율 60% 상승이 확인됐습니다. Apache 2.0 오픈소스라 GitHub에서 지금 바로 내려받아 소형 쇼핑몰에도 적용 가능합니다."
+summary: "Anthropic이 9월 2일 무료 공개한 Claude Commerce Agents — 실제 도입사에서 장바구니 크기 최대 35% 증가, 구매완료율 60% 상승이 확인됐습니다. Apache 2.0 오픈소스라 GitHub에서 지금 바로 내려받아 소형 쇼핑몰에도 적용 가능합니다."
 ---
 
 오후 2시, 방문객이 상품 페이지를 열었다가 5분 만에 닫습니다. 장바구니는 비어 있습니다. 이런 일이 하루에 수십 번 반복되는 쇼핑몰이라면, 9월 2일 Anthropic이 공개한 AI가 정확히 이 문제를 겨냥합니다.
