@@ -1,6 +1,7 @@
 ---
 title: "GEO·AEO 검색 최적화 — 생성형 AI 검색 시대 중소기업 홈페이지 노출 전략"
 date: 2026-05-15
+tag: "AI 활용"
 tags: ["GEO", "AEO", "검색최적화", "중소기업", "생성형AI", "SEO"]
 image: "/images/blog/geo-aeo-optimization-sme.svg"
 summary: "ChatGPT·Gemini 같은 AI가 검색 답변을 제공하는 시대, 우리 홈페이지가 AI 추천에 포함되려면 어떻게 해야 할까요? 중소기업 맞춤 GEO·AEO 최적화 전략과 실제 적용 방법을 단계별로 상세히 안내합니다."
