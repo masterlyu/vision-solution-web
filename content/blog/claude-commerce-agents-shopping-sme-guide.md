@@ -77,3 +77,12 @@ python demo/retail/run_demo.py
 > **Vision Solution AI 솔루션 문의**:  
 > 📧 biztalktome@gmail.com  
 > 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
+
+
+<!-- related-links -->
+
+## 함께 보면 좋은 글
+
+- [정부가 무료 AI 준다 — N에이전트 3단계 체험](/blog/flowise-ai-agent-free-sme-guide)
+- [포토샵 구독 끊어도 된다 — 4K AI 상품편집 5분](/blog/sensenova-u1-4k-product-photo-edit-free)
+- [ElevenLabs 월 22달러 → 0원 — 내 목소리 복제 AI 5분 실습](/blog/chatterbox-voice-clone-free-elevenlabs-alternative)
