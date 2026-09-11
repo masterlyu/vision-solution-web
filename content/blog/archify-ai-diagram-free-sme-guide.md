@@ -9,11 +9,7 @@ summary: "이번 주 GitHub 트렌딩 1위 오픈소스 Archify. 업무 흐름�
 
 이번 주, 개발자들 사이에서 "이게 진짜야?"라는 반응이 터져 나왔습니다.
 
-GitHub에서 하루 최대 4,239개의 별점(스타)을 받으며 이번 주 트렌딩 1위에 오른 오픈소스입니다. 누적 스타는 3만 6천 개를 넘어섰습니다. 이름은 **Archify**. 업무 흐름이나 시스템 구조를 글로 설명하기만 하면, AI가 알아서 구조도를 그려줍니다. Figma도, draw.io도, 전문 디자이너도 없어도 됩니다.
-
-> **AI 도입이 막막하게 느껴지신다면**:  
-> 📧 biztalktome@gmail.com  
-> 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
+GitHub에서 하루 최대 4,239개의 별점(스타)을 받으며 이번 주 트렌딩 1위에 오른 오픈소스입니다. 누적 스타는 5만 7천 개를 넘어섰습니다. 이름은 **Archify**. 업무 흐름이나 시스템 구조를 글로 설명하기만 하면, AI가 알아서 구조도를 그려줍니다. Figma도, draw.io도, 전문 디자이너도 없어도 됩니다.
 
 ## "구조도"를 그려본 적 없어도 됩니다
 
@@ -49,7 +45,7 @@ npx skills add tt-a1i/archify -g
 ![Archify 사용 3단계](/images/blog/archify-ai-diagram-free-sme-guide-fig2.svg)
 *▲ Archify 사용 흐름 3단계 · 출처: github.com/tt-a1i/archify README*
 
-결과물 HTML 하나에 4가지 다이어그램이 포함됩니다.
+결과물 HTML 하나에 5가지 다이어그램이 포함됩니다.
 
 | 유형 | 쉬운 설명 | 언제 쓰나 |
 |-----|---------|---------|
@@ -57,6 +53,7 @@ npx skills add tt-a1i/archify -g
 | 업무 흐름 다이어그램 | 업무 단계와 순서를 그림으로 | 직원 교육, 매뉴얼 제작 |
 | 시퀀스 다이어그램 | 누가 누구에게 무엇을 하는지 순서 | 협업 프로세스 설명 |
 | 데이터 흐름 다이어그램 | 정보가 어디서 어디로 이동하는지 | IT 시스템 문서화 |
+| 라이프사이클 다이어그램 | 제품·서비스의 상태 변화 단계 | 서비스 흐름 시각화 |
 
 다크·라이트 테마 전환이 가능하고, 화면 전환 애니메이션도 포함되어 있어 프레젠테이션 자료로도 바로 쓸 수 있습니다. PNG나 SVG로 내보내기도 됩니다.
 
@@ -68,7 +65,7 @@ npx skills add tt-a1i/archify -g
 |-----|---------|---------|-------|
 | 비용 | 무료 | 무료 | 유료 |
 | 그리는 방법 | 말로 설명 | 직접 그리기 | 직접 그리기 |
-| 결과물 | HTML + 4종 자동 생성 | 하나씩 수동 작성 | 하나씩 수동 작성 |
+| 결과물 | HTML + 5종 자동 생성 | 하나씩 수동 작성 | 하나씩 수동 작성 |
 | 초보자 학습 시간 | 5분 | 수 시간 | 수 일 |
 
 주의할 점도 있습니다. Claude Code나 Cursor 중 하나가 반드시 필요합니다. 두 도구 모두 무료로 시작할 수 있지만, 내부적으로 AI API를 사용하기 때문에 사용량에 따라 소량의 비용이 발생할 수 있습니다. 무료 플랜으로도 기본 테스트는 충분히 가능합니다. 또, 복잡한 업무 흐름은 한 번에 완벽한 그림이 안 나올 수 있습니다. 설명을 조금 더 구체적으로 다듬으면 대부분 해결됩니다.
@@ -150,3 +147,12 @@ A. 네, 한국어 설명을 입력해도 AI가 분석합니다. 생성된 다이
 > **Vision Solution AI 솔루션 문의**:  
 > 📧 biztalktome@gmail.com  
 > 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
+
+
+<!-- related-links -->
+
+## 함께 보면 좋은 글
+
+- [장바구니 35% 키우는 AI — 무료 공개](/blog/claude-commerce-agents-shopping-sme-guide)
+- [정부가 무료 AI 준다 — N에이전트 3단계 체험](/blog/flowise-ai-agent-free-sme-guide)
+- [포토샵 구독 끊어도 된다 — 4K AI 상품편집 5분](/blog/sensenova-u1-4k-product-photo-edit-free)
