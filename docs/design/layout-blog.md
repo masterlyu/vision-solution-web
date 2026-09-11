@@ -85,6 +85,8 @@
       relative w-full h-44 overflow-hidden bg-muted
       <Image> object-cover
       hover: scale-105 transition-transform duration-300
+      ※ SVG 커버 이미지 내 하드코딩 텍스트는 frontmatter title과 반드시 일치해야 함
+        → 상세 규칙: layout-blog-post.md Section 2 참조 (VIS-6435 사례)
 
   ─ 카드 본문: p-6
       행 1 (flex items-center gap-2, mb-4):
