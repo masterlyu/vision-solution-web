@@ -30,7 +30,7 @@
   <!-- GitHub 스타 배지 -->
   <rect x="510" y="240" width="190" height="32" rx="10" fill="white" opacity="0.15"/>
   <text x="555" y="261" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="white" opacity="0.9">⭐</text>
-  <text x="620" y="261" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="white" opacity="0.9">36,000+ Stars</text>
+  <text x="620" y="261" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="white" opacity="0.9">57,000+ Stars</text>
   <text x="620" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.6">github.com/tt-a1i/archify</text>
   <!-- 좌측 메인 텍스트 -->
   <text x="40" y="130" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">무료 오픈소스</text>
