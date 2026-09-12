@@ -84,8 +84,6 @@ ChatGPT Plus 또는 Business 요금제에 가입되어 있으면 추가 설치 �
 
 매주 같은 형식의 발주서나 입고 확인서를 사이트에 직접 입력하는 업무입니다. 엑셀 파일이나 내용을 붙여 넣고 "이 내용으로 [사이트 URL]의 주문 폼에 입력해줘"라고 하면 됩니다.
 
-> **AI 업무 자동화가 궁금하시다면**: [www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution) — 중소기업 맞춤 적용 사례를 먼저 확인하세요.
-
 ---
 
 ## 무료 오픈소스 대안 — OpenHands
@@ -96,7 +94,7 @@ ChatGPT 구독이 없거나, 보안 이유로 회사 내부 서버에서 같은 
 
 - GitHub: [All-Hands-AI/OpenHands](https://github.com/All-Hands-AI/OpenHands)
 - 라이선스: MIT (무료, 상업 이용 가능)
-- GitHub 별 수: 7만 개 이상 (2026년 9월 기준)
+- GitHub 별 수: 8만 개 이상 (2026년 9월 기준)
 
 GPT-6 Astra와 동일한 개념, 즉 'AI가 컴퓨터를 직접 조작하는' 기능을 제공하는 오픈소스 프레임워크입니다. Docker가 설치된 환경과 LLM API 키(OpenAI 또는 Anthropic)가 있으면 회사 내부 서버에서 직접 운영할 수 있습니다.
 
