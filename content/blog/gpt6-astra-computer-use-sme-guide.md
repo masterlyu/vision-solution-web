@@ -165,3 +165,12 @@ ChatGPT 사용 시 입력한 정보는 OpenAI 서버를 경유합니다. 민감�
 > **AI 자동화 도입을 검토 중인 중소기업 대표님께**:  
 > 📧 biztalktome@gmail.com  
 > 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
+
+
+<!-- related-links -->
+
+## 함께 보면 좋은 글
+
+- [AI가 구조도를 30초에 — Archify 체험기](/blog/archify-ai-diagram-free-sme-guide)
+- [장바구니 35% 키우는 AI — 무료 공개](/blog/claude-commerce-agents-shopping-sme-guide)
+- [정부가 무료 AI 준다 — N에이전트 3단계 체험](/blog/flowise-ai-agent-free-sme-guide)
