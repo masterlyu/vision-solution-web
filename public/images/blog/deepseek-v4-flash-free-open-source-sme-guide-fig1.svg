@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">DeepSeek V4 Flash → V4.1 Flash 성능 향상</text>
+  <!-- V4 Flash 막대: 82.7점 → 높이 비율 82.7/90.6 * 130 ≈ 119 -->
+  <rect x="160" y="131" width="120" height="119" rx="6" fill="#cbd5e1"/>
+  <text x="220" y="116" text-anchor="middle" font-size="26" font-weight="800" fill="#6b7280">82.7</text>
+  <text x="220" y="275" text-anchor="middle" font-size="14" fill="#1f2937">V4 Flash</text>
+  <text x="220" y="293" text-anchor="middle" font-size="12" fill="#6b7280">(이전 버전)</text>
+  <!-- V4.1 Flash 막대: 90.6점 → 높이 130 (최대) -->
+  <rect x="500" y="120" width="120" height="130" rx="6" fill="#06b6d4"/>
+  <text x="560" y="105" text-anchor="middle" font-size="26" font-weight="800" fill="#0f766e">90.6</text>
+  <text x="560" y="275" text-anchor="middle" font-size="14" fill="#1f2937">V4.1 Flash</text>
+  <text x="560" y="293" text-anchor="middle" font-size="12" fill="#0f766e">+7.9점 향상</text>
+  <!-- 화살표 -->
+  <line x1="300" y1="185" x2="490" y2="185" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="6,4"/>
+  <polygon points="486,179 500,185 486,191" fill="#cbd5e1"/>
+  <!-- 벤치마크 명칭 -->
+  <text x="400" y="165" text-anchor="middle" font-size="12" fill="#6b7280">Terminal-Bench 2.1</text>
+  <!-- 바닥선 -->
+  <line x1="40" y1="252" x2="760" y2="252" stroke="#e5e7eb" stroke-width="1"/>
+</svg>
