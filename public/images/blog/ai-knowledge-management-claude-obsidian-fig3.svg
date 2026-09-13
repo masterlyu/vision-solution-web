@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <text x="400" y="38" text-anchor="middle" font-size="18" font-weight="800" fill="#1f2937">claude-obsidian 주요 현황</text>
+
+  <!-- 카드 1: GitHub Stars -->
+  <rect x="30" y="60" width="170" height="160" rx="14" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.5"/>
+  <text x="115" y="110" text-anchor="middle" font-size="32" fill="#7c3aed">★</text>
+  <text x="115" y="155" text-anchor="middle" font-size="28" font-weight="900" fill="#4338ca">14,000</text>
+  <text x="115" y="178" text-anchor="middle" font-size="12" fill="#6b7280">GitHub 별</text>
+  <text x="115" y="198" text-anchor="middle" font-size="11" fill="#a78bfa">개발자 신뢰도 지표</text>
+
+  <!-- 카드 2: 라이선스 -->
+  <rect x="215" y="60" width="170" height="160" rx="14" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+  <text x="300" y="110" text-anchor="middle" font-size="32" fill="#16a34a">✓</text>
+  <text x="300" y="155" text-anchor="middle" font-size="28" font-weight="900" fill="#15803d">MIT</text>
+  <text x="300" y="178" text-anchor="middle" font-size="12" fill="#6b7280">라이선스</text>
+  <text x="300" y="198" text-anchor="middle" font-size="11" fill="#4ade80">완전 무료 · 상업 사용 가능</text>
+
+  <!-- 카드 3: 설치 시간 -->
+  <rect x="400" y="60" width="170" height="160" rx="14" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+  <text x="485" y="110" text-anchor="middle" font-size="32" fill="#ea580c">⏱</text>
+  <text x="485" y="155" text-anchor="middle" font-size="28" font-weight="900" fill="#c2410c">30분</text>
+  <text x="485" y="178" text-anchor="middle" font-size="12" fill="#6b7280">초기 설정 시간</text>
+  <text x="485" y="198" text-anchor="middle" font-size="11" fill="#fb923c">PC 1대로 시작 가능</text>
+
+  <!-- 카드 4: 한국어 지원 -->
+  <rect x="585" y="60" width="185" height="160" rx="14" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+  <text x="677" y="110" text-anchor="middle" font-size="32" fill="#2563eb">🇰🇷</text>
+  <text x="677" y="155" text-anchor="middle" font-size="24" font-weight="900" fill="#1d4ed8">한국어</text>
+  <text x="677" y="178" text-anchor="middle" font-size="12" fill="#6b7280">완벽 지원</text>
+  <text x="677" y="198" text-anchor="middle" font-size="11" fill="#60a5fa">회의록·계약서·매뉴얼 처리</text>
+
+  <!-- 바닥 출처 -->
+  <line x1="40" y1="252" x2="760" y2="252" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="400" y="272" text-anchor="middle" font-size="10" fill="#9ca3af">출처: github.com/AgriciDaniel/claude-obsidian, skillsllm.com</text>
+</svg>

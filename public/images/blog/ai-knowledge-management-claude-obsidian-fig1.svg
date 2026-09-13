@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <text x="400" y="38" text-anchor="middle" font-size="18" font-weight="800" fill="#1f2937">claude-obsidian 작동 흐름</text>
+
+  <!-- 단계 1: 회사 문서 -->
+  <rect x="30" y="70" width="150" height="90" rx="12" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="105" y="105" text-anchor="middle" font-size="28" fill="#7c3aed">📄</text>
+  <text x="105" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#4338ca">회사 문서</text>
+  <text x="105" y="148" text-anchor="middle" font-size="11" fill="#6b7280">매뉴얼·회의록·계약서</text>
+
+  <!-- 화살표 1 -->
+  <line x1="183" y1="115" x2="215" y2="115" stroke="#a78bfa" stroke-width="2" stroke-dasharray="4,3"/>
+  <polygon points="211,109 225,115 211,121" fill="#a78bfa"/>
+
+  <!-- 단계 2: Obsidian 폴더 -->
+  <rect x="228" y="70" width="150" height="90" rx="12" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="303" y="105" text-anchor="middle" font-size="28" fill="#7c3aed">🗂</text>
+  <text x="303" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#4338ca">Obsidian 폴더</text>
+  <text x="303" y="148" text-anchor="middle" font-size="11" fill="#6b7280">내 PC에 저장 · 무료 앱</text>
+
+  <!-- 화살표 2 -->
+  <line x1="381" y1="115" x2="413" y2="115" stroke="#a78bfa" stroke-width="2" stroke-dasharray="4,3"/>
+  <polygon points="409,109 423,115 409,121" fill="#a78bfa"/>
+
+  <!-- 단계 3: claude-obsidian -->
+  <rect x="426" y="70" width="150" height="90" rx="12" fill="#ddd6fe" stroke="#6d28d9" stroke-width="2"/>
+  <text x="501" y="105" text-anchor="middle" font-size="28" fill="#6d28d9">🤖</text>
+  <text x="501" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#4338ca">claude-obsidian</text>
+  <text x="501" y="148" text-anchor="middle" font-size="11" fill="#6b7280">Claude AI 연결 엔진</text>
+
+  <!-- 화살표 3 -->
+  <line x1="579" y1="115" x2="611" y2="115" stroke="#a78bfa" stroke-width="2" stroke-dasharray="4,3"/>
+  <polygon points="607,109 621,115 607,121" fill="#a78bfa"/>
+
+  <!-- 단계 4: 자연어 답변 -->
+  <rect x="624" y="70" width="150" height="90" rx="12" fill="#c4b5fd" stroke="#6d28d9" stroke-width="2"/>
+  <text x="699" y="105" text-anchor="middle" font-size="28" fill="#4338ca">💬</text>
+  <text x="699" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#4338ca">자연어 답변</text>
+  <text x="699" y="148" text-anchor="middle" font-size="11" fill="#4338ca">즉시 · 정확 · 한국어</text>
+
+  <!-- 예시 질문/답변 -->
+  <rect x="30" y="190" width="340" height="80" rx="10" fill="#f5f3ff" stroke="#e0d7ff" stroke-width="1"/>
+  <text x="50" y="215" font-size="12" font-weight="700" fill="#7c3aed">직원 질문</text>
+  <text x="50" y="235" font-size="12" fill="#374151">"B거래처 납기 조건이 어떻게 됩니까?"</text>
+  <text x="50" y="255" font-size="11" fill="#9ca3af">→ 과거에는 퇴사 직원 노트에만 있었던 정보</text>
+
+  <rect x="430" y="190" width="340" height="80" rx="10" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1"/>
+  <text x="450" y="215" font-size="12" font-weight="700" fill="#16a34a">AI 답변</text>
+  <text x="450" y="235" font-size="12" fill="#374151">"D-3 기준, 전날 확인 전화 선호"</text>
+  <text x="450" y="255" font-size="11" fill="#9ca3af">→ 저장된 문서 전체를 검색해 즉시 응답</text>
+
+  <!-- 출처 -->
+  <text x="400" y="288" text-anchor="middle" font-size="10" fill="#9ca3af">출처: github.com/AgriciDaniel/claude-obsidian</text>
+</svg>

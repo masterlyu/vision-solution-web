@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <text x="400" y="38" text-anchor="middle" font-size="18" font-weight="800" fill="#1f2937">도입 전후 노하우 접근성 비교</text>
+
+  <!-- 도입 전 (좌측) -->
+  <rect x="30" y="55" width="350" height="215" rx="14" fill="#fff1f2" stroke="#fecdd3" stroke-width="1.5"/>
+  <text x="205" y="83" text-anchor="middle" font-size="15" font-weight="800" fill="#be123c">도입 전</text>
+
+  <!-- 전 단계들 -->
+  <rect x="55" y="100" width="300" height="36" rx="8" fill="#ffe4e6"/>
+  <text x="205" y="123" text-anchor="middle" font-size="12" fill="#9f1239">핵심 직원 퇴사 → 노하우 사라짐</text>
+
+  <line x1="205" y1="138" x2="205" y2="152" stroke="#fca5a5" stroke-width="2" stroke-dasharray="3,2"/>
+  <polygon points="199,149 205,160 211,149" fill="#fca5a5"/>
+
+  <rect x="55" y="162" width="300" height="36" rx="8" fill="#ffe4e6"/>
+  <text x="205" y="185" text-anchor="middle" font-size="12" fill="#9f1239">새 직원이 정보 찾아 헤맴 (수 달 소요)</text>
+
+  <line x1="205" y1="200" x2="205" y2="214" stroke="#fca5a5" stroke-width="2" stroke-dasharray="3,2"/>
+  <polygon points="199,211 205,222 211,211" fill="#fca5a5"/>
+
+  <rect x="55" y="224" width="300" height="36" rx="8" fill="#fecdd3"/>
+  <text x="205" y="247" text-anchor="middle" font-size="12" font-weight="700" fill="#be123c">같은 실수 반복 · 거래처 이탈 위험</text>
+
+  <!-- 구분선 -->
+  <line x1="400" y1="55" x2="400" y2="270" stroke="#e5e7eb" stroke-width="1.5" stroke-dasharray="5,4"/>
+
+  <!-- 도입 후 (우측) -->
+  <rect x="420" y="55" width="350" height="215" rx="14" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+  <text x="595" y="83" text-anchor="middle" font-size="15" font-weight="800" fill="#15803d">도입 후 (claude-obsidian)</text>
+
+  <!-- 후 단계들 -->
+  <rect x="445" y="100" width="300" height="36" rx="8" fill="#dcfce7"/>
+  <text x="595" y="123" text-anchor="middle" font-size="12" fill="#166534">회사 문서 → Obsidian 폴더 저장</text>
+
+  <line x1="595" y1="138" x2="595" y2="152" stroke="#86efac" stroke-width="2" stroke-dasharray="3,2"/>
+  <polygon points="589,149 595,160 601,149" fill="#86efac"/>
+
+  <rect x="445" y="162" width="300" height="36" rx="8" fill="#dcfce7"/>
+  <text x="595" y="185" text-anchor="middle" font-size="12" fill="#166534">AI가 전체 문서 학습 · 24시간 대기</text>
+
+  <line x1="595" y1="200" x2="595" y2="214" stroke="#86efac" stroke-width="2" stroke-dasharray="3,2"/>
+  <polygon points="589,211 595,222 601,211" fill="#86efac"/>
+
+  <rect x="445" y="224" width="300" height="36" rx="8" fill="#bbf7d0"/>
+  <text x="595" y="247" text-anchor="middle" font-size="12" font-weight="700" fill="#15803d">누구나 즉시 답변 · 노하우 영구 보존</text>
+
+  <!-- 출처 -->
+  <text x="400" y="288" text-anchor="middle" font-size="10" fill="#9ca3af">구성 예시 · (주)비젼솔루션</text>
+</svg>
