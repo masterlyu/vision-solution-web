@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 260" width="800" height="260" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="260" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">n8n 셀프호스팅 설치 5단계</text>
+
+  <!-- Timeline line -->
+  <line x1="80" y1="150" x2="740" y2="150" stroke="#cbd5e1" stroke-width="3"/>
+
+  <!-- Step 1 -->
+  <circle cx="110" cy="150" r="12" fill="#0f766e"/>
+  <text x="110" y="125" text-anchor="middle" font-size="12" font-weight="700" fill="#0f766e">1단계</text>
+  <text x="110" y="108" text-anchor="middle" font-size="11" fill="#6b7280">Docker</text>
+  <text x="110" y="185" text-anchor="middle" font-size="12" fill="#1f2937">Docker 설치</text>
+  <text x="110" y="202" text-anchor="middle" font-size="11" fill="#6b7280">확인</text>
+
+  <!-- Step 2 -->
+  <circle cx="270" cy="150" r="12" fill="#0f766e"/>
+  <text x="270" y="125" text-anchor="middle" font-size="12" font-weight="700" fill="#0f766e">2단계</text>
+  <text x="270" y="108" text-anchor="middle" font-size="11" fill="#6b7280">약 1분</text>
+  <text x="270" y="185" text-anchor="middle" font-size="12" fill="#1f2937">n8n 컨테이너</text>
+  <text x="270" y="202" text-anchor="middle" font-size="11" fill="#6b7280">실행 (명령 1줄)</text>
+
+  <!-- Step 3 -->
+  <circle cx="430" cy="150" r="12" fill="#0f766e"/>
+  <text x="430" y="125" text-anchor="middle" font-size="12" font-weight="700" fill="#0f766e">3단계</text>
+  <text x="430" y="108" text-anchor="middle" font-size="11" fill="#6b7280">브라우저</text>
+  <text x="430" y="185" text-anchor="middle" font-size="12" fill="#1f2937">localhost:5678</text>
+  <text x="430" y="202" text-anchor="middle" font-size="11" fill="#6b7280">접속·계정 설정</text>
+
+  <!-- Step 4 -->
+  <circle cx="590" cy="150" r="12" fill="#0f766e"/>
+  <text x="590" y="125" text-anchor="middle" font-size="12" font-weight="700" fill="#0f766e">4단계</text>
+  <text x="590" y="108" text-anchor="middle" font-size="11" fill="#6b7280">드래그&amp;드롭</text>
+  <text x="590" y="185" text-anchor="middle" font-size="12" fill="#1f2937">워크플로 생성</text>
+  <text x="590" y="202" text-anchor="middle" font-size="11" fill="#6b7280">노드 연결</text>
+
+  <!-- Step 5 -->
+  <circle cx="730" cy="150" r="14" fill="#06b6d4"/>
+  <text x="730" y="125" text-anchor="middle" font-size="12" font-weight="700" fill="#06b6d4">5단계</text>
+  <text x="730" y="108" text-anchor="middle" font-size="11" fill="#6b7280">완료!</text>
+  <text x="730" y="185" text-anchor="middle" font-size="12" fill="#1f2937">업무 데이터</text>
+  <text x="730" y="202" text-anchor="middle" font-size="11" fill="#6b7280">연결·활성화</text>
+
+  <!-- Total time note -->
+  <text x="400" y="240" text-anchor="middle" font-size="13" fill="#0f766e" font-weight="700">총 30분 이내 완료 · 추가 비용 없음</text>
+</svg>

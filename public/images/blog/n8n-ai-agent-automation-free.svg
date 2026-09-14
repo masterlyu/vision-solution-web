@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f766e"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="nodeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.07"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="420" fill="url(#bgGrad)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="700" cy="60" r="120" fill="#ffffff" fill-opacity="0.04"/>
+  <circle cx="100" cy="370" r="90" fill="#ffffff" fill-opacity="0.04"/>
+
+  <!-- Main title -->
+  <text x="60" y="90" font-size="30" font-weight="900" fill="#ffffff" letter-spacing="-0.5">반복 업무 주 15시간 줄이기</text>
+  <text x="60" y="136" font-size="26" font-weight="700" fill="#a7f3d0">n8n 무료 자동화 5단계</text>
+  <text x="60" y="176" font-size="15" fill="#ccfbf1" letter-spacing="0.2">코딩 없이 · 무료 · 오픈소스 · 5단계 실습</text>
+
+  <!-- Workflow nodes -->
+  <!-- Node 1 -->
+  <rect x="60" y="230" width="130" height="60" rx="12" fill="url(#nodeGrad)" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="125" y="255" text-anchor="middle" font-size="11" fill="#a7f3d0">📧 메일 도착</text>
+  <text x="125" y="275" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">트리거</text>
+
+  <!-- Arrow 1 -->
+  <line x1="192" y1="260" x2="228" y2="260" stroke="#22d3ee" stroke-width="2"/>
+  <polygon points="226,254 236,260 226,266" fill="#22d3ee"/>
+
+  <!-- Node 2 -->
+  <rect x="238" y="230" width="130" height="60" rx="12" fill="url(#nodeGrad)" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="303" y="255" text-anchor="middle" font-size="11" fill="#a7f3d0">🤖 AI 분석</text>
+  <text x="303" y="275" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">데이터 추출</text>
+
+  <!-- Arrow 2 -->
+  <line x1="370" y1="260" x2="406" y2="260" stroke="#22d3ee" stroke-width="2"/>
+  <polygon points="404,254 414,260 404,266" fill="#22d3ee"/>
+
+  <!-- Node 3 -->
+  <rect x="416" y="230" width="130" height="60" rx="12" fill="url(#nodeGrad)" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="481" y="255" text-anchor="middle" font-size="11" fill="#a7f3d0">📊 엑셀 연동</text>
+  <text x="481" y="275" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">자동 입력</text>
+
+  <!-- Arrow 3 -->
+  <line x1="548" y1="260" x2="584" y2="260" stroke="#22d3ee" stroke-width="2"/>
+  <polygon points="582,254 592,260 582,266" fill="#22d3ee"/>
+
+  <!-- Node 4 -->
+  <rect x="594" y="230" width="130" height="60" rx="12" fill="#0e9f6e" fill-opacity="0.7" stroke="#34d399" stroke-width="1.5"/>
+  <text x="659" y="255" text-anchor="middle" font-size="11" fill="#a7f3d0">✅ 완료 알림</text>
+  <text x="659" y="275" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">담당자 전송</text>
+
+  <!-- Label: 사람이 하면 20분 / n8n이 하면 0분 -->
+  <rect x="60" y="325" width="240" height="36" rx="8" fill="#ffffff" fill-opacity="0.1"/>
+  <text x="180" y="348" text-anchor="middle" font-size="13" fill="#f0fdf4">사람이 처리: 건당 약 20분</text>
+
+  <rect x="500" y="325" width="240" height="36" rx="8" fill="#0e9f6e" fill-opacity="0.5"/>
+  <text x="620" y="348" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">n8n 자동화: 건당 0분</text>
+
+  <!-- Badge -->
+  <rect x="600" y="60" width="155" height="36" rx="18" fill="#ffffff" fill-opacity="0.15"/>
+  <text x="677" y="83" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">GitHub ★ 204,000+</text>
+
+  <!-- Powered by -->
+  <text x="740" y="408" text-anchor="end" font-size="11" fill="#ffffff" fill-opacity="0.5">(주)비젼솔루션</text>
+</svg>

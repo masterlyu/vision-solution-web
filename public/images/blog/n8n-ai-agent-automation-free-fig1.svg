@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">반복 업무 시간 — 자동화 전후 비교</text>
+  <text x="40" y="66" font-size="13" fill="#6b7280">출처: SCORE 2025 중소기업 조사 (5~25인 규모)</text>
+
+  <!-- Bar: Before -->
+  <rect x="130" y="90" width="160" height="150" rx="6" fill="#cbd5e1"/>
+  <text x="210" y="78" text-anchor="middle" font-size="30" font-weight="900" fill="#6b7280">25시간</text>
+  <text x="210" y="258" text-anchor="middle" font-size="14" fill="#1f2937">자동화 이전</text>
+  <text x="210" y="276" text-anchor="middle" font-size="12" fill="#6b7280">주간 반복 업무 최대치</text>
+
+  <!-- VS -->
+  <text x="400" y="178" text-anchor="middle" font-size="22" font-weight="900" fill="#94a3b8">VS</text>
+
+  <!-- Bar: After -->
+  <rect x="510" y="200" width="160" height="40" rx="6" fill="#0f766e"/>
+  <text x="590" y="188" text-anchor="middle" font-size="30" font-weight="900" fill="#0f766e">2시간↓</text>
+  <text x="590" y="258" text-anchor="middle" font-size="14" fill="#1f2937">자동화 이후</text>
+  <text x="590" y="276" text-anchor="middle" font-size="12" fill="#6b7280">모니터링·예외처리만 남음</text>
+
+  <!-- Saving annotation -->
+  <rect x="290" y="100" width="120" height="44" rx="8" fill="#ecfdf5" stroke="#0f766e" stroke-width="1.5"/>
+  <text x="350" y="118" text-anchor="middle" font-size="12" fill="#0f766e" font-weight="700">주 15~23시간</text>
+  <text x="350" y="136" text-anchor="middle" font-size="12" fill="#0f766e">절감 가능</text>
+</svg>
