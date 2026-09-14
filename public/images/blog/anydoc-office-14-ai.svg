@@ -34,8 +34,8 @@
   <text x="625" y="342" text-anchor="middle" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="12" fill="white" opacity="0.5">MIT · 무료 · 오프라인</text>
   <!-- 좌측 메인 텍스트 -->
   <text x="40" y="128" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="14" font-weight="600" fill="white" opacity="0.8">anydoc 5분 실습</text>
-  <text x="40" y="178" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="33" font-weight="900" fill="white">오피스 문서 14종</text>
-  <text x="40" y="222" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="33" font-weight="900" fill="white">AI에 5분 먹이기</text>
+  <text x="40" y="178" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="32" font-weight="900" fill="white">오피스 문서 14종 AI에</text>
+  <text x="40" y="222" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="32" font-weight="900" fill="white">5분 만에 먹이는 법</text>
   <text x="40" y="268" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="15" fill="white" opacity="0.75">최대 256배 빠른 무료 오픈소스 변환 도구</text>
   <!-- 속도 배지 -->
   <rect x="40" y="288" width="140" height="34" rx="17" fill="white" opacity="0.18"/>

@@ -23,8 +23,8 @@
   <text x="620" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.5">오픈소스 · 무료</text>
   <!-- 좌측 메인 텍스트 -->
   <text x="40" y="130" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">오프라인 AI · 현장 자동화</text>
-  <text x="40" y="178" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">14MB AI로</text>
-  <text x="40" y="218" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">공장·매장 자동화</text>
+  <text x="40" y="178" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">14MB AI로 공장·매장</text>
+  <text x="40" y="218" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">자동화 — 설치비 0원</text>
   <text x="40" y="268" font-family="Arial, sans-serif" font-size="16" fill="white" opacity="0.75">인터넷 없이, 설치비 0원, 월정액 0원</text>
   <rect x="40" y="310" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
   <text x="40" y="345" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">(주)비젼솔루션</text>

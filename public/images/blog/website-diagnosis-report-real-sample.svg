@@ -18,13 +18,9 @@
   <text x="72" y="185" font-size="72" font-family="Arial">📊</text>
 
   <!-- Main text -->
-  <text x="72" y="250" font-family="Arial, sans-serif" font-size="36" font-weight="900" fill="white">홈페이지 진단 리포트</text>
-  <text x="72" y="292" font-family="Arial, sans-serif" font-size="36" font-weight="900" fill="white">실제 공개</text>
-  <text x="72" y="336" font-family="Arial, sans-serif" font-size="16" fill="rgba(255,255,255,0.72)">AI 자동 분석 · 3축 100점 · PDF 이메일 발송</text>
-
-  <!-- Grade badge -->
-  <rect x="610" y="130" width="130" height="130" rx="20" fill="rgba(16,185,129,0.2)" stroke="rgba(16,185,129,0.5)" stroke-width="2"/>
-  <text x="675" y="208" font-family="Arial, sans-serif" font-size="72" font-weight="900" fill="#10b981" text-anchor="middle">A</text>
+  <text x="72" y="250" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">내 홈페이지 점수가 몇</text>
+  <text x="72" y="292" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">점인지 아세요? — AI</text>
+  <text x="72" y="334" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">진단 리포트 실제 공개</text>
   <text x="675" y="236" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.6)" text-anchor="middle">97점</text>
 
   <!-- Score bars -->

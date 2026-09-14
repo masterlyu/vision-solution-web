@@ -18,8 +18,8 @@
   <text x="620" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">핵심 체크리스트</text>
   <!-- Main text -->
   <text x="40" y="130" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">수천만 원 날리지 않는</text>
-  <text x="40" y="175" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">앱 개발 외주</text>
-  <text x="40" y="215" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">완벽 가이드</text>
+  <text x="40" y="175" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">앱 개발 외주 실패하지 않는 방법</text>
+  <text x="40" y="215" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">— 계약 전 반드시 알아야 할 현실</text>
   <text x="40" y="265" font-family="Arial, sans-serif" font-size="16" fill="white" opacity="0.75">계약 전 반드시 알아야 할 현실</text>
   <rect x="40" y="310" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
   <text x="40" y="345" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">비전솔루션</text>

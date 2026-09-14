@@ -22,8 +22,8 @@
   <text x="620" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.55">MIT 라이선스 · 완전 무료</text>
   <!-- 좌측 메인 텍스트 -->
   <text x="40" y="130" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="white" opacity="0.8">오픈소스 AI 게이트웨이</text>
-  <text x="40" y="178" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">ChatGPT 구독비</text>
-  <text x="40" y="218" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">0원 만드는 법</text>
+  <text x="40" y="178" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">ChatGPT 구독비 0원 —</text>
+  <text x="40" y="218" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">290개 AI 무료 연결법</text>
   <text x="40" y="264" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.75">OmniRoute — 290개 AI를 하나로 연결</text>
   <rect x="40" y="305" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
   <text x="40" y="340" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">(주)비젼솔루션</text>

@@ -19,8 +19,8 @@
   <text x="620" y="232" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.7">Chatterbox TTS</text>
   <text x="620" y="258" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.5">by Resemble AI · MIT License</text>
   <text x="40" y="130" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">AI 목소리 복제 · 오픈소스</text>
-  <text x="40" y="175" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="30" font-weight="900" fill="white">ElevenLabs 대신</text>
-  <text x="40" y="215" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="30" font-weight="900" fill="white">무료로 쓰는 법</text>
+  <text x="40" y="175" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="32" font-weight="900" fill="white">ElevenLabs 대신 무료</text>
+  <text x="40" y="215" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="32" font-weight="900" fill="white">AI 목소리 복제 5분 실습</text>
   <text x="40" y="265" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="15" fill="white" opacity="0.75">pip 한 줄 설치 · 5분이면 됩니다</text>
   <rect x="40" y="310" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
   <text x="40" y="345" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="14" fill="white" opacity="0.6">(주)비젼솔루션</text>

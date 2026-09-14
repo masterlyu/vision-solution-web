@@ -15,24 +15,8 @@
   <rect x="480" y="55" width="285" height="310" rx="20" fill="white" opacity="0.06" stroke="white" stroke-opacity="0.1" stroke-width="1"/>
   <!-- Stat 1 -->
   <rect x="496" y="75" width="250" height="60" rx="12" fill="white" opacity="0.08"/>
-  <text x="522" y="103" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="#6ee7b7">83%</text>
-  <text x="522" y="123" font-family="Arial, sans-serif" font-size="11" fill="white" opacity="0.7">응대 시간 절감 (쇼핑몰 사례)</text>
-  <!-- Stat 2 -->
-  <rect x="496" y="148" width="250" height="60" rx="12" fill="white" opacity="0.08"/>
-  <text x="522" y="176" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="#fcd34d">+183%</text>
-  <text x="522" y="196" font-family="Arial, sans-serif" font-size="11" fill="white" opacity="0.7">주말 문의 등록 전환율 (학원 사례)</text>
-  <!-- Stat 3 -->
-  <rect x="496" y="222" width="250" height="60" rx="12" fill="white" opacity="0.08"/>
-  <text x="522" y="250" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="#6ee7b7">+137%</text>
-  <text x="522" y="270" font-family="Arial, sans-serif" font-size="11" fill="white" opacity="0.7">방문 예약 증가 (부동산 사례)</text>
-  <!-- ROI highlight -->
-  <rect x="496" y="296" width="250" height="50" rx="10" fill="#10b981" opacity="0.3" stroke="#6ee7b7" stroke-opacity="0.5" stroke-width="1"/>
-  <text x="621" y="317" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.8">월 59,000원 투자</text>
-  <text x="621" y="335" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#6ee7b7">→ 평균 20배 ROI</text>
-  <!-- Main text -->
-  <text x="40" y="128" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.7">실제 도입 업체 데이터 공개</text>
-  <text x="40" y="178" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">챗봇 도입</text>
-  <text x="40" y="220" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">전후 비교</text>
+  <text x="522" y="103" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="#6ee7b7">챗봇 도입 전후 비교 — 월 5만원</text>
+  <text x="522" y="176" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="#6ee7b7">투자로 얼마나 달라질까요?</text>
   <text x="40" y="264" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.7">월 5만원으로 달라지는 것들</text>
   <!-- Divider -->
   <rect x="40" y="284" width="380" height="1" fill="white" opacity="0.1"/>

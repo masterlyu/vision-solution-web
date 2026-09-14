@@ -26,8 +26,9 @@
   <text x="620" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.5">구분하는 5가지 방법</text>
   <!-- Main text -->
   <text x="40" y="130" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">2026년 중소기업</text>
-  <text x="40" y="175" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">지원사업 사기</text>
-  <text x="40" y="215" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">예방 완전 가이드</text>
+  <text x="40" y="175" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">2026년 중소기업 홈페이지</text>
+  <text x="40" y="215" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">제작 지원사업, 진짜 정부</text>
+  <text x="40" y="255" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">지원과 민간 사업 구분하는 법</text>
   <text x="40" y="265" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.75">진짜와 가짜, 이렇게 구분하세요</text>
   <!-- Bottom bar -->
   <rect x="40" y="310" width="60" height="4" rx="2" fill="white" opacity="0.6"/>

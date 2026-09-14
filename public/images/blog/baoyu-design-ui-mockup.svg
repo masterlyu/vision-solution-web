@@ -22,8 +22,8 @@
   <text x="625" y="258" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.5">GitHub 515 stars</text>
   <!-- 좌측 메인 텍스트 -->
   <text x="40" y="130" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">중소기업 AI 도입 가이드</text>
-  <text x="40" y="178" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">AI로 UI 시안</text>
-  <text x="40" y="218" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">3분 완성</text>
+  <text x="40" y="178" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">AI로 UI 시안 3분 완성</text>
+  <text x="40" y="218" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">— baoyu-design</text>
   <text x="40" y="268" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.75">baoyu-design 로컬 실행 무료 가이드</text>
   <rect x="40" y="310" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
   <text x="40" y="345" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">(주)비젼솔루션</text>

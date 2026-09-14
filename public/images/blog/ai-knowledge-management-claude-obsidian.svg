@@ -21,18 +21,9 @@
   <rect x="535" y="95" width="70" height="28" rx="8" fill="white" opacity="0.25"/>
   <text x="570" y="114" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="800" fill="white">MIT</text>
   <!-- GitHub 별 -->
-  <text x="625" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="46" font-weight="900" fill="white" opacity="0.95">14,000</text>
-  <text x="625" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.7">GitHub ★ 수</text>
-  <text x="625" y="247" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.5">오픈소스 인기 지표</text>
-  <!-- 설치 시간 -->
-  <rect x="515" y="275" width="210" height="50" rx="10" fill="white" opacity="0.12"/>
-  <text x="620" y="298" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.7">초기 설정 소요 시간</text>
-  <text x="620" y="318" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="800" fill="white">30분 이내</text>
-  <!-- 좌측 메인 텍스트 -->
-  <text x="40" y="130" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">claude-obsidian</text>
-  <text x="40" y="185" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">직원이 퇴사해도</text>
-  <text x="40" y="228" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">회사 노하우가</text>
-  <text x="40" y="271" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">사라지지 않는 AI</text>
+  <text x="625" y="195" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white" text-anchor="middle">직원이 퇴사해도 회사</text>
+  <text x="625" y="231" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white" text-anchor="middle">노하우가 사라지지 않는</text>
+  <text x="625" y="267" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white" text-anchor="middle">AI — 무료로 만들었습니다</text>
   <text x="40" y="315" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.75">Obsidian + Claude AI · 완전 무료 · 한국어 지원</text>
   <!-- 구분선 + 회사명 -->
   <rect x="40" y="345" width="60" height="4" rx="2" fill="white" opacity="0.6"/>

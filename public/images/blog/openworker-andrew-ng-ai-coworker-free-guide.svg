@@ -24,7 +24,8 @@
   <text x="625" y="288" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.6">앤드류 응(Andrew Ng)</text>
   <!-- 좌측 메인 텍스트 -->
   <text x="40" y="130" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="white" opacity="0.8">오픈소스 AI 에이전트 · 5분 설치 가이드</text>
-  <text x="40" y="182" font-family="Arial, sans-serif" font-size="36" font-weight="900" fill="white">월급 0원 AI 직원</text>
+  <text x="40" y="182" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">월급 0원 AI 직원 —</text>
+  <text x="40" y="222" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">OpenWorker 실습</text>
   <text x="40" y="226" font-family="Arial, sans-serif" font-size="26" font-weight="800" fill="white" opacity="0.95">OpenWorker</text>
   <text x="40" y="268" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.8">채팅 답변 대신 완성된 업무물을 전달합니다</text>
   <text x="40" y="295" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.65">Slack · Gmail · Notion 등 25개 이상 연동</text>

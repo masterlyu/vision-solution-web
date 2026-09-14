@@ -23,8 +23,8 @@
   <text x="620" y="283" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.5">코딩 에이전트 특화</text>
   <!-- 좌측 메인 텍스트 -->
   <text x="40" y="130" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">샤오미 · 2026년 7월</text>
-  <text x="40" y="185" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">샤오미 MiMo</text>
-  <text x="40" y="228" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">무료 코딩 AI</text>
+  <text x="40" y="185" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">샤오미 무료 AI가</text>
+  <text x="40" y="228" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">Claude를 능가? 5분 실습</text>
   <text x="40" y="272" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.75">Claude 대안 · 5분 만에 시작</text>
   <rect x="40" y="310" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
   <text x="40" y="345" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">(주)비젼솔루션</text>

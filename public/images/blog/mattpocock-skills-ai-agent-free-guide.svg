@@ -19,13 +19,8 @@
   <rect x="490" y="55" width="275" height="310" rx="20" fill="url(#card1)" stroke="white" stroke-opacity="0.15" stroke-width="1"/>
   <!-- GitHub star icon -->
   <text x="628" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="72" fill="white" opacity="0.9">⭐</text>
-  <text x="628" y="215" text-anchor="middle" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="26" font-weight="900" fill="white">235,000+</text>
-  <text x="628" y="245" text-anchor="middle" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="13" fill="white" opacity="0.7">GitHub 별 수</text>
-  <text x="628" y="285" text-anchor="middle" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="12" fill="white" opacity="0.5">github.com/mattpocock/skills</text>
-  <!-- 좌측 메인 텍스트 -->
-  <text x="40" y="130" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="14" font-weight="600" fill="white" opacity="0.8">GitHub Trending 1위 · AI 스킬 무료 공개</text>
-  <text x="40" y="182" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="34" font-weight="900" fill="white">AI에 직업을 주면</text>
-  <text x="40" y="228" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="34" font-weight="900" fill="white">결과가 달라집니다</text>
+  <text x="628" y="215" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="32" font-weight="900" fill="white" text-anchor="middle">AI 스킬 비법 무료</text>
+  <text x="628" y="182" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="32" font-weight="900" fill="white" text-anchor="middle">공개 — 복붙 5분 실습</text>
   <text x="40" y="278" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="15" fill="white" opacity="0.75">Matt Pocock의 비법노트 · 복붙으로 5분 실습</text>
   <rect x="40" y="318" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
   <text x="40" y="353" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="14" fill="white" opacity="0.6">(주)비젼솔루션</text>

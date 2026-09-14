@@ -23,9 +23,8 @@
   <text x="620" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.4">MIT 오픈소스 · 무료</text>
   <!-- 좌측 메인 텍스트 -->
   <text x="40" y="130" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">마이크로소프트 무료 AI 도구</text>
-  <text x="40" y="185" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">엑셀 없이</text>
-  <text x="40" y="228" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">AI가 차트를</text>
-  <text x="40" y="271" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">그려줍니다</text>
+  <text x="40" y="185" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">엑셀 없이 차트 — MS</text>
+  <text x="40" y="228" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">무료 AI 5분 실습</text>
   <text x="40" y="315" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.75">말 한마디로 매출 데이터 시각화 — 5분 실습</text>
   <rect x="40" y="345" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
   <text x="40" y="380" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">(주)비젼솔루션</text>

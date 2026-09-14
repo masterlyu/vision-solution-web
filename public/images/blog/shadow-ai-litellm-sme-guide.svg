@@ -23,8 +23,8 @@
   <text x="625" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.5">회사 몰래 쓰는 AI</text>
   <!-- 좌측 메인 텍스트 -->
   <text x="40" y="130" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#a5b4fc" opacity="0.9">섀도AI 위험과 해법</text>
-  <text x="40" y="180" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">직원 64%가</text>
-  <text x="40" y="222" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">몰래 AI 씁니다</text>
+  <text x="40" y="180" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">섀도AI — 직원 64%가</text>
+  <text x="40" y="222" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">몰래 씁니다, 해법 3가지</text>
   <text x="40" y="270" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.70">사장님이 해야 할 3가지 + LiteLLM 실습</text>
   <rect x="40" y="312" width="60" height="4" rx="2" fill="#818cf8" opacity="0.8"/>
   <text x="40" y="348" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.55">(주)비젼솔루션</text>

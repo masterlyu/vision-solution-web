@@ -26,24 +26,8 @@
 
   <!-- Card stats -->
   <text x="570" y="115" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.7)" text-anchor="middle">파라미터</text>
-  <text x="570" y="150" font-family="Arial, sans-serif" font-size="38" font-weight="900" fill="white" text-anchor="middle">14B</text>
-  <text x="570" y="172" font-family="Arial, sans-serif" font-size="12" fill="rgba(255,255,255,0.6)" text-anchor="middle">Aion Plan 에이전트</text>
-
-  <line x1="490" y1="195" x2="760" y2="195" stroke="white" stroke-opacity="0.15" stroke-width="1"/>
-
-  <text x="570" y="225" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.7)" text-anchor="middle">구독료</text>
-  <text x="570" y="260" font-family="Arial, sans-serif" font-size="38" font-weight="900" fill="white" text-anchor="middle">₩0</text>
-  <text x="570" y="282" font-family="Arial, sans-serif" font-size="12" fill="rgba(255,255,255,0.6)" text-anchor="middle">윈도우 기본 내장</text>
-
-  <line x1="490" y1="305" x2="760" y2="305" stroke="white" stroke-opacity="0.15" stroke-width="1"/>
-
-  <text x="570" y="335" font-family="Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.7)" text-anchor="middle">데이터 처리</text>
-  <text x="570" y="360" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white" text-anchor="middle">100% 로컬</text>
-
-  <!-- Left main text -->
-  <text x="40" y="125" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="white" opacity="0.8">마이크로소프트 Aion 1.0</text>
-  <text x="40" y="175" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">윈도우에 AI가</text>
-  <text x="40" y="217" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">내장됐다</text>
+  <text x="570" y="150" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white" text-anchor="middle">윈도우에 AI가 내장됐다 —</text>
+  <text x="570" y="260" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white" text-anchor="middle">마이크로소프트 Aion 무료 체험</text>
   <text x="40" y="262" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.75">구독료 0원 · 외부 서버 없이 · 내 PC에서만</text>
 
   <!-- Divider -->

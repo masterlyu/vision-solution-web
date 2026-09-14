@@ -24,8 +24,9 @@
   <text x="617" y="311" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#fca5a5">🔑 자동화 Credential 탈취</text>
   <!-- Main text -->
   <text x="40" y="128" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="white" opacity="0.7">중소기업 웹보안</text>
-  <text x="40" y="175" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">AI 자동화 공격</text>
-  <text x="40" y="215" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">대응 체크리스트</text>
+  <text x="40" y="175" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">중소기업 웹보안 취약점</text>
+  <text x="40" y="215" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">— 2026 AI 자동화 공격</text>
+  <text x="40" y="255" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">트렌드, 체크리스트 형식</text>
   <text x="40" y="260" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.7">2026년 최신 위협 트렌드 분석</text>
   <rect x="40" y="290" width="55" height="4" rx="2" fill="#f87171" opacity="0.8"/>
   <text x="40" y="340" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.55">비전솔루션</text>

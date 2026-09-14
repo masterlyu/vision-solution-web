@@ -23,8 +23,8 @@
   <text x="620" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.5">청화대학교 · 오픈소스 무료</text>
   <!-- 좌측 메인 텍스트 -->
   <text x="40" y="128" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">직원 교육 · AI 자동화</text>
-  <text x="40" y="178" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">신입 교육</text>
-  <text x="40" y="220" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">5분 완성</text>
+  <text x="40" y="178" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">신입 교육 5분 완성 —</text>
+  <text x="40" y="220" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">OpenMAIC 무료 실습</text>
   <text x="40" y="268" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.75">문서 1장 → AI 강사가 직접 가르칩니다</text>
   <rect x="40" y="310" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
   <text x="40" y="345" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">(주)비젼솔루션</text>

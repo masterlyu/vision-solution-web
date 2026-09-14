@@ -23,8 +23,8 @@
   <text x="620" y="280" text-anchor="middle" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="12" fill="white" opacity="0.4">github.com/OpenSenseNova</text>
   <!-- 좌측 메인 텍스트 -->
   <text x="40" y="130" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">포토샵 대안 · 오픈소스 AI</text>
-  <text x="40" y="180" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="34" font-weight="900" fill="white">포토샵 구독</text>
-  <text x="40" y="224" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="34" font-weight="900" fill="white">끊어도 된다</text>
+  <text x="40" y="180" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="32" font-weight="900" fill="white">포토샵 구독 끊어도 된다</text>
+  <text x="40" y="224" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="32" font-weight="900" fill="white">— 4K AI 상품편집 5분</text>
   <text x="40" y="272" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="15" fill="white" opacity="0.75">AI가 상품 사진 4K로 편집해줍니다</text>
   <rect x="40" y="310" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
   <text x="40" y="345" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="14" fill="white" opacity="0.6">(주)비젼솔루션</text>

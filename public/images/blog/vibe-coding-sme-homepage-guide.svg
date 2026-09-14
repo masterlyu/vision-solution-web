@@ -22,8 +22,9 @@
   <text x="620" y="263" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.5">바이브코딩 실전 3단계</text>
   <!-- 좌측 메인 텍스트 -->
   <text x="40" y="130" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">소상공인 AI 홈페이지</text>
-  <text x="40" y="175" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">코딩 몰라도</text>
-  <text x="40" y="215" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">홈페이지 만드는 시대</text>
+  <text x="40" y="175" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">코딩 몰라도 홈페이지</text>
+  <text x="40" y="215" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">만드는 시대 — 소상공인</text>
+  <text x="40" y="255" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">바이브코딩 실전 3단계</text>
   <text x="40" y="265" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.75">말만 하면 AI가 만들어 드립니다</text>
   <rect x="40" y="310" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
   <text x="40" y="345" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">(주)비젼솔루션</text>

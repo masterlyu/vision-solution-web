@@ -23,8 +23,8 @@
   <text x="620" y="283" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.6">개발사 익명 · Z.ai 추정</text>
   <!-- 좌측 메인 텍스트 -->
   <text x="40" y="130" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">정체불명 AI 모델</text>
-  <text x="40" y="175" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">이번 주만 무료</text>
-  <text x="40" y="215" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">Ox Alpha</text>
+  <text x="40" y="175" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">이번 주만 무료 AI —</text>
+  <text x="40" y="215" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">정체불명인데 성능 1위</text>
   <text x="40" y="265" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.8">A4 750페이지 · 텍스트+이미지+동영상</text>
   <text x="40" y="290" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.8">계약서·보고서 분석 5분 실습</text>
   <rect x="40" y="330" width="60" height="4" rx="2" fill="white" opacity="0.6"/>

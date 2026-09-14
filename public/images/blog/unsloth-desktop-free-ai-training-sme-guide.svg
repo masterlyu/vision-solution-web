@@ -23,8 +23,8 @@
   <text x="620" y="280" text-anchor="middle" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="12" fill="white" opacity="0.5">2026년 8월 출시</text>
   <!-- 좌측 메인 텍스트 -->
   <text x="40" y="130" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">코딩 없이 내 PC에서</text>
-  <text x="40" y="178" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="32" font-weight="900" fill="white">AI 직접 훈련</text>
-  <text x="40" y="220" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="32" font-weight="900" fill="white">무료 5분 실습</text>
+  <text x="40" y="178" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="32" font-weight="900" fill="white">내 PC에서 AI 훈련 —</text>
+  <text x="40" y="220" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="32" font-weight="900" fill="white">코딩 없이 5분 무료</text>
   <text x="40" y="268" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="14" fill="white" opacity="0.75">우리 회사 FAQ로 맞춤형 고객응대 AI 만들기</text>
   <rect x="40" y="310" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
   <text x="40" y="345" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="14" fill="white" opacity="0.6">(주)비젼솔루션</text>

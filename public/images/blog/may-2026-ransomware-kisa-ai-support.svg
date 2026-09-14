@@ -22,8 +22,9 @@
   <text x="620" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.5">2026년 5월 최신 동향</text>
   <!-- 좌측 메인 텍스트 -->
   <text x="40" y="130" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">중소기업 웹보안</text>
-  <text x="40" y="175" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">국내 기업도 당했다</text>
-  <text x="40" y="215" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">보안·AI 지원 6가지</text>
+  <text x="40" y="175" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">국내 기업도 당했다 — 2026년</text>
+  <text x="40" y="215" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">5월 랜섬웨어 피해와 정부</text>
+  <text x="40" y="255" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">무료 보안·AI 지원 6가지</text>
   <text x="40" y="265" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.75">랜섬웨어·다크웹·KISA 무료 점검 총정리</text>
   <rect x="40" y="310" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
   <text x="40" y="345" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">(주)비젼솔루션</text>

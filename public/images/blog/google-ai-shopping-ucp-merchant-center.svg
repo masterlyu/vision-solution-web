@@ -22,9 +22,8 @@
   <text x="625" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.5">Merchant Center</text>
   <!-- 좌측 메인 텍스트 -->
   <text x="40" y="130" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">중소기업 AI 쇼핑 가이드</text>
-  <text x="40" y="180" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">AI가 대신 구매</text>
-  <text x="40" y="222" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">구글 AI 목록</text>
-  <text x="40" y="258" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">3단계 등록법</text>
+  <text x="40" y="180" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">AI가 대신 구매 — 구글</text>
+  <text x="40" y="222" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">AI 목록 3단계 등록법</text>
   <text x="40" y="300" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.75">무료 Merchant Center로 AI 추천 목록에</text>
   <text x="40" y="320" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.75">올라가는 방법을 정리했습니다</text>
   <rect x="40" y="350" width="60" height="4" rx="2" fill="white" opacity="0.6"/>

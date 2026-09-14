@@ -22,8 +22,8 @@
   <text x="620" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.5">Google 2026-06-10 공식 발표</text>
   <!-- 좌측 메인 텍스트 -->
   <text x="40" y="130" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">구글 지도 리뷰 관리</text>
-  <text x="40" y="180" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">리뷰 AI 자동답변</text>
-  <text x="40" y="222" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">Gemini 5분 설정</text>
+  <text x="40" y="180" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">구글 지도 리뷰 AI 답변</text>
+  <text x="40" y="222" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">— Gemini 5분 설정</text>
   <text x="40" y="268" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.75">무료 · 구글 계정만 있으면 OK · 5분 완성</text>
   <rect x="40" y="310" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
   <text x="40" y="345" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">(주)비젼솔루션</text>

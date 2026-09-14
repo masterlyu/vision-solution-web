@@ -32,8 +32,9 @@
   <text x="630" y="329" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#6ee7b7">24시간 · 365일 자동 응대</text>
   <!-- Main text -->
   <text x="40" y="128" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.7">IT 몰라도 3분이면 이해 완료</text>
-  <text x="40" y="178" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">AI 챗봇이란</text>
-  <text x="40" y="222" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">무엇인가요?</text>
+  <text x="40" y="178" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">AI 챗봇이 뭔지 아직도</text>
+  <text x="40" y="222" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">모르겠다면 — 사장님을</text>
+  <text x="40" y="266" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">위한 3분 완전 정복</text>
   <text x="40" y="268" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.7">사장님을 위한 완전 정복 가이드</text>
   <rect x="40" y="308" width="55" height="4" rx="2" fill="#a78bfa" opacity="0.8"/>
   <text x="40" y="348" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.55">VISIONC</text>

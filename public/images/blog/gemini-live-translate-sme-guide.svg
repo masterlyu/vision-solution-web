@@ -22,8 +22,8 @@
   <text x="620" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.5">Gemini 3.5 Live Translate</text>
   <!-- 좌측 메인 텍스트 -->
   <text x="40" y="130" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">해외 거래처 실시간 통역</text>
-  <text x="40" y="180" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">영어 없이</text>
-  <text x="40" y="225" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">해외 전화 OK</text>
+  <text x="40" y="180" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">영어 없이 해외 전화 —</text>
+  <text x="40" y="225" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">구글 AI 실시간 통역 5분</text>
   <text x="40" y="275" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.75">구글 AI 통역 · 무료 · 5분 설정</text>
   <rect x="40" y="310" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
   <text x="40" y="345" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">(주)비젼솔루션</text>

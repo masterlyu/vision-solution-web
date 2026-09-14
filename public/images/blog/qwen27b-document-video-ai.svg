@@ -35,8 +35,8 @@
   <text x="625" y="282" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.5">Apache 2.0 · 무료</text>
   <!-- 좌측 메인 텍스트 -->
   <text x="40" y="130" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">알리바바 오픈소스 AI</text>
-  <text x="40" y="180" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">계약서 100장</text>
-  <text x="40" y="220" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">AI가 통째로 읽는다</text>
+  <text x="40" y="180" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">계약서 100장 통째로 —</text>
+  <text x="40" y="220" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">알리바바 무료 AI 5분</text>
   <text x="40" y="267" font-family="Arial, sans-serif" font-size="16" fill="white" opacity="0.85">A4 300페이지 이상 · 영상도 분석 · 5분 설치</text>
   <rect x="40" y="310" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
   <text x="40" y="345" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">(주)비젼솔루션</text>

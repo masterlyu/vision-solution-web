@@ -23,8 +23,8 @@
   <text x="625" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.5">github.com/elie222/inbox-zero</text>
   <!-- 좌측 메인 텍스트 -->
   <text x="40" y="130" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">중소기업·소상공인 AI 실전 가이드</text>
-  <text x="40" y="178" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">이메일 AI 80%</text>
-  <text x="40" y="220" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">자동화 — 30분 세팅</text>
+  <text x="40" y="178" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">이메일 AI 80% 자동화</text>
+  <text x="40" y="220" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">— 무료 30분 세팅</text>
   <text x="40" y="265" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.75">무료 오픈소스로 반복 이메일에서 해방</text>
   <rect x="40" y="310" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
   <text x="40" y="345" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">(주)비젼솔루션</text>

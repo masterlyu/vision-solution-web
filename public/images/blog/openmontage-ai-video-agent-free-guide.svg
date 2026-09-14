@@ -22,8 +22,8 @@
   <text x="620" y="268" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.5">OpenMontage 2026</text>
   <!-- 좌측 메인 텍스트 -->
   <text x="40" y="130" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">오픈소스 AI</text>
-  <text x="40" y="180" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">AI가 영상 감독</text>
-  <text x="40" y="222" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">됐다</text>
+  <text x="40" y="180" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">홍보영상 0원으로 — AI가</text>
+  <text x="40" y="222" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white">기획·편집 다 해준다</text>
   <text x="40" y="272" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.75">기획·편집·렌더링 자동화 — 비용 0원</text>
   <rect x="40" y="315" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
   <text x="40" y="350" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">(주)비젼솔루션</text>

@@ -23,8 +23,8 @@
   <text x="620" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#fbbf24" opacity="0.9">Bumblebee로 30초 점검</text>
   <!-- 좌측 메인 텍스트 -->
   <text x="40" y="130" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">AI 보안 가이드</text>
-  <text x="40" y="178" font-family="Arial, sans-serif" font-size="29" font-weight="900" fill="white">AI 플러그인에</text>
-  <text x="40" y="218" font-family="Arial, sans-serif" font-size="29" font-weight="900" fill="white">API 키 털렸다</text>
+  <text x="40" y="178" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">AI 플러그인 70,000명 API</text>
+  <text x="40" y="218" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">키 털렸다 — 30초 무료 점검법</text>
   <text x="40" y="270" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.75">내 컴퓨터 30초 무료 점검법</text>
   <rect x="40" y="310" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
   <text x="40" y="345" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">(주)비젼솔루션</text>

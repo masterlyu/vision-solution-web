@@ -13,23 +13,8 @@
   <rect x="40" y="44" width="110" height="28" rx="14" fill="rgba(255,255,255,0.2)"/>
   <text x="95" y="63" text-anchor="middle" font-size="13" font-weight="700" fill="white">AI 음성 복제</text>
   <!-- Main headline -->
-  <text x="40" y="130" font-size="38" font-weight="900" fill="white">내 목소리 복제 AI</text>
-  <text x="40" y="178" font-size="24" font-weight="600" fill="rgba(255,255,255,0.88)">ElevenLabs보다 좋은데 무료입니다</text>
-  <!-- Stats cards -->
-  <rect x="40" y="250" width="170" height="100" rx="14" fill="rgba(255,255,255,0.16)"/>
-  <text x="125" y="302" text-anchor="middle" font-size="34" font-weight="900" fill="white">65.3%</text>
-  <text x="125" y="333" text-anchor="middle" font-size="13" fill="rgba(255,255,255,0.82)">블라인드 테스트 선호도</text>
-
-  <rect x="230" y="250" width="150" height="100" rx="14" fill="rgba(255,255,255,0.16)"/>
-  <text x="305" y="302" text-anchor="middle" font-size="34" font-weight="900" fill="white">5초</text>
-  <text x="305" y="333" text-anchor="middle" font-size="13" fill="rgba(255,255,255,0.82)">녹음으로 복제</text>
-
-  <rect x="400" y="250" width="150" height="100" rx="14" fill="rgba(255,255,255,0.16)"/>
-  <text x="475" y="302" text-anchor="middle" font-size="34" font-weight="900" fill="white">무료</text>
-  <text x="475" y="333" text-anchor="middle" font-size="13" fill="rgba(255,255,255,0.82)">MIT 오픈소스</text>
-
-  <rect x="570" y="250" width="190" height="100" rx="14" fill="rgba(255,255,255,0.16)"/>
-  <text x="665" y="302" text-anchor="middle" font-size="34" font-weight="900" fill="white">23개 언어</text>
+  <text x="40" y="130" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">ElevenLabs 월 22달러 → 0원</text>
+  <text x="40" y="302" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">— 내 목소리 복제 AI 5분 실습</text>
   <text x="665" y="333" text-anchor="middle" font-size="13" fill="rgba(255,255,255,0.82)">한국어 포함</text>
 
   <!-- Footer -->

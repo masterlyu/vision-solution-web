@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">AI &#xC74C;&#xC131; &#xC0C1;&#xB2F4; &#xBE44;&#xC6A9; &#xBE44;&#xAD50;</text>
+  <!-- 카드 1: 유료 GPT-Live-1 -->
+  <rect x="40" y="64" width="220" height="110" rx="12" fill="#fff7ed"/>
+  <text x="150" y="120" text-anchor="middle" font-size="32" font-weight="900" fill="#ea580c">$0.05</text>
+  <text x="150" y="150" text-anchor="middle" font-size="13" fill="#6b7280">GPT-Live-1 / &#xBD84;&#xB2F9;</text>
+  <!-- 카드 2: 오픈소스 $0 -->
+  <rect x="290" y="64" width="220" height="110" rx="12" fill="#f0fdfa"/>
+  <text x="400" y="120" text-anchor="middle" font-size="32" font-weight="900" fill="#0f766e">$0</text>
+  <text x="400" y="150" text-anchor="middle" font-size="13" fill="#6b7280">&#xC624;&#xD508;&#xC18C;&#xC2A4; &#xC790;&#xCCB4; &#xD638;&#xC2A4;&#xD305;</text>
+  <!-- 카드 3: 24시간 -->
+  <rect x="540" y="64" width="220" height="110" rx="12" fill="#f0fdfa"/>
+  <text x="650" y="120" text-anchor="middle" font-size="32" font-weight="900" fill="#0f766e">24&#xC2DC;&#xAC04;</text>
+  <text x="650" y="150" text-anchor="middle" font-size="13" fill="#6b7280">&#xBB34;&#xC911;&#xB2E8; AI &#xC790;&#xB3D9; &#xC751;&#xB300;</text>
+</svg>

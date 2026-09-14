@@ -18,8 +18,8 @@
   <text x="620" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.7">문제 3가지</text>
   <!-- Main text -->
   <text x="40" y="130" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">그냥 놔두면 안 됩니다</text>
-  <text x="40" y="175" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">홈페이지 유지보수</text>
-  <text x="40" y="215" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">왜 필요할까요?</text>
+  <text x="40" y="175" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">홈페이지 유지보수 왜 필요한가?</text>
+  <text x="40" y="215" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">방치하면 생기는 문제 3가지</text>
   <text x="40" y="265" font-family="Arial, sans-serif" font-size="16" fill="white" opacity="0.75">방치 시 발생하는 실제 사례</text>
   <rect x="40" y="310" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
   <text x="40" y="345" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">비전솔루션</text>

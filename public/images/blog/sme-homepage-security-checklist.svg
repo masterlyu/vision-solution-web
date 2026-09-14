@@ -19,8 +19,9 @@
   <text x="620" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">지금 당장 확인하세요!</text>
   <!-- Main text -->
   <text x="40" y="130" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">소상공인 홈페이지</text>
-  <text x="40" y="175" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">보안 점검</text>
-  <text x="40" y="215" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">5가지 체크리스트</text>
+  <text x="40" y="175" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">소상공인 홈페이지 보안</text>
+  <text x="40" y="215" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">점검 5가지 체크리스트</text>
+  <text x="40" y="255" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">— 지금 당장 확인하세요</text>
   <text x="40" y="265" font-family="Arial, sans-serif" font-size="16" fill="white" opacity="0.75">해킹 취약점을 지금 확인하세요</text>
   <rect x="40" y="310" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
   <text x="40" y="345" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">비전솔루션</text>

@@ -22,15 +22,8 @@
   <text x="620" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.5">MIT License · 무료 오픈소스</text>
   <!-- 우측 카드 통계 -->
   <rect x="510" y="285" width="80" height="44" rx="8" fill="white" opacity="0.12"/>
-  <text x="550" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="900" fill="white">61.38%</text>
-  <text x="550" y="322" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white" opacity="0.7">토큰 절감</text>
-  <rect x="615" y="285" width="80" height="44" rx="8" fill="white" opacity="0.12"/>
-  <text x="655" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="900" fill="white">51.52%</text>
-  <text x="655" y="322" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white" opacity="0.7">성공률 향상</text>
-  <!-- 좌측 메인 텍스트 -->
-  <text x="40" y="130" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">GitHub 트렌딩 1위 AI 도구</text>
-  <text x="40" y="182" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">AI 비용 61%</text>
-  <text x="40" y="226" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">줄여주는 무료 실습</text>
+  <text x="550" y="305" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white" text-anchor="middle">AI 비용 61% 줄여주는</text>
+  <text x="550" y="305" font-family="Arial, sans-serif" font-size="32" font-weight="900" fill="white" text-anchor="middle">텐센트 무료 실습</text>
   <text x="40" y="275" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.75">중소기업 토큰 절감 · 4계층 기억 창고 구축법</text>
   <rect x="40" y="310" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
   <text x="40" y="345" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">(주)비젼솔루션</text>
