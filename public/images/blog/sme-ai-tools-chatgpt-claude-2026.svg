@@ -20,13 +20,13 @@
   <text x="190" y="78" font-family="'Pretendard', 'Noto Sans KR', sans-serif" font-size="17" font-weight="700" fill="#34d399" text-anchor="middle">삼성전자 공식 도입</text>
 
   <!-- Main title line 1 -->
-  <text x="600" y="195" font-family="'Pretendard', 'Noto Sans KR', sans-serif" font-size="52" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="-1">AI 업무 도구</text>
+  <text x="600" y="190" font-family="'Pretendard', 'Noto Sans KR', sans-serif" font-size="40" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="-1">삼성전자도 ChatGPT·클로드 허용했다</text>
 
   <!-- Main title line 2 -->
-  <text x="600" y="263" font-family="'Pretendard', 'Noto Sans KR', sans-serif" font-size="36" font-weight="700" fill="#10b981" text-anchor="middle">ChatGPT · 클로드</text>
+  <text x="600" y="248" font-family="'Pretendard', 'Noto Sans KR', sans-serif" font-size="30" font-weight="700" fill="#10b981" text-anchor="middle">중소기업 AI 업무 도구 무료로 시작하는 법</text>
 
   <!-- Subtitle -->
-  <text x="600" y="320" font-family="'Pretendard', 'Noto Sans KR', sans-serif" font-size="22" font-weight="400" fill="#94a3b8" text-anchor="middle">중소기업도 무료로 시작하는 법</text>
+  <text x="600" y="315" font-family="'Pretendard', 'Noto Sans KR', sans-serif" font-size="20" font-weight="400" fill="#94a3b8" text-anchor="middle">ChatGPT · Claude · Gemini 무료 플랜 완전 활용</text>
 
   <!-- Three tool cards -->
   <!-- Card 1: ChatGPT -->

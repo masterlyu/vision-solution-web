@@ -14,8 +14,8 @@
   <path d="M1080 520 L1080 490 Q1080 470 1060 465 L1040 460 L1020 465 Q1000 470 1000 490 L1000 520 Q1000 545 1040 560 Q1080 545 1080 520 Z" fill="none" stroke="#00d4aa" stroke-width="3" opacity="0.6"/>
   <polyline points="1015,500 1032,517 1065,485" fill="none" stroke="#00d4aa" stroke-width="3" opacity="0.6"/>
   <!-- Main title -->
-  <text x="600" y="215" font-family="'Noto Sans KR', Arial, sans-serif" font-size="54" font-weight="bold" fill="#ffffff" text-anchor="middle">구글 코어 업데이트</text>
-  <text x="600" y="285" font-family="'Noto Sans KR', Arial, sans-serif" font-size="46" font-weight="bold" fill="#f4b400" text-anchor="middle">중소기업 홈페이지 지금 확인</text>
+  <text x="600" y="215" font-family="'Noto Sans KR', Arial, sans-serif" font-size="48" font-weight="bold" fill="#ffffff" text-anchor="middle">구글 5월 코어 업데이트 시작</text>
+  <text x="600" y="285" font-family="'Noto Sans KR', Arial, sans-serif" font-size="38" font-weight="bold" fill="#f4b400" text-anchor="middle">중소기업 홈페이지 지금 확인하세요</text>
   <!-- Subtitle -->
   <text x="600" y="355" font-family="'Noto Sans KR', Arial, sans-serif" font-size="26" fill="#aaaacc" text-anchor="middle">속도 · HTTPS 보안 · 콘텐츠 품질 · 중소기업 SEO 점검 가이드</text>
   <!-- 3 check items row -->

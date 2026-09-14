@@ -16,10 +16,10 @@
   <rect x="0" y="0" width="1200" height="4" fill="#7c3aed"/>
 
   <!-- Main title -->
-  <text x="600" y="220" font-family="'Pretendard', 'Noto Sans KR', sans-serif" font-size="56" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="-1">AI 도입 실패 이유</text>
+  <text x="600" y="213" font-family="'Pretendard', 'Noto Sans KR', sans-serif" font-size="46" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="-1">AI 도입해도 성과 없는 중소기업,</text>
 
   <!-- Subtitle -->
-  <text x="600" y="290" font-family="'Pretendard', 'Noto Sans KR', sans-serif" font-size="28" font-weight="400" fill="#a78bfa" text-anchor="middle">중소기업 공통 실수 3가지 &amp; AI 성공 전략</text>
+  <text x="600" y="278" font-family="'Pretendard', 'Noto Sans KR', sans-serif" font-size="36" font-weight="600" fill="#a78bfa" text-anchor="middle">공통 실수 3가지</text>
 
   <!-- Three failure cards -->
   <!-- Card 1 -->
