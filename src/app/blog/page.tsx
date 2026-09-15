@@ -27,16 +27,31 @@ export const metadata: Metadata = {
 }
 
 const TAG_COLORS: Record<string, string> = {
-  '리뉴얼 사례': 'bg-[var(--accent-blue)]/10 text-[var(--accent-blue)]',
-  '리뉴얼 비용': 'bg-[var(--accent-blue)]/10 text-[var(--accent-blue)]',
-  '보안 경고':   'bg-[var(--accent-red)]/10 text-[var(--accent-red)]',
-  '보안 점검':   'bg-[var(--accent-red)]/10 text-[var(--accent-red)]',
-  'AI 활용':     'bg-primary/10 text-primary',
-  'AI 솔루션':   'bg-primary/10 text-primary',
-  '개발 팁':     'bg-[var(--accent-green)]/10 text-[var(--accent-green)]',
-  '앱 개발':     'bg-[var(--accent-green)]/10 text-[var(--accent-green)]',
+  // 파랑 — 리뉴얼
+  '리뉴얼 사례':   'bg-[var(--accent-blue)]/10 text-[var(--accent-blue)]',
+  '리뉴얼 비용':   'bg-[var(--accent-blue)]/10 text-[var(--accent-blue)]',
+  // 빨강 — 보안
+  '보안 경고':     'bg-[var(--accent-red)]/10 text-[var(--accent-red)]',
+  '보안 점검':     'bg-[var(--accent-red)]/10 text-[var(--accent-red)]',
+  '웹 보안 진단':  'bg-[var(--accent-red)]/10 text-[var(--accent-red)]',
+  // primary — AI · 자동화
+  'AI 활용':       'bg-primary/10 text-primary',
+  'AI 솔루션':     'bg-primary/10 text-primary',
+  'AI 에이전트':   'bg-primary/10 text-primary',
+  'AI 뉴스':       'bg-primary/10 text-primary',
+  '생성형 AI':     'bg-primary/10 text-primary',
+  '오픈소스 AI':   'bg-primary/10 text-primary',
+  '업무 자동화':   'bg-primary/10 text-primary',
+  // 초록 — 개발
+  '개발 팁':       'bg-[var(--accent-green)]/10 text-[var(--accent-green)]',
+  '앱 개발':       'bg-[var(--accent-green)]/10 text-[var(--accent-green)]',
+  // 앰버 — 홈페이지 · 비즈니스
   '홈페이지 제작': 'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
-  '유지보수':    'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
+  '유지보수':      'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
+  'SEO 최적화':    'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
+  'SNS 마케팅':    'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
+  '온라인마케팅':  'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
+  '홈페이지 진단': 'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
 }
 
 function tagClass(tag: string) {
