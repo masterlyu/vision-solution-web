@@ -1,6 +1,6 @@
 # 레이아웃 명세 — `/blog/[slug]` (블로그 포스트 상세 페이지)
 
-> VIS-5989 루틴 산출물 | AI 디자이너 작성 | 2026-09-02 | SVG 이미지 텍스트 규칙 추가 2026-09-11 (VIS-6512)
+> VIS-5989 루틴 산출물 | AI 디자이너 작성 | 2026-09-02 | SVG 이미지 텍스트 규칙 추가 2026-09-11 (VIS-6512) | 태그 링크 URL 규칙 정정 2026-09-15 (VIS-6716)
 > 적용 대상: `/blog/[slug]` (동적 라우트 — 모든 블로그 글 상세 페이지)
 
 ---
@@ -98,9 +98,12 @@
   N = Math.max(1, Math.round(단어수 / 250))
 
 [태그 목록] flex flex-wrap gap-2 mt-3
-  각 태그: Link href="/blog?tag=대표태그"
+  조건: post.tags && post.tags.length > 0 일 때만 렌더링
+  각 태그(t): Link href="/blog?tag={encodeURIComponent(t)}"  ← 각 태그 고유 URL (대표태그 아님)
   스타일: text-xs px-2.5 py-1 rounded-full bg-muted text-muted-foreground
   hover: bg-primary/10 text-primary (transition-colors)
+  ※ 데이터 모델: post.tag = 대표 태그(단수, 관련 글·브레드크럼 색상 기준)
+                 post.tags = 전체 태그 배열(다중 태그, 이 목록에 표시)
 
 [요약 (summary)] mt-4 text-lg text-muted-foreground leading-relaxed
   강조 스타일: border-l-4 border-primary pl-4
