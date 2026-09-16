@@ -105,6 +105,8 @@ const TAG_COLORS: Record<string, string> = {
   '구글 AI':       'bg-primary/10 text-primary',
   '생성형 AI':     'bg-primary/10 text-primary',
   '중소기업AI':    'bg-primary/10 text-primary',
+  '사내 AI 채팅':  'bg-primary/10 text-primary',
+  'Open WebUI':    'bg-primary/10 text-primary',
   // 초록 — 개발
   '개발 팁':       'bg-[var(--accent-green)]/10 text-[var(--accent-green)]',
   '앱 개발':       'bg-[var(--accent-green)]/10 text-[var(--accent-green)]',

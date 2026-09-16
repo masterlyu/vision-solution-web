@@ -41,6 +41,7 @@ const TAG_COLORS: Record<string, string> = {
   'AI 뉴스':       'bg-primary/10 text-primary',
   '생성형 AI':     'bg-primary/10 text-primary',
   '오픈소스 AI':   'bg-primary/10 text-primary',
+  '로컬 AI':       'bg-primary/10 text-primary',
   '업무 자동화':   'bg-primary/10 text-primary',
   // 초록 — 개발
   '개발 팁':       'bg-[var(--accent-green)]/10 text-[var(--accent-green)]',
