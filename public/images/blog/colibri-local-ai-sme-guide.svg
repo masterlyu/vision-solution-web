@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1b4b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#312e81;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.05" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)" />
+  <circle cx="680" cy="-30" r="180" fill="white" opacity="0.04"/>
+  <circle cx="720" cy="450" r="140" fill="white" opacity="0.04"/>
+  <rect x="40" y="40" width="80" height="28" rx="14" fill="white" opacity="0.2"/>
+  <text x="80" y="59" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="white">로컬 AI</text>
+  <rect x="490" y="55" width="270" height="310" rx="20" fill="url(#card1)" stroke="white" stroke-opacity="0.12" stroke-width="1"/>
+  <text x="625" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" fill="white" opacity="0.9">⚡</text>
+  <text x="625" y="178" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="white" opacity="0.9">최소사양 0.05~0.1 tok/s</text>
+  <text x="625" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.6">한 문장 = 수십 초~수 분</text>
+  <line x1="520" y1="218" x2="730" y2="218" stroke="white" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="625" y="248" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.7">744B · Apache 2.0(엔진) + MIT(모델)</text>
+  <text x="625" y="272" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.7">GPU 불필요 · RAM 25GB · NVMe 370GB</text>
+  <text x="625" y="296" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.7">GitHub 전체 트렌딩 1위 (2026-09)</text>
+  <text x="625" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.7">완전 오프라인 · 0원</text>
+  <text x="40" y="130" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="white" opacity="0.75">오픈소스 로컬 AI 실습</text>
+  <text x="40" y="178" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">GPU 없이 GPT-4급 AI</text>
+  <text x="40" y="218" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">— 5분 실습 가이드</text>
+  <text x="40" y="295" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.7">Colibri + GLM-5.2 744B</text>
+  <text x="40" y="318" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.7">느리지만, 데이터는 절대 안 나갑니다</text>
+  <rect x="40" y="348" width="55" height="4" rx="2" fill="white" opacity="0.5"/>
+  <text x="40" y="383" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.55">(주)비젼솔루션</text>
+</svg>
