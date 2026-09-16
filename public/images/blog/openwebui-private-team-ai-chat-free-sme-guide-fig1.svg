@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">팀 5명 기준 월 AI 비용 비교</text>
+  <!-- 왼쪽 막대: ChatGPT Plus 개별 구독 -->
+  <rect x="140" y="80" width="140" height="170" rx="6" fill="#cbd5e1"/>
+  <text x="210" y="64" text-anchor="middle" font-size="26" font-weight="800" fill="#6b7280">$100/월</text>
+  <text x="210" y="271" text-anchor="middle" font-size="14" fill="#1f2937">ChatGPT Plus</text>
+  <text x="210" y="290" text-anchor="middle" font-size="12" fill="#6b7280">5명 개별 구독</text>
+  <!-- 오른쪽 막대: Open WebUI + Ollama -->
+  <rect x="520" y="220" width="140" height="30" rx="6" fill="#0f766e"/>
+  <text x="590" y="204" text-anchor="middle" font-size="26" font-weight="800" fill="#0f766e">$0/월</text>
+  <text x="590" y="271" text-anchor="middle" font-size="14" fill="#1f2937">Open WebUI</text>
+  <text x="590" y="290" text-anchor="middle" font-size="12" fill="#6b7280">+ Ollama 로컬 모델</text>
+  <!-- 절약 화살표 텍스트 -->
+  <text x="400" y="155" text-anchor="middle" font-size="17" font-weight="700" fill="#16a34a">최대 $100 절약 가능</text>
+  <text x="400" y="178" text-anchor="middle" font-size="13" fill="#6b7280">OpenAI API 연결 시 사용량 기반 과금</text>
+</svg>

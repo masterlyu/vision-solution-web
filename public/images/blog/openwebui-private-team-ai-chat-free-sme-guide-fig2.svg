@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">Open WebUI 설치 3단계</text>
+  <!-- 단계 1 -->
+  <rect x="40" y="65" width="210" height="95" rx="12" fill="#0f766e"/>
+  <text x="145" y="107" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">① Docker 명령어 실행</text>
+  <text x="145" y="133" text-anchor="middle" font-size="12" fill="#a7f3d0">터미널에 한 줄 붙여넣기</text>
+  <!-- 화살표 -->
+  <text x="270" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- 단계 2 -->
+  <rect x="295" y="65" width="210" height="95" rx="12" fill="#0891b2"/>
+  <text x="400" y="107" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">② 관리자 계정 생성</text>
+  <text x="400" y="133" text-anchor="middle" font-size="12" fill="#cffafe">localhost:3000 접속</text>
+  <!-- 화살표 -->
+  <text x="525" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- 단계 3 -->
+  <rect x="550" y="65" width="210" height="95" rx="12" fill="#22d3ee"/>
+  <text x="655" y="107" text-anchor="middle" font-size="16" font-weight="800" fill="#083344">③ AI 모델 연결</text>
+  <text x="655" y="133" text-anchor="middle" font-size="12" fill="#083344">Ollama 또는 API 키</text>
+</svg>
