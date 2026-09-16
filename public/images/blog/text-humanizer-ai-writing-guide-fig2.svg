@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">TextHumanize 실습 3단계</text>
+  <!-- 단계 1 -->
+  <rect x="40" y="62" width="200" height="100" rx="12" fill="#0f766e"/>
+  <text x="140" y="104" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">① git clone</text>
+  <text x="140" y="128" text-anchor="middle" font-size="12" fill="#a7f3d0">저장소 다운로드</text>
+  <text x="140" y="148" text-anchor="middle" font-size="11" fill="#a7f3d0">의존성 없음</text>
+  <!-- 화살표 -->
+  <text x="265" y="120" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- 단계 2 -->
+  <rect x="300" y="62" width="200" height="100" rx="12" fill="#0891b2"/>
+  <text x="400" y="104" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">② python 실행</text>
+  <text x="400" y="128" text-anchor="middle" font-size="12" fill="#cffafe">humanize.py 실행</text>
+  <text x="400" y="148" text-anchor="middle" font-size="11" fill="#cffafe">또는 streamlit run</text>
+  <!-- 화살표 -->
+  <text x="525" y="120" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- 단계 3 -->
+  <rect x="560" y="62" width="200" height="100" rx="12" fill="#22d3ee"/>
+  <text x="660" y="104" text-anchor="middle" font-size="15" font-weight="800" fill="#083344">③ 글 붙여넣기</text>
+  <text x="660" y="128" text-anchor="middle" font-size="12" fill="#083344">AI 글 입력</text>
+  <text x="660" y="148" text-anchor="middle" font-size="11" fill="#083344">→ 변환 결과 즉시 확인</text>
+</svg>
