@@ -82,6 +82,9 @@ const TAG_COLORS: Record<string, string> = {
   '해킹 방어':     'bg-[var(--accent-red)]/10 text-[var(--accent-red)]',
   '사이버보안':    'bg-[var(--accent-red)]/10 text-[var(--accent-red)]',
   'KISA':          'bg-[var(--accent-red)]/10 text-[var(--accent-red)]',
+  'AI공격':        'bg-[var(--accent-red)]/10 text-[var(--accent-red)]',
+  '보안체크리스트': 'bg-[var(--accent-red)]/10 text-[var(--accent-red)]',
+  '사기 예방':     'bg-[var(--accent-red)]/10 text-[var(--accent-red)]',
   // primary — AI · 자동화
   'AI 활용':       'bg-primary/10 text-primary',
   'AI 솔루션':     'bg-primary/10 text-primary',
@@ -107,6 +110,14 @@ const TAG_COLORS: Record<string, string> = {
   '중소기업AI':    'bg-primary/10 text-primary',
   '사내 AI 채팅':  'bg-primary/10 text-primary',
   'Open WebUI':    'bg-primary/10 text-primary',
+  'AI 글쓰기':     'bg-primary/10 text-primary',
+  'AI홈페이지':    'bg-primary/10 text-primary',
+  'AI챗봇':        'bg-primary/10 text-primary',
+  'Colibri':       'bg-primary/10 text-primary',
+  'GLM-5.2':       'bg-primary/10 text-primary',
+  '유튜브 BGM':    'bg-primary/10 text-primary',
+  '생성형AI':      'bg-primary/10 text-primary',
+  '업무효율':      'bg-primary/10 text-primary',
   // 초록 — 개발
   '개발 팁':       'bg-[var(--accent-green)]/10 text-[var(--accent-green)]',
   '앱 개발':       'bg-[var(--accent-green)]/10 text-[var(--accent-green)]',
@@ -130,6 +141,14 @@ const TAG_COLORS: Record<string, string> = {
   'AI 비용 절감':  'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
   '중소기업 AI 도입': 'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
   '경쟁사 분석':   'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
+  '마케팅 도구':   'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
+  '중소기업 지원사업': 'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
+  '정부 지원':     'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
+  '정부지원사업':  'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
+  'GEO':           'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
+  'AEO':           'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
+  '검색최적화':    'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
+  '디지털전환':    'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
 }
 
 function tagClass(tag: string) {
