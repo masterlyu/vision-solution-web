@@ -87,6 +87,8 @@ const TAG_COLORS: Record<string, string> = {
   '사기 예방':     'bg-[var(--accent-red)]/10 text-[var(--accent-red)]',
   // primary — AI · 자동화
   'AI 활용':       'bg-primary/10 text-primary',
+  'AI 영상':       'bg-primary/10 text-primary',
+  '소라 대안':     'bg-primary/10 text-primary',
   'AI 솔루션':     'bg-primary/10 text-primary',
   'AI 뉴스':       'bg-primary/10 text-primary',
   '중소기업 AI':   'bg-primary/10 text-primary',
