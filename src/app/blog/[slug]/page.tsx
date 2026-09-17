@@ -118,6 +118,14 @@ const TAG_COLORS: Record<string, string> = {
   '유튜브 BGM':    'bg-primary/10 text-primary',
   '생성형AI':      'bg-primary/10 text-primary',
   '업무효율':      'bg-primary/10 text-primary',
+  '업무자동화':    'bg-primary/10 text-primary',
+  'AI 자동화':     'bg-primary/10 text-primary',
+  '반복업무 제거': 'bg-primary/10 text-primary',
+  'DeepSeek':      'bg-primary/10 text-primary',
+  'Anthropic':     'bg-primary/10 text-primary',
+  'GPT-6':         'bg-primary/10 text-primary',
+  '지식관리':      'bg-primary/10 text-primary',
+  '구조도 자동화': 'bg-primary/10 text-primary',
   // 초록 — 개발
   '개발 팁':       'bg-[var(--accent-green)]/10 text-[var(--accent-green)]',
   '앱 개발':       'bg-[var(--accent-green)]/10 text-[var(--accent-green)]',
@@ -149,6 +157,8 @@ const TAG_COLORS: Record<string, string> = {
   'AEO':           'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
   '검색최적화':    'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
   '디지털전환':    'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
+  '온라인 쇼핑':   'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
+  '매출 자동화':   'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
 }
 
 function tagClass(tag: string) {
