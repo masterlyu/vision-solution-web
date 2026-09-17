@@ -4,7 +4,7 @@ date: "2026-09-17"
 tag: "AI 활용"
 tags: "AI 활용,AI 글쓰기,마케팅 도구"
 image: "/images/blog/text-humanizer-ai-writing-guide.svg"
-summary: "ChatGPT·Claude로 마케팅 글·이메일을 작성했는데 'AI 같다'는 피드백, 받아보셨나요? GitHub 트렌딩 오픈소스 TextHumanize로 5분 안에 자연스러운 사람 글체로 바꿉니다. 100% 무료, 오프라인, 한국어 포함 25개 언어 지원."
+summary: "ChatGPT·Claude로 마케팅 글·이메일을 작성했는데 'AI 같다'는 피드백, 받아보셨나요? GitHub 오픈소스 TextHumanize로 5분 안에 자연스러운 사람 글체로 바꿉니다. 100% 무료, 오프라인, 한국어 포함 25개 언어 지원."
 ---
 
 홍보 이메일을 AI로 썼더니 직원이 "뭔가 로봇 같은데요"라고 했나요?
@@ -13,7 +13,7 @@ summary: "ChatGPT·Claude로 마케팅 글·이메일을 작성했는데 'AI 같
 
 > **지금 바로 도구 써보기**: 아래 실습 섹션으로 건너뛰시려면 [여기를 클릭하세요 ↓](#5분-실습--오늘-바로-해보세요)
 
-이번 주 GitHub Trending 상위에 오른 오픈소스 **TextHumanize**가 이 문제의 실마리가 됩니다. 100% 오프라인, 설치 의존성 없이 오늘 당장 쓸 수 있습니다. 어떻게 동작하는지, 실제 업무에 어떻게 붙이는지 단계별로 살펴보겠습니다.
+GitHub에서 빠르게 주목받고 있는 오픈소스 **TextHumanize**가 이 문제의 실마리가 됩니다. 100% 오프라인, 설치 의존성 없이 오늘 당장 쓸 수 있습니다. 어떻게 동작하는지, 실제 업무에 어떻게 붙이는지 단계별로 살펴보겠습니다.
 
 ---
 
@@ -37,11 +37,11 @@ AI가 반복적으로 쓰는 패턴 몇 가지가 있습니다. 문장 길이가
 
 ![center](/mascot/md/emotion/cat_happy.png)
 
-**ksanyok/TextHumanize**는 AI 텍스트를 자연스러운 사람 문체로 변환해 주는 오픈소스입니다. 이번 주 GitHub Trending에 오르면서 중소기업 마케팅 담당자들 사이에 빠르게 퍼지고 있습니다.
+**ksanyok/TextHumanize**는 AI 텍스트를 자연스러운 사람 문체로 변환해 주는 오픈소스입니다. 공개 이후 GitHub 별(star) 77개를 받으며 중소기업 마케팅 담당자들 사이에 빠르게 퍼지고 있습니다.
 
 | 항목 | 내용 |
 |------|------|
-| 비용 | 완전 무료 (MIT 라이선스, 상업적 사용 가능) |
+| 비용 | 개인 무료 (듀얼 라이선스: 개인 무료 / 상업적 사용 별도) |
 | 동작 방식 | 100% 오프라인 — 인터넷 연결 불필요 |
 | 지원 언어 | 25개 언어 (한국어 포함) |
 | 설치 의존성 | 없음 — Python / PHP / TypeScript 버전 제공 |
@@ -165,3 +165,12 @@ AI 글쓰기 도구를 회사 업무에 어떻게 연결할지 더 구체적인 
 > **Vision Solution AI 솔루션 문의**:  
 > 📧 biztalktome@gmail.com  
 > 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
+
+
+<!-- related-links -->
+
+## 함께 보면 좋은 글
+
+- [직원 구독료 아끼는 사내 AI 채팅 — Open WebUI 30분 설치](/blog/openwebui-private-team-ai-chat-free-sme-guide)
+- [유튜브 BGM 저작권 0원 — AI 음악 5분 만들기](/blog/youtube-bgm-ai-music-free-guide)
+- [직원이 퇴사해도 회사 노하우가 사라지지 않는 AI — 무료로 만들었습니다](/blog/ai-knowledge-management-claude-obsidian)
