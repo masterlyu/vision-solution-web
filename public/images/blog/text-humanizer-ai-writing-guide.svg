@@ -21,7 +21,7 @@
   <text x="620" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.7">AI → 사람 문체 변환</text>
   <text x="620" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" opacity="0.5">100% 오프라인 · 무료</text>
   <!-- 좌측 메인 텍스트 -->
-  <text x="40" y="130" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">GitHub Trending 오픈소스</text>
+  <text x="40" y="130" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">GitHub 오픈소스</text>
   <text x="40" y="180" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">AI 글 티 없애는</text>
   <text x="40" y="220" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">무료 도구 — 5분 실습</text>
   <text x="40" y="268" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.75">TextHumanize · 25개 언어 · 로컬 처리</text>
