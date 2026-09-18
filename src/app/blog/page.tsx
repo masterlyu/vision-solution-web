@@ -86,6 +86,7 @@ const TAG_COLORS: Record<string, string> = {
   '업무자동화':    'bg-primary/10 text-primary',
   'AI 자동화':     'bg-primary/10 text-primary',
   '반복업무 제거': 'bg-primary/10 text-primary',
+  '컴퓨터 자동화': 'bg-primary/10 text-primary',
   'DeepSeek':      'bg-primary/10 text-primary',
   'Anthropic':     'bg-primary/10 text-primary',
   'GPT-6':         'bg-primary/10 text-primary',
