@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">Antigravity 시작 3단계</text>
+  <!-- 단계 1 -->
+  <rect x="40" y="65" width="200" height="95" rx="12" fill="#0f766e"/>
+  <text x="140" y="102" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">① 접속·로그인</text>
+  <text x="140" y="126" text-anchor="middle" font-size="12" fill="#a7f3d0">antigravity.google</text>
+  <text x="140" y="146" text-anchor="middle" font-size="12" fill="#a7f3d0">구글 계정으로 진입</text>
+  <!-- 화살표 -->
+  <text x="258" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- 단계 2 -->
+  <rect x="295" y="65" width="210" height="95" rx="12" fill="#0891b2"/>
+  <text x="400" y="102" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">② 업무 설명 입력</text>
+  <text x="400" y="126" text-anchor="middle" font-size="12" fill="#cffafe">하고 싶은 업무를</text>
+  <text x="400" y="146" text-anchor="middle" font-size="12" fill="#cffafe">말로 설명하면 됩니다</text>
+  <!-- 화살표 -->
+  <text x="522" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- 단계 3 -->
+  <rect x="550" y="65" width="210" height="95" rx="12" fill="#22d3ee"/>
+  <text x="655" y="102" text-anchor="middle" font-size="16" font-weight="800" fill="#083344">③ 에이전트 실행</text>
+  <text x="655" y="126" text-anchor="middle" font-size="12" fill="#083344">저장 후 테스트 실행</text>
+  <text x="655" y="146" text-anchor="middle" font-size="12" fill="#083344">결과 확인</text>
+</svg>

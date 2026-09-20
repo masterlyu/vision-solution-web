@@ -70,6 +70,7 @@ const TAG_COLORS: Record<string, string> = {
   '회의록 자동화': 'bg-primary/10 text-primary',
   '클로드':        'bg-primary/10 text-primary',
   'Gemini':        'bg-primary/10 text-primary',
+  'Google Antigravity': 'bg-primary/10 text-primary',
   '구글 AI':       'bg-primary/10 text-primary',
   '생성형 AI':     'bg-primary/10 text-primary',
   '중소기업AI':    'bg-primary/10 text-primary',

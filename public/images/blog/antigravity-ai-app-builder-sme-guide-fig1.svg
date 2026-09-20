@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 260" width="800" height="260" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="260" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">Google Antigravity 출시 경과</text>
+  <!-- 타임라인 선 -->
+  <line x1="100" y1="150" x2="700" y2="150" stroke="#cbd5e1" stroke-width="3"/>
+  <!-- 포인트 1: 2026년 5월 -->
+  <circle cx="150" cy="150" r="12" fill="#0f766e"/>
+  <text x="150" y="102" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2937">2026년 5월</text>
+  <text x="150" y="122" text-anchor="middle" font-size="12" fill="#6b7280">Google I/O</text>
+  <text x="150" y="185" text-anchor="middle" font-size="13" fill="#6b7280">Antigravity</text>
+  <text x="150" y="203" text-anchor="middle" font-size="13" fill="#6b7280">최초 발표</text>
+  <!-- 포인트 2: 2026년 9월 -->
+  <circle cx="420" cy="150" r="12" fill="#0891b2"/>
+  <text x="420" y="102" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2937">2026년 9월</text>
+  <text x="420" y="122" text-anchor="middle" font-size="12" fill="#6b7280">새 버전</text>
+  <text x="420" y="185" text-anchor="middle" font-size="13" fill="#6b7280">preview</text>
+  <text x="420" y="203" text-anchor="middle" font-size="13" fill="#6b7280">재출시·화제</text>
+  <!-- 포인트 3: 9월 2일 (강조) -->
+  <circle cx="660" cy="150" r="12" fill="#22d3ee"/>
+  <text x="660" y="102" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2937">9월 2일</text>
+  <text x="660" y="122" text-anchor="middle" font-size="12" fill="#6b7280">v2.12.0</text>
+  <text x="660" y="185" text-anchor="middle" font-size="13" fill="#083344">/boost 명령 추가</text>
+  <text x="660" y="203" text-anchor="middle" font-size="13" fill="#083344">멀티에이전트 강화</text>
+</svg>
