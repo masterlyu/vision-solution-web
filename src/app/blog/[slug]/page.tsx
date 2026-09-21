@@ -85,6 +85,8 @@ const TAG_COLORS: Record<string, string> = {
   'AI공격':        'bg-[var(--accent-red)]/10 text-[var(--accent-red)]',
   '보안체크리스트': 'bg-[var(--accent-red)]/10 text-[var(--accent-red)]',
   '사기 예방':     'bg-[var(--accent-red)]/10 text-[var(--accent-red)]',
+  '보안':          'bg-[var(--accent-red)]/10 text-[var(--accent-red)]',
+  '다크웹':        'bg-[var(--accent-red)]/10 text-[var(--accent-red)]',
   // primary — AI · 자동화
   'AI 활용':       'bg-primary/10 text-primary',
   'AI 영상':       'bg-primary/10 text-primary',
@@ -173,6 +175,9 @@ const TAG_COLORS: Record<string, string> = {
   '체크리스트':    'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
   '모두의AI':      'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
   '4K 상품 사진':  'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
+  '워드프레스 유지보수': 'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
+  '중소기업 홈페이지': 'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
+  'Wix Symphony':  'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
 }
 
 function tagClass(tag: string) {
