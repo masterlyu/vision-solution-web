@@ -95,6 +95,10 @@ const TAG_COLORS: Record<string, string> = {
   '구조도 자동화': 'bg-primary/10 text-primary',
   '무료 도구':     'bg-primary/10 text-primary',
   '이미지 생성':   'bg-primary/10 text-primary',
+  'Flowise':       'bg-primary/10 text-primary',
+  'AI 이미지 편집': 'bg-primary/10 text-primary',
+  'SenseNova U1':  'bg-primary/10 text-primary',
+  '포토샵 대안':   'bg-primary/10 text-primary',
   // 초록 — 개발
   '개발 팁':       'bg-[var(--accent-green)]/10 text-[var(--accent-green)]',
   '앱 개발':       'bg-[var(--accent-green)]/10 text-[var(--accent-green)]',
@@ -130,6 +134,8 @@ const TAG_COLORS: Record<string, string> = {
   '매출 자동화':   'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
   '초보자 가이드': 'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
   '체크리스트':    'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
+  '모두의AI':      'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
+  '4K 상품 사진':  'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
 }
 
 function tagClass(tag: string) {
