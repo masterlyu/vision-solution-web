@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">분류 1만 건 처리 비용 비교</text>
+  <text x="40" y="68" font-size="13" fill="#6b7280">조건: 이메일 1통 평균 500 토큰, API 요금 기준</text>
+
+  <!-- ChatGPT 막대 (가장 높음) -->
+  <rect x="120" y="108" width="120" height="132" rx="6" fill="#e2e8f0"/>
+  <text x="180" y="95" text-anchor="middle" font-size="20" font-weight="800" fill="#64748b">~수천 원</text>
+  <text x="180" y="260" text-anchor="middle" font-size="14" fill="#1f2937">ChatGPT API</text>
+  <text x="180" y="280" text-anchor="middle" font-size="12" fill="#6b7280">(GPT-4o-mini)</text>
+
+  <!-- Jev API 막대 -->
+  <rect x="340" y="188" width="120" height="52" rx="6" fill="#22d3ee"/>
+  <text x="400" y="175" text-anchor="middle" font-size="20" font-weight="800" fill="#0891b2">약 420원</text>
+  <text x="400" y="260" text-anchor="middle" font-size="14" fill="#1f2937">Jev API</text>
+  <text x="400" y="280" text-anchor="middle" font-size="12" fill="#6b7280">($0.042/M tokens)</text>
+
+  <!-- SemIf 로컬 막대 (거의 없음) -->
+  <rect x="560" y="228" width="120" height="12" rx="6" fill="#0f766e"/>
+  <text x="620" y="215" text-anchor="middle" font-size="20" font-weight="800" fill="#0f766e">전기세만</text>
+  <text x="620" y="260" text-anchor="middle" font-size="14" fill="#1f2937">SemIf 로컬</text>
+  <text x="620" y="280" text-anchor="middle" font-size="12" fill="#6b7280">(자체 GPU 필요)</text>
+
+  <!-- 절감 표시 -->
+  <text x="400" y="145" text-anchor="middle" font-size="13" font-weight="700" fill="#16a34a">최대 99% 절감 가능</text>
+</svg>

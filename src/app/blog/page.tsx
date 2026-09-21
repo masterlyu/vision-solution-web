@@ -118,6 +118,7 @@ const TAG_COLORS: Record<string, string> = {
   '개발 팁':       'bg-[var(--accent-green)]/10 text-[var(--accent-green)]',
   '앱 개발':       'bg-[var(--accent-green)]/10 text-[var(--accent-green)]',
   '오픈소스':      'bg-[var(--accent-green)]/10 text-[var(--accent-green)]',
+  'SemIf':         'bg-[var(--accent-green)]/10 text-[var(--accent-green)]',
   '바이브코딩':    'bg-[var(--accent-green)]/10 text-[var(--accent-green)]',
   '노코드':        'bg-[var(--accent-green)]/10 text-[var(--accent-green)]',
   // 앰버 — 홈페이지 · 비즈니스
