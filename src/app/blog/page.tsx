@@ -239,6 +239,7 @@ const TAG_COLORS: Record<string, string> = {
   '홈페이지 최적화':                'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
   '홍보영상 제작':                 'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
   '회계 자동화':                  'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
+  '오픈소스 CRM':                 'bg-[var(--accent-amber)]/10 text-[var(--accent-amber)]',
   // primary — AI·자동화 추가
   'AI CRM':                  'bg-primary/10 text-primary',
   'AI 교육 플랫폼':               'bg-primary/10 text-primary',
@@ -389,6 +390,8 @@ const TAG_COLORS: Record<string, string> = {
   '클로바X':                    'bg-primary/10 text-primary',
   '토큰 절약':                   'bg-primary/10 text-primary',
   '허깅페이스':                   'bg-primary/10 text-primary',
+  '목소리 복제':                  'bg-primary/10 text-primary',
+  '비즈니스 AI':                  'bg-primary/10 text-primary',
 }
 
 function tagClass(tag: string) {
