@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="800" height="240" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="240" fill="#ffffff"/>
+  <!-- 제목 -->
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">중소기업 온디바이스 AI 활용 — 3가지 현장</text>
+  <!-- 카드 1: 공장/창고 -->
+  <rect x="20" y="65" width="238" height="155" rx="10" fill="#f0fdf4" stroke="#6ee7b7" stroke-width="1.5"/>
+  <text x="139" y="105" text-anchor="middle" font-size="36">🏭</text>
+  <text x="139" y="132" text-anchor="middle" font-size="15" font-weight="800" fill="#065f46">공장·창고 현장</text>
+  <text x="139" y="155" text-anchor="middle" font-size="13" fill="#374151">와이파이 없어도 동작</text>
+  <text x="139" y="173" text-anchor="middle" font-size="13" fill="#374151">재고·불량 현장 처리</text>
+  <text x="139" y="200" text-anchor="middle" font-size="12" fill="#6b7280">인터넷 불필요 ✓</text>
+  <!-- 카드 2: 영업/외근 -->
+  <rect x="281" y="65" width="238" height="155" rx="10" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="400" y="105" text-anchor="middle" font-size="36">🚗</text>
+  <text x="400" y="132" text-anchor="middle" font-size="15" font-weight="800" fill="#1e40af">영업·외근 담당자</text>
+  <text x="400" y="155" text-anchor="middle" font-size="13" fill="#374151">이동 중 AI 끊김 없음</text>
+  <text x="400" y="173" text-anchor="middle" font-size="13" fill="#374151">견적·미팅 현장 정리</text>
+  <text x="400" y="200" text-anchor="middle" font-size="12" fill="#6b7280">오프라인 사용 ✓</text>
+  <!-- 카드 3: 고객 정보 -->
+  <rect x="542" y="65" width="238" height="155" rx="10" fill="#fdf4ff" stroke="#e879f9" stroke-width="1.5"/>
+  <text x="661" y="105" text-anchor="middle" font-size="36">🔒</text>
+  <text x="661" y="132" text-anchor="middle" font-size="15" font-weight="800" fill="#7e22ce">고객·계약 정보 처리</text>
+  <text x="661" y="155" text-anchor="middle" font-size="13" fill="#374151">데이터 기기 밖 불출</text>
+  <text x="661" y="173" text-anchor="middle" font-size="13" fill="#374151">개인정보 안전 처리</text>
+  <text x="661" y="200" text-anchor="middle" font-size="12" fill="#6b7280">데이터 외부 미전송 ✓</text>
+</svg>

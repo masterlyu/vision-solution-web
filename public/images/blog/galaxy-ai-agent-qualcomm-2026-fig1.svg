@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 280" width="800" height="280" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="280" fill="#ffffff"/>
+  <!-- 제목 -->
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">클라우드 AI vs 온디바이스 AI — 3가지 차이</text>
+  <!-- 헤더 행 -->
+  <rect x="40" y="60" width="220" height="36" rx="6" fill="#f1f5f9"/>
+  <rect x="280" y="60" width="220" height="36" rx="6" fill="#fef3c7"/>
+  <rect x="520" y="60" width="240" height="36" rx="6" fill="#d1fae5"/>
+  <text x="150" y="84" text-anchor="middle" font-size="14" font-weight="700" fill="#64748b">구분</text>
+  <text x="390" y="84" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">클라우드 AI (ChatGPT 등)</text>
+  <text x="640" y="84" text-anchor="middle" font-size="14" font-weight="700" fill="#065f46">온디바이스 AI (갤럭시 AI)</text>
+  <!-- 행 1: 인터넷 -->
+  <rect x="40" y="106" width="220" height="44" rx="4" fill="#f8fafc"/>
+  <rect x="280" y="106" width="220" height="44" rx="4" fill="#fff7ed"/>
+  <rect x="520" y="106" width="240" height="44" rx="4" fill="#f0fdf4"/>
+  <text x="150" y="134" text-anchor="middle" font-size="14" font-weight="600" fill="#374151">🌐 인터넷 연결</text>
+  <text x="390" y="134" text-anchor="middle" font-size="14" fill="#b45309">필수</text>
+  <text x="640" y="134" text-anchor="middle" font-size="14" fill="#059669">불필요 (오프라인 동작)</text>
+  <!-- 행 2: 데이터 -->
+  <rect x="40" y="158" width="220" height="44" rx="4" fill="#f8fafc"/>
+  <rect x="280" y="158" width="220" height="44" rx="4" fill="#fff7ed"/>
+  <rect x="520" y="158" width="240" height="44" rx="4" fill="#f0fdf4"/>
+  <text x="150" y="186" text-anchor="middle" font-size="14" font-weight="600" fill="#374151">🔒 내 데이터</text>
+  <text x="390" y="186" text-anchor="middle" font-size="14" fill="#b45309">해외 서버 전송·저장</text>
+  <text x="640" y="186" text-anchor="middle" font-size="14" fill="#059669">기기 안에서만 처리</text>
+  <!-- 행 3: 비용 -->
+  <rect x="40" y="210" width="220" height="44" rx="4" fill="#f8fafc"/>
+  <rect x="280" y="210" width="220" height="44" rx="4" fill="#fff7ed"/>
+  <rect x="520" y="210" width="240" height="44" rx="4" fill="#f0fdf4"/>
+  <text x="150" y="238" text-anchor="middle" font-size="14" font-weight="600" fill="#374151">💰 비용</text>
+  <text x="390" y="238" text-anchor="middle" font-size="14" fill="#b45309">월 구독료 발생</text>
+  <text x="640" y="238" text-anchor="middle" font-size="14" fill="#059669">무료 (기기 구매 포함)</text>
+</svg>
