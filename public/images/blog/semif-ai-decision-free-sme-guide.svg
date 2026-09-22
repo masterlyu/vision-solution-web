@@ -24,8 +24,8 @@
   <text x="625" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.55">github.com/reasv/SemIf</text>
   <!-- 좌측 메인 텍스트 -->
   <text x="40" y="130" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">AI 업무 자동화</text>
-  <text x="40" y="178" font-family="Arial, sans-serif" font-size="31" font-weight="900" fill="white">ChatGPT 100배 빠른</text>
-  <text x="40" y="220" font-family="Arial, sans-serif" font-size="31" font-weight="900" fill="white">AI 판단기 등장</text>
+  <text x="40" y="178" font-family="Arial, sans-serif" font-size="31" font-weight="900" fill="white">분류 AI 100배 빠른</text>
+  <text x="40" y="220" font-family="Arial, sans-serif" font-size="31" font-weight="900" fill="white">SemIf 5분 무료 실습</text>
   <text x="40" y="270" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.75">분류·판단 업무를 초고속·초저가로 자동화</text>
   <rect x="40" y="305" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
   <text x="40" y="340" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">(주)비젼솔루션</text>
