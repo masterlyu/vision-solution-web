@@ -128,7 +128,7 @@
 | 앰버 (홈페이지·비즈니스) | 홈페이지 제작 · 유지보수 · 홈페이지 진단 · SEO 최적화 · SNS 마케팅 · 온라인마케팅 · **모두의AI** · **4K 상품 사진** | `--accent-amber/10` | `--accent-amber` |
 | 기본값(fallback) | 매핑되지 않은 미분류 태그 | `primary/10` | `primary` |
 
-> **코드 현황(2026-09-21 업데이트, VIS-7090):** `blog/page.tsx`와 `blog/[slug]/page.tsx` 모두 TAG_COLORS **353개**로 완전 동기화됨. 대규모 미등록 태그 206건 추가(VIS-7090, 146→353): 빨강(보안) 1건(비밀번호), 초록(개발) 10건(하네스 엔지니어링·코딩 에이전트·개발 비용 절감·플러그인 업데이트·Lovable·Ollama·LM Studio·LiteLLM·OpenCode·OpenRouter), 앰버(비즈니스) 46건(1인 가구·Core Web Vitals·ROI·계약·고객 관리 자동화·고객 응대 자동화·구글 쇼핑·구글 플레이·데이터 분석·도입 사례·디지털 전환 외), primary(AI·자동화) 149건(Agency Agents·Antigravity·Browser-Use·ChatGPT 활용·Claude·Dify·구글 Gemini·딥씨크·메타 AI·문서 AI·영상 제작·이메일 자동화·이미지 생성 AI 외). 이전: VIS-7086에서 24건 추가(122→146).
+> **코드 현황(2026-09-22 업데이트, VIS-7106):** `blog/page.tsx`와 `blog/[slug]/page.tsx` 모두 TAG_COLORS **356개**로 완전 동기화됨. 최근 추가(VIS-7095, 353→356): primary(AI·자동화) 2건(목소리 복제·비즈니스 AI), 앰버(홈페이지·비즈니스) 1건(오픈소스 CRM). 이전: VIS-7090에서 206건 대규모 추가(146→353).
 
 ---
 
