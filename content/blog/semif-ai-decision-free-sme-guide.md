@@ -159,3 +159,12 @@ AI 분류 자동화를 회사 시스템에 연결하고 싶으신가요? 기존 
 > **AI 업무 자동화 도입 문의:**  
 > 📧 biztalktome@gmail.com  
 > 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
+
+
+<!-- related-links -->
+
+## 함께 보면 좋은 글
+
+- [구글 AI로 업무 자동화 앱 — 코딩 없이 5분 완성](/blog/antigravity-ai-app-builder-sme-guide)
+- [낙서가 홍보물 — ChatGPT 스케치 3단계](/blog/chatgpt-images-25-sketch-sme-guide)
+- [소라 AI 종료 — 무료 영상 AI 대안 3가지](/blog/sora-shutdown-free-ai-video-alternative-guide)
