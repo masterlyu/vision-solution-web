@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">Continue.dev 로컬 AI 설치 3단계</text>
+  <!-- Step 1 -->
+  <rect x="40" y="70" width="200" height="90" rx="12" fill="#7c3aed"/>
+  <text x="140" y="108" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">① VS Code 확장</text>
+  <text x="140" y="132" text-anchor="middle" font-size="12" fill="#e9d5ff">Continue 검색 → 설치</text>
+  <text x="265" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- Step 2 -->
+  <rect x="300" y="70" width="200" height="90" rx="12" fill="#8b5cf6"/>
+  <text x="400" y="108" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">② Ollama 설치</text>
+  <text x="400" y="132" text-anchor="middle" font-size="12" fill="#e9d5ff">ollama.com → 내 PC에</text>
+  <text x="525" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <!-- Step 3 -->
+  <rect x="560" y="70" width="200" height="90" rx="12" fill="#a855f7"/>
+  <text x="660" y="108" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">③ AI 코딩 시작</text>
+  <text x="660" y="132" text-anchor="middle" font-size="12" fill="#f3e8ff">Ctrl+I → AI 활성화</text>
+</svg>
