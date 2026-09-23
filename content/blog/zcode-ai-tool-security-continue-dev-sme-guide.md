@@ -4,23 +4,23 @@ date: "2026-09-24"
 tag: "보안 경고"
 tags: "AI 보안,중소기업 AI,오픈소스 AI,AI 도구 선택,Continue.dev"
 image: "/images/blog/zcode-ai-tool-security-continue-dev-sme-guide.svg"
-summary: "중국 AI 코딩 도구 ZCode가 사용자 프로젝트 파일 313MB를 외부 서버에 무단 업로드. AI 도구 도입을 검토하는 중소기업이 지금 바로 확인해야 할 5가지 체크리스트와 완전 무료 로컬 대안 Continue.dev 실습 가이드."
+summary: "중국 AI 코딩 도구 ZCode가 동의 없이 프로젝트 전체(깃 히스토리 포함)를 313MB 암호화 파일로 묶어 외부 클라우드에 올리려 한 사실이 드러났습니다. AI 도구 도입을 검토하는 중소기업이 지금 바로 확인해야 할 5가지 체크리스트와 무료 로컬 대안 Continue.dev 실습 가이드."
 ---
 
-AI 도구 하나 설치했을 뿐인데, 회사 코드가 통째로 중국 서버에 올라가고 있었습니다.
+AI 도구 하나 설치했을 뿐인데, 회사 코드가 통째로 중국 클라우드에 올라갈 뻔했습니다.
 
-2026년 9월, 한 개발자가 이상한 신호를 잡아냈습니다. 자신의 컴퓨터에서 ZCode라는 AI 코딩 도구를 쓰던 중, 네트워크 모니터에서 수상한 트래픽을 발견했습니다. 프로젝트 파일 313MB가 암호화되어 알리바바 클라우드 서버로 조용히 전송되고 있었습니다. 동의를 구한 적은 없었습니다.
+2026년 9월, 한 개발자가 노트북 디스크 공간을 정리하다 이상한 파일을 발견했습니다. ZCode라는 AI 코딩 도구의 폴더가 700MB 넘게 차지하고 있었고, 그 안에 회사 프로젝트 파일 4만 2천여 개를 암호화해 묶은 313MB짜리 파일이 있었습니다. 기록을 보니 이 파일을 알리바바 클라우드 저장소로 564번이나 올리려다 실패한 상태였습니다. 동의를 구한 적은 없었습니다.
 
 ## ZCode 사건, 정확히 무슨 일이 있었나
 
 ZCode는 중국 AI 기업 Z.ai가 만든 코딩 보조 도구입니다. VS Code 같은 편집기에 설치해서 쓰는 방식으로, AI가 코드 작성과 수정을 도와줍니다.
 
-사건은 9월 18일 경 개발자 커뮤니티에서 터졌습니다. 한 개발자가 ZCode가 사용자 동의 없이 전체 깃(Git) 히스토리와 프로젝트 파일을 암호화해서 알리바바 클라우드로 보내고 있다고 공개했습니다. DEV Community, CryptoPolitan 등 개발자 커뮤니티에 빠르게 퍼졌습니다. 회사는 9월 19일 긴급 패치를 배포했고, 다음 날인 9월 20일에는 신뢰 회복을 위해 소스코드를 GitHub에 오픈소스로 공개했습니다.
+사건은 9월 18일 개발자 ferstar가 분석 글을 공개하면서 알려졌습니다. ZCode가 사용자 동의 없이 전체 깃(Git) 히스토리를 포함한 작업 폴더를 암호화해 알리바바 클라우드 저장소로 보내도록 만들어져 있었다는 내용입니다. 313MB 파일은 용량 제한에 걸려 끝내 올라가지 못했지만, 같은 방식으로 만든 작은 저장소(약 15KB)는 서버가 받아들였습니다. 그 이전에 다른 파일이 올라갔는지는 확인할 수 없다고 발견자는 밝혔습니다. Z.ai는 9월 21일 이 기능을 고친 새 버전(v3.14.0)을 내고, 같은 날 소스코드를 GitHub에 공개했습니다.
 
 ![ZCode 사건 타임라인](/images/blog/zcode-ai-tool-security-continue-dev-sme-guide-fig1.svg)
-*▲ ZCode 사건 3일 타임라인 · 출처: DEV Community, CryptoPolitan, AiCybr (2026년 9월)*
+*▲ ZCode 사건 타임라인 · 출처: ferstar 분석 글, The Next Web (2026년 9월)*
 
-Z.ai 측은 "로그 수집 목적이었고 악의적 의도가 없었다"고 해명했습니다. 패치도 냈고 오픈소스로도 공개했습니다. 하지만 개발자 커뮤니티의 반응은 싸늘했습니다. 동의 없이 회사 코드가 외부 서버로 나간 것 자체가 문제였으니까요.
+Z.ai는 사과하고 수정 버전을 냈으며 소스코드도 공개했습니다. 외부 점검에서는 해당 클라우드 저장소가 비어 있는 것으로 확인됐지만, 발견자는 "지웠다는 주장은 지운 당사자의 말에 기댈 뿐"이라고 지적했습니다. 개발자 커뮤니티의 반응도 싸늘했습니다. 성공했든 실패했든, 동의 없이 회사 코드를 외부로 보내려 한 것 자체가 문제였으니까요.
 
 ![center](/mascot/md/emotion/cat_worried.webp)
 
@@ -46,19 +46,19 @@ EU 서버는 GDPR, 미국 서버는 미국법, 중국 서버는 중국 사이버
 
 **④ 네트워크 모니터로 실제 전송 여부를 직접 보세요**
 
-Windows는 `작업 관리자 > 성능 > 리소스 모니터 > 네트워크` 탭에서, Mac은 터미널에서 `lsof -i` 명령으로 어떤 앱이 어디로 통신하는지 확인할 수 있습니다. ZCode 사건에서 개발자가 바로 이 방법으로 문제를 잡았습니다.
+Windows는 `작업 관리자 > 성능 > 리소스 모니터 > 네트워크` 탭에서, Mac은 터미널에서 `lsof -i` 명령으로 어떤 앱이 어디로 통신하는지 확인할 수 있습니다. ZCode 사건의 발견자는 디스크 정리 중 AI 도구 폴더가 이상하게 큰 것을 보고 의심을 시작했습니다. 용량이 비정상적으로 큰 AI 도구 폴더도 점검 신호입니다.
 
 **⑤ 오픈소스이거나 독립 보안 감사 보고서가 있는지 확인하세요**
 
 소스코드가 공개된 도구는 제3자가 직접 코드를 검증할 수 있습니다. 비공개 도구라면 독립적인 보안 감사(security audit) 보고서가 있는지 찾아보세요.
 
-## Continue.dev — 네트워크 전송 없는 무료 AI 코딩 도우미
+## Continue.dev — 코드를 내 PC 밖으로 보내지 않는 무료 AI 코딩 도우미
 
 AI 코딩 도우미를 쓰고 싶지만 데이터 유출이 걱정된다면, 지금 바로 쓸 수 있는 대안이 있습니다. Continue.dev입니다.
 
 ![center](/mascot/md/service/cat_svc_hacker.webp)
 
-Continue.dev는 VS Code와 JetBrains(IntelliJ, PyCharm 등)에서 동작하는 완전 오픈소스 AI 코딩 도우미입니다. GitHub에 소스코드가 모두 공개되어 있고, 회사 내부 서버의 AI 모델과 연결해 쓸 수 있습니다. 외부 서버로 코드가 나가지 않습니다. MIT 라이선스라 상업적으로도 무료입니다.
+Continue.dev는 VS Code와 JetBrains(IntelliJ, PyCharm 등)에서 동작하는 오픈소스 AI 코딩 도우미입니다. GitHub에 소스코드가 모두 공개되어 있고, 내 PC나 회사 내부 서버의 AI 모델과 연결해 쓸 수 있습니다. 로컬 모델로 연결하면 코드가 외부 AI 서버로 나가지 않습니다. 다만 공식 문서는 인터넷 없이 쓰려면 설정에서 익명 사용 통계(Allow Anonymous Telemetry)를 끄라고 안내하니, 설치 후 이 설정도 꼭 확인하세요. Apache-2.0 라이선스라 상업적으로도 무료입니다.
 
 **VS Code 기준 5분 설치 가이드:**
 
@@ -66,7 +66,8 @@ Continue.dev는 VS Code와 JetBrains(IntelliJ, PyCharm 등)에서 동작하는 �
 2. 왼쪽 사이드바에 Continue 아이콘이 나타나면 클릭
 3. 첫 실행 시 모델 선택 화면에서 **"Local Models"** 탭 선택
 4. [ollama.com](https://ollama.com)에서 Ollama를 내 PC에 설치 → Continue.dev가 자동 연결
-5. 코드 편집 화면에서 **Ctrl+I**를 누르면 AI 코딩 도우미 활성화
+5. 설정에서 **Allow Anonymous Telemetry**(익명 사용 통계)를 끄기
+6. 코드 편집 화면에서 **Ctrl+I**를 누르면 AI 코딩 도우미 활성화
 
 ![Continue.dev 로컬 설치 흐름](/images/blog/zcode-ai-tool-security-continue-dev-sme-guide-fig2.svg)
 *▲ Continue.dev 로컬 AI 코딩 설정 3단계 · 출처: continue.dev 공식 문서*
@@ -76,9 +77,9 @@ Continue.dev는 VS Code와 JetBrains(IntelliJ, PyCharm 등)에서 동작하는 �
 | 항목 | Continue.dev (로컬) | 클라우드 AI 도구 |
 |------|-------------------|--------------|
 | 비용 | 무료 | 유/무료 혼용 |
-| 데이터 외부 전송 | 없음 | 있음 |
+| 데이터 외부 전송 | 로컬 모델 사용 시 없음 (통계 설정 확인) | 있음 |
 | 응답 속도 | PC 사양에 따라 다름 | 빠름 |
-| 오프라인 동작 | 가능 | 불가 |
+| 오프라인 동작 | 가능 (로컬 모델 설정 시) | 불가 |
 | 오픈소스 | 완전 공개 | 대부분 비공개 |
 
 회사 내부 코드베이스를 AI에 학습시키거나 사내 시스템과 연결하는 고급 설정은 기술 담당자나 외부 전문가의 도움이 필요합니다.
@@ -88,6 +89,8 @@ AI 도구 선택은 결국 "편리함과 통제권의 교환"입니다. 클라�
 ![center](/mascot/md/emotion/cat_cheer.webp)
 
 Continue.dev GitHub: [https://github.com/continuedev/continue](https://github.com/continuedev/continue)
+
+> **정정 (2026-09-24)**: 처음 발행한 글에는 313MB 파일이 실제로 전송됐다는 표현, 사건 발견 경위와 날짜, 출처를 확인할 수 없는 Z.ai 해명 인용, Continue.dev 라이선스(MIT → Apache-2.0)에 오류가 있어 바로잡았습니다. 근거: [ferstar 분석 글](https://blog.ferstar.org/en/posts/zcode-silent-workspace-snapshot-upload/), [The Next Web](https://thenextweb.com/news/zai-zcode-open-source-commit-history-security-assessment), [Continue 오프라인 가이드](https://docs.continue.dev/guides/running-continue-without-internet)
 
 > **Vision Solution AI 솔루션 문의**:  
 > 📧 biztalktome@gmail.com  
