@@ -31,7 +31,7 @@ ChatGPT에 회사 자료를 붙여넣을 때 한 번이라도 멈칫한 적 있�
 | 비용 | 월 구독료 | 무료(기기 구매 포함) |
 | 응답 속도 | 서버 응답 의존 | 즉시 |
 
-이번 스냅드래곤 8 Elite Gen 6의 핵심 변화는 헥사곤 NPU(신경망 처리 장치)입니다. 메모리가 이전 세대보다 50% 늘었고, 32,000 토큰(약 24,000자 분량)의 긴 대화를 끊기지 않고 처리합니다. 최대 300억 개 파라미터 규모의 AI 모델을 스마트폰에서 실행할 수 있게 됐습니다.
+이번 스냅드래곤 8 Elite Gen 6 시리즈의 핵심은 헥사곤 NPU(신경망 처리 장치)입니다. 특히 고급형인 **Extreme** 기종은 표준 모델보다 공유 메모리가 50% 더 크고, 32,000 토큰(약 24,000자) 대화와 최대 300억 파라미터 MoE 모델을 스마트폰에서 직접 처리합니다.
 
 NPU란 AI 연산에 특화된 전용 칩입니다. 일반 프로세서보다 AI 계산을 훨씬 빠르고 적은 전력으로 처리하는 엔진이라 보면 됩니다.
 
@@ -109,3 +109,12 @@ AI 도입을 고민 중이시라면 스마트폰 하나로 오늘부터 시작�
 > **Vision Solution AI 솔루션 문의**:  
 > 📧 biztalktome@gmail.com  
 > 🌐 [https://www.visionc.co.kr/ai-solution](https://www.visionc.co.kr/ai-solution)
+
+
+<!-- related-links -->
+
+## 함께 보면 좋은 글
+
+- [분류 AI 100배 빠른 SemIf 5분 무료 실습](/blog/semif-ai-decision-free-sme-guide)
+- [구글 AI로 업무 자동화 앱 — 코딩 없이 5분 완성](/blog/antigravity-ai-app-builder-sme-guide)
+- [낙서가 홍보물 — ChatGPT 스케치 3단계](/blog/chatgpt-images-25-sketch-sme-guide)
