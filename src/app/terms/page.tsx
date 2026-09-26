@@ -120,6 +120,12 @@ export default function TermsPage() {
             <p>사이트 내 콘텐츠·디자인·코드·강의 자료 등 모든 저작물의 지식재산권은 회사 또는 정당한 권리자에게 귀속됩니다. 이용자는 회사의 명시적 사전 동의 없이 이를 복제·배포·수정할 수 없습니다. 강의(Academy) 자료는 각 자료에 명시된 이용 조건(예: 출처 표시 후 사내 교육 사용 가능, 상업적 재배포 사전 문의)을 따르며, 모의해킹 진단 보고서는 이용자의 자사 내부 보안 개선 목적으로만 사용할 수 있습니다.</p>
           </section>
 
+          <section id="youtube-terms">
+            <h2 className="text-lg font-semibold text-foreground mb-3">제11조의2 (YouTube 서비스 연동)</h2>
+            <p>회사는 회사가 운영하는 YouTube 채널의 동영상 게시와 댓글 관리를 위해 YouTube API 서비스를 이용합니다. 이와 관련된 이용에는 <a href="https://www.youtube.com/t/terms" className="underline">YouTube 서비스 약관</a>이 함께 적용되며, 개인정보 처리는 회사의 개인정보처리방침 제5조의2와 <a href="https://policies.google.com/privacy" className="underline">Google 개인정보처리방침</a>을 따릅니다.</p>
+            <p className="mt-3 text-xs">English: Our use of YouTube API Services is subject to the <a href="https://www.youtube.com/t/terms" className="underline">YouTube Terms of Service</a> and the <a href="https://policies.google.com/privacy" className="underline">Google Privacy Policy</a>.</p>
+          </section>
+
           <section>
             <h2 className="text-lg font-semibold text-foreground mb-3">제12조 (준거법 및 관할법원)</h2>
             <p>이 약관에 관한 분쟁은 대한민국 법률에 따르며, 소송은 민사소송법상 관할법원에 제기합니다.</p>

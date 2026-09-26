@@ -78,6 +78,20 @@ export default function PrivacyPage() {
             <p className="mt-3">이용자는 국외 이전을 거부할 수 있으며, 이 경우 해당 서비스(예: AI 챗봇) 이용이 제한될 수 있습니다. 챗봇에는 주민등록번호 등 민감·고유식별정보를 입력하지 마시기 바랍니다. 모의해킹 진단 업무는 원칙적으로 회사가 직접 수행하며, 외부 위탁이 필요한 경우 별도 동의를 받습니다.</p>
           </section>
 
+          <section id="youtube-api">
+            <h2 className="text-lg font-semibold text-foreground mb-3">제5조의2 (YouTube API 서비스 이용)</h2>
+            <p className="mb-3">회사는 회사가 직접 운영하는 YouTube 채널의 동영상 게시와 댓글 관리를 위해 YouTube API 서비스를 이용합니다(내부 운영 도구 &ldquo;Channel Ops&rdquo;). 이 도구는 회사 채널에만 연결되며 외부 이용자에게 제공되지 않습니다.</p>
+            <ul className="list-disc pl-5 space-y-1.5">
+              <li>이용하는 정보: 회사 채널의 동영상 정보, 회사 채널에 작성된 공개 댓글(작성자 표시 이름, 댓글 내용, 작성 시각)</li>
+              <li>이용 목적: 회사 채널의 동영상 게시, 시청자 댓글에 대한 답글 작성·관리. 광고·마케팅·프로파일 판매 등 다른 목적으로 이용하지 않으며 제3자에게 판매·제공하지 않습니다.</li>
+              <li>처리 위탁: 답글 초안 작성을 위해 댓글 내용이 AI 모델 제공사 Anthropic PBC(소재: 미국)로 전송될 수 있습니다.</li>
+              <li>보관: 답글 작성·관리에 필요한 기간 동안 보관하며, 댓글 작성자가 삭제를 요청하거나 댓글이 삭제된 경우 지체 없이 삭제합니다.</li>
+              <li>YouTube API 서비스 이용 시 <a href="https://policies.google.com/privacy" className="underline">Google 개인정보처리방침</a>이 함께 적용됩니다.</li>
+              <li>회사에 부여한 접근 권한은 <a href="https://myaccount.google.com/permissions" className="underline">Google 보안 설정 페이지</a>에서 언제든지 철회할 수 있습니다.</li>
+            </ul>
+            <p className="mt-3 text-xs">English: We use YouTube API Services to publish videos and manage comments on our own YouTube channels. We access video data and public comments (display name, text, time) on our channels only, use them solely to post and reply, and do not sell or share them. Comment text may be sent to Anthropic PBC (USA) to draft replies. See the <a href="https://policies.google.com/privacy" className="underline">Google Privacy Policy</a>. Access can be revoked at <a href="https://myaccount.google.com/permissions" className="underline">Google security settings</a>. Contact: biztalktome@gmail.com</p>
+          </section>
+
           <section>
             <h2 className="text-lg font-semibold text-foreground mb-3">제6조 (정보주체의 권리·의무)</h2>
             <p>이용자(법정대리인 포함)는 개인정보 열람·정정·삭제·처리정지를 요구할 수 있으며, 회원 서비스 이용 시 회원 탈퇴 및 동의 철회를 요청할 수 있습니다.</p>
@@ -116,7 +130,7 @@ export default function PrivacyPage() {
 
           <section>
             <h2 className="text-lg font-semibold text-foreground mb-3">제11조 (개인정보 처리방침 변경)</h2>
-            <p>이 개인정보처리방침은 2026년 6월 6일부터 적용됩니다. 내용이 변경되는 경우 홈페이지 공지를 통해 안내드립니다.</p>
+            <p>이 개인정보처리방침은 2026년 6월 6일부터 적용되며, 2026년 9월 26일 YouTube API 서비스 이용 조항(제5조의2)을 추가했습니다. 내용이 변경되는 경우 홈페이지 공지를 통해 안내드립니다.</p>
           </section>
         </div>
       </div>
