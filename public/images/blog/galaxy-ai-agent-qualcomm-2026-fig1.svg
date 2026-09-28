@@ -8,7 +8,7 @@
   <rect x="520" y="60" width="240" height="36" rx="6" fill="#d1fae5"/>
   <text x="150" y="84" text-anchor="middle" font-size="14" font-weight="700" fill="#64748b">구분</text>
   <text x="390" y="84" text-anchor="middle" font-size="14" font-weight="700" fill="#92400e">클라우드 AI (ChatGPT 등)</text>
-  <text x="640" y="84" text-anchor="middle" font-size="14" font-weight="700" fill="#065f46">온디바이스 AI (갤럭시 AI)</text>
+  <text x="640" y="84" text-anchor="middle" font-size="14" font-weight="700" fill="#065f46">온디바이스 AI (기기 안 처리)</text>
   <!-- 행 1: 인터넷 -->
   <rect x="40" y="106" width="220" height="44" rx="4" fill="#f8fafc"/>
   <rect x="280" y="106" width="220" height="44" rx="4" fill="#fff7ed"/>

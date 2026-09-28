@@ -19,13 +19,14 @@
   <rect x="490" y="60" width="270" height="300" rx="20" fill="url(#card1)" stroke="white" stroke-opacity="0.15" stroke-width="1"/>
   <text x="625" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="80" fill="white" opacity="0.9">📱</text>
   <text x="625" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.75">Snapdragon Summit 2026</text>
-  <text x="625" y="258" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.55">구독료 0원 · 오프라인 동작</text>
+  <text x="625" y="258" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.55">8 Elite Gen 6 · Extreme Gen 6</text>
   <text x="625" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.5">Qualcomm AI Hub Models</text>
   <!-- 좌측 메인 텍스트 -->
-  <text x="40" y="130" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">온디바이스 AI 시대</text>
-  <text x="40" y="180" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">갤럭시가 AI 직원 —</text>
-  <text x="40" y="218" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">구독료 0원·오프라인 3가지</text>
-  <text x="40" y="268" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.8">인터넷 없이 · 구독료 없이 · 데이터 안전하게</text>
+  <text x="40" y="120" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="white" opacity="0.8">온디바이스 AI</text>
+  <text x="40" y="163" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">인터넷 없이 쓰는</text>
+  <text x="40" y="196" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">갤럭시 AI —</text>
+  <text x="40" y="229" font-family="Arial, sans-serif" font-size="28" font-weight="900" fill="white">중소기업 3가지 현장</text>
+  <text x="40" y="263" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.75">기기 안에서만 처리 · 기본 기능 무료</text>
   <rect x="40" y="310" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
   <text x="40" y="345" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.6">(주)비젼솔루션</text>
 </svg>

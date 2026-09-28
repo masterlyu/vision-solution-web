@@ -14,7 +14,7 @@
   <text x="400" y="210" text-anchor="middle" font-size="13" fill="#6b7280">v3.14.0 배포</text>
   <!-- Point 3: 9/20 오픈소스 -->
   <circle cx="640" cy="150" r="12" fill="#a855f7"/>
-  <text x="640" y="108" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2937">9월 21일</text>
+  <text x="640" y="108" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2937">9월 22일</text>
   <text x="640" y="190" text-anchor="middle" font-size="13" fill="#6b7280">GitHub</text>
   <text x="640" y="210" text-anchor="middle" font-size="13" fill="#6b7280">오픈소스 공개</text>
 </svg>

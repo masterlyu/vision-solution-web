@@ -15,12 +15,12 @@ AI 도구 하나 설치했을 뿐인데, 회사 코드가 통째로 중국 클�
 
 ZCode는 중국 AI 기업 Z.ai가 만든 코딩 보조 도구입니다. VS Code 같은 편집기에 설치해서 쓰는 방식으로, AI가 코드 작성과 수정을 도와줍니다.
 
-사건은 9월 18일 개발자 ferstar가 분석 글을 공개하면서 알려졌습니다. ZCode가 사용자 동의 없이 전체 깃(Git) 히스토리를 포함한 작업 폴더를 암호화해 알리바바 클라우드 저장소로 보내도록 만들어져 있었다는 내용입니다. 313MB 파일은 용량 제한에 걸려 끝내 올라가지 못했지만, 같은 방식으로 만든 작은 저장소(약 15KB)는 서버가 받아들였습니다. 그 이전에 다른 파일이 올라갔는지는 확인할 수 없다고 발견자는 밝혔습니다. Z.ai는 9월 21일 이 기능을 고친 새 버전(v3.14.0)을 내고, 같은 날 소스코드를 GitHub에 공개했습니다.
+사건은 9월 18일 개발자 ferstar가 분석 글을 공개하면서 알려졌습니다. ZCode가 사용자 동의 없이 전체 깃(Git) 히스토리를 포함한 작업 폴더를 암호화해 알리바바 클라우드 저장소로 보내도록 만들어져 있었다는 내용입니다. 실제로 이 313MB 파일에서 깃 관련 내용이 86.6%를 차지했습니다. 313MB 파일은 용량 제한에 걸려 끝내 올라가지 못했지만, 같은 방식으로 만든 작은 저장소(파일 538개, 압축 후 약 15KB)는 서버가 받아들였습니다. 그 이전에 다른 파일이 올라갔는지는 확인할 수 없다고 발견자는 밝혔습니다. Z.ai는 9월 21일 이 기능을 고친 새 버전(v3.14.0)을 냈고, 이어 9월 22일 소스코드를 GitHub에 공개했습니다.
 
 ![ZCode 사건 타임라인](/images/blog/zcode-ai-tool-security-continue-dev-sme-guide-fig1.svg)
 *▲ ZCode 사건 타임라인 · 출처: ferstar 분석 글, The Next Web (2026년 9월)*
 
-Z.ai는 사과하고 수정 버전을 냈으며 소스코드도 공개했습니다. 외부 점검에서는 해당 클라우드 저장소가 비어 있는 것으로 확인됐지만, 발견자는 "지웠다는 주장은 지운 당사자의 말에 기댈 뿐"이라고 지적했습니다. 개발자 커뮤니티의 반응도 싸늘했습니다. 성공했든 실패했든, 동의 없이 회사 코드를 외부로 보내려 한 것 자체가 문제였으니까요.
+Z.ai는 사과하고 수정 버전을 냈으며 소스코드도 공개했습니다. 외부 점검에서는 해당 클라우드 저장소가 비어 있는 것으로 확인됐지만, 발견자는 "지웠다는 주장은 지운 당사자의 말에 기댈 뿐"이라고 지적했습니다. 공개된 GitHub 저장소도 개발 이력이 지워진 채 커밋 두 개만 올라와 있어, 문제의 업로드 기능이 언제 어떻게 들어갔는지는 외부에서 확인할 수 없었습니다. 개발자 커뮤니티의 반응도 싸늘했습니다. 성공했든 실패했든, 동의 없이 회사 코드를 외부로 보내려 한 것 자체가 문제였으니까요.
 
 ![center](/mascot/md/emotion/cat_worried.webp)
 
@@ -52,6 +52,8 @@ Windows는 `작업 관리자 > 성능 > 리소스 모니터 > 네트워크` 탭�
 
 소스코드가 공개된 도구는 제3자가 직접 코드를 검증할 수 있습니다. 비공개 도구라면 독립적인 보안 감사(security audit) 보고서가 있는지 찾아보세요.
 
+단, "공개했다"는 말만으로 안심하면 안 됩니다. ZCode도 사건 후 소스코드를 공개했지만 개발 이력이 지워진 상태였습니다. GitHub 저장소를 열었을 때 **커밋(수정 기록)이 오랫동안 꾸준히 쌓여 있는지**를 함께 보세요. 기록이 몇 개뿐이면 검증할 수 있는 게 사실상 없습니다.
+
 ## Continue.dev — 코드를 내 PC 밖으로 보내지 않는 무료 AI 코딩 도우미
 
 AI 코딩 도우미를 쓰고 싶지만 데이터 유출이 걱정된다면, 지금 바로 쓸 수 있는 대안이 있습니다. Continue.dev입니다.
@@ -60,19 +62,21 @@ AI 코딩 도우미를 쓰고 싶지만 데이터 유출이 걱정된다면, 지
 
 Continue.dev는 VS Code와 JetBrains(IntelliJ, PyCharm 등)에서 동작하는 오픈소스 AI 코딩 도우미입니다. GitHub에 소스코드가 모두 공개되어 있고, 내 PC나 회사 내부 서버의 AI 모델과 연결해 쓸 수 있습니다. 로컬 모델로 연결하면 코드가 외부 AI 서버로 나가지 않습니다. 다만 공식 문서는 인터넷 없이 쓰려면 설정에서 익명 사용 통계(Allow Anonymous Telemetry)를 끄라고 안내하니, 설치 후 이 설정도 꼭 확인하세요. Apache-2.0 라이선스라 상업적으로도 무료입니다.
 
-**VS Code 기준 5분 설치 가이드:**
+**VS Code 기준 설치 가이드 (순서를 지켜야 합니다):**
 
-1. VS Code를 열고 확장 탭(Ctrl+Shift+X)에서 `Continue` 검색 후 설치
-2. 왼쪽 사이드바에 Continue 아이콘이 나타나면 클릭
-3. 첫 실행 시 모델 선택 화면에서 **"Local Models"** 탭 선택
-4. [ollama.com](https://ollama.com)에서 Ollama를 내 PC에 설치 → Continue.dev가 자동 연결
-5. 설정에서 **Allow Anonymous Telemetry**(익명 사용 통계)를 끄기
-6. 코드 편집 화면에서 **Ctrl+I**를 누르면 AI 코딩 도우미 활성화
+1. **먼저** [ollama.com](https://ollama.com)에서 Ollama를 내 PC에 설치합니다. AI 모델을 내 PC에서 돌려주는 프로그램입니다.
+2. 명령 창(Windows는 PowerShell, Mac은 터미널)을 열고 `ollama pull qwen2.5-coder:7b` 을 입력해 코딩용 AI 모델을 내려받습니다. 용량이 4~5GB라 인터넷 속도에 따라 몇 분 걸립니다.
+3. VS Code를 열고 확장 탭(Ctrl+Shift+X)에서 `Continue` 검색 후 설치합니다.
+4. 왼쪽 사이드바에 Continue 아이콘이 나타나면 클릭하고, 모델 선택에서 **로컬(Ollama) 모델** 을 고릅니다. 2번에서 내려받은 모델이 목록에 보입니다.
+5. VS Code 설정에서 **Allow Anonymous Telemetry**(익명 사용 통계)를 끕니다.
+6. 코드 편집 화면에서 **Ctrl+I**를 누르면 AI 코딩 도우미가 열립니다.
+
+**2번을 건너뛰면 4번에서 고를 모델이 하나도 없습니다.** Continue는 이미 내려받아 둔 모델만 찾아내기 때문입니다. 처음 해보시는 분들이 여기서 가장 많이 막힙니다.
 
 ![Continue.dev 로컬 설치 흐름](/images/blog/zcode-ai-tool-security-continue-dev-sme-guide-fig2.svg)
 *▲ Continue.dev 로컬 AI 코딩 설정 3단계 · 출처: continue.dev 공식 문서*
 
-솔직하게 말씀드리면, 클라우드 기반 코딩 AI보다 응답 속도는 느립니다. RAM 16GB 이상 PC라면 Llama 3 8B 정도 모델을 로컬에서 무리 없이 돌릴 수 있고, 코드 자동완성·오류 설명·리팩터링 수준은 실무에 충분합니다. 다만 GitHub Copilot이나 클라우드 서비스의 최신 대형 모델 품질을 기대하시면 차이가 느껴질 수 있습니다.
+솔직하게 말씀드리면, 클라우드 기반 코딩 AI보다 응답 속도는 느립니다. RAM 16GB 이상 PC라면 위에서 쓴 7B(70억 파라미터) 급 코딩 모델을 무리 없이 돌릴 수 있고, 코드 자동완성·오류 설명·정리 작업 수준은 실무에 충분합니다. 다만 GitHub Copilot이나 클라우드 서비스의 최신 대형 모델 품질을 기대하시면 차이가 느껴질 수 있습니다. 그래픽카드가 없는 사무용 PC라면 체감 속도가 더 느려집니다.
 
 | 항목 | Continue.dev (로컬) | 클라우드 AI 도구 |
 |------|-------------------|--------------|
@@ -91,6 +95,8 @@ AI 도구 선택은 결국 "편리함과 통제권의 교환"입니다. 클라�
 Continue.dev GitHub: [https://github.com/continuedev/continue](https://github.com/continuedev/continue)
 
 > **정정 (2026-09-24)**: 처음 발행한 글에는 313MB 파일이 실제로 전송됐다는 표현, 사건 발견 경위와 날짜, 출처를 확인할 수 없는 Z.ai 해명 인용, Continue.dev 라이선스(MIT → Apache-2.0)에 오류가 있어 바로잡았습니다. 근거: [ferstar 분석 글](https://blog.ferstar.org/en/posts/zcode-silent-workspace-snapshot-upload/), [The Next Web](https://thenextweb.com/news/zai-zcode-open-source-commit-history-security-assessment), [Continue 오프라인 가이드](https://docs.continue.dev/guides/running-continue-without-internet)
+
+> **정정 (2026-09-28)**: ① Z.ai가 소스코드를 GitHub에 공개한 날짜를 수정판 배포와 같은 날(9월 21일)로 적었으나, 실제 공개일은 **9월 22일**입니다(타임라인 그림도 함께 수정). ② 공개된 저장소는 개발 이력이 지워진 채 커밋 두 개만 올라와 있어 문제 기능을 외부에서 검증할 수 없었다는 사실을 추가했습니다. ③ Continue.dev 설치 순서가 잘못돼 있었습니다 — Ollama 설치와 `ollama pull` 로 모델을 먼저 내려받아야 Continue가 모델을 찾습니다. 순서를 바로잡고 그림도 수정했습니다. 근거: [The Next Web](https://thenextweb.com/news/zai-zcode-open-source-commit-history-security-assessment), [Continue Ollama 가이드](https://docs.continue.dev/guides/ollama-guide)
 
 > **Vision Solution AI 솔루션 문의**:  
 > 📧 biztalktome@gmail.com  
