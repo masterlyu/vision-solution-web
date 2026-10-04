@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">합성 기록으로 시작하는 로컬 처리 흐름</text>
+  <rect x="60" y="70" width="190" height="82" rx="12" fill="#eff6ff"/>
+  <text x="155" y="105" text-anchor="middle" font-size="18" font-weight="800" fill="#0f766e">설치</text>
+  <text x="155" y="132" text-anchor="middle" font-size="13" fill="#6b7280">모델 준비</text>
+  <text x="285" y="120" text-anchor="middle" font-size="26" font-weight="700" fill="#6b7280">→</text>
+  <rect x="305" y="70" width="190" height="82" rx="12" fill="#eff6ff"/>
+  <text x="400" y="105" text-anchor="middle" font-size="18" font-weight="800" fill="#0f766e">처리</text>
+  <text x="400" y="132" text-anchor="middle" font-size="13" fill="#6b7280">가리기·추출</text>
+  <text x="530" y="120" text-anchor="middle" font-size="26" font-weight="700" fill="#6b7280">→</text>
+  <rect x="550" y="70" width="190" height="82" rx="12" fill="#ecfeff"/>
+  <text x="645" y="105" text-anchor="middle" font-size="18" font-weight="800" fill="#0f766e">검토</text>
+  <text x="645" y="132" text-anchor="middle" font-size="13" fill="#6b7280">사람이 확인</text>
+</svg>
