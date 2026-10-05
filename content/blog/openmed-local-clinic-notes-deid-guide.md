@@ -47,7 +47,7 @@ OpenMed SDK는 Apache-2.0 라이선스로 제공되며 Python 3.10 이상이 필
 ![OpenMed 로컬 문서 처리 세 단계](/images/blog/openmed-local-clinic-notes-deid-guide-fig1.svg)
 *▲ 합성 문장으로 설치·처리·검토를 차례로 연습합니다 · 출처: OpenMed 공식 설치·사용 예제를 바탕으로 구성했습니다.*
 
-1. **Python 환경을 준비하고 설치합니다.** 공식 문서가 쓰는 Hugging Face 실행 옵션(`openmed[hf]`)을 설치합니다. 같은 설치 명령이 [Python 패키지 안내](https://pypi.org/project/openmed/)와 [임상 정보 추출 안내 문서](https://github.com/maziyarpanahi/openmed/blob/master/skills/extracting-clinical-entities/SKILL.md)에 나와 있습니다. 모델을 내려받는 동안에는 인터넷 연결이 필요할 수 있습니다.
+**1단계 · Python 환경을 준비하고 설치합니다.** 공식 문서가 쓰는 Hugging Face 실행 옵션(`openmed[hf]`)을 설치합니다. 같은 설치 명령이 [Python 패키지 안내](https://pypi.org/project/openmed/)와 [임상 정보 추출 안내 문서](https://github.com/maziyarpanahi/openmed/blob/master/skills/extracting-clinical-entities/SKILL.md)에 나와 있습니다. 모델을 내려받는 동안에는 인터넷 연결이 필요할 수 있습니다.
 
 ```bash
 python -m venv .venv
@@ -63,7 +63,7 @@ python -m venv .venv
 python -m pip install "openmed[hf]"
 ```
 
-2. **가상의 기록을 비식별화하고 약품·질환 정보를 추출합니다.** 아래 문장은 예시일 뿐 실제 환자 정보가 아닙니다. 첫 실행에는 선택한 모델을 불러오는 시간이 들 수 있습니다.
+**2단계 · 가상의 기록을 비식별화하고 약품·질환 정보를 추출합니다.** 아래 문장은 예시일 뿐 실제 환자 정보가 아닙니다. 첫 실행에는 선택한 모델을 불러오는 시간이 들 수 있습니다.
 
 ```python
 import openmed
@@ -90,7 +90,7 @@ for item in result.entities:
 
 위 예시 문장은 영어입니다. 한국어 기록으로 해보려면 가리기 단계에 언어를 함께 지정하세요 — `openmed.deidentify(note, method="mask", lang="ko")` 형태입니다. [공식 FAQ](https://github.com/maziyarpanahi/openmed/blob/master/docs/faq.md)는 개인정보 탐지와 비식별화가 한국어(`ko`)를 포함한 42개 언어 코드를 지원한다고 안내합니다. 반면 약품·질환을 뽑아내는 쪽은 모델마다 지원 언어와 찾아내는 항목이 다르므로, 쓰려는 모델을 [모델 목록](https://github.com/maziyarpanahi/openmed/blob/master/docs/model-registry.md)에서 먼저 확인해야 합니다. 한국어 양식에서 바로 기대한 결과가 나오지 않는 것은 설치 오류가 아니라 모델 선택의 문제일 수 있습니다.
 
-3. **사람이 결과를 확인하고 작은 업무부터 연결합니다.** 이름과 날짜가 충분히 가려졌는지, 약품·질환 결과가 문맥에 맞는지 원문과 비교합니다. 실제 자료를 다룰 때는 기관의 개인정보 처리 절차와 접근 권한을 먼저 확인하고, 승인된 로컬 폴더의 사본으로 제한해 보세요.
+**3단계 · 사람이 결과를 확인하고 작은 업무부터 연결합니다.** 이름과 날짜가 충분히 가려졌는지, 약품·질환 결과가 문맥에 맞는지 원문과 비교합니다. 실제 자료를 다룰 때는 기관의 개인정보 처리 절차와 접근 권한을 먼저 확인하고, 승인된 로컬 폴더의 사본으로 제한해 보세요.
 
 이 코드가 보여주는 것은 처리 흐름입니다. 특정 언어·모델이 여러분의 양식에서 필요한 항목을 빠짐없이 찾아낸다는 뜻은 아닙니다. 오탈자, 별칭, 문맥에 섞인 단서는 놓칠 수 있고, 의료 판단이나 진료 기록의 자동 확정에 사용해서는 안 됩니다. 먼저 합성 자료로 시험하고, 오류 유형과 사람의 수정 시간을 기록해 계속 쓸 가치가 있는지 판단하세요.
 
