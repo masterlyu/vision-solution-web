@@ -17,7 +17,7 @@ summary: "진료기록 비식별화와 약품·질환 정보 추출을 내 컴�
 
 사람이 기록을 읽으며 이름을 찾아 형광펜으로 가리는 일을 떠올려 보세요. OpenMed는 문장을 읽고 이름·날짜·식별번호 같은 개인정보 후보를 표시하거나 가리고, 선택한 모델에 따라 약품·질환 등 임상 정보를 구조화합니다. 쉽게 말해 문서 정리의 첫 손을 보태는 도구입니다.
 
-NIST는 비식별화를 “식별 정보와 데이터 주체 사이의 연관성을 제거하는 모든 과정의 일반 용어”로 정의합니다. 이 정의가 알려주는 점은 분명합니다. 이름만 지우는 것으로 충분하다고 단정할 수 없고, 문맥과 다른 식별 정보도 함께 살펴야 합니다.
+[NIST 용어집](https://csrc.nist.gov/glossary/term/de_identification)은 비식별화를 “식별 정보와 데이터 주체 사이의 연관성을 제거하는 모든 과정의 일반 용어”로 정의합니다. 이 정의가 알려주는 점은 분명합니다. 이름만 지우는 것으로 충분하다고 단정할 수 없고, 문맥과 다른 식별 정보도 함께 살펴야 합니다.
 
 OpenMed SDK는 Apache-2.0 라이선스로 제공되며 Python 3.10 이상이 필요합니다. 모델과 데이터셋은 이용 조건이 서로 다를 수 있습니다. 프로젝트는 필요한 모델 파일을 준비한 뒤 CPU에서도 실행할 수 있다고 안내합니다. 모델을 처음 받을 때는 인터넷 연결이 필요할 수 있고, 캐시에 모델을 준비한 뒤 로컬 전용 설정으로 실행하는 방법도 문서에 나와 있습니다. 설치한 SDK의 라이선스와 모델 가중치의 이용 조건은 별도로 확인해야 합니다.
 
@@ -25,7 +25,7 @@ OpenMed SDK는 Apache-2.0 라이선스로 제공되며 Python 3.10 이상이 필
 |---|---|
 | 컴퓨터 | CPU 실행이 지원되며 GPU는 선택 사항입니다. 지원 경로는 기기와 모델 파일에 따라 다르므로, 사용할 모델을 정한 뒤 합성 문서로 먼저 확인하세요. |
 | 비용 | SDK는 Apache-2.0으로 공개되어 있습니다. 다만 모델 내려받기와 저장 공간, 기존 컴퓨터의 전기·운영 비용은 따로 고려해야 합니다. |
-| 장점 | 문서를 외부 AI 서비스에 보내지 않는 로컬 흐름을 구성할 수 있고, 무료 샘플로 실제 문서 반입 전에 절차를 연습할 수 있습니다. |
+| 장점 | 문서를 외부 AI 서비스에 보내지 않는 로컬 흐름을 구성할 수 있고, 직접 지어낸 가상 문장으로 실제 기록을 넣기 전에 절차를 연습할 수 있습니다. |
 | 한계와 대안 | 설치와 모델 관리가 필요하고, 탐지 결과가 빠짐없이 정확하다고 보장되지 않습니다. 설치 부담이 더 크다면 승인된 클라우드 서비스를 검토할 수 있지만, 전송·보관 조건을 먼저 확인해야 합니다. |
 
 로컬 실행은 데이터 흐름을 통제하는 선택지이지, 비식별화 완료를 인증해 주는 도장이 아닙니다. [OpenMed FAQ](https://github.com/maziyarpanahi/openmed/blob/master/docs/faq.md)도 결과를 검토하라고 안내하며, 탐지는 개인정보 검토 절차를 대신하지 않는다고 밝힙니다.
@@ -47,7 +47,7 @@ OpenMed SDK는 Apache-2.0 라이선스로 제공되며 Python 3.10 이상이 필
 ![OpenMed 로컬 문서 처리 세 단계](/images/blog/openmed-local-clinic-notes-deid-guide-fig1.svg)
 *▲ 합성 문장으로 설치·처리·검토를 차례로 연습합니다 · 출처: OpenMed 공식 설치·사용 예제를 바탕으로 구성했습니다.*
 
-1. **Python 환경을 준비하고 설치합니다.** 공식 [설치 안내](https://github.com/maziyarpanahi/openmed/blob/master/skills/extracting-clinical-entities/SKILL.md)가 안내하는 Hugging Face 실행 옵션을 설치합니다. 모델을 내려받는 동안에는 인터넷 연결이 필요할 수 있습니다.
+1. **Python 환경을 준비하고 설치합니다.** 공식 문서가 쓰는 Hugging Face 실행 옵션(`openmed[hf]`)을 설치합니다. 같은 설치 명령이 [Python 패키지 안내](https://pypi.org/project/openmed/)와 [임상 정보 추출 안내 문서](https://github.com/maziyarpanahi/openmed/blob/master/skills/extracting-clinical-entities/SKILL.md)에 나와 있습니다. 모델을 내려받는 동안에는 인터넷 연결이 필요할 수 있습니다.
 
 ```bash
 python -m venv .venv
@@ -87,6 +87,8 @@ result = openmed.analyze_text(
 for item in result.entities:
     print(item.label, item.text, item.confidence)
 ```
+
+위 예시 문장은 영어입니다. 한국어 기록으로 해보려면 가리기 단계에 언어를 함께 지정하세요 — `openmed.deidentify(note, method="mask", lang="ko")` 형태입니다. [공식 FAQ](https://github.com/maziyarpanahi/openmed/blob/master/docs/faq.md)는 개인정보 탐지와 비식별화가 한국어(`ko`)를 포함한 42개 언어 코드를 지원한다고 안내합니다. 반면 약품·질환을 뽑아내는 쪽은 모델마다 지원 언어와 찾아내는 항목이 다르므로, 쓰려는 모델을 [모델 목록](https://github.com/maziyarpanahi/openmed/blob/master/docs/model-registry.md)에서 먼저 확인해야 합니다. 한국어 양식에서 바로 기대한 결과가 나오지 않는 것은 설치 오류가 아니라 모델 선택의 문제일 수 있습니다.
 
 3. **사람이 결과를 확인하고 작은 업무부터 연결합니다.** 이름과 날짜가 충분히 가려졌는지, 약품·질환 결과가 문맥에 맞는지 원문과 비교합니다. 실제 자료를 다룰 때는 기관의 개인정보 처리 절차와 접근 권한을 먼저 확인하고, 승인된 로컬 폴더의 사본으로 제한해 보세요.
 
