@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server'
 import { sendVerificationEmail } from '@/lib/emailSender'
 import { env } from '@/lib/env'
 import { reportError } from '@/lib/errorReporter'
+import { checkRateLimit, getClientId } from '@/lib/rateLimit'
+import { escapeHtml, isEmail, isFreeMail } from '@/lib/inputGuard'
 
 const ADMIN_EMAILS = ['biztalktome@gmail.com']
 
@@ -40,10 +42,19 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
-  const { url, email, company } = await req.json()
+  const rl = await checkRateLimit('analyze', getClientId(req), { limit: 5, windowSec: 3600 })
+  if (!rl.success) {
+    return NextResponse.json({ error: '요청이 너무 많습니다. 1시간 뒤 다시 시도해 주세요.' }, { status: 429 })
+  }
+  const body = await req.json().catch(() => null)
+  const url = typeof body?.url === 'string' ? body.url.trim().slice(0, 500) : ''
+  const email = typeof body?.email === 'string' ? body.email.trim() : ''
+  const company = typeof body?.company === 'string' ? body.company.trim().slice(0, 100) : ''
   if (!url || !email) return NextResponse.json({ error: 'URL과 이메일이 필요합니다.' }, { status: 400 })
+  if (!isEmail(email)) return NextResponse.json({ error: '이메일 형식을 확인해 주세요.' }, { status: 400 })
 
   if (!ADMIN_EMAILS.includes(email.toLowerCase())) {
+    if (isFreeMail(email)) return NextResponse.json({ error: '무료 메일(네이버·지메일 등)로는 진단 결과를 보낼 수 없습니다. 해당 사이트 도메인의 담당자 이메일을 입력해 주세요.' }, { status: 400 })
     const urlHost = getHostname(url)
     if (!urlHost || !domainsMatch(urlHost, email)) {
       return NextResponse.json(
@@ -70,8 +81,8 @@ export async function POST(req: NextRequest) {
         text: [
           `🔐 <b>보안 진단 인증 요청</b>`,
           ``,
-          `🌐 ${url}`,
-          `📧 ${email}${company ? `  ·  ${company}` : ''}`,
+          `🌐 ${escapeHtml(url)}`,
+          `📧 ${escapeHtml(email)}${company ? `  ·  ${escapeHtml(company)}` : ''}`,
           `\n인증 대기 중 — 링크 24시간 유효`,
         ].join('\n'),
         parse_mode: 'HTML',

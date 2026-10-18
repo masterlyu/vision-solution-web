@@ -24,7 +24,7 @@ export default function RenewalRequestForm({ title, notice }: Props) {
       const message = form.url
         ? `리뉴얼·무료진단 상담 신청\n분석 요청 사이트: ${form.url}`
         : '리뉴얼·무료진단 상담 신청'
-      await fetch('/api/contact', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -35,6 +35,7 @@ export default function RenewalRequestForm({ title, notice }: Props) {
           message,
         }),
       })
+      if (!res.ok) throw new Error(`contact ${res.status}`)
       setStep('done')
     } catch {
       setStep('error')

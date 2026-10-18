@@ -3,18 +3,30 @@ import { analyzeRenewal, domainsMatch, extractBaseDomain } from '@/lib/renewalAn
 import { generateRenewalPdfBuffer } from '@/lib/renewalPdfReport'
 import { sendRenewalReport } from '@/lib/renewalEmailSender'
 import { env } from '@/lib/env'
+import { checkRateLimit, getClientId } from '@/lib/rateLimit'
+import { escapeHtml, isEmail, isFreeMail } from '@/lib/inputGuard'
 
 export const maxDuration = 60
 
 export async function POST(req: NextRequest) {
-  const { url, email } = await req.json()
+  const rl = await checkRateLimit('renewal-analyze', getClientId(req), { limit: 3, windowSec: 3600 })
+  if (!rl.success) {
+    return NextResponse.json({ error: '요청이 너무 많습니다. 1시간 뒤 다시 시도해 주세요.' }, { status: 429 })
+  }
+  const body = await req.json().catch(() => null)
+  const url = typeof body?.url === 'string' ? body.url.trim().slice(0, 500) : ''
+  const email = typeof body?.email === 'string' ? body.email.trim() : ''
 
   if (!url || !email) {
     return NextResponse.json({ error: 'URL과 이메일을 입력해 주세요.' }, { status: 400 })
   }
+  if (!isEmail(email)) return NextResponse.json({ error: '이메일 형식을 확인해 주세요.' }, { status: 400 })
 
   // Domain-email match validation (관리자 이메일은 모든 도메인 허용)
   const ADMIN_EMAILS = ['biztalktome@gmail.com']
+  if (!ADMIN_EMAILS.includes(email.toLowerCase()) && isFreeMail(email)) {
+    return NextResponse.json({ error: '무료 메일(네이버·지메일 등)로는 진단 결과를 보낼 수 없습니다. 해당 사이트 도메인의 담당자 이메일을 입력해 주세요.' }, { status: 400 })
+  }
   if (!ADMIN_EMAILS.includes(email.toLowerCase()) && !domainsMatch(url, email)) {
     const siteDomain = extractBaseDomain(url)
     return NextResponse.json({
@@ -44,8 +56,8 @@ export async function POST(req: NextRequest) {
         text: [
           `${emoji} <b>홈페이지 운영상태진단 완료</b>`,
           ``,
-          `🌐 ${result.url}`,
-          `📧 ${email}`,
+          `🌐 ${escapeHtml(result.url)}`,
+          `📧 ${escapeHtml(email)}`,
           `🏢 ${result.siteType.label} (신뢰도 ${result.siteType.confidence}%)`,
           `📊 ${result.totalScore}점 (등급 ${result.grade})`,
           `  · 기술 ${result.axes.technical.score}/${result.axes.technical.maxScore} · UX ${result.axes.ux.score}/${result.axes.ux.maxScore} · 현대 ${result.axes.modern.score}/${result.axes.modern.maxScore}`,

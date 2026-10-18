@@ -19,6 +19,7 @@ export default function ContactPage() {
   const [pentestAgree, setPentestAgree] = useState(false)
   const [done, setDone] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
@@ -35,15 +36,24 @@ export default function ContactPage() {
     e.preventDefault()
     if (form.service === 'pentest' && !pentestAgree) return
     setLoading(true)
+    setSubmitError('')
     try {
-      await fetch('/api/contact', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...form, pentestAgreed: form.service === 'pentest' ? pentestAgree : undefined }),
       })
-    } catch {}
-    setLoading(false)
-    setDone(true)
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}))
+        setSubmitError(data.error ?? '전송에 실패했습니다. 잠시 후 다시 시도해 주세요.')
+        return
+      }
+      setDone(true)
+    } catch {
+      setSubmitError('전송에 실패했습니다. 인터넷 연결을 확인하고 다시 시도해 주세요.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
@@ -195,6 +205,7 @@ export default function ContactPage() {
                         className="w-full h-14 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-xl flex items-center justify-center gap-2 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed text-base shadow-lg shadow-primary/40 hover:shadow-primary/60">
                         {loading ? <><Loader2 className="w-5 h-5 animate-spin" />전송 중...</> : '문의 전송 →'}
                       </button>
+                      {submitError && <p role="alert" className="text-center text-destructive text-sm">{submitError}</p>}
                       <p className="text-center text-muted-foreground text-sm">영업일 기준 1일 내 이메일로 답장드립니다</p>
                     </form>
                   </>
