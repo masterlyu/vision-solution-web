@@ -76,11 +76,11 @@ jobs:
           BEFORE: ${{ github.event.before }}
           GH_TOKEN: ${{ github.token }}
         run: |
-          e286259e7b6e2308da804cde3f41fd52=e286259e7b6e2308da804cde3f41fd52
+          KEY=e286259e7b6e2308da804cde3f41fd52
           FILES=$(gh api "repos/${{ github.repository }}/compare/${BEFORE}...${{ github.sha }}" --jq '.files[] | select(.status != "removed") | .filename' | grep -E '^content/blog/[^/]+\.mdx?$' || true)
           if [ -z "$FILES" ]; then echo "바뀐 글 없음"; exit 0; fi
           URLS=$(echo "$FILES" | sed -E 's#^content/blog/(.+)\.mdx?$#"https://visionc.co.kr/blog/\1"#' | paste -sd, -)
-          BODY="{\"host\":\"visionc.co.kr\",\"key\":\"$e286259e7b6e2308da804cde3f41fd52\",\"keyLocation\":\"https://visionc.co.kr/$e286259e7b6e2308da804cde3f41fd52.txt\",\"urlList\":[$URLS]}"
+          BODY="{\"host\":\"visionc.co.kr\",\"key\":\"$KEY\",\"keyLocation\":\"https://visionc.co.kr/$KEY.txt\",\"urlList\":[$URLS]}"
           echo "$BODY"
           CODE=$(curl -s -o /tmp/indexnow.out -w '%{http_code}' -X POST https://api.indexnow.org/indexnow -H 'Content-Type: application/json; charset=utf-8' -d "$BODY" || true)
           echo "IndexNow 응답 $CODE"; cat /tmp/indexnow.out
