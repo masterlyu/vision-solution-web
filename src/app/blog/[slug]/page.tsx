@@ -3,7 +3,7 @@ import { ClipboardList } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
-import { getAllPosts, getPostBySlug } from '@/lib/blog'
+import { getAllPosts, getPostBySlug, extractFaq } from '@/lib/blog'
 import { markdownToHtml, extractHeadings } from '@/lib/markdownToHtml'
 
 interface PageProps {
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   // SNS/LLM 공유 미리보기: SVG는 카카오·페북·X가 렌더 못 하므로 PNG(OG 라우트) 사용 — 글 제목·태그 주입
   const ogImage = `${BASE}/api/og?title=${encodeURIComponent(post.title)}&tag=${encodeURIComponent(post.tag)}`
   return {
-    title: `${post.title} | (주)비젼솔루션 블로그`,
+    title: post.title,   // 레이아웃 템플릿이 " | Vision Solution" 을 붙인다 (회사명 중복 방지)
     description: desc,
     keywords: post.tags.join(', '),
     alternates: { canonical: url },
@@ -490,6 +490,18 @@ export default async function BlogPostPage({ params }: PageProps) {
     ],
   }
 
+  // 본문 FAQ 섹션이 있으면 FAQPage 로도 알린다 (답변엔진 추출용 — 가시 텍스트와 동일)
+  const faq = extractFaq(post.content)
+  const faqJsonLd = faq.length >= 2 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map(f => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  } : null
+
   return (
     <div className="min-h-screen pt-28 pb-24 bg-background">
       {/* JSON-LD Structured Data */}
@@ -501,6 +513,12 @@ export default async function BlogPostPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
 
       <div className="max-w-[800px] mx-auto px-6 lg:px-8">
 

@@ -85,3 +85,49 @@ export function getAllTags(): string[] {
   const tags = Array.from(new Set(posts.map(p => p.tag).filter(Boolean)))
   return tags.sort()
 }
+
+export interface FaqItem {
+  q: string
+  a: string
+}
+
+/**
+ * 본문의 "## 자주 묻는 질문"(또는 FAQ) 섹션에서 질문·답을 뽑는다 — FAQPage JSON-LD 용.
+ * 화면에 보이는 글을 그대로 옮기므로 JSON-LD 와 가시 텍스트가 어긋나지 않는다.
+ * 질문 형식: `**Q. …**` / `### Q. …` / FAQ 섹션 아래 하위 제목. 답: 다음 질문 전까지(앞의 "A." 제거).
+ * 섹션은 같은 급 이상 제목이나 `---` 에서 끝난다.
+ */
+export function extractFaq(md: string): FaqItem[] {
+  const lines = md.split('\n')
+  const start = lines.findIndex(l => /^#{2,3}\s+(자주 묻는 질문|FAQ)/i.test(l))
+  if (start < 0) return []
+  const level = lines[start].match(/^#+/)![0].length
+  const clean = (s: string) => s
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .replace(/\*\*|__|`/g, '')
+    .replace(/^\s*A\s*\d*\s*[.:)]\s*/, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+  const out: FaqItem[] = []
+  let q: string | null = null
+  let a: string[] = []
+  const flush = () => {
+    const ans = clean(a.join(' '))
+    if (q && ans) out.push({ q, a: ans })
+    q = null
+    a = []
+  }
+  for (let i = start + 1; i < lines.length; i++) {
+    const l = lines[i]
+    const h = l.match(/^(#+)\s+(.*)/)
+    if (h && h[1].length <= level) break
+    if (/^---\s*$/.test(l)) break
+    const qm = l.match(/^\s*(?:#{3,4}\s*|\*\*)\s*Q\s*\d*\s*[.:)]\s*(.+?)\s*(?:\*\*)?\s*$/)
+    const qText = qm ? qm[1] : (h && h[1].length > level ? h[2] : null)
+    if (qText) { flush(); q = clean(qText); continue }
+    if (q && l.trim() && !/^>/.test(l)) a.push(l)
+  }
+  flush()
+  return out
+}

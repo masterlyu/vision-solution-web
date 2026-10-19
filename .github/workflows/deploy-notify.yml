@@ -68,6 +68,24 @@ jobs:
             --data-urlencode "chat_id=${TG_CHAT}" \
             --data-urlencode "text=${TEXT}"
 
+      # 바뀐 블로그 글 주소를 IndexNow 로 알린다 (빙·네이버·얀덱스가 받아 빨리 수집). 구글은 미지원 — 사이트맵으로.
+      # 열쇠 파일: public/e286259e7b6e2308da804cde3f41fd52.txt (공개가 정상 — 사이트 소유 확인용). 알림 실패는 배포 실패가 아니므로 경고만 남긴다.
+      - name: IndexNow — 바뀐 블로그 글 알림
+        if: steps.vercel.outputs.state == 'success' && contains(steps.vercel.outputs.env, 'production')
+        env:
+          BEFORE: ${{ github.event.before }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          e286259e7b6e2308da804cde3f41fd52=e286259e7b6e2308da804cde3f41fd52
+          FILES=$(gh api "repos/${{ github.repository }}/compare/${BEFORE}...${{ github.sha }}" --jq '.files[] | select(.status != "removed") | .filename' | grep -E '^content/blog/[^/]+\.mdx?$' || true)
+          if [ -z "$FILES" ]; then echo "바뀐 글 없음"; exit 0; fi
+          URLS=$(echo "$FILES" | sed -E 's#^content/blog/(.+)\.mdx?$#"https://visionc.co.kr/blog/\1"#' | paste -sd, -)
+          BODY="{\"host\":\"visionc.co.kr\",\"key\":\"$e286259e7b6e2308da804cde3f41fd52\",\"keyLocation\":\"https://visionc.co.kr/$e286259e7b6e2308da804cde3f41fd52.txt\",\"urlList\":[$URLS]}"
+          echo "$BODY"
+          CODE=$(curl -s -o /tmp/indexnow.out -w '%{http_code}' -X POST https://api.indexnow.org/indexnow -H 'Content-Type: application/json; charset=utf-8' -d "$BODY" || true)
+          echo "IndexNow 응답 $CODE"; cat /tmp/indexnow.out
+          case "$CODE" in 200|202) ;; *) echo "::warning::IndexNow 응답 $CODE" ;; esac
+
       - name: Telegram — failure
         if: steps.vercel.outputs.state == 'failure' || steps.vercel.outputs.state == 'error'
         env:
