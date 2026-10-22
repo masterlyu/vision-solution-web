@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { checkRateLimit, getClientId } from '@/lib/rateLimit'
-import { sendAdminNotification } from '@/lib/emailSender'
+import { sendAdminNotification, sendPentestAutoReply } from '@/lib/emailSender'
 import { env } from '@/lib/env'
 import { escapeHtml, isEmail, textField } from '@/lib/inputGuard'
 
@@ -113,6 +113,12 @@ export async function POST(req: NextRequest) {
   } catch (e) {
     mailOk = false
     console.error('[contact] 이메일 알림 실패:', e)
+  }
+
+  // 모의해킹 문의는 고객에게 절차 안내 자동 회신(오해/별도소통 없이) — 실패해도 문의 접수엔 영향 없음
+  if (service === "pentest" && isEmail(email)) {
+    try { await sendPentestAutoReply(email, name) }
+    catch (e) { console.error("[contact] 모의해킹 자동회신 실패:", e) }
   }
 
   // 둘 다 실패하면 문의가 어디에도 안 남는다 — 방문자에게 실패를 알려 다시 보내게 한다

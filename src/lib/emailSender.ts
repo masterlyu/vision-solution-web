@@ -501,3 +501,43 @@ export async function sendVerificationEmail(
     html: buildVerificationEmailHtml(domain, targetUrl, verifyUrl),
   })
 }
+
+// 모의해킹 문의 자동 회신 — 절차 전부 기재(오해/별도소통 없이) + 보고서 샘플 링크
+export async function sendPentestAutoReply(email: string, name: string): Promise<void> {
+  const appPass = env.GMAIL_APP_PASSWORD.replace(/\s+/g, "")
+  const transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com", port: 465, secure: true,
+    auth: { user: env.GMAIL_USER, pass: appPass },
+  })
+  const nm = String(name).replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c] as string))
+  const sample = "https://visionc.co.kr/pentest-sample-report.pdf"
+  const html = `<div style="font-family:system-ui,sans-serif;font-size:14px;line-height:1.7;color:#222;max-width:640px">
+  <p>${nm}님, 안녕하세요. 비젼솔루션입니다.</p>
+  <p>이 메일 하나로 전체 과정을 다 아실 수 있도록, 비용부터 보고서·자료 폐기까지 순서대로 정리했습니다. 따로 통화나 추가 문의 없이 진행하실 수 있습니다.</p>
+  <h3 style="margin:18px 0 6px">■ 비용</h3>
+  <p>29만원(부가세 별도), 단일가. 1차 진단 + 조치 후 2차 재점검 1회 + 보고서가 모두 포함됩니다.</p>
+  <h3 style="margin:18px 0 6px">■ 진행 순서</h3>
+  <ol style="padding-left:18px;margin:0">
+    <li>(지금, 고객) 진단할 사이트 주소와 희망 일자를 회신해 주세요. 오픈 전이면 테스트 주소면 됩니다.</li>
+    <li>(당사) 받는 즉시 신청·동의서(1장)를 보내드립니다.</li>
+    <li>(고객) 동의서에 체크·서명해 회신하시고, 동의서에 적힌 계좌로 입금하신 뒤 \"입금했습니다\"만 회신 주세요.</li>
+    <li>(당사) 입금을 확인하면 진단 일자를 확정해 알려드립니다. 입금 확인 전에는 진단을 시작하지 않습니다.</li>
+    <li>(당사) 1차 모의해킹 진단을 진행합니다. 1~2일 안에 끝나며, 시스템을 바꾸지 않는 비파괴 방식입니다.</li>
+    <li>(당사) 암호화 PDF 보고서를 보내드립니다. 비밀번호는 따로 안내드리고, 발견 항목을 위험도별 근거·조치까지 쉬운 말로 설명드립니다. 보안 기초 해설서도 함께 드립니다.</li>
+    <li>(고객) 조치하신 뒤 완료를 알려 주세요.</li>
+    <li>(당사) 2차 재점검으로 실제 막혔는지 확인하고, 1차 대비 해결/미해결 차이까지 담은 보고서를 드립니다.</li>
+    <li>(당사) 2차까지 끝나면 수집한 모든 자료를 복구 불가능하게 완전 폐기하고 폐기확인서를 보내드립니다. 동의서 등 증빙만 당사가 보관합니다.</li>
+  </ol>
+  <h3 style="margin:18px 0 6px">■ 지금 하실 일</h3>
+  <p>사이트 주소와 희망 일자만 회신해 주시면 바로 다음 단계로 진행합니다.</p>
+  <p style="margin-top:18px">어떤 보고서를 받으시는지 미리 보실 수 있도록 샘플을 준비했습니다.<br>
+  <a href="${sample}" style="color:#2a66d9">▶ 모의해킹 보고서 샘플 보기</a></p>
+  <p style="color:#888;margin-top:20px">비젼솔루션 · 문의 biztalktome@gmail.com</p>
+  </div>`
+  await transporter.sendMail({
+    from: `VISIONC 진단팀 <${env.GMAIL_USER}>`,
+    to: email,
+    subject: "[VISIONC] 모의해킹 진단 안내 — 진행 절차와 보고서 샘플",
+    html,
+  })
+}
