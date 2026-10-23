@@ -607,6 +607,27 @@ export default async function BlogPostPage({ params }: PageProps) {
           dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
 
+        {/* 모의해킹 결제 배너 — pentest 글 전용 (레피드 상품으로 바로 결제) */}
+        {slug.startsWith('pentest-') && (
+          <a
+            href="https://www.latpeed.com/products/s0C5W"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-16 block rounded-xl p-7 md:p-8 text-center text-white transition-transform hover:-translate-y-0.5"
+            style={{ background: 'linear-gradient(135deg,#0f1b2d 0%,#1b2a42 60%,#3a1a1f 100%)' }}
+          >
+            <p className="text-xs font-bold tracking-wider mb-2" style={{ color: '#ff6b5e' }}>웹사이트 보안 · 실전 진단</p>
+            <h2 className="text-xl md:text-2xl font-black mb-2">실전 모의해킹 진단, 바로 신청하기</h2>
+            <p className="text-sm mb-5" style={{ color: '#aeb9c9' }}>OWASP 주요 위협 + 워드프레스 특화 · 1~2일 · 보고서 + 조치 후 재점검</p>
+            <div className="flex items-center justify-center gap-3 mb-5">
+              <span className="text-sm line-through" style={{ color: '#7d8aa0' }}>790,000원</span>
+              <span className="text-3xl font-black">290,000<span className="text-lg font-bold" style={{ color: '#cdd6e3' }}>원</span></span>
+              <span className="text-xs" style={{ color: '#8c98ab' }}>부가세 포함</span>
+            </div>
+            <span className="inline-block font-bold px-8 py-3 rounded-xl text-white" style={{ backgroundColor: '#ff6b5e' }}>지금 신청·결제하기 →</span>
+          </a>
+        )}
+
         {/* CTA Section — auto-inserted */}
         <div className="mt-16 bg-primary/5 border border-primary/20 rounded-xl p-8 text-center">
           <h2 className="text-xl md:text-2xl font-black text-foreground mb-3">
