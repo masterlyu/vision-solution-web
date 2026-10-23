@@ -540,3 +540,41 @@ export async function sendPentestAutoReply(email: string, name: string): Promise
     html,
   })
 }
+
+// ── 레피드 선결제(예약) 결제 완료 시 고객에게 보내는 동의서·권한확인 안내(템플릿 D) ──
+export async function sendLatpeedReservation(email: string, name: string, targetUrl?: string): Promise<void> {
+  const appPass = env.GMAIL_APP_PASSWORD.replace(/\s+/g, "")
+  const transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com", port: 465, secure: true,
+    auth: { user: env.GMAIL_USER, pass: appPass },
+  })
+  const esc = (s: string) => String(s).replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c] as string))
+  const nm = esc(name || "고객")
+  const urlLine = targetUrl
+    ? `<p style="background:#f3f4f6;border-radius:6px;padding:8px 12px;font-size:13px">신청하신 점검 대상: <b>${esc(targetUrl)}</b></p>`
+    : ""
+  const html = `<div style="font-family:system-ui,sans-serif;font-size:14px;line-height:1.7;color:#222;max-width:640px">
+  <p>${nm}님, 안녕하세요. 비젼솔루션입니다.</p>
+  <p>레피드에서 모의해킹 진단을 결제해 주셔서 감사합니다. 이 결제는 진단 <b>'예약(선결제)'</b>이며, 아래 두 가지가 확인되면 진단을 시작합니다.</p>
+  ${urlLine}
+  <h3 style="margin:18px 0 6px">■ 지금 해주실 일</h3>
+  <ol style="padding-left:18px;margin:0">
+  <li>첨부한 <b>동의서</b>(면책·비밀유지 포함)와 <b>범위 합의서</b>를 확인·서명해 이 메일로 회신해 주세요.</li>
+  <li><b>점검 대상 사이트의 운영 권한 확인</b> — 대상 사이트와 같은 회사 도메인 이메일로 회신해 주시면 그 자체로 확인됩니다. 도메인 이메일이 없으시면 사이트에 올릴 확인용 파일을 안내해 드립니다.</li>
+  </ol>
+  <h3 style="margin:18px 0 6px">■ 이후</h3>
+  <p>확인이 끝나면 지정하신 일정에 진단하고, <b>48시간 내</b> 암호화 PDF 보고서(위험도·근거·조치를 쉬운 한글로, 보안 기초 해설서 5편 포함)를 보내드립니다. 보고서 전달 후 30일 이내 조치 후 2차 재점검 1회가 포함됩니다.</p>
+  <h3 style="margin:18px 0 6px">■ 환불</h3>
+  <p>진단 착수 전에는 <b>전액 환불</b>됩니다. 특히 사이트 운영 권한이 확인되지 않으면 진단을 시작하지 않고 전액 환불합니다. (무단 점검은 불법이라 반드시 권한 확인 후 시작합니다.)</p>
+  <p style="color:#888;margin-top:20px">비젼솔루션 · 문의 biztalktome@gmail.com</p></div>`
+  await transporter.sendMail({
+    from: `VISIONC 진단팀 <${env.GMAIL_USER}>`,
+    to: email,
+    subject: "[VISIONC] 모의해킹 진단 예약 확인 — 동의서·권한 확인 안내",
+    html,
+    attachments: [
+      { filename: "모의해킹_동의서.pdf", path: "https://visionc.co.kr/forms/consent.pdf" },
+      { filename: "범위_합의서.pdf", path: "https://visionc.co.kr/forms/scope_agreement.pdf" },
+    ],
+  })
+}
