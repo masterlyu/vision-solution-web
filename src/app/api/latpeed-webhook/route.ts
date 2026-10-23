@@ -63,9 +63,25 @@ export async function POST(req: NextRequest) {
   try { raw = await req.text(); payload = JSON.parse(raw) } catch { payload = raw }
 
   const deny = [String(env.GMAIL_USER).toLowerCase(), 'biztalktome@gmail.com']
-  const email = findEmail(payload, deny)
-  const name = findByKeys(payload, ['name', '이름', 'buyer', 'customer']) || '고객'
-  const targetUrl = findByKeys(payload, ['url', '사이트', '주소', 'site', 'target'])
+  const p = (payload && typeof payload === 'object') ? payload as Record<string, unknown> : {}
+  const buyer = (p.buyer ?? p.customer ?? p.orderer) as Record<string, unknown> | undefined
+  const bEmail = buyer && typeof buyer.email === 'string' ? buyer.email : null
+  const bName = buyer && typeof buyer.name === 'string' ? buyer.name : null
+  // 이메일: buyer.email 우선, 없으면 재귀 탐색(우리 발송계정 제외)
+  const email = (bEmail && !deny.includes(bEmail.toLowerCase()) ? bEmail : null) || findEmail(payload, deny)
+  // 이름: buyer.name 우선(product.name 을 잘못 잡지 않도록)
+  const name = bName || findByKeys(buyer ?? {}, ['name', '이름']) || '고객'
+  // 대상 URL: answers[{question,answer}] 에서 질문 텍스트/URL 형태로 찾기
+  let targetUrl: string | null = null
+  const answers = p.answers
+  if (Array.isArray(answers)) {
+    for (const a of answers as Array<Record<string, unknown>>) {
+      const q = typeof a?.question === 'string' ? a.question : ''
+      const ans = typeof a?.answer === 'string' ? a.answer.trim() : ''
+      if (ans && (/url|사이트|주소|site|대상/i.test(q) || /https?:\/\//i.test(ans))) { targetUrl = ans; break }
+    }
+  }
+  if (!targetUrl) targetUrl = findByKeys(payload, ['url', '사이트', '주소', 'site', 'target'])
   const rawStr = (raw || JSON.stringify(payload) || '').slice(0, 2500)
 
   const paidSig = /결제\s*완료|결제완료|payment[_\s-]?complete|\bpaid\b|purchased|order[_\s-]?complete/i.test(rawStr)
