@@ -607,8 +607,8 @@ export default async function BlogPostPage({ params }: PageProps) {
           dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
 
-        {/* 모의해킹 결제 배너 — pentest 글 전용 (레피드 상품으로 바로 결제) */}
-        {slug.startsWith('pentest-') && (
+        {/* 레피드 결제 배너 — 보안 관련 글 전용(태그에 '보안' 포함 또는 보안 slug) */}
+        {(slug.startsWith('pentest-') || (post.tag && post.tag.includes('보안')) || /php|cve|security|hack|취약|해킹/i.test(slug)) && (
           <a
             href="https://www.latpeed.com/products/s0C5W"
             target="_blank"
