@@ -57,7 +57,7 @@ TeamUpdraft의 UpdraftCentral을 쓰면 여러 워드프레스 사이트를 한�
 
 ### 2단계: UpdraftPlus 즉시 업데이트
 - **UpdraftPlus를 최신 버전(1.26.13 이상 또는 2.26.13 이상)으로 업데이트하세요**
-- 2026년 10월 18일 오후 10시(영국 시간) 이전의 UpdraftCentral 연결이 자동으로 끊깁니다
+- 이 최신 버전은 2026년 10월 18일 오후 1시 7분(영국 시간, BST) 이전에 만들어진 UpdraftCentral 연결을 자동으로 끊어 줍니다
 - 이것만 해도 오래된 탈취 키의 작동을 막을 수 있습니다
 
 ### 3단계: UpdraftCentral 재인증
@@ -114,6 +114,8 @@ UpdraftCentral을 사용 중이라면:
 - 작은 의심도 무시하지 마세요. 모르는 관리자 계정, 낯선 플러그인, 이상한 동작이 하나라도 보이면 즉시 조사하세요
 
 출처: https://thehackernews.com/2026/10/attackers-abuse-updraftcentral-keys-to.html
+
+> **정정 안내 (2026-10-26)**: UpdraftCentral 연결 자동 차단 시각을 "2026년 10월 18일 오후 10시(영국 시간)"로 썼던 부분을 "2026년 10월 18일 오후 1시 7분(영국 시간, BST)"으로 고쳤습니다. 오후 10시는 패치 배포 시각(10월 19일)과 혼동한 것이었고, 실제 연결 차단 기준 시각은 TeamUpdraft 공지에 적힌 10월 18일 13:07 BST입니다. ([출처: TeamUpdraft 공지](https://teamupdraft.com/blog/security-incident-october-2026/))
 
 ---
 
