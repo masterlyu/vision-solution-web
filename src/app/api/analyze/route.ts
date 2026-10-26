@@ -4,6 +4,7 @@ import { env } from '@/lib/env'
 import { reportError } from '@/lib/errorReporter'
 import { checkRateLimit, getClientId } from '@/lib/rateLimit'
 import { escapeHtml, isEmail, isFreeMail } from '@/lib/inputGuard'
+import { checkCooldown, hostOf, COOLDOWN_DAYS, RESCAN_DAYS } from '@/lib/scanCooldown'
 
 const ADMIN_EMAILS = ['biztalktome@gmail.com']
 
@@ -61,6 +62,25 @@ export async function POST(req: NextRequest) {
         { error: '이메일 도메인이 스캔 대상 URL의 도메인과 일치해야 합니다. 해당 사이트의 담당자 이메일을 입력해 주세요.' },
         { status: 400 },
       )
+    }
+  }
+
+  // 도메인별 중복 점검 차단 — 같은 사이트는 COOLDOWN_DAYS일에 한 번만. (관리자 이메일은 예외)
+  if (!ADMIN_EMAILS.includes(email.toLowerCase())) {
+    const host = hostOf(url)
+    const cd = await checkCooldown(host)
+    if (cd.blocked) {
+      return NextResponse.json({
+        ok: true,
+        cooldown: true,
+        daysAgo: cd.daysAgo,
+        host,
+        message:
+          `${cd.daysAgo}일 전에 ${host} 사이트를 이미 점검했습니다. ` +
+          `중복 점검을 막기 위해 같은 사이트는 ${COOLDOWN_DAYS}일에 한 번만 점검할 수 있습니다. ` +
+          `지난 진단 결과는 신청하신 이메일로 보내 드렸으니 확인해 주세요. ` +
+          `점검은 ${RESCAN_DAYS}일마다 다시 받아보시길 권장하며, 상시 자동 점검이 필요하시면 정기 모니터링(월 구독)을 이용해 주세요.`,
+      })
     }
   }
 

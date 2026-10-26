@@ -22,11 +22,12 @@ export default function UrlAnalysisForm({ serviceType, title, notice, embedded =
   const [email, setEmail]     = useState('')
   const [company, setCompany] = useState('')
   const [agreed, setAgreed]   = useState(false)
-  const [step, setStep]       = useState<'form' | 'analyzing' | 'done' | 'error'>('form')
+  const [step, setStep]       = useState<'form' | 'analyzing' | 'done' | 'error' | 'cooldown'>('form')
   const [progress, setProgress] = useState(0)
   const [grade, setGrade]     = useState('')
   const [total, setTotal]     = useState(0)
   const [errorMsg, setErrorMsg] = useState('')
+  const [cooldownMsg, setCooldownMsg] = useState('')
 
   const inputCls = "w-full bg-secondary border-2 border-primary/50 rounded-xl px-5 py-4 text-foreground text-[1.05rem] placeholder:text-foreground/45 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all"
 
@@ -91,6 +92,12 @@ export default function UrlAnalysisForm({ serviceType, title, notice, embedded =
       }
       const data = await res.json()
       setProgress(100)
+      if (data.cooldown) {
+        setCooldownMsg(data.message || '최근에 이미 점검한 사이트입니다. 잠시 후 다시 신청해 주세요.')
+        await new Promise(r => setTimeout(r, 300))
+        setStep('cooldown')
+        return
+      }
       setGrade(data.grade ?? '')
       setTotal(data.total ?? 0)
       await new Promise(r => setTimeout(r, 400))
@@ -134,6 +141,23 @@ export default function UrlAnalysisForm({ serviceType, title, notice, embedded =
         </div>
       </div>
       <p className="text-muted-foreground text-xs">인증 이메일 발송 중... 잠시만 기다려 주세요</p>
+    </div>
+  )
+
+  // ── Cooldown (최근 점검 이력 있음) ──
+  if (step === 'cooldown') return (
+    <div className="bg-card border border-border rounded-xl p-8 text-center space-y-5">
+      <div className="w-16 h-16 rounded-full bg-[var(--accent-amber)]/10 border border-[var(--accent-amber)]/20 flex items-center justify-center mx-auto">
+        <Shield className="w-8 h-8 text-[var(--accent-amber)]" />
+      </div>
+      <div>
+        <h3 className="text-foreground font-bold text-xl mb-2">최근에 이미 점검한 사이트예요</h3>
+        <p className="text-muted-foreground text-sm leading-relaxed">{cooldownMsg}</p>
+      </div>
+      <button onClick={() => { setStep('form'); setUrl(''); setEmail(''); setCompany(''); setCooldownMsg('') }}
+        className="text-primary text-sm hover:underline">
+        다른 사이트 진단하기 →
+      </button>
     </div>
   )
 
