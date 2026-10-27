@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { env } from '@/lib/env'
 import { sendLatpeedReservation } from '@/lib/emailSender'
-import { Redis } from '@upstash/redis'
 
 export const runtime = 'nodejs'
 
@@ -101,8 +100,8 @@ export async function POST(req: NextRequest) {
     `결제완료 추정: ${isPaid ? (isPentest ? 'Y → D메일 자동발송 시도' : 'Y → 모의해킹 외 상품, 안내 메일 수동 발송') : 'N(취소/기타) → 수동 확인'}\n\n[payload]\n${rawStr}`
   )
 
-  // 주문 원장(2026-10-27) — Vercel 에서 오라클로 들어가는 길이 없어서, Upstash 보관함에 넣고 오라클이 5분마다 가져간다
-  // (oracle-scripts security_orders_pull.py). 오라클이 꺼져 있어도 주문은 보관함에 남는다. 실패해도 웹훅은 200.
+  // 주문 원장(2026-10-27) — 미니PC Cloudflare 터널 hooks.visionc.co.kr → 오라클 대시보드 /api/security/orders(주문 창구 하나만 열림).
+  // 장비가 꺼져 있으면 기록되지 않으므로 실패는 텔레그램 「수동 등록 필요」로 알린다. 웹훅 응답은 그래도 200.
   if (isPaid || cancelSig) {
     const order = (p.order ?? p.payment) as Record<string, unknown> | undefined
     const opt = (p.option ?? p.selectedOption) as Record<string, unknown> | undefined
@@ -110,17 +109,24 @@ export async function POST(req: NextRequest) {
     const externalId = String(pick(p.orderId, p.order_id, order?.id, p.paymentId, p.payment_id, p.id) ??
       `raw-${email ?? ''}-${productName}-${targetUrl ?? ''}-${new Date().toISOString().slice(0, 10)}`)
     try {
-      if (!env.UPSTASH_REDIS_REST_URL || !env.UPSTASH_REDIS_REST_TOKEN) throw new Error('Upstash 설정 없음')
-      const redis = new Redis({ url: env.UPSTASH_REDIS_REST_URL, token: env.UPSTASH_REDIS_REST_TOKEN })
-      await redis.rpush('security:orders:inbox', JSON.stringify({
-        event: isPaid ? 'paid' : 'cancel', externalId, productName,
-        optionName: pick(opt?.name, p.optionName) ?? null,
-        amount: pick(p.amount, p.price, order?.amount, order?.price) ?? null,
-        email, name, phone: pick(buyer?.phone, buyer?.phoneNumber) ?? null, targetUrl,
-        receivedAt: new Date().toISOString(), raw: payload,
-      }))
+      const hook = process.env.ORDERS_HOOK_URL
+      if (!hook || !process.env.ORDERS_HOOK_TOKEN) throw new Error('ORDERS_HOOK_URL·TOKEN 설정 없음')
+      const r = await fetch(`${hook}/api/security/orders`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-internal-token': process.env.ORDERS_HOOK_TOKEN },
+        body: JSON.stringify({
+          event: isPaid ? 'paid' : 'cancel', externalId, productName,
+          optionName: pick(opt?.name, p.optionName) ?? null,
+          amount: pick(p.amount, p.price, order?.amount, order?.price) ?? null,
+          email, name, phone: pick(buyer?.phone, buyer?.phoneNumber) ?? null, targetUrl, raw: payload,
+        }),
+        signal: AbortSignal.timeout(10000),
+      })
+      const j = await r.json().catch(() => ({}))
+      if (!r.ok) throw new Error(`${r.status} ${JSON.stringify(j).slice(0, 150)}`)
+      if (j.product === 'other') await tg(`⚠ 주문 원장: 상품을 못 가렸습니다(주문 #${j.orderId}) — 대시보드에서 확인`)
     } catch (e) {
-      await tg(`⚠ 주문 원장 보관함 기록 실패 — 수동 등록 필요: ${String(e).slice(0, 200)}`)
+      await tg(`⚠ 주문 원장 기록 실패 — 수동 등록 필요: ${String(e).slice(0, 200)}`)
     }
   }
 
