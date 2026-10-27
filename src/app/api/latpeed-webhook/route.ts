@@ -83,19 +83,24 @@ export async function POST(req: NextRequest) {
   }
   if (!targetUrl) targetUrl = findByKeys(payload, ['url', '사이트', '주소', 'site', 'target'])
   const rawStr = (raw || JSON.stringify(payload) || '').slice(0, 2500)
+  // 상품 구분(2026-10-27) — 보호막 설치·보안 월 관리 상품이 생겨, 모의해킹 동의서(D)는 모의해킹 상품에만 보낸다
+  const prod = (p.product ?? p.item) as Record<string, unknown> | undefined
+  const productName = (prod && typeof prod.name === 'string' ? prod.name : null)
+    || (typeof p.productName === 'string' ? p.productName : null) || findByKeys(prod ?? {}, ['name', 'title']) || ''
+  const isPentest = productName ? /모의해킹/.test(productName) : /모의해킹/.test(rawStr)
 
   const paidSig = /결제\s*완료|결제완료|payment[_\s-]?complete|\bpaid\b|purchased|order[_\s-]?complete/i.test(rawStr)
   const cancelSig = /취소|cancel|refund|환불|해지|실패/i.test(rawStr)
   const isPaid = paidSig && !cancelSig
 
   await tg(
-    `🛒 레피드 모의해킹 주문/이벤트\n` +
+    `🛒 레피드 주문/이벤트 — ${productName || '(상품명 못 찾음)'}\n` +
     `이메일: ${email || '(payload에서 못 찾음 — 수동 확인)'}\n` +
     `이름: ${name}\n대상: ${targetUrl || '(미기재)'}\n` +
-    `결제완료 추정: ${isPaid ? 'Y → D메일 자동발송 시도' : 'N(취소/기타) → 수동 확인'}\n\n[payload]\n${rawStr}`
+    `결제완료 추정: ${isPaid ? (isPentest ? 'Y → D메일 자동발송 시도' : 'Y → 모의해킹 외 상품, 안내 메일 수동 발송') : 'N(취소/기타) → 수동 확인'}\n\n[payload]\n${rawStr}`
   )
 
-  if (isPaid && email) {
+  if (isPaid && email && isPentest) {
     try {
       await sendLatpeedReservation(email, name, targetUrl || undefined)
       await tg(`✉️ 동의서·권한확인 안내(D) 자동발송 완료 → ${email}`)
