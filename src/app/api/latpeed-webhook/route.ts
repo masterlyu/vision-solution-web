@@ -100,6 +100,34 @@ export async function POST(req: NextRequest) {
     `결제완료 추정: ${isPaid ? (isPentest ? 'Y → D메일 자동발송 시도' : 'Y → 모의해킹 외 상품, 안내 메일 수동 발송') : 'N(취소/기타) → 수동 확인'}\n\n[payload]\n${rawStr}`
   )
 
+  // 주문 원장에 기록(2026-10-27) — 오라클 대시보드 /api/security/orders. 실패해도 웹훅은 200(레피드 재전송 폭주 방지), 텔레그램으로 알린다
+  const dash = process.env.DASHBOARD_INTERNAL_URL
+  if (dash && (isPaid || cancelSig)) {
+    const order = (p.order ?? p.payment) as Record<string, unknown> | undefined
+    const opt = (p.option ?? p.selectedOption) as Record<string, unknown> | undefined
+    const pick = (...v: unknown[]) => v.find(x => (typeof x === 'string' && x) || typeof x === 'number')
+    const externalId = String(pick(p.orderId, p.order_id, order?.id, p.paymentId, p.payment_id, p.id) ??
+      `raw-${email ?? ''}-${productName}-${targetUrl ?? ''}-${new Date().toISOString().slice(0, 10)}`)
+    try {
+      const r = await fetch(`${dash}/api/security/orders`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-internal-token': process.env.VISIONC_INTERNAL_TOKEN ?? '' },
+        body: JSON.stringify({
+          event: isPaid ? 'paid' : 'cancel', externalId, productName,
+          optionName: pick(opt?.name, p.optionName) ?? null,
+          amount: pick(p.amount, p.price, order?.amount, order?.price) ?? null,
+          email, name, phone: pick(buyer?.phone, buyer?.phoneNumber) ?? null, targetUrl, raw: payload,
+        }),
+        signal: AbortSignal.timeout(8000),
+      })
+      const j = await r.json().catch(() => ({}))
+      if (!r.ok) throw new Error(`${r.status} ${JSON.stringify(j).slice(0, 150)}`)
+      if (j.product === 'other') await tg(`⚠ 주문 원장: 상품을 못 가렸습니다(주문 #${j.orderId}) — 대시보드에서 확인`)
+    } catch (e) {
+      await tg(`⚠ 주문 원장 기록 실패 — 수동 등록 필요: ${String(e).slice(0, 200)}`)
+    }
+  }
+
   if (isPaid && email && isPentest) {
     try {
       await sendLatpeedReservation(email, name, targetUrl || undefined)
