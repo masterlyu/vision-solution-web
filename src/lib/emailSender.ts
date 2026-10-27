@@ -434,6 +434,7 @@ export async function sendReportEmail(
 
   await transporter.sendMail({
     from: mailFrom('VISIONC 진단팀'),
+    replyTo: env.MAIL_REPLY_TO,
     to: email,
     subject: `[VISIONC] ${domain} 보안 진단 리포트 (등급 ${result.score.grade} / ${result.score.total}점)`,
     html,
@@ -502,6 +503,7 @@ export async function sendVerificationEmail(
 
   await transporter.sendMail({
     from: mailFrom('VISIONC 진단팀'),
+    replyTo: env.MAIL_REPLY_TO,
     to: email,
     subject: `[VISIONC] ${domain} 보안 진단 — 도메인 소유자 인증 필요`,
     html: buildVerificationEmailHtml(domain, targetUrl, verifyUrl),
@@ -537,6 +539,7 @@ export async function sendPentestAutoReply(email: string, name: string): Promise
   <p style="color:#888;margin-top:20px">비젼솔루션 · 문의 biztalktome@gmail.com</p></div>`
   await transporter.sendMail({
     from: mailFrom('VISIONC 진단팀'),
+    replyTo: env.MAIL_REPLY_TO,
     to: email,
     subject: "[VISIONC] 모의해킹 진단 안내 — 진행 절차와 보고서 샘플",
     html,
@@ -567,6 +570,7 @@ export async function sendLatpeedReservation(email: string, name: string, target
   <p style="color:#888;margin-top:20px">비젼솔루션 · 문의 biztalktome@gmail.com</p></div>`
   await transporter.sendMail({
     from: mailFrom('VISIONC 진단팀'),
+    replyTo: env.MAIL_REPLY_TO,
     to: email,
     subject: "[VISIONC] 모의해킹 진단 예약 확인 — 동의서·권한 확인 안내",
     html,

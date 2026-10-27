@@ -24,6 +24,7 @@ const envSchema = z.object({
   SMTP_PASS: z.string().optional().default(''),
   // 발신 주소(전용 도메인) — 예: "diag@visionc.co.kr". 비어 있으면 GMAIL_USER 사용.
   MAIL_FROM: z.string().optional().default(''),
+  MAIL_REPLY_TO: z.string().optional().default('biztalktome@gmail.com'),   // 고객 답장은 사령관 Gmail 로(2026-10-27)
 
   // Telegram 웹훅 보안 — setWebhook() 호출 시 secret_token과 동일한 값으로 설정 (권장)
   TELEGRAM_WEBHOOK_SECRET: z.string().optional(),
