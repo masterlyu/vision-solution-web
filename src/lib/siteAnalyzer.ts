@@ -582,7 +582,7 @@ export async function analyzeUrl(rawUrl: string): Promise<AnalysisResult> {
     else if (performance.available && perfScore < 75) items.push({ name: '속도 개선', priceRange: '50만원~80만원', reason: `PageSpeed ${perfScore}점 — 개선 여지 있음` })
     if (seoScore < 60) items.push({ name: 'SEO 개선', priceRange: '30만원~70만원', reason: `SEO 항목 ${seoIssues.length}개 미비` })
   }
-  if (items.length === 0) items.push({ name: '정기 유지보수 계약', priceRange: '월 10만원~20만원', reason: '현재 상태 양호 — 정기 모니터링 권장' })
+  if (items.length === 0) items.push({ name: '보안 월 관리 (6·12개월)', priceRange: '월 19만원', reason: '현재 상태 양호 — 정기 재진단 권장' })
 
   return {
     url, analyzedAt, ssl, headers, cookie, cors, emailSec, sensitiveFiles,

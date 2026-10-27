@@ -304,7 +304,7 @@ const securityPricing = [
   {
     nameShort: 'D 구독',
     name: '패키지 D — 보안 월 관리',
-    price: '₩299,000/월',
+    price: '월 ₩190,000',
     highlight: false,
     badge: '월정액' as const,
     target: '보안 담당자가 따로 없는 회사 (패키지 A 설치 사이트)',
@@ -325,7 +325,8 @@ const securityPricing = [
       '보호막 설정 조정',
       '새 취약점 대응 방법 안내',
       '급한 문제 접수 시 영업일 이틀 안 첫 연락·조치 계획',
-      '언제든 해지 — 해지해도 보호막은 그대로 작동',
+      '6개월 또는 12개월 단위 (12개월은 보호막 설치 무료)',
+      '해지해도 보호막은 고객님 이름으로 그대로 작동',
     ],
   },
 
@@ -883,7 +884,7 @@ export default function SecurityPage() {
                     ['A', '보호막 설치',      '₩299,000',   '사이트 앞 보호막·HTTPS·노출 경로 차단'],
                     ['B', '표준 보안 강화',    '₩799,000',   'A + XSS·SQLi·CORS 코드 패치'],
                     ['C', '심층 진단 + 수정',  '₩1,990,000', 'B + WAF·Rate Limit + 코드 리뷰'],
-                    ['D', '보안 월 관리',     '₩299,000/월','월 1회 재진단 + 새 취약점 알림'],
+                    ['D', '보안 월 관리',     '월 ₩190,000','6·12개월, 월 재진단 + 새 취약점 알림'],
                   ].map(([pkg, name, price, desc]) => (
                     <div key={pkg} className="flex items-center gap-2 text-xs">
                       <span className="w-5 h-5 rounded bg-[var(--accent-amber)]/20 text-[var(--accent-amber)] font-bold flex items-center justify-center shrink-0 text-[10px]">{pkg}</span>
