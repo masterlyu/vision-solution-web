@@ -213,32 +213,33 @@ const empathyItems = [
 
 const securityPricing = [
   {
-    nameShort: 'A 보호막',
-    name: '패키지 A — 홈페이지 보호막 설치',
+    nameShort: 'A 기본',
+    name: '패키지 A — 보안 위생 패치',
     price: '₩299,000',
     highlight: false,
     badge: null as null,
-    target: '만든 업체와 연락이 끊긴 사이트, 도메인 계정만 있는 사이트',
+    target: '기본 보안 설정이 안 된 소규모 홈페이지',
     reportType: 'auto' as const,
     coreItems: [
-      '사이트 앞에 보호막(Cloudflare) 연결 — 사이트 파일·코드는 그대로',
-      '언제나 자물쇠(HTTPS) 주소로 열리게',
-      '관리자 화면·백업 파일 같은 노출 경로 차단',
-      '비밀번호 대입 같은 과도한 접속 차단',
+      '자물쇠·HTTPS 보안 등급 강화 (SSL/TLS)',
+      '보안 헤더 13종 일괄 설정 (HSTS·CSP·XFO 등)',
+      '쿠키·세션 보안 속성 추가 (HttpOnly·SameSite)',
+      '관리자 페이지 URL 변경 및 접근 제한',
     ],
     checkItems: [
-      '도메인 등록처·호스팅 찾기 (모르셔도 됩니다)',
-      '보호막을 연결할 수 있는 사이트인지 확인',
-      'HTTPS·보안 설정 현재 점수',
+      'HTTPS·SSL/TLS A등급 설정',
+      '보안 헤더 13종 일괄 적용 (HSTS·CSP·XFO 등)',
+      '쿠키 보안 플래그 (HttpOnly·Secure·SameSite)',
+      'X-Powered-By·Server 헤더 노출 제거',
+      '관리자 페이지 URL 변경 및 접근 제한',
     ],
     fixItems: [
-      '보호막 연결·설정 (고객님 이름의 무료 계정)',
-      '브라우저 보안 설정 일괄 적용',
-      '연결 전후 사이트 정상 확인, 문제 생기면 바로 원상 복구',
-      '설치 전후 점수 비교 결과 메일 발송',
+      'HTTPS 인증서 설치 + 강제 전환',
+      '보안 헤더 13종 서버 일괄 적용',
+      '쿠키 보안 속성 전체 추가',
+      '서버 정보 은닉 설정',
     ],
   },
-
   {
     nameShort: 'B 표준',
     name: '패키지 B — 표준 보안 강화',
@@ -279,13 +280,13 @@ const securityPricing = [
     reportType: 'manual' as const,
     coreItems: [
       '패키지 B 전체 포함',
-      '방화벽 + 과도한 요청 차단 (WAF·Rate Limit)',
-      '모의해킹 점검 33개 항목',
+      '방화벽 + 무제한 공격 차단 시스템 (WAF·Rate Limit)',
+      '모의해킹 전수 점검 33개 항목',
       '전문가 코드 리뷰 + 재진단 1회 무료',
     ],
     checkItems: [
       '패키지 B 전체 포함',
-      '방화벽 + 과도한 요청 차단 점검 (WAF·Rate Limiting)',
+      '방화벽 + 무제한 공격 차단 탐지 (WAF·Rate Limiting)',
       '서브도메인 탈취·에러 정보 노출·Mixed Content 점검',
       'CMS 보안 취약점 점검 (WordPress·Joomla·Drupal 등)',
       '요청 조작·캐시 오염 탐지 (HTTP 스머글링·캐시 포이즈닝)',
@@ -303,33 +304,31 @@ const securityPricing = [
   },
   {
     nameShort: 'D 구독',
-    name: '패키지 D — 보안 월 관리',
-    price: '월 ₩190,000',
+    name: '패키지 D — 정기 모니터링',
+    price: '₩299,000/월',
     highlight: false,
     badge: '월정액' as const,
-    target: '보안 담당자가 따로 없는 회사 (패키지 A 설치 사이트)',
+    target: '상시 보안 관리가 필요한 운영 사이트',
     reportType: 'manual' as const,
     coreItems: [
-      '월 1회 전체 재진단 + 지난달 대비 보고서',
-      '새 취약점이 내 사이트에 해당하면 바로 알림',
-      '보호막 설정·차단 기록 점검',
-      '급한 문제는 영업일 이틀 안 첫 연락',
+      '월 1회 13개 항목 자동 전체 스캔',
+      '새 취약점 발견 즉시 알림 (텔레그램)',
+      '월간 보안 현황 리포트 발송',
+      '긴급 이슈 48시간 내 패치 지원',
     ],
     checkItems: [
-      '월 1회 전체 재진단',
-      '지난달 대비 점수 변화',
-      '보호막 차단 기록',
-      '사이트가 쓰는 플러그인의 새 취약점 소식',
+      '월 1회 13개 항목 전체 자동 스캔',
+      '새 취약점 발견 즉시 알림 (텔레그램)',
+      '전월 대비 보안 점수 변화 추적',
+      '월간 보안 현황 리포트 발송',
     ],
     fixItems: [
-      '보호막 설정 조정',
-      '새 취약점 대응 방법 안내',
-      '급한 문제 접수 시 영업일 이틀 안 첫 연락·조치 계획',
-      '6개월 또는 12개월 단위 (12개월은 보호막 설치 무료)',
-      '해지해도 보호막은 고객님 이름으로 그대로 작동',
+      '긴급 이슈 48시간 내 패치 지원',
+      '신규 취약점 발견 시 즉시 대응',
+      '연간 계약 시 1개월 무료',
+      '전담 보안 담당자 배정',
     ],
   },
-
 ]
 
 // ── SecurityHeroIllust ─────────────────────────────────────────────────────
@@ -881,10 +880,10 @@ export default function SecurityPage() {
                 <p className="text-[var(--accent-amber)] text-xs font-bold mb-2"><Briefcase size={12} className="inline align-middle mr-1" />수정까지 원하신다면? 4가지 패키지</p>
                 <div className="space-y-1.5 mb-3">
                   {[
-                    ['A', '보호막 설치',      '₩299,000',   '사이트 앞 보호막·HTTPS·노출 경로 차단'],
+                    ['A', '보안 위생 패치',    '₩299,000',   '헤더·SSL·쿠키 설정 수정'],
                     ['B', '표준 보안 강화',    '₩799,000',   'A + XSS·SQLi·CORS 코드 패치'],
                     ['C', '심층 진단 + 수정',  '₩1,990,000', 'B + WAF·Rate Limit + 코드 리뷰'],
-                    ['D', '보안 월 관리',     '월 ₩190,000','6·12개월, 월 재진단 + 새 취약점 알림'],
+                    ['D', '정기 모니터링',     '₩299,000/월','월 1회 자동 스캔 + 즉시 알림'],
                   ].map(([pkg, name, price, desc]) => (
                     <div key={pkg} className="flex items-center gap-2 text-xs">
                       <span className="w-5 h-5 rounded bg-[var(--accent-amber)]/20 text-[var(--accent-amber)] font-bold flex items-center justify-center shrink-0 text-[10px]">{pkg}</span>

@@ -3,7 +3,6 @@ import { analyzeUrl } from '@/lib/siteAnalyzer'
 import { generatePdfBuffer } from '@/lib/pdfReport'
 import { sendReportEmail } from '@/lib/emailSender'
 import { env } from '@/lib/env'
-import { markScanned, hostOf, RESCAN_DAYS } from '@/lib/scanCooldown'
 
 export const maxDuration = 60
 
@@ -49,12 +48,6 @@ export async function POST(req: NextRequest) {
     const pdfBuffer = await generatePdfBuffer(result, email, company)
     await sendReportEmail(result, pdfBuffer, email, company)
 
-    // 도메인 마지막 점검시각 기록(중복 차단·재점검 주기 관리). 반환=직전 점검 경과일(없으면 null).
-    const prevDays = await markScanned(hostOf(result.url))
-    const rescanNote = prevDays == null
-      ? `🔁 최초 점검 · 다음 권장 재점검 ${RESCAN_DAYS}일 후`
-      : `🔁 직전 점검 ${prevDays}일 전 · 다음 권장 재점검 ${RESCAN_DAYS}일 후`
-
     const TBOT  = env.TELEGRAM_BOT_TOKEN
     const TCHAT = env.TELEGRAM_CHAT_ID
     const g: Record<string, string> = { A: '🟢', B: '🟡', C: '🟠', D: '🔴', F: '⛔' }
@@ -73,7 +66,6 @@ export async function POST(req: NextRequest) {
           `📧 ${email}${company ? `  ·  ${company}` : ''}`,
           `📊 ${result.score.total}점 (등급 ${result.score.grade})`,
           highMissing.length > 0 ? `🚨 HIGH: ${highMissing.join(', ')}` : `✅ HIGH 위험 없음`,
-          rescanNote,
         ].join('\n'),
         parse_mode: 'HTML',
       }),

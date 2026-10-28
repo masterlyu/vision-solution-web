@@ -10,21 +10,10 @@ const envSchema = z.object({
   UPSTASH_REDIS_REST_URL: z.string().default(''),
   UPSTASH_REDIS_REST_TOKEN: z.string().default(''),
 
-  // Gmail — 전용 발송서비스(SMTP) 미설정 시 폴백 발신 경로
+  // Gmail — 고객에게 PDF 리포트 이메일 발송
   // 빌드 시에는 불필요 (기본값 빈 문자열), 런타임 API 호출 시 필수
   GMAIL_USER: z.string().default(''),
   GMAIL_APP_PASSWORD: z.string().default(''),
-
-  // 전용 발송서비스 SMTP — 설정 시 모든 메일을 이 경로로 발송 (Gmail 일일 한도·스팸 회피)
-  // Resend/SES/SendGrid/Postmark 등 어떤 ESP든 SMTP 엔드포인트를 지원한다.
-  // SMTP_HOST 가 비어 있으면 자동으로 Gmail 폴백 — 설정 전까지 동작 불변.
-  SMTP_HOST: z.string().optional().default(''),
-  SMTP_PORT: z.coerce.number().optional().default(587),
-  SMTP_USER: z.string().optional().default(''),
-  SMTP_PASS: z.string().optional().default(''),
-  // 발신 주소(전용 도메인) — 예: "diag@visionc.co.kr". 비어 있으면 GMAIL_USER 사용.
-  MAIL_FROM: z.string().optional().default(''),
-  MAIL_REPLY_TO: z.string().optional().default('biztalktome@gmail.com'),   // 고객 답장은 사령관 Gmail 로(2026-10-27)
 
   // Telegram 웹훅 보안 — setWebhook() 호출 시 secret_token과 동일한 값으로 설정 (권장)
   TELEGRAM_WEBHOOK_SECRET: z.string().optional(),

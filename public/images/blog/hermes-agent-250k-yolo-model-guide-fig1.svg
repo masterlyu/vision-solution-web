@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">두뇌(모델)에 따라 일을 해내는 힘이 달라진다는 가이드 평가</text>
+  <text x="40" y="80" font-size="14" fill="#1f2937">클로드·GPT-5 등 상위 API</text>
+  <rect x="270" y="62" width="400" height="26" rx="6" fill="#0f766e"/>
+  <text x="682" y="81" font-size="14" font-weight="700" fill="#0f766e">매우 좋음</text>
+  <text x="40" y="130" font-size="14" fill="#1f2937">GLM-5 · MiniMax M2.7</text>
+  <rect x="270" y="112" width="400" height="26" rx="6" fill="#06b6d4"/>
+  <text x="682" y="131" font-size="14" font-weight="700" fill="#0891b2">매우 좋음</text>
+  <text x="40" y="180" font-size="14" fill="#1f2937">내 PC의 Gemma · Qwen</text>
+  <rect x="270" y="162" width="270" height="26" rx="6" fill="#22d3ee"/>
+  <text x="552" y="181" font-size="14" font-weight="700" fill="#0891b2">좋음</text>
+  <text x="40" y="230" font-size="14" fill="#1f2937">내 PC의 작은 모델 (80억 개 이하)</text>
+  <rect x="270" y="212" width="110" height="26" rx="6" fill="#cbd5e1"/>
+  <text x="392" y="231" font-size="14" font-weight="700" fill="#dc2626">나쁨 · 대화용</text>
+  <text x="40" y="276" font-size="12" fill="#6b7280">출처: Hermes Atlas 가이드(제3자 평가, 공식 시험 결과 아님) · 도구 호출 = AI가 파일을 열고 명령을 실행하는 능력</text>
+</svg>

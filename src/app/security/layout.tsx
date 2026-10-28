@@ -3,7 +3,7 @@ import ServiceJsonLd from '@/components/ServiceJsonLd'
 import { securityFaqs } from './faqs'
 
 const title = '홈페이지 보안 진단 · 패키지 A~D'
-const description = '국내 중소기업 73%가 해킹 노출. URL 보안 셀프 점검 + 패키지 A~D (보호막 설치~보안 월 관리). PDF 리포트 자동 발송.'
+const description = '국내 중소기업 73%가 해킹 노출. URL 보안 셀프 점검 + 패키지 A~D (위생 패치~정기 모니터링). PDF 리포트 자동 발송.'
 
 export const metadata: Metadata = {
   title,

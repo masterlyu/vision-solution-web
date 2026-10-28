@@ -2,36 +2,6 @@ import nodemailer from 'nodemailer'
 import type { AnalysisResult } from './siteAnalyzer'
 import { env } from './env'
 
-// ── 메일 발송 트랜스포트 (①) ──
-// SMTP_HOST 가 설정되면 전용 발송서비스(Resend/SES/SendGrid 등)로 보내고,
-// 없으면 기존 Gmail 로 폴백한다 — 설정 전까지 동작은 완전히 동일.
-function mailTransport() {
-  if (env.SMTP_HOST) {
-    return nodemailer.createTransport({
-      host: env.SMTP_HOST,
-      port: env.SMTP_PORT,
-      secure: env.SMTP_PORT === 465,
-      auth: env.SMTP_USER ? { user: env.SMTP_USER, pass: env.SMTP_PASS } : undefined,
-    })
-  }
-  return nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    auth: { user: env.GMAIL_USER, pass: env.GMAIL_APP_PASSWORD.replace(/\s+/g, '') },
-  })
-}
-
-// 발신 주소 — 전용 도메인(MAIL_FROM)이 있으면 그것, 없으면 Gmail 계정.
-function mailFrom(label: string): string {
-  return `${label} <${env.MAIL_FROM || env.GMAIL_USER}>`
-}
-
-// 발송 경로가 하나라도 설정됐는지.
-function mailReady(): boolean {
-  return Boolean(env.SMTP_HOST || (env.GMAIL_USER && env.GMAIL_APP_PASSWORD))
-}
-
 function gradeColor(_g: string) {
   return '#ffffff'
 }
@@ -410,12 +380,20 @@ export function buildEmailHtml(r: AnalysisResult, email: string, company?: strin
 }
 
 export async function sendAdminNotification(subject: string, html: string): Promise<void> {
-  if (!mailReady()) return
-  const transporter = mailTransport()
+  const gmailUser = env.GMAIL_USER
+  const appPass = env.GMAIL_APP_PASSWORD.replace(/\s+/g, '')
+  if (!gmailUser || !appPass) return
+
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
+    auth: { user: gmailUser, pass: appPass },
+  })
 
   await transporter.sendMail({
-    from: mailFrom('VISIONC 알림'),
-    to: env.GMAIL_USER,
+    from: `VISIONC 알림 <${gmailUser}>`,
+    to: gmailUser,
     subject,
     html,
   })
@@ -427,14 +405,23 @@ export async function sendReportEmail(
   email: string,
   company?: string
 ) {
-  const transporter = mailTransport()
+  // Strip spaces from app password (Google shows them as 4-char groups)
+  const appPass = env.GMAIL_APP_PASSWORD.replace(/\s+/g, '')
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
+    auth: {
+      user: env.GMAIL_USER,
+      pass: appPass,
+    },
+  })
 
   const domain = new URL(result.url).hostname
   const html = buildEmailHtml(result, email, company)
 
   await transporter.sendMail({
-    from: mailFrom('VISIONC 진단팀'),
-    replyTo: env.MAIL_REPLY_TO,
+    from: `VISIONC 진단팀 <${env.GMAIL_USER}>`,
     to: email,
     subject: `[VISIONC] ${domain} 보안 진단 리포트 (등급 ${result.score.grade} / ${result.score.total}점)`,
     html,
@@ -496,14 +483,19 @@ export async function sendVerificationEmail(
   token: string,
   baseUrl: string,
 ): Promise<void> {
-  const transporter = mailTransport()
+  const appPass = env.GMAIL_APP_PASSWORD.replace(/\s+/g, '')
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
+    auth: { user: env.GMAIL_USER, pass: appPass },
+  })
 
   const domain = (() => { try { return new URL(targetUrl).hostname } catch { return targetUrl } })()
   const verifyUrl = `${baseUrl}/security/verify?token=${token}`
 
   await transporter.sendMail({
-    from: mailFrom('VISIONC 진단팀'),
-    replyTo: env.MAIL_REPLY_TO,
+    from: `VISIONC 진단팀 <${env.GMAIL_USER}>`,
     to: email,
     subject: `[VISIONC] ${domain} 보안 진단 — 도메인 소유자 인증 필요`,
     html: buildVerificationEmailHtml(domain, targetUrl, verifyUrl),
@@ -513,7 +505,11 @@ export async function sendVerificationEmail(
 
 // 모의해킹 문의 자동 회신 — 1단계 안내(결제 정보는 진행 결정 후 2단계에서 안내)
 export async function sendPentestAutoReply(email: string, name: string): Promise<void> {
-  const transporter = mailTransport()
+  const appPass = env.GMAIL_APP_PASSWORD.replace(/\s+/g, "")
+  const transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com", port: 465, secure: true,
+    auth: { user: env.GMAIL_USER, pass: appPass },
+  })
   const nm = String(name).replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c] as string))
   const sample = "https://visionc.co.kr/pentest-sample-report.pdf"
   const html = `<div style="font-family:system-ui,sans-serif;font-size:14px;line-height:1.7;color:#222;max-width:640px">
@@ -522,7 +518,7 @@ export async function sendPentestAutoReply(email: string, name: string): Promise
   <h3 style="margin:18px 0 6px">■ 진단은 이렇게 합니다</h3>
   <p>실제 공격자가 쓰는 도구로 사이트에 실제 공격 기법을 적용해, 어떤 취약점이 있는지 찾아냅니다. OWASP 기준 주요 위협과 워드프레스 플러그인·테마·계정 취약점을 함께 점검합니다. 시스템을 바꾸거나 데이터를 건드리지 않는 <b>비파괴 방식</b>이고, <b>1~2일</b> 안에 끝납니다.</p>
   <h3 style="margin:18px 0 6px">■ 비용</h3>
-  <p><b>29만원 (부가세 포함)</b>. 1차 진단 + 조치 후 30일 이내 2차 재점검 1회 + 보고서가 모두 포함됩니다. 결제 후 하루 안에 설정을 시작하므로 결제 후에는 환불되지 않습니다(사이트 운영 권한이 확인되지 않아 진단할 수 없는 경우는 전액 환불).</p>
+  <p><b>29만원 (부가세 포함)</b>. 1차 진단 + 조치 후 30일 이내 2차 재점검 1회 + 보고서가 모두 포함됩니다. 진단 착수 전에는 전액 환불, 착수 후에는 환불이 어렵습니다(용역 특성).</p>
   <h3 style="margin:18px 0 6px">■ 진행 절차</h3>
   <ol style="padding-left:18px;margin:0">
   <li><b>문의·안내</b> (지금) — 이 안내를 보시고, 진행을 원하시면 사이트 주소와 희망 일자를 회신해 주세요.</li>
@@ -538,8 +534,7 @@ export async function sendPentestAutoReply(email: string, name: string): Promise
   <a href="${sample}" style="color:#2a66d9">▶ 모의해킹 보고서 샘플 보기</a></p>
   <p style="color:#888;margin-top:20px">비젼솔루션 · 문의 biztalktome@gmail.com</p></div>`
   await transporter.sendMail({
-    from: mailFrom('VISIONC 진단팀'),
-    replyTo: env.MAIL_REPLY_TO,
+    from: `VISIONC 진단팀 <${env.GMAIL_USER}>`,
     to: email,
     subject: "[VISIONC] 모의해킹 진단 안내 — 진행 절차와 보고서 샘플",
     html,
@@ -548,7 +543,11 @@ export async function sendPentestAutoReply(email: string, name: string): Promise
 
 // ── 레피드 선결제(예약) 결제 완료 시 고객에게 보내는 동의서·권한확인 안내(템플릿 D) ──
 export async function sendLatpeedReservation(email: string, name: string, targetUrl?: string): Promise<void> {
-  const transporter = mailTransport()
+  const appPass = env.GMAIL_APP_PASSWORD.replace(/\s+/g, "")
+  const transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com", port: 465, secure: true,
+    auth: { user: env.GMAIL_USER, pass: appPass },
+  })
   const esc = (s: string) => String(s).replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c] as string))
   const nm = esc(name || "고객")
   const urlLine = targetUrl
@@ -566,11 +565,10 @@ export async function sendLatpeedReservation(email: string, name: string, target
   <h3 style="margin:18px 0 6px">■ 이후</h3>
   <p>확인이 끝나면 지정하신 일정에 진단하고, <b>48시간 내</b> 암호화 PDF 보고서(위험도·근거·조치를 쉬운 한글로, 보안 기초 해설서 5편 포함)를 보내드립니다. 보고서 전달 후 30일 이내 조치 후 2차 재점검 1회가 포함됩니다.</p>
   <h3 style="margin:18px 0 6px">■ 환불</h3>
-  <p>결제 후 하루 안에 고객 등록과 진단 일정 설정을 시작하므로 <b>결제 후에는 환불되지 않습니다</b>(래피드 규정에 따른 구매 후 3일 이내 구매자 취소는 예외). 다만 사이트 운영 권한이 확인되지 않으면 진단을 시작하지 않고 전액 환불합니다. (무단 점검은 불법이라 반드시 권한 확인 후 시작합니다.)</p>
+  <p>진단 착수 전에는 <b>전액 환불</b>됩니다. 특히 사이트 운영 권한이 확인되지 않으면 진단을 시작하지 않고 전액 환불합니다. (무단 점검은 불법이라 반드시 권한 확인 후 시작합니다.)</p>
   <p style="color:#888;margin-top:20px">비젼솔루션 · 문의 biztalktome@gmail.com</p></div>`
   await transporter.sendMail({
-    from: mailFrom('VISIONC 진단팀'),
-    replyTo: env.MAIL_REPLY_TO,
+    from: `VISIONC 진단팀 <${env.GMAIL_USER}>`,
     to: email,
     subject: "[VISIONC] 모의해킹 진단 예약 확인 — 동의서·권한 확인 안내",
     html,

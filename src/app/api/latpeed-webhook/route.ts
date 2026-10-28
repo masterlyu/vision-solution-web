@@ -83,54 +83,19 @@ export async function POST(req: NextRequest) {
   }
   if (!targetUrl) targetUrl = findByKeys(payload, ['url', '사이트', '주소', 'site', 'target'])
   const rawStr = (raw || JSON.stringify(payload) || '').slice(0, 2500)
-  // 상품 구분(2026-10-27) — 보호막 설치·보안 월 관리 상품이 생겨, 모의해킹 동의서(D)는 모의해킹 상품에만 보낸다
-  const prod = (p.product ?? p.item) as Record<string, unknown> | undefined
-  const productName = (prod && typeof prod.name === 'string' ? prod.name : null)
-    || (typeof p.productName === 'string' ? p.productName : null) || findByKeys(prod ?? {}, ['name', 'title']) || ''
-  const isPentest = productName ? /모의해킹/.test(productName) : /모의해킹/.test(rawStr)
 
   const paidSig = /결제\s*완료|결제완료|payment[_\s-]?complete|\bpaid\b|purchased|order[_\s-]?complete/i.test(rawStr)
   const cancelSig = /취소|cancel|refund|환불|해지|실패/i.test(rawStr)
   const isPaid = paidSig && !cancelSig
 
   await tg(
-    `🛒 레피드 주문/이벤트 — ${productName || '(상품명 못 찾음)'}\n` +
+    `🛒 레피드 모의해킹 주문/이벤트\n` +
     `이메일: ${email || '(payload에서 못 찾음 — 수동 확인)'}\n` +
     `이름: ${name}\n대상: ${targetUrl || '(미기재)'}\n` +
-    `결제완료 추정: ${isPaid ? (isPentest ? 'Y → D메일 자동발송 시도' : 'Y → 모의해킹 외 상품, 안내 메일 수동 발송') : 'N(취소/기타) → 수동 확인'}\n\n[payload]\n${rawStr}`
+    `결제완료 추정: ${isPaid ? 'Y → D메일 자동발송 시도' : 'N(취소/기타) → 수동 확인'}\n\n[payload]\n${rawStr}`
   )
 
-  // 주문 원장(2026-10-27) — 미니PC Cloudflare 터널 hooks.visionc.co.kr → 오라클 대시보드 /api/security/orders(주문 창구 하나만 열림).
-  // 장비가 꺼져 있으면 기록되지 않으므로 실패는 텔레그램 「수동 등록 필요」로 알린다. 웹훅 응답은 그래도 200.
-  if (isPaid || cancelSig) {
-    const order = (p.order ?? p.payment) as Record<string, unknown> | undefined
-    const opt = (p.option ?? p.selectedOption) as Record<string, unknown> | undefined
-    const pick = (...v: unknown[]) => v.find(x => (typeof x === 'string' && x) || typeof x === 'number')
-    const externalId = String(pick(p.orderId, p.order_id, order?.id, p.paymentId, p.payment_id, p.id) ??
-      `raw-${email ?? ''}-${productName}-${targetUrl ?? ''}-${new Date().toISOString().slice(0, 10)}`)
-    try {
-      const hook = process.env.ORDERS_HOOK_URL
-      if (!hook || !process.env.ORDERS_HOOK_TOKEN) throw new Error('ORDERS_HOOK_URL·TOKEN 설정 없음')
-      const r = await fetch(`${hook}/api/security/orders`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'x-internal-token': process.env.ORDERS_HOOK_TOKEN },
-        body: JSON.stringify({
-          event: isPaid ? 'paid' : 'cancel', externalId, productName,
-          optionName: pick(opt?.name, p.optionName) ?? null,
-          amount: pick(p.amount, p.price, order?.amount, order?.price) ?? null,
-          email, name, phone: pick(buyer?.phone, buyer?.phoneNumber) ?? null, targetUrl, raw: payload,
-        }),
-        signal: AbortSignal.timeout(10000),
-      })
-      const j = await r.json().catch(() => ({}))
-      if (!r.ok) throw new Error(`${r.status} ${JSON.stringify(j).slice(0, 150)}`)
-      if (j.product === 'other') await tg(`⚠ 주문 원장: 상품을 못 가렸습니다(주문 #${j.orderId}) — 대시보드에서 확인`)
-    } catch (e) {
-      await tg(`⚠ 주문 원장 기록 실패 — 수동 등록 필요: ${String(e).slice(0, 200)}`)
-    }
-  }
-
-  if (isPaid && email && isPentest) {
+  if (isPaid && email) {
     try {
       await sendLatpeedReservation(email, name, targetUrl || undefined)
       await tg(`✉️ 동의서·권한확인 안내(D) 자동발송 완료 → ${email}`)

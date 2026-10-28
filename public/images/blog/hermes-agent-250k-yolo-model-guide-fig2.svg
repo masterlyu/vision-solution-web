@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220" width="800" height="220" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="220" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">헤르메스 승인 모드 3가지 — approvals.mode</text>
+  <rect x="40" y="66" width="220" height="110" rx="12" fill="#0f766e"/>
+  <text x="150" y="102" text-anchor="middle" font-size="18" font-weight="800" fill="#ffffff">manual</text>
+  <text x="150" y="130" text-anchor="middle" font-size="13" fill="#a7f3d0">위험한 명령마다</text>
+  <text x="150" y="150" text-anchor="middle" font-size="13" fill="#a7f3d0">사람에게 묻습니다</text>
+  <rect x="290" y="66" width="220" height="110" rx="12" fill="#0891b2"/>
+  <text x="400" y="102" text-anchor="middle" font-size="18" font-weight="800" fill="#ffffff">smart (기본값)</text>
+  <text x="400" y="130" text-anchor="middle" font-size="13" fill="#cffafe">AI가 위험도를 판단해</text>
+  <text x="400" y="150" text-anchor="middle" font-size="13" fill="#cffafe">안전한 명령만 통과</text>
+  <rect x="540" y="66" width="220" height="110" rx="12" fill="#dc2626"/>
+  <text x="650" y="102" text-anchor="middle" font-size="18" font-weight="800" fill="#ffffff">off = --yolo</text>
+  <text x="650" y="130" text-anchor="middle" font-size="13" fill="#fecaca">모든 승인 검사 해제</text>
+  <text x="650" y="150" text-anchor="middle" font-size="13" fill="#fecaca">전부 바로 실행</text>
+  <text x="40" y="204" font-size="12" fill="#6b7280">왼쪽일수록 안전하고 번거롭습니다 · 처음에는 manual로 시작하세요</text>
+</svg>
