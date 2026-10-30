@@ -5,7 +5,6 @@ tag: "보안 점검"
 tags: "홈페이지 보안,.git 노출,git 이력,비밀번호 유출,중소기업 보안"
 image: "/images/blog/env-git-exposure-5min-check.jpg"
 summary: "개발자가 코드에서 비밀번호를 지워도 .git 폴더가 인터넷에 열려 있으면 과거 기록 속 비밀번호가 그대로 남아 있어요. 주소창 2줄과 무료 스크립트로 열려 있는지 보고, 무료 오픈소스 gitleaks로 지운 기록까지 찾는 방법을 정리했어요. 비용은 0원이에요."
-image: "/images/blog/env-git-exposure-5min-check.jpg"
 ---
 
 ![center](/mascot/md/emotion/cat_worried.png)
