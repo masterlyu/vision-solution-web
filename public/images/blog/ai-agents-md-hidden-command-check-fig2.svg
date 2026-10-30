@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 210" width="800" height="210" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="210" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">숨은 명령 관련 수치, 범위를 구분해서 보면</text>
+  <rect x="40" y="64" width="220" height="110" rx="12" fill="#f5f3ff"/>
+  <text x="150" y="112" text-anchor="middle" font-size="36" font-weight="900" fill="#7c3aed">32%</text>
+  <text x="150" y="138" text-anchor="middle" font-size="13" fill="#6b7280">악성 범주 탐지의 상대 증가</text>
+  <text x="150" y="157" text-anchor="middle" font-size="12" fill="#6b7280">(Common Crawl, 공격 건수 아님)</text>
+  <rect x="290" y="64" width="220" height="110" rx="12" fill="#f5f3ff"/>
+  <text x="400" y="112" text-anchor="middle" font-size="34" font-weight="900" fill="#7c3aed">20~30억</text>
+  <text x="400" y="138" text-anchor="middle" font-size="13" fill="#6b7280">Common Crawl 월별</text>
+  <text x="400" y="157" text-anchor="middle" font-size="12" fill="#6b7280">스냅샷 쪽수(구글 분석 대상)</text>
+  <rect x="540" y="64" width="220" height="110" rx="12" fill="#f5f3ff"/>
+  <text x="650" y="112" text-anchor="middle" font-size="36" font-weight="900" fill="#7c3aed">90%+</text>
+  <text x="650" y="138" text-anchor="middle" font-size="13" fill="#6b7280">Codex 공격 연결 고리</text>
+  <text x="650" y="157" text-anchor="middle" font-size="12" fill="#6b7280">실험실 재현 성공률</text>
+  <text x="40" y="198" font-size="11" fill="#6b7280">출처: Google 보안 블로그(2026-04-23), Aviatrix 위협 분석</text>
+</svg>

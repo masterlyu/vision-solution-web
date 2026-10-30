@@ -9,7 +9,7 @@
   <circle cx="700" cy="-50" r="200" fill="white" opacity="0.05"/>
   <circle cx="750" cy="420" r="150" fill="white" opacity="0.05"/>
   <rect x="40" y="40" width="120" height="28" rx="14" fill="white" opacity="0.2"/>
-  <text x="100" y="59" text-anchor="middle" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="12" font-weight="700" fill="white">AI 활용</text>
+  <text x="100" y="59" text-anchor="middle" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="12" font-weight="700" fill="white">AI 솔루션</text>
   <rect x="480" y="60" width="280" height="300" rx="20" fill="white" opacity="0.1" stroke="white" stroke-opacity="0.15" stroke-width="1"/>
   <text x="620" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="70" fill="white" opacity="0.9">🤖</text>
   <text x="620" y="230" text-anchor="middle" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="14" fill="white" opacity="0.75">헤르메스 에이전트 · GitHub 별 25만 개</text>
