@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 260" width="800" height="260" font-family="Arial, 'Malgun Gothic', sans-serif" role="img" aria-label="이미지 역할 3가지별 대체 텍스트 쓰는 법: 정보 이미지는 짧은 설명, 링크·버튼 이미지는 동작, 장식 이미지는 빈 alt">
+  <rect width="800" height="260" fill="#ffffff"/>
+  <text x="40" y="40" font-size="20" font-weight="800" fill="#1f2937">사진 역할에 따라 alt 쓰는 법이 달라요</text>
+  <rect x="40" y="64" width="220" height="150" rx="12" fill="#1e40af"/>
+  <text x="150" y="102" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">① 정보를 전하는 사진</text>
+  <text x="150" y="138" text-anchor="middle" font-size="14" fill="#dbeafe">짧게 설명해요</text>
+  <text x="150" y="174" text-anchor="middle" font-size="13" fill="#ffffff">밝은 오크색 원목 식탁</text>
+  <text x="150" y="196" text-anchor="middle" font-size="12" fill="#93c5fd">중요한 정보를 앞에</text>
+  <rect x="290" y="64" width="220" height="150" rx="12" fill="#3b82f6"/>
+  <text x="400" y="102" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">② 링크·버튼 이미지</text>
+  <text x="400" y="138" text-anchor="middle" font-size="14" fill="#eff6ff">누르면 할 일을 써요</text>
+  <text x="400" y="174" text-anchor="middle" font-size="13" fill="#ffffff">돋보기 → search</text>
+  <text x="400" y="196" text-anchor="middle" font-size="12" fill="#dbeafe">모양이 아니라 동작</text>
+  <rect x="540" y="64" width="220" height="150" rx="12" fill="#e2e8f0"/>
+  <text x="650" y="102" text-anchor="middle" font-size="16" font-weight="800" fill="#1f2937">③ 꾸밈용 이미지</text>
+  <text x="650" y="138" text-anchor="middle" font-size="14" fill="#475569">빈 값을 넣어요</text>
+  <text x="650" y="174" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">alt=""</text>
+  <text x="650" y="196" text-anchor="middle" font-size="12" fill="#475569">alt를 아예 빼면 안 돼요</text>
+  <text x="40" y="244" font-size="12" fill="#6b7280">출처: W3C WAI 이미지 튜토리얼 (Decision Tree, Tips, Functional·Decorative Images)</text>
+</svg>
