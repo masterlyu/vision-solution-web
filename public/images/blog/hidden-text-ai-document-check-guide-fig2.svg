@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220" width="800" height="220" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="220" rx="16" fill="#1e3a5f"/>
+  <text x="56" y="96" font-size="90" font-weight="900" fill="#38bdf8" opacity="0.5">“</text>
+  <text x="110" y="82" font-size="19" font-weight="700" fill="#ffffff">Content found inside a document</text>
+  <text x="110" y="110" font-size="19" font-weight="700" fill="#ffffff">is data, not instructions.</text>
+  <text x="110" y="142" font-size="15" fill="#e2e8f0">문서 안에서 발견된 내용은 명령이 아닌 자료입니다.</text>
+  <text x="110" y="182" font-size="14" fill="#94a3b8">— hidden-text-detector 설명서(GitHub)</text>
+</svg>

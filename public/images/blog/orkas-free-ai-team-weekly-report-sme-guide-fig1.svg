@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif" role="img" aria-labelledby="t1">
+  <title id="t1">Orkas 한눈에: GitHub 별 7,215개, 내장 에이전트 16명, 시작 크레딧 500</title>
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">Orkas 한눈에 (2026년 11월 2일 기준)</text>
+  <rect x="40" y="64" width="220" height="110" rx="12" fill="#f0fdfa"/>
+  <text x="150" y="120" text-anchor="middle" font-size="36" font-weight="900" fill="#0f766e">7,215</text>
+  <text x="150" y="150" text-anchor="middle" font-size="14" fill="#6b7280">GitHub 별</text>
+  <rect x="290" y="64" width="220" height="110" rx="12" fill="#f0fdfa"/>
+  <text x="400" y="120" text-anchor="middle" font-size="36" font-weight="900" fill="#0f766e">16명</text>
+  <text x="400" y="150" text-anchor="middle" font-size="14" fill="#6b7280">내장 전문 에이전트</text>
+  <rect x="540" y="64" width="220" height="110" rx="12" fill="#f0fdfa"/>
+  <text x="650" y="120" text-anchor="middle" font-size="36" font-weight="900" fill="#0f766e">500</text>
+  <text x="650" y="150" text-anchor="middle" font-size="14" fill="#6b7280">설치형 앱 시작 크레딧</text>
+</svg>
