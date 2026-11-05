@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="300" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">홈페이지를 확인하는 간격 (짧을수록 빨리 압니다)</text>
+  <rect x="160" y="100" width="120" height="150" rx="6" fill="#cbd5e1"/>
+  <text x="220" y="85" text-anchor="middle" font-size="22" font-weight="800" fill="#6b7280">5분</text>
+  <text x="220" y="275" text-anchor="middle" font-size="15" fill="#1f2937">UptimeRobot 무료</text>
+  <rect x="520" y="238" width="120" height="12" rx="6" fill="#0f766e"/>
+  <text x="580" y="223" text-anchor="middle" font-size="22" font-weight="800" fill="#0f766e">20초</text>
+  <text x="580" y="275" text-anchor="middle" font-size="15" fill="#1f2937">Uptime Kuma 최소 간격</text>
+  <text x="400" y="170" text-anchor="middle" font-size="14" fill="#6b7280">※ 확인 간격 기준 (실제 장애 감지는 재시도 횟수에 따라 늦어짐)</text>
+</svg>

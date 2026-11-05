@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 260" width="800" height="260" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="260" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">Let's Encrypt 기본 발급 기간은 이렇게 바뀝니다</text>
+  <line x1="60" y1="150" x2="740" y2="150" stroke="#cbd5e1" stroke-width="3"/>
+  <circle cx="140" cy="150" r="10" fill="#cbd5e1"/>
+  <text x="140" y="95" text-anchor="middle" font-size="24" font-weight="900" fill="#6b7280">90일</text>
+  <text x="140" y="118" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">2027.2.9까지</text>
+  <text x="140" y="185" text-anchor="middle" font-size="13" fill="#6b7280">지금 기본값</text>
+  <circle cx="400" cy="150" r="10" fill="#7c3aed"/>
+  <text x="400" y="95" text-anchor="middle" font-size="24" font-weight="900" fill="#7c3aed">64일</text>
+  <text x="400" y="118" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">2027.2.10부터</text>
+  <text x="400" y="185" text-anchor="middle" font-size="13" fill="#6b7280">기본값 변경</text>
+  <circle cx="660" cy="150" r="10" fill="#a855f7"/>
+  <text x="660" y="95" text-anchor="middle" font-size="24" font-weight="900" fill="#a855f7">45일</text>
+  <text x="660" y="118" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2937">2028.2.16부터</text>
+  <text x="660" y="185" text-anchor="middle" font-size="13" fill="#6b7280">기본값 변경</text>
+  <text x="40" y="236" font-size="12" fill="#6b7280">Let's Encrypt 자체 일정입니다. 앞의 200일·100일·47일 상한과는 별개입니다.</text>
+</svg>
