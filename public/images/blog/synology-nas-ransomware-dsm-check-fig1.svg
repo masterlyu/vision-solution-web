@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 260" width="800" height="260" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="260" fill="#ffffff"/>
+  <text x="40" y="44" font-size="20" font-weight="800" fill="#1f2937">2024년 보안 공지와 2026년 경고, 약 2년 간격</text>
+  <line x1="60" y1="150" x2="740" y2="150" stroke="#cbd5e1" stroke-width="3"/>
+  <circle cx="120" cy="150" r="10" fill="#7c3aed"/>
+  <text x="120" y="110" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2937">2024년 11월 5일</text>
+  <text x="120" y="185" text-anchor="middle" font-size="13" fill="#6b7280">보안 공지 SA-24:20</text>
+  <text x="120" y="205" text-anchor="middle" font-size="12" fill="#9ca3af">(발표문이 링크 · 원인 결함 미특정)</text>
+  <circle cx="400" cy="150" r="10" fill="#7c3aed"/>
+  <text x="400" y="110" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2937">2026년 10월 29일</text>
+  <text x="400" y="185" text-anchor="middle" font-size="13" fill="#6b7280">시놀로지 경고(취약점 번호 미공개)</text>
+  <circle cx="680" cy="150" r="10" fill="#c084fc"/>
+  <text x="680" y="110" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2937">오늘</text>
+  <text x="680" y="185" text-anchor="middle" font-size="13" fill="#6b7280">내 NAS 버전은?</text>
+</svg>

@@ -9,13 +9,13 @@
   <circle cx="700" cy="-50" r="200" fill="white" opacity="0.05"/>
   <circle cx="750" cy="420" r="150" fill="white" opacity="0.05"/>
   <rect x="40" y="40" width="120" height="28" rx="14" fill="white" opacity="0.2"/>
-  <text x="100" y="59" text-anchor="middle" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="12" font-weight="700" fill="white">AI 활용</text>
+  <text x="100" y="59" text-anchor="middle" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="12" font-weight="700" fill="white">오픈소스 AI</text>
   <rect x="480" y="60" width="280" height="300" rx="20" fill="white" opacity="0.1" stroke="white" stroke-opacity="0.15" stroke-width="1"/>
   <text x="620" y="175" text-anchor="middle" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="70" fill="white" opacity="0.9">🤖</text>
   <text x="620" y="230" text-anchor="middle" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="16" fill="white" opacity="0.75">내장 AI 직원 16명 · MIT</text>
   <text x="40" y="130" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="14" fill="white" opacity="0.75">소상공인·중소기업 담당자를 위한</text>
-  <text x="40" y="175" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="30" font-weight="900" fill="white">Orkas 무료 AI 팀 앱</text>
-  <text x="40" y="215" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="30" font-weight="900" fill="white">설치 전 3가지 확인</text>
+  <text x="40" y="175" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="30" font-weight="900" fill="white">반복 업무 줄일 AI 팀</text>
+  <text x="40" y="215" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="30" font-weight="900" fill="white">Orkas 설치 전 3가지</text>
   <text x="40" y="260" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="15" fill="white" opacity="0.75">'로컬 우선'의 진짜 뜻과 따라 하기 5단계</text>
   <rect x="40" y="310" width="60" height="4" rx="2" fill="white" opacity="0.6"/>
   <text x="40" y="345" font-family="Arial, 'Malgun Gothic', sans-serif" font-size="13" fill="white" opacity="0.6">(주)비젼솔루션</text>

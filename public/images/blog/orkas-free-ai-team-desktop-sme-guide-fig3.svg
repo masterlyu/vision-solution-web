@@ -1,15 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
   <rect width="800" height="200" fill="#ffffff"/>
-  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">Orkas 시작 3단계</text>
-  <rect x="40" y="70" width="200" height="90" rx="12" fill="#0f766e"/>
-  <text x="140" y="112" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">① 공식 저장소</text>
-  <text x="140" y="138" text-anchor="middle" font-size="12" fill="#a7f3d0">Orkas-AI/Orkas에서 설치</text>
-  <text x="265" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
-  <rect x="300" y="70" width="200" height="90" rx="12" fill="#0891b2"/>
-  <text x="400" y="112" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">② 규칙 적기</text>
-  <text x="400" y="138" text-anchor="middle" font-size="12" fill="#cffafe">개인정보 금지·발송 전 확인</text>
-  <text x="525" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
-  <rect x="560" y="70" width="200" height="90" rx="12" fill="#22d3ee"/>
-  <text x="660" y="112" text-anchor="middle" font-size="16" font-weight="800" fill="#083344">③ 주간 예약</text>
-  <text x="660" y="138" text-anchor="middle" font-size="12" fill="#083344">결과 확인 후 주 단위 반복</text>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">Orkas 시작 5단계</text>
+  <rect x="25" y="70" width="130" height="90" rx="12" fill="#0f766e"/>
+  <text x="90" y="108" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">① 공식 저장소</text>
+  <text x="90" y="132" text-anchor="middle" font-size="11" fill="#a7f3d0">Orkas-AI/Orkas에서</text>
+  <text x="90" y="148" text-anchor="middle" font-size="11" fill="#a7f3d0">설치 파일 받기</text>
+  <text x="166" y="122" text-anchor="middle" font-size="20" fill="#94a3b8">→</text>
+  <rect x="177" y="70" width="130" height="90" rx="12" fill="#0e7490"/>
+  <text x="242" y="108" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">② 규칙 적기</text>
+  <text x="242" y="132" text-anchor="middle" font-size="11" fill="#cffafe">새 프로젝트에 목표·</text>
+  <text x="242" y="148" text-anchor="middle" font-size="11" fill="#cffafe">금지 규칙 입력</text>
+  <text x="318" y="122" text-anchor="middle" font-size="20" fill="#94a3b8">→</text>
+  <rect x="329" y="70" width="130" height="90" rx="12" fill="#0891b2"/>
+  <text x="394" y="108" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">③ 자료 넣기</text>
+  <text x="394" y="132" text-anchor="middle" font-size="11" fill="#cffafe">개인정보 뺀 자료만</text>
+  <text x="394" y="148" text-anchor="middle" font-size="11" fill="#cffafe">라이브러리에 올리기</text>
+  <text x="470" y="122" text-anchor="middle" font-size="20" fill="#94a3b8">→</text>
+  <rect x="481" y="70" width="130" height="90" rx="12" fill="#06b6d4"/>
+  <text x="546" y="108" text-anchor="middle" font-size="14" font-weight="800" fill="#083344">④ 첫 일 시키기</text>
+  <text x="546" y="132" text-anchor="middle" font-size="11" fill="#083344">환불 많은 상품 3개</text>
+  <text x="546" y="148" text-anchor="middle" font-size="11" fill="#083344">표로 정리 요청</text>
+  <text x="622" y="122" text-anchor="middle" font-size="20" fill="#94a3b8">→</text>
+  <rect x="633" y="70" width="142" height="90" rx="12" fill="#22d3ee"/>
+  <text x="704" y="108" text-anchor="middle" font-size="14" font-weight="800" fill="#083344">⑤ 주간 예약</text>
+  <text x="704" y="132" text-anchor="middle" font-size="11" fill="#083344">결과 확인 후</text>
+  <text x="704" y="148" text-anchor="middle" font-size="11" fill="#083344">주 단위 반복</text>
 </svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220" width="800" height="220" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="220" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">회사 메일 유출 점검, 3단계 순서</text>
+  <rect x="40" y="70" width="200" height="110" rx="12" fill="#7c3aed"/>
+  <text x="140" y="108" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">① 메일 하나</text>
+  <text x="140" y="136" text-anchor="middle" font-size="13" fill="#ede9fe">대표 메일 검색</text>
+  <text x="140" y="158" text-anchor="middle" font-size="13" fill="#ede9fe">어느 사건에 있나</text>
+  <rect x="300" y="70" width="200" height="110" rx="12" fill="#9333ea"/>
+  <text x="400" y="108" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">② 도메인 전체</text>
+  <text x="400" y="136" text-anchor="middle" font-size="13" fill="#f3e8ff">소유 증명 후 검색</text>
+  <text x="400" y="158" text-anchor="middle" font-size="13" fill="#f3e8ff">유출 10개까지 무료</text>
+  <rect x="560" y="70" width="200" height="110" rx="12" fill="#a855f7"/>
+  <text x="660" y="108" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">③ 비밀번호</text>
+  <text x="660" y="136" text-anchor="middle" font-size="13" fill="#faf5ff">내 PC에서 변환</text>
+  <text x="660" y="158" text-anchor="middle" font-size="13" fill="#faf5ff">앞 5글자만 전송</text>
+  <polygon points="248,125 288,105 288,145" fill="#c084fc"/>
+  <polygon points="508,125 548,105 548,145" fill="#c084fc"/>
+</svg>

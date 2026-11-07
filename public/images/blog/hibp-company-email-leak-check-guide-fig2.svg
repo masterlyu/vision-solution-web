@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="800" height="240" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="240" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">비밀번호 전체는 밖으로 나가지 않습니다</text>
+  <rect x="40" y="70" width="200" height="120" rx="12" fill="#eff6ff"/>
+  <text x="140" y="104" text-anchor="middle" font-size="15" font-weight="800" fill="#1f2937">내 컴퓨터</text>
+  <text x="140" y="132" text-anchor="middle" font-size="13" fill="#6b7280">비밀번호를 변환</text>
+  <text x="140" y="156" text-anchor="middle" font-size="13" fill="#6b7280">(SHA-1)</text>
+  <rect x="300" y="90" width="200" height="80" rx="12" fill="#7c3aed"/>
+  <text x="400" y="124" text-anchor="middle" font-size="26" font-weight="900" fill="#ffffff">앞 5글자만</text>
+  <text x="400" y="152" text-anchor="middle" font-size="13" fill="#ede9fe">서비스로 전송</text>
+  <rect x="560" y="70" width="200" height="120" rx="12" fill="#f3e8ff"/>
+  <text x="660" y="104" text-anchor="middle" font-size="15" font-weight="800" fill="#1f2937">HIBP 서비스</text>
+  <text x="660" y="132" text-anchor="middle" font-size="13" fill="#6b7280">앞 5글자가 같은</text>
+  <text x="660" y="156" text-anchor="middle" font-size="13" fill="#6b7280">후보 목록을 돌려줌</text>
+  <polygon points="248,130 288,110 288,150" fill="#c084fc"/>
+  <polygon points="508,130 548,110 548,150" fill="#c084fc"/>
+  <text x="400" y="220" text-anchor="middle" font-size="14" fill="#6b7280">마지막 비교는 내 컴퓨터에서 합니다</text>
+</svg>
