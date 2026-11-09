@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="38" font-size="18" font-weight="800" fill="#1f2937">퇴사 당일 순서 — 삭제는 맨 마지막</text>
+  <rect x="25" y="64" width="130" height="96" rx="12" fill="#7c3aed"/>
+  <text x="90" y="104" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">① 로그인 막기</text>
+  <text x="90" y="128" text-anchor="middle" font-size="11" fill="#ede9fe">비밀번호·쿠키</text>
+  <text x="90" y="144" text-anchor="middle" font-size="11" fill="#ede9fe">복구 수단 삭제</text>
+  <text x="165" y="118" text-anchor="middle" font-size="20" fill="#94a3b8">→</text>
+  <rect x="180" y="64" width="130" height="96" rx="12" fill="#8b5cf6"/>
+  <text x="245" y="104" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">② 연결 끊기</text>
+  <text x="245" y="128" text-anchor="middle" font-size="11" fill="#ede9fe">보안 키·앱 비번</text>
+  <text x="245" y="144" text-anchor="middle" font-size="11" fill="#ede9fe">메일 전달 확인</text>
+  <text x="320" y="118" text-anchor="middle" font-size="20" fill="#94a3b8">→</text>
+  <rect x="335" y="64" width="130" height="96" rx="12" fill="#a855f7"/>
+  <text x="400" y="104" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">③ 기기 정리</text>
+  <text x="400" y="128" text-anchor="middle" font-size="11" fill="#f3e8ff">원격 삭제</text>
+  <text x="400" y="144" text-anchor="middle" font-size="11" fill="#f3e8ff">회수 후 초기화</text>
+  <text x="475" y="118" text-anchor="middle" font-size="20" fill="#94a3b8">→</text>
+  <rect x="490" y="64" width="130" height="96" rx="12" fill="#c084fc"/>
+  <text x="555" y="104" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">④ 자료 넘기기</text>
+  <text x="555" y="128" text-anchor="middle" font-size="11" fill="#3b0764">메일·파일을</text>
+  <text x="555" y="144" text-anchor="middle" font-size="11" fill="#3b0764">삭제 전에 이동</text>
+  <text x="630" y="118" text-anchor="middle" font-size="20" fill="#94a3b8">→</text>
+  <rect x="645" y="64" width="130" height="96" rx="12" fill="#e9d5ff"/>
+  <text x="710" y="104" text-anchor="middle" font-size="15" font-weight="800" fill="#3b0764">⑤ 정리·삭제</text>
+  <text x="710" y="128" text-anchor="middle" font-size="11" fill="#3b0764">공용 계정·결제</text>
+  <text x="710" y="144" text-anchor="middle" font-size="11" fill="#3b0764">라이선스 별도</text>
+</svg>

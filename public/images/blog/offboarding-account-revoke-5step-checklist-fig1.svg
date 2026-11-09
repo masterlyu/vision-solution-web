@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220" width="800" height="220" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="220" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">퇴사 후에도 접근이 유지된 비율 (미국 퇴사자 1,000명 설문)</text>
+  <rect x="40" y="64" width="220" height="120" rx="12" fill="#f5f3ff"/>
+  <text x="150" y="118" text-anchor="middle" font-size="40" font-weight="900" fill="#7c3aed">79%</text>
+  <text x="150" y="146" text-anchor="middle" font-size="14" fill="#6b7280">계정·접속 수단이</text>
+  <text x="150" y="166" text-anchor="middle" font-size="14" fill="#6b7280">하나 이상 계속 작동</text>
+  <rect x="290" y="64" width="220" height="120" rx="12" fill="#f5f3ff"/>
+  <text x="400" y="118" text-anchor="middle" font-size="40" font-weight="900" fill="#7c3aed">64%</text>
+  <text x="400" y="146" text-anchor="middle" font-size="14" fill="#6b7280">민감한 회사 정보에</text>
+  <text x="400" y="166" text-anchor="middle" font-size="14" fill="#6b7280">접근 가능</text>
+  <rect x="540" y="64" width="220" height="120" rx="12" fill="#f5f3ff"/>
+  <text x="650" y="118" text-anchor="middle" font-size="40" font-weight="900" fill="#7c3aed">82%</text>
+  <text x="650" y="146" text-anchor="middle" font-size="14" fill="#6b7280">250명 미만 회사 출신</text>
+  <text x="650" y="166" text-anchor="middle" font-size="14" fill="#6b7280">(1,000명 이상은 70%)</text>
+  <text x="40" y="206" font-size="12" fill="#6b7280">출처: Sagiss 설문(Pollfish), ITBrief 2026-11-04 · 미국 사례</text>
+</svg>

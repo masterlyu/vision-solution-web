@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">결제창 변조는 이렇게 진행됩니다</text>
+  <rect x="40" y="70" width="200" height="90" rx="12" fill="#7c3aed"/>
+  <text x="140" y="108" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">① 가짜 결제 화면</text>
+  <text x="140" y="134" text-anchor="middle" font-size="12" fill="#ede9fe">카드정보를 입력받음</text>
+  <text x="265" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <rect x="300" y="70" width="200" height="90" rx="12" fill="#9333ea"/>
+  <text x="400" y="108" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">② '결제 오류' 안내</text>
+  <text x="400" y="134" text-anchor="middle" font-size="12" fill="#f3e8ff">다시 입력하게 유도</text>
+  <text x="525" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <rect x="560" y="70" width="200" height="90" rx="12" fill="#c084fc"/>
+  <text x="660" y="108" text-anchor="middle" font-size="16" font-weight="800" fill="#2e1065">③ 정상 결제 완료</text>
+  <text x="660" y="134" text-anchor="middle" font-size="12" fill="#2e1065">아무도 눈치채지 못함</text>
+</svg>
