@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200" font-family="Arial, 'Malgun Gothic', sans-serif">
+  <rect width="800" height="200" fill="#ffffff"/>
+  <text x="40" y="40" font-size="18" font-weight="800" fill="#1f2937">발신처 확인 후 이 순서로 올려요</text>
+  <rect x="40" y="70" width="200" height="90" rx="12" fill="#7c3aed"/>
+  <text x="140" y="112" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">① p=none</text>
+  <text x="140" y="138" text-anchor="middle" font-size="12" fill="#e9d5ff">지켜보기 + 보고서 확인</text>
+  <text x="265" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <rect x="300" y="70" width="200" height="90" rx="12" fill="#a855f7"/>
+  <text x="400" y="112" text-anchor="middle" font-size="16" font-weight="800" fill="#ffffff">② p=quarantine</text>
+  <text x="400" y="138" text-anchor="middle" font-size="12" fill="#f3e8ff">의심 메일 처리 요청</text>
+  <text x="525" y="122" text-anchor="middle" font-size="28" fill="#94a3b8">→</text>
+  <rect x="560" y="70" width="200" height="90" rx="12" fill="#c084fc"/>
+  <text x="660" y="112" text-anchor="middle" font-size="16" font-weight="800" fill="#3b0764">③ p=reject</text>
+  <text x="660" y="134" text-anchor="middle" font-size="12" fill="#3b0764">발신 도메인이 거절을 요청</text>
+  <text x="660" y="151" text-anchor="middle" font-size="12" fill="#3b0764">(수신 서버 처리에 따름)</text>
+</svg>
